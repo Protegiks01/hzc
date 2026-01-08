@@ -623,5 +623,130 @@
     "question": "x/dex/types/packet.pb.go",
     "url": "https://deepwiki.com/search/-generate-150-targeted-securit_65991b65-63b7-4f31-9596-aca8395f0f4b?mode=deep",
     "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/params.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_83311609-86bc-47b6-94dc-784d88d31b7b?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/params.pb.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_462faa94-281c-4a83-8e41-56435cd668b9?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/pool_address.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e7361061-b322-44d0-bab9-7f9b688176e7?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/pool_uids.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_61e1972c-bb98-4c59-8521-89c69f952916?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/pool_uids.pb.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0c99c826-07b2-4740-aa1c-0534f7ca574f?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/pool.pb.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_95ae471e-aa54-45c9-b1ec-494e44c585a9?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/pools_meta.pb.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0d5436fa-d2fd-40e0-bcdb-77c57ccb959e?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/query.pb.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_767ac040-76d4-4401-9d28-2eacac639712?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/query.pb.gw.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_7cbcb5a6-775f-48df-a09e-4f05f8393679?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/tx.pb.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_3ba75550-16b4-4131-8bc7-fadb964958a4?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/dex/types/types.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_456ae4c3-7e85-40f8-afa8-9bc5f8c53643?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/events/emit.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_821997fa-3a44-4bf7-8919-c0a58d22e082?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/auth.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_28c1daa5-7007-45e5-83d0-feb81875c183?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/denom_auth.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_5759678b-1379-4773-9894-7bed373dabf6?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/invariants.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0c142e9a-ec21-4500-85dc-d30afd644399?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/k_get_all_denom.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_b9c18da9-e5ab-4535-b3d7-ede14bd49211?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/k_get_denom.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_542fa925-8952-4944-9813-c9fcc8631d1e?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/k_get_set_params.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_caf198b0-d9c7-445a-8e78-039ac4e09bea?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/k_set_denom.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6236467c-23ea-4bb3-9c70-abab6c8f2ef2?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/keeper.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_011ae76b-bf16-42a7-85cb-0c6d80fd5449?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/msg_server_burn_tokens.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f6182d52-1a2b-41d2-b4f1-d5afe3273755?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/msg_server_claim_denom_admin.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f15487b0-8a66-4f8a-9c5a-d4e12565e820?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/msg_server_create_denom.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_31f916d7-8ee4-4ce2-83d5-0c81c10bb929?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/msg_server_disable_denom_admin.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_3c6045b3-bb0a-47a5-b41b-7036e25d8454?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/factory/keeper/msg_server_mint_and_send_tokens.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_66395d4a-19e7-464c-a5e0-8c5dd84004c3?mode=deep",
+    "questions_generated": false
   }
 ]
