@@ -885,7 +885,7 @@ Very important the test function using their test must be provided in here and p
 **Be ruthlessly skeptical. The bar for validity is EXTREMELY high.**    
 """
     return prompt
-def question_generator_zigchain(target_file: str) -> str:
+def question_generator(target_file: str) -> str:
     """
     Generates targeted security audit questions for a specific ZigChain file.
 
