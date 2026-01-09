@@ -5548,5 +5548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d7ad4e4-b3e6-4c3b-bf79-9855756f05c4?mode=deep",
     "timestamp": "2026-01-09 15:30:18.819828",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Lock operation failure state] When LockIBCTokens fails (line 171), the function returns ack successfully but logs error - are the IBC vouchers still in the receiver's account, and can this be exploited to keep vouchers without wrapping? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fad5dd0-dc8f-4f08-a666-d0b9db028903?mode=deep",
+    "timestamp": "2026-01-09 15:31:28.508135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Module balance draining attack] Can an attacker send many packets that pass CheckBalances (line 160) simultaneously, causing the module balance to be exhausted before all packets complete, leaving some users with unwrapped vouchers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b5826761-e496-41db-9f54-504be72f9c13?mode=deep",
+    "timestamp": "2026-01-09 15:31:40.887337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Receiver balance manipulation] Can an attacker manipulate their IBC token balance between OnRecvPacket crediting tokens (line 82) and CheckBalances verifying (line 160), causing checks to fail for valid packets? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb0d2d4b-fccb-4258-a463-c1749c836f75?mode=deep",
+    "timestamp": "2026-01-09 15:31:53.608845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Double-spend via balance check] Since CheckBalances (line 160) only checks balances without locking, can an attacker send multiple packets simultaneously that all pass the balance check but only one should succeed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8d39e11-b534-4e61-9c7e-620e594c3dc1?mode=deep",
+    "timestamp": "2026-01-09 15:32:07.294504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Balance check inconsistency] CheckBalances (line 160) verifies receiver has IBC tokens AFTER im.app.OnRecvPacket credited them - but what if OnRecvPacket credited different amounts or denoms than expected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_58837c6e-7fda-423b-a955-1f5c215176f5?mode=deep",
+    "timestamp": "2026-01-09 15:32:21.284350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Insufficient module balance bypass] When CheckBalances fails for module balance (line 160), the function returns ack successfully (line 165) - can an attacker exploit this to send more tokens than the module can wrap, accumulating unwrapped IBC vouchers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6cb5a24e-5ee7-48bd-a308-59fb60ab480a?mode=deep",
+    "timestamp": "2026-01-09 15:32:36.069203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Module balance race] Does CheckBalances (line 160) check the module's native token balance atomically with UnlockNativeTokens (line 177), or can concurrent unwrap operations drain the module between the check and unlock? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1067dd6b-3199-4d5b-8864-7a2983dac561?mode=deep",
+    "timestamp": "2026-01-09 15:32:52.301687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [TOCTOU in balance checks] Between CheckBalances (line 160) verifying balances and LockIBCTokens (line 169) executing transfers, can another transaction modify the receiver's balance, causing the lock operation to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbc566bb-0866-4db2-98de-17ab8fb66502?mode=deep",
+    "timestamp": "2026-01-09 15:33:09.347709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Negative converted amount] The ScaleDownTokenPrecision function checks if convertedAmount is negative (line 152) - but can integer underflow create amounts that appear positive but are actually negative after conversion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9eea8d7-b0b5-46c5-a758-eb2e3e2f4375?mode=deep",
+    "timestamp": "2026-01-09 15:33:27.573551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Decimal difference attack] Can an attacker manipulate the GetDecimalDifference value used by ScaleDownTokenPrecision (line 152) to use a different conversion factor than expected (e.g., 10^6 instead of 10^12)? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a617775-cf39-4e54-97a4-d62aedc33d61?mode=deep",
+    "timestamp": "2026-01-09 15:33:47.188883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Conversion error handling] When ScaleDownTokenPrecision fails (line 153), the function returns ack successfully but logs an error - does this mean IBC vouchers are credited to receiver without being wrapped, creating supply imbalance? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8475690-e563-4c3d-8355-c108130b17aa?mode=deep",
+    "timestamp": "2026-01-09 15:34:07.051755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Zero conversion bypass] If ScaleDownTokenPrecision returns zero (line 152), the error check at line 153 should catch it - but what if the conversion returns a valid-looking zero due to underflow? Can this bypass the check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da9a9bf6-0428-452e-ad8a-3abea74f6441?mode=deep",
+    "timestamp": "2026-01-09 15:34:28.633851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Integer division overflow] When ScaleDownTokenPrecision calls amount.Quo(conversionFactor) (line 152), can an attacker provide amounts that cause integer division overflow or underflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5bbee31d-aa28-4b32-acfe-ec240b4748eb?mode=deep",
+    "timestamp": "2026-01-09 15:34:50.715959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Conversion factor manipulation] Does ScaleDownTokenPrecision (line 152) fetch the decimal conversion factor from storage each time, and can an attacker exploit updates to the conversion factor during packet processing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_048e94fd-a43a-46d8-af8e-2f79f8500bde?mode=deep",
+    "timestamp": "2026-01-09 15:35:14.212708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Rounding exploitation] Can an attacker send multiple packets with amounts just below the 10^12 threshold (e.g., 10^12 - 1 in 18 decimals) that all round down to zero in ScaleDownTokenPrecision (line 152), accumulating unwrapped IBC vouchers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_881d0daa-06e3-46ab-9ab6-79dd943ab5e8?mode=deep",
+    "timestamp": "2026-01-09 15:35:37.889672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Precision loss attack] Does ScaleDownTokenPrecision (line 152) using Quo (integer division) cause precision loss that allows an attacker to send 18-decimal amounts that round down to zero after 6-decimal conversion, losing user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6f4fdad-2a41-4289-a30b-59fdb271df3a?mode=deep",
+    "timestamp": "2026-01-09 15:36:01.998881",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Denom caching race] If GetIBCRecvDenom (line 149) uses cached values, can an attacker exploit race conditions between denom computation and token operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d10c4508-5eaa-4de7-b1d2-21eb146e0b79?mode=deep",
+    "timestamp": "2026-01-09 15:36:27.136506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Path prefix injection] Can an attacker inject path prefixes into data.Denom that cause GetIBCRecvDenom (line 149) to compute the denom incorrectly, leading to denomination confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f873525-4f34-42ba-9879-66ae9250273b?mode=deep",
+    "timestamp": "2026-01-09 15:36:53.992518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Denom collision attack] Does GetIBCRecvDenom (line 149) use a secure hash function that prevents collisions, or can an attacker find two different denoms that hash to the same recvDenom? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1bfb9f3-33cf-4526-9b51-30a3afc2f755?mode=deep",
+    "timestamp": "2026-01-09 15:37:20.555827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Denom computation manipulation] Can an attacker manipulate data.Denom to cause GetIBCRecvDenom (line 149) to return incorrect IBC denom hash, allowing them to receive tokens with wrong denomination? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_734bf865-1307-47ce-97b5-ac7f3b43418c?mode=deep",
+    "timestamp": "2026-01-09 15:37:47.285789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Bidirectional channel confusion] Does the validation properly distinguish between source/dest and native/counterparty channel pairs, or can an attacker send packets that match settings in reverse direction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ad62ac9-d07c-4237-9fa1-8e5d10e5d618?mode=deep",
+    "timestamp": "2026-01-09 15:38:14.699412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Settings update race] Between validateIBCSettingsMatchOnRecvPacket (line 141) and the actual wrapping (lines 152-182), can IBC settings be updated via governance, causing settings to mismatch during execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6cec2301-e364-4e22-9555-6d6974b03b24?mode=deep",
+    "timestamp": "2026-01-09 15:38:42.479897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Port/channel swapping] Does validateIBCSettingsMatchOnRecvPacket (line 141) validate that sourcePort matches counterpartyPort AND sourceChannel matches counterpartyChannel atomically, or can an attacker swap port/channel combinations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d9c1b9e-3f48-47fe-8870-844b45e61d4f?mode=deep",
+    "timestamp": "2026-01-09 15:39:10.051488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Settings mismatch exploitation] When validateIBCSettingsMatchOnRecvPacket returns false (line 141), tokens are transferred but not wrapped - can an attacker exploit this to accumulate large amounts of unwrapped IBC vouchers that drain the module during recovery? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b4ab347-f761-4620-9b4f-00138010e051?mode=deep",
+    "timestamp": "2026-01-09 15:39:36.843397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Module state manipulation] Can a Byzantine validator manipulate the module enabled state during IsEnabled check (line 133) to selectively enable/disable wrapping for specific packets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d327d4d3-145c-4d68-a4e7-ef9892600305?mode=deep",
+    "timestamp": "2026-01-09 15:40:03.108599",
+    "report_generated": false
   }
 ]
