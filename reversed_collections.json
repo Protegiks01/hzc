@@ -1048,5 +1048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e861a26-c04c-4222-9b67-f65f72159148?mode=deep",
     "timestamp": "2026-01-09 08:53:50.286020",
     "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Usage: CheckPoolId validation] [Regex anchoring] In the regex pattern '^zp[0-9]+$' using PoolPrefix, can an attacker exploit regex injection or anchor bypass to create pool IDs that pass validation but corrupt state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5dd606d-ae0c-4836-89ac-321cbb7a5e25?mode=deep",
+    "timestamp": "2026-01-09 08:55:02.511678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Usage: GetAndSetNextPoolIDString] [Race condition] Can concurrent pool creation transactions exploit race conditions in pool ID generation when PoolPrefix is concatenated with incrementing counters, causing duplicate pool IDs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd1bfee0-fd4b-4055-a89b-de0bd07b3753?mode=deep",
+    "timestamp": "2026-01-09 08:55:15.063012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constants: PoolPrefix + MaxPoolID] [Pool address derivation limit] Does authtypes.NewModuleAddress(poolIDString) handle all pool IDs from 'zp1' to 'zp99999999999' deterministically without collisions or address generation failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec6d49ed-3f43-48e5-8da6-2dc237400826?mode=deep",
+    "timestamp": "2026-01-09 08:55:28.374763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constants: All three] [Immutability violation] Are these constants truly immutable at runtime, or can an attacker exploit Go's unsafe package, reflection, or race conditions to modify their values and manipulate pool operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df468150-eda0-4aae-8669-c01aa23f17e6?mode=deep",
+    "timestamp": "2026-01-09 08:55:41.573858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constants: PoolPrefix + PoolFeeScalingFactor] [Naming collision] Can pool IDs (zpN) collide with other token denominations in the system that use similar prefixes, causing confusion in fee calculations or coin validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a5f482c-fc0c-4d50-91b9-d0fd65fa4a04?mode=deep",
+    "timestamp": "2026-01-09 08:55:55.308039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constants: PoolPrefix + MaxPoolID] [String formatting] When concatenating PoolPrefix ('zp') with MaxPoolID (99,999,999,999), does the resulting string 'zp99999999999' comply with all denomination length constraints (MinSubDenomLength=2, MaxSubDenomLength=44)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fa2c96b-39dd-4afb-b26d-22dd5614e7a8?mode=deep",
+    "timestamp": "2026-01-09 08:56:10.508082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Storage key collision] With MaxPoolID=99,999,999,999, do the derived storage keys for pools near the maximum ID collide with other KVStore keys, causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80f49f79-8dff-4ca8-835b-e833378dba86?mode=deep",
+    "timestamp": "2026-01-09 08:56:26.198033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [uint64 vs uint32 mismatch] Does MaxPoolID (99,999,999,999) fit within uint64 but exceed uint32 max value, causing truncation errors if pool IDs are incorrectly cast to uint32 in any code path? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e08c1d65-089c-4800-8c56-81f3a9fe6fbf?mode=deep",
+    "timestamp": "2026-01-09 08:56:43.477078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Governance parameter mismatch] Is MaxPoolID=99,999,999,999 enforced consistently across all pool operations, or can governance proposals modify effective limits causing pools to exceed MaxPoolID? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_420dd588-1855-47ca-8e31-e4627fce9b34?mode=deep",
+    "timestamp": "2026-01-09 08:57:01.814282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Sequential predictability] Does the sequential pool ID assignment (1, 2, 3, ... up to MaxPoolID) allow attackers to predict future pool IDs and precompute their addresses for targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d67ed92-847d-495d-aad4-cc27fc386424?mode=deep",
+    "timestamp": "2026-01-09 08:57:20.605987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Pool ID reuse] If pool IDs somehow wrap around or are reset, can an attacker exploit pool ID reuse to gain unauthorized access to previously existing pool accounts with remaining balances? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ddd29647-08f6-4ec7-b956-b406c31df704?mode=deep",
+    "timestamp": "2026-01-09 08:57:41.277933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [String length overflow] When pool ID 99,999,999,999 is formatted as 'zp99999999999' (13 characters), does this exceed any string length limits in pool ID validation, LP token denomination, or address derivation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e450f38-a45a-4839-8027-04971dc797ce?mode=deep",
+    "timestamp": "2026-01-09 08:58:02.788740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Boundary validation] Is MaxPoolID=99,999,999,999 validated anywhere in pool creation logic, or can an attacker manipulate pool metadata to create pools with IDs exceeding this limit, causing validation failures in CheckPoolId? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2da3f83a-0e38-4101-afcd-536d23ad34b8?mode=deep",
+    "timestamp": "2026-01-09 08:58:24.588663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [ID exhaustion DoS] Can an attacker create pools rapidly to exhaust the MaxPoolID limit (99,999,999,999), permanently preventing new pool creation and causing denial-of-service for the entire DEX? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b04d7d3-aad0-4b11-b7db-dd70ab08dc88?mode=deep",
+    "timestamp": "2026-01-09 08:58:47.102700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Pool ID overflow] In GetNextPoolID(), when pool count reaches math.MaxUint64, does the overflow check prevent creation or does it panic? Can an attacker exploit the MaxPoolID boundary (99,999,999,999) to cause state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_767800fd-f9c5-4ed5-b04d-99cadfa370be?mode=deep",
+    "timestamp": "2026-01-09 08:59:11.012206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Cross-module consistency] Does the PoolFeeScalingFactor=100,000 remain consistent with fee calculations in other modules (TokenWrapper, Factory), or can attackers exploit discrepancies to arbitrage between module fee structures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61dbbab1-f937-4b34-936c-6955cbe07716?mode=deep",
+    "timestamp": "2026-01-09 08:59:35.981913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Fee accumulation] Over repeated swaps, do rounding errors in fee calculations (due to 100,000 divisor) accumulate in favor of users or pools, allowing attackers to systematically drain fractional amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9652dc1b-9edc-4379-abbc-7cf453ad1641?mode=deep",
+    "timestamp": "2026-01-09 09:00:01.418861",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Negative fee exploitation] If fee calculation (incoming.Amount.Mul(feeRate).Quo(100000)) somehow produces negative values due to integer underflow, can an attacker exploit this to receive tokens instead of paying fees? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5342618a-c325-4141-8626-164300277191?mode=deep",
+    "timestamp": "2026-01-09 09:00:27.513030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Large number handling] For swaps with amounts approaching math.MaxInt256, does multiplication by fee rates before division by PoolFeeScalingFactor cause intermediate overflow even if final result would fit, leading to incorrect fee calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0a4619a-e870-4787-a0df-eec303be7625?mode=deep",
+    "timestamp": "2026-01-09 09:00:53.636694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [MinSwapFee interaction] When calculated fee (amount * feeRate / 100000) is less than MinSwapFee (1), can an attacker exploit the fee enforcement logic to create swaps where the minimum fee becomes a disproportionately large percentage of the swap amount? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39900340-e8e1-4f04-a524-adb8c2ee7e59?mode=deep",
+    "timestamp": "2026-01-09 09:01:20.750166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Constant vs parameter mismatch] Does the hardcoded PoolFeeScalingFactor=100,000 conflict with the BasisPoints=10,000 parameter used in other DEX calculations, creating inconsistencies where fee percentages are interpreted differently across functions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37da1d85-7e66-446c-96d2-f92015fcc939?mode=deep",
+    "timestamp": "2026-01-09 09:01:48.451075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Fee calculation manipulation] Can an attacker exploit the fixed 100,000 scaling factor to create pools with fees that appear legitimate (e.g., 500 = 0.5%) but due to rounding always charge higher effective fees on certain token amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b4d1dec-774f-457f-b197-457b86d8abf7?mode=deep",
+    "timestamp": "2026-01-09 09:02:16.152347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Division by zero] If PoolFeeScalingFactor is somehow modified or corrupted (e.g., through unsafe reflection or memory corruption), would fee calculations cause division-by-zero panics that crash the DEX module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf9e7b72-9eb6-4031-a96e-7c502469cbe4?mode=deep",
+    "timestamp": "2026-01-09 09:02:43.667801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Fee rate validation] In validateNewPoolFeePct(), the check requires poolFee < PoolFeeScalingFactor (100,000). Can an attacker exploit the boundary condition where poolFee = 99,999 to set near-100% fees that effectively lock liquidity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38b45942-04b7-4149-b4a0-d9c0f9400411?mode=deep",
+    "timestamp": "2026-01-09 09:03:10.862690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Fee bypass] Can an attacker craft swap amounts where (amount * feeRate / 100000) rounds down to zero, effectively bypassing fee payments and exploiting the minimum fee enforcement (MinSwapFee=1) to manipulate pool ratios? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2677ef41-318f-4c4c-944e-1bfedc460276?mode=deep",
+    "timestamp": "2026-01-09 09:03:39.442055",
+    "report_generated": false
   }
 ]
