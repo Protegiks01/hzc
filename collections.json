@@ -8398,5 +8398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1699cc9-adc2-4be5-8f05-6ac23b1723e0?mode=deep",
     "timestamp": "2026-01-09 21:07:00.993179",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Consensus split] If 1/3 Byzantine validators return different parameter values from GetParams to different honest validators in the same block, can this cause honest validators to calculate different swap outputs, leading to consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_385027ee-3526-41cd-ac01-8919ea330e3e?mode=deep",
+    "timestamp": "2026-01-09 21:08:18.192377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [State machine fork] If Byzantine validators manipulate the KVStore writes during SetParams to cause different parameter values to be stored on different validators, can this cause a chain split where different validators have different DEX parameters? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e30e102-6e6b-42d3-82bf-925b08d8cc07?mode=deep",
+    "timestamp": "2026-01-09 21:08:30.591213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: V2Migration] [Upgrade coordination attack] Can Byzantine validators coordinate to prevent V2Migration from executing on some validators but not others during a coordinated upgrade, causing parameter inconsistency across the validator set? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1510f1c6-f935-4cf5-9817-6877ba418d85?mode=deep",
+    "timestamp": "2026-01-09 21:08:43.325247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Determinism violation] If GetParams behavior is non-deterministic (e.g., due to timing issues in runtime.KVStoreAdapter), can this cause different validators to compute different transaction results, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56552e99-71ce-4171-bf4e-112edf518017?mode=deep",
+    "timestamp": "2026-01-09 21:08:56.505351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Keeper dependency] GetParams uses k.cdc which is passed during Keeper initialization. Can a malicious keeper initialization provide a manipulated codec that causes GetParams to return attacker-controlled parameter values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a8d794a-d489-4f38-bbd8-b5d9460b5300?mode=deep",
+    "timestamp": "2026-01-09 21:09:11.113038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [StoreService manipulation] SetParams uses k.storeService.OpenKVStore(ctx). Can a malicious storeService implementation return a fake KVStore that stores parameters in a separate location, causing GetParams/SetParams desynchronization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe47b17d-8b49-4ef9-84a6-2342c3086c99?mode=deep",
+    "timestamp": "2026-01-09 21:09:26.386958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: All functions] [Runtime adapter vulnerability] All functions use runtime.KVStoreAdapter(). If this adapter has bugs in ctx handling or store access, can it affect parameter integrity across all DEX operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c2ad13a-f73c-4f29-b490-8bdfeb99ca33?mode=deep",
+    "timestamp": "2026-01-09 21:09:42.718913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Authority module compromise] SetParams is called by UpdateParams which checks authority against k.GetAuthority(). If the authority module (typically x/gov) is compromised, can attackers directly manipulate all DEX parameters to drain pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe63eb74-3d2f-4293-a739-5e313c12e31b?mode=deep",
+    "timestamp": "2026-01-09 21:09:59.668087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Governance proposal timing] Can an attacker submit a governance proposal to call SetParams with malicious parameters, time the execution for when they have large positions in pools, then profit from the parameter change (e.g., increasing MaxSlippage right before executing large swaps)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b7a37dd-1163-4fe6-b58d-81fe795335e3?mode=deep",
+    "timestamp": "2026-01-09 21:10:18.268532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Emergency parameter change] If SetParams needs to be called in an emergency (e.g., to fix a security issue), the lack of any fast-track mechanism means attackers have the full governance delay period to exploit the vulnerable parameters. Can this delay enable large-scale attacks before fixes can be applied? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67bce633-6cc8-4cf8-8ffd-3fc1a7022496?mode=deep",
+    "timestamp": "2026-01-09 21:10:38.276925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: V2Migration] [Upgrade governance bypass] V2Migration appears to be called during chain upgrades without governance approval for the specific parameter changes. Can an attacker hide malicious parameter changes (like MinimalLiquidityLock=0) inside upgrade proposals that validators assume are safe? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_708fa6dc-1833-4966-9cab-967f40961a92?mode=deep",
+    "timestamp": "2026-01-09 21:10:58.447261",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Fee revenue manipulation] By changing Beneficiary through SetParams, can an attacker who controls governance redirect all pool creation fee revenue (potentially millions of dollars) to their own address, making the governance attack economically profitable? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d28f032f-cd42-42c6-ac88-0a5884bd1ce6?mode=deep",
+    "timestamp": "2026-01-09 21:11:19.040214",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Slippage-based arbitrage] Can an attacker monitor the mempool for SetParams transactions that increase MaxSlippage, then execute large arbitrage trades immediately after the parameter change to extract value from unsuspecting users who trade at higher slippage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8b0a842-1cf3-49b1-9474-4fa66aa7c10a?mode=deep",
+    "timestamp": "2026-01-09 21:11:41.558329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Liquidity lock griefing] Can an attacker use governance to repeatedly change MinimalLiquidityLock values to confuse liquidity providers about the locked liquidity amount, causing them to make incorrect economic decisions about pool participation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50c786a1-5863-4292-96e5-5f4bb86df922?mode=deep",
+    "timestamp": "2026-01-09 21:12:04.640878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [MEV extraction] Can searchers monitor GetParams calls in the mempool to predict which transactions will use old vs. new parameter values, enabling MEV extraction through frontrunning or sandwiching trades that straddle parameter changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d1dfc21-b7c4-4f84-b719-12fbb8af8de1?mode=deep",
+    "timestamp": "2026-01-09 21:12:27.988627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Partial update] If the system crashes or validator is killed between k.cdc.Marshal (line 26) and store.Set (line 30), can this cause the next GetParams to return parameters based on the old marshaled data but with some memory state reflecting new values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e65c80ee-e39d-4011-805e-3c45d6bf3488?mode=deep",
+    "timestamp": "2026-01-09 21:12:52.150520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams + SetParams] [Cache coherency] If Cosmos SDK uses caching layers for KVStore access, can GetParams read from stale cache while SetParams writes to fresh storage, causing temporary parameter inconsistency within a block? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e31db2e-4f9f-447b-b72a-0c5749ba3595?mode=deep",
+    "timestamp": "2026-01-09 21:13:17.673836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: V2Migration] [Rollback safety] V2Migration has no rollback mechanism. If the upgrade fails after V2Migration executes but before the full upgrade completes, can the chain be left with migrated DEX parameters but unmigrated state in other modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c33f48bb-3ab1-449b-afc1-e7f83ff61854?mode=deep",
+    "timestamp": "2026-01-09 21:13:43.427353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Panic propagation] GetParams uses MustUnmarshal which panics on error. If this panic occurs during a critical swap transaction, can it cause the entire transaction (and potentially block) to fail, leading to DoS of DEX functionality? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27bc2894-9296-47b9-8797-8d8caa81e575?mode=deep",
+    "timestamp": "2026-01-09 21:14:10.557863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Error return semantics] SetParams returns error for Marshal failure but not for Set failure. Can this inconsistency cause callers to incorrectly assume SetParams succeeded when it actually failed at the storage layer? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf4dd0ed-ee45-4227-b03a-3c990a1e6da1?mode=deep",
+    "timestamp": "2026-01-09 21:14:37.091433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: V2Migration] [Silent failure mode] The explicit #nosec G104 comment means V2Migration ignores all SetParams errors. Can this cause silent migration failures that are never logged or detected, leaving the chain in a vulnerable state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c9edb9e-76b6-40f9-9c16-dcd975aa2a20?mode=deep",
+    "timestamp": "2026-01-09 21:15:03.452406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: All functions] [Context timeout] If the context passed to these functions is cancelled or times out mid-operation, can this cause partial reads/writes that corrupt parameter state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a26be15-d2b4-4727-a310-1b779aedee50?mode=deep",
+    "timestamp": "2026-01-09 21:15:30.645973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Type casting] When bz == nil at line 15, GetParams returns an uninitialized params variable. Can this zero-value Params struct with NewPoolFeePct=0, CreationFee=0, Beneficiary='', MinimalLiquidityLock=0, MaxSlippage=0 bypass type safety and cause arithmetic errors in fee calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0feae7f-6344-4d48-a734-f23de8234a8b?mode=deep",
+    "timestamp": "2026-01-09 21:15:56.531245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Input validation gap] SetParams assumes the caller has validated params using params.Validate(). If a caller forgets this validation, can invalid parameters (e.g., MaxSlippage>10000 or MinimalLiquidityLock=0) be stored, breaking DEX security invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d05e64d2-fe19-4055-aa02-7d908dc38521?mode=deep",
+    "timestamp": "2026-01-09 21:16:23.372367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: V2Migration] [Type coercion] V2Migration directly assigns MinimalLiquidityLock=0 and MaxSlippage=types.DefaultMaxSlippage without type checking. Can integer overflow or type coercion issues cause these assignments to produce unexpected values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fee978b6-64de-48f3-b6d4-a54d8ead6864?mode=deep",
+    "timestamp": "2026-01-09 21:16:49.227883",
+    "report_generated": false
   }
 ]
