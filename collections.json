@@ -1648,5 +1648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b3534eb-fa7d-44a1-80d4-63350fb88792?mode=deep",
     "timestamp": "2026-01-09 09:11:49.949565",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator ordering] Since NewIncrementSequenceDecorator runs after signature verification, can an attacker exploit a race condition where the sequence is incremented but the transaction fails later, causing sequence desynchronization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21535653-106c-4162-b251-2aa99d9fcec5?mode=deep",
+    "timestamp": "2026-01-09 09:12:57.428739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator ordering] Does placing NewRedundantRelayDecorator last in the chain allow redundant IBC packets to consume gas and increment sequences before being rejected, enabling DoS attacks on relayers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_296a5828-d59a-4ca5-bf21-3025dbb303ec?mode=deep",
+    "timestamp": "2026-01-09 09:13:09.728817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator ordering] Can an attacker exploit the gap between NewValidateMemoDecorator and NewValidateBasicDecorator to include invalid memo content that passes basic validation but causes issues in downstream processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1207405-6ecd-4c15-8162-d5ffb0bc6f05?mode=deep",
+    "timestamp": "2026-01-09 09:13:22.548101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [WASM gas limit bypass] Can an attacker craft a WASM contract execution that bypasses the SimulationGasLimit enforced by NewLimitSimulationGasDecorator by exploiting differences between simulation and actual execution gas metering? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7dc04860-48e5-4ce6-beb4-e3e8016c3476?mode=deep",
+    "timestamp": "2026-01-09 09:13:36.763944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [WASM counter manipulation] Can the TX counter in NewCountTXDecorator be manipulated through concurrent WASM contract executions to overflow or underflow, causing incorrect transaction counting and potential replay attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df1f30bd-2879-4fd3-9142-407ae38546cf?mode=deep",
+    "timestamp": "2026-01-09 09:13:50.831248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [WASM gas register] Does NewGasRegisterDecorator properly validate the gas register from options.WasmKeeper.GetGasRegister(), or can a corrupted gas register allow unlimited gas consumption in WASM contracts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fbda360-d4cc-423b-acd4-e047ef447595?mode=deep",
+    "timestamp": "2026-01-09 09:14:06.297838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [WASM config injection] Can an attacker manipulate options.WasmConfig to set SimulationGasLimit to MaxUint64 or 0, either bypassing gas limits entirely or causing immediate simulation failures that DoS the network? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b439a5fe-d39a-494a-b6de-f5b905711a8a?mode=deep",
+    "timestamp": "2026-01-09 09:14:23.290867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [WASM store service] Can an attacker exploit the TXCounterStoreService to manipulate transaction counter state across multiple blocks, enabling transaction replay attacks or double-spending in WASM contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_873cdca3-a47a-4d63-bf0b-beab56777c12?mode=deep",
+    "timestamp": "2026-01-09 09:14:40.932216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [WASM decorator bypass] If a WASM transaction fails in NewGasRegisterDecorator after passing NewCountTXDecorator, does the TX counter get properly rolled back, or does it create state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3057a27-15ec-4f6d-a6b1-07194f8fd814?mode=deep",
+    "timestamp": "2026-01-09 09:14:59.048001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Circuit breaker bypass] Can an attacker craft transactions that bypass NewCircuitBreakerDecorator by manipulating message types or transaction structure to avoid circuit breaker checks entirely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e409004d-1227-49fd-be4f-5a7079f407de?mode=deep",
+    "timestamp": "2026-01-09 09:15:17.091406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Circuit breaker DoS] Can an attacker trigger the circuit breaker repeatedly with malicious transactions to permanently disable critical ZigChain modules (TokenWrapper, Factory, DEX), causing complete protocol shutdown? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d01425ab-d376-466c-a3e9-ffeb6d271aa7?mode=deep",
+    "timestamp": "2026-01-09 09:15:36.395522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Circuit breaker state corruption] If the circuit breaker is triggered during a multi-message transaction, does it properly roll back all state changes, or can partial state corruption occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_424be373-7089-4b6e-aa2c-37d684c91407?mode=deep",
+    "timestamp": "2026-01-09 09:15:55.775350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Circuit breaker timing] Can an attacker exploit race conditions in circuit breaker state checks to execute transactions during the brief window when the breaker is being set, bypassing protection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b157e50-6bf5-4dba-9df1-0988d00a3648?mode=deep",
+    "timestamp": "2026-01-09 09:16:17.425752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Circuit breaker permission] Does options.CircuitKeeper properly restrict who can trigger circuit breakers, or can an attacker trigger breakers without proper authorization to DoS specific modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c109b4a3-abab-4499-b0d1-361123e5acac?mode=deep",
+    "timestamp": "2026-01-09 09:16:39.445637",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Fee deduction bypass] Can an attacker craft transactions that pass NewConsumeGasForTxSizeDecorator but fail in NewDeductFeeDecorator, consuming gas without paying fees and DoSing the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c4ff903-bc2f-4cc0-9ac5-c56720a37d4b?mode=deep",
+    "timestamp": "2026-01-09 09:17:02.070798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Fee calculation overflow] Can an attacker provide transaction size or gas values that cause integer overflow in NewConsumeGasForTxSizeDecorator, resulting in negative or zero gas consumption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e35a8f7e-24fc-473b-a60e-f6b250073e2f?mode=deep",
+    "timestamp": "2026-01-09 09:17:26.345207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Feegrant exploitation] Does NewDeductFeeDecorator properly validate feegrant allowances, or can an attacker exploit feegrants to drain other users' accounts or the feegrant module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ccd85b4-523e-43ff-9968-58545a594f62?mode=deep",
+    "timestamp": "2026-01-09 09:17:50.208185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Gas refund attack] If a transaction consumes gas in NewConsumeGasForTxSizeDecorator but fails in later decorators, is the gas properly refunded, or can attackers exploit partial gas consumption for DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c44b334-81e4-405e-b637-fc59ce4eff9f?mode=deep",
+    "timestamp": "2026-01-09 09:18:15.020934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [TxFeeChecker bypass] Can an attacker provide a custom TxFeeChecker in options that always returns zero fees, bypassing fee requirements for all transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af085812-b42e-4ff0-aa3a-76df86abea4d?mode=deep",
+    "timestamp": "2026-01-09 09:18:40.347032",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Fee deduction race] Can multiple transactions from the same account exploit race conditions in NewDeductFeeDecorator to spend the same balance multiple times before state is committed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e405ae6b-e658-46fa-bd49-1ea9dc51eeaa?mode=deep",
+    "timestamp": "2026-01-09 09:19:06.043126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Public key substitution] Can an attacker exploit NewSetPubKeyDecorator to set a public key for an account that doesn't match the actual owner, enabling unauthorized transaction signing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8cfba29-6ffd-45c0-9394-00354b017cf1?mode=deep",
+    "timestamp": "2026-01-09 09:19:32.934141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Signature count bypass] Does NewValidateSigCountDecorator properly handle multi-sig transactions with nested signers, or can an attacker exceed the maximum signature count by exploiting nested structures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aba1e8bd-a52b-40ff-bfeb-f50cb667b718?mode=deep",
+    "timestamp": "2026-01-09 09:19:57.335549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Gas exhaustion in signature verification] Can an attacker craft transactions with maximum allowed signatures to exhaust gas in NewSigGasConsumeDecorator, causing all subsequent transactions in the block to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8112e6ce-9533-4e54-9e7c-fc764be6c0c7?mode=deep",
+    "timestamp": "2026-01-09 09:20:22.656057",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Signature verification bypass] If NewSigVerificationDecorator fails for one signer in a multi-sig transaction, does it properly reject the entire transaction, or can partial signatures be exploited? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7af09dc-518f-4dad-b907-2b3be4c7c8ec?mode=deep",
+    "timestamp": "2026-01-09 09:20:44.579171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Custom SigGasConsumer] Can an attacker manipulate options.SigGasConsumer to return zero gas cost for signature verification, allowing unlimited signature verifications and DoS attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84d347bd-851d-4ae5-9e66-043eddd8f00b?mode=deep",
+    "timestamp": "2026-01-09 09:21:10.812509",
+    "report_generated": false
   }
 ]
