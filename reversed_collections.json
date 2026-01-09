@@ -748,5 +748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13d0af77-2291-4436-9998-75658337399b?mode=deep",
     "timestamp": "2026-01-09 08:35:24.680545",
     "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: CoinType] [HD wallet derivation attack] Given CoinType=118 (standard Cosmos coin type), if users derive the same private keys across multiple Cosmos chains using this coin type, can an attacker who compromises keys on another chain (e.g., Cosmos Hub) automatically gain access to ZigChain accounts due to shared derivation paths? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b89e363-9d53-4d0a-8908-1909c27953b5?mode=deep",
+    "timestamp": "2026-01-09 08:36:35.048144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: BlockChainName] [Chain ID manipulation] With BlockChainName hardcoded as 'zigchain', if chain ID validation during IBC handshakes relies on string matching against this constant, can an attacker register a similarly named chain (e.g., 'zigchain-2' or 'zigchain_') to hijack IBC connections and intercept cross-chain token transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19120cf3-5757-49d8-951d-33b75092246c?mode=deep",
+    "timestamp": "2026-01-09 08:36:47.360933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: AddressPrefix] [Address collision] If the AddressPrefix 'zig' is used to generate Bech32 addresses without additional entropy or checksums, can an attacker generate collision addresses on other chains using the same prefix, causing IBC acknowledgement packets to be misrouted and draining module wallets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26dea096-9340-469b-a633-fa3e6a2ac8dc?mode=deep",
+    "timestamp": "2026-01-09 08:36:59.871584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: AddressPrefix] [IBC address spoofing] With AddressPrefix hardcoded as 'zig', if IBC packet handling relies on this constant for address validation without cryptographic verification, can an attacker on a remote chain craft addresses with the 'zig' prefix to spoof ZigChain addresses and steal tokens in cross-chain transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e79ca8f7-6326-4936-b602-a91ed2e52e17?mode=deep",
+    "timestamp": "2026-01-09 08:37:14.084205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURIHashLength] [Base64 encoding mismatch] The comment states 'The length matches base64 of 32 bytes without padding' (43 chars) but MaxURIHashLength=64 (hex encoding). If modules incorrectly assume base64 encoding due to the misleading comment, can an attacker exploit encoding confusion to bypass hash validation by providing base64-encoded hashes that don't match the expected hex format? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1b9b3e9-ad5c-414f-8d5e-2c5355c49381?mode=deep",
+    "timestamp": "2026-01-09 08:37:27.860132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURIHashLength] [Hash collision] Given MaxURIHashLength=64 (matching SHA256 hex output), if the Factory module validates URI hashes using this constant without verifying the hash algorithm, can an attacker provide a shorter hash from a weaker algorithm (e.g., MD5 hex=32 chars) that passes length validation but enables collision attacks on token metadata verification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a2c8f17-eb4b-43e2-a0f5-83211e9f5529?mode=deep",
+    "timestamp": "2026-01-09 08:37:42.445459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURILength] [Metadata injection] With MaxURILength=256, if the Factory module stores token metadata URIs using this limit, can an attacker inject malicious URIs near the maximum length containing control characters or exploit path traversal vulnerabilities in URI resolution logic, leading to external system compromise? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eea6b90f-38f4-4cf7-ac27-cc83f3548dec?mode=deep",
+    "timestamp": "2026-01-09 08:37:58.500378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxDenomLength] [Length calculation error] The comment shows MaxDenomLength calculation as 7+1+59+1+44=112 but the constant is set to 127. Is this 15-character buffer intentional, or can an attacker exploit the gap between calculated (112) and actual (127) limits to inject extra data in denom strings that bypass validation logic expecting the calculated size? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9382a2f-a513-4fad-b983-a679b31a9072?mode=deep",
+    "timestamp": "2026-01-09 08:38:15.144790",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxDenomLength] [Cosmos limitation bypass] The comment states '128 is cosmos limitation anyway' but MaxDenomLength is set to 127. If upstream Cosmos SDK modules expect exactly 128 characters, can an attacker exploit this off-by-one difference to bypass Cosmos SDK validation while still passing ZigChain validation, causing IBC packet rejection on remote chains? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c4f7b80-7d81-43e8-80cf-2b96a9e2c567?mode=deep",
+    "timestamp": "2026-01-09 08:38:32.879850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxSubDenomLength] [Buffer overflow] Given MaxSubDenomLength=44, if the Factory module's denom creation logic uses string concatenation without proper bounds checking against this constant, can an attacker craft subdenom strings near the limit to trigger buffer overflows or memory exhaustion when combined with the factory prefix? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3cb6be5-0ae4-46bb-956f-f1f0df63b31f?mode=deep",
+    "timestamp": "2026-01-09 08:38:51.110854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MinSubDenomLength] [Validation bypass] With MinSubDenomLength set to 3, can an attacker create factory tokens with extremely short subdenom names (e.g., 'abc') that collide with existing denoms or cause parsing errors in IBC packet handling, leading to DoS or token misrouting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae5ea272-1f57-4731-ae74-5289ae881101?mode=deep",
+    "timestamp": "2026-01-09 08:39:10.468079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenomDecimals] [Cross-module inconsistency] If different modules (TokenWrapper, Factory, DEX) independently rely on BondDenomDecimals=6 without runtime synchronization checks, can an attacker exploit a governance proposal or upgrade that changes decimal precision in one module but not others, causing state inconsistencies across chain components? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea231e69-bdfc-4046-af3c-d2eb0e5511d7?mode=deep",
+    "timestamp": "2026-01-09 08:39:30.377894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenomDecimals] [Decimal precision] Given that BondDenomDecimals is set to 6, if the TokenWrapper module performs 18→6 decimal conversions using this constant, can an attacker exploit a hardcoded conversion factor mismatch to cause precision loss or overflow when wrapping/unwrapping tokens, leading to token duplication or loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff36906a-da91-4fe0-b5d4-edf4cb2f9107?mode=deep",
+    "timestamp": "2026-01-09 08:39:51.203183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenom] [Denomination hardcoding] If the BondDenom constant 'uzig' is hardcoded across multiple modules without runtime validation, can an attacker exploit IBC packet forwarding to inject tokens with a similar but distinct denomination (e.g., 'uzig' with zero-width characters or homoglyphs) to bypass denomination checks and create unauthorized token transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68233e63-1b01-47fb-a58a-ef6749f88a6d?mode=deep",
+    "timestamp": "2026-01-09 08:40:13.015360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: CoinType] [HD wallet derivation attack] Given CoinType=118 (standard Cosmos coin type), if users derive the same private keys across multiple Cosmos chains using this coin type, can an attacker who compromises keys on another chain (e.g., Cosmos Hub) automatically gain access to ZigChain accounts due to shared derivation paths? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2dcaa1b2-d91a-433a-800c-c745d7bea42d?mode=deep",
+    "timestamp": "2026-01-09 08:40:35.523349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: BlockChainName] [Chain ID manipulation] With BlockChainName hardcoded as 'zigchain', if chain ID validation during IBC handshakes relies on string matching against this constant, can an attacker register a similarly named chain (e.g., 'zigchain-2' or 'zigchain_') to hijack IBC connections and intercept cross-chain token transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a736097-ac63-4c24-8e20-b065b0a3b54d?mode=deep",
+    "timestamp": "2026-01-09 08:40:58.867645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: AddressPrefix] [Address collision] If the AddressPrefix 'zig' is used to generate Bech32 addresses without additional entropy or checksums, can an attacker generate collision addresses on other chains using the same prefix, causing IBC acknowledgement packets to be misrouted and draining module wallets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2961db79-278f-46d2-8793-15796b4838f8?mode=deep",
+    "timestamp": "2026-01-09 08:41:22.464067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: AddressPrefix] [IBC address spoofing] With AddressPrefix hardcoded as 'zig', if IBC packet handling relies on this constant for address validation without cryptographic verification, can an attacker on a remote chain craft addresses with the 'zig' prefix to spoof ZigChain addresses and steal tokens in cross-chain transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9a0ad4a-2946-4efd-b61d-cbb95fb2acdb?mode=deep",
+    "timestamp": "2026-01-09 08:41:46.447787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURIHashLength] [Base64 encoding mismatch] The comment states 'The length matches base64 of 32 bytes without padding' (43 chars) but MaxURIHashLength=64 (hex encoding). If modules incorrectly assume base64 encoding due to the misleading comment, can an attacker exploit encoding confusion to bypass hash validation by providing base64-encoded hashes that don't match the expected hex format? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_574cf899-41cc-45ad-8fec-898088f42ad2?mode=deep",
+    "timestamp": "2026-01-09 08:42:10.991979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURIHashLength] [Hash collision] Given MaxURIHashLength=64 (matching SHA256 hex output), if the Factory module validates URI hashes using this constant without verifying the hash algorithm, can an attacker provide a shorter hash from a weaker algorithm (e.g., MD5 hex=32 chars) that passes length validation but enables collision attacks on token metadata verification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fafaa0e5-0db7-42b4-a961-4938179d713e?mode=deep",
+    "timestamp": "2026-01-09 08:42:36.334866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURILength] [Metadata injection] With MaxURILength=256, if the Factory module stores token metadata URIs using this limit, can an attacker inject malicious URIs near the maximum length containing control characters or exploit path traversal vulnerabilities in URI resolution logic, leading to external system compromise? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c0cbb8d-2dfa-4075-8403-eee14546d380?mode=deep",
+    "timestamp": "2026-01-09 08:43:01.145595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxDenomLength] [Length calculation error] The comment shows MaxDenomLength calculation as 7+1+59+1+44=112 but the constant is set to 127. Is this 15-character buffer intentional, or can an attacker exploit the gap between calculated (112) and actual (127) limits to inject extra data in denom strings that bypass validation logic expecting the calculated size? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0acf5e98-6002-4111-8db0-f9dd330ee4ff?mode=deep",
+    "timestamp": "2026-01-09 08:43:26.159530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxDenomLength] [Cosmos limitation bypass] The comment states '128 is cosmos limitation anyway' but MaxDenomLength is set to 127. If upstream Cosmos SDK modules expect exactly 128 characters, can an attacker exploit this off-by-one difference to bypass Cosmos SDK validation while still passing ZigChain validation, causing IBC packet rejection on remote chains? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1bc6b2f7-8cab-4add-8f17-70c88f35b451?mode=deep",
+    "timestamp": "2026-01-09 08:43:51.263205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxSubDenomLength] [Buffer overflow] Given MaxSubDenomLength=44, if the Factory module's denom creation logic uses string concatenation without proper bounds checking against this constant, can an attacker craft subdenom strings near the limit to trigger buffer overflows or memory exhaustion when combined with the factory prefix? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb0489d1-aacb-4b74-9e6a-0a088bf01ee0?mode=deep",
+    "timestamp": "2026-01-09 08:44:17.255926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MinSubDenomLength] [Validation bypass] With MinSubDenomLength set to 3, can an attacker create factory tokens with extremely short subdenom names (e.g., 'abc') that collide with existing denoms or cause parsing errors in IBC packet handling, leading to DoS or token misrouting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a050967-0688-477e-ad46-6877423158f9?mode=deep",
+    "timestamp": "2026-01-09 08:44:43.542881",
+    "report_generated": false
   }
 ]
