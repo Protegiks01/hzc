@@ -3298,5 +3298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7f70720-5e2b-412e-8247-f7091b746aed?mode=deep",
     "timestamp": "2026-01-09 10:58:22.959344",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Module dependencies] Can the order of operations (distribution → staking → slashing) cause issues if modules depend on state that is modified by earlier operations in unexpected ways? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b198d1cb-350f-4a12-b480-15d11f0a569f?mode=deep",
+    "timestamp": "2026-01-09 10:59:32.694335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Memory exhaustion] Can processing a very large validator set or delegation list cause the genesis export to consume excessive memory, leading to OOM crashes on validators with limited resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9405702c-7957-4d2c-999c-42feab6618be?mode=deep",
+    "timestamp": "2026-01-09 10:59:44.910406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Error return] If staking.WriteValidators returns an error, is it properly propagated in the return statement, or can the function return success with invalid validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16fb1e90-51ac-4377-bb25-61621f37f671?mode=deep",
+    "timestamp": "2026-01-09 10:59:57.660331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Panic recovery] Is there any panic recovery mechanism that can gracefully handle panics during genesis export, or does any panic cause validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee1fe33a-0164-46a4-ac1b-07fc95ec078c?mode=deep",
+    "timestamp": "2026-01-09 11:00:11.638250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [State consistency checks] Are there any validation checks to ensure state consistency before returning from prepForZeroHeightGenesis, or can the function complete with corrupted state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab597b4d-1b76-4290-80dc-9879df34a0b3?mode=deep",
+    "timestamp": "2026-01-09 11:00:25.333077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Total supply conservation] Can the combination of commission withdrawals, reward withdrawals, and community pool donations cause the total token supply to increase or decrease incorrectly? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99456de2-4708-4fb6-9122-9729669cb74b?mode=deep",
+    "timestamp": "2026-01-09 11:00:39.800950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Reward distribution fairness] Can the order in which validators and delegators are processed affect the amounts they receive, causing earlier processed accounts to receive more rewards than later ones? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34ea3e5c-73d7-4873-9311-0eb6d8670b8e?mode=deep",
+    "timestamp": "2026-01-09 11:00:55.595816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Outstanding rewards calculation] Can outstanding rewards be double-counted if a validator has both undistributed commission and delegator rewards, causing token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_987e16cb-b435-473f-ba2d-588c64f8c86a?mode=deep",
+    "timestamp": "2026-01-09 11:01:12.614772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Distribution hooks] Can the distribution module hooks modify state in ways that conflict with the staking module operations, causing state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_037e790c-7f71-4b24-9854-6147927e3558?mode=deep",
+    "timestamp": "2026-01-09 11:01:30.934486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Module order dependency] If the order of module operations is changed, can this cause the genesis export to fail or produce invalid state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6053e044-0e7f-424e-b4e1-61798e605d25?mode=deep",
+    "timestamp": "2026-01-09 11:01:50.548041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Cross-module state] Can modifications to the distribution module state affect the staking module in unexpected ways, causing validator set inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2fbe4f87-8872-4fca-9151-78944342bfcf?mode=deep",
+    "timestamp": "2026-01-09 11:02:10.551312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Large state export] Can an attacker cause the genesis export to take an extremely long time by creating a large number of delegations, redelegations, or unbonding operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f698f34-e3f7-4e53-b8cd-b60c7a85de36?mode=deep",
+    "timestamp": "2026-01-09 11:02:31.316392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Iterator exhaustion] Can processing iterators over very large datasets cause validators to run out of resources or timeout during genesis export? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63346c38-84bf-4cc7-9e91-d1d8a4c22c9e?mode=deep",
+    "timestamp": "2026-01-09 11:02:53.278010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Panic-based DoS] Can an attacker craft validator or delegation state that consistently causes panics during genesis export, preventing chain migration indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10a69328-3ded-4476-a702-b5ef8a8917bd?mode=deep",
+    "timestamp": "2026-01-09 11:03:15.843049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Reward precision] Can decimal precision be lost when withdrawing commission or delegation rewards, causing small amounts of tokens to be permanently lost across all withdrawals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af8d682c-b158-4e81-ad79-652599a765ea?mode=deep",
+    "timestamp": "2026-01-09 11:03:40.031417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Community pool accumulation] Can rounding errors in the community pool donation accumulate across many validators, causing significant token loss or creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ea72e71-0cd1-4e8c-9056-2f29166bc276?mode=deep",
+    "timestamp": "2026-01-09 11:04:04.514298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Context race] Can the context created by app.NewContextLegacy be modified by concurrent operations, causing the exported state to be inconsistent with the actual chain state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_310fd91f-9f80-4994-a663-c394e736c056?mode=deep",
+    "timestamp": "2026-01-09 11:04:30.135644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator set race] Can validators be added or removed from the validator set while genesis export is in progress, causing the exported validator set to not match the final state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fde5b820-c396-4921-b62b-e575633ad04b?mode=deep",
+    "timestamp": "2026-01-09 11:04:56.354397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Delegation race] Can new delegations be created while iterating over existing delegations, causing some delegations to be processed twice or not at all? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27dae7e3-0e4f-4f0e-9b42-78d2dc4f0232?mode=deep",
+    "timestamp": "2026-01-09 11:05:22.632497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator power conservation] Is total validator power conserved across the genesis export, or can the power sum change due to rounding or calculation errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_274a4573-617f-4043-a605-4fab3a9bd906?mode=deep",
+    "timestamp": "2026-01-09 11:05:49.799419",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Delegation sum invariant] Is the sum of all delegations to a validator equal to the validator's total delegated power after genesis export, or can they diverge? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b20b5809-ae52-4dec-ad11-5bf145e85959?mode=deep",
+    "timestamp": "2026-01-09 11:06:17.216580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Bond/unbond balance] Are bonded and unbonded token pools properly balanced after all state resets, or can tokens be created or destroyed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d02bbcbe-7ba4-48d5-b2ce-f01fbab8fe89?mode=deep",
+    "timestamp": "2026-01-09 11:06:45.710317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [TokenWrapper state] Can the genesis export fail to properly capture TokenWrapper module state, causing wrapped tokens to be lost or duplicated in the new chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9f51ccb-039c-4cc2-80db-ddb5bf8a5f58?mode=deep",
+    "timestamp": "2026-01-09 11:07:14.242209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Factory denoms] Can factory-created denoms be exported with incorrect metadata or minting caps, allowing unlimited minting in the new chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e430a7b7-6e5a-4f10-8275-078b6d380f3f?mode=deep",
+    "timestamp": "2026-01-09 11:07:42.671564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [DEX pool state] Can DEX liquidity pool reserves be exported with incorrect values, breaking the x*y=k invariant and enabling liquidity drainage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3af06761-fc91-4868-9a7c-98d201c0f9ab?mode=deep",
+    "timestamp": "2026-01-09 11:08:09.685584",
+    "report_generated": false
   }
 ]
