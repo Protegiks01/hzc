@@ -6448,5 +6448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5bfdc39-7a6c-4486-8688-0d2c1cbc47bb?mode=deep",
     "timestamp": "2026-01-09 17:01:52.143830",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Zero amount attack] Can an attacker call handleUnescrowToken with a zero-amount token to manipulate the escrow tracking without actually transferring tokens, potentially causing arithmetic errors or state corruption in the escrow calculation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0791d4c8-cdf2-484a-a442-e13983a38c99?mode=deep",
+    "timestamp": "2026-01-09 17:03:12.489038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Denomination mismatch] Does the function validate that token.GetDenom() matches the denomination stored in the escrow tracking, or can an attacker provide mismatched denominations to decrement escrow for one denom while transferring tokens of a different denom, creating accounting inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d3ee949-787f-4545-9802-b36665aad245?mode=deep",
+    "timestamp": "2026-01-09 17:03:25.007731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Negative escrow] Can an attacker manipulate GetTotalEscrowForDenom to return a value smaller than the token amount being unescrowed, causing currentTotalEscrow.Sub(token) at line 24 to produce a negative result that gets stored, breaking all future escrow calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44dffa8e-09e7-430e-8038-71f515508b88?mode=deep",
+    "timestamp": "2026-01-09 17:03:37.804000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Token duplication] If SendCoins at line 18 succeeds but the function returns early before line 25 due to a panic in GetTotalEscrowForDenom, are the tokens duplicated because they've been sent to the receiver but the escrow total hasn't been decremented, allowing the same tokens to be claimed again? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e94e88da-c5ed-46dc-b6ae-b959766636a3?mode=deep",
+    "timestamp": "2026-01-09 17:03:51.654279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Access control bypass] Does handleUnescrowToken perform any validation on the escrowAddress parameter, or can an attacker call this with an arbitrary escrow address to drain tokens from any account by providing a malicious escrowAddress that they control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_583b58f0-222d-4f69-b8cc-29be6c7a6092?mode=deep",
+    "timestamp": "2026-01-09 17:04:05.684616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Race condition] Can concurrent calls to handleUnescrowToken for the same denomination create a race condition between GetTotalEscrowForDenom (line 23) and SetTotalEscrowForDenom (line 25), allowing multiple unescrow operations to read the same escrow value before any writes, causing the escrow total to be decremented less than the actual tokens released? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0254cafc-c17e-4aff-a064-a63719e132e2?mode=deep",
+    "timestamp": "2026-01-09 17:04:21.187228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [State inconsistency] Can an attacker trigger a state inconsistency by causing SendCoins at line 18 to succeed but SetTotalEscrowForDenom at line 25 to fail due to storage corruption, resulting in tokens being transferred without updating escrow tracking, breaking the total supply conservation across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb909e9b-a3b9-42e7-98a1-30887d2ed4da?mode=deep",
+    "timestamp": "2026-01-09 17:04:37.357605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Integer underflow] Can an attacker exploit the escrow tracking at line 24 where currentTotalEscrow.Sub(token) is called without overflow protection, causing an integer underflow if the token amount exceeds currentTotalEscrow, resulting in a massively inflated escrow total that breaks the bridge's token conservation invariant? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46c9ab9f-10a4-4be9-98a3-d2d7f413e23b?mode=deep",
+    "timestamp": "2026-01-09 17:04:54.507323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Migration state race] Can an attacker exploit timing between migration execution and normal message processing where old messages use new state or vice versa? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f9c2c18-a822-4d83-ab28-690d15e14865?mode=deep",
+    "timestamp": "2026-01-09 17:05:13.694370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Migration reexecution] Can an attacker trigger V2Migration multiple times by manipulating consensus version checks, resetting critical state like DecimalDifference to 0? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28cd650b-3760-434a-993f-0fb5ba88ffd9?mode=deep",
+    "timestamp": "2026-01-09 17:05:33.250324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Migration version skip] Can an attacker manipulate the chain to skip from ConsensusVersion 1 directly to 3, bypassing V2Migration entirely and leaving state inconsistent? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31b1efb2-73dd-4428-84cf-a9406da982bc?mode=deep",
+    "timestamp": "2026-01-09 17:05:50.264462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Integration with keeper] [Module account authority] Can an attacker exploit confusion between module authority (gov) and module account (types.ModuleName) to bypass spend limitations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6675934-7987-4e61-8082-aab6015c7ad9?mode=deep",
+    "timestamp": "2026-01-09 17:06:11.390463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Integration with keeper] [Module account draining] Can an attacker exploit that the module doesn't validate module account permissions during keeper initialization, allowing other modules to drain the TokenWrapper module account? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32f3761d-a835-4a2f-a88e-834e5e404378?mode=deep",
+    "timestamp": "2026-01-09 17:06:33.899244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: GetTxCmd()] [CLI command injection] Can an attacker exploit GetTxCmd() (line 98) to inject malicious CLI commands that bypass normal transaction validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f9b77b0-67d6-4057-9bfa-1a1539f9b312?mode=deep",
+    "timestamp": "2026-01-09 17:06:57.877877",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Constant: ConsensusVersion] [Version collision] Can an attacker deploy a forked chain with same ConsensusVersion (returns 2) but different migration logic, causing state corruption during cross-chain communication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0141b794-55c9-4e2d-a5f8-47826e587696?mode=deep",
+    "timestamp": "2026-01-09 17:07:21.304725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: Name()] [Module name collision] Can an attacker register another module with the same name returned by Name() (line 61) to cause routing conflicts in message/query handlers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7a69a2d-c771-40a8-8fe1-7efb66a35018?mode=deep",
+    "timestamp": "2026-01-09 17:07:46.478408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Interface: IBCModule] [IBC callback order] Can an attacker exploit the order of IBC callback execution where if module is not first in IBC middleware stack, packets are already processed before decimal conversion? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b739f145-4792-4097-b3fb-afec1597166b?mode=deep",
+    "timestamp": "2026-01-09 17:08:12.036279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Interface: IBCModule] [Missing IBC middleware] Does the module properly integrate as IBC middleware (declared line 42), or can packets bypass the module's wrap/unwrap logic entirely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e67edb4b-f4b7-40d1-afd6-f6f6d369ab4e?mode=deep",
+    "timestamp": "2026-01-09 17:08:38.649807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Struct: AppModule] [Type embedding bypass] Can an attacker exploit that AppModule embeds AppModuleBasic (line 107) to access basic module methods directly, bypassing keeper validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d4c0c61-adbc-40e2-9607-3029b4301303?mode=deep",
+    "timestamp": "2026-01-09 17:09:06.477649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Type assertions] [Interface implementation bypass] Can an attacker exploit missing interface method implementations (like OnChanOpenInit) declared at lines 32-43 to bypass IBC module checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1c83fa8-3bd1-42cd-a1ed-60f745a4ae00?mode=deep",
+    "timestamp": "2026-01-09 17:09:35.842685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: init()] [Provider registration order] Can an attacker exploit that appmodule.Register is called in init() to register providers in unexpected order, causing dependency injection failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81ea04da-327e-4ec2-bf48-a4eef0196f4a?mode=deep",
+    "timestamp": "2026-01-09 17:10:04.830467",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Module dependency order] Can an attacker exploit module initialization order where if BankKeeper is initialized after TokenWrapper, the keeper has nil bankKeeper during first block? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_459d3c2a-644e-464d-a938-122c1b01ef35?mode=deep",
+    "timestamp": "2026-01-09 17:10:34.916737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Panic recovery bypass] Can an attacker exploit that RegisterServices panics on migration error (line 135) to prevent the entire chain from starting, creating permanent DoS? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c38c9f39-b9f9-4a56-abc6-359c945cb774?mode=deep",
+    "timestamp": "2026-01-09 17:11:09.174719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterGRPCGatewayRoutes()] [Panic in production] Can an attacker trigger the panic at line 91 in production by sending malformed gRPC requests that corrupt the gateway multiplexer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30bb3cb1-c452-4f08-8408-83dd0a7deb55?mode=deep",
+    "timestamp": "2026-01-09 17:11:37.804112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [Panic propagation] If SetParams panics (line 13-14 in genesis.go), does it properly roll back all previously set state, or does it leave partial state that corrupts the module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4ab88b6-13c8-472a-a2a6-806406a8b54f?mode=deep",
+    "timestamp": "2026-01-09 17:12:07.659519",
+    "report_generated": false
   }
 ]
