@@ -11998,5 +11998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfb43480-47d5-4316-909e-bbc25886161c?mode=deep",
     "timestamp": "2026-01-09 23:09:19.672924",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Event lifecycle] [Orphaned events] If events are emitted during BeginBlock or EndBlock processing that later gets rolled back, can orphaned events persist in logs without corresponding state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20c16e23-4b33-41ab-916b-7f216577dccb?mode=deep",
+    "timestamp": "2026-01-09 23:10:44.390280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitModuleWalletFundedEvent()] [Integer precision] When converting sdk.Coins to String(), can precision be lost for tokens with high decimal places, causing emitted amounts to not match actual transferred amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c661aac5-b59f-44f5-ade7-3a531b66c21e?mode=deep",
+    "timestamp": "2026-01-09 23:10:56.813684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Event attribute: AttributeKeySourceChannel] [Channel hijacking] Can an attacker emit events with arbitrary source channel values that don't match the actual IBC packet channel, causing relayers or monitoring systems to misroute packets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c0d3b3c-69f8-4dea-ad56-1e2db8a20c3e?mode=deep",
+    "timestamp": "2026-01-09 23:11:09.665540",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitIbcSettingsUpdatedEvent()] [Silent failure] If the type assertion fails and the function returns early without emitting any event, will critical IBC settings updates go unlogged, making it impossible to audit bridge configuration changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e3b0e04-b30c-47e1-b295-a162cac3c9bb?mode=deep",
+    "timestamp": "2026-01-09 23:11:22.830039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Event emission timing] [Front-running] Can an attacker observe event emissions in the mempool and front-run bridge operations based on emitted but uncommitted event data, exploiting price information before it's finalized? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_786f636d-a8ae-4416-bf7d-999ab739d180?mode=deep",
+    "timestamp": "2026-01-09 23:11:36.428456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperInfoEvent()] [Info injection] Can malicious modules inject arbitrary info strings that impersonate critical system messages, confusing monitoring systems or hiding actual bridge security events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f143a35-c2db-4b04-be8e-68e15f27d716?mode=deep",
+    "timestamp": "2026-01-09 23:11:51.361827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperErrorEvent()] [Error message size] Can an attacker cause error messages of unbounded size to be emitted, leading to event log bloat and storage exhaustion attacks on validators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_303a0ff3-8c2b-455f-a29e-5b668aff2bb5?mode=deep",
+    "timestamp": "2026-01-09 23:12:07.194253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Event ordering] [Consensus impact] If Byzantine validators emit events in different orders than honest validators, can this cause state divergence in systems that replay events to reconstruct bridge state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_edf75cf5-6a62-40fe-8fab-5edee57697c6?mode=deep",
+    "timestamp": "2026-01-09 23:12:24.853554",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperRefundEvent()] [Refund tracking] Can an attacker trigger multiple refund events for the same failed transaction, causing accounting systems to count refunds multiple times and hide actual token losses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0b779bf-bc4a-44ad-8c68-24b9d1c746d4?mode=deep",
+    "timestamp": "2026-01-09 23:12:43.713489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperPacketEvent()] [Missing atomic guarantees] If the function emits events before state changes are committed, can transaction rollbacks cause events to be persisted without corresponding state changes, breaking event-state consistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a3fb0ed-8d51-4fcb-a2c3-d4e8d743354e?mode=deep",
+    "timestamp": "2026-01-09 23:13:02.750566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Event attribute: AttributeKeyDecimalDifference] [Conversion errors] If decimal_difference is emitted with incorrect values due to integer overflow or underflow, will this cause all subsequent decimal conversions to use wrong scaling factors, leading to systematic token loss or duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daefccb2-f8d6-4b33-b3e7-1a39ef857db9?mode=deep",
+    "timestamp": "2026-01-09 23:13:21.920101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Event attribute: AttributeKeyDenom] [Denom injection] Can attackers inject special characters or format strings in denom parameters that exploit vulnerabilities in event parsing, logging, or monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef0e055d-935c-44f5-bea8-055066142d8c?mode=deep",
+    "timestamp": "2026-01-09 23:13:42.504082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Event attribute: AttributeKeyAmount] [Integer overflow] When amount.String() is called on very large sdkmath.Int values, can this cause buffer overflows in event storage or string handling, potentially corrupting event logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_248cfde5-60c0-4f49-af59-6b39b3ab0803?mode=deep",
+    "timestamp": "2026-01-09 23:14:04.135960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: IsValidPacketType()] [Return value abuse] If IsValidPacketType() returns false but the calling code doesn't properly check the return value, can unauthorized packet events still be emitted, bypassing security controls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2897743-8525-49df-8a95-0ba1998b8fdd?mode=deep",
+    "timestamp": "2026-01-09 23:14:27.303168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: IsValidPacketType()] [Race condition] Can multiple goroutines race to check IsValidPacketType() while another modifies AllowedPacketTypes, causing TOCTOU vulnerabilities where invalid packet types pass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_245deb80-bd39-45aa-b8dc-2bc2a2158ae7?mode=deep",
+    "timestamp": "2026-01-09 23:14:51.399773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Variable: AllowedPacketTypes] [Map modification] Can the AllowedPacketTypes map be modified at runtime by malicious code or reflection attacks to add unauthorized packet types, bypassing the IsValidPacketType() validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_abd62db4-07ba-4d40-a8eb-b848d82343c2?mode=deep",
+    "timestamp": "2026-01-09 23:15:16.354827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Constant: AttributeKeyAckSuccess] [Boolean injection] Is the AttributeKeyAckSuccess value properly validated as a boolean string, or can attackers inject non-boolean values that cause ack handling logic to misinterpret packet success/failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb835f65-1e31-4140-95eb-3d6fcc9dca88?mode=deep",
+    "timestamp": "2026-01-09 23:15:41.967236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Constant: EventTypeTimeout] [Event type collision] Can an attacker exploit event type string collisions between EventTypeTimeout and other Cosmos SDK or IBC module events to inject fake timeout events that trigger unwanted state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daff7c56-640b-46b9-bb24-20e6add70982?mode=deep",
+    "timestamp": "2026-01-09 23:16:08.119914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitAddressZigRecovered()] [Coin denomination] Can an attacker provide lockedIbcAmount and unlockedNativeAmount with mismatched denominations that violate the expected IBC voucher → native ZIG conversion, and will this be detected before event emission? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d41d48d-9f14-43d9-90c3-16ff3cab15de?mode=deep",
+    "timestamp": "2026-01-09 23:16:33.839089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitAddressZigRecovered()] [Amount correlation] If lockedIbcAmount and unlockedNativeAmount don't properly correlate with the 10^12 decimal conversion factor, will the event emission detect this inconsistency, or will it silently emit incorrect data that hides token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7eb51892-9fb1-4e51-b10b-4bc44d213f18?mode=deep",
+    "timestamp": "2026-01-09 23:16:58.235701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitAddressZigRecovered()] [Address type mismatch] Can an attacker exploit the fact that signer and address are different types (sdk.AccAddress) to inject malformed addresses that crash event parsing systems or hide recovery operations from audit logs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d12d7bf-7fc1-4687-8116-6997c52347d4?mode=deep",
+    "timestamp": "2026-01-09 23:17:22.720114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitParamsUpdatedEvent()] [Authority validation] Does the function validate that authority is the actual governance module address before emission, or can any caller emit fake params update events that mislead monitoring systems about governance actions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c818b184-a16b-4527-bb81-8fc5124f587c?mode=deep",
+    "timestamp": "2026-01-09 23:17:47.021667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitModuleWalletWithdrawnEvent()] [Accounting errors] If withdrawal event is emitted with incorrect balances that don't match post-withdrawal state, can this hide module wallet drainage attacks where multiple withdrawals deplete funds without proper event tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e63d6a0-d259-430d-983e-35adbdc8fcec?mode=deep",
+    "timestamp": "2026-01-09 23:18:10.550843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitModuleWalletFundedEvent()] [Coin validation] Are the amount and balances sdk.Coins parameters validated for negative values or overflow before String() conversion, or can crafted coin objects emit misleading event data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37afc928-03ac-4ac0-b364-3e5bdbee06d1?mode=deep",
+    "timestamp": "2026-01-09 23:18:34.344433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitModuleWalletFundedEvent()] [Balance manipulation] Can an attacker emit a funded event with inflated amount or balances parameters that don't match actual state, causing monitoring systems to believe the module has sufficient funds when it doesn't, enabling bridge drainage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed547ed6-810b-44fc-a2f4-f8fb08bd037e?mode=deep",
+    "timestamp": "2026-01-09 23:18:59.495622",
+    "report_generated": false
   }
 ]
