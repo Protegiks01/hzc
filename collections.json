@@ -4498,5 +4498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c02c67fd-8dc4-4393-b606-aff9a5c12035?mode=deep",
     "timestamp": "2026-01-09 13:32:19.650644",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [HD wallet confusion] SetCoinType(ChainCoinType) at line 15 sets the BIP44 coin type to 118. Can an attacker exploit this standard Cosmos coin type to trick users into importing ZigChain keys into another Cosmos chain's wallet, enabling cross-chain key compromise? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b77498a6-79ec-45b1-8d90-43c32b1f2a45?mode=deep",
+    "timestamp": "2026-01-09 13:33:34.266444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Coin type validation] There is no validation that ChainCoinType is within valid BIP44 ranges before SetCoinType() at line 15. Can an attacker set a negative or excessively large coin type value that causes integer overflow in wallet derivation calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_563dfbfd-9db9-49a1-b457-72ab71f51ff5?mode=deep",
+    "timestamp": "2026-01-09 13:33:46.730742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Bech32 account prefix] SetBech32PrefixForAccount at line 16 uses unvalidated prefix strings. Can an attacker inject Bech32 separator characters ('1') into AccountAddressPrefix to break address parsing, allowing them to create addresses that bypass validation checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24d03e15-75a1-4529-b03d-f40dbe53f246?mode=deep",
+    "timestamp": "2026-01-09 13:34:00.392308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Bech32 validator prefix] SetBech32PrefixForValidator at line 17 accepts validatorAddressPrefix without length checks. Can an attacker supply a prefix longer than Bech32 maximum length (90 chars), causing address encoding failures that prevent validator registration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9bec6c8-df2e-44f9-8355-94371370610e?mode=deep",
+    "timestamp": "2026-01-09 13:34:13.555091",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Bech32 consensus prefix] SetBech32PrefixForConsensusNode at line 18 could accept malformed prefixes. Can an attacker inject invalid Bech32 characters (e.g., uppercase, special symbols) that cause consensus message validation to fail, halting block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7fc4a2d0-31cf-4c26-896c-b3b1043fc830?mode=deep",
+    "timestamp": "2026-01-09 13:34:27.722058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Prefix case sensitivity] The Bech32 prefixes at lines 16-18 are case-sensitive but derived from constants without normalization. Can an attacker exploit case variations ('ZIG' vs 'zig') to create addresses that appear valid but fail validation in different modules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c82c2a8-dd99-4b38-82c0-1d98d92995c9?mode=deep",
+    "timestamp": "2026-01-09 13:34:42.620086",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Empty prefix] If AccountAddressPrefix is empty string, the accountPubKeyPrefix at line 7 becomes just 'pub'. Can this create a universal prefix that matches multiple address types, allowing attackers to use one address for multiple roles (account, validator, consensus)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8637edae-b4d8-4833-806c-40c4310a021d?mode=deep",
+    "timestamp": "2026-01-09 13:34:58.999610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [SDK version mismatch] The code imports sdk from cosmos-sdk at line 3 without version pinning. Can an attacker force the app to compile with an incompatible SDK version where GetConfig() behavior differs, causing configuration to be ignored or misapplied? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34b866b0-8f5f-4ff0-9e20-6456e8bbe806?mode=deep",
+    "timestamp": "2026-01-09 13:35:17.041295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Global state mutation] sdk.GetConfig() at line 14 returns a global singleton. Can multiple init() functions across different packages race to modify this config, causing non-deterministic address validation behavior across different validator nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_702f41a3-ada5-493a-807c-bfd4eaefa018?mode=deep",
+    "timestamp": "2026-01-09 13:35:35.478433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Constant injection] AccountAddressPrefix, validatorAddressPrefix, and other prefixes depend on the AccountAddressPrefix constant used at lines 7-11. If this constant is modified through build-time injection or environment variables, can an attacker redirect all blockchain addresses to their control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0546c1fe-4a35-45fa-8491-f22fe02f37d5?mode=deep",
+    "timestamp": "2026-01-09 13:35:55.729664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [ChainCoinType substitution] ChainCoinType at line 15 references an external constant. Can an attacker substitute this with a malicious value via linker flags or build system manipulation to break HD wallet compatibility across the network? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0bc417fc-8347-47de-bb46-5ee774829678?mode=deep",
+    "timestamp": "2026-01-09 13:36:16.150349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Pre-seal access] Between lines 14-18, configuration is modified but not sealed. Can another goroutine detect this unsealed state and inject malicious config values before Seal() at line 19 executes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_325191ec-61bc-40a7-9d0d-6ce30ef074ce?mode=deep",
+    "timestamp": "2026-01-09 13:36:37.731538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Seal bypass] After config.Seal() at line 19, the SDK prevents further modifications. However, can an attacker exploit reflection or unsafe pointer manipulation to modify the sealed config struct fields directly, bypassing the seal protection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e0cca0e-b4ab-4654-a239-cae58b6435af?mode=deep",
+    "timestamp": "2026-01-09 13:36:57.098916",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Init panic] If any of the Set* functions at lines 15-18 panic before reaching Seal(), the config remains unsealed. Can an attacker trigger these panics deliberately to keep the config unsealed, then modify it from another module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ed5e74d-36c6-4596-8f97-9e50cdbee3a2?mode=deep",
+    "timestamp": "2026-01-09 13:37:16.939947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Multiple init ordering] There is another init() function in app/app.go. If that init() runs before this one, can it modify configuration that this init() depends on, causing address prefix corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78caf407-1a51-45aa-881d-192d861019e6?mode=deep",
+    "timestamp": "2026-01-09 13:37:40.895199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Init coordination] Since Go doesn't guarantee init() execution order across files in the same package, can app/app.go's init() at line 103 interfere with this config.go init(), causing race conditions in configuration setup? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fb56646-5cd0-4234-8285-c2f3fb9b3abd?mode=deep",
+    "timestamp": "2026-01-09 13:38:04.980918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Test isolation] The init() function executes even during tests. Can this cause test contamination where one test's configuration affects another, potentially masking security bugs that would appear in production? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6f851d2-4883-4372-9372-24c2a9452db2?mode=deep",
+    "timestamp": "2026-01-09 13:38:26.959939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Buffer allocation] String concatenation at line 7 ('AccountAddressPrefix +",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53333d54-bfb5-4e74-b564-9aa3b650eed7?mode=deep",
+    "timestamp": "2026-01-09 13:38:49.296374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [String immutability] The prefix variables at lines 7-11 are reassigned at each concatenation. Can this create dangling references if the SDK internally stores pointers to these strings, causing use-after-free vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a86bccc-ff11-42e0-826b-da9f16a9ce84?mode=deep",
+    "timestamp": "2026-01-09 13:39:13.380271",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Unicode handling] If AccountAddressPrefix contains non-ASCII Unicode characters, can the concatenations at lines 7-11 produce invalid UTF-8 sequences that break Bech32 encoding, allowing address validation bypass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a616250-62b3-4f6d-bde8-679e850395c7?mode=deep",
+    "timestamp": "2026-01-09 13:39:38.290965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Missing validation] There is no validation that AccountAddressPrefix is non-empty before constructing derived prefixes at lines 7-11. Can an empty prefix cause all addresses to have identical prefixes, breaking address type distinction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_387bcdb4-0017-448f-a81a-495eae88ef3d?mode=deep",
+    "timestamp": "2026-01-09 13:40:04.326629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Prefix duplication] Nothing prevents validatorAddressPrefix (line 8) from being identical to accountPubKeyPrefix (line 7) if AccountAddressPrefix is crafted specifically. Can this allow validators to impersonate regular accounts in signature validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f73ad1b2-aeb8-486f-838b-14d61c6bdf97?mode=deep",
+    "timestamp": "2026-01-09 13:40:30.748573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Circular dependency] The prefix variables at lines 7-11 all depend on AccountAddressPrefix. If AccountAddressPrefix's initialization itself depends on sdk.GetConfig(), can this create a circular dependency that causes init() to hang or panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1cd52f4-78c2-4152-85a1-4838ecdc3992?mode=deep",
+    "timestamp": "2026-01-09 13:40:54.694270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [IBC address encoding] The Bech32 prefixes set at lines 16-18 are used for IBC packet address encoding. Can an attacker craft prefixes that cause IBC packet parsing failures on the counterparty chain, permanently locking tokens in transit? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fc105c8-5474-4c0c-8308-67b95d7a0c41?mode=deep",
+    "timestamp": "2026-01-09 13:41:17.514427",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Cross-chain prefix collision] If another chain uses the same 'zig' prefix set at line 16 (via AccountAddressPrefix constant), can this cause IBC address confusion where tokens are sent to the wrong chain's addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41b0993a-33ba-4d66-8e26-b75f68553f6e?mode=deep",
+    "timestamp": "2026-01-09 13:41:40.722717",
+    "report_generated": false
   }
 ]
