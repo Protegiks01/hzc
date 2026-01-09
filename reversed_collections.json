@@ -10948,5 +10948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9a08388-1624-42cd-8735-9947b33be656?mode=deep",
     "timestamp": "2026-01-09 22:01:06.050989",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Error wrapping] Does the error wrapping with errorsmod.Wrap at line 13 properly preserve the original error type, or can an attacker exploit error type erasure to cause the keeper to misinterpret validation failures as transient errors, leading to retry logic that bypasses security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ecf0f3a-1094-4fa5-a7ee-fe5d3776a979?mode=deep",
+    "timestamp": "2026-01-09 22:02:35.744670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Case sensitivity] Can an attacker exploit case sensitivity differences between Bech32 encoding in ValidateBasic() and string comparison in keeper.UpdateParams() to bypass authority checks, given that Bech32 is case-insensitive but string comparison is case-sensitive? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df45032a-d767-4019-bdad-6f7bfa68473f?mode=deep",
+    "timestamp": "2026-01-09 22:02:48.519787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Authority validation] Does the AccAddressFromBech32 check at line 12 properly handle all edge cases including zero-length addresses, addresses with invalid prefixes, or addresses that decode successfully but represent invalid account types (module accounts, derived addresses), potentially allowing unauthorized parameter updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7687b60f-cb70-4567-b3b7-cc2e7292dc1c?mode=deep",
+    "timestamp": "2026-01-09 22:03:01.335685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Authority bypass] Can an attacker craft a malformed Bech32 address that passes AccAddressFromBech32 validation in ValidateBasic() but fails the string equality check in the keeper's UpdateParams, causing inconsistent validation behavior that could lead to governance proposal acceptance followed by execution failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2bc9b3c-dd37-4ec3-bbad-9b240fdcf0cb?mode=deep",
+    "timestamp": "2026-01-09 22:03:14.745305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 18-19] [Enable-Disable Race] Can an attacker submit MsgEnableTokenWrapper and MsgDisableTokenWrapper in rapid succession to cause bridge state confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bfd4eec-a8ce-43ab-a908-c317f51ff6b4?mode=deep",
+    "timestamp": "2026-01-09 22:03:29.342311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 14-15] [Fund-Then-Withdraw] Can an attacker use both MsgFundModuleWallet and MsgWithdrawFromModuleWallet in the same transaction to manipulate module balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_025ca54a-64c7-4cae-8974-9c151d3bc08e?mode=deep",
+    "timestamp": "2026-01-09 22:03:44.263902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Transaction Batching] Can an attacker batch multiple registered message types in a single transaction to exploit atomic execution and bypass security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92fca49c-92c3-4b74-b7b1-d19d66c14ee3?mode=deep",
+    "timestamp": "2026-01-09 22:04:00.149170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Message Type Evolution] If message types evolve over time (e.g., MsgUpdateParams gains new fields), does the codec handle backward compatibility correctly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4a76958-1c0e-4679-a21d-69b2aaa4b669?mode=deep",
+    "timestamp": "2026-01-09 22:04:17.884447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Chain Upgrade] Can changes to message registration order during chain upgrades cause state migration failures that brick the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e5319ae-47f3-4ea7-9068-91d9027a3a45?mode=deep",
+    "timestamp": "2026-01-09 22:04:36.499965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Registration Performance] Can the sequential registration of 11 message types cause performance bottlenecks during high-throughput message processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7306a0df-b2b6-4072-918d-dbb98030fcf6?mode=deep",
+    "timestamp": "2026-01-09 22:04:56.310582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Gas Consumption] Does the codec registration process consume excessive gas during module initialization, potentially causing validators to timeout during chain upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af6b08a4-cf55-4d49-933c-4b058e675362?mode=deep",
+    "timestamp": "2026-01-09 22:05:17.593622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Selective Message Processing] Can a Byzantine validator selectively process only certain registered message types while rejecting others to censor transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8a40a39-7555-4765-b7ed-e3c448fd02df?mode=deep",
+    "timestamp": "2026-01-09 22:05:39.403574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Byzantine Validator Codec] Can Byzantine validators modify their codec registration to accept malicious message types that honest validators reject, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fc03e4c-3a9c-429e-8fe2-e3dd4648bd77?mode=deep",
+    "timestamp": "2026-01-09 22:06:01.965384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Partial Registration Failure] If registration fails partway through (e.g., at line 18), can this leave the module in a partially initialized state that breaks message handling? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfabb14e-519b-4229-9aba-41001021315b?mode=deep",
+    "timestamp": "2026-01-09 22:06:25.375877",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Duplicate Registration] If RegisterInterfaces is called multiple times, can duplicate message registration cause undefined behavior or security issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4ddf5b6-3965-4983-87e3-e3062e18f8dd?mode=deep",
+    "timestamp": "2026-01-09 22:06:49.942574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Error Handling] Does RegisterInterfaces properly handle registration errors, or can silent failures cause messages to not be registered, breaking module functionality? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad362bbe-1501-450c-958c-f9dcf4065bc3?mode=deep",
+    "timestamp": "2026-01-09 22:07:17.298005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 36] [Codec Interface Mismatch] If the application uses a different codec interface than cdctypes.InterfaceRegistry, can this cause message registration mismatches? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d718083-8a41-425f-a597-7ae9dbcc943e?mode=deep",
+    "timestamp": "2026-01-09 22:07:43.038058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 30-36] [Amino Compatibility] Does the ProtoCodec properly handle backward compatibility with Amino-encoded messages, or can an attacker exploit codec mismatches to cause deserialization failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6760c88-3e5d-4359-bd22-dbf028a416d7?mode=deep",
+    "timestamp": "2026-01-09 22:08:09.781954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Function Name Collision] Can the RegisterInterfaces function be shadowed by a malicious function with the same name to intercept message registrations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ffea9e5b-95a0-4ad7-a76b-6ceb5c687a07?mode=deep",
+    "timestamp": "2026-01-09 22:08:36.343565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 1] [Package Namespace Pollution] Can an attacker create a malicious package with the same name ('types') to shadow this legitimate package and intercept message registrations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24e73262-d389-4964-8dcf-e71fdef88c6f?mode=deep",
+    "timestamp": "2026-01-09 22:09:01.840348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 5] [Interface Registry Import] Can the cdctypes import be manipulated to use a malicious interface registry implementation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b8dd02f-a0f1-4af7-a0d3-7a9251926e4e?mode=deep",
+    "timestamp": "2026-01-09 22:09:26.443939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 4] [Codec Package Version] Does the codec package import use a secure version, or can version mismatches between validators cause different serialization behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_755a9b38-7b03-4aed-9e12-e4b65a2dd5ca?mode=deep",
+    "timestamp": "2026-01-09 22:09:52.442212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 3-9] [Import Tampering] Can an attacker exploit the import statements to substitute malicious versions of cosmos-sdk codec packages, compromising all message serialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a626ee54-eac5-4c0a-ad38-71fae759c558?mode=deep",
+    "timestamp": "2026-01-09 22:10:18.929109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 25] [Message Registration Gap] Does the scaffolding comment at line 25 indicate a gap in message registration where additional messages should be registered but aren't, potentially breaking module functionality? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_945690ca-948b-4f1a-8837-0ff69b66a611?mode=deep",
+    "timestamp": "2026-01-09 22:10:43.834698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 8, 25] [Scaffolding Injection Point] Can the starport scaffolding comments (lines 8 and 25) be exploited to inject malicious code or message types during automated code generation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_513603ef-ec44-4ca3-b62a-0fc0322ebf71?mode=deep",
+    "timestamp": "2026-01-09 22:11:08.275877",
+    "report_generated": false
   }
 ]
