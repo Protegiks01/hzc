@@ -6898,5 +6898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c746061-d9f1-46b6-9df9-619ec24f9dbb?mode=deep",
     "timestamp": "2026-01-09 17:30:58.490667",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ValidateGenesis()] [Port validation bypass] Can an attacker set NativePort or CounterpartyPort to reserved port names (like 'icahost' or 'oracle') that pass ValidatePort but conflict with other IBC modules, causing packet routing collisions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53caf592-fe7c-470b-9c1e-a78848f68704?mode=deep",
+    "timestamp": "2026-01-09 17:32:10.518143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ValidateGenesis()] [Client ID validation bypass] Can an attacker craft NativeClientId or CounterpartyClientId with special characters or malformed formats that pass basic validation but cause IBC packet routing failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1025c65-0b59-487e-a83d-ede5fbaa537f?mode=deep",
+    "timestamp": "2026-01-09 17:32:22.942848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ValidateGenesis()] [Empty denom validation] Can an attacker provide an empty Denom string that passes ValidateDenom checks but causes GetIBCRecvDenom to generate incorrect IBC denom paths, leading to token misdirection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d107d409-cdef-4334-9097-cd3cee7cb523?mode=deep",
+    "timestamp": "2026-01-09 17:32:36.041643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ValidateGenesis()] [Pauser address injection] Can an attacker inject duplicate pauser addresses in the PauserAddresses array during genesis validation to cause state bloat or manipulate pause functionality checks that iterate through the list? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ca3fd07-2a8c-4dec-a82a-3092805cdf57?mode=deep",
+    "timestamp": "2026-01-09 17:32:49.122632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ValidateGenesis()] [Operator address collision] Can an attacker set OperatorAddress equal to ProposedOperatorAddress in genesis state to create an ambiguous operator transition state that bypasses operator change validation in future governance proposals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71bb80f7-7246-4981-9c4d-f76004dc3621?mode=deep",
+    "timestamp": "2026-01-09 17:33:03.160279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ValidateGenesis()] [Decimal difference attack] Can an attacker set DecimalDifference to 0 in genesis state during chain initialization to bypass the 18→6 decimal conversion, allowing direct 1:1 token minting that duplicates tokens across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5aa81b7b-2968-4f19-9a69-167028b4935e?mode=deep",
+    "timestamp": "2026-01-09 17:33:17.795507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ValidateGenesis()] [IBC parameter manipulation] Can an attacker provide a genesis state with mismatched NativeChannel and CounterpartyChannel that pass individual validation but create an invalid IBC connection path, causing all cross-chain transfers to fail silently and trap user funds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa207c06-b29b-4060-9a07-660b7c4c1b79?mode=deep",
+    "timestamp": "2026-01-09 17:33:33.340128",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ValidateGenesis()] [State validation bypass] Can an attacker craft a malicious GenesisState JSON with negative TotalTransferredIn or TotalTransferredOut values that pass validation but cause integer underflow during InitGenesis, leading to incorrect total transfer tracking and bridge accounting corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf1726d7-87f4-4f0d-9ff3-ec579e5f2a57?mode=deep",
+    "timestamp": "2026-01-09 17:33:50.749978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Hard-coded expectations] Does InitGenesis make any assumptions about the state of other modules or the blockchain, such as assuming certain IBC connections already exist, that could break when the genesis initialization order changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7958598b-51bc-4eb6-9b0d-7ecaecb9e5d8?mode=deep",
+    "timestamp": "2026-01-09 17:34:09.313263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Schema versioning] Does the exported genesis include any version information to indicate which schema version was used, or could genesis files from different versions be confused, leading to incorrect interpretation of field values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63ab05e2-ab5d-4ec9-b28e-3c23f89cb739?mode=deep",
+    "timestamp": "2026-01-09 17:34:28.490246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Backward compatibility] If ExportGenesis adds new fields in a future version, would the exported genesis be compatible with older chain versions, or would unknown fields cause JSON unmarshaling errors when importing into older versions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b59413fb-a15f-4e4b-9cca-1d24bd8c2656?mode=deep",
+    "timestamp": "2026-01-09 17:34:48.746253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Forward compatibility] If InitGenesis is modified to set additional state in a future version, would genesis files from older versions still work, or would missing fields cause SetX methods to receive nil/zero values that break initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_589414db-68be-4492-a7db-6a5988a32965?mode=deep",
+    "timestamp": "2026-01-09 17:35:10.344629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Deprecated fields] If future versions add new genesis fields, does InitGenesis handle missing fields gracefully by using defaults, or would old genesis files cause panics when trying to set new state values that don't exist in the old schema? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b65fd70-4d47-4504-8d59-dfaf24e5fe6f?mode=deep",
+    "timestamp": "2026-01-09 17:35:31.763470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Decimal difference validation bypass] Besides the check for >18, does SetDecimalDifference on line 40 validate that the decimal difference is appropriate for the configured denom and IBC settings, or can genesis specify a decimal difference of 12 for a denom that should use 6, causing incorrect token conversions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db3f1a32-6134-4987-8626-e10dd2d54b7d?mode=deep",
+    "timestamp": "2026-01-09 17:35:55.155811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [IBC setting validation bypass] Do the SetNativeClientId, SetCounterpartyClientId, SetNativePort, etc. methods on lines 32-37 perform any validation of the IBC settings, or do they trust that genesis validation already happened, creating a potential bypass if genesis validation is not called? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ad84c93-99da-45ab-a98b-3c877cf90788?mode=deep",
+    "timestamp": "2026-01-09 17:36:18.581655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Address validation bypass] Do SetOperatorAddress and SetProposedOperatorAddress on lines 22-23 validate that addresses are valid bech32 format, or do they blindly store whatever string is provided in genesis, allowing invalid addresses that cause runtime errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aeb081f1-56ff-417a-8cf9-e7825efc05d5?mode=deep",
+    "timestamp": "2026-01-09 17:36:40.645678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Params validation bypass] Does SetParams on line 13 internally call Params.Validate(), or does it assume the caller already validated params, and if validation is skipped, can genesis inject params with invalid values that break module functionality? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c962a39-4526-48a2-ab21-ce2c7f12bade?mode=deep",
+    "timestamp": "2026-01-09 17:37:05.231786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [No pre-validation call] Does the AppModule.InitGenesis on line 143-148 in module.go call genState.Validate() before calling this InitGenesis function, or does it rely on external validation, and if external validation is skipped, can an attacker inject completely unvalidated genesis state including negative amounts, invalid addresses, and malicious IBC settings? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8962cc0b-b75a-40a1-8bed-d7404234a847?mode=deep",
+    "timestamp": "2026-01-09 17:37:30.565684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Transfer amount precision] Do GetTotalTransferredIn/Out on lines 51-52 return the exact math.Int values as stored, or could there be precision loss during serialization/deserialization that causes slight discrepancies after export/import cycles? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_844714df-f7dd-464d-8725-1622066ad00f?mode=deep",
+    "timestamp": "2026-01-09 17:37:55.849486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Large pauser list] If PauserAddresses on line 56 contains a very large number of addresses (e.g., 10,000+), could this cause the exported genesis JSON to be excessively large, causing memory issues during chain restart or JSON parsing failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25279d03-6f0f-4373-aa91-9adf4bf46039?mode=deep",
+    "timestamp": "2026-01-09 17:38:21.487233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Uninitialized state] If the module was never used and state values were never set, do the GetX methods on lines 49-66 return sensible default values, or could they return nil/empty values that cause import failures when re-initializing from exported genesis? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e36b855-d89b-4e37-be11-4b461404b8e3?mode=deep",
+    "timestamp": "2026-01-09 17:38:47.939207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Trailing whitespace] Do the SetX methods on lines 22-38 trim whitespace from string values, or could genesis contain addresses/IBC settings with leading/trailing spaces that cause string comparison failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e99c5b79-2fec-4a60-9614-a366507ecb33?mode=deep",
+    "timestamp": "2026-01-09 17:39:14.091615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Case sensitivity] Are OperatorAddress and address comparisons case-sensitive, and if genesis specifies operator address in mixed case while normal operations use lowercase, could this cause the operator privilege checks to fail? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cbfdd09-05c6-4ea1-8201-d2d961ec1f4f?mode=deep",
+    "timestamp": "2026-01-09 17:39:40.934893",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Special character handling] Do the IBC settings (ports, channels) on lines 34-37 properly handle special characters allowed in IBC identifiers (like '.', '_', '+', '-', '#', '[', ']', '<', '>'), or could special characters cause string parsing issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34bdeb72-c85e-4a37-a926-d45520601781?mode=deep",
+    "timestamp": "2026-01-09 17:40:08.012776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Identical operator addresses] If OperatorAddress and ProposedOperatorAddress are identical on lines 22-23, does this indicate no pending operator transfer, or could it cause confusion in the operator transfer claim logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e96c34af-2822-4aed-b4a2-a8af890a2dba?mode=deep",
+    "timestamp": "2026-01-09 17:40:33.942085",
+    "report_generated": false
   }
 ]
