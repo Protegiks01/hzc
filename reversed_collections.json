@@ -448,5 +448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8dea9d42-ddb0-438e-bc1f-dd9560d1acb9?mode=deep",
     "timestamp": "2026-01-09 07:53:37.086981",
     "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxSubDenomLength] [Upgrade incompatibility] If a future upgrade needs to support longer subdenoms but MaxSubDenomLength=44 is hardcoded, can existing factory tokens with 44-char subdenoms become invalid during migration, bricking tokens and causing fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4761f95-7295-454b-b4af-7ed33ea2c645?mode=deep",
+    "timestamp": "2026-01-09 08:17:29.027656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: AddressPrefix] [Testnet-mainnet confusion] If both testnet and mainnet use AddressPrefix='zig', can users accidentally send mainnet tokens to testnet addresses or vice versa, causing permanent token loss since addresses are valid on both networks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_811c3620-137a-489a-bc35-96a089da44b0?mode=deep",
+    "timestamp": "2026-01-09 08:17:41.363923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenom] [Multi-chain deployment conflict] If multiple chains deploy ZigChain with BondDenom='uzig' hardcoded, can IBC transfers between these chains cause denom collisions where 'ibc/<hash>/uzig' from different chains appears identical, enabling cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_543b889f-5f42-459c-94ad-9fdbe9e4d3ec?mode=deep",
+    "timestamp": "2026-01-09 08:17:53.983959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Callback recursion exhaustion] If IBC callbacks can trigger other callbacks within the MaxIBCCallbackGas=10M limit, can an attacker craft recursive callback chains that consume gas exponentially, causing gas limit exceeded panics that halt IBC packet processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f741ff78-b25c-454f-8244-60ad5bb79681?mode=deep",
+    "timestamp": "2026-01-09 08:18:07.510166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Fee ratio manipulation] If pool fee calculations use PoolFeeScalingFactor=100,000 as denominator but attacker-controlled numerators can be arbitrarily large, can an attacker craft fee values that cause division to always round down to zero, enabling fee-free trading? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62961cb4-37ea-461c-8dfb-dce7b85f3eec?mode=deep",
+    "timestamp": "2026-01-09 08:18:21.257094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Pool ID rollover] If pool ID generation increments a counter toward MaxPoolID=99,999,999,999 without checking for wraparound, can an attacker spam pool creation to roll over the counter back to 0, causing pool ID collisions with existing pools and liquidity theft? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_794e89fb-50bd-4a30-a0ff-74f51a7f156e?mode=deep",
+    "timestamp": "2026-01-09 08:18:36.016737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenomDecimals] [Decimal migration attack] If a chain upgrade changes decimal precision from 6 to 18, but BondDenomDecimals=6 remains hardcoded, can an attacker exploit modules that use the old constant while others use new runtime values, causing state inconsistencies where token balances differ by 10^12 across modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a972d35-c156-44f7-9d66-164541a45491?mode=deep",
+    "timestamp": "2026-01-09 08:18:51.579235",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenom] [Genesis state corruption] If genesis.json contains a different bond denom than BondDenom='uzig', can validators with mismatched genesis files reach different state roots, causing consensus failures and chain splits at genesis? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d94d5da0-4c56-4247-82de-4f7388c6073d?mode=deep",
+    "timestamp": "2026-01-09 08:19:08.592136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Relayer gas estimation attack] If IBC relayers estimate required gas based on MaxIBCCallbackGas=10M, can an attacker craft packets that require exactly 10M gas, causing relayers to under-estimate total gas needed (packet processing + callback), resulting in failed relayer transactions and stuck IBC packets? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6975786c-f02b-4834-875c-626fb90ecdad?mode=deep",
+    "timestamp": "2026-01-09 08:19:27.324668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURILength] [HTTP header injection] If token metadata URIs with MaxURILength=256 are used in HTTP headers without sanitization, can an attacker inject CRLF characters in URIs to split HTTP headers and inject malicious headers, compromising metadata fetching services? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ee62a1a-de51-455f-8a50-836806f227ec?mode=deep",
+    "timestamp": "2026-01-09 08:19:46.568841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenom] [Exchange API confusion] If centralized exchanges expect BondDenom='uzig' but users send tokens with similar denoms (e.g., 'uzig' with Unicode look-alikes), can attackers exploit exchange deposit processing to credit wrong amounts or wrong assets, stealing from exchange hot wallets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfbc197b-4b82-4385-b6cc-d0900ace74b4?mode=deep",
+    "timestamp": "2026-01-09 08:20:06.061175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: BlockChainName] [DNS rebinding attack] If BlockChainName='zigchain' is used in RPC endpoint URLs without additional validation, can an attacker register 'zigchain.attacker.com' and use DNS rebinding to redirect RPC calls to malicious endpoints, stealing private keys from wallet software? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0433c83-a600-40cc-968c-42ac90146bb0?mode=deep",
+    "timestamp": "2026-01-09 08:20:27.051117",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: CoinType] [BIP44 path collision] If CoinType=118 is used in BIP44 derivation paths but external wallets use different coin types for the same chain, can users lose funds by deriving addresses with wrong coin types that don't match ZigChain's expected paths? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b8733ad-c98f-4da3-b319-97aeba41737b?mode=deep",
+    "timestamp": "2026-01-09 08:20:48.930134",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Gas type mismatch] If MaxIBCCallbackGas is defined as uint64 but some IBC modules use int64 for gas tracking, can an attacker exploit sign bit flipping where MaxIBCCallbackGas=10M is interpreted as negative in signed contexts, bypassing gas limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca8397c9-dbac-40d0-a74a-3d5f8a1555c7?mode=deep",
+    "timestamp": "2026-01-09 08:21:13.689296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxDenomLength] [String buffer overflow] If MaxDenomLength=127 is used to allocate fixed-size byte arrays for denom storage, but actual denoms are stored as variable-length strings, can an attacker craft denoms with embedded null bytes that appear to be under 127 characters but overflow buffers when processed as C-style strings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4b8d415-f8e8-45cf-89a3-fd5ef9315143?mode=deep",
+    "timestamp": "2026-01-09 08:21:36.871174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Array bounds assumption] If code assumes MaxPoolID fits in uint32 (max 4 billion) but MaxPoolID=99,999,999,999 requires uint64, can an attacker create pools with IDs > 2^32 that cause array index out-of-bounds errors in modules using 32-bit indexing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c8b1baa-acac-49ba-aa9b-ffb277ae86c5?mode=deep",
+    "timestamp": "2026-01-09 08:22:01.166678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Signed integer confusion] If PoolFeeScalingFactor=100,000 is treated as int64 in some modules but uint64 in others, can an attacker exploit sign confusion where negative fee values bypass validation in unsigned contexts but are interpreted as large positive values in signed contexts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fd2dd07-1563-4d03-8138-4ca7a048530e?mode=deep",
+    "timestamp": "2026-01-09 08:22:26.693098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenomDecimals] [Type conversion integer overflow] If BondDenomDecimals=6 is used in calculations as uint8 but conversion factors are computed as 10^decimals without overflow checks, can an attacker trigger scenarios where intermediate calculations overflow uint64, causing incorrect decimal conversions and token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7b8f4c1-abb4-4f2c-b1ff-8077bae26560?mode=deep",
+    "timestamp": "2026-01-09 08:22:53.039973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Callback gas measurement inaccuracy] If MaxIBCCallbackGas=10M is enforced but gas metering for IBC callbacks has measurement errors (e.g., not counting storage operations), can an attacker craft callbacks that appear to consume <10M gas in metering but actually exhaust validator resources, causing DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d78557ef-58c2-4a96-bb5e-a52b25df72d9?mode=deep",
+    "timestamp": "2026-01-09 08:23:19.292841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Prefix uniqueness assumption] If PoolPrefix='zp' is assumed unique across all denom types but factory tokens can also use 'zp' as subdenom prefix, can an attacker exploit ambiguous denom parsing where 'factory/creator/zp123' could be interpreted as either a factory token or a pool token identifier? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d7036b4-4379-4ff6-ad3b-7c0cc3b9af04?mode=deep",
+    "timestamp": "2026-01-09 08:23:44.543156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURIHashLength] [Hash length without algorithm verification] If MaxURIHashLength=64 validates hash string length but not the hash algorithm or format, can an attacker provide 64-character strings that aren't valid hashes (e.g., all zeros or random hex), passing validation but failing hash verification in metadata resolution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69e41b9b-a27d-4385-b49d-df9de33dde65?mode=deep",
+    "timestamp": "2026-01-09 08:24:09.715337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MinSubDenomLength] [Empty subdenom attack] If MinSubDenomLength=3 is enforced but not minimum total denom length, can an attacker create factory denoms with 3-character subdenoms but empty creator addresses, resulting in denoms like 'factory//abc' that bypass validation and cause parsing errors in IBC transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bf522a4-f08c-4344-aa32-8c355dbae8f7?mode=deep",
+    "timestamp": "2026-01-09 08:24:35.791822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxDenomLength] [Validation order dependency] If denom validation checks MaxDenomLength=127 before checking other constraints (e.g., character set, prefix format), can an attacker craft 127-character denoms with invalid characters that pass length checks but fail later validation, causing inconsistent validation results across modules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73e25a16-c5ce-4251-a824-afdedd1f40ee?mode=deep",
+    "timestamp": "2026-01-09 08:25:00.145619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: AddressPrefix] [Chain upgrade address confusion] If AddressPrefix='zig' is hardcoded but a chain upgrade changes the address format (e.g., to SegWit-style), can an attacker exploit address validation code that still checks the 'zig' prefix while new addresses use a different format, causing cross-chain transfers to fail or addresses to be misrouted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2b95f69-1f4d-47a9-9acc-2d9785df8801?mode=deep",
+    "timestamp": "2026-01-09 08:25:24.487436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Gas limit governance bypass] If MaxIBCCallbackGas=10M is immutable but governance can modify block gas limits to values below 10M, can an attacker trigger IBC callbacks that request maximum callback gas but exceed the block limit, causing validators to fail block production when IBC packets are received? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2534a13c-09f3-4272-9f51-948cbcfd0b97?mode=deep",
+    "timestamp": "2026-01-09 08:25:49.099194",
+    "report_generated": false
   }
 ]
