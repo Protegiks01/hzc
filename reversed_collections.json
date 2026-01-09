@@ -1348,5 +1348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a55ca4e-fc67-4632-8da4-29f1b11cf83c?mode=deep",
     "timestamp": "2026-01-09 09:13:58.717434",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Edge Cases] [Max Uint Values] Can querying with CoinIn amounts set to cosmosmath.Uint maximum values cause arithmetic overflow in fee calculations or AMM math, resulting in wrapped-around values that appear profitable? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ae47097-a756-4cb9-bdfc-9843a8fc5f6f?mode=deep",
+    "timestamp": "2026-01-09 09:15:12.020629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Edge Cases] [Empty Pool] Can querying pools with zero reserves in all Coins cause AMM invariant violations in swap calculations, returning infinite or undefined CoinOut values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a62b0bd-2742-44e8-9b69-d4b7aba89c5e?mode=deep",
+    "timestamp": "2026-01-09 09:15:24.450022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Edge Cases] [Single Coin Pool] Can querying pools with only one coin type in the Coins array cause division-by-zero or undefined behavior in swap calculations, potentially crashing the query handler? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_008ed964-905f-44d0-95cc-32ad88d06aff?mode=deep",
+    "timestamp": "2026-01-09 09:15:37.797264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Edge Cases] [Zero Amount Swaps] Can contracts query SwapIn with CoinIn.Amount = 0, and does the response correctly indicate zero output, or could there be edge cases where fees are charged even on zero-amount queries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d287ae4-805d-4050-85c2-8e391ed32e87?mode=deep",
+    "timestamp": "2026-01-09 09:15:50.963345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Error Handling] [Missing Pool] When querying a non-existent pool, the error at query_plugin.go line 132 returns the poolID in the error message - can this be exploited to brute-force discover valid pool IDs through error message analysis? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e5ed632-5c50-4fee-b352-e44cc7c6fcb4?mode=deep",
+    "timestamp": "2026-01-09 09:16:04.932811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Error Handling] [Missing Denom] When querying a non-existent denom, query_plugin.go returns an error - but can the error message itself leak sensitive information about the denom namespace structure or internal state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a57f7e8-4766-4812-9c31-f8800866db4f?mode=deep",
+    "timestamp": "2026-01-09 09:16:20.095984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Precision] [Large Numbers] Can cosmosmath.Uint fields representing large token amounts (e.g., 10^30) lose precision during JSON serialization/deserialization, causing contracts to work with truncated values and make incorrect calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4b1f242-b1d4-46f6-b9be-03506d629075?mode=deep",
+    "timestamp": "2026-01-09 09:16:36.379260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Precision] [AMM Math] Can the CalculateSwapAmount function called in query_plugin.go line 174 experience precision loss in the constant product formula (x*y=k) when dealing with extreme reserve ratios, causing CoinOut to be incorrectly calculated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1c66d04-fe36-43f5-af90-fe45a8a84ca2?mode=deep",
+    "timestamp": "2026-01-09 09:16:54.398350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Precision] [Fee Calculation] The Fee field in SwapInResponse - if fees are calculated as percentages of very small amounts, can rounding errors cause fees to round down to zero, allowing fee-free swaps that violate protocol economics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b8f0785-78b0-4fcd-880c-ced16e978285?mode=deep",
+    "timestamp": "2026-01-09 09:17:12.964304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Precision] [SwapIn Calculation] When SwapInResponse.CoinOut is calculated for tokens with different decimal places (e.g., 18-decimal input, 6-decimal output), can precision loss occur causing the response to show significantly less output than should be received? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_761580a3-3856-4efe-b844-8de75460ad85?mode=deep",
+    "timestamp": "2026-01-09 09:17:32.644121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Race Conditions] [Admin Changes] Can DenomResponse return admin addresses that change between query time and when the contract attempts to interact with them, causing authorization errors or allowing unauthorized actions if the contract caches the old admin? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_198700f2-ee42-4de2-96a3-1f1015a98549?mode=deep",
+    "timestamp": "2026-01-09 09:17:53.394379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Race Conditions] [Query During Execution] If a contract queries SwapIn amounts in the same transaction before executing the swap, can intervening messages from other contracts change the pool state between the query and execution, making the query results completely invalid? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a2c7086-156a-4b1f-8f63-274a55ec3eb0?mode=deep",
+    "timestamp": "2026-01-09 09:18:15.536108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [State Consistency] [Minting Cap Changes] Can concurrent queries and transactions cause DenomResponse to return Minted and MintingCap values from different block heights, potentially showing Minted > MintingCap which should be impossible, causing contract logic errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d899904-4acb-4c91-b045-3573ad855f6f?mode=deep",
+    "timestamp": "2026-01-09 09:18:38.044017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [State Consistency] [Pool Reserve Updates] When querying PoolResponse during active swap transactions, can the Coins array reflect partially updated reserves (one coin updated, other not yet updated) violating the AMM x*y=k invariant in the response? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_515aec2a-66e2-488d-b38b-1a7fdaa9d92a?mode=deep",
+    "timestamp": "2026-01-09 09:19:01.369503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [State Consistency] [Atomic Reads] When querying DenomResponse, the data comes from two separate keeper lookups (GetDenom and GetDenomAuth at query_plugin.go lines 77, 88) - can race conditions between these reads return inconsistent data where Denom exists but DenomAuth doesn't match? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2aa67748-3a3f-4c4c-87d0-999af0a6aaf5?mode=deep",
+    "timestamp": "2026-01-09 09:19:26.089318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Type: string] [UTF-8 Validation] Are string fields validated as proper UTF-8? Can invalid UTF-8 sequences in addresses or denoms cause JSON marshaling errors, contract panics, or security vulnerabilities when contracts process these strings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc8b8a48-9cb3-4c94-9379-e7ef26f6d5f9?mode=deep",
+    "timestamp": "2026-01-09 09:19:49.511355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Type: string] [Empty Strings] Can empty string responses for Denom, PoolID, Creator, BankAdmin, MetadataAdmin, or Formula cause contracts to treat them as valid but special-case values, leading to authorization bypasses or logic errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_890d83fd-7b24-4505-9aca-cdc69921cb63?mode=deep",
+    "timestamp": "2026-01-09 09:20:14.865323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Type: uint32] [Fee Overflow] The Fee field in PoolResponse is uint32 - can extremely high fee values overflow this type during conversion from the keeper's internal fee representation, causing fees to wrap around to very low values and enabling fee-free swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c0b7b81-b0c4-4df9-bbe0-9ce0bc75bffe?mode=deep",
+    "timestamp": "2026-01-09 09:20:41.043140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Type: sdk.Coin] [Denom Validation] Can the sdk.Coin.Denom fields in responses contain invalid characters, extremely long strings, or Unicode that causes parsing errors or injection vulnerabilities in contracts consuming these values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c093ca87-1a0b-472e-8968-9953602c8a28?mode=deep",
+    "timestamp": "2026-01-09 09:21:07.898649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Type: sdk.Coin] [Validation] The LPToken and Coins fields use sdk.Coin which should be validated - but does the query response validation occur before or after marshaling, and can invalid coins (negative amounts, empty denoms) leak into responses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79756b7e-84d7-4cb5-a5d2-d780a2fde87c?mode=deep",
+    "timestamp": "2026-01-09 09:21:35.841600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Type: cosmosmath.Uint] [Negative Values] Although Uint should be non-negative, can incorrect type conversions in the keeper layer result in negative values being returned as large positive numbers due to underflow, misleading contracts about available minting capacity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e8246b6-ced3-4a17-885a-5d2b49b2c022?mode=deep",
+    "timestamp": "2026-01-09 09:22:02.446391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Type: cosmosmath.Uint] [Nil Handling] Can cosmosmath.Uint fields (Minted, MintingCap) be nil when returned from the keeper, causing nil pointer dereference when contracts attempt arithmetic operations on these values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fbb6473-59fd-4418-8ceb-289cf5135902?mode=deep",
+    "timestamp": "2026-01-09 09:22:28.776255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [CosmWasm Integration] [Query Limit] Is there a limit on query complexity or result size? Can an attacker query pools with massive Coins arrays or denoms with very long names, causing response sizes that exceed CosmWasm memory limits and crash the contract? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32cb569e-870f-4e63-b8e8-5d50aa2f4c39?mode=deep",
+    "timestamp": "2026-01-09 09:22:54.875772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Cross-Contract] [Query Result Caching] If query results are cached by the CosmWasm runtime, can stale cached responses cause contracts to make decisions based on outdated pool reserves or denom states, leading to failed swaps or incorrect minting decisions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86f5d113-5dde-4e63-b954-e757d8410769?mode=deep",
+    "timestamp": "2026-01-09 09:23:21.263362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Cross-Contract] [Information Leakage] Can contracts query sensitive information (admin addresses, exact minted amounts, pool reserves) and use this for targeted attacks, such as identifying whales, admin accounts, or pools with low liquidity for manipulation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b5457bd-78b7-4836-bd44-00d164777562?mode=deep",
+    "timestamp": "2026-01-09 09:23:47.764415",
+    "report_generated": false
   }
 ]
