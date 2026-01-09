@@ -8848,5 +8848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f00d454c-0e69-42d3-80a2-91ddf1718b52?mode=deep",
     "timestamp": "2026-01-09 21:36:26.294804",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [State divergence] If different validators have different pool UID states due to delayed block propagation, can clients querying different validators receive conflicting pool existence information that breaks DEX frontends? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c11c5f5-7974-4f88-9041-f05a5373e513?mode=deep",
+    "timestamp": "2026-01-09 21:37:34.832859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Pool creation bypass] Can an attacker query for a non-existent pool UID to trigger error paths that leak information about the pool creation process, allowing them to predict future pool IDs or addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b2d5338-b2c8-4e54-b273-9f5a54a0eb47?mode=deep",
+    "timestamp": "2026-01-09 21:37:47.159423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Swap operation dependency] If msg_server_swap.go depends on GetPoolUid to route swaps, can an attacker exploit the coins[0]/coins[1] sorting to cause swaps to be routed to unintended pools with unfavorable rates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d2d6fd2-a8cb-4194-a83c-f739d92a504f?mode=deep",
+    "timestamp": "2026-01-09 21:37:59.991086",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Liquidity addition race] During AddLiquidity operations, if the pool UID query returns stale data while the pool is being modified, can this cause liquidity to be added at incorrect ratios, leading to immediate arbitrage opportunities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32878041-04f9-49fa-a462-d6a994a4d018?mode=deep",
+    "timestamp": "2026-01-09 21:38:13.310087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Pool removal race] If a pool is removed after GetPoolUid confirms its existence but before a swap executes, does the swap fail gracefully or can it cause state corruption in the DEX module by operating on deleted pool data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5066ca8a-0faa-4cce-8775-930977dbeffa?mode=deep",
+    "timestamp": "2026-01-09 21:38:27.094965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Pool enumeration attack] Can an attacker use ListPoolUids to build a complete map of all trading pools and their relationships, then exploit this knowledge for sophisticated front-running or sandwich attacks across multiple pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_860da309-d667-4fbb-a61c-9a6262a585f0?mode=deep",
+    "timestamp": "2026-01-09 21:38:42.469293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Oracle manipulation] If external price oracles use GetPoolUid queries to determine pool existence for price feeds, can an attacker cause the pool UID mapping to become inconsistent, feeding wrong prices to dependent DeFi protocols? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1efed198-916a-468a-bdf4-1ca932e0ef1f?mode=deep",
+    "timestamp": "2026-01-09 21:39:00.052741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Byzantine response manipulation] Can a Byzantine validator modify the poolUidss slice before returning it to selectively hide certain pools from clients, enabling censorship of specific trading pairs or liquidity pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd304531-019f-4730-adde-63b6ded79a67?mode=deep",
+    "timestamp": "2026-01-09 21:39:18.046561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Byzantine pool UID fabrication] Can a Byzantine validator return fabricated PoolUids data for non-existent pools to mislead clients into attempting swaps that will fail, wasting gas fees and degrading user experience? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab2d0aa7-430d-4452-8f0b-c62df10d8c16?mode=deep",
+    "timestamp": "2026-01-09 21:39:37.180429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Consensus divergence] If Byzantine validators return different pagination results for the same query across nodes, can this cause state machine divergence where different validators have different views of available pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78551bb0-ca79-4963-a840-cd2a3a968ad4?mode=deep",
+    "timestamp": "2026-01-09 21:39:57.023241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Response delay attack] Can a Byzantine validator intentionally delay GetPoolUid responses to cause timeouts in client applications, forcing them to retry queries multiple times and amplifying the load on honest validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe63b55f-3545-4f00-8a34-58c76ddc7799?mode=deep",
+    "timestamp": "2026-01-09 21:40:17.922010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [Query result divergence] Can differences in how honest vs Byzantine validators execute these queries lead to deterministic consensus failures when query results are used in state transitions by other modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7aba5bc0-042c-4992-b032-6d2e81c29d2e?mode=deep",
+    "timestamp": "2026-01-09 21:40:39.390405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [IBC denom format] Can an attacker provide IBC denom paths (ibc/HASH format) as base/quote that contain unexpected characters post-sorting, causing the pool UID string to be malformed and unmatchable with actual pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97a99666-06d2-491f-8ff5-42b55c50fe98?mode=deep",
+    "timestamp": "2026-01-09 21:41:01.259717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Factory denom format] For factory-created denoms with format 'factory/{creator}/{subdenom}', can the '/' characters interfere with the PoolUidsKey function's own '/' separator, causing store key corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8165c13a-5040-43a2-967d-5d8522825770?mode=deep",
+    "timestamp": "2026-01-09 21:41:24.998494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Denom length limits] Can an attacker provide extremely long denom strings that pass Cosmos SDK validation but cause the concatenated poolUidString to exceed storage key size limits, leading to silent failures or store corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ebae4e9-4e9e-47c8-b546-22d6bf30e8c4?mode=deep",
+    "timestamp": "2026-01-09 21:41:48.871949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Special character injection] Can an attacker use denoms containing newlines, null bytes, or other control characters that survive NewCoins validation but break poolUidString concatenation or store key encoding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a93278e8-6d65-46e2-b31d-83414c41ad57?mode=deep",
+    "timestamp": "2026-01-09 21:42:12.857869",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [UTF-8 encoding issues] If denoms contain invalid UTF-8 sequences or mixed encodings, can this cause string concatenation to produce corrupted pool UIDs that don't match any existing pools even when they should? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a0645c9-2cb8-415d-b28e-049b12914ba4?mode=deep",
+    "timestamp": "2026-01-09 21:42:38.390523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Gas metering bypass] Since query operations typically don't consume gas, can an attacker make unlimited ListPoolUids calls to exhaust validator resources without paying any transaction fees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8b7aff6-8531-406c-a6f5-e43298766f0c?mode=deep",
+    "timestamp": "2026-01-09 21:43:03.889116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Store read amplification] Does each GetPoolUid call perform multiple underlying store reads due to prefix store wrapping, and can an attacker amplify resource consumption by querying pools that are expensive to look up? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2fd80014-e19a-45a8-841e-46accf666a1b?mode=deep",
+    "timestamp": "2026-01-09 21:43:30.533209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Pagination cursor manipulation] Can an attacker craft pagination cursors that cause query.Paginate to read the same data multiple times, multiplying I/O operations and causing disk thrashing on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_685d65e5-4cd8-4549-9a03-3c259bd7184f?mode=deep",
+    "timestamp": "2026-01-09 21:43:55.983671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Memory allocation per query] Does each GetPoolUid call allocate new coins, strings, and structs that aren't properly garbage collected, causing memory pressure on validators during high query volume? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ae25281-5b11-4665-b31a-c30140029198?mode=deep",
+    "timestamp": "2026-01-09 21:44:20.321143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Iterator resource leak] If the iterator in query.Paginate encounters an error mid-iteration, are iterator resources properly cleaned up, or do they leak and accumulate over time until validator restart is required? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bee39ef4-fc29-4289-a3aa-748073383013?mode=deep",
+    "timestamp": "2026-01-09 21:44:44.663186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Protobuf version mismatch] If the stored PoolUids protobuf schema differs from the current types.PoolUids definition due to an upgrade, can unmarshaling fail silently or produce corrupted data that appears valid? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8905024a-12d5-480b-a8ae-ce42837c56dc?mode=deep",
+    "timestamp": "2026-01-09 21:45:09.139161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Type confusion] Can an attacker exploit type confusion by storing non-PoolUids protobuf data under the PoolUidsKeyPrefix, causing MustUnmarshal to panic or produce unexpected results when queried? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_70c0adb0-e216-480a-bd7d-dbf76fbd6793?mode=deep",
+    "timestamp": "2026-01-09 21:45:34.489320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Protobuf field truncation] If the stored protobuf has additional unknown fields from a future version, does the unmarshaling preserve them correctly, or can they be lost causing state inconsistency after chain upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bd6dbf9-7bd3-407b-9ade-5339148992e0?mode=deep",
+    "timestamp": "2026-01-09 21:46:00.771464",
+    "report_generated": false
   }
 ]
