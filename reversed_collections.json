@@ -4948,5 +4948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1595f13-b94f-4c25-b65d-dc1e71d5f376?mode=deep",
     "timestamp": "2026-01-09 14:51:15.101493",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [DoS] The ExtractDenomFromPath call at line 54 and string operations at line 57 may be expensive for long denom strings. Can an attacker exploit this with extremely long denom paths to DoS the acknowledgment processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57b30820-510c-431c-949e-abf6b5f782c1?mode=deep",
+    "timestamp": "2026-01-09 14:52:26.789971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [DoS] The function performs multiple validation checks (lines 25, 41, 57, 67, 76) and state reads. Can an attacker craft inputs that maximize gas consumption without being rejected early, causing block resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30587cd5-6569-446b-be67-8f4d83482376?mode=deep",
+    "timestamp": "2026-01-09 14:52:39.235067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Relayer attack] Can a malicious relayer submit forged acknowledgments that pass IBC verification but contain malicious data in the packet or acknowledgment fields? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5317a838-d557-46a3-ad15-78faf64b1b12?mode=deep",
+    "timestamp": "2026-01-09 14:52:51.823703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Relayer attack] Can a malicious relayer selectively delay or reorder acknowledgments to exploit time-based vulnerabilities or race conditions between packet send and acknowledgment processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0dd44ad9-20e3-449e-bd57-cf34f4276217?mode=deep",
+    "timestamp": "2026-01-09 14:53:05.557827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Relayer attack] The relayer parameter at line 20 is not used in the function logic. Can a malicious relayer manipulate packet or acknowledgment data to gain an advantage, and should the relayer address be validated or logged? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1aa7744-3828-44ad-8f28-a29368e6ffb7?mode=deep",
+    "timestamp": "2026-01-09 14:53:19.453315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [DoS] If event emission is computationally expensive or involves I/O operations, can an attacker spam the function with malformed inputs to trigger excessive event emission and DoS validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aae2a715-0c64-4b92-b58f-32f8b5cc1e35?mode=deep",
+    "timestamp": "2026-01-09 14:53:34.336421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Information leak] Info events are emitted when IBC settings validation fails at line 43 or denom validation fails at line 59. Can an attacker use these events to determine the exact configuration of IBC settings and plan targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4668df7-1670-442a-88cc-51cc49c6747f?mode=deep",
+    "timestamp": "2026-01-09 14:53:50.039541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Information leak] Error events are emitted at multiple points (lines 27, 35, 69, 78, 87, 96, 102, 109, 122, 138). Can an attacker use event emission timing or absence to gain information about module state or perform timing attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f65aae3-f606-4319-a50b-7bb7a5afe3f1?mode=deep",
+    "timestamp": "2026-01-09 14:54:07.325565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] If the underlying app.OnAcknowledgementPacket at line 101 modifies state that affects subsequent checks (IsEnabled, balance checks in handleRefund), can this cause the tokenwrapper middleware to operate on stale state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d708b5d-07c2-47c0-b16c-d2e18b2d2d0a?mode=deep",
+    "timestamp": "2026-01-09 14:54:25.626452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Replay attack] Does the function at line 15 properly ensure that each acknowledgment can only be processed once, or can an attacker replay acknowledgments to manipulate TotalTransferredOut tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31d3105e-be40-443c-8e0a-108da0a4f3a1?mode=deep",
+    "timestamp": "2026-01-09 14:54:45.045368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] Between packet send (SendPacket) and acknowledgment receipt (OnAcknowledgementPacket), can an attacker modify IBC settings via governance to cause the acknowledgment to be rejected, permanently locking user tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ede359d-926f-4ed2-b675-c383f97f2b10?mode=deep",
+    "timestamp": "2026-01-09 14:55:05.133124",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] Can an attacker craft a sequence of IBC packets where some succeed and some fail acknowledgment, exploiting the different code paths (success tracking vs failure refund) to cause cumulative accounting errors over time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba504974-684c-4e6f-9073-e228249977b1?mode=deep",
+    "timestamp": "2026-01-09 14:55:26.609356",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State tracking] After successful tracking at line 144, the function returns nil. Is there any state cleanup or finalization that should occur but doesn't, potentially leaving temporary state in an inconsistent condition? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e7a4640-e47e-4c61-a813-4d4fc24b5d41?mode=deep",
+    "timestamp": "2026-01-09 14:55:48.533458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State tracking] If multiple acknowledgments are processed in the same block, does AddToTotalTransferredOut at line 144 properly handle concurrent updates, or can race conditions cause the total to be incorrect? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f411473d-8755-4952-aa98-fcf6f14c0289?mode=deep",
+    "timestamp": "2026-01-09 14:56:11.597427",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State tracking] The tracking at line 144 uses the converted 6-decimal amount, while the actual transfer used 18 decimals. Can an attacker exploit this difference to manipulate statistics and cause monitoring systems to misreport the true amount of tokens transferred? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_480fe9b7-9b7d-4115-b85f-4dc557e784e8?mode=deep",
+    "timestamp": "2026-01-09 14:56:34.416127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State tracking] At line 144, AddToTotalTransferredOut is called with convertedAmount (6 decimals). If this tracking operation fails or is executed out of order across validators, can it cause state divergence and consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbeae827-d732-453f-b47b-d78afffe98ff?mode=deep",
+    "timestamp": "2026-01-09 14:56:59.329240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Decimal conversion] The comment at line 134 states refunds are NOT handled in the success path because handleRefund depends on scaling down. Does this mean the decimal conversion logic is tightly coupled, and can an attacker exploit this coupling to cause inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_489f8381-80a4-4e00-a8b1-0c93c9213c6f?mode=deep",
+    "timestamp": "2026-01-09 14:57:24.413089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Integer overflow] During ScaleDownTokenPrecision at line 136, can the division operation overflow or underflow in edge cases with very large amounts, causing panic or incorrect tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fde761b1-7787-482c-81a5-701f672d7069?mode=deep",
+    "timestamp": "2026-01-09 14:57:50.567770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Decimal conversion] At line 136, if ScaleDownTokenPrecision returns an error (amount zero or negative), the function returns the error at line 140. Does this mean legitimate acknowledgments can fail permanently if the amount falls below the scaling threshold? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b16a9efc-d81c-448b-8c14-3d8aa82544ef?mode=deep",
+    "timestamp": "2026-01-09 14:58:16.980476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Decimal conversion] The comment at line 133 mentions the conversion was done in SendPacket and must be reverted. Can an attacker exploit a mismatch between the scaling factor used in SendPacket and OnAcknowledgementPacket to create accounting discrepancies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a00a595c-80f9-419a-aa0e-8f56ac4b942e?mode=deep",
+    "timestamp": "2026-01-09 14:58:43.632720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Decimal conversion] At line 136, ScaleDownTokenPrecision converts from 18 to 6 decimals. Can an attacker send an amount that results in convertedAmount being zero after scaling down, bypassing tracking at line 144 while still transferring tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5eb21f84-99a7-453f-9234-bb8148c6a818?mode=deep",
+    "timestamp": "2026-01-09 14:59:09.892565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Error handling] When handleRefund fails at line 121, the error is logged but nil is returned at line 125. Can an attacker exploit this to repeatedly trigger refund failures, gradually corrupting state while the system continues to operate? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21e9f0ea-3ad9-4c11-8aba-ed3f36df47ba?mode=deep",
+    "timestamp": "2026-01-09 14:59:36.811528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Module balance] If handleRefund is called multiple times concurrently due to parallel acknowledgment processing, can this drain the module balance below safe thresholds, causing subsequent refunds to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_766b0c6a-4985-4c06-9add-f241522d0245?mode=deep",
+    "timestamp": "2026-01-09 15:00:04.775714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Decimal conversion] According to handlers.go, handleRefund calls ScaleDownTokenPrecision. Can an attacker exploit rounding errors in the 18→6 decimal conversion to receive more native tokens back than they originally sent, causing gradual module drainage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49c9d184-ddc6-4341-84f8-e806891cd18d?mode=deep",
+    "timestamp": "2026-01-09 15:00:30.893689",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Refund logic] Does handleRefund properly validate that the amount parameter at line 121 matches the original send amount, or can packet manipulation cause refunds of incorrect amounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20707886-5fff-45f1-aa36-0a05dbcdc208?mode=deep",
+    "timestamp": "2026-01-09 15:00:56.524644",
+    "report_generated": false
   }
 ]
