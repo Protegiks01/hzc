@@ -12448,5 +12448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2326de1-c48d-4743-a29f-dfc33d3e19e0?mode=deep",
     "timestamp": "2026-01-09 23:37:41.411438",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Panic recovery bypass] Can malicious params trigger panic conditions in keeper operations that aren't properly recovered, causing validator crashes that enable Byzantine actors to gain network majority during downtime? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed8e9e7a-c1b3-4bae-aca7-9b649ce151c1?mode=deep",
+    "timestamp": "2026-01-09 23:38:49.213827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: NewParams()] [Nil dereference] Can the empty Params struct returned by NewParams() cause nil pointer dereferences in keeper functions that expect specific param fields to exist, leading to validator panics and network halts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6195f3e-ffda-43af-a192-cd9f9184e5a4?mode=deep",
+    "timestamp": "2026-01-09 23:39:02.213002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Stale read] Can the empty params with no version tracking cause stale reads where transactions use cached old params while new params are being applied, leading to inconsistent decimal conversions across simultaneous operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3dc8fa93-1d3d-4392-bc62-72a5191985d8?mode=deep",
+    "timestamp": "2026-01-09 23:39:15.348528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: NewParams()] [Lock contention] Can high-frequency param queries via GetParams() during heavy bridge traffic cause lock contention on the KVStore, degrading performance and creating opportunities for transaction ordering exploits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f56491e8-a4c8-4dd2-a035-c223579134be?mode=deep",
+    "timestamp": "2026-01-09 23:39:28.296441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Concurrent access] Can concurrent param updates via governance and concurrent wrap/unwrap operations create race conditions where params are partially updated mid-transaction, causing decimal conversion errors and token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b42fb94f-b3dd-4e49-9600-7b796cc42921?mode=deep",
+    "timestamp": "2026-01-09 23:39:42.980562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: NewParams()] [Governance deadlock] Can conflicting param updates in rapid succession (all passing empty validation) cause governance system deadlock where param state becomes inconsistent across voting periods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_208b5a2b-44fc-4dba-8cae-fa5eda603984?mode=deep",
+    "timestamp": "2026-01-09 23:39:57.689052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Emergency shutdown bypass] If params were intended to include an emergency shutdown flag, can the empty structure be exploited to prevent legitimate emergency shutdown during security incidents, allowing attackers to continue draining funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd73652a-399c-4877-8f85-99a693f3d674?mode=deep",
+    "timestamp": "2026-01-09 23:40:13.665324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: DefaultParams()] [Proposal spamming] Can an attacker submit numerous governance proposals with different empty param configurations to DOS the governance system or cause state bloat that degrades validator performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f708cd1-24c5-47e5-9f2b-af9749c76c8b?mode=deep",
+    "timestamp": "2026-01-09 23:40:31.461229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Vote manipulation] Can a Byzantine validator coalition exploit the empty param validation to propose params updates that appear benign but contain hidden proto fields that grant them unauthorized access to bridge controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8d9f234-9326-4d3f-85c2-69611652cc29?mode=deep",
+    "timestamp": "2026-01-09 23:40:49.671150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Extension field abuse] Can an attacker use proto extension fields (which aren't validated in the empty Params) to inject malicious data that gets persisted to state and later executed by other modules, enabling cross-module attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf3a29b4-7f29-4a19-9c42-1e558c9058a1?mode=deep",
+    "timestamp": "2026-01-09 23:41:09.019979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: NewParams()] [Memory corruption] Can specially crafted params with invalid proto wire types exploit the empty validation to corrupt memory during unmarshaling, potentially enabling arbitrary code execution on validator nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54a96497-1110-4b47-b71c-bd3b868e909c?mode=deep",
+    "timestamp": "2026-01-09 23:41:29.947632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Reflection attack] Can a malicious actor use Go reflection or proto reflection to inject arbitrary fields into the empty Params struct at runtime, bypassing validation and manipulating internal bridge configuration? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64ecbc6d-a452-40f4-a280-123837384e21?mode=deep",
+    "timestamp": "2026-01-09 23:41:50.755817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Field number collision] Can an attacker exploit the empty proto definition to inject params with field numbers that will collide with future legitimate param fields, causing deserialization errors and bridge failures when those fields are added? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a21d1883-7656-4236-9136-1d2cf6ec96af?mode=deep",
+    "timestamp": "2026-01-09 23:42:12.090107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Genesis replay] Can an attacker create a malicious genesis file with params containing replay attack vectors (like duplicate transaction signatures) that pass validation (since it's empty) and compromise initial bridge security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f397685b-298f-44f3-a372-7fff9a8ae26a?mode=deep",
+    "timestamp": "2026-01-09 23:42:34.509579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: DefaultParams()] [Bootstrap race] During genesis initialization, can race conditions between param initialization and other TokenWrapper state setup (operator, IBC settings) cause inconsistent startup state that breaks bridge functionality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a6da121-3810-455d-98a8-6ec8cbdbb67f?mode=deep",
+    "timestamp": "2026-01-09 23:42:57.401417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: NewParams()] [Init panic] Can the combination of empty params and SetParams() in InitGenesis cause panic conditions if other genesis initialization code expects params to contain specific fields, crashing chain startup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_702a7583-4911-4b1b-be18-18f963e6e294?mode=deep",
+    "timestamp": "2026-01-09 23:43:20.913705",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: DefaultParams()] [Genesis injection] Can an attacker who influences genesis file creation inject empty params that later get overwritten by malicious governance proposals, establishing a backdoor for future parameter manipulation attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b5019cc-3cc2-4246-853b-a76e4bcb0474?mode=deep",
+    "timestamp": "2026-01-09 23:43:43.061319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Proto version mismatch] Can the empty params definition cause proto version compatibility issues during upgrades, where old nodes fail to unmarshal new param structures, fragmenting the network and halting cross-chain operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d125b47-6320-4174-9d5b-3fb9c3b6fcee?mode=deep",
+    "timestamp": "2026-01-09 23:44:06.618369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: DefaultParams()] [Default value injection] If future upgrades add params with default values, can attackers exploit the time window where nodes are running mixed versions (empty vs populated params) to cause consensus splits or double-spend tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc0ecc59-b16a-4212-af0f-8528cf30a43c?mode=deep",
+    "timestamp": "2026-01-09 23:44:30.742189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: ParamSetPairs()] [Migration failure] During upgrade migration that adds param fields, can the empty ParamSetPairs() cause the migration handler to skip initialization of critical parameters like decimal difference, leaving bridge in unusable state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67e36754-1557-45a1-9595-c0d29a4dee9e?mode=deep",
+    "timestamp": "2026-01-09 23:44:56.015307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Backward compatibility] When params are upgraded to include actual fields, can the transition from empty to populated structure cause existing chain state to be misinterpreted, leading to incorrect decimal conversions and token supply inflation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4f8fc24-d542-4617-91d3-76a8acd3e02b?mode=deep",
+    "timestamp": "2026-01-09 23:45:20.799667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: NewParams()] [DEX module interaction] Can the empty params structure cause DEX module to make incorrect assumptions about wrapped token decimal precision when calculating AMM swap amounts, leading to price manipulation or liquidity drainage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d767327-60b1-4c89-b0a7-b3cc71461d0b?mode=deep",
+    "timestamp": "2026-01-09 23:45:45.238687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: DefaultParams()] [Factory module interaction] If Factory module queries TokenWrapper params for bridge-related configuration and receives empty data, can this cause factory token creation to bypass decimal checks, allowing creation of tokens with incompatible precision? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c56317e-fb5e-48c4-bab2-62c77108a0c3?mode=deep",
+    "timestamp": "2026-01-09 23:46:10.729896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [IBC integration] Can the absence of param validation cause IBC hooks or middleware to receive unexpected empty param data, leading to incorrect decimal conversion factor application and token duplication across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9300bed0-f8d4-49a2-9a3c-9b4f487a0e5b?mode=deep",
+    "timestamp": "2026-01-09 23:46:35.422413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: ParamKeyTable()] [Module dependency] Can other modules or middleware that depend on TokenWrapper params experience failures when they query empty params, causing IBC middleware stack errors that prevent cross-chain transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92354e04-9ce0-44c8-abce-9d5b64f27541?mode=deep",
+    "timestamp": "2026-01-09 23:46:58.562446",
+    "report_generated": false
   }
 ]
