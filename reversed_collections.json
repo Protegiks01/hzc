@@ -11398,5 +11398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96921b57-3a33-43ec-befc-0b4a4be8f281?mode=deep",
     "timestamp": "2026-01-09 22:30:09.533838",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 13] [Authority Validation] Since MsgUpdateParams is registered without explicit authority validation in the codec layer, can an attacker craft a message that bypasses governance authority checks to directly update critical module parameters like operator addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c88e0500-fa00-4a74-8b28-1ccd285be592?mode=deep",
+    "timestamp": "2026-01-09 22:31:29.890038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Protobuf Deserialization] Does the codec properly handle malformed protobuf bytes for registered message types, or can an attacker craft specially designed protobuf payloads that exploit deserialization vulnerabilities in MsgUpdateParams to manipulate module parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_791edbfb-7ae1-4226-ba31-3eb3b8c66353?mode=deep",
+    "timestamp": "2026-01-09 22:31:42.105208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Message Type Collision] Can an attacker exploit type registration to register duplicate or conflicting message types for MsgRecoverZig or other critical messages, allowing them to override the legitimate implementation and bypass security checks in the recovery mechanism? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b37ab5f3-6392-4b55-ab81-b47f192ac57b?mode=deep",
+    "timestamp": "2026-01-09 22:31:55.020443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Nil Pointer] If the registry parameter passed to RegisterInterfaces() is nil, can this cause a panic that crashes validator nodes when processing TokenWrapper messages, leading to network-wide DoS if exploited across 1/3+ of validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_569c3a9a-7ea7-432f-af5c-eeccb6286967?mode=deep",
+    "timestamp": "2026-01-09 22:32:09.033101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Type Safety] Does the interface registry properly validate that all registered message types (MsgUpdateParams, MsgFundModuleWallet, etc.) implement the sdk.Msg interface correctly, or can a malformed message type bypass validation and cause consensus failures when Byzantine validators craft invalid messages? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e4ae6a1-01e4-4010-8e04-f9111e117720?mode=deep",
+    "timestamp": "2026-01-09 22:32:23.035943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Message Registration Order] Can an attacker exploit the sequential registration order of message types (lines 12-23) to cause a race condition where messages are processed before their types are fully registered, leading to deserialization failures that could lock cross-chain transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b10ea92f-b795-4455-982e-84863f219bd7?mode=deep",
+    "timestamp": "2026-01-09 22:32:38.349521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 13] [Authority Validation] Since MsgUpdateParams is registered without explicit authority validation in the codec layer, can an attacker craft a message that bypasses governance authority checks to directly update critical module parameters like operator addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e57f2c13-0ce6-4c8e-842c-a7629d466a03?mode=deep",
+    "timestamp": "2026-01-09 22:32:55.271634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Protobuf Deserialization] Does the codec properly handle malformed protobuf bytes for registered message types, or can an attacker craft specially designed protobuf payloads that exploit deserialization vulnerabilities in MsgUpdateParams to manipulate module parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c8448a5-7d55-4f04-ba96-967c8b552dc4?mode=deep",
+    "timestamp": "2026-01-09 22:33:12.412469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Message Type Collision] Can an attacker exploit type registration to register duplicate or conflicting message types for MsgRecoverZig or other critical messages, allowing them to override the legitimate implementation and bypass security checks in the recovery mechanism? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98e96fb8-ee59-4ac3-a78e-70458bce52d6?mode=deep",
+    "timestamp": "2026-01-09 22:33:30.867814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Nil Pointer] If the registry parameter passed to RegisterInterfaces() is nil, can this cause a panic that crashes validator nodes when processing TokenWrapper messages, leading to network-wide DoS if exploited across 1/3+ of validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_856f8f1f-ced4-4887-bd9e-6588df94fcd0?mode=deep",
+    "timestamp": "2026-01-09 22:33:49.685914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Type Safety] Does the interface registry properly validate that all registered message types (MsgUpdateParams, MsgFundModuleWallet, etc.) implement the sdk.Msg interface correctly, or can a malformed message type bypass validation and cause consensus failures when Byzantine validators craft invalid messages? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82943ed3-4063-40b0-8c40-6fc6ac13fa8e?mode=deep",
+    "timestamp": "2026-01-09 22:34:09.980844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Message Registration Order] Can an attacker exploit the sequential registration order of message types (lines 12-23) to cause a race condition where messages are processed before their types are fully registered, leading to deserialization failures that could lock cross-chain transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f38070c-de03-4241-909d-35abc5a310e9?mode=deep",
+    "timestamp": "2026-01-09 22:34:30.619511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Concurrency] [IBC settings race] Can IBC settings be modified between validation checks causing ErrIBCSettingsMismatch to be bypassed when operations execute with stale validated settings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7bfde286-af83-4da8-87c1-d85ca5136cdf?mode=deep",
+    "timestamp": "2026-01-09 22:34:52.472486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Concurrency] [Channel state race] Can concurrent operations cause channel state to change between validateChannel check and packet processing, causing operations to proceed despite ErrChannelNotFound or ErrChannelNotOpen? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82c50761-f6b2-4340-a9d5-c1f6b9261b4d?mode=deep",
+    "timestamp": "2026-01-09 22:35:14.699399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Concurrency] [TOCTOU in module enabled] Is there a time-of-check to time-of-use race between IsEnabled() check and actual operation where module can be disabled mid-operation, bypassing ErrModuleDisabled? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf8f3ffa-a213-45f2-a2c3-3ab0057a0511?mode=deep",
+    "timestamp": "2026-01-09 22:35:38.367872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Edge Cases] [Multiple IBC voucher denoms] If multiple IBC voucher denoms exist for the same base denom, can attackers exploit ErrNoIBCVouchersAvailableInAddress by using the wrong denom while having balance in another? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6af09762-868a-484d-b6c7-2da3a962000a?mode=deep",
+    "timestamp": "2026-01-09 22:36:01.360803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Edge Cases] [Empty operator address] When operator address is set to empty string, does ErrRecoveryNotAllowedOnOperatorAddress check fail allowing anyone to bypass the operator restriction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_511e3d68-efd9-49f3-b7f7-943cc9a79ba1?mode=deep",
+    "timestamp": "2026-01-09 22:36:23.711858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Edge Cases] [Maximum decimal difference] When decimal difference is set to maximum (18), can the 10^18 scaling factor cause integer overflow that's not caught by existing errors, leading to silent token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35888e7a-1fad-4bae-9e55-a80885470e32?mode=deep",
+    "timestamp": "2026-01-09 22:36:47.302706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Edge Cases] [Zero decimal difference] When decimal difference is set to 0 (no conversion needed), do the existing errors properly handle this edge case, or can it cause division-by-zero or incorrect error triggering? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56fb67e9-5c7d-4737-96fa-1fbe66fa25ac?mode=deep",
+    "timestamp": "2026-01-09 22:37:09.550349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Error Rate] [Recovery spam] Can attackers spam RecoverZig calls that trigger ErrNoIBCVouchersAvailableInAddress or ErrRecoveryNotAllowedOnOperatorAddress to cause DoS through state read overhead? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8a3f7aa-89ce-4749-b44e-d1666c7473e4?mode=deep",
+    "timestamp": "2026-01-09 22:37:34.218252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Error Rate] [Error-based DoS] Can an attacker repeatedly trigger errors like ErrChannelNotFound or ErrModuleDisabled to cause excessive logging, event emission, and error processing overhead that degrades validator performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_958fc210-f4c6-430a-b72b-72b74419589e?mode=deep",
+    "timestamp": "2026-01-09 22:38:00.046505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Atomic Operations] [SendPacket rollback] In SendPacket, if an error occurs after native tokens are locked (line 211-230), are they properly unlocked, or does the error handling skip the unlock step causing permanent token locking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a9df778-c9a5-443f-86f6-c52c5e25985e?mode=deep",
+    "timestamp": "2026-01-09 22:38:25.978614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Atomic Operations] [OnRecvPacket rollback] When OnRecvPacket encounters an error after the base IBC transfer succeeds (line 82-88), are the received IBC vouchers properly reverted, or do they remain in the receiver's balance creating accounting discrepancies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97e78657-b182-4fbe-8daf-eb1d6d84887e?mode=deep",
+    "timestamp": "2026-01-09 22:38:51.000987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Atomic Operations] [Partial execution on error] When RecoverZig hits an error after LockIBCTokens succeeds (keeper.go line 563-583), is there proper rollback, or does the error cause IBC tokens to remain locked without native token release? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3a49997-ab8e-42dd-a311-cae377761acc?mode=deep",
+    "timestamp": "2026-01-09 22:39:16.467201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [Error Messages] [Distinguishable errors] Can attackers use distinguishable error messages to determine internal state (e.g., whether module is enabled, which IBC settings are configured) to plan more effective attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39f00def-ee7a-4b67-a1e6-0ad23c77abd2?mode=deep",
+    "timestamp": "2026-01-09 22:39:42.576126",
+    "report_generated": false
   }
 ]
