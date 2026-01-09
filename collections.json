@@ -2998,5 +2998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c61a8c8d-7cfb-4cdc-90e5-5cb5f0b8fa5e?mode=deep",
     "timestamp": "2026-01-09 10:38:48.201197",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Slash events deletion] Can DeleteAllValidatorSlashEvents fail to remove all slash events from the KVStore, leaving residual state that causes incorrect slashing calculations in the new chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db00c5f1-a4ec-4bac-b132-42aaff3e28ec?mode=deep",
+    "timestamp": "2026-01-09 10:40:11.622959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Historical rewards deletion] Can DeleteAllValidatorHistoricalRewards be interrupted mid-execution, leaving some historical rewards in state while others are deleted, causing reward calculation inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c714eb4-5194-4404-96ee-377d70198459?mode=deep",
+    "timestamp": "2026-01-09 10:40:25.031153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [State cleanup atomicity] If the chain crashes between DeleteAllValidatorSlashEvents and DeleteAllValidatorHistoricalRewards, can the partial deletion cause the exported genesis to be in an invalid state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cbfc9308-d6ba-4ea2-b304-562d8304f302?mode=deep",
+    "timestamp": "2026-01-09 10:40:37.739581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Height manipulation] Can the context height manipulation (ctx.WithBlockHeight(0) followed by ctx.WithBlockHeight(height)) cause time-dependent operations to execute incorrectly, such as unbonding periods or vesting schedules being calculated from the wrong timestamp? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e868a2e-4885-4f7e-8414-8fce8dc2f14a?mode=deep",
+    "timestamp": "2026-01-09 10:40:51.876777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Height storage] Is the original height value properly preserved before setting context to height 0, or can a code path exist where the height is lost, causing all subsequent operations to use an incorrect block height? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d9a1b9c-2ed0-49dd-8715-022601cf5955?mode=deep",
+    "timestamp": "2026-01-09 10:41:05.923685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Context isolation] Can module operations executed with ctx.WithBlockHeight(0) observe or modify state that should only be accessible at the actual block height, causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5cf2a895-da91-48d3-873d-c914566743cf?mode=deep",
+    "timestamp": "2026-01-09 10:41:21.089928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator iteration] Can the second IterateValidators call fail to iterate over all validators if the validator set changed between the first and second iterations, causing some validators to not be reinitialized? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf0d341d-2f87-44ac-b4fb-1f49451db421?mode=deep",
+    "timestamp": "2026-01-09 10:41:38.551449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Outstanding rewards] Can GetValidatorOutstandingRewardsCoins return incorrect reward amounts due to race conditions or stale cache, causing tokens to be either created or destroyed when donating to the community pool? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c356f87-1ef1-48cf-b3a2-a4db41018ff9?mode=deep",
+    "timestamp": "2026-01-09 10:41:56.519394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Zero check bypass] Can an attacker exploit the scraps.IsZero() check by providing rewards with extremely small non-zero amounts that round to zero in some contexts but not others, causing accounting errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73f0d7fc-62b4-46f2-a0fd-5b7cf6d1314c?mode=deep",
+    "timestamp": "2026-01-09 10:42:14.619704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Community pool donation] Can the feePool.CommunityPool.Add(scraps...) operation overflow or create tokens if scraps contains negative amounts or extremely large values that exceed the community pool's capacity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e220ba1-cf75-4b21-a26f-85ee12a9a55f?mode=deep",
+    "timestamp": "2026-01-09 10:42:34.039552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [FeePool race condition] Can concurrent access to app.DistrKeeper.FeePool.Get and .Set cause a race condition where multiple validators' outstanding rewards overwrite each other, resulting in token loss or duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3040072d-2286-4083-95cb-fa4a522ff0f9?mode=deep",
+    "timestamp": "2026-01-09 10:42:53.853432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Hook execution order] Can the AfterValidatorCreated hook fail or execute incorrectly when called with a zero-height context, causing the distribution module to not properly track the reinitialized validator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e54e1837-2f36-4a25-8c43-adbf971c016c?mode=deep",
+    "timestamp": "2026-01-09 10:43:14.847412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Iterator consistency] If a validator is added or removed from the validator set during the iteration, can the iterator skip validators or process them multiple times, leading to inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ac934b1-7726-44fb-896c-7de42efbb7ba?mode=deep",
+    "timestamp": "2026-01-09 10:43:36.777402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Delegation hooks] Can the BeforeDelegationCreated and AfterDelegationModified hooks execute with incorrect context state when called during delegation reinitialization, causing the distribution module to track delegations incorrectly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_058dae69-560c-4fb6-9bf2-f4f4cae370ff?mode=deep",
+    "timestamp": "2026-01-09 10:43:59.045696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Hook error handling] Although the comments state hooks never return errors, can a malicious module override these hooks to return errors that trigger panics during genesis export, halting the network? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f02bfbfd-bbe1-47b8-b22d-9c1a18e0a21b?mode=deep",
+    "timestamp": "2026-01-09 10:44:22.018026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Delegation ordering] Can the order in which delegations are processed during reinitialization affect reward calculations or delegation periods, causing some delegators to receive more or fewer rewards than others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eaa42b8f-4673-4977-82f1-bd5d81070b98?mode=deep",
+    "timestamp": "2026-01-09 10:44:46.066148",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Address mismatch] Can sdk.MustAccAddressFromBech32 fail for certain delegator addresses that were valid in the old chain but become invalid during reinitialization, causing panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c227f53f-b200-465a-b28d-1e1dfdc73d10?mode=deep",
+    "timestamp": "2026-01-09 10:45:11.270550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Redelegation iteration] Can app.StakingKeeper.IterateRedelegations miss some redelegations or process them multiple times if the redelegation set changes during iteration, causing incorrect creation height resets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3dbfc5fb-7df3-44f1-ae2d-01cae3392834?mode=deep",
+    "timestamp": "2026-01-09 10:45:37.415239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [CreationHeight reset] Can setting red.Entries[i].CreationHeight = 0 for all redelegation entries cause redelegations to complete immediately in the new chain, allowing validators to bypass the redelegation cooldown period? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_260bf26d-91a1-4f1b-9cdc-8fc5e56d118e?mode=deep",
+    "timestamp": "2026-01-09 10:46:03.312656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Redelegation state corruption] If SetRedelegation fails for some redelegations after modifying their entries, can this leave the chain in a state where some redelegations have reset heights while others do not? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c096f60f-dfe3-4d7a-ba50-73c698837861?mode=deep",
+    "timestamp": "2026-01-09 10:46:30.386420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Array bounds] Can accessing red.Entries[i] cause a panic if the entries slice is empty or modified concurrently, preventing the entire genesis export from completing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_226fa8e0-7148-41eb-ae56-9b6d31d1fd13?mode=deep",
+    "timestamp": "2026-01-09 10:46:57.744394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Unbonding iteration] Can IterateUnbondingDelegations fail to process all unbonding delegations if new unbondings are created during the iteration, causing some delegators to lose their unbonding state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_837634b4-9ca6-435d-b66a-57616728b982?mode=deep",
+    "timestamp": "2026-01-09 10:47:24.425290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Unbonding CreationHeight] Can resetting ubd.Entries[i].CreationHeight = 0 allow tokens to be unbonded immediately in the new chain, bypassing the unbonding period and enabling rapid validator exits to avoid slashing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e77cf188-e8b1-4224-8353-a63e2788e820?mode=deep",
+    "timestamp": "2026-01-09 10:47:50.919084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [SetUnbondingDelegation failure] If SetUnbondingDelegation panics for certain unbonding delegations, can this leave some unbondings with reset heights and others with original heights, causing inconsistent unbonding behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_535081fe-609b-4afb-94be-3c9369ea4380?mode=deep",
+    "timestamp": "2026-01-09 10:48:17.671535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Unbonding entry modification] Can modifying ubd.Entries while iterating cause race conditions or slice corruption if the unbonding delegation is accessed by other goroutines simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f6e1a44-91df-4bd5-a77e-3425cf197af5?mode=deep",
+    "timestamp": "2026-01-09 10:48:45.739213",
+    "report_generated": false
   }
 ]
