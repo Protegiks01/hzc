@@ -8548,5 +8548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7270ff26-258d-488d-9ace-99863b67a6f1?mode=deep",
     "timestamp": "2026-01-09 19:17:31.680672",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Address validation bypass] Can the AddressCheck() call on line 23 be bypassed by crafting an address with valid Bech32 format but incorrect prefix (not 'zig'), allowing cross-chain address exploitation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73e4114b-4c3c-4204-b3ea-45b186609ab1?mode=deep",
+    "timestamp": "2026-01-09 19:18:48.498984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: NewMsgRecoverZig()] [Input validation] Can NewMsgRecoverZig() accept special Unicode characters or control characters in the signer/address strings that later cause issues in logging, events, or downstream processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ae9bfc0-89e6-4eb1-9110-e5d34c21ff57?mode=deep",
+    "timestamp": "2026-01-09 19:19:01.128393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: NewMsgRecoverZig()] [Memory safety] Can NewMsgRecoverZig() be exploited with extremely long string inputs (millions of characters) for signer or address to cause memory exhaustion before ValidateBasic() rejects them? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3624afec-e8e5-4a46-9cb8-9831325545a1?mode=deep",
+    "timestamp": "2026-01-09 19:19:13.822059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: NewMsgRecoverZig()] [Input validation] Does NewMsgRecoverZig() perform any sanitization or normalization of the signer and address parameters, or can malformed strings propagate through the system until ValidateBasic() catches them? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0888f9e5-cb02-42cc-a7d1-d23456b8ad7f?mode=deep",
+    "timestamp": "2026-01-09 19:19:27.043518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: NewMsgRecoverZig()] [Input validation] Can NewMsgRecoverZig() be called with empty strings for signer and address that bypass validation until ValidateBasic() is called, creating partially invalid message objects in memory? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7dfaa470-5f16-4d25-9c5f-f29239a25d19?mode=deep",
+    "timestamp": "2026-01-09 19:19:41.891333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing validation] Does ValidateBasic() prevent msg.Address from being a multisig address where recovery could disrupt pending multisig operations or cause funds to be locked permanently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6388cca2-321e-4c4e-b91b-4baef9be9dcc?mode=deep",
+    "timestamp": "2026-01-09 19:19:58.248621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing validation] Can ValidateBasic() be exploited by submitting messages with msg.Address pointing to vesting accounts or locked accounts, causing the recovery mechanism to unlock tokens prematurely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ef0730b-fe3a-47ab-90a3-3b9952a3e6c3?mode=deep",
+    "timestamp": "2026-01-09 19:20:14.592203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing rate limiting] Can an attacker spam the network with thousands of valid but ultimately failing MsgRecoverZig messages (e.g., targeting addresses with no IBC vouchers) to cause DoS, since ValidateBasic() doesn't check balance or IBC voucher existence? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_567ae8f1-636d-46ed-a11a-3ae7e991c61f?mode=deep",
+    "timestamp": "2026-01-09 19:20:32.699679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing validation] Does ValidateBasic() validate that msg.Address is not the operator address at the message validation layer, or is this only checked in the keeper, allowing invalid messages to propagate through the network? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6212e625-aac0-4a80-b176-ef30eb9a6282?mode=deep",
+    "timestamp": "2026-01-09 19:20:51.317543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing validation] Can ValidateBasic() be bypassed by submitting msg.Address as the zero address (all zeros) that passes Bech32 validation but causes unexpected behavior in the keeper's RecoverZig function? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57c7eea8-86b5-4b15-ad7f-6966adc1d5a5?mode=deep",
+    "timestamp": "2026-01-09 19:21:11.513437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing validation] Does ValidateBasic() check if msg.Address is a blacklisted or sanctioned address (e.g., module account, burning address), or can recovery be performed on system addresses leading to protocol fund drainage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cace0bc-06c1-4575-a976-cfb532192392?mode=deep",
+    "timestamp": "2026-01-09 19:21:32.181839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing validation] Can an attacker submit a MsgRecoverZig where msg.Address points to a contract address or module account instead of a user address, potentially causing the recovery mechanism to interact with contract state in unintended ways? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77234ea5-97fe-4cc1-8939-3d1c774a69e3?mode=deep",
+    "timestamp": "2026-01-09 19:21:53.655631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing validation] Does ValidateBasic() validate that msg.Signer and msg.Address are different addresses, or can an attacker create a recovery message where signer == address to bypass operator checks in the keeper layer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68896bf0-03e8-4ebc-8738-9a2f15da68d2?mode=deep",
+    "timestamp": "2026-01-09 19:22:15.820123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Atomic multi-remove] If multiple MsgRemovePauserAddress messages are batched in a single transaction removing multiple pausers, does ValidateBasic() ensure each removal is independently valid, or could one invalid removal cause the entire batch to fail, including valid removals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c6804f8-4cb1-4943-998e-4423732aa583?mode=deep",
+    "timestamp": "2026-01-09 19:22:39.390145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Pauser self-removal] Can a pauser address remove themselves by crafting a transaction where Signer (operator) removes Pauser (themselves), and does ValidateBasic() enforce any policy preventing self-removal that could create pauser management deadlocks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef443a07-c1b0-41fb-b302-9af6362ee9fc?mode=deep",
+    "timestamp": "2026-01-09 19:23:04.295325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Bridge safety] If all pausers are removed during an active bridge exploit, does ValidateBasic() or the broader pauser management system prevent this scenario that would eliminate emergency response capability? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ee6b4c7-f9c1-4c02-9151-fdb37d711641?mode=deep",
+    "timestamp": "2026-01-09 19:23:29.867951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [SDK version dependencies] Does ValidateBasic() use Cosmos SDK v0.53.4-specific validation logic that could break if the SDK is upgraded, causing previously valid messages to fail or invalid messages to pass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_adb5d9d6-4c0c-4bfa-a2df-604d24dd9bba?mode=deep",
+    "timestamp": "2026-01-09 19:23:56.566813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Authority address] If the module authority (typically x/gov) submits MsgRemovePauserAddress, does ValidateBasic() treat this differently than regular operator submissions, potentially creating an access control bypass? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86f61843-00b2-4be6-9daf-38f72064798b?mode=deep",
+    "timestamp": "2026-01-09 19:24:24.014908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Governance proposal] Can MsgRemovePauserAddress be included in a governance proposal, bypassing the operator-only requirement in the keeper, and does ValidateBasic() account for this alternative execution path? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9cb6e929-7e31-459d-803a-b7f48001d0cf?mode=deep",
+    "timestamp": "2026-01-09 19:24:52.152652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Claimed operator timing] Immediately after MsgClaimOperatorAddress executes, can the new operator submit MsgRemovePauserAddress in the same block, and does ValidateBasic() ensure the operator status change is visible to prevent race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e21664ad-5583-4b99-b4a9-34d180d13280?mode=deep",
+    "timestamp": "2026-01-09 19:25:19.487182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Operator transition] During a 2-step operator address transition (propose then claim), if the proposed operator submits MsgRemovePauserAddress before claiming, does ValidateBasic() prevent this by checking operator status, or does only the keeper enforce this? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce7fc0c2-4674-4da4-8392-9a3b88a3411a?mode=deep",
+    "timestamp": "2026-01-09 19:25:45.500628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: NewMsgRemovePauserAddress()] [String interning] If Go's string interning is used for address storage, could an attacker exploit this by submitting many unique pauser addresses to exhaust string table memory, causing memory pressure on validators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32796761-a99d-4d3d-bc01-1eb69a01f57a?mode=deep",
+    "timestamp": "2026-01-09 19:26:11.520686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Edge case handling] Based on the test file showing a 'SameSignerAndPauser' test case that passes validation, could there be other untested edge cases (e.g., Signer is operator and Pauser simultaneously) that pass ValidateBasic() but violate business logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9656444-efd8-4c5a-b4ca-ea7f0b4c30af?mode=deep",
+    "timestamp": "2026-01-09 19:26:37.944018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Signature bypass] Does ValidateBasic() verify the transaction signature for the Signer address, or does it only validate address format, potentially allowing unsigned or improperly signed messages to pass basic validation? (Note: signature verification typically happens in ante handlers, but validation gaps could exist) (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c59730e8-ec2f-464d-832e-7542c9e2df4d?mode=deep",
+    "timestamp": "2026-01-09 19:27:05.253693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Response validation] After ValidateBasic() passes and keeper execution completes, does MsgRemovePauserAddressResponse properly include the updated PauserAddresses list, and could a mismatch between expected and actual response cause client-side confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76f8243d-e722-48c3-b75d-903235300d4d?mode=deep",
+    "timestamp": "2026-01-09 19:27:31.116406",
+    "report_generated": false
   }
 ]
