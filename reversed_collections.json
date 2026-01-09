@@ -6598,5 +6598,305 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4ab88b6-13c8-472a-a2a6-806406a8b54f?mode=deep",
     "timestamp": "2026-01-09 17:12:07.659519",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [State import race] Can an attacker trigger rapid genesis imports/exports to cause state corruption where keeper state and genesis state diverge? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acc3bea4-eccd-4d85-a682-bda180acefff?mode=deep",
+    "timestamp": "2026-01-09 17:13:27.828674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ExportGenesis()] [State export race] Can an attacker trigger ExportGenesis during active wrap/unwrap operations to export inconsistent state where TotalTransferredIn is incremented but tokens aren't locked yet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cf9cf63-d500-41dd-bdbc-7fd59a66a4ed?mode=deep",
+    "timestamp": "2026-01-09 17:13:40.165202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Authority string comparison] Can an attacker exploit case-sensitivity or encoding differences in authority string comparison to bypass keeper.GetAuthority() checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1915e067-9072-4151-bc34-397e25475c0d?mode=deep",
+    "timestamp": "2026-01-09 17:13:53.024208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Governance authority race] Can an attacker exploit the timing between ProvideModule setting authority to gov module and governance module initialization to bypass authority checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a380058f-1a10-4918-b398-5871f4769365?mode=deep",
+    "timestamp": "2026-01-09 17:14:06.236575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [Partial state initialization] If InitGenesis panics mid-execution (lines 13-42 in genesis.go), can an attacker exploit partially initialized state where some values are set but others use defaults? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed830013-6f0a-43d4-a8b5-28e28c647442?mode=deep",
+    "timestamp": "2026-01-09 17:14:19.840476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [Genesis state reinitialization] Can an attacker trigger InitGenesis multiple times during chain operation to reset critical state like TotalTransferredIn/Out, corrupting accounting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9718f4b3-c426-4bee-9557-44697f72801b?mode=deep",
+    "timestamp": "2026-01-09 17:14:34.752054",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: DefaultGenesis()] [Default value attack] Can an attacker exploit that DefaultGenesis uses default values (line 76) that might not be safe production values, like empty operator address or disabled state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_234fef58-6fb3-4179-b4dc-700076939b89?mode=deep",
+    "timestamp": "2026-01-09 17:14:50.694822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: NewAppModule()] [Keeper injection] Can an attacker provide a malicious keeper to NewAppModule that implements keeper.Keeper interface but returns manipulated state, bypassing all keeper validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d57d66eb-35af-4dd0-9cfa-f29ef0eda6fd?mode=deep",
+    "timestamp": "2026-01-09 17:15:07.825830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Struct: AppModule] [BankKeeper bypass] Can an attacker exploit direct access to bankKeeper in AppModule to bypass keeper.CheckModuleBalance validation when calling bank methods directly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_052d9f12-1dcd-4dda-a640-a67ab129bf7c?mode=deep",
+    "timestamp": "2026-01-09 17:15:25.909347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Struct: AppModule] [AccountKeeper nil access] Can an attacker exploit that AppModule stores accountKeeper (line 110) but never validates it's not nil, causing panic when another module calls tokenwrapper through cross-module communication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2264eec-bae0-4887-9a93-78182a8e8959?mode=deep",
+    "timestamp": "2026-01-09 17:15:45.491971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: init()] [Module registration race] Can an attacker exploit the init() function at line 184 that registers the module provider to inject a malicious provider before the legitimate one? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9eaf329e-6b0d-468a-878a-909fd866c84e?mode=deep",
+    "timestamp": "2026-01-09 17:16:05.950840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Struct: ModuleOutputs] [Keeper exposure] Can an attacker exploit the TokenwrapperKeeper being exposed in ModuleOutputs to access keeper methods directly, bypassing message server validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8156b9b0-f665-43b3-b12f-cd468b92d9f7?mode=deep",
+    "timestamp": "2026-01-09 17:16:27.193225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Struct: ModuleInputs] [Logger injection attack] Can an attacker inject a malicious Logger that discards error logs, hiding critical security events like failed unwrap operations or module balance exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f20350a9-ce12-43ee-89be-97e282e47cc4?mode=deep",
+    "timestamp": "2026-01-09 17:16:49.435490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Struct: ModuleInputs] [Config manipulation] Can an attacker manipulate the Config (*modulev1.Module) during dependency injection to set malicious authority or disable the module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46ba1e56-9b9a-4e4f-8479-86e54af685c1?mode=deep",
+    "timestamp": "2026-01-09 17:17:12.004501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Struct: ModuleInputs] [StoreService collision] Can an attacker exploit depinject to inject a StoreService that points to another module's KVStore, causing state corruption across modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86036f0a-a899-44bc-b915-bdc113303650?mode=deep",
+    "timestamp": "2026-01-09 17:17:36.317130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Struct: ModuleInputs] [Missing dependency validation] Can an attacker exploit missing validation of ModuleInputs to inject nil AccountKeeper or BankKeeper, causing panic on first module operation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b54ee3b8-660c-4a81-80fb-5094c983af2d?mode=deep",
+    "timestamp": "2026-01-09 17:17:59.825923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterGRPCGatewayRoutes()] [Query handler injection] Can an attacker exploit RegisterQueryHandlerClient to inject malicious query handlers that return manipulated keeper state to REST API clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c83e39aa-9b97-492f-9235-9abc34876cca?mode=deep",
+    "timestamp": "2026-01-09 17:18:24.557123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterGRPCGatewayRoutes()] [Panic on registration] Can an attacker trigger the panic at line 91 by corrupting the gRPC gateway multiplexer, causing all nodes with REST API enabled to crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a879fcf-05a2-4beb-8010-1771db9e169c?mode=deep",
+    "timestamp": "2026-01-09 17:18:50.380302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterInterfaces()] [Interface registration order] Can an attacker exploit the order of interface registration to register malicious message types before legitimate ones, causing type confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27fc0d0e-6d99-4354-a57c-e4c774bd8833?mode=deep",
+    "timestamp": "2026-01-09 17:19:16.884829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterLegacyAminoCodec()] [Empty amino codec] Can an attacker exploit that RegisterLegacyAminoCodec is empty (line 66) to send legacy amino-encoded messages that bypass proper validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_abe2c4ac-f619-4a89-870d-4b8e3ab0cdb1?mode=deep",
+    "timestamp": "2026-01-09 17:19:43.073962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Interface: HasEndBlocker] [Empty EndBlock] Can an attacker exploit that EndBlock returns nil (line 171) to bypass end-of-block state finalization like operator address transitions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c28a481b-e24a-4abe-935c-03d90cde37f6?mode=deep",
+    "timestamp": "2026-01-09 17:20:08.283174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Interface: HasBeginBlocker] [Empty BeginBlock] Can an attacker exploit that BeginBlock returns nil (line 165) to bypass time-based checks like IBC packet timeout processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed84d3ed-aaa8-463e-ba65-b8fa67406a87?mode=deep",
+    "timestamp": "2026-01-09 17:20:35.040727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Interface: HasInvariants] [Empty invariant registration] Can an attacker exploit that RegisterInvariants is empty (line 140) to violate critical invariants like token conservation without chain detection/halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d368179f-dc9b-4558-ad62-602429caf31e?mode=deep",
+    "timestamp": "2026-01-09 17:21:00.328327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Interface: IBCModule] [Missing IBC callbacks] Does the module properly implement all IBCModule interface methods, or can an attacker exploit missing OnRecvPacket/OnAcknowledgementPacket implementations to bypass IBC middleware? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_440278bf-14bf-41d7-91da-250072e2bcc5?mode=deep",
+    "timestamp": "2026-01-09 17:21:24.445578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ConsensusVersion()] [Version bypass] Can an attacker manipulate the consensus version check to bypass required migrations by forking the chain with consensus version 3 without implementing V3Migration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d4a6a94-ba0e-4a2e-9842-fe7de5279017?mode=deep",
+    "timestamp": "2026-01-09 17:21:45.945845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ConsensusVersion()] [Version downgrade] Can an attacker exploit consensus version being hardcoded to 2 to prevent proper migration detection if the chain needs to be rolled back to version 1? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7a9979d-2594-494a-9d1f-eafe194ead24?mode=deep",
+    "timestamp": "2026-01-09 17:22:49.548390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Migration bypass] Can an attacker manipulate ConsensusVersion() to skip running V2Migration, keeping old state while module code expects new state format? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ade9a94d-25ef-4ba8-aa8b-8ce0a6e2b2c9?mode=deep",
+    "timestamp": "2026-01-09 17:23:01.920589",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Pauser reset attack] Can an attacker exploit V2Migration resetting PauserAddresses to empty array (line 22 in v2_migration.go) to remove all emergency pause controls during upgrade? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aafe3af6-3ee0-45de-be12-ab940fd506c3?mode=deep",
+    "timestamp": "2026-01-09 17:23:14.514308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Decimal difference reset] Can an attacker exploit V2Migration setting DecimalDifference to 0 (line 17 in v2_migration.go) to disable decimal conversion, allowing 1:1 token minting post-migration? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9dd480f2-0134-455d-a648-776a6f363f78?mode=deep",
+    "timestamp": "2026-01-09 17:23:27.920422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Migration state corruption] Can an attacker exploit V2Migration's hardcoded IBC settings (lines 9-16 in v2_migration.go) that override any existing genesis state, causing loss of custom IBC configuration during upgrade? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af8dc239-c813-4ad5-9bcd-413b38d9253b?mode=deep",
+    "timestamp": "2026-01-09 17:23:41.809169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Panic on migration error] Can an attacker trigger the panic at line 135 during RegisterMigration by corrupting the module configurator state, causing all validators to crash during module initialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b241beee-0af6-41fa-bc4b-a64c841f712e?mode=deep",
+    "timestamp": "2026-01-09 17:23:56.673444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Migration version confusion] Can an attacker exploit the hardcoded migration from version 1 to V2Migration to skip the migration during chain upgrade by manipulating consensus version, leaving state inconsistent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59c1a5e9-04b3-4b28-b177-a325fdc952d0?mode=deep",
+    "timestamp": "2026-01-09 17:24:11.946566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Migration registration race] Can an attacker exploit the migration registration at lines 132-136 where if RegisterMigration returns error, it panics, to DoS the chain during module initialization by corrupting migration state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_70d82f7c-040d-4c86-b979-005acbb3c0bb?mode=deep",
+    "timestamp": "2026-01-09 17:24:29.079744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Query server override] Can an attacker register a malicious QueryServer that returns false keeper state information, causing clients to make incorrect wrap/unwrap decisions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44dcab61-72d5-44b6-94aa-5261154d1c9d?mode=deep",
+    "timestamp": "2026-01-09 17:24:47.278787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: RegisterServices()] [Msg server override] Can an attacker exploit the service registration order to register a malicious MsgServer before the legitimate one, intercepting all wrap/unwrap/recover messages? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_edc270e9-5ead-4acc-a325-07cc86c252bd?mode=deep",
+    "timestamp": "2026-01-09 17:25:05.610125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Codec nil check] Does the keeper initialization validate that Codec is not nil, or can an attacker cause panic during message unmarshaling by providing nil codec? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_74abe4f5-6024-47de-bf10-a7af8adb4f2a?mode=deep",
+    "timestamp": "2026-01-09 17:25:25.813718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [StoreService nil check] Does the keeper initialization properly validate that StoreService is not nil, or can an attacker cause panic on first state read/write by injecting nil StoreService? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34f39422-d411-4993-a6e9-630a48a74150?mode=deep",
+    "timestamp": "2026-01-09 17:25:46.952373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Keeper authority mismatch] Can an attacker exploit inconsistency between the authority string passed to keeper.NewKeeper and the authority used by other modules, allowing authority bypass in cross-module calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3fea055-9e2d-43d2-b2fa-57dc5e783dc7?mode=deep",
+    "timestamp": "2026-01-09 17:26:08.573921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Nil keeper injection] Can an attacker exploit the keeper initialization where if BankKeeper is nil in ModuleInputs, the keeper is created with nil bankKeeper, causing panic on first token transfer operation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54ee82ca-0449-482f-b4e7-e5166f8ff412?mode=deep",
+    "timestamp": "2026-01-09 17:26:30.642316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Authority format attack] Can an attacker provide Config.Authority with mixed-case bech32 encoding to cause address comparison mismatches in keeper.GetAuthority() checks throughout the system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2d69fcc-3b1f-4bc6-9366-77510737635f?mode=deep",
+    "timestamp": "2026-01-09 17:26:53.476583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Invalid authority address] Can an attacker provide a Config.Authority that is a valid bech32 string but not a valid account address (e.g., contract address), causing NewModuleAddressOrBech32Address to return an exploitable address? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02f40a02-20dc-4362-b618-5d229bca8c2f?mode=deep",
+    "timestamp": "2026-01-09 17:27:16.986489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Authority collision] Can an attacker set Config.Authority to the gov module address explicitly to create confusion between default authority and explicitly-set authority, bypassing authority checks in keeper methods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ecda96cc-e466-46c9-ad20-ce90f887b0e0?mode=deep",
+    "timestamp": "2026-01-09 17:27:41.533518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ProvideModule()] [Authority bypass] Can an attacker exploit the authority initialization logic where if Config.Authority is empty string, it defaults to gov module address, to bypass governance controls by providing a zero-length string vs nil? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da7ffe33-4423-4900-8002-7c00a5c95e65?mode=deep",
+    "timestamp": "2026-01-09 17:28:07.293669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ExportGenesis()] [Missing state fields] Does ExportGenesis properly export all keeper state fields, or can attacker-controlled state (like pending operator proposals) be lost during genesis export/import cycles? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5eda10e-a2b8-4dd9-84a7-003924548f88?mode=deep",
+    "timestamp": "2026-01-09 17:28:33.147388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: ExportGenesis()] [State export inconsistency] Can an attacker cause ExportGenesis to export inconsistent state where TotalTransferredIn/Out don't match actual module balances, allowing state manipulation during chain upgrades or forks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9e71304-33b2-4d46-afc3-d117c9621b70?mode=deep",
+    "timestamp": "2026-01-09 17:28:58.172571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [Enabled state manipulation] Can an attacker set Enabled=false in genesis state to permanently disable the bridge from genesis, preventing any token wrapping/unwrapping operations even for the operator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98c2d95c-53e4-48a8-8d05-52b720664b9a?mode=deep",
+    "timestamp": "2026-01-09 17:29:23.944644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [Total transfer manipulation] Can an attacker set extremely large TotalTransferredIn values during genesis that cause AddToTotalTransferredIn operations to overflow during normal operations, corrupting transfer accounting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3ff6016-bfe6-49a8-af5c-ef166aec558a?mode=deep",
+    "timestamp": "2026-01-09 17:29:48.096573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [State ordering attack] Can an attacker exploit the initialization order in InitGenesis (lines 13-42 in genesis.go) to set IBC settings before decimal difference, causing early IBC packet processing with incorrect conversion factors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_224bf168-05a9-4b4f-b900-6ef830f757cc?mode=deep",
+    "timestamp": "2026-01-09 17:30:11.770090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [Panic on decimal difference] Can an attacker trigger the panic at line 41 in genesis.go by providing a DecimalDifference value that passes GenesisState validation but fails keeper.SetDecimalDifference (e.g., value > 18), causing chain initialization failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7e90a74-c59c-4cdd-8e97-b2641925bb76?mode=deep",
+    "timestamp": "2026-01-09 17:30:35.258804",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/module.go] [Function: InitGenesis()] [Panic on params] Can an attacker trigger the panic at line 14 in genesis.go by providing invalid Params that fail SetParams validation, causing the entire chain to halt during genesis initialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c746061-d9f1-46b6-9df9-619ec24f9dbb?mode=deep",
+    "timestamp": "2026-01-09 17:30:58.490667",
+    "report_generated": false
   }
 ]
