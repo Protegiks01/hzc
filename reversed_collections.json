@@ -1648,5 +1648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2bebab0a-44bb-4e04-855d-f78965f2121d?mode=deep",
     "timestamp": "2026-01-09 09:33:12.313705",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: PoolResponse] [Coins Array Manipulation] The Coins field is a slice with no size limits - can an attacker create or query pools with thousands of coin denominations, causing excessive memory allocation and gas consumption when contracts iterate over this array? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2bb908d6-9d35-4951-bf94-6c2be4682993?mode=deep",
+    "timestamp": "2026-01-09 09:34:31.948214",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: PoolResponse] [Formula String Validation] The Formula field is returned as a string with no validation - can a compromised keeper or state corruption return malicious formula strings (e.g., 'arbitrary_code') that contracts attempt to parse or execute, causing contract vulnerabilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f0144d1b-4e10-49c7-b64d-31367bdf4534?mode=deep",
+    "timestamp": "2026-01-09 09:34:44.573290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: PoolResponse] [Fee Manipulation] The Fee field is a uint32 - can this overflow when queried from pools with extremely high fees, causing contracts to underestimate swap costs and leading to unexpected slippage or liquidity provider losses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f1a585a-718d-4d0a-bad4-6ed2b17fe171?mode=deep",
+    "timestamp": "2026-01-09 09:34:57.447019",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: Pool] [Integer Overflow] Can an attacker query for a pool with an extremely large numeric suffix in the PoolID (e.g., 'zp999999999999999999999') causing integer parsing overflow during query processing or KVStore key construction? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c6760d7-e808-402a-8ec9-825e3699dab9?mode=deep",
+    "timestamp": "2026-01-09 09:35:10.680076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: Pool] [Pool ID Collision] Can an attacker craft pool IDs with leading zeros, special characters, or case variations that bypass validation but map to the same KVStore key, allowing queries of pools they shouldn't have access to or causing pool state confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ba0b4be-ae45-4785-9ae2-bebf3b717076?mode=deep",
+    "timestamp": "2026-01-09 09:35:24.587459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: Pool] [Input Validation] The Pool struct accepts any string for PoolID without validation - can an attacker query with a non-conforming pool ID (not matching 'zp[0-9]+' regex) causing query_plugin.go line 128 to perform an unchecked lookup that returns stale or incorrect pool data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d09f356f-d20e-41d9-a969-e422806f2eeb?mode=deep",
+    "timestamp": "2026-01-09 09:35:39.910155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: DenomResponse] [Field Tampering] Since DenomResponse fields are populated directly from keeper state in query_plugin.go lines 108-116, can a race condition between query execution and state updates cause partially updated responses where Minted reflects new state but MintingCap reflects old state, violating invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9554afae-e4bc-4146-a517-c73005159a81?mode=deep",
+    "timestamp": "2026-01-09 09:35:55.728116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: DenomResponse] [JSON Marshaling] When marshaling DenomResponse to JSON, can cosmosmath.Uint fields produce non-standard number representations (scientific notation, very large numbers) that cause parsing errors or precision loss in CosmWasm contracts, leading to incorrect token amount calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6914d293-5f07-417a-a3f7-b487df54b3ab?mode=deep",
+    "timestamp": "2026-01-09 09:36:13.593249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: DenomResponse] [Boolean Manipulation] The CanChangeMintingCap boolean field - if this value is incorrectly set or manipulated during query response construction, can it mislead contracts into believing minting caps are immutable when they're actually mutable, causing security assumptions to break? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb99ef1a-3eb1-44e6-b593-a3843be6e0c7?mode=deep",
+    "timestamp": "2026-01-09 09:36:31.640872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: DenomResponse] [Information Leakage] The DenomResponse exposes Creator, BankAdmin, and MetadataAdmin addresses - can malicious contracts use this information to perform targeted attacks against admin accounts, such as social engineering or coordinated griefing attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8987e2c6-ed79-458a-bb28-ef625640ffc8?mode=deep",
+    "timestamp": "2026-01-09 09:36:51.335904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: DenomResponse] [Integer Overflow] The Minted and MintingCap fields use cosmosmath.Uint - can these overflow when returned from the keeper, causing incorrect validation in contracts that rely on these values for minting cap enforcement, leading to unlimited token minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38226c3a-cef1-4670-a291-ee989c06f14b?mode=deep",
+    "timestamp": "2026-01-09 09:37:11.912830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: Denom] [Unicode Normalization] Can an attacker exploit Unicode normalization vulnerabilities by sending denoms with different Unicode representations (e.g., composed vs decomposed forms) that pass validation but resolve to different keys, causing denom collision or information disclosure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3dfdf094-ce29-45d1-bb99-6249146bee60?mode=deep",
+    "timestamp": "2026-01-09 09:37:33.138146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: Denom] [SQL Injection Style] Can an attacker inject KVStore query operators or special characters in the Denom field that are interpreted as wildcards or range queries, allowing enumeration of all denoms in the factory module and exposing sensitive token information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd33007a-e49a-4842-8f1f-630c2a405452?mode=deep",
+    "timestamp": "2026-01-09 09:37:55.611149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: Denom] [Length Validation] Since there's no length validation on the Denom field in this struct, can an attacker send extremely long denom strings (>MaxDenomLength) that pass query unmarshaling but cause buffer overflows or excessive gas consumption during query processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c58d19a-5101-478d-ba23-2b3869d1e9fe?mode=deep",
+    "timestamp": "2026-01-09 09:38:18.429828",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: Denom] [Path Traversal] Can a malicious contract inject path traversal characters (../, ./, etc.) or special characters in the Denom field to bypass KVStore key sanitization and read arbitrary state data from the factory module or other modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a4d0b8d-ec98-40fc-a421-a3fcb41a7f2f?mode=deep",
+    "timestamp": "2026-01-09 09:38:42.069263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: Denom] [Input Validation] The Denom struct accepts any string value for the Denom field without validation - can an attacker query with an empty string, causing query_plugin.go line 75 to perform an empty string lookup that returns incorrect denom data or exposes default/uninitialized state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_062e69dd-d658-420f-a566-99e8d1a66f01?mode=deep",
+    "timestamp": "2026-01-09 09:39:07.317212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: ZQuery] [Query Routing] Since ZQuery uses optional pointer fields for query type selection, can an attacker exploit race conditions in concurrent query processing where the query type changes between validation and execution, causing incorrect module queries and data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee1387e1-681a-42b8-bdb9-1c32848288b1?mode=deep",
+    "timestamp": "2026-01-09 09:39:34.205318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: ZQuery] [Memory Exhaustion] Can an attacker send extremely large JSON query payloads with deeply nested structures or extremely long string values in the Denom/PoolID/CoinIn fields, causing memory exhaustion during JSON unmarshaling and triggering validator DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a71a1d50-b442-4df6-b028-ffb369a2560d?mode=deep",
+    "timestamp": "2026-01-09 09:40:00.624797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: ZQuery] [JSON Deserialization] Can a malicious contract craft a JSON payload with unexpected field types (e.g., integer instead of string for denom) that passes JSON unmarshaling but causes type assertion failures downstream, leading to panic and validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bcdbe5b9-166c-4cbc-8244-7e9dc86444b8?mode=deep",
+    "timestamp": "2026-01-09 09:40:27.963255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: ZQuery] [Input Validation] Can an attacker send a ZQuery with all three fields (Denom, Pool, SwapIn) set to nil, bypassing the switch statement default case check in query_plugin.go and causing a panic or returning sensitive default data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fe8d3a9-e67e-47a0-8d2d-db2b4175cfda?mode=deep",
+    "timestamp": "2026-01-09 09:40:56.746195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: ZQuery] [Input Validation] Can a malicious CosmWasm contract send a ZQuery with multiple non-nil fields (Denom, Pool, and SwapIn all set simultaneously), causing undefined behavior or incorrect query routing in the CustomQuerier that could lead to state information leakage across module boundaries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c32f479e-4eec-4573-8bdd-25c55611577c?mode=deep",
+    "timestamp": "2026-01-09 09:41:23.141980",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 65-68] [Validator data] Can staking validator queries return corrupted commission rates or validator addresses that cause contracts to send funds to attacker-controlled addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46ecd080-1ac2-40bb-8fd6-e955f50fa835?mode=deep",
+    "timestamp": "2026-01-09 09:41:48.764413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 44-50] [Metadata integrity] Can bank DenomsMetadata queries return manipulated token metadata (symbols, decimals) that cause contracts to perform incorrect decimal conversions and lose user funds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5273cf6c-a8e5-41a2-bb59-37f212abcdfb?mode=deep",
+    "timestamp": "2026-01-09 09:42:15.643870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: returnStargateResponseToPool()] [Data sanitization] Does returnStargateResponseToPool() reset proto.Message objects to a clean state before returning them to the pool, or can residual data from previous queries leak into new queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ef571f2-c70f-4ae3-9ffa-9fa9d6285caf?mode=deep",
+    "timestamp": "2026-01-09 09:42:41.914240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: getWhitelistedQuery()] [Proto tampering] Can an attacker modify proto.Message objects after retrieving them from the pool but before they're returned, causing subsequent queries to receive corrupted data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_616ed6a4-e00a-4b70-89b4-a6261c3f4e5b?mode=deep",
+    "timestamp": "2026-01-09 09:43:09.423238",
+    "report_generated": false
   }
 ]
