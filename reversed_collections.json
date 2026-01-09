@@ -5398,5 +5398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6337adea-f6c0-47f6-abbe-d7cc1a894fea?mode=deep",
     "timestamp": "2026-01-09 15:20:31.694888",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [\n\n### Citations\n\n**File:** x/tokenwrapper/module/on_recv_packet.go (L21-202)\n```go\nfunc (im IBCModule) OnRecvPacket(\n\tctx sdk.Context,\n\tchannelVersion string,\n\tpacket channeltypes.Packet,\n\trelayer sdk.AccAddress,\n) ibcexported.Acknowledgement {\n\tim.keeper.Logger().Info(fmt.Sprintf(",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d219af6c-20f2-49b3-8111-9791dfddfb97?mode=deep",
+    "timestamp": "2026-01-09 15:21:54.551565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Context manipulation] Can an attacker exploit the sdk.Context (line 22) to modify block height, timestamp, or other context data during packet processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4fbbfef4-1f6b-4488-ab69-73721a9445f2?mode=deep",
+    "timestamp": "2026-01-09 15:22:07.167060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Relayer manipulation] Can a malicious relayer modify packet fields (channelVersion, relayer address) passed to OnRecvPacket (lines 21-26) to bypass validation or gain unauthorized benefits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_704683b7-a5df-4725-928d-1a111ef6c5b7?mode=deep",
+    "timestamp": "2026-01-09 15:22:20.974886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Packet replay attack] Can an attacker replay IBC packets that were already processed, exploiting any weakness in packet sequence verification to duplicate token wrapping operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39deedd7-3cd9-4e09-afbe-face98bfcc9c?mode=deep",
+    "timestamp": "2026-01-09 15:22:34.404619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Event ordering inconsistency] If EmitTokenWrapperPacketEvent (line 188) fails or is delayed, can this create inconsistency between actual state changes and emitted events, confusing off-chain systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3147ec19-a3cd-4ca6-b94d-52aca822dd80?mode=deep",
+    "timestamp": "2026-01-09 15:22:48.753919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Event data injection] Can an attacker inject malicious data into sender (line 191) or other event fields that get logged unsafely, leading to log injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fcf4575-fcac-4c98-b5fe-1fc7ecff0b9a?mode=deep",
+    "timestamp": "2026-01-09 15:23:04.156419",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Event emission DoS] Can an attacker craft packets with extremely long sender/receiver strings that cause EmitTokenWrapperPacketEvent (line 188) to consume excessive resources or fail, preventing packet processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b29b8db2-cf7f-4814-a223-564c8690f228?mode=deep",
+    "timestamp": "2026-01-09 15:23:20.404528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Tracking bypass] Can an attacker exploit the early return paths (lines 97, 105, 113, 121, 129, 137, 145, 156, 165, 173, 181) to transfer tokens without updating the tracking counter at line 185? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_994ae370-ad36-4235-b55d-901fa9d43317?mode=deep",
+    "timestamp": "2026-01-09 15:23:39.483343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Concurrent tracking updates] Does AddToTotalTransferredIn (line 185) use atomic operations, or can concurrent OnRecvPacket calls create race conditions in the total transferred counter? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_537a26fb-ea91-4a52-a989-a9f5fc168e8d?mode=deep",
+    "timestamp": "2026-01-09 15:23:56.866858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Tracking inconsistency] If AddToTotalTransferredIn (line 185) is called after tokens are unlocked but the function later fails, can this create inconsistency between actual transferred amounts and tracked amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5beb4132-a08a-4ef4-934b-324dd7de5029?mode=deep",
+    "timestamp": "2026-01-09 15:24:16.343732",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Transfer tracking overflow] Can an attacker send enough packets to cause integer overflow in AddToTotalTransferredIn (line 185), wrapping the total transferred counter and bypassing any limits based on this value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90f37528-ed7c-4dd6-bd09-91956ae97216?mode=deep",
+    "timestamp": "2026-01-09 15:24:35.770187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Unlock without lock verification] Does UnlockNativeTokens (line 177) verify that the previous LockIBCTokens (line 169) succeeded before unlocking, or can partial lock failures still trigger unlocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cae54d2f-047a-4fa7-8b4e-b86b2eaca77b?mode=deep",
+    "timestamp": "2026-01-09 15:24:57.244588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Denomination mismatch in unlock] UnlockNativeTokens uses constants.BondDenom (line 177) - can an attacker exploit scenarios where the native denom is different from BondDenom, causing unlock to wrong token type? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1eec74e-ff31-4321-894a-4385ff76cf32?mode=deep",
+    "timestamp": "2026-01-09 15:25:19.172403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Unlock to wrong receiver] Can the receiver address be modified between LockIBCTokens (line 169) and UnlockNativeTokens (line 177), causing native tokens to be sent to a different address than intended? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5082ac2e-4aa0-4517-b2d0-9f5b8ae95cba?mode=deep",
+    "timestamp": "2026-01-09 15:25:42.277792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Module balance exhaustion] If many packets arrive simultaneously and UnlockNativeTokens depletes the module balance (line 177), can later packets fail, creating unfair distribution where early packets succeed and late packets keep unwrapped vouchers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3680c92a-2b99-467e-b0ee-b16f69dd53a3?mode=deep",
+    "timestamp": "2026-01-09 15:26:05.956649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Amount conversion consistency] Does UnlockNativeTokens (line 177) unlock exactly convertedAmount, and is this amount correctly derived from the original amount via ScaleDownTokenPrecision? Can precision errors create unlock/lock mismatches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbbf893f-52fa-4569-a94f-442c771130d5?mode=deep",
+    "timestamp": "2026-01-09 15:26:30.797018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Rollback reentrancy] Can the rollback unlock operation (line 504 in keeper.go) trigger bank hooks that re-enter OnRecvPacket, creating a reentrancy vulnerability during error handling? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6055d621-dfb1-4ff3-a6e7-d883d5c1b334?mode=deep",
+    "timestamp": "2026-01-09 15:26:55.442161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Rollback timing window] During the rollback in UnlockNativeTokens (line 178), can an attacker exploit the timing window between the failed unlock and the rollback unlock to manipulate token balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc5d32cc-5c7f-4239-b8d5-39a02811bf55?mode=deep",
+    "timestamp": "2026-01-09 15:27:18.499361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Unlock failure rollback] When UnlockNativeTokens fails (line 178), it attempts to rollback by unlocking IBC tokens (line 504) - but can this rollback fail, leaving both IBC and native tokens locked? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5293457-216a-4fc6-9680-614384c8bcfe?mode=deep",
+    "timestamp": "2026-01-09 15:27:43.556033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Denomination confusion in lock] Can an attacker manipulate recvDenom (line 169) between GetIBCRecvDenom (line 149) and LockIBCTokens to lock tokens with wrong denomination? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7cf85f04-295f-4e9c-a597-8d729586e566?mode=deep",
+    "timestamp": "2026-01-09 15:28:08.469039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Lock without unlock] If LockIBCTokens succeeds (line 169) but UnlockNativeTokens fails (line 177), are the IBC tokens permanently locked in the module with no native tokens released? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de09afe4-6d96-4a87-bb20-07176e711491?mode=deep",
+    "timestamp": "2026-01-09 15:28:34.132136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Module account security] When LockIBCTokens transfers tokens to the module account (line 169), can an attacker exploit module account permissions to withdraw or manipulate the locked tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24eee2dd-9bf5-46f7-a987-c36a2d988c38?mode=deep",
+    "timestamp": "2026-01-09 15:29:00.768218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Lock amount mismatch] Does LockIBCTokens (line 169) lock exactly 'amount' tokens with 'recvDenom' denomination, or can rounding/conversion issues cause it to lock different amounts than specified? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47977146-4244-4150-bacc-9cd6c3ff211a?mode=deep",
+    "timestamp": "2026-01-09 15:29:27.354175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Lock reentrancy] During the SendCoinsFromAccountToModule call inside LockIBCTokens (line 169), can bank keeper hooks trigger reentrancy into OnRecvPacket, causing recursive locking? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc364a16-6ad4-48c1-b1b9-7f9642027f67?mode=deep",
+    "timestamp": "2026-01-09 15:29:53.379029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Partial lock attack] Can an attacker craft packets where LockIBCTokens (line 169) partially succeeds, locking some tokens but not all, creating inconsistent state between IBC vouchers and native tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d7ad4e4-b3e6-4c3b-bf79-9855756f05c4?mode=deep",
+    "timestamp": "2026-01-09 15:30:18.819828",
+    "report_generated": false
   }
 ]
