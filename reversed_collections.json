@@ -10048,5 +10048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d22808b1-8e23-4dc8-beec-a3970aed5293?mode=deep",
     "timestamp": "2026-01-09 21:04:22.177435",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Contract address] Can an attacker propose a CosmWasm contract address as the NewOperator via MsgProposeOperatorAddress (passing ValidateBasic() lines 18-28), and would this create security issues with contract-controlled bridge operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d76e0846-0be6-4942-985d-4176145a012c?mode=deep",
+    "timestamp": "2026-01-09 21:05:36.766647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Governance override] Can governance proposals override a pending operator change initiated by MsgProposeOperatorAddress, and does ValidateBasic() lines 18-28 account for this possibility to prevent conflicts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42e5edb0-373a-481f-adf3-728ab13863f8?mode=deep",
+    "timestamp": "2026-01-09 21:05:48.994434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Multi-sig bypass] If the operator address is a multi-sig account, can a single signer submit MsgProposeOperatorAddress (passing ValidateBasic() lines 18-28) without full multi-sig approval, bypassing intended access controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cdf4b42-2644-4cd5-a6d7-058a81150d40?mode=deep",
+    "timestamp": "2026-01-09 21:06:01.694644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Admin escalation] Can an attacker who controls the proposed NewOperator address escalate their privileges to admin level by exploiting the two-step operator change mechanism validated by ValidateBasic() lines 18-28? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7fe95866-d1ef-4e44-b432-7c715f7a32ba?mode=deep",
+    "timestamp": "2026-01-09 21:06:14.832951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Checkpoint inconsistency] If validators checkpoint state at different times relative to MsgProposeOperatorAddress processing, can this cause checkpoints to include inconsistent proposed operator values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5642ad6-8be8-4a37-b35d-744ab5757ab6?mode=deep",
+    "timestamp": "2026-01-09 21:06:28.554505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Query inconsistency] Can an attacker observe inconsistent state during operator proposal by querying between ValidateBasic() validation lines 18-28 and keeper execution, exploiting the non-atomic nature of message processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e486c4e-cfda-42a6-9890-b11a32d3934f?mode=deep",
+    "timestamp": "2026-01-09 21:06:43.422489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Event emission timing] If the keeper emits events before committing state changes, can an attacker exploit this to make off-chain systems believe an operator change occurred when ValidateBasic() passed but keeper execution failed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f19aaca-6e8c-4e5a-8bd2-4f78e5093bbb?mode=deep",
+    "timestamp": "2026-01-09 21:06:59.009043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [KVStore corruption] Can an attacker exploit the gap between ValidateBasic() validation lines 18-28 and keeper storage operations to corrupt the KVStore with invalid proposed operator addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6662eb6-857a-4393-a59f-fb3abe6735c8?mode=deep",
+    "timestamp": "2026-01-09 21:07:16.190699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [State rollback] If the keeper transaction fails after ValidateBasic() passes on lines 18-28, does the state properly rollback, or can partial proposals remain in storage causing inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79267cd8-e688-43bc-9ab2-19ba6e476cf7?mode=deep",
+    "timestamp": "2026-01-09 21:07:34.718567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [MultiMsg transaction] Can an attacker include MsgProposeOperatorAddress in a multi-message transaction where earlier messages modify state in ways that make ValidateBasic() lines 18-28 produce incorrect results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a7e651e-6982-400a-9c6b-9c99d89bf530?mode=deep",
+    "timestamp": "2026-01-09 21:07:53.884887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [AnteHandler bypass] Can an attacker bypass the AnteHandler checks by crafting MsgProposeOperatorAddress messages that pass ValidateBasic() lines 18-28 but skip fee deduction or signature verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b2ca932-47fd-4da8-90f9-348ff5795493?mode=deep",
+    "timestamp": "2026-01-09 21:08:14.203649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Fee payment] Can an attacker submit MsgProposeOperatorAddress with insufficient fees, causing validators to process ValidateBasic() lines 18-28 without compensation and potentially causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb329118-5ada-4a8e-b650-7b2d9e06dcbe?mode=deep",
+    "timestamp": "2026-01-09 21:08:35.195564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Signature verification] Does the Cosmos SDK verify the signature on MsgProposeOperatorAddress before or after calling ValidateBasic() lines 18-28, and can this ordering be exploited to submit unsigned messages? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fca0f2f0-7a7b-4a9f-8697-2029e73b8b26?mode=deep",
+    "timestamp": "2026-01-09 21:08:56.783715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Protobuf unmarshaling] Can an attacker craft a malicious protobuf message that unmarshals into a valid MsgProposeOperatorAddress struct but causes ValidateBasic() on lines 18-28 to behave unexpectedly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af4ac0a1-2a33-4173-959a-78400291d68d?mode=deep",
+    "timestamp": "2026-01-09 21:09:19.243999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Amino encoding] Can an attacker exploit differences between Amino and Protobuf encoding of MsgProposeOperatorAddress to create messages that pass ValidateBasic() in one encoding but fail in another, causing consensus issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35ecb0b5-f9bc-49d8-aa20-9862c0597f81?mode=deep",
+    "timestamp": "2026-01-09 21:09:43.094993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [sdk.Msg interface] Does MsgProposeOperatorAddress properly implement the sdk.Msg interface declared on line 9, or can interface method mismatches cause runtime panics when the message is processed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2fe07b64-730a-4eac-a2d5-8c9040b8511a?mode=deep",
+    "timestamp": "2026-01-09 21:10:07.411716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Memory alignment] Can an attacker exploit memory alignment issues in the MsgProposeOperatorAddress struct to cause undefined behavior when ValidateBasic() accesses msg.Signer or msg.NewOperator on lines 19-24? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54a8c3eb-f463-4f3b-b321-c39a2d523caf?mode=deep",
+    "timestamp": "2026-01-09 21:10:32.374705",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Race detector] Would running the Go race detector on ValidateBasic() reveal any race conditions in the validators.SignerCheck() calls on lines 19 and 23 that could be exploited in concurrent transaction processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4eac01fa-a33c-4f04-9429-eda763980a23?mode=deep",
+    "timestamp": "2026-01-09 21:10:59.524078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Type assertion] If MsgProposeOperatorAddress is type-asserted from an interface, can an attacker exploit type assertion failures to bypass ValidateBasic() validation entirely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ebb654ef-b7a9-4f7c-bc42-1f1b0df9f2d3?mode=deep",
+    "timestamp": "2026-01-09 21:11:26.121232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Slice bounds] Does ValidateBasic() or validators.SignerCheck() (lines 19, 23) properly check slice bounds when parsing addresses, or can an attacker trigger slice bounds panics with malformed addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eda2939c-645b-4587-9bda-51672ee37d70?mode=deep",
+    "timestamp": "2026-01-09 21:11:52.717663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Goroutine leak] Can processing MsgProposeOperatorAddress messages spawn goroutines in validators.SignerCheck() (lines 19, 23) that are never cleaned up, causing resource leaks over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4aafbef1-f6bd-4386-8690-e36e113f4f14?mode=deep",
+    "timestamp": "2026-01-09 21:12:20.238635",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Panic recovery] If validators.SignerCheck() panics on lines 19 or 23 due to nil pointer or other runtime errors, does ValidateBasic() have panic recovery, or will it crash the validator node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ea51296-110b-443a-bfca-1543a94dc65c?mode=deep",
+    "timestamp": "2026-01-09 21:12:45.208728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [String mutation] Since Go strings are supposed to be immutable, can an attacker exploit unsafe string operations to mutate msg.Signer or msg.NewOperator after ValidateBasic() passes validation on lines 18-28? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b83d7672-24fa-4b90-bf6e-d9c6fb2c69a4?mode=deep",
+    "timestamp": "2026-01-09 21:13:10.598414",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Pauser address conflict] If the NewOperator address in MsgProposeOperatorAddress is also the pauser address, can this create conflicts in access control that allow unauthorized operations or prevent emergency pausing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb19282b-a89a-4d34-a090-c3350c9b578f?mode=deep",
+    "timestamp": "2026-01-09 21:13:34.989459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Decimal conversion manipulation] Can a malicious operator proposed via MsgProposeOperatorAddress modify the 18→6 decimal conversion settings to create token duplication or precision loss vulnerabilities in the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c24cb50-6a80-4e60-8075-dec79fb99fa7?mode=deep",
+    "timestamp": "2026-01-09 21:13:58.652071",
+    "report_generated": false
   }
 ]
