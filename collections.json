@@ -4348,5 +4348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52156453-eea1-4acd-9f4d-374321da005f?mode=deep",
     "timestamp": "2026-01-09 13:22:30.335939",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Distribution module exploit] Could vesting accounts with non-zero DelegatedFree claim staking rewards before tokens actually vest, draining the distribution module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8413fe36-4e1d-4e87-8c3d-9913375940bc?mode=deep",
+    "timestamp": "2026-01-09 13:23:43.568099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Gas exhaustion] Could the Validate() function consume excessive gas if called during runtime (not just genesis), causing DoS if validators process malformed account updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cb457b4-d296-4c53-ba14-3e792adc268f?mode=deep",
+    "timestamp": "2026-01-09 13:23:56.019102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [CPU intensive validation] If BaseAccount.Validate() or ModuleAccount.Validate() perform expensive operations (like cryptographic checks), could this be exploited for DoS during genesis? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d18a7139-98de-47f4-bc23-03a48ce5df4a?mode=deep",
+    "timestamp": "2026-01-09 13:24:09.386989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Storage exhaustion] Can an attacker include thousands of GenesisAccounts in genesis.json that all pass Validate() but exceed available storage or memory during initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_797fd75a-c435-4589-9bd6-2a9a0a044ffd?mode=deep",
+    "timestamp": "2026-01-09 13:24:22.405620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Key management] For module accounts, does the BaseAccount's public key get properly set, or could module accounts exist without proper key material creating authorization bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a915d95-621f-483c-89b7-6b37bf989f10?mode=deep",
+    "timestamp": "2026-01-09 13:24:36.065454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Signature verification] Does validation ensure that the BaseAccount's public key matches expected key derivation for module accounts, or can attackers inject arbitrary keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46a40fc2-2509-43f7-9e23-8233d3724fbd?mode=deep",
+    "timestamp": "2026-01-09 13:24:50.805512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Address generation] For module accounts, if the address is not derived deterministically from ModuleName, could attackers create module accounts at arbitrary addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_404cf908-207e-4c91-8a73-98a3a2e5267e?mode=deep",
+    "timestamp": "2026-01-09 13:25:06.725923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Genesis state bloat] Can an attacker include many GenesisAccounts with minimal balances but complex vesting schedules to bloat the genesis state and slow down node synchronization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65c2a4ba-922e-4bea-9d67-7e56acc5654e?mode=deep",
+    "timestamp": "2026-01-09 13:25:24.291543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Validator collusion] If 1/3+ Byzantine validators agree on a malformed genesis state with invalid GenesisAccounts, could this cause the chain to start in a compromised state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f58bfeb-04d3-45ff-ae33-161b0e041142?mode=deep",
+    "timestamp": "2026-01-09 13:25:42.023025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Chain fork attack] Can attackers distribute different genesis.json files with different GenesisAccount configurations to different validators, causing the chain to fork at genesis? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4219b27-a839-4f47-9296-b2884c058d49?mode=deep",
+    "timestamp": "2026-01-09 13:26:01.446010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Partial initialization] If some GenesisAccounts fail validation but others pass, is the genesis state rolled back completely or left in a partially initialized state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c28da5b-8721-40c2-b60b-642cd5fd2f17?mode=deep",
+    "timestamp": "2026-01-09 13:26:21.860312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Field mutation after validation] After Validate() passes, could external code mutate the GenesisAccount fields before they're persisted to state, bypassing validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_244bb5c9-55db-4826-bc5f-b3fd59dcc84b?mode=deep",
+    "timestamp": "2026-01-09 13:26:42.533425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Validation consistency] If Validate() is called multiple times on the same account with different blockchain states, could it return different results causing non-determinism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1eccf7b-33d7-4862-94b6-28c46abd503b?mode=deep",
+    "timestamp": "2026-01-09 13:27:04.108579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [JSON unmarshaling exploit] Could attackers craft malicious JSON that unmarshals into valid GenesisAccount objects but with unexpected field values due to JSON parsing quirks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b5e3b8dc-55cb-48f4-b511-d42ad5cdbcf0?mode=deep",
+    "timestamp": "2026-01-09 13:27:26.265497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Race condition] Can multiple goroutines call sdk.GetConfig() concurrently before config.Seal() is executed at line 19, allowing an attacker to modify configuration parameters after the intended seal, potentially changing address prefixes to redirect funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6725e23-c61a-4b2e-a313-3422908017e6?mode=deep",
+    "timestamp": "2026-01-09 13:27:51.099507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Initialization order] Since init() functions execute in unpredictable order across packages, can a malicious module's init() execute after this config.go init() and call config.Seal() prematurely before all settings are applied, causing incomplete configuration that breaks address validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24af07b9-0d22-4bd2-a5f6-4e6cd58b5b4f?mode=deep",
+    "timestamp": "2026-01-09 13:28:16.480498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Double seal] If another package attempts to call SetBech32PrefixForAccount after config.Seal() at line 19, does the panic get properly handled, or can it crash all validators simultaneously causing a network-wide denial of service? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e70ad541-fc5e-4e82-a983-86c873b0655a?mode=deep",
+    "timestamp": "2026-01-09 13:28:42.663718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [State inconsistency] Can an attacker exploit the window between SetCoinType (line 15) and config.Seal() (line 19) to inject a different coin type value via a race condition, causing cross-chain IBC transfers to fail due to coin type mismatch? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cea7647-ecca-424b-acbe-a701b87c694e?mode=deep",
+    "timestamp": "2026-01-09 13:29:09.192740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Configuration tampering] Before config.Seal() is called at line 19, can a malicious module intercept sdk.GetConfig() and modify the Bech32 prefixes, causing all subsequent address validations to accept attacker-controlled addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfa25ff0-b08c-4a9f-8564-d3fe60ab4065?mode=deep",
+    "timestamp": "2026-01-09 13:29:36.538060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Address confusion] The accountPubKeyPrefix is constructed by concatenating AccountAddressPrefix + 'pub' at line 7 without validation. Can an attacker who controls the AccountAddressPrefix constant inject special characters that break Bech32 encoding, allowing address spoofing attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c73425cb-7d6d-4a57-ac87-bdd3ffc4c030?mode=deep",
+    "timestamp": "2026-01-09 13:30:04.733707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Prefix collision] If AccountAddressPrefix at line 7 is set to 'zig', can an attacker create a validator address 'zigvaloper' that collides with account addresses starting with 'zigv', enabling them to bypass access controls by confusing address type validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_918a70ea-0153-4bc8-9ead-28a33624f2f9?mode=deep",
+    "timestamp": "2026-01-09 13:30:32.678274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [String concatenation] The prefix concatenations at lines 7-11 use simple string append without length validation. Can an attacker exploit excessively long prefix values to cause buffer overflows in downstream Bech32 encoding operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d68617c6-e03d-46cb-b384-3ff620f7c7dc?mode=deep",
+    "timestamp": "2026-01-09 13:31:00.281886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Validator prefix] The validatorAddressPrefix at line 8 combines AccountAddressPrefix + 'valoper'. If AccountAddressPrefix contains 'valoper' already, can this create a prefix like 'zigvalopervaloper' that confuses validator signature verification, allowing unauthorized block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a57f4d3-bdd0-41d7-b4d4-841523447f3b?mode=deep",
+    "timestamp": "2026-01-09 13:31:27.256915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Consensus node prefix] The consNodeAddressPrefix at line 10 uses AccountAddressPrefix + 'valcons'. Can an attacker manipulate this to create a prefix that matches existing account addresses, enabling them to forge consensus messages from arbitrary accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_732ffbc8-a4a2-4062-8b03-ac917a36ba02?mode=deep",
+    "timestamp": "2026-01-09 13:31:53.040264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Coin type manipulation] The SetCoinType at line 15 uses ChainCoinType constant. If this value is modified before init() executes, can an attacker change it to match another chain's coin type (e.g., Ethereum's 60), causing BIP44 derivation path collisions that allow private key reuse across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c02c67fd-8dc4-4393-b606-aff9a5c12035?mode=deep",
+    "timestamp": "2026-01-09 13:32:19.650644",
+    "report_generated": false
   }
 ]
