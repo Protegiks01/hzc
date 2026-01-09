@@ -1198,5 +1198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2677ef41-318f-4c4c-944e-1bfedc460276?mode=deep",
     "timestamp": "2026-01-09 09:03:39.442055",
     "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Precision loss] Does the division by PoolFeeScalingFactor (100,000) in swap fee calculations cause precision loss for small-value swaps, allowing attackers to exploit rounding errors to drain liquidity through repeated micro-swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_106bb1c0-8691-4024-8dd3-5364a7355bbf?mode=deep",
+    "timestamp": "2026-01-09 09:05:29.478149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Integer overflow] In CalculateSwapAmount fee calculation (incoming.Amount.Mul(feeRatePerHundredThousand).Quo(scalingFactor)), can an attacker craft extremely large incoming amounts that cause integer overflow when multiplied by fee rates, bypassing the 100,000 scaling factor division? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5919ae3b-7077-4764-9ced-1cc26c9e6269?mode=deep",
+    "timestamp": "2026-01-09 09:05:41.985610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Pool ID enumeration] Can an attacker exploit the predictable PoolPrefix + sequential numbering scheme to enumerate all existing pools and analyze liquidity distributions for targeted market manipulation attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1f6ff8b-b7d9-4c6a-a8be-a57d131eb93c?mode=deep",
+    "timestamp": "2026-01-09 09:05:54.682376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Length validation] Does the fixed 2-character PoolPrefix ('zp') combined with numeric pool IDs allow pool ID strings to exceed MaxSubDenomLength (44 characters), causing validation failures or state corruption in coin denomination checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57afd2bf-c699-4c25-8939-7dc9357b2441?mode=deep",
+    "timestamp": "2026-01-09 09:06:08.264825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Module account collision] Since pool addresses are derived using authtypes.NewModuleAddress(poolIDString), can an attacker create a pool ID that collides with existing module account addresses by exploiting the two-character prefix limitation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_986176fd-6529-47ed-8642-9af7efd07f0b?mode=deep",
+    "timestamp": "2026-01-09 09:06:22.353157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Regex bypass] Can an attacker craft pool IDs that satisfy the regex pattern 'zp[0-9]+' but contain malicious padding, null bytes, or non-printable characters after the numeric portion, bypassing validation while corrupting state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b723d790-4087-4252-8dd4-54013232924c?mode=deep",
+    "timestamp": "2026-01-09 09:06:37.332871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [String concatenation] In pool ID string construction (PoolPrefix + strconv.FormatUint), can an attacker exploit potential string concatenation vulnerabilities to inject special characters or control sequences that break pool ID parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4e207ee-87fb-4a2d-8c55-e5a25d17831e?mode=deep",
+    "timestamp": "2026-01-09 09:06:54.555593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Pool address derivation] Can an attacker exploit the deterministic pool address generation using PoolPrefix in GetPoolAddress() to precompute pool addresses and front-run pool creation transactions, squatting on valuable pool addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e49e8665-fee3-478b-b2ef-fb54dabde3b7?mode=deep",
+    "timestamp": "2026-01-09 09:07:12.077633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Pool ID validation] Does the hardcoded 'zp' prefix in CheckPoolId validation allow an attacker to bypass pool ID format checks by exploiting case sensitivity or Unicode homoglyph characters that visually resemble 'zp', leading to invalid pool creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_166e2fdf-8cf2-4406-b7e1-2ccc31dc7646?mode=deep",
+    "timestamp": "2026-01-09 09:07:30.378269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Address collision] Can an attacker craft a malicious pool ID by manipulating the 'zp' prefix concatenation in GetNextPoolIDString() to create address collisions with existing module accounts, potentially allowing unauthorized access to pool funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf95245f-79e8-457b-9340-ad329b39c277?mode=deep",
+    "timestamp": "2026-01-09 09:07:49.476598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Integration] [Cross-Module Queries] When contracts query denoms used in pools or pools containing factory tokens, can circular dependencies or inconsistent state between modules cause query responses that violate inter-module invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6eadd5e0-264a-42c9-980f-4cd5dd2ab50d?mode=deep",
+    "timestamp": "2026-01-09 09:08:10.125252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Integration] [DEX Pool Tokens] Can LP tokens from pools be queried as regular denoms, and if so, do the responses correctly indicate they are LP tokens or can they be confused with regular tradeable tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_74b151de-49ef-4395-ac2d-015a7ed26e42?mode=deep",
+    "timestamp": "2026-01-09 09:08:31.156415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Integration] [Factory Tokens] When querying factory-created tokens with the factory prefix, can response fields (Creator, BankAdmin) be manipulated by the token creator to impersonate protocol admins or other trusted addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9131ecc-e751-4ed2-adce-9db744be44f9?mode=deep",
+    "timestamp": "2026-01-09 09:08:53.089161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Integration] [IBC Tokens] When querying denoms that are IBC tokens (with 'ibc/' prefix), can the query responses include incorrect decimal precision information leading contracts to miscalculate amounts when bridging tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a782bc44-46cd-4041-9fc0-30bce5643aae?mode=deep",
+    "timestamp": "2026-01-09 09:09:16.063180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Governance] [Creator Targeting] Can exposing pool Creator addresses allow attackers to identify and target specific liquidity providers for front-running their operations or social engineering attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c2c72e5-fcce-41bc-9d00-3d9aedc8370c?mode=deep",
+    "timestamp": "2026-01-09 09:09:38.924191",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Governance] [Minting Cap Discovery] Can querying MintingCap values for all denoms reveal protocol economic parameters that should remain partially confidential, enabling attackers to optimize exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1468b28b-df5d-43a5-b88e-892018246dbc?mode=deep",
+    "timestamp": "2026-01-09 09:10:02.713652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Governance] [Admin Enumeration] Since DenomResponse exposes BankAdmin and MetadataAdmin addresses, can malicious actors enumerate all token admins and target them for social engineering, bribery, or coordinated attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aed1bc90-3211-45da-b7bf-2ec075a3659f?mode=deep",
+    "timestamp": "2026-01-09 09:10:27.603031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Resource Management] [Memory Allocation] Can crafting queries with extremely large string fields or arrays cause excessive memory allocation during unmarshaling that leads to out-of-memory errors and validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13ffb305-5c54-4bcf-b166-49151d9214f4?mode=deep",
+    "timestamp": "2026-01-09 09:10:52.578953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Gas] [Nested Queries] If contracts can make multiple queries in sequence, can the cumulative gas cost exceed block limits or cause transaction failures partway through contract execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97856d35-1663-4148-bff0-a5e89c56621f?mode=deep",
+    "timestamp": "2026-01-09 09:11:18.407332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Gas] [Response Size] Can queries with very large responses (e.g., pools with 100+ coins) consume excessive gas during JSON marshaling, causing contracts to run out of gas unexpectedly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e67107d8-1b25-40ef-9d6f-1dd0c987fe3f?mode=deep",
+    "timestamp": "2026-01-09 09:11:43.356557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Gas] [Query Cost] Are Denom, Pool, and SwapIn queries charged different gas amounts based on complexity? Can attackers optimize query selection to gather maximum information for minimum gas cost? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06e9573e-a19f-4791-a3d0-5f260e1cc4a3?mode=deep",
+    "timestamp": "2026-01-09 09:12:08.687242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Implementation] [Consistency Check] The check at query_plugin.go lines 99-106 validates kDenom.Denom == denomAuth.Denom - but since both are looked up with the same key, when could this check fail, and does failure indicate state corruption that should halt the chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6dafac06-f170-4aea-9225-a5fa9f3d68eb?mode=deep",
+    "timestamp": "2026-01-09 09:12:36.045876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Implementation] [SwapOut Missing] SwapOut query type is defined in the struct but appears not to be implemented in query_plugin.go CustomQuerier - can contracts call this undefined query path and receive misleading default responses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54ea24b3-d418-4683-af3c-454a97cc88a4?mode=deep",
+    "timestamp": "2026-01-09 09:13:03.322178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Implementation] [Pool Validation Gap] Pool queries don't validate PoolID format before keeper lookup unlike SwapIn queries - can this inconsistency cause different error behaviors that leak information or waste gas? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_215daa83-61c3-481a-b077-ade7739a7ace?mode=deep",
+    "timestamp": "2026-01-09 09:13:29.122188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Implementation] [Denom Validation Gap] Unlike SwapIn which validates PoolID at query_plugin.go line 159, Denom queries have no validation before the keeper lookup - can this allow queries with malformed denoms that should be rejected earlier to consume unnecessary gas? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a55ca4e-fc67-4632-8da4-29f1b11cf83c?mode=deep",
+    "timestamp": "2026-01-09 09:13:58.717434",
+    "report_generated": false
   }
 ]
