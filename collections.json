@@ -1,1 +1,152 @@
-[]
+[
+  {
+    "question": "[File: app/app.go] [Function: New()] [Initialization order] Can an attacker exploit the initialization sequence where AppKeepers are created before IBC modules are registered, allowing uninitialized keeper references to be accessed during IBC setup and causing nil pointer dereferences that crash the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ede65f0-7bd4-42dd-b955-fbff13e16636?mode=deep",
+    "timestamp": "2026-01-09 07:27:53.735606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Optimistic execution] Does enabling optimistic execution via baseapp.SetOptimisticExecution() introduce race conditions where parallel transaction execution can cause state inconsistencies in TokenWrapper decimal conversions, allowing token duplication across concurrent wrap/unwrap operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df9d30eb-103f-4d42-8f28-ac6b55b2d9fc?mode=deep",
+    "timestamp": "2026-01-09 07:28:06.033088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Store loading] Can an attacker trigger a scenario where app.Load(loadLatest) fails to load the latest state but the initialization continues, causing the chain to operate with stale or corrupted state data that enables double-spending of IBC vouchers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71525fc5-d7f7-4554-bb26-50a329262dca?mode=deep",
+    "timestamp": "2026-01-09 07:28:19.392007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [WASM initialization] Can an attacker exploit the WasmKeeper.InitializePinnedCodes() call at the end of initialization to pin malicious contracts before security checks are applied, bypassing governance approval for critical contract deployments? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_212e6a15-e941-490f-bdc4-a29ca211dbf7?mode=deep",
+    "timestamp": "2026-01-09 07:28:32.555290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Module registration order] Does the sequence of calling registerIBCModules before setupUpgradeHandlers create a window where IBC packets can be processed before upgrade logic is initialized, allowing exploitation of pre-upgrade vulnerabilities during chain upgrades? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fde75ba3-516e-42bb-84de-a04e5187a12c?mode=deep",
+    "timestamp": "2026-01-09 07:28:46.440994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Error propagation] If registerIBCModules returns an error but the app continues initialization in some edge case, can this lead to partially initialized IBC stack that accepts but incorrectly processes cross-chain transfers, causing token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3322a421-22f5-4668-957e-174a3c00858f?mode=deep",
+    "timestamp": "2026-01-09 07:29:01.003476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Streaming services] Can an attacker exploit the RegisterStreamingServices call to inject malicious streaming plugins that intercept and manipulate IBC packet data before it reaches the TokenWrapper middleware? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e11b2133-87dc-4f5b-8b33-09f69ac30fbe?mode=deep",
+    "timestamp": "2026-01-09 07:29:17.671540",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Module manager] Does the simulation manager setup with overrideModules allow an attacker to replace critical modules like TokenWrapper during simulation tests, enabling them to test exploits without detection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c0de6e98-4322-41cc-b09b-0eca402f4587?mode=deep",
+    "timestamp": "2026-01-09 07:29:34.567407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Context creation] Can the NewUncachedContext call used for InitializePinnedCodes be exploited to bypass transaction context validations and execute unauthorized WASM operations during chain startup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f629a82b-ef23-47d4-9f89-2ee2aea40028?mode=deep",
+    "timestamp": "2026-01-09 07:29:53.033254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Base app options] Can additional baseAppOptions passed as variadic arguments override critical security settings like optimistic execution behavior, allowing validators to disable security features? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d23d9ea-9f53-47fa-9121-4da5883f3f86?mode=deep",
+    "timestamp": "2026-01-09 07:30:12.364343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SetInitChainer()] [Version map] Can an attacker manipulate the module version map via SetModuleVersionMap to register incorrect versions for TokenWrapper or Factory modules, causing upgrade logic to skip critical security patches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e01a4e3b-d3d6-4f39-b5d4-0209f8cb52ab?mode=deep",
+    "timestamp": "2026-01-09 07:30:31.616295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SetInitChainer()] [Init chain] If the UpgradeKeeper.SetModuleVersionMap fails but the error is ignored, can the chain continue with an inconsistent version map that causes modules to operate with incompatible state schemas, leading to token duplication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3edda07a-5474-4397-962f-4284035a5236?mode=deep",
+    "timestamp": "2026-01-09 07:30:52.080391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SetInitChainer()] [Genesis state] Does the custom InitChainer allow genesis state to be loaded before the module version map is set, creating a race condition where modules process genesis data with incorrect version assumptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02992125-1a92-4721-95d2-f35e8c8c41a7?mode=deep",
+    "timestamp": "2026-01-09 07:31:14.464816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SetInitChainer()] [Module initialization] Can an attacker exploit the order of module initialization in the InitChainer to ensure malicious modules are initialized before security-critical modules like TokenWrapper, allowing them to intercept initialization logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0dcd5ee8-2a80-43a3-9fbe-8f29acbbe7c6?mode=deep",
+    "timestamp": "2026-01-09 07:31:36.224296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [Fork execution] Even though Forks array is currently empty, can an attacker exploit the PreBlockForks call to inject fork logic that executes arbitrary code in the pre-block phase without consensus validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d889607-1b2e-430d-a486-d7d66c35f2b2?mode=deep",
+    "timestamp": "2026-01-09 07:31:59.893352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [Context manipulation] Can an attacker modify the sdk.Context passed to PreBlockForks to manipulate block height or timestamp, causing fork logic to execute at incorrect heights and enabling double-spending attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f5bbe6c-c2c0-4f37-8812-f3da5c726204?mode=deep",
+    "timestamp": "2026-01-09 07:32:23.987536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [Error handling] If PreBlockForks panics or returns an error, does the PreBlocker fail gracefully or can this cause the entire block processing to halt, creating a network-wide DoS condition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad60e192-70b7-416c-9578-f75380eb2846?mode=deep",
+    "timestamp": "2026-01-09 07:32:48.975975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [State changes] Can fork logic executed in PreBlockForks make state changes that bypass transaction validation, allowing unauthorized modifications to TokenWrapper module balances or IBC channel states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b859d32c-bf92-468f-80a0-a87101605be7?mode=deep",
+    "timestamp": "2026-01-09 07:33:15.719942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [App.PreBlocker call] Does the call to app.App.PreBlocker after PreBlockForks create a double-execution scenario where pre-block hooks run twice, potentially duplicating IBC packet processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bffc79f0-699f-4b02-8dc8-fd9af597e99a?mode=deep",
+    "timestamp": "2026-01-09 07:33:39.105684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeHandlers()] [Handler registration] Can an attacker register malicious upgrade handlers by exploiting the loop over Upgrades array, replacing legitimate upgrade logic with code that drains TokenWrapper module funds during upgrades? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d2a8215-57ac-4ece-97bc-18f5d08c80ce?mode=deep",
+    "timestamp": "2026-01-09 07:34:03.414915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeHandlers()] [Upgrade name collision] If two upgrades in the Upgrades array have the same UpgradeName, does the last one override the first, allowing an attacker to replace security-critical upgrade logic with malicious code? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37a9b0bb-67a0-47f4-bd16-9d34f39f8657?mode=deep",
+    "timestamp": "2026-01-09 07:34:27.721727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeHandlers()] [CreateUpgradeHandler] Can the CreateUpgradeHandler function access app.AppKeepers before they are fully initialized, leading to nil pointer dereferences during upgrade execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a42c95ca-fa71-4203-b5a3-4d2fa166d0da?mode=deep",
+    "timestamp": "2026-01-09 07:34:52.842343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeStoreLoaders()] [Store upgrade] Can an attacker manipulate the upgradeInfo read from disk to specify incorrect store upgrades that corrupt TokenWrapper or Factory module state during chain restart? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b25abf7-12d3-46e2-8758-5df087f1257b?mode=deep",
+    "timestamp": "2026-01-09 07:35:17.274358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeStoreLoaders()] [Skip height] Does the IsSkipHeight check allow validators to skip critical security upgrades by claiming certain heights should be skipped, leaving vulnerabilities unpatched? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f30e2b84-e244-4045-bf6d-9339ad7fa51e?mode=deep",
+    "timestamp": "2026-01-09 07:35:41.453921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeStoreLoaders()] [Height manipulation] Can an attacker exploit the upgrade height comparison to trigger store upgrades at incorrect heights, causing state corruption when modules expect different store schemas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc78c2d9-e8d8-433f-a731-dbaad370713d?mode=deep",
+    "timestamp": "2026-01-09 07:36:04.579036",
+    "report_generated": false
+  }
+]
