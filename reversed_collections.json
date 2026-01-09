@@ -9148,5 +9148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba989708-d33a-4d05-8a75-2246112e2a1a?mode=deep",
     "timestamp": "2026-01-09 20:06:17.448909",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Fuzz testing] Has ValidateBasic() been subjected to fuzz testing with malformed UTF-8 sequences, overlong addresses, and boundary-case Bech32 strings to ensure robust validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04d58099-ebeb-48e1-b93d-de2d1bb78eda?mode=deep",
+    "timestamp": "2026-01-09 20:07:27.878061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Test coverage] Are there tests validating that ValidateBasic() properly rejects addresses with invalid checksums, or can checksum validation bugs allow invalid pausers to be added? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_174bf26a-9a2e-4060-862b-e859f1bee6e7?mode=deep",
+    "timestamp": "2026-01-09 20:07:40.152011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Module account invariant] Can module accounts (like the TokenWrapper module account) be added as pausers through ValidateBasic()-validated messages, violating the invariant that only user accounts should have pauser privileges? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c48c360-2379-4e7a-ae8a-2ede6107de12?mode=deep",
+    "timestamp": "2026-01-09 20:07:52.760896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Uniqueness invariant] Since ValidateBasic() doesn't check for duplicate pausers, can the keeper's AddPauserAddress() function that checks duplicates be bypassed through transaction batching or race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78c046f8-e832-40da-aa24-3443b1e36b92?mode=deep",
+    "timestamp": "2026-01-09 20:08:06.687715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Operator invariant] ValidateBasic() doesn't enforce that the operator cannot be added as a pauser. Can violating the separation of operator and pauser roles cause privilege escalation or access control confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_60ab7555-f2e3-4e93-9ec3-0171c09de056?mode=deep",
+    "timestamp": "2026-01-09 20:08:20.450097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Bridge shutdown] Can a malicious pauser added through ValidateBasic()-validated AddPauserAddress coordinate with other malicious pausers to repeatedly disable/enable the bridge, causing denial of service for legitimate users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f75436c-b468-457a-abe9-2f03bf2b320c?mode=deep",
+    "timestamp": "2026-01-09 20:08:36.737119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Pauser list DoS] Can an attacker who becomes operator add the maximum number of pausers allowed by the system, then legitimate operators cannot add necessary pausers due to storage or iteration limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e50d1e45-6852-4f54-ba4f-c1669f6dbd2a?mode=deep",
+    "timestamp": "2026-01-09 20:08:52.405323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Validation DoS] Can an attacker flood the mempool with malformed AddPauserAddress messages that pass basic validation but fail in validators.SignerCheck() or validators.AddressCheck(), causing validators to waste resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87133270-2523-49d1-898f-f49dc5685ca6?mode=deep",
+    "timestamp": "2026-01-09 20:09:09.122833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Key rotation] If the operator performs a key rotation, can old AddPauserAddress messages signed with the previous key still be valid, allowing compromise of old keys to add malicious pausers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c89ca7f2-ddd0-4abf-b581-42a3c62c441d?mode=deep",
+    "timestamp": "2026-01-09 20:09:27.709143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Signature validation] ValidateBasic() only validates address format, not transaction signatures. At what point is the operator's signature verified, and can attackers exploit this gap to submit unauthorized AddPauserAddress messages? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07f66f79-b604-4fc0-aaf5-4c286708d7dc?mode=deep",
+    "timestamp": "2026-01-09 20:09:47.407859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Cross-chain replay] Can an attacker capture an AddPauserAddress transaction from one chain and replay it on another ZigChain instance (if multiple exist), adding the same pauser to multiple bridge instances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_754bd754-d86c-43b0-8869-ac67e03382c8?mode=deep",
+    "timestamp": "2026-01-09 20:10:08.210189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Replay protection] Does ValidateBasic() include any nonce, sequence number, or timestamp validation, or can an attacker replay a previously valid AddPauserAddress transaction to re-add a removed pauser? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_515cfdc0-1c68-4e11-9950-4a9a110e3324?mode=deep",
+    "timestamp": "2026-01-09 20:10:29.537345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Concurrency] If multiple goroutines call ValidateBasic() on the same MsgAddPauserAddress instance simultaneously, can race conditions in the validators package cause data races or inconsistent validation results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97a0775a-8ce7-456b-a34d-22d5813a8302?mode=deep",
+    "timestamp": "2026-01-09 20:10:52.066586",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Struct: MsgAddPauserAddress] [Memory aliasing] Are the string fields (Signer, NewPauser) properly copied during protobuf marshaling/unmarshaling, or can shared underlying byte arrays cause mutations affecting ValidateBasic() results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_482826a7-58e3-45a8-93ee-fdf05d369927?mode=deep",
+    "timestamp": "2026-01-09 20:11:15.329872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: NewMsgAddPauserAddress()] [Type confusion] Since NewMsgAddPauserAddress() returns *MsgAddPauserAddress (pointer) at line 11, can nil pointer returns cause panics when ValidateBasic() is called on the result? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ca80201-b6e9-4904-9c55-1274785ca2c1?mode=deep",
+    "timestamp": "2026-01-09 20:11:40.660404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Upgrade interaction] During chain upgrades, if the MsgAddPauserAddress struct definition changes, can old pauser addresses become invalid, causing ValidateBasic() to fail for legitimate RemovePauserAddress operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_012a8039-b19d-493e-8293-c0509fa6614b?mode=deep",
+    "timestamp": "2026-01-09 20:12:05.846481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Governance interaction] Can governance proposals bypass ValidateBasic() to add pausers directly to storage without going through the operator authentication in the keeper's AddPauserAddress() handler? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f9984880-ba95-4d0a-a292-4a5fc57a5a50?mode=deep",
+    "timestamp": "2026-01-09 20:12:32.075561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [IBC interaction] Can a malicious pauser added through ValidateBasic()-validated AddPauserAddress disable the TokenWrapper during active IBC transfers, causing tokens to be locked permanently on the counterparty chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6cfb6ba-b376-4b09-ba77-136fde42e1fc?mode=deep",
+    "timestamp": "2026-01-09 20:12:58.864823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Transaction atomicity] If multiple AddPauserAddress transactions are in the same block, does ValidateBasic() ensure they execute atomically, or can race conditions cause some pausers to be added but not others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_303f424e-39cc-491d-96b6-a5bea314b29e?mode=deep",
+    "timestamp": "2026-01-09 20:13:26.349825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [MEV extraction] Can validators or block proposers reorder AddPauserAddress transactions to their advantage, particularly if combined with DisableTokenWrapper or other pauser-related transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6adba3e6-2f1a-4eb8-b972-8c66f46e6ce6?mode=deep",
+    "timestamp": "2026-01-09 20:13:53.978077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Front-running] Can an attacker observe a pending AddPauserAddress transaction in the mempool and front-run it with their own AddPauserAddress transaction to add a malicious pauser before the legitimate one? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d278eaa-6f00-4dae-ada5-624a3733dd2b?mode=deep",
+    "timestamp": "2026-01-09 20:14:20.395647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Memory exhaustion] When GetPauserAddresses() loads all pauser addresses from storage for IsPauserAddress() checks, can an attacker who added excessive pausers cause out-of-memory errors on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ec96f90-d9ca-4257-96ef-41d9b096fbd5?mode=deep",
+    "timestamp": "2026-01-09 20:14:46.799057",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Integration] [Storage exhaustion] ValidateBasic() doesn't limit the total number of pausers. Can an operator collude with an attacker to add millions of pauser addresses, exhausting blockchain storage and causing state bloat? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1ec52f2-77e0-4910-adf8-a573ebb7017c?mode=deep",
+    "timestamp": "2026-01-09 20:15:12.592809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Computational complexity] The validators.SignerCheck() and validators.AddressCheck() calls perform Bech32 decoding. Can attackers send many AddPauserAddress messages with invalid addresses to cause computational DoS on validators during mempool validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3e7f3c5-7ea2-4fea-8e36-a6e1c0932aed?mode=deep",
+    "timestamp": "2026-01-09 20:15:37.093845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_add_pauser_address.go] [Function: ValidateBasic()] [Gas consumption] Does ValidateBasic() at lines 18-27 consume a predictable and bounded amount of gas, or can attackers craft messages with extremely long address strings to cause excessive gas consumption during validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f65522ab-f65c-464c-9c4c-03e6e1b5a756?mode=deep",
+    "timestamp": "2026-01-09 20:16:01.608722",
+    "report_generated": false
   }
 ]
