@@ -3598,5 +3598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21585097-eceb-4715-8e4e-d7f0131f4cbb?mode=deep",
     "timestamp": "2026-01-09 13:21:51.312288",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [JSON injection] Can contracts provide maliciously crafted JSON in Custom message fields that exploit unmarshaling vulnerabilities in CustomMessageDecorator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14e826e5-c07f-428f-8a8f-69235368cc4f?mode=deep",
+    "timestamp": "2026-01-09 13:23:26.910035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Balance manipulation] Can contracts query balances through bank keeper at line 14 and exploit race conditions where balances change between query and action? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_736cb4e3-b964-4167-9fea-d6486c76d54a?mode=deep",
+    "timestamp": "2026-01-09 13:23:39.674183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Module account drain] Can contracts send tokens to module accounts through bank keeper at line 14, then exploit module logic to withdraw more than deposited? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1472bc53-85c5-4225-a652-912ce6395a9a?mode=deep",
+    "timestamp": "2026-01-09 13:23:52.615271",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Supply manipulation] Can contracts exploit bank keeper at line 14 to query total supply of factory tokens and front-run large mints by creating DEX pools first? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84716a37-d490-442b-8c72-1c3c41e53c73?mode=deep",
+    "timestamp": "2026-01-09 13:24:05.931537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Bank bypass] Can contracts use the bank keeper at line 14 to bypass factory minting caps by directly calling bank.MintCoins for factory denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83b53a0f-0547-41ad-a580-76d160376bac?mode=deep",
+    "timestamp": "2026-01-09 13:24:19.761215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Decorator stacking] Can multiple message decorators be registered, and if so, does the CustomMessageDecorator at line 30-35 properly delegate to the wrapped messenger for unsupported message types? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0be54348-05e4-4630-a186-841368c761f0?mode=deep",
+    "timestamp": "2026-01-09 13:24:35.914027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Query plugin override] If RegisterStargateQueries is called after RegisterCustomPlugins, does it override the previous query plugin, potentially disabling custom queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f718f47d-bdfc-473d-8b9d-b92401000948?mode=deep",
+    "timestamp": "2026-01-09 13:24:51.878269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Option ordering] Does the order of wasmkeeper.Option elements in the returned slice at line 38-41 matter, and can reordering them bypass security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d437e083-ac17-4a3d-a164-610334261d0e?mode=deep",
+    "timestamp": "2026-01-09 13:25:08.691208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Plugin replacement] Can an attacker exploit the registration mechanism at line 38-41 to replace legitimate plugins with malicious ones during runtime? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9a3d8b7-5e8b-4d56-9764-38014834f65b?mode=deep",
+    "timestamp": "2026-01-09 13:25:27.122339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Factory query consistency] Does CustomQuerier at line 27 ensure denom metadata queries are consistent across all validators even during concurrent updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d34033a0-f266-4171-9a93-6b2b5846ea85?mode=deep",
+    "timestamp": "2026-01-09 13:25:45.897548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Pool query race] Can QueryPlugin at line 20-24 return different pool states across validators due to transaction ordering differences, causing contracts to make different decisions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_458df80c-aba3-4826-a8bf-49f406e4f586?mode=deep",
+    "timestamp": "2026-01-09 13:26:05.918166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Query nondeterminism] Can stargate queries at line 50 return different results across validators if they query time-dependent or validator-specific data, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1249a76e-8104-4db5-aa02-a673fb774672?mode=deep",
+    "timestamp": "2026-01-09 13:26:26.905363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Rounding errors] Does the dex keeper at line 16 properly handle rounding when calculating swap outputs, or can contracts exploit rounding in their favor to extract extra tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_719f63b3-c965-4f12-88c3-4d8662b86080?mode=deep",
+    "timestamp": "2026-01-09 13:26:49.090249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Integer overflow] Can contracts pass large amounts through message decorator at line 30-35 that cause integer overflow in keeper arithmetic operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ad37db1-8199-4ee1-9a93-3b81e77bb3a5?mode=deep",
+    "timestamp": "2026-01-09 13:27:12.333814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Decimal precision] Can contracts exploit the factory keeper at line 15 to create tokens with non-standard decimal places that cause precision loss when used in DEX swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17d71d93-3173-4cbc-8728-5b594b7b9067?mode=deep",
+    "timestamp": "2026-01-09 13:27:36.843361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Nil dereference] If any keeper reference at lines 14-16 is nil when contracts call methods, will it cause nil pointer dereference crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8c7a693-7d33-4001-8345-94aa9e7628fb?mode=deep",
+    "timestamp": "2026-01-09 13:28:02.271212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Interface casting] If QueryPlugin at line 20-24 returns interface types, can contracts exploit type assertion failures to cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e25e151-f488-48dc-b474-43c4e4eee299?mode=deep",
+    "timestamp": "2026-01-09 13:28:28.496257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Type casting] Can contracts exploit unsafe type casting in CustomMessageDecorator to send messages that claim to be one type but are actually another, bypassing validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40eb0d78-b7a0-425c-8b0a-844a71a83d51?mode=deep",
+    "timestamp": "2026-01-09 13:28:55.470075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Stargate gas] Are stargate queries at line 50 properly metered, or can contracts execute expensive gRPC queries for minimal gas costs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bbafbd95-8c4c-40c1-ad65-76e8656cd491?mode=deep",
+    "timestamp": "2026-01-09 13:29:22.760295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Gas overflow] Can contracts execute operations through message decorator that consume more gas than uint64 max, causing gas counter overflow and free execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b96a654a-fe77-42d9-830d-c36bb7957bbd?mode=deep",
+    "timestamp": "2026-01-09 13:29:49.006591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Message gas] Does CustomMessageDecorator at line 30-35 charge gas before executing expensive keeper operations, or can contracts trigger gas-free state mutations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6201fb5b-d7bc-44ea-992b-b816d67c9128?mode=deep",
+    "timestamp": "2026-01-09 13:30:15.270989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Query gas] Are queries executed through CustomQuerier at line 27 charged gas proportional to state read complexity, or can contracts read entire databases for fixed gas costs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a76d8ab-fbe3-4acf-baa8-0ea29f5c76c6?mode=deep",
+    "timestamp": "2026-01-09 13:30:42.832309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [State migration] When factory or dex state formats change during upgrades, do contracts using old query formats through QueryPlugin at line 20-24 handle backward compatibility errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab2778c6-c12a-4b88-99c1-745c21f58e89?mode=deep",
+    "timestamp": "2026-01-09 13:31:09.727765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Plugin migration] If RegisterCustomPlugins is called multiple times during upgrades, are old plugin instances properly cleaned up, or do they leak references to deprecated keepers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3692b8d6-b254-438c-a1f7-8c73ad557102?mode=deep",
+    "timestamp": "2026-01-09 13:31:36.352957",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Keeper version] During chain upgrades, if keeper implementations at lines 14-16 change but old contracts still hold references to old keeper interfaces, can this cause type mismatches or panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4f4f067-5e43-499e-9f94-85cda22b5162?mode=deep",
+    "timestamp": "2026-01-09 13:32:05.113376",
+    "report_generated": false
   }
 ]
