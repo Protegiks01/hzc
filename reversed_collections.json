@@ -3898,5 +3898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1c0dff7-2058-4624-95cc-48fe505ab52b?mode=deep",
     "timestamp": "2026-01-09 13:41:36.491282",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Bank bypass] Can a contract use the bank keeper at line 14 to transfer factory-created tokens without updating factory module's minted token tracking, causing supply accounting mismatch between modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_115b540c-1751-4447-b141-77f274e50f52?mode=deep",
+    "timestamp": "2026-01-09 13:42:54.004837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [State consistency] If a contract executes multiple operations across keepers at lines 14-16 and one operation fails, is the entire transaction rolled back atomically, or can partial state changes persist (e.g., pool created but tokens not transferred)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03c45322-829e-4b5b-85a9-67815c41a49b?mode=deep",
+    "timestamp": "2026-01-09 13:43:06.665214",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Cross-module reentrancy] Can a contract exploit the fact that all three keepers (bank, factory, dex) are accessible at lines 14-16 to create a reentrancy attack where: 1) Create token via factory, 2) Create pool via DEX, 3) Callback during bank transfer mints more tokens, violating minting cap? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c5dd551-4844-4b24-97b0-89202261ad43?mode=deep",
+    "timestamp": "2026-01-09 13:43:19.331884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [LP token minting] Does the dex keeper at line 16 properly validate LP token amounts when adding liquidity, or can a contract manipulate pool reserves immediately before AddLiquidity to receive inflated LP tokens worth more than the deposited assets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82b5dda5-1c87-4453-812d-1eab59839d1c?mode=deep",
+    "timestamp": "2026-01-09 13:43:32.553605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Receiver manipulation] Can a contract exploit the dex keeper at line 16 to specify arbitrary receiver addresses for swap outputs, bypassing contract-level accounting and stealing tokens by sending them to attacker-controlled addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f98e31d0-43c7-48b4-9f50-0296532916dd?mode=deep",
+    "timestamp": "2026-01-09 13:43:46.375979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Pool ID collision] Can two contracts simultaneously create pools with the same base/quote pair through the dex keeper at line 16, causing pool ID collision where liquidity operations target the wrong pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11c085d7-0e4c-445f-b13f-a40f53c0573a?mode=deep",
+    "timestamp": "2026-01-09 13:44:01.383280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Fee calculation] Does the dex keeper at line 16 properly calculate swap fees when called through CustomMessageDecorator, or can a contract execute fee-free swaps by calling pool methods in a specific order that skips fee deduction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb8d0391-5671-40e5-985c-edb5d78f647b?mode=deep",
+    "timestamp": "2026-01-09 13:44:17.641687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Liquidity draining] Can a contract use the dex keeper at line 16 to add tiny amounts of liquidity to many pools, receive LP tokens, then exploit rounding errors in RemoveLiquidity to extract more tokens than deposited? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e3f1d4f-44d3-41f1-95f5-1871962b990d?mode=deep",
+    "timestamp": "2026-01-09 13:44:34.570835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [AMM invariant] Can a contract exploit the dex keeper at line 16 to violate the x*y=k constant product formula by executing swaps that don't update reserves atomically, allowing token duplication through pool state manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7b65cf8-351f-4f98-b9fe-0eecdcc27911?mode=deep",
+    "timestamp": "2026-01-09 13:44:52.468179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Swap manipulation] Does the dex keeper reference at line 16 properly enforce slippage protection when contracts execute swaps, or can a contract bypass minOutAmount checks by calling internal swap functions directly? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61eea823-cd3a-42aa-9720-93829095bb60?mode=deep",
+    "timestamp": "2026-01-09 13:45:12.028244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Pool creation] Can a malicious contract exploit the dex keeper at line 16 to create pools with manipulated initial reserves (e.g., 1 wei base token vs 1M quote tokens) that when other users add liquidity result in massive IL losses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1ceb65b-ec72-49ff-aac0-75d9323c1c3b?mode=deep",
+    "timestamp": "2026-01-09 13:45:31.631937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Burn validation] Does the factory keeper at line 15 properly validate that contracts can only burn tokens they own when called through CustomMessageDecorator, or can a contract burn tokens from other addresses by manipulating the sender field? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4c364f2-d187-43a5-a74f-7d9786ff13c6?mode=deep",
+    "timestamp": "2026-01-09 13:45:53.045072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Minting cap lock] Can a contract exploit the factory keeper at line 15 to lock minting cap changes on a denom, then discover a vulnerability allowing unlimited minting, preventing governance from fixing the issue? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_36525d95-8205-4fc4-b422-ada58c8fea64?mode=deep",
+    "timestamp": "2026-01-09 13:46:15.584023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [URI manipulation] Can a contract use the factory keeper at line 15 to set URIs pointing to malicious IPFS content that when fetched by wallets triggers XSS attacks or phishing scams against users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd4a2b4e-2b18-4ac2-b73a-abeb1325e28f?mode=deep",
+    "timestamp": "2026-01-09 13:46:38.091268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Denom collision] Does the factory keeper at line 15 properly validate denom uniqueness across all contracts, or can two contracts create denoms with the same name by exploiting race conditions in the denom creation handler? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d23129b-4bf6-496b-ba38-8201048ebf2e?mode=deep",
+    "timestamp": "2026-01-09 13:47:02.392222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Metadata manipulation] Can a contract exploit the factory keeper at line 15 to set malicious metadata (e.g., misleading display names or fake decimal places) that trick users or other contracts into misvaluing tokens during swaps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa24baec-108b-49fb-a6ef-4283b0bd0890?mode=deep",
+    "timestamp": "2026-01-09 13:47:26.897985",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Admin takeover] Can a contract use the factory keeper at line 15 to propose itself as bank admin for a denom it created, then immediately claim admin rights in the same transaction, bypassing the proposal delay intended to prevent admin abuse? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6407942-2230-4075-943b-55e77cb1ef25?mode=deep",
+    "timestamp": "2026-01-09 13:47:53.297130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Minting cap] Does the factory keeper reference at line 15 properly enforce minting cap limits when called through CustomMessageDecorator, or can a contract bypass cap checks by calling mint operations through multiple message batches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c18ff413-cdbd-4f7c-8b3e-185b8bacbf5f?mode=deep",
+    "timestamp": "2026-01-09 13:48:14.473126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Token creation] Can a malicious contract exploit the factory keeper at line 15 to create thousands of denoms with unique names in a single transaction, exhausting storage and causing state bloat that increases sync times for new nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8dd3dbec-3f8d-4e7b-bdca-c3bb13b8d941?mode=deep",
+    "timestamp": "2026-01-09 13:48:41.127082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Query depth] Can a contract execute deeply nested stargate queries through the plugin at line 48-51 that recursively call other queries, causing stack overflow and validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a80d39f4-03ba-4541-b463-3c3feffed3d0?mode=deep",
+    "timestamp": "2026-01-09 13:49:08.398484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Return value] Does the query plugin returned at line 54 properly enforce that only read-only queries are allowed, or can a contract exploit write operations disguised as queries to mutate state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb1506d0-b9aa-4b65-aeac-f402f803381b?mode=deep",
+    "timestamp": "2026-01-09 13:49:35.773554",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Determinism] Are all queries exposed through StargateQuerier at line 50 guaranteed to be deterministic across all validators, or can queries like 'pending_proposals' return different results, causing consensus divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06830c1e-e053-4849-aa57-5db9fbb6415c?mode=deep",
+    "timestamp": "2026-01-09 13:50:02.840144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Path traversal] Does the StargateQuerier at line 50 properly validate query paths to prevent directory traversal attacks where a contract queries '../../admin/secrets' to access unauthorized module data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa64079b-0671-47eb-9887-f0bc0d42ce77?mode=deep",
+    "timestamp": "2026-01-09 13:50:30.263216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Codec injection] Can a malicious contract exploit the codec.Codec reference at line 46 passed to StargateQuerier to deserialize arbitrary proto messages, potentially triggering buffer overflows or RCE in the unmarshaling logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26bd1cc5-17a6-4c57-be0e-db15e9d6c430?mode=deep",
+    "timestamp": "2026-01-09 13:50:55.688890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Query router] Does passing the GRPCQueryRouter at line 45 to StargateQuerier expose all registered gRPC query endpoints to contracts, allowing them to query sensitive validator information or governance proposals not intended for contract access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94b95619-4157-4be7-abc7-1c448dd5b736?mode=deep",
+    "timestamp": "2026-01-09 13:51:21.400947",
+    "report_generated": false
   }
 ]
