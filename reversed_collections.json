@@ -10348,5 +10348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c454346-9149-47a0-8c59-86fb3dae69cb?mode=deep",
     "timestamp": "2026-01-09 21:23:28.496661",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Replay attack] Does ValidateBasic() or the struct definition prevent replay attacks where an attacker captures a valid MsgProposeOperatorAddress and resubmits it after the operator has changed, potentially reverting operator changes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3381350-a7a6-43f7-b8f3-b4cd52b21a04?mode=deep",
+    "timestamp": "2026-01-09 21:24:38.773550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [State race condition] Can an attacker exploit the time gap between ValidateBasic() validation (lines 18-28) and keeper execution to change the operator address through governance, causing their proposal to be processed under different authorization rules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5a91669-040f-4c32-b232-e09fb93d6e12?mode=deep",
+    "timestamp": "2026-01-09 21:24:51.127765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Keeper authorization bypass] Since ValidateBasic() on lines 18-28 does not verify that msg.Signer is the current operator address, can an attacker who is not the operator submit proposals that pass validation but fail in the keeper, wasting gas and potentially causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f6c44af-7261-475d-b995-0f88658bc987?mode=deep",
+    "timestamp": "2026-01-09 21:25:03.761590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: NewMsgProposeOperatorAddress()] [Struct initialization] Does the struct literal on lines 12-15 properly initialize all fields of MsgProposeOperatorAddress, or can uninitialized fields cause undefined behavior in ValidateBasic() or keeper processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f834ba24-5a10-4960-8256-2b3d9a05f38c?mode=deep",
+    "timestamp": "2026-01-09 21:25:16.913926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: NewMsgProposeOperatorAddress()] [Reference handling] Does NewMsgProposeOperatorAddress() on lines 12-15 create a new copy of the string parameters or use references, and can this lead to unexpected mutations if the original strings are modified after message creation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4f86903-9579-4353-8953-7d638b236b6e?mode=deep",
+    "timestamp": "2026-01-09 21:25:30.722120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: NewMsgProposeOperatorAddress()] [Memory allocation] Can an attacker cause excessive memory allocation by repeatedly calling NewMsgProposeOperatorAddress() on line 11 with large string parameters, leading to DoS on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bcb2b51e-4bfe-4419-beac-cc9964c93c3c?mode=deep",
+    "timestamp": "2026-01-09 21:25:45.726249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: NewMsgProposeOperatorAddress()] [Nil handling] If NewMsgProposeOperatorAddress() on line 11 is called with empty strings for both parameters, does it create a valid MsgProposeOperatorAddress struct that could cause unexpected behavior in downstream processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a006f7e-c588-4ec7-9fc4-3bb63000a127?mode=deep",
+    "timestamp": "2026-01-09 21:26:01.465658",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: NewMsgProposeOperatorAddress()] [Input sanitization] Does NewMsgProposeOperatorAddress() on line 11 perform any input sanitization on the signer or newOperator parameters, or can an attacker inject malicious strings that bypass validation when ValidateBasic() is called later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b302df28-9396-4940-9f10-b76ec3419aa0?mode=deep",
+    "timestamp": "2026-01-09 21:26:18.731815",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [State-dependent validation] Since ValidateBasic() lines 18-28 performs stateless validation only, can an attacker exploit the gap between message validation and keeper execution to front-run legitimate operator proposals with malicious ones? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a6628b6-d6ba-4724-8064-c8455669f670?mode=deep",
+    "timestamp": "2026-01-09 21:26:36.968417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Return path] Does ValidateBasic() return nil on line 27 only after both validations pass, or can there be execution paths where the function returns success despite partial validation failure due to error handling bugs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ad36abf-a92c-4bbf-9aab-d64f41771709?mode=deep",
+    "timestamp": "2026-01-09 21:26:55.853201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Sequential validation] Can an attacker exploit the sequential validation pattern (Signer check line 19, then NewOperator check line 23) to gain information about the current operator address by observing which validation fails first? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48228d55-88f6-40d8-b69e-04b972c91d95?mode=deep",
+    "timestamp": "2026-01-09 21:27:15.985014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Error handling] Does ValidateBasic() properly propagate errors from validators.SignerCheck() on lines 19-24, or can error information be lost, making it difficult to diagnose validation failures and potentially hiding attack attempts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_60c66241-7a56-4c4f-a22b-06cedbc16755?mode=deep",
+    "timestamp": "2026-01-09 21:27:36.943509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Memory exhaustion] Can an attacker submit a MsgProposeOperatorAddress with extremely long Signer or NewOperator strings (e.g., millions of characters) that pass empty checks on line 19-23 but cause memory exhaustion in validators.SignerCheck()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53920d5c-f9f1-46b8-929b-3aa74e8f06c2?mode=deep",
+    "timestamp": "2026-01-09 21:27:58.357224",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Nil pointer] If msg is nil when ValidateBasic() is called on line 18, does the function panic with a nil pointer dereference when accessing msg.Signer on line 19, potentially crashing validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b7a8738-e4bc-4c3b-b4c4-b010dcccf9b4?mode=deep",
+    "timestamp": "2026-01-09 21:28:21.322212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Unicode normalization] Can an attacker use different Unicode normalization forms (NFC, NFD, NFKC, NFKD) in the Signer or NewOperator addresses on lines 19-24 to bypass validation or create address collisions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ffa20830-45d3-4411-a8a5-456d84425b12?mode=deep",
+    "timestamp": "2026-01-09 21:28:45.370082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Case sensitivity] Can an attacker exploit case sensitivity differences in address validation between ValidateBasic() lines 19-24 and the keeper handler, submitting addresses that appear different during validation but resolve to the same address during execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5dea53e5-45f0-4723-b677-adad4453bb31?mode=deep",
+    "timestamp": "2026-01-09 21:29:09.310985",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Duplicate validation] Does ValidateBasic() check if msg.Signer and msg.NewOperator are identical addresses on lines 19-24, or can an attacker propose themselves as the new operator, bypassing the keeper's same-address check through timing or encoding differences? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40ef2214-44ee-4de3-94a6-bd4f19e5221d?mode=deep",
+    "timestamp": "2026-01-09 21:29:32.712769",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Prefix validation] Can an attacker provide a Signer address with a valid Bech32 format but incorrect prefix that passes the initial empty check on line 19, exploiting any potential race between prefix validation in validators.SignerCheck() and keeper processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1479d12-fdcb-4ef3-b437-086d369bfe6a?mode=deep",
+    "timestamp": "2026-01-09 21:29:57.002243",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Bech32 validation] Can an attacker exploit the Bech32 address validation in validators.SignerCheck() line 19 by providing an address with valid checksum but invalid length, causing the address to pass ValidateBasic() but fail in downstream keeper operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_75efa475-6782-4aa5-89e5-34561517f277?mode=deep",
+    "timestamp": "2026-01-09 21:30:20.497537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Empty string bypass] Does the validators.SignerCheck() call on line 19 properly handle zero-length strings versus strings containing only whitespace characters, or can an attacker bypass validation by using Unicode whitespace that appears empty but isn't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_178ae9a2-b517-455f-b9d4-a51472fd76c1?mode=deep",
+    "timestamp": "2026-01-09 21:30:43.376551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Race condition] Can an attacker submit multiple MsgProposeOperatorAddress messages in rapid succession, exploiting the fact that ValidateBasic() on line 18 does not check current state, allowing them to create conflicting proposed operator addresses across different blocks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a60e57b-6d73-4c1b-82dc-689c1dcc69a0?mode=deep",
+    "timestamp": "2026-01-09 21:31:07.112672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Address validation bypass] Can an attacker exploit differences between AccAddressFromBech32 validation in ValidateBasic() line 19 and the keeper's GetOperatorAddress() comparison to propose an operator address that appears valid during validation but causes a denial of service when processed by the keeper? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7486867-4aa9-4283-a47b-2ae3e452c860?mode=deep",
+    "timestamp": "2026-01-09 21:31:31.712786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_propose_operator_address.go] [Function: ValidateBasic()] [Address validation bypass] Can an attacker craft a Signer address that passes validators.SignerCheck() on line 19 but fails validation in the keeper handler, creating a state inconsistency where an invalid proposal is stored in the KVStore? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61398391-b0be-40c0-b15d-e2519989b1ad?mode=deep",
+    "timestamp": "2026-01-09 21:31:57.155091",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Immutable fields] If certain param fields should be immutable after initial setup, does ValidateBasic() enforce this, or can an attacker change immutable fields through governance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_248abd8e-3ae8-41c7-a15f-3aa4d744f550?mode=deep",
+    "timestamp": "2026-01-09 21:32:22.550155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [State size limits] Does ValidateBasic() enforce limits on the total size of params to prevent the params store from growing unboundedly, causing state bloat? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_837cd7b1-2ced-442e-9d2a-d8963525c13d?mode=deep",
+    "timestamp": "2026-01-09 21:32:46.811328",
+    "report_generated": false
   }
 ]
