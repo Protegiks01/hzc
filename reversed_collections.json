@@ -1948,5 +1948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be3fd0ad-4eee-47c7-973f-5f305fa7c845?mode=deep",
     "timestamp": "2026-01-09 09:52:45.862933",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: IsWhitelistedQuery()] [Error type] Can contracts exploit the wasmvmtypes.UnsupportedRequest error type to bypass upstream error handling in the CosmWasm runtime, causing queries to be processed even when IsWhitelistedQuery() returns an error? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63decdb9-7810-4dd9-8cca-97beb9dbbb91?mode=deep",
+    "timestamp": "2026-01-09 09:53:58.693871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: GetStargateWhitelistedPaths()] [Iteration race] Can concurrent map modifications to stargateResponsePools during the iteration at line 126-128 cause panic: concurrent map iteration and map write errors that crash validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_667590ca-5b37-42bb-b0a5-d23ef09765d4?mode=deep",
+    "timestamp": "2026-01-09 09:54:10.828631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: returnStargateResponseToPool()] [Return race] Can returnStargateResponseToPool() be called concurrently with getWhitelistedQuery() on the same queryPath, causing a proto.Message to be returned to the pool while another goroutine is still using it? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_836947fc-1c71-419b-8a66-d99f7b377478?mode=deep",
+    "timestamp": "2026-01-09 09:54:23.946814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: getWhitelistedQuery()] [Pool race] Can concurrent Get() calls on the same sync.Pool return the same proto.Message object to multiple goroutines before any Put() call, causing data races when contracts modify the shared object? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf356415-b611-4314-819a-0c015cf6274c?mode=deep",
+    "timestamp": "2026-01-09 09:54:37.111626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Global: stargateResponsePools] [Map race] Can concurrent calls to IsWhitelistedQuery(), getWhitelistedQuery(), and setWhitelistedQuery() cause map read/write races on stargateResponsePools since there's no mutex protection, leading to validator crashes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c24ef79a-85c4-4578-884a-bdacd655b68d?mode=deep",
+    "timestamp": "2026-01-09 09:54:51.204454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 109-114] [Type instantiation] Can PT(new(T)) at line 112 be exploited to instantiate types with non-zero default values or embedded pointers that cause use-after-free vulnerabilities when proto.Message objects are reused from the pool? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2a62acd-22e2-404f-922f-3d98a7fe77fb?mode=deep",
+    "timestamp": "2026-01-09 09:55:06.624081",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: getWhitelistedQuery()] [Interface assertion] Can the type assertion to proto.Message at line 93-95 be bypassed by passing objects that implement the interface but contain embedded nil pointers or malicious method implementations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df3d70eb-a442-4325-94ed-1296f7370641?mode=deep",
+    "timestamp": "2026-01-09 09:55:22.398263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 100-103] [Generic constraints] Can an attacker exploit the protoTypeG[T] generic interface constraints to pass types that satisfy proto.Message but contain malicious implementations of Marshal/Unmarshal methods that inject attack payloads during serialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e61d5d0-c2d6-4d07-acf3-d294ee100c82?mode=deep",
+    "timestamp": "2026-01-09 09:55:39.091631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 56-59] [Gov query limitations] The whitelist only includes Deposit, Params, and Vote queries for governance. Can attackers exploit missing proposal queries to prevent contracts from properly validating governance actions, allowing malicious proposals to pass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_253c8085-a0d8-4a6e-98b7-ee55bfd542c8?mode=deep",
+    "timestamp": "2026-01-09 09:55:56.429224",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 40-73] [Incomplete whitelist] Are critical queries missing from the whitelist (IBC queries, tokenwrapper queries, DEX queries) that would force contracts to use unsafe alternatives, introducing vulnerabilities in cross-chain operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e1c2ff9-a10e-4db7-b88e-5db86a249b94?mode=deep",
+    "timestamp": "2026-01-09 09:56:15.592320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Line 31] [Missing migration] The comment states migrations should be added to Async ICQ params. Can missing migrations cause contracts deployed before a whitelist update to query paths that are no longer supported, leading to contract bricking or fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6360b6a1-187d-47da-b226-181d05d73b47?mode=deep",
+    "timestamp": "2026-01-09 09:56:33.938973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 70-73] [Missing denom_from_creator] The comment at line 72 explicitly excludes denoms_from_creator queries. Can this omission be exploited by attackers who need to query token factory denoms but cannot, forcing contracts to use unsafe workarounds that introduce vulnerabilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30aaa08c-1a1f-4da8-954a-d800a829840f?mode=deep",
+    "timestamp": "2026-01-09 09:56:53.360506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 65-68] [Staking queries] Can staking queries (Delegation, Validator, Params) return non-deterministic results during validator set changes or unbonding periods, causing contracts to compute different reward distributions that lead to consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51829a9c-a8d0-4c67-bd65-2fdb256ba3d6?mode=deep",
+    "timestamp": "2026-01-09 09:57:13.824719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 44-50] [Bank queries] Can bank module queries (Balance, SupplyOf, DenomsMetadata) return inconsistent results during IBC packet processing or token minting, causing contracts on different validators to observe different token supplies and trigger divergent state transitions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce8f938e-1bc7-4f6a-962e-d082c1122c53?mode=deep",
+    "timestamp": "2026-01-09 09:57:35.197153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Line 71] [Factory params query] Can the factory Params query return non-deterministic results if governance parameters are being updated simultaneously across validators, causing some validators to include old params and others new params in query responses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26b5cbff-5868-471b-b848-7b5cef0737e7?mode=deep",
+    "timestamp": "2026-01-09 09:57:57.905557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Lines 40-73] [Query determinism] Do all whitelisted queries (auth/Account, bank/Balance, staking/Delegation, etc.) guarantee deterministic responses across validators, or can attacker-controlled inputs cause floating-point rounding, timestamp dependencies, or other non-determinism? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfa23d9a-0460-4ee5-bdfa-b09dc38909f3?mode=deep",
+    "timestamp": "2026-01-09 09:58:19.885048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Comment line 21-25] [Determinism violation] The CONTRACT comment states query results go into blocks and must be deterministic. Can an attacker exploit any of the whitelisted query paths to inject non-deterministic data (timestamps, random numbers, external state) that causes different validators to produce different block hashes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f41f72f4-f961-4010-bd7a-f476b5848237?mode=deep",
+    "timestamp": "2026-01-09 09:58:42.048440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Global: stargateResponsePools] [Pool exhaustion attack] Can an attacker craft a contract that rapidly calls whitelisted queries in a loop without proper cleanup, exhausting all sync.Pool objects and forcing subsequent queries to allocate directly, causing memory exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33ab1469-6b22-41bc-be67-952ac760e35c?mode=deep",
+    "timestamp": "2026-01-09 09:59:04.530021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Global: stargateResponsePools] [Cross-contamination] Can concurrent contract queries to different whitelisted paths accidentally retrieve proto.Message objects from the wrong sync.Pool due to map key collisions or race conditions, causing type confusion when the wrong message type is unmarshaled? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a16ae256-f888-4285-a72b-a22786601a52?mode=deep",
+    "timestamp": "2026-01-09 09:59:27.975733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Global: stargateResponsePools] [Pool hijacking] Can an attacker exploit Go's sync.Pool GC behavior to force pool eviction during high memory pressure, causing getWhitelistedQuery() to allocate new objects that contain uninitialized or attacker-controlled memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54474211-f568-4e70-a7b5-cf454f34f527?mode=deep",
+    "timestamp": "2026-01-09 09:59:50.254017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Global: stargateResponsePools] [Pool poisoning] Can a malicious module call setWhitelistedQuery() during runtime (not just in init()) to inject poisoned sync.Pool instances that return attack payloads when contracts query for legitimate data, bypassing all whitelist protections? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed497dbf-99fc-440f-affb-9801c552294f?mode=deep",
+    "timestamp": "2026-01-09 10:00:13.862962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: GetStargateWhitelistedPaths()] [Sort stability] Does sort.Strings() at line 131 guarantee the same ordering across different Go runtime versions and architectures, or could subtle sorting differences cause validators running different builds to disagree on path ordering? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f699b6fd-bb89-4e73-bd9a-4d831f2ba161?mode=deep",
+    "timestamp": "2026-01-09 10:00:36.831041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: GetStargateWhitelistedPaths()] [Slice bounds] If stargateResponsePools is modified during the iteration at line 126-128, can the pre-allocated slice capacity at line 124 be exceeded, causing a panic when append() tries to grow the slice beyond available memory? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d3d192f-0027-478d-a1fd-e6ce016d2d93?mode=deep",
+    "timestamp": "2026-01-09 10:01:00.347503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: GetStargateWhitelistedPaths()] [Memory allocation] Can an attacker trigger GetStargateWhitelistedPaths() repeatedly to cause excessive slice allocations that fragment validator memory, eventually leading to OOM crashes during high query load? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f019097f-b112-4a90-8fd6-617caf001e97?mode=deep",
+    "timestamp": "2026-01-09 10:01:22.844627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: GetStargateWhitelistedPaths()] [Non-deterministic iteration] Despite sorting at line 131, can an attacker exploit race conditions between the map iteration at line 126-128 and concurrent modifications to stargateResponsePools to cause different validators to return different path lists, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b4c18a8-a64d-44cc-b351-51e2cb640d3b?mode=deep",
+    "timestamp": "2026-01-09 10:01:46.711801",
+    "report_generated": false
   }
 ]
