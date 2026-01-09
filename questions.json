@@ -1373,5 +1373,65 @@
     "question": "x/tokenwrapper/types/query.pb.gw.go",
     "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f1fa5cf9-57ba-4182-b93b-1afe623a80d7?mode=deep",
     "questions_generated": false
+  },
+  {
+    "question": "x/tokenwrapper/types/tx.pb.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_59b36993-22e1-4aaf-a1a0-02b458ea973e?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "x/tokenwrapper/types/types.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0e0ca8ea-c7cd-4570-afec-8212275f8e8c?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/constants/denom.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_71107f76-0c80-4ba2-83ce-67af22a4330c?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/constants/global.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e9cbf1da-302f-4fa9-9de3-4cd54a1f8241?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/constants/ibc.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_4f428dec-e168-486f-bb5b-d74e6be4f05c?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/constants/pool.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_d592bd28-d7a6-4839-aa60-bbb4e9c2d6a7?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/debug/print.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_441b4cc9-debe-401b-bac2-b853f1d3defd?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/tests/rand.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_4b196c7a-8cda-405f-b85e-8085e21e3c8a?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/validators/address.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_1ad946e4-6ff4-416d-a68b-8a1a6b48d89d?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/validators/coins.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_add0cd26-3a1a-40e6-8580-e43f9d2cb041?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/validators/ibc.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6c92785e-c22e-4e1b-ae24-329663797957?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "zutils/validators/strings.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_2cd88e1e-fb47-493c-a597-dcdfc5e8c1ca?mode=deep",
+    "questions_generated": false
   }
 ]
