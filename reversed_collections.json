@@ -8398,5 +8398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5390fa7a-7d85-4ff7-a3eb-2fc12678cf63?mode=deep",
     "timestamp": "2026-01-09 19:08:03.335207",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Error detail] Do validation errors from AddressCheck() and SignerCheck() provide enough detail for legitimate users to correct mistakes without revealing internal system information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e81a1f0-f69d-4313-97b0-eb7225d09cff?mode=deep",
+    "timestamp": "2026-01-09 19:09:19.689838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Information leakage] Can ValidateBasic() error messages leak sensitive information about address validity or system state that helps attackers reconnaissance valid targets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef238da9-5e90-4003-9b5d-702b1586b9f7?mode=deep",
+    "timestamp": "2026-01-09 19:09:32.180636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Missing nonce] Does MsgRecoverZig lack a nonce or sequence number that could prevent replay attacks if the same recovery is legitimately attempted multiple times? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d33daee3-b1d0-4c7c-9cda-fdf5e21de921?mode=deep",
+    "timestamp": "2026-01-09 19:09:44.955996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Field validation order] Does the validation order (signer before address) matter for security, or can reversing the order expose timing side-channels for address enumeration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c6d511d-620a-40b1-9309-64b2dee94e73?mode=deep",
+    "timestamp": "2026-01-09 19:09:58.255726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Denial of service] Can an attacker spam the mempool with thousands of MsgRecoverZig messages that pass ValidateBasic() but fail in keeper execution, degrading network performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01381e0e-1811-4af7-afe2-5373eb4e9fff?mode=deep",
+    "timestamp": "2026-01-09 19:10:12.193804",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Gas consumption] Can ValidateBasic() consume excessive gas due to expensive Bech32 validation on crafted inputs, allowing an attacker to fill blocks with high-gas validation-only transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3b103ed-1ac6-4d90-b029-94c3e4678435?mode=deep",
+    "timestamp": "2026-01-09 19:10:25.866267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [IBC denom] Does ValidateBasic() validate that the recovery will target the correct IBC denomination, or can recovery be attempted with mismatched denoms causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c735592-1d89-4a17-a6ee-282d534be273?mode=deep",
+    "timestamp": "2026-01-09 19:10:41.753074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Cross-chain address] Can msg.Address be set to an IBC address (e.g., with channel/port prefix) that passes validation but causes the keeper to attempt recovery on the wrong chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_159701e7-923a-4d8d-8026-d579e03a3bfd?mode=deep",
+    "timestamp": "2026-01-09 19:10:59.450084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [UTF-8 validation] Can non-UTF-8 or invalid UTF-8 sequences in msg.Signer or msg.Address cause panics or unexpected behavior in the validation functions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d19b171d-5c52-48ca-966b-ba9d8690774a?mode=deep",
+    "timestamp": "2026-01-09 19:11:17.619752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Empty string handling] Does ValidateBasic() properly handle edge cases where msg.Signer or msg.Address are empty strings, whitespace-only, or contain null bytes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb12c771-9a29-4386-ad21-3bd9e9c772e7?mode=deep",
+    "timestamp": "2026-01-09 19:11:36.788188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Error propagation] Can errors from validators.SignerCheck() or validators.AddressCheck() be swallowed or misinterpreted, causing invalid messages to appear valid? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec5ff5b5-fa51-480a-96f3-49218a3c3d26?mode=deep",
+    "timestamp": "2026-01-09 19:11:56.410617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Balance check timing] Since ValidateBasic() doesn't check IBC voucher balance in msg.Address, can an attacker front-run a legitimate recovery by transferring IBC vouchers out of the target address after ValidateBasic() passes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4e86430-df71-4113-b779-23bb3d704b30?mode=deep",
+    "timestamp": "2026-01-09 19:12:16.406293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Duplicate recovery] Does ValidateBasic() prevent duplicate recovery attempts on the same address in the same block, or can multiple MsgRecoverZig messages target the same address causing double-processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a13b8d5c-15c8-4199-bd1f-00dfb4bd3e81?mode=deep",
+    "timestamp": "2026-01-09 19:12:39.813158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [TOCTOU race] Can a Time-Of-Check-Time-Of-Use (TOCTOU) race condition occur where msg.Address is valid during ValidateBasic() but becomes invalid (e.g., account deleted) before keeper execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11d1da39-792f-4104-b156-0581bb05674a?mode=deep",
+    "timestamp": "2026-01-09 19:13:04.192835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [State dependency] Does ValidateBasic() only perform stateless validation, or does it depend on chain state (e.g., checking if module is enabled), potentially causing validation results to differ between mempool and execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48607293-3e4b-4394-8101-ce7562c1424f?mode=deep",
+    "timestamp": "2026-01-09 19:13:26.761742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Nil pointer] Can ValidateBasic() be called on a nil *MsgRecoverZig pointer causing a panic, or is there proper nil checking in the calling code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9012654-555e-4eb3-b870-3109cf44710b?mode=deep",
+    "timestamp": "2026-01-09 19:13:49.214299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Return value] Can the error returned by ValidateBasic() be silently ignored by improperly configured message routers, allowing invalid messages to reach the keeper? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6a27a68-af40-403b-aaac-56c3151b9381?mode=deep",
+    "timestamp": "2026-01-09 19:14:12.626609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [SDK interface] Does the sdk.Msg interface implementation ensure ValidateBasic() is always called before message execution, or can keeper methods be invoked directly bypassing this validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45bd186e-4b56-4282-ac85-ab7f559a705b?mode=deep",
+    "timestamp": "2026-01-09 19:14:36.878912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Signer validation] Does SignerCheck() prevent msg.Signer from being set to a module account address (e.g., 'zig1...module'), which could cause confusion in event emissions or audit trails? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01ad0bbd-ece8-49af-b811-6234279b21d3?mode=deep",
+    "timestamp": "2026-01-09 19:15:01.910512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Signer spoofing] Can an attacker set msg.Signer to a high-reputation address (e.g., validator address) while signing with their own key to mislead off-chain systems or explorers about who initiated the recovery? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc4bbea0-8192-447f-b949-73129737871a?mode=deep",
+    "timestamp": "2026-01-09 19:15:28.646855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Signer validation] Does SignerCheck() on line 19 properly validate that msg.Signer matches the actual transaction signer, or is this a cosmetic check that can be bypassed by setting msg.Signer to any valid address? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2ef6ec2-3816-4325-8d33-833a5a25c9b5?mode=deep",
+    "timestamp": "2026-01-09 19:15:53.834638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Address truncation] Can the address validation be bypassed by submitting an address that gets truncated during string processing, causing msg.Address to differ between ValidateBasic() and the keeper execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8abc9bf-9dfb-47fb-90b0-fd54ca452af8?mode=deep",
+    "timestamp": "2026-01-09 19:16:17.423351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Case sensitivity] Does AddressCheck() handle case sensitivity correctly for Bech32 addresses, or can an attacker submit the same address in different cases (mixed/upper/lower) to bypass duplicate detection or operator checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c5eaa37-e856-4368-ac91-01bfa6a92430?mode=deep",
+    "timestamp": "2026-01-09 19:16:41.857757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Address checksum] Can AddressCheck() be fooled by a Bech32 address with valid format but incorrect checksum, allowing recovery to be attempted on non-existent or mistyped addresses leading to permanent token loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_420c7cd1-290c-4813-9844-79f254f2a389?mode=deep",
+    "timestamp": "2026-01-09 19:17:06.471240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Address validation bypass] Does AddressCheck() properly validate address length limits, or can an attacker submit an address with valid prefix but excessive length (e.g., 500 characters) that causes buffer issues in keeper processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7270ff26-258d-488d-9ace-99863b67a6f1?mode=deep",
+    "timestamp": "2026-01-09 19:17:31.680672",
+    "report_generated": false
   }
 ]
