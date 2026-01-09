@@ -4048,5 +4048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94b95619-4157-4be7-abc7-1c448dd5b736?mode=deep",
     "timestamp": "2026-01-09 13:51:21.400947",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterStargateQueries()] [Whitelist bypass] Can a malicious contract exploit the StargateQuerier at line 50 to execute non-whitelisted query paths by URL-encoding special characters in the path string, bypassing the whitelist check and accessing restricted module queries? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be6c72db-cc76-42be-ba71-68b4326080d4?mode=deep",
+    "timestamp": "2026-01-09 13:53:19.717356",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Query gas] Are queries executed through CustomQuerier at line 27 properly metered for gas consumption, or can a contract execute unlimited queries to read the entire state database, causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb86ce8c-8c33-4a05-94c7-2ed2b44902b7?mode=deep",
+    "timestamp": "2026-01-09 13:53:32.082850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Query caching] If the QueryPlugin at line 20-24 caches query results, can a contract exploit stale cache data to make decisions based on outdated pool reserves, leading to incorrect swap calculations that drain liquidity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65330140-2890-4ec1-95a1-28842afd326f?mode=deep",
+    "timestamp": "2026-01-09 13:53:44.869686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Information leakage] Does the CustomQuerier at line 27 expose sensitive information like other users' pool positions or factory token minting amounts that contracts could use for MEV attacks or to front-run large liquidity operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b046f21-3805-47d8-834f-a4902d36ea9f?mode=deep",
+    "timestamp": "2026-01-09 13:53:57.955445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Query determinism] Can the QueryPlugin at line 20-24 return non-deterministic results (e.g., different pool states across validators due to race conditions), causing consensus failures when contracts make decisions based on query responses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a07dd556-647b-41d0-a8a8-304a1e47b620?mode=deep",
+    "timestamp": "2026-01-09 13:54:12.421775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Query plugin] Does the CustomQuerier function at line 27 properly sanitize query inputs, or can a contract inject malformed denom names or pool IDs to cause panics in factory/dex keeper methods, crashing validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7231954c-23ad-48f1-915d-165fe1dd5d1c?mode=deep",
+    "timestamp": "2026-01-09 13:54:27.266929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Query plugin] Can a malicious contract abuse the QueryPlugin created at line 20-24 to execute expensive denom lookups or pool queries in a loop, causing DoS by overwhelming the state machine with read operations that exceed block gas limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cc49e79a-2815-4e37-8701-5d9e56f1f982?mode=deep",
+    "timestamp": "2026-01-09 13:54:42.637444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Decorator chaining] If multiple message decorators are registered, does CustomMessageDecorator at line 30-35 properly chain to the wrapped messenger, or can message types fall through validation by not matching any decorator's handler? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc36c42f-ca4a-402b-ac60-065c16b3b0a4?mode=deep",
+    "timestamp": "2026-01-09 13:54:59.478560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Message ordering] Can a contract exploit the fact that CustomMessageDecorator processes messages sequentially to front-run another contract's DEX swap by creating a pool with manipulated initial prices in the same block? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9fbd5887-1496-4db5-b52c-c13c635250a1?mode=deep",
+    "timestamp": "2026-01-09 13:55:17.166526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Error handling] If CustomMessageDecorator.DispatchMsg() panics during message execution at line 30-35, is state properly rolled back, or can partial state changes (like token creation without corresponding denom auth) persist, causing orphaned denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4a10de2-f946-4dcf-921d-25d249a0c839?mode=deep",
+    "timestamp": "2026-01-09 13:55:36.530095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Reentrancy] Can a malicious contract exploit the CustomMessageDecorator to trigger reentrancy by executing a factory message that callbacks to the contract, which then dispatches another message, bypassing single-call validation checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2dc461cf-9040-4c48-99bd-14d6dab603a5?mode=deep",
+    "timestamp": "2026-01-09 13:55:56.203837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Message validation] Does the CustomMessageDecorator at line 30-35 properly enforce gas metering for expensive operations like token minting or pool creation, or can a contract spam these operations to DoS validators by exhausting gas in the CustomMessenger.DispatchMsg() call? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc88127a-9737-4ce4-94d7-7259e95ed1ac?mode=deep",
+    "timestamp": "2026-01-09 13:56:16.997458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Message decorator] Can a contract exploit the CustomMessageDecorator's access to all three keepers (bank, factory, dex at lines 32-34) to execute atomic cross-module attacks, such as creating a token, immediately creating a pool, and manipulating prices in a single transaction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a42013b6-e6bf-455c-8d59-0f535ca70715?mode=deep",
+    "timestamp": "2026-01-09 13:56:39.150236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Message decorator] Does the CustomMessageDecorator at line 30-35 properly validate that the contractAddr parameter in DispatchMsg matches the actual executing contract, or can a contract spoof another contract's address to steal its denom admin privileges? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5dd31d21-1053-41b8-af22-56df393d2d33?mode=deep",
+    "timestamp": "2026-01-09 13:57:01.940776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Message decorator] Can a malicious contract exploit the CustomMessageDecorator returned at line 30-35 to execute factory token creation operations with the contract address as creator, then transfer admin rights to drain minting caps without proper authorization checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcb8b3cf-91b4-4e28-9449-e7d64bd23dd0?mode=deep",
+    "timestamp": "2026-01-09 13:57:24.977233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Memory leak] If RegisterCustomPlugins() is called multiple times (e.g., during chain upgrades), do the old QueryPlugin and CustomMessenger instances at lines 20-36 get properly garbage collected, or do they leak memory by maintaining references to outdated keeper state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57311c29-575e-49d8-a5aa-10a20823f572?mode=deep",
+    "timestamp": "2026-01-09 13:57:49.574178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Return value] Does returning the plugin options as a slice at line 38-41 without defensive copying allow caller modifications to the plugins after registration, potentially swapping out the CustomQuerier or CustomMessageDecorator implementations with malicious versions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea293f40-d388-4b0b-aa56-74caf2a1e272?mode=deep",
+    "timestamp": "2026-01-09 13:58:14.721463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Plugin ordering] Can the order of plugin registration (queryPluginOpt at line 38 before messengerDecoratorOpt at line 39) be exploited where a contract query at line 26-28 reads stale state before a pending message decorator update at line 30-35 is applied, enabling front-running attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_afb9ca47-a0bf-4e46-9ee3-79be47e739ae?mode=deep",
+    "timestamp": "2026-01-09 13:58:40.806903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Concurrent access] Does the lack of mutex protection around keeper references at lines 14-16 allow race conditions where multiple contracts executing in parallel goroutines corrupt each other's state transitions, violating atomic operation guarantees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_823a51af-97ac-4c19-bf73-042efcabb21a?mode=deep",
+    "timestamp": "2026-01-09 13:59:07.381169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Nil pointer] If any of the keeper pointers at lines 14-16 are nil at registration time, will the NewQueryPlugin() call at line 20 panic during contract query execution, causing validator crashes and consensus failure across the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_006111d6-1cc4-4a54-b1b2-6c4fd99eea77?mode=deep",
+    "timestamp": "2026-01-09 13:59:32.137412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Initialization order] If RegisterCustomPlugins() is called before keepers are fully initialized, can a contract deployed in the same block exploit uninitialized keeper state at lines 20-24 to bypass validation checks or create tokens with invalid parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b821f42c-af2c-4ac2-8349-69aa99047729?mode=deep",
+    "timestamp": "2026-01-09 13:59:57.852896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Reference safety] Are the keeper references passed at lines 14-16 deep copies or shallow pointers, and can a malicious contract mutate shared keeper state during its execution to affect subsequent contract calls in the same block, causing transaction ordering dependencies and MEV exploitation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bceb1592-821a-4e22-9a7e-5fec77710eb8?mode=deep",
+    "timestamp": "2026-01-09 14:00:22.724643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Keeper exposure] Can a malicious contract exploit the direct dexkeeper.Keeper reference at line 16 to bypass slippage protection by calling internal keeper methods not exposed through normal message routing, draining liquidity pools through manipulated swap calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89bc556b-e6ac-4755-8bf8-31eae35a87fd?mode=deep",
+    "timestamp": "2026-01-09 14:00:48.566195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Keeper exposure] Does passing the factorykeeper.Keeper pointer at line 15 create a shared mutable state that multiple concurrent contracts could race to modify, causing state corruption where one contract's token creation overwrites another's, leading to denom collision or loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a66f9df-ac39-4713-965b-a995b004c1a8?mode=deep",
+    "timestamp": "2026-01-09 14:01:14.068784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Keeper exposure] Can a malicious CosmWasm contract gain unrestricted access to the bankkeeper.BaseKeeper reference passed at line 14, allowing it to bypass factory module access controls and directly mint/burn/transfer tokens for any denomination, leading to complete token supply manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77dd7b5f-712b-41ef-a13b-fdad4b82010a?mode=deep",
+    "timestamp": "2026-01-09 14:01:39.962937",
+    "report_generated": false
   }
 ]
