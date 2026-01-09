@@ -5248,5 +5248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b633d9dd-4645-4b04-95b9-93e9f71b23a1?mode=deep",
     "timestamp": "2026-01-09 17:01:31.265219",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Upgrade/fork accumulation] Can an attacker propose many upgrades and forks that accumulate in memory without bounds, causing memory exhaustion over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40fc4e09-5d77-4319-b9c2-194c87e030ae?mode=deep",
+    "timestamp": "2026-01-09 17:02:44.701757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Store iteration DoS] Can an attacker add thousands of stores in StoreUpgrades.Added, causing setupUpgradeStoreLoaders() to iterate excessively and delay node startup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8044fd71-39a9-49d7-9c0e-96e50333c490?mode=deep",
+    "timestamp": "2026-01-09 17:02:57.154933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Handler error propagation] If the upgrade handler returned by CreateUpgradeHandler returns an error during execution, is the error properly propagated and handled, or can it cause undefined behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05dd0ee3-ee4e-4ee9-bfe6-ff8f96cb3e83?mode=deep",
+    "timestamp": "2026-01-09 17:03:09.964575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Store upgrade failure] If UpgradeStoreLoader() fails to apply StoreUpgrades, is there automatic rollback, or can partial store changes persist and corrupt state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d065f330-ea91-4a65-b2fb-cd270f02b14e?mode=deep",
+    "timestamp": "2026-01-09 17:03:23.043812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork logic error handling] If PreBlockForkLogic returns early or errors out, is there proper cleanup, or can partially executed state changes cause consensus deviation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_302cb204-fd38-4016-8f86-167db41844ef?mode=deep",
+    "timestamp": "2026-01-09 17:03:36.758713",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Migration failure cascade] If mm.RunMigrations() fails for one module, does it stop all subsequent module migrations, potentially leaving the chain in a partially migrated state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4a8094e-5c8d-4812-a390-a2583e960413?mode=deep",
+    "timestamp": "2026-01-09 17:03:51.273863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Panic recovery] If any function in the upgrade/fork execution path panics, is there appropriate recover() logic, or will the entire validator node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b38484c0-62a6-400b-8c01-2714af926df1?mode=deep",
+    "timestamp": "2026-01-09 17:04:07.483608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [TokenWrapper module interaction] Can an attacker craft an upgrade that modifies TokenWrapper decimal conversion logic mid-flight, causing 18→6 decimal precision errors and token duplication during ongoing IBC transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6777af3e-f043-4930-8467-9b3f0a10d66a?mode=deep",
+    "timestamp": "2026-01-09 17:04:25.206801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Factory module interaction] Can an attacker use StoreUpgrades to delete or rename the Factory module store during an upgrade while tokens are being minted, causing token creation failures or duplicate denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ad8fdea-4b1d-4f12-abbc-a635518e14b7?mode=deep",
+    "timestamp": "2026-01-09 17:04:43.255257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [DEX module interaction] Can an attacker exploit store upgrades to corrupt DEX pool state during an upgrade, causing AMM invariant (x*y=k) violations that allow price manipulation attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7dbf0e19-c64e-44f0-8e60-d17913adf025?mode=deep",
+    "timestamp": "2026-01-09 17:05:01.915897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [IBC module interaction] Can an attacker use PreBlockForkLogic to modify IBC channel state during active packet transfers, causing in-flight tokens to be lost or duplicated across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc96f4d0-9eea-4440-a354-208523f97af4?mode=deep",
+    "timestamp": "2026-01-09 17:05:22.345070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Bank module interaction] Can an attacker use store upgrades to corrupt bank module balances during an upgrade, causing total supply invariants to be violated and creating/destroying tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2212be1-8c10-49c9-9cce-a85d7b1dcb3b?mode=deep",
+    "timestamp": "2026-01-09 17:05:43.323255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Staking module interaction] Can an attacker use PreBlockForkLogic to modify validator bonded tokens or delegation state, causing slashing invariants to be violated or enabling validator set manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cae9e92a-ba59-4dce-a0ea-802738c00166?mode=deep",
+    "timestamp": "2026-01-09 17:06:05.396774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Height-based activation] Does the upgrade handler activation depend solely on block height from governance, or can an attacker manipulate height checks to trigger upgrades prematurely or skip them entirely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c25252bc-5a35-446e-a547-128c2c5aa133?mode=deep",
+    "timestamp": "2026-01-09 17:06:28.311513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Chain ID dependency] Can an attacker exploit chain ID validation in fork logic to execute fork state transitions on the wrong chain, causing protocol deviation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f6535d7-57cf-4785-a7c4-040bb0ee2c44?mode=deep",
+    "timestamp": "2026-01-09 17:06:52.689943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Genesis state interaction] Can an attacker craft upgrades/forks that execute during genesis initialization, causing state corruption before the chain starts producing blocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e7d35ec-b878-4c1c-9b2b-03e6c215863c?mode=deep",
+    "timestamp": "2026-01-09 17:07:16.969253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Historic state migration] Can an attacker exploit upgrade handlers to modify historic blockchain state that should be immutable, causing state root hash mismatches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d4e3a95-5314-4cd3-a7e5-2eb59642270d?mode=deep",
+    "timestamp": "2026-01-09 17:07:41.885421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Checkpoint interaction] Can an attacker trigger forks at checkpoint boundaries that cause state snapshot inconsistencies, preventing new nodes from syncing via state sync? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b4804dc-772a-4c03-9c58-09a1a62d129e?mode=deep",
+    "timestamp": "2026-01-09 17:08:08.215914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [IBC packet handling during upgrade] Can an attacker exploit the window during upgrade execution where IBC packet processing might be paused, causing timeout failures for in-flight token transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c83f423-27ed-47bd-aef1-535f5f6cb132?mode=deep",
+    "timestamp": "2026-01-09 17:08:34.910563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [IBC channel version migration] Can an attacker use store upgrades to modify IBC channel versions mid-upgrade, causing channel handshake failures with counterparty chains? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_409bfa72-d410-4bf4-8de6-93108865571e?mode=deep",
+    "timestamp": "2026-01-09 17:09:02.636682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [IBC acknowledgement timing] Can an attacker trigger a fork at a height where IBC acknowledgements are pending, causing ack processing to fail and resulting in stuck tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd942108-1bc4-4a93-841b-e0f1bb7dd505?mode=deep",
+    "timestamp": "2026-01-09 17:09:30.352923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Cross-chain upgrade coordination] Can an attacker exploit lack of upgrade coordination with IBC counterparty chains, causing protocol version mismatches that break token bridging? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80d6e5e9-95f2-4877-8bba-c6108a5800ee?mode=deep",
+    "timestamp": "2026-01-09 17:10:01.808748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Malicious proposal content] Can an attacker craft a governance proposal that passes validation but contains a malicious upgrade handler that executes arbitrary state transitions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64b806c9-4ad1-47dd-a0aa-1bafe0a4f9dc?mode=deep",
+    "timestamp": "2026-01-09 17:10:30.395015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork coordination attack] Can an attacker coordinate multiple fork proposals at sequential heights to execute cumulative malicious state changes that individually appear benign? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11c5ea96-522f-4b9e-97e9-be341efcb4fb?mode=deep",
+    "timestamp": "2026-01-09 17:10:59.192760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Proposal timing attack] Can an attacker exploit governance voting periods to propose upgrades/forks that execute immediately after voting closes, leaving insufficient time for validator preparation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e06b109-d183-4b24-9952-ad7d70e5d831?mode=deep",
+    "timestamp": "2026-01-09 17:11:28.025349",
+    "report_generated": false
   }
 ]
