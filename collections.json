@@ -8098,5 +8098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51c47d6e-685e-4839-83ac-30c12f6512a7?mode=deep",
     "timestamp": "2026-01-09 20:47:28.428704",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Backwards compatibility] Can older clients or relayers that expect different PoolsMeta formats cause deserialization errors when calling GetPoolsMeta() after protocol upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ffb3c39-1fdf-44cf-8c71-279e3867fe04?mode=deep",
+    "timestamp": "2026-01-09 20:48:48.293185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Nil context] Can passing a nil context to any of these functions cause panics when runtime.KVStoreAdapter() or k.storeService.OpenKVStore() is called? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d827422-fb55-4d5a-b9c1-c081e3e518b1?mode=deep",
+    "timestamp": "2026-01-09 20:49:01.158246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Concurrent store access] Can multiple goroutines call SetPoolsMeta() concurrently if the Cosmos SDK exposes parallel transaction execution, causing store write conflicts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6ae9b4e-1e81-4e52-a721-adcb5a2a2d14?mode=deep",
+    "timestamp": "2026-01-09 20:49:14.231653",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Store commit timing] Can delays between SetPoolsMeta() write and store commit allow other transactions to read stale NextPoolId values via GetPoolsMeta()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce96e6ac-1317-47d2-92c7-9b3f5b0ab75d?mode=deep",
+    "timestamp": "2026-01-09 20:49:27.592759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [Nil pointer dereference] Can an attacker trigger a scenario where store.Get(types.ParamsKey) returns nil due to KVStore corruption, causing GetParams to return an uninitialized zero-value Params struct that bypasses all fee and slippage protections, allowing free pool creation and unlimited slippage attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6187e91-cb76-4a3b-a336-31689f61f6f6?mode=deep",
+    "timestamp": "2026-01-09 20:49:41.569060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [Deserialization attack] Can a malicious validator manipulate the raw bytes stored at types.ParamsKey before k.cdc.MustUnmarshal() is called, causing the codec to deserialize malicious parameter values that bypass validation, such as MaxSlippage > 10000 or MinimalLiquidityLock = 0, enabling share inflation attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91baffef-5ffb-4fbf-9eb1-dbda60526ff9?mode=deep",
+    "timestamp": "2026-01-09 20:49:56.276648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [Race condition] In a concurrent environment where multiple transactions call GetParams() simultaneously, can a Byzantine validator exploit the runtime.KVStoreAdapter access pattern to cause inconsistent parameter reads across different transactions in the same block, leading to AMM invariant violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_094f1922-0118-4ccf-a628-c6a6fdd91202?mode=deep",
+    "timestamp": "2026-01-09 20:50:12.085444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [State inconsistency] When store.Get(types.ParamsKey) returns nil at line 14-16, GetParams returns a zero-value Params struct without proper defaults (NewPoolFeePct=0, CreationFee=0, MinimalLiquidityLock=0). Can an attacker exploit this during chain initialization or upgrade to create pools with no fees and zero liquidity lock, enabling share inflation attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66a6d91e-9ea6-489a-873f-d5c51eccad80?mode=deep",
+    "timestamp": "2026-01-09 20:50:29.888112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [KVStore corruption] If the KVStore adapter experiences corruption or state inconsistency between k.storeService.OpenKVStore(ctx) and store.Get(), can this result in GetParams returning stale or corrupted parameter values that allow attackers to bypass slippage limits or liquidity lock requirements? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c4852ce-7723-49f4-a9b7-da53ad61009d?mode=deep",
+    "timestamp": "2026-01-09 20:50:48.595922",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [Panic handling] The function uses k.cdc.MustUnmarshal() which panics on deserialization failure. Can an attacker corrupt the KVStore data at ParamsKey to trigger a panic during GetParams, causing all DEX operations (swaps, liquidity adds, pool creation) to fail and DoS the entire DEX module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c4b1838-90fe-4e86-b7cc-15e3fac075ee?mode=deep",
+    "timestamp": "2026-01-09 20:51:08.112248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [Cache poisoning] If multiple calls to GetParams() within the same block context read from a cached KVStore layer, can a Byzantine validator manipulate the cache to serve different parameter values to different transactions, causing inconsistent fee calculations and AMM pricing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03f69a00-31d0-4786-a18c-e79f69a7e7f8?mode=deep",
+    "timestamp": "2026-01-09 20:51:28.325019",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [Context isolation] Does the context.Context passed to GetParams properly isolate parameter reads across concurrent transactions? Can a malicious validator exploit context sharing to leak parameter changes from one transaction to another before they're committed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4537a02-c37e-4561-88fd-752ec79980f5?mode=deep",
+    "timestamp": "2026-01-09 20:51:48.893132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [Zero-value exploitation] When bz == nil at line 15, the function returns an uninitialized params struct. Can an attacker trigger this condition through genesis misconfiguration or upgrade bugs to operate the DEX with zero fees (NewPoolFeePct=0, CreationFee=0) and no liquidity lock (MinimalLiquidityLock=0)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62f8bd65-0508-4d84-bf95-8ee581e6c0a3?mode=deep",
+    "timestamp": "2026-01-09 20:52:11.213672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams()] [Memory safety] Does runtime.KVStoreAdapter properly handle the byte slice returned by store.Get()? Can a use-after-free or buffer overflow in the adapter layer cause GetParams to return corrupted parameter values that bypass validation checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a15bd62-3578-45d6-b034-809e85f95dbc?mode=deep",
+    "timestamp": "2026-01-09 20:52:33.921848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [Access control bypass] The SetParams function at line 24-33 lacks any authorization check - it only validates parameters through params.Validate(). If an attacker can directly call SetParams (bypassing the UpdateParams message handler's authority check), can they set malicious parameters like MaxSlippage=10000 or MinimalLiquidityLock=0 to drain liquidity pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_850c32bd-12f8-4060-b12a-076565535780?mode=deep",
+    "timestamp": "2026-01-09 20:52:58.508397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [Parameter validation bypass] SetParams relies on external params.Validate() before being called. If the caller (e.g., UpdateParams) fails to validate parameters, can an attacker set MaxSlippage > 10000, allowing 100%+ slippage that enables complete pool drainage through single swaps? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccaa11bf-fbec-40a8-a36f-19f83c3fed34?mode=deep",
+    "timestamp": "2026-01-09 20:53:23.587647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [Beneficiary manipulation] SetParams allows changing the Beneficiary address without restrictions. Can an attacker who gains control of the governance authority redirect all pool creation fees (CreationFee) to their own address, draining protocol revenue and potentially causing a governance attack to become profitable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5bf1447a-dc81-4d02-9295-b56864255267?mode=deep",
+    "timestamp": "2026-01-09 20:53:49.562263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [MinimalLiquidityLock downgrade] Can an attacker use governance to call SetParams with MinimalLiquidityLock=1 (minimum allowed value), then exploit existing pools that were created with higher lock requirements by performing share inflation attacks that were previously impossible? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f27befed-c7d2-4b15-8400-04c866f45277?mode=deep",
+    "timestamp": "2026-01-09 20:54:14.518558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [Serialization attack] At line 26, k.cdc.Marshal(&params) could fail if params contains malicious data structures. If Marshal returns an error but store.Set is partially executed, can this cause partial parameter updates that leave the DEX in an inconsistent state with mismatched fee and slippage settings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b531bb2-b109-4ddd-a431-5eab346080f5?mode=deep",
+    "timestamp": "2026-01-09 20:54:42.925998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [Atomic state transition] The function performs Marshal then store.Set without any rollback mechanism. If store.Set fails after Marshal succeeds, can this cause state inconsistency where GetParams returns old values but the keeper thinks new values are set, leading to fee calculation mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05843333-060c-4c72-ac39-172ead4b3d2d?mode=deep",
+    "timestamp": "2026-01-09 20:55:11.489825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [KVStore write failure] If store.Set(types.ParamsKey, bz) at line 30 fails due to storage issues but returns no error, can this cause silent parameter update failures where governance proposals appear to succeed but DEX parameters remain unchanged, breaking protocol governance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e001d7a2-f293-4ec2-a33d-6c28e1f27f7b?mode=deep",
+    "timestamp": "2026-01-09 20:55:36.567021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [Race condition on write] If multiple transactions attempt to call SetParams concurrently (e.g., through multiple governance proposals executing simultaneously), can the last writer win without conflict detection, causing parameter updates to be silently overwritten? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c168f71f-69e4-4b51-96dd-d48a3190b64a?mode=deep",
+    "timestamp": "2026-01-09 20:56:01.132955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [CreationFee manipulation] Can an attacker use governance to set CreationFee=0, then spam the chain with thousands of pool creation transactions to bloat state and cause DoS, since pool creation would be free and only limited by gas costs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_478072c4-0f48-4538-9350-1d657c0c78d8?mode=deep",
+    "timestamp": "2026-01-09 20:56:25.382207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [NewPoolFeePct manipulation] Can an attacker set NewPoolFeePct to maximum allowed value (just below PoolFeeScalingFactor) to make pool swaps economically unfeasible, causing all trading activity to cease and liquidity to be locked in unusable pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9149405-c42c-4086-b1ac-e73e9838bcb2?mode=deep",
+    "timestamp": "2026-01-09 20:56:48.418541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams()] [Error propagation] At line 27-29, if k.cdc.Marshal returns an error, the function returns immediately. Can an attacker craft Params that consistently fail marshaling to prevent any parameter updates, effectively freezing DEX parameters at potentially vulnerable values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a57ec4cb-56b8-4255-882a-757510607e48?mode=deep",
+    "timestamp": "2026-01-09 20:57:12.295171",
+    "report_generated": false
   }
 ]
