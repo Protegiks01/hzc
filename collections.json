@@ -1798,5 +1798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84d347bd-851d-4ae5-9e66-043eddd8f00b?mode=deep",
     "timestamp": "2026-01-09 09:21:10.812509",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Signature replay across chains] Does the signature verification process include chain-ID binding, or can attackers replay signed transactions across different ZigChain instances? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17788e0a-f1d0-426e-9d18-1f92758f0869?mode=deep",
+    "timestamp": "2026-01-09 09:22:24.773916",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Sequence increment timing] Since NewIncrementSequenceDecorator runs after all validations, can an attacker exploit failed transactions that incremented sequences to cause account lockout through sequence gaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25eb03f5-1d7c-4488-87bb-9883722d1d20?mode=deep",
+    "timestamp": "2026-01-09 09:22:37.458575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Sequence overflow] Can an attacker spam transactions from an account to overflow the sequence number in NewIncrementSequenceDecorator, causing the account to become permanently unusable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42591b54-240d-4bd2-af80-d57455f35f1a?mode=deep",
+    "timestamp": "2026-01-09 09:22:50.378204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Concurrent sequence increment] Can multiple transactions from the same account exploit race conditions in NewIncrementSequenceDecorator to use the same sequence number, causing double-spending? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc56c5f1-5ea8-4f3c-b950-0c5fe33a8f30?mode=deep",
+    "timestamp": "2026-01-09 09:23:03.547802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Sequence rollback failure] If a transaction fails after NewIncrementSequenceDecorator but before block commitment, is the sequence properly rolled back, or does it create sequence holes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e43cfbd-e5dd-4604-9ccf-f7eaa6d0fc97?mode=deep",
+    "timestamp": "2026-01-09 09:23:17.704950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [IBC redundant relay exploitation] Can an attacker bypass NewRedundantRelayDecorator by crafting IBC packets with modified acknowledgment hashes that appear unique but are actually redundant? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d490aab-67c6-400f-9119-65076a125aa1?mode=deep",
+    "timestamp": "2026-01-09 09:23:32.507394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [IBC relay DoS] Does NewRedundantRelayDecorator properly handle the case where an attacker floods the network with valid but redundant IBC packets, exhausting relayer resources and causing packet timeouts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a59a3ae3-9d5d-4717-9d5d-fd431d622da2?mode=deep",
+    "timestamp": "2026-01-09 09:23:48.407946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [IBC keeper state corruption] Can an attacker exploit the interaction between NewRedundantRelayDecorator and options.IBCKeeper to corrupt IBC packet state, causing tokens to be stuck in transit? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fa6baf5-7096-4e2a-997f-e8a04fb6b015?mode=deep",
+    "timestamp": "2026-01-09 09:24:05.431998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [IBC packet replay] If NewRedundantRelayDecorator uses a weak hashing mechanism for packet identification, can attackers craft packets with hash collisions to replay packets and duplicate tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cf818d0-c9ee-47a6-8e7f-6e5bc8ac8154?mode=deep",
+    "timestamp": "2026-01-09 09:24:24.108762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [IBC timeout manipulation] Can an attacker exploit the decorator chain ordering to submit IBC packets that pass NewRedundantRelayDecorator but have already timed out, causing inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3f10d72-a841-49cd-b551-a745af6ed05e?mode=deep",
+    "timestamp": "2026-01-09 09:24:43.558159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Extension options bypass] Can an attacker craft malicious extension options that pass NewExtensionOptionsDecorator validation but cause panics or state corruption in downstream message processing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_961a3c70-3c2e-4cdd-9bd3-073faca4a35d?mode=deep",
+    "timestamp": "2026-01-09 09:25:03.498045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Extension options injection] Does NewExtensionOptionsDecorator properly sanitize extension option content, or can attackers inject malicious protobuf messages that exploit deserialization vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08b43c90-d314-41a8-bf7f-1d2b183eea85?mode=deep",
+    "timestamp": "2026-01-09 09:25:24.279409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Extension options DoS] Can an attacker submit transactions with extremely large or deeply nested extension options that pass validation but cause excessive memory consumption or stack overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_58ecd5c4-03d0-4caf-bdd9-0b91a5db9ef6?mode=deep",
+    "timestamp": "2026-01-09 09:25:47.214813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Basic validation bypass] Can an attacker craft transactions that bypass NewValidateBasicDecorator by exploiting edge cases in message validation (empty messages, nil fields, oversized data)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b95ce4e-2e2a-48ce-b537-d4f6c8a5233e?mode=deep",
+    "timestamp": "2026-01-09 09:26:10.302040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Timeout height manipulation] Can an attacker set timeout heights in NewTxTimeoutHeightDecorator that are far in the future, causing transactions to remain valid indefinitely and enabling time-based exploits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b2813da-8150-4897-9b99-925ef5a2ea5b?mode=deep",
+    "timestamp": "2026-01-09 09:26:34.101901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Timeout height bypass] If an attacker sets timeout height to 0 or MaxUint64, does NewTxTimeoutHeightDecorator handle these edge cases properly, or can it cause panics or validation bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_408cd541-e803-4077-8747-8a1a766b6f96?mode=deep",
+    "timestamp": "2026-01-09 09:26:59.033862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Memo size exploitation] Can an attacker craft memos that pass NewValidateMemoDecorator size checks but contain malicious content (XSS payloads, SQL injection strings, buffer overflow triggers) for off-chain components? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da82a19c-6b3a-4515-b5dc-1f035f669855?mode=deep",
+    "timestamp": "2026-01-09 09:27:24.514603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Memo encoding bypass] Does NewValidateMemoDecorator properly validate memo encoding (UTF-8), or can attackers inject invalid Unicode sequences that cause parsing errors in explorers or wallets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aef5872c-b003-4522-b53c-b90c78406b3f?mode=deep",
+    "timestamp": "2026-01-09 09:27:52.121490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Context isolation failure] Can an attacker exploit NewSetUpContextDecorator to create a context that persists state across transaction boundaries, enabling information leakage or state pollution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06417ce6-82f2-4e76-9e97-b43c246e5732?mode=deep",
+    "timestamp": "2026-01-09 09:28:19.019850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Context parameter manipulation] Can malicious decorators modify context parameters (gas meter, block height, chain ID) in ways that affect subsequent decorators, causing validation bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86a37189-1102-4d22-8f86-c27da7bd018e?mode=deep",
+    "timestamp": "2026-01-09 09:28:45.906350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Context cloning attack] If NewSetUpContextDecorator doesn't properly clone context, can attackers exploit shared state between concurrent transaction executions for race conditions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fcaea643-6965-4ded-90cd-29538d16be7b?mode=deep",
+    "timestamp": "2026-01-09 09:29:13.126779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator panic handling] If any decorator in the chain panics, does the ante handler properly recover and roll back state, or can panics cause partial state commits leading to corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c81572e2-c87e-4db7-90f9-488774f88e48?mode=deep",
+    "timestamp": "2026-01-09 09:29:40.011560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator error propagation] If a decorator returns an error but doesn't roll back its state changes, can this cause inconsistent state where some decorators executed successfully but the transaction failed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25ae9a2b-c14d-4287-9dc5-69fde8ccf551?mode=deep",
+    "timestamp": "2026-01-09 09:30:06.978813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator bypass via message routing] Can attackers craft message types that aren't processed by certain decorators, effectively bypassing validation, gas metering, or fee deduction? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a1ad3ab-993b-4fb0-a86a-7deb599e2562?mode=deep",
+    "timestamp": "2026-01-09 09:30:34.035710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator chain shortcut] Can attackers exploit specific error conditions to cause early termination of the decorator chain, bypassing critical security checks like signature verification or fee deduction? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3a2bd03-d664-4bce-92ed-152e2158c99a?mode=deep",
+    "timestamp": "2026-01-09 09:31:00.414496",
+    "report_generated": false
   }
 ]
