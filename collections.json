@@ -8548,5 +8548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fee978b6-64de-48f3-b6d4-a54d8ead6864?mode=deep",
     "timestamp": "2026-01-09 21:16:49.227883",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Storage read amplification] Each call to GetParams performs a full KVStore read and unmarshal. In a block with thousands of swap transactions, can the repeated GetParams calls cause excessive storage I/O and block processing delays? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_164acea0-a64e-43f1-ba78-44e930a21693?mode=deep",
+    "timestamp": "2026-01-09 21:18:15.932195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Write amplification] Each SetParams performs a full marshal and write. Can repeated parameter updates (e.g., through rapid governance proposals) cause write amplification that degrades chain performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_70aa7099-e4a8-4e2d-b6fb-cb884087e9f0?mode=deep",
+    "timestamp": "2026-01-09 21:18:28.618297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: V2Migration] [Migration DoS] If V2Migration is accidentally called during every block instead of just once during upgrade, can the repeated GetParams->SetParams cycle cause performance degradation or DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da74b82c-aa8b-44f9-9993-da6ca7e0607b?mode=deep",
+    "timestamp": "2026-01-09 21:18:41.935354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Data tampering] The params bytes stored at types.ParamsKey are not cryptographically signed or authenticated. Can a storage-layer attacker modify these bytes to change DEX parameters without detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a124f513-84d7-41cf-9522-4a2eeabfd5bc?mode=deep",
+    "timestamp": "2026-01-09 21:18:55.338585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Write verification] SetParams doesn't verify that store.Set actually wrote the correct bytes. Can a faulty storage backend silently corrupt the write, causing GetParams to return different values than what SetParams intended? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_370410ba-6b9a-4846-b491-c55bf5c067f4?mode=deep",
+    "timestamp": "2026-01-09 21:19:09.531377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: All functions] [Merkle tree integrity] Do parameter changes properly update the IAVL Merkle tree root hash? Can inconsistent parameter storage cause state proof verification to fail, breaking light client functionality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21a0ec18-968a-4f34-a845-075072007be2?mode=deep",
+    "timestamp": "2026-01-09 21:19:29.117166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Storage read amplification] Each call to GetParams performs a full KVStore read and unmarshal. In a block with thousands of swap transactions, can the repeated GetParams calls cause excessive storage I/O and block processing delays? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7f480f3-fd72-4171-b813-0339de0af698?mode=deep",
+    "timestamp": "2026-01-09 21:19:44.959902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Write amplification] Each SetParams performs a full marshal and write. Can repeated parameter updates (e.g., through rapid governance proposals) cause write amplification that degrades chain performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f92d05ec-4e4f-4e04-b813-5073c7344ae1?mode=deep",
+    "timestamp": "2026-01-09 21:20:02.621783",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: V2Migration] [Migration DoS] If V2Migration is accidentally called during every block instead of just once during upgrade, can the repeated GetParams->SetParams cycle cause performance degradation or DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a9f1761-79b4-43f0-a56a-8a623a4c6377?mode=deep",
+    "timestamp": "2026-01-09 21:20:21.210685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: GetParams] [Data tampering] The params bytes stored at types.ParamsKey are not cryptographically signed or authenticated. Can a storage-layer attacker modify these bytes to change DEX parameters without detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6d719f5-2e73-44d6-8756-578446ffaebf?mode=deep",
+    "timestamp": "2026-01-09 21:20:41.155459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: SetParams] [Write verification] SetParams doesn't verify that store.Set actually wrote the correct bytes. Can a faulty storage backend silently corrupt the write, causing GetParams to return different values than what SetParams intended? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_499a1a11-7389-407b-a2ec-ac44e5021c62?mode=deep",
+    "timestamp": "2026-01-09 21:20:58.821889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/k_get_set_params.go] [Function: All functions] [Merkle tree integrity] Do parameter changes properly update the IAVL Merkle tree root hash? Can inconsistent parameter storage cause state proof verification to fail, breaking light client functionality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41629505-3909-4a2e-a722-ab68fe88d4e0?mode=deep",
+    "timestamp": "2026-01-09 21:21:20.483434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Input validation] Can an attacker bypass the nil request check by providing a request with malicious pagination parameters that cause the Cosmos SDK query.Paginate function to allocate excessive memory, leading to out-of-memory DoS against validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24279e6e-7d24-4a62-9845-c7cd0744b1aa?mode=deep",
+    "timestamp": "2026-01-09 21:21:41.786289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Resource exhaustion] Can an attacker craft a pagination request with an extremely large Limit value (e.g., uint64 max) that forces the query to iterate through millions of pool UIDs, causing CPU exhaustion and validator unavailability? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5c4c76d-fa31-464c-93b4-6c22d1f019a6?mode=deep",
+    "timestamp": "2026-01-09 21:22:04.233713",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Pagination manipulation] Can an attacker provide both Key and Offset simultaneously in the pagination request to trigger unexpected behavior in query.Paginate that bypasses pagination limits and returns the entire state, potentially exposing sensitive pool data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8adb5f28-4c43-47b0-bdd5-0c50c493e4c9?mode=deep",
+    "timestamp": "2026-01-09 21:22:27.424990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [State consistency] If the poolUidsStore is modified by concurrent transactions while query.Paginate is iterating, can this lead to inconsistent results where the same pool UID appears multiple times or is skipped entirely, causing client-side state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7bcd2380-2874-48b9-9227-b937c1de87df?mode=deep",
+    "timestamp": "2026-01-09 21:22:51.837085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Store corruption] Can an attacker exploit the prefix.NewStore wrapping to access data outside the PoolUidsKeyPrefix namespace by crafting malicious pagination keys that traverse to adjacent store prefixes, potentially leaking cross-module state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0db78e34-0e67-4bfd-a524-feb4c82b7753?mode=deep",
+    "timestamp": "2026-01-09 21:23:17.466379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Unmarshaling vulnerability] If corrupted or maliciously crafted protobuf data exists in the KV store for a pool UID, can the cdc.Unmarshal call panic without proper recovery, causing the entire query server to crash and making all pool UID queries unavailable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e7316ee-eb53-4bb2-82d2-c1b2f0148753?mode=deep",
+    "timestamp": "2026-01-09 21:23:42.085021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Data validation] After unmarshaling pool UIDs, there's no validation of the PoolUid or PoolId fields - can an attacker who previously stored malformed pool UIDs (empty strings, special characters, SQL injection patterns) cause downstream consumers to crash or behave unexpectedly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bc59ad2-50b4-4db4-9ca5-94f543e46f4c?mode=deep",
+    "timestamp": "2026-01-09 21:24:07.514829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Slice append vulnerability] The poolUidss slice uses repeated append operations in the pagination callback - can an attacker trigger a pagination request that causes excessive memory reallocations, leading to memory fragmentation and degraded validator performance over time? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a549d884-1d78-4eca-8b40-cb2c686a1f12?mode=deep",
+    "timestamp": "2026-01-09 21:24:33.738703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Error propagation] If the unmarshaling error in the pagination callback is returned, does the query.Paginate function properly clean up allocated resources, or does it leak memory/file descriptors that accumulate over repeated failed queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ca5677f-6a58-49d9-8266-597d31354539?mode=deep",
+    "timestamp": "2026-01-09 21:24:59.821401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Concurrent access] Since KVStoreAdapter is called on each query, can concurrent ListPoolUids calls from multiple clients cause race conditions in the underlying store access, leading to data races that corrupt the returned pool UID list? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7abf7f82-baee-4ff8-9f1d-0ed00308953f?mode=deep",
+    "timestamp": "2026-01-09 21:25:30.314085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Information disclosure] Does the pagination response leak sensitive information about the total number of pools or internal store structure through the pageRes metadata, allowing attackers to infer confidential trading patterns or liquidity distribution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52fef829-11c3-4f09-9c7e-6e8ff037f8a6?mode=deep",
+    "timestamp": "2026-01-09 21:25:56.387293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Response size] Can an attacker create thousands of pool UIDs with extremely long denom strings to cause the QueryAllPoolUidsResponse to exceed gRPC message size limits, causing query failures and making legitimate pool discovery impossible? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09dd1e12-491e-45a5-84db-003bc2a9f78a?mode=deep",
+    "timestamp": "2026-01-09 21:26:22.827260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Pagination state manipulation] If an attacker can predict or manipulate the NextKey value in pagination responses, can they skip specific pool UIDs to hide the existence of certain pools from monitoring systems or front-end interfaces? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8f42b4d-d96d-4b9f-8372-81de4adeaa5d?mode=deep",
+    "timestamp": "2026-01-09 21:26:49.657616",
+    "report_generated": false
   }
 ]
