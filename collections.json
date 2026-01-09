@@ -6448,5 +6448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27b9bb63-99fb-4bee-9a7b-44cee5afc444?mode=deep",
     "timestamp": "2026-01-09 18:20:37.451751",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Plan parameter validation] The upgrade handler receives an upgradetypes.Plan parameter at line 22 but never validates its contents - can an attacker submit a malicious governance proposal with corrupted Plan.Info or Plan.Height that causes the upgrade to execute at the wrong block, breaking IBC packet timeouts or token unlock schedules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_218a7d52-8478-4853-b2aa-82fd85b8bfbb?mode=deep",
+    "timestamp": "2026-01-09 18:21:50.817945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Plan name mismatch] Can an attacker create a governance proposal that passes a Plan with Plan.Name != UpgradeName, causing the upgrade handler to execute migrations with incorrect versioning assumptions and corrupt TokenWrapper IBC middleware state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f40636f-8fd7-4710-886f-6fae656d9c0e?mode=deep",
+    "timestamp": "2026-01-09 18:22:03.436544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Upgrade height manipulation] If the Plan.Height is manipulated via governance attack, can the upgrade execute before all IBC packets have been processed, leaving wrapped tokens stranded in IBC channels with incorrect decimal conversions that prevent recovery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fd29a40-2573-4361-9dd9-05d78699ecb2?mode=deep",
+    "timestamp": "2026-01-09 18:22:16.131735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [VersionMap tampering] The input VersionMap at line 22 represents current module versions - can an attacker provide a forged VersionMap that claims modules are already at v2 when they're at v1, causing mm.RunMigrations() to skip critical migrations like TokenWrapper decimal fixes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17359338-23cb-400a-ba3b-e345b6460bd3?mode=deep",
+    "timestamp": "2026-01-09 18:22:30.089316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [VersionMap return value] The upgrade handler returns the VersionMap from mm.RunMigrations() at line 32 - if this VersionMap is corrupted but the error is nil, can the chain continue operating with modules believing they're at v2 when migrations actually failed, enabling exploits of unfixed vulnerabilities? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03c2bdf8-56cd-4802-89f8-776f632fcdb5?mode=deep",
+    "timestamp": "2026-01-09 18:22:43.988599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Version downgrade attack] Can an attacker craft a VersionMap that downgrades module versions (e.g., TokenWrapper from v2 to v1), causing the upgrade handler to re-apply old migrations that may introduce previously patched vulnerabilities like decimal conversion bugs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fcf3167c-c9ed-4198-ab1a-18ecfa4374fd?mode=deep",
+    "timestamp": "2026-01-09 18:22:58.869199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Missing version entries] If the VersionMap is missing entries for critical modules (TokenWrapper, Factory, DEX), does mm.RunMigrations() handle this gracefully or can it cause those modules to not migrate, leaving them vulnerable to old exploits while other modules operate on v2? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c6a7ec6-3df2-4f03-9118-086a69bcd246?mode=deep",
+    "timestamp": "2026-01-09 18:23:14.516598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Module manager injection] The CreateUpgradeHandler receives a *module.Manager parameter - can an attacker inject a malicious module manager that executes fake migrations, logging success while actually corrupting TokenWrapper state to enable bridge drainage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_258e83d3-9c40-485b-a33b-a6cb734639a2?mode=deep",
+    "timestamp": "2026-01-09 18:23:32.194504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Configurator manipulation] The module.Configurator parameter is passed to mm.RunMigrations() - can an attacker provide a malicious configurator that intercepts migration calls and modifies migration logic to skip Factory minting cap enforcement? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_977d6213-5c96-4448-a0b4-38d187d5e136?mode=deep",
+    "timestamp": "2026-01-09 18:23:50.428868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Module registration] Does the upgrade handler verify that all expected modules (TokenWrapper, Factory, DEX) are registered in the module.Manager before starting migrations, or can missing modules cause silent failures that leave critical functionality unmigrated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a726638-31f3-4e26-a36d-f0e650cd4655?mode=deep",
+    "timestamp": "2026-01-09 18:24:09.541930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Migration callback manipulation] Can an attacker register malicious migration callbacks in the configurator that execute arbitrary code during mm.RunMigrations(), potentially draining the TokenWrapper module wallet or manipulating DEX pool reserves? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f942b0de-9b5c-445d-9120-fb81a09d9768?mode=deep",
+    "timestamp": "2026-01-09 18:24:29.564462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Unused keepers parameter] The CreateUpgradeHandler receives a *keepers.AppKeepers parameter at line 20 but never uses it - is this intentional, or should the handler validate keeper state before migrations? Can the absence of keeper validation allow migrations to proceed with corrupted keeper state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6aa57d1-9c96-4bb8-bf62-79b9ac6caccb?mode=deep",
+    "timestamp": "2026-01-09 18:24:50.876311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Keeper state access] Since the keepers parameter is unused, do individual module migrations have access to other modules' keepers during mm.RunMigrations()? Can TokenWrapper migration access Factory keeper to mint tokens, or DEX migration access TokenWrapper keeper to manipulate decimal conversions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aaae2824-0d17-4e5b-a22c-4b3c7ce846a7?mode=deep",
+    "timestamp": "2026-01-09 18:25:12.978503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [State mutation ordering] Does mm.RunMigrations() ensure that state mutations from earlier module migrations are visible to later migrations, or can race conditions cause TokenWrapper to migrate with stale DEX pool data, breaking cross-module invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_985bb342-8fe8-4d9d-aaa6-24bf08ea5e34?mode=deep",
+    "timestamp": "2026-01-09 18:25:36.065382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Gas metering] Does the upgrade handler at line 22 execute with infinite gas, or is there a gas limit that could cause mm.RunMigrations() to fail midway through TokenWrapper migration due to gas exhaustion, leaving decimal conversion logic partially updated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7bedca5d-474f-4a3a-bd44-e2f0ade1fca9?mode=deep",
+    "timestamp": "2026-01-09 18:26:01.077171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Memory exhaustion] If module migrations allocate large amounts of memory (e.g., TokenWrapper loading all IBC voucher balances for decimal conversion), can this cause out-of-memory errors that crash validators during the upgrade, leading to network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ac59a6f-d553-440f-af0c-ff80cbe3e88d?mode=deep",
+    "timestamp": "2026-01-09 18:26:25.591457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [CPU exhaustion] Can computationally expensive migrations (e.g., recalculating all DEX pool constants) cause the upgrade handler to exceed block time limits, preventing validators from reaching consensus on the upgrade block? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_312ad010-e9a5-454c-8059-4b253f36ac33?mode=deep",
+    "timestamp": "2026-01-09 18:26:51.558223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [IBC packet processing] Does the upgrade handler halt IBC packet processing during migrations, or can in-flight IBC transfers continue executing while TokenWrapper module is being migrated, causing wrapped tokens to be created with inconsistent decimal conversions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fea8b01f-7f20-440d-8f40-76653a12b089?mode=deep",
+    "timestamp": "2026-01-09 18:27:18.457136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [IBC timeout during upgrade] If IBC packets timeout while mm.RunMigrations() is executing, can the acknowledgment processing corrupt TokenWrapper state by attempting to unwrap tokens using the old decimal conversion logic while the migration is in progress? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_641d02df-d68e-4814-bbb0-e503339f5e6e?mode=deep",
+    "timestamp": "2026-01-09 18:27:46.180577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Cross-chain state sync] After the v2 upgrade completes on ZigChain, if counterparty chains (Axelar, etc.) haven't upgraded their TokenWrapper logic, can the decimal conversion mismatch enable attackers to exploit the version difference to duplicate tokens across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ebed13f8-fa8e-4010-9c26-f903463cc94d?mode=deep",
+    "timestamp": "2026-01-09 18:28:15.047524",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Premature return] If mm.RunMigrations() at line 26 succeeds but the handler crashes before the completion log at line 31, does the Cosmos SDK consider the upgrade successful? Can this lead to state inconsistencies where the chain believes it's on v2 but logging/monitoring systems show incomplete upgrade? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_165a6479-d17b-4cae-8559-330e54e40524?mode=deep",
+    "timestamp": "2026-01-09 18:28:44.125741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Return value validation] The upgrade handler returns (vm, nil) at line 32 after successful migration - does the Cosmos SDK validate that the returned VersionMap is consistent with expected v2 versions, or can corrupted VersionMaps propagate to consensus layer causing state divergence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a077e75b-dc93-4e21-8f79-dcc869ef2513?mode=deep",
+    "timestamp": "2026-01-09 18:29:14.188812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Deferred cleanup] Does the upgrade handler have any deferred cleanup functions that execute after return? If deferred functions panic, can this cause the upgrade to appear successful but leave resources locked or state corrupted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_60f39186-17fe-4ead-a26c-042a04a37264?mode=deep",
+    "timestamp": "2026-01-09 18:29:45.333837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Upgrade name validation] The handler uses UpgradeName constant in the completion log at line 31 but never validates that Plan.Name matches UpgradeName - can an attacker exploit this by executing the v2 handler for a different upgrade plan, causing module versions to become mismatched? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6dadef12-384a-4a64-baa3-3300aa5c76d4?mode=deep",
+    "timestamp": "2026-01-09 18:30:14.758754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Name collision] If multiple upgrade handlers exist for different versions (v2, v3, etc.), can an attacker trigger the wrong handler by manipulating the upgrade plan name, causing migrations to execute in the wrong order or skip critical TokenWrapper fixes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_759e2dd1-bdc3-4c58-9da9-51c6d121c603?mode=deep",
+    "timestamp": "2026-01-09 18:30:44.098418",
+    "report_generated": false
   }
 ]
