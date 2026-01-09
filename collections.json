@@ -1348,5 +1348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7ce08a2-0d5e-4d01-b8bf-f26a5c823045?mode=deep",
     "timestamp": "2026-01-09 08:52:14.026667",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM VM instance limit] The VM is created with 32 as a parameter (line 297). Can an attacker exhaust this instance limit by creating many light clients, causing DoS where no new light clients can be created? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9da81c11-bfab-49ef-a136-5eb67c7bda26?mode=deep",
+    "timestamp": "2026-01-09 08:53:41.587526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM VM initialization panic] If wasmvm.NewVM fails (line 297), it panics (line 299). Can an attacker trigger initialization failures that crash all validators simultaneously, halting the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da4e00fc-e226-4ea6-b39e-0e923a7aaecb?mode=deep",
+    "timestamp": "2026-01-09 08:53:53.993844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM keeper authority bypass] The WasmClientKeeper authority (line 306) is the governance module address. Can an attacker exploit this to store malicious WASM code as light clients through crafted governance proposals? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0bd0ff28-1e91-476d-a2b2-e3432799b0b9?mode=deep",
+    "timestamp": "2026-01-09 08:54:06.663535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM query plugin injection] The WasmClientKeeper uses query plugins (line 309). Can an attacker replace these plugins with malicious implementations that leak data or bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7ac453f-4517-4988-b77c-b7d247601878?mode=deep",
+    "timestamp": "2026-01-09 08:54:19.926955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Light client store provider manipulation] The storeProvider (line 314) is shared between all light clients. Can an attacker exploit this shared provider to access or corrupt data from other light client types? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d414bc71-4add-46fd-b0b7-dea27e97b8ea?mode=deep",
+    "timestamp": "2026-01-09 08:54:33.852947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Tendermint light client route] The tmLightClientModule (line 316) uses ibctm.ModuleName as route. Can an attacker register a conflicting route that overrides Tendermint client handling with malicious logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4c2eb25-a2fb-4933-b4bd-cbfdd0834450?mode=deep",
+    "timestamp": "2026-01-09 08:54:48.890093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM light client route collision] The wasmLightClientModule (line 319) uses ibcwasmtypes.ModuleName. Can this route collide with other module names, causing routing conflicts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b11db32-ee54-4dbd-97ee-fb876f6adfa6?mode=deep",
+    "timestamp": "2026-01-09 08:55:06.626896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Light client AddRoute race] If AddRoute (lines 317, 320) is called concurrently, can this cause race conditions where light client routes are incompletely registered? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b94d3148-ec23-4aa5-b4e0-2e92713a4894?mode=deep",
+    "timestamp": "2026-01-09 08:55:23.892516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Module registration order dependency] The modules are registered in a specific order (lines 324-330). Can changing this order bypass initialization dependencies, leaving some modules in invalid states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92731aad-34c5-4ab9-8548-16cccd7c1581?mode=deep",
+    "timestamp": "2026-01-09 08:55:42.215815",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBC core module timing] The ibc.NewAppModule (line 324) is registered first. Can an attacker send IBC packets before other modules (transfer, ICA, PFM, ratelimit) are fully registered, bypassing their security checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_957fb62c-4118-4b8d-b9b5-ba7fd2100390?mode=deep",
+    "timestamp": "2026-01-09 08:56:01.873639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Transfer module registration race] The ibctransfer module (line 325) is registered before PFM and ratelimit. Can an attacker exploit this timing to process transfers without rate limiting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b342a2dd-ed3e-4b8f-8290-4252a0b27756?mode=deep",
+    "timestamp": "2026-01-09 08:56:21.794423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA module double registration] The icamodule (line 326) wraps both Controller and Host keepers. Can an attacker exploit the dual reference to create ICA operations that are processed twice, duplicating state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62bcd54d-c540-4bf9-ba11-d20ae300a256?mode=deep",
+    "timestamp": "2026-01-09 08:56:42.769988",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [PacketForward subspace access] The PFM module (line 327) receives app.GetSubspace. Can an attacker exploit this subspace access to modify PFM parameters without governance approval? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6671f0d-d6a5-49ba-92f2-8d2f160bb9d9?mode=deep",
+    "timestamp": "2026-01-09 08:57:05.331971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [RateLimit module codec access] The ratelimit module (line 328) receives app.appCodec. Can an attacker exploit codec access to decode/encode malicious messages that bypass rate limiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f90e3b0d-5e96-4822-a99e-d5a05de0da78?mode=deep",
+    "timestamp": "2026-01-09 08:57:28.210458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Light client AppModule initialization] The ibctm and solomachine modules (lines 329-330) are initialized with empty structs. Can this cause issues where light clients don't have proper keepers or state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f1721a7-f3d6-464a-8d4e-a6764acc5cd2?mode=deep",
+    "timestamp": "2026-01-09 08:57:51.574342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [RegisterModules error handling] If RegisterModules (line 323) returns an error, does the function properly clean up all initialized keepers, or does it leave them in a partially-initialized state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17139dba-5dc0-4853-b9b1-18b9e74a4079?mode=deep",
+    "timestamp": "2026-01-09 08:58:15.932507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: RegisterIBC()] [Interface registry injection] Can an attacker inject a malicious InterfaceRegistry (line 341) before calling RegisterIBC, causing the modules to register malicious interface implementations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25da7492-9355-45d5-abd3-8708eaff10eb?mode=deep",
+    "timestamp": "2026-01-09 08:58:40.867476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: RegisterIBC()] [Module map modification] The function returns a map (line 342). Can an attacker modify this map after it's returned but before modules are registered, injecting malicious modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73487aa9-37ed-4366-978f-4f49807bce02?mode=deep",
+    "timestamp": "2026-01-09 08:59:06.388518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: RegisterIBC()] [Empty module initialization] Several modules are initialized with empty structs (lines 343-350). Can an attacker exploit these empty initializations to inject malicious state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_040193fe-d4e5-4192-890e-edd5b649dc2b?mode=deep",
+    "timestamp": "2026-01-09 08:59:32.338502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: RegisterIBC()] [CoreAppModuleBasicAdaptor bypass] The loop (lines 353-355) wraps modules with CoreAppModuleBasicAdaptor. Can an attacker bypass this wrapper to register modules without proper interface implementations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91592fe0-cf3a-4e39-a11e-38919e62cf83?mode=deep",
+    "timestamp": "2026-01-09 08:59:56.646138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: RegisterIBC()] [RegisterInterfaces race condition] If RegisterInterfaces (line 354) is called concurrently for multiple modules, can this cause race conditions in the interface registry? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57c3c62a-ae6a-45e5-9d81-25179d17c22a?mode=deep",
+    "timestamp": "2026-01-09 09:00:21.077458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Keeper reference leakage] Multiple keepers share references (IBCKeeper, BankKeeper, etc.). Can an attacker exploit these shared references to access or modify state across module boundaries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c4375f9-5246-43c6-985b-003ddf97d015?mode=deep",
+    "timestamp": "2026-01-09 09:00:46.110817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Initialization atomicity] If the function fails midway, are all state changes rolled back atomically, or can partial initialization leave the system vulnerable? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1da671df-23ea-44d1-962b-08ab5af76e56?mode=deep",
+    "timestamp": "2026-01-09 09:01:10.138024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [AppOpts injection attacks] The appOpts parameter (line 67) influences critical paths (WASM home directory). Can an attacker inject malicious appOpts to compromise the system? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02ad622f-3e0b-4f0e-85e2-e3ca2c02a88d?mode=deep",
+    "timestamp": "2026-01-09 09:01:35.130516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Module authority consistency] Different modules use authtypes.NewModuleAddress(govtypes.ModuleName).String() as authority. Can inconsistencies in how this address is generated or validated be exploited? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_286cb581-8e00-4927-ad7e-f2869f9d3b35?mode=deep",
+    "timestamp": "2026-01-09 09:02:00.855504",
+    "report_generated": false
   }
 ]
