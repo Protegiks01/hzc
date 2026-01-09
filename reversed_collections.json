@@ -8248,5 +8248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f755bc6-2931-4a7c-a4fe-f3e13132dd61?mode=deep",
     "timestamp": "2026-01-09 18:58:30.896906",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Address alias] Can the same physical address be represented in multiple valid Bech32 formats allowing duplicate recoveries to bypass deduplication logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45f4a299-c4a4-44af-a68f-0acbe95fefc9?mode=deep",
+    "timestamp": "2026-01-09 18:59:53.624450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Operator rotation] If the operator address changes during message propagation (after ValidateBasic() but before execution), can this cause security issues or bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c87b14f6-e3f0-4d4e-8357-9f93b58babec?mode=deep",
+    "timestamp": "2026-01-09 19:00:05.877142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Operator check missing] Since ValidateBasic() doesn't check if msg.Address is the operator address (only checked in keeper), can messages targeting the operator address waste network resources before being rejected? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccc36085-1cb7-43e6-b867-d6fb0f0ab73f?mode=deep",
+    "timestamp": "2026-01-09 19:00:18.579576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Custom validation] Can users add custom validation rules through middleware or decorators that conflict with ValidateBasic() logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51067ed1-1954-48f6-b93f-610f45539fe9?mode=deep",
+    "timestamp": "2026-01-09 19:00:32.285008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Incomplete validation] Does ValidateBasic() validate ALL fields of MsgRecoverZig, or are there hidden/additional fields in the protobuf definition not validated here? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c8a0956-9e62-4023-96e4-ced620170e96?mode=deep",
+    "timestamp": "2026-01-09 19:00:46.047719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: NewMsgRecoverZig()] [Nil return] Can NewMsgRecoverZig() ever return nil, and if so, is this handled properly by calling code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cbb27766-4ec9-4bdf-9ee3-abb749cce5a3?mode=deep",
+    "timestamp": "2026-01-09 19:01:00.985206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Nil message] Can ValidateBasic() be called with msg being nil, and if so, does it panic or return a proper error? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ecca39e6-3c36-41d9-b7af-0fc249559c27?mode=deep",
+    "timestamp": "2026-01-09 19:01:17.084498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Non-deterministic errors] Can error messages from validators.SignerCheck() or validators.AddressCheck() include non-deterministic elements (timestamps, random values) causing consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a51ce0bb-146b-4f17-b493-bb1c3752ab28?mode=deep",
+    "timestamp": "2026-01-09 19:01:34.090323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Deterministic validation] Is ValidateBasic() fully deterministic across all validators, or can environment-dependent behavior (e.g., locale, string encoding) cause validation to differ between nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55f5fad5-2b5c-497f-9935-d46e67d7c85e?mode=deep",
+    "timestamp": "2026-01-09 19:01:52.129042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Path traversal] Can specially crafted address strings with path traversal sequences (../, ..\\) cause issues in file system operations if addresses are used in file paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a12894d0-cd17-44bd-adcc-42d027886b01?mode=deep",
+    "timestamp": "2026-01-09 19:02:11.548369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [SQL injection equivalent] Can msg.Signer or msg.Address contain malicious strings that cause issues in database queries or logging if not properly escaped downstream? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8674a72f-f22c-4d87-a5c6-a99b074dde95?mode=deep",
+    "timestamp": "2026-01-09 19:02:32.005204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Transaction reordering] Can validators reorder MsgRecoverZig transactions to extract MEV by recovering tokens before the intended user? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e076f93-2139-433d-bd26-0e10eb11b0ab?mode=deep",
+    "timestamp": "2026-01-09 19:02:53.349050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Front-running] Can ValidateBasic()'s lack of slippage or minimum amount parameters allow front-running attacks where attackers observe pending recoveries and manipulate token amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35c57165-5b0d-43be-8f43-23e82a291a4c?mode=deep",
+    "timestamp": "2026-01-09 19:03:16.095562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Zero amount] Can ValidateBasic() prevent scenarios where msg.Address has zero IBC vouchers but the message still propagates to keeper causing wasted computation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd022da0-1fbb-4399-8aa4-136b89e6cb9f?mode=deep",
+    "timestamp": "2026-01-09 19:03:38.601655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Decimal metadata] Does ValidateBasic() validate that recovery will use correct decimal conversion factors, or can mismatched decimals between IBC and native tokens cause calculation errors in keeper? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a3e44ef-cc4a-44ee-b5f8-f9bfbd1d1f66?mode=deep",
+    "timestamp": "2026-01-09 19:04:01.178440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Paused state] Does ValidateBasic() check if recovery operations are paused globally, or can messages queue up during pause periods and execute unexpectedly when unpaused? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7b4545f-c688-4cce-9aeb-c73e80e7c423?mode=deep",
+    "timestamp": "2026-01-09 19:04:25.062263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Module disabled] Can ValidateBasic() allow messages to pass validation even when the TokenWrapper module is disabled, wasting gas and network resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e2cb135-0a1f-487a-b9bf-9e3e204ddf70?mode=deep",
+    "timestamp": "2026-01-09 19:04:48.562283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Signer-address relationship] Can msg.Signer initiate recovery on any arbitrary msg.Address without ValidateBasic() checking authorization, potentially allowing unauthorized recovery by non-owners? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_572336b1-925b-4745-9f0c-2d61f4ace9e8?mode=deep",
+    "timestamp": "2026-01-09 19:05:12.330214",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Permission model] Does ValidateBasic() enforce any permission requirements (e.g., only operators can recover), or is this entirely delegated to keeper logic creating inconsistent security boundaries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_099863f1-66ac-41d4-b39f-8bfebcaf5287?mode=deep",
+    "timestamp": "2026-01-09 19:05:35.216090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Field ordering] Can protobuf field renumbering or reordering in future versions cause ValidateBasic() to validate wrong fields? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b1c9b37-cd87-4591-9ecf-0e10464bc029?mode=deep",
+    "timestamp": "2026-01-09 19:05:59.432838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Protobuf encoding] Can protobuf encoding/decoding of MsgRecoverZig introduce string mutations (e.g., null byte insertion, encoding issues) between ValidateBasic() and execution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_559d2978-e35e-4c47-92c0-c9ce9f9fdcac?mode=deep",
+    "timestamp": "2026-01-09 19:06:23.833185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Validation bypass] Can the keeper's RecoverZig() be called directly through governance proposals or upgrade handlers bypassing ValidateBasic() entirely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39942624-5f86-46a2-843e-6e2d46f62976?mode=deep",
+    "timestamp": "2026-01-09 19:06:48.300570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Redundant validation] Since msg_server_recover_zig.go re-validates addresses using sdk.AccAddressFromBech32(), can inconsistencies between ValidateBasic() and keeper validation cause security gaps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e273090c-40b0-4b13-b8a5-9fe6c6acef27?mode=deep",
+    "timestamp": "2026-01-09 19:07:13.179573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Migration] Can MsgRecoverZig messages created before a protocol upgrade with different validation rules cause state inconsistencies after the upgrade? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5673c8b1-4e16-4bd2-94e9-c47ff8d03767?mode=deep",
+    "timestamp": "2026-01-09 19:07:38.717458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [Upgrade safety] If address prefix constants change in a protocol upgrade, can old ValidateBasic() implementations in flight transactions cause consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5390fa7a-7d85-4ff7-a3eb-2fc12678cf63?mode=deep",
+    "timestamp": "2026-01-09 19:08:03.335207",
+    "report_generated": false
   }
 ]
