@@ -4648,5 +4648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccd34b76-ad9f-49eb-85cc-e83ecb86f310?mode=deep",
     "timestamp": "2026-01-09 14:31:39.997987",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Configuration manipulation] Can a malicious governance proposal clear IBC settings temporarily during a batch of timeout processing, causing the validateIBCSettingsExist check at line 64 to fail for legitimate timeouts, permanently losing user funds that cannot be refunded? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5cdf7f8-48cb-4b7d-aa72-a5126f710b38?mode=deep",
+    "timestamp": "2026-01-09 14:32:53.410816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Silent bypass] When IBC settings validation fails at line 64, the function logs an info message and skips refunding at line 68 - can an attacker exploit this to permanently lock user tokens by manipulating IBC settings to fail validation during timeout processing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64b4bdaf-a243-478c-8184-a23a45454cde?mode=deep",
+    "timestamp": "2026-01-09 14:33:05.986619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Race condition] Can an attacker exploit a race condition where validateIBCSettingsExist returns true at line 64, but IBC settings are immediately deleted before handleRefund at line 106, causing refund logic to use stale/incorrect settings and misroute tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff0559e5-9221-419a-b31b-f9a2cdc206fd?mode=deep",
+    "timestamp": "2026-01-09 14:33:18.928740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [DoS via spam] Can an attacker send thousands of timeout packets with zero amounts that pass all checks until line 56, consuming gas and validator resources before being rejected, causing network-wide performance degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04f9ec5e-7107-4544-8a6f-6d3ef1d88252?mode=deep",
+    "timestamp": "2026-01-09 14:33:32.038853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Error handling inconsistency] When amount is zero/negative at line 56, the error is logged and passed through to im.app.OnTimeoutPacket at line 60 - can this cause the underlying transfer module to process the timeout differently than expected, leading to accounting inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55006e92-f4d0-4c50-9e69-1315fb1d88ae?mode=deep",
+    "timestamp": "2026-01-09 14:33:46.320885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Edge case] Is sdkmath.Int zero exactly equal to math zero, or can there be internal representation differences that cause the IsZero check at line 56 to miss certain zero-equivalent values, allowing zero-amount refunds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95f33f12-4ec5-4722-8b12-f339356f152e?mode=deep",
+    "timestamp": "2026-01-09 14:34:01.497201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Race condition] Can an attacker exploit a TOCTOU (Time-of-Check-Time-of-Use) vulnerability where the amount is validated as positive at line 56 but becomes zero/negative before the handleRefund call at line 106 due to concurrent state modifications? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9743c284-5dab-47ee-b8df-623ca2f43378?mode=deep",
+    "timestamp": "2026-01-09 14:34:17.770253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Negative amount bypass] Although there's a negative check at line 56, can an attacker craft data.Amount with special encoding (e.g., '-0' or '--1') at line 47 that passes NewIntFromString but later causes issues in ScaleDownTokenPrecision, leading to token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40104632-e44c-4c28-8c44-f5899e7e2342?mode=deep",
+    "timestamp": "2026-01-09 14:34:35.268676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Leading zero attack] If data.Amount contains leading zeros (e.g., '0001000000000000000000') at line 47, can this bypass amount checks or cause incorrect decimal conversion in the handleRefund function, resulting in incorrect refund amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe00c1ab-196e-4d53-8df2-7f8eef18517b?mode=deep",
+    "timestamp": "2026-01-09 14:34:53.873812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Scientific notation bypass] Can an attacker send data.Amount in scientific notation (e.g., '1e18') at line 47 that is incorrectly parsed by NewIntFromString, causing a mismatch between the original transfer amount and refund amount, leading to token duplication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c98fa01d-6847-45c7-974b-1f15a43b1d96?mode=deep",
+    "timestamp": "2026-01-09 14:35:13.505944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Precision loss] If data.Amount contains a decimal value (e.g., '1.5') at line 47, does NewIntFromString truncate it or fail gracefully - can an attacker exploit this to steal fractional amounts through repeated timeout attempts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4400305f-30d1-4dfb-b45d-6cc790b1b76f?mode=deep",
+    "timestamp": "2026-01-09 14:35:34.065563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Integer overflow] Can an attacker craft data.Amount at line 47 with an extremely large string value (e.g., '999999999999999999999999999999999999') that causes NewIntFromString to overflow internal big.Int operations, leading to incorrect refund amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef95a7e5-5ac0-4deb-92bf-9c59c116a592?mode=deep",
+    "timestamp": "2026-01-09 14:35:55.401437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Empty address attack] Can an attacker send a packet with an empty string for data.Sender that somehow passes validation at line 39, causing the refund at line 106 to credit tokens to the zero address or module account, effectively burning user funds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc58af30-6d72-4643-8dbb-527285108ebd?mode=deep",
+    "timestamp": "2026-01-09 14:36:17.668545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Nil pointer dereference] If AccAddressFromBech32 at line 39 returns a nil address with no error due to a bug, will the subsequent handleRefund call at line 106 with a nil sender address cause a panic that crashes the validator node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12032f22-13a1-49fd-a3ec-19a4b662f65e?mode=deep",
+    "timestamp": "2026-01-09 14:36:41.577868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Cross-chain address confusion] If data.Sender at line 39 contains a valid address from a different chain prefix (e.g., cosmos1 instead of zig1), can this bypass validation and cause tokens to be sent to an inaccessible address, permanently locking user funds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ecaf1c8a-2c95-4957-91af-62286c60184d?mode=deep",
+    "timestamp": "2026-01-09 14:37:05.893583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Address spoofing] Can an attacker craft a packet with a valid Bech32 address format at line 39 that passes AccAddressFromBech32 validation but doesn't match the original sender, allowing them to steal refunded tokens by impersonating other users? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90939f97-e2c0-4af5-a5b2-40abde0e8837?mode=deep",
+    "timestamp": "2026-01-09 14:37:31.633536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Bypass vulnerability] When packet data unmarshaling fails at line 32, the error is logged but execution continues - can an attacker use this to bypass refund logic by sending intentionally malformed packets that still trigger underlying timeout processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d18ac90d-e6ba-406f-9df0-332c191ef031?mode=deep",
+    "timestamp": "2026-01-09 14:37:57.070301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Type confusion] If the FungibleTokenPacketData unmarshaling at line 32 succeeds but contains unexpected field types (e.g., Amount as object instead of string), can subsequent parsing at line 47 cause panics that crash validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43d3b5a1-ac0d-41b8-ad98-d748d76cdabe?mode=deep",
+    "timestamp": "2026-01-09 14:38:24.239066",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Memory exhaustion] Can an attacker craft extremely large packet.GetData() payloads that cause the UnmarshalJSON at line 32 to consume excessive memory, leading to node crashes or out-of-memory DoS attacks affecting validator uptime? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_826dd0c2-f6fa-43a5-9f7b-f98eb6896eb5?mode=deep",
+    "timestamp": "2026-01-09 14:38:51.600876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Data corruption] If the UnmarshalJSON call at line 32 fails due to malformed packet data, the function passes through to im.app.OnTimeoutPacket at line 35 - can an attacker craft malicious packet data that crashes the underlying app but leaves tokens in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b148404e-cb99-4129-bedb-ed4690f1f827?mode=deep",
+    "timestamp": "2026-01-09 14:39:19.988296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [DoS attack] Can a malicious relayer repeatedly submit timeout packets with non-existent channel IDs, causing the validateChannel function at line 23 to fail and log errors indefinitely, consuming storage and degrading node performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67fb147d-b43b-4fc8-b60a-2c335a3342ca?mode=deep",
+    "timestamp": "2026-01-09 14:39:44.548776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Event emission] When channel validation fails at line 23-28, an error event is emitted but the underlying app still processes the packet - can this lead to state inconsistency where events show failure but tokens are still refunded, confusing off-chain monitors and enabling exploitation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_714ea637-969d-46ec-9b00-267557f26d38?mode=deep",
+    "timestamp": "2026-01-09 14:40:09.970851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Error handling] If validateChannel returns an error at line 23, the function still calls im.app.OnTimeoutPacket at line 27 - can an attacker exploit this to process timeout packets on invalid/closed channels, bypassing security checks and causing double-spending of refunded tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a64b16f5-e40d-407a-889f-9738403fbf40?mode=deep",
+    "timestamp": "2026-01-09 14:40:34.870926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Channel validation bypass] Can an attacker exploit a race condition between the validateChannel check at line 23 and the actual underlying OnTimeoutPacket call at line 99, where the channel state changes from OPEN to CLOSED mid-execution, causing inconsistent state and potential token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad19a4e2-1f40-455a-9491-4aa677218741?mode=deep",
+    "timestamp": "2026-01-09 14:41:00.755065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Decimal conversion] ScaleDownTokenPrecision at line 136\n\n### Citations\n\n**File:** x/tokenwrapper/module/on_acknowledgment_packet.go (L1-147)\n```go\npackage tokenwrapper\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da32922b-9e1a-47bb-88e5-f329d5d88a7f?mode=deep",
+    "timestamp": "2026-01-09 14:41:24.372047",
+    "report_generated": false
   }
 ]
