@@ -1948,5 +1948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3a2bd03-d664-4bce-92ed-152e2158c99a?mode=deep",
     "timestamp": "2026-01-09 09:31:00.414496",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [ChainAnteDecorators ordering bug] Does sdk.ChainAnteDecorators properly preserve the decorator ordering specified in the slice, or can subtle bugs cause decorators to execute in unexpected order? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a93e3d37-fa3e-4b7e-94ea-c4fe729cfa70?mode=deep",
+    "timestamp": "2026-01-09 09:32:22.182276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [ChainAnteDecorators nil handling] If one of the decorators in the anteDecorators slice is nil, does sdk.ChainAnteDecorators handle this gracefully, or does it cause a panic during transaction processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da0926b7-2f75-473f-8bb6-d2c747f96a6d?mode=deep",
+    "timestamp": "2026-01-09 09:32:34.614070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [ChainAnteDecorators gas metering] Does sdk.ChainAnteDecorators properly track gas consumption across all decorators, or can gas meter manipulations in one decorator affect others? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d8c9d25-faf6-4b8c-9c29-40b99d43da72?mode=deep",
+    "timestamp": "2026-01-09 09:32:47.621489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Struct: HandlerOptions] [IBCKeeper injection] Can an attacker manipulate the HandlerOptions construction to inject a malicious IBCKeeper implementation that approves invalid IBC packets, enabling cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25df265f-6511-461a-962c-d46d9a63e47d?mode=deep",
+    "timestamp": "2026-01-09 09:33:00.760427",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Struct: HandlerOptions] [WasmKeeper backdoor] Can the WasmKeeper in HandlerOptions be replaced with a malicious implementation during initialization to bypass WASM execution limits or inject malicious contracts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d39d50b2-fc40-4516-a288-18bd51fa2008?mode=deep",
+    "timestamp": "2026-01-09 09:33:15.090380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Struct: HandlerOptions] [CircuitKeeper privilege escalation] Can an attacker gain access to the CircuitKeeper reference to manually trigger circuit breakers without proper governance authorization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a09585fe-11c8-4b06-a7bd-fbdb2fd65cf5?mode=deep",
+    "timestamp": "2026-01-09 09:33:30.163654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Struct: HandlerOptions] [AccountKeeper manipulation] Can the AccountKeeper be manipulated to return incorrect account states, allowing attackers to bypass sequence number checks or signature verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_570df7be-878b-457e-9818-ef4ea8cb9261?mode=deep",
+    "timestamp": "2026-01-09 09:33:47.434801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Struct: HandlerOptions] [BankKeeper balance manipulation] Can a compromised BankKeeper be injected to return incorrect balances, allowing fee deduction to succeed even with insufficient funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22ad5392-4ba2-4c76-81bf-a3a10e367abb?mode=deep",
+    "timestamp": "2026-01-09 09:34:04.773501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Error message information leak] Do the error messages returned by NewAnteHandler validation checks leak sensitive information about keeper states or internal configurations that attackers can exploit? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc433fe9-ba41-4e9c-916e-09b1644576c5?mode=deep",
+    "timestamp": "2026-01-09 09:34:22.488706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Nil return handling] If NewAnteHandler returns (nil, nil) due to a logic error, how does the SDK handle this case? Could it cause transactions to bypass ante handler checks entirely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f7c49f5-d84f-48a0-81c7-60018b9442f6?mode=deep",
+    "timestamp": "2026-01-09 09:34:40.928413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Partial initialization] Can an attacker exploit scenarios where some keepers are initialized but others fail, causing NewAnteHandler to return a partially constructed ante handler that crashes during use? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e600f3e2-d55b-4914-965d-109515b089d9?mode=deep",
+    "timestamp": "2026-01-09 09:34:59.968385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [WASM-IBC interaction exploit] Can an attacker craft WASM contract transactions that interact with IBC modules in ways that bypass either NewLimitSimulationGasDecorator or NewRedundantRelayDecorator? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fcb400fd-06af-4e29-9c8f-954cd6aff309?mode=deep",
+    "timestamp": "2026-01-09 09:35:20.299379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Circuit breaker-IBC conflict] Can triggering the circuit breaker for IBC modules while IBC packets are in flight cause state inconsistencies where packets are neither acknowledged nor timed out? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ce113f5-0bf2-4ff5-aa88-000a53cbf05c?mode=deep",
+    "timestamp": "2026-01-09 09:35:40.854618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [WASM-Fee interaction] Can WASM contracts manipulate fee deduction by modifying account states after NewDeductFeeDecorator executes but before transaction commitment? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3393c213-e04b-4509-b313-8d67917ac00f?mode=deep",
+    "timestamp": "2026-01-09 09:36:03.173891",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Signature-WASM exploit] Can WASM contracts generate or verify signatures in ways that conflict with NewSigVerificationDecorator, enabling signature forgery or replay? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_afce4db3-f2f6-42c7-9729-5e8e548cc64c?mode=deep",
+    "timestamp": "2026-01-09 09:36:25.557344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Gas meter manipulation] Can an attacker craft transactions that cause gas meter overflow or underflow across multiple decorators, resulting in incorrect gas charging or infinite loops? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b005fc06-2d70-4541-87e5-3dfa6541bcc4?mode=deep",
+    "timestamp": "2026-01-09 09:36:49.838401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Memory exhaustion via decorators] Can an attacker submit transactions that cause decorators to allocate excessive memory (large extension options, many signatures, huge memos), leading to validator OOM crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7bd133ae-0b98-40ab-8ac9-fe4650be4b9e?mode=deep",
+    "timestamp": "2026-01-09 09:37:14.891471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [CPU exhaustion in validation] Can decorators like NewSigVerificationDecorator be exploited with computationally expensive cryptographic operations to DoS validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba9b01d4-1d48-4f4c-9c02-408410bf9dfd?mode=deep",
+    "timestamp": "2026-01-09 09:37:39.742350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Transaction size overflow] Can NewConsumeGasForTxSizeDecorator be exploited with transactions that report incorrect sizes, causing gas consumption to be miscalculated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6c3b13e-4844-4a93-a597-0b7a38163b50?mode=deep",
+    "timestamp": "2026-01-09 09:38:05.779104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Multi-message transaction exploit] Can attackers craft transactions with many messages to exploit cumulative effects across decorators, such as incrementing sequences multiple times or exhausting gas limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5c8f8b7-5fbe-45df-8dc6-ea76f1111777?mode=deep",
+    "timestamp": "2026-01-09 09:38:31.963712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Nested message complexity] Do the decorators properly handle deeply nested message structures (IBC packets containing WASM calls containing more IBC packets), or can this cause stack overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b62f4b98-426a-4eb0-847e-56cb47ddf0fa?mode=deep",
+    "timestamp": "2026-01-09 09:38:56.817652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Block stuffing via ante overhead] Can attackers submit many transactions that pass early decorators but fail in later ones, consuming block space without paying full gas costs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31f353bc-1fc8-4283-a9af-57893ef36685?mode=deep",
+    "timestamp": "2026-01-09 09:39:22.240477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Validator-targeted DoS] Can attackers craft transactions that cause specific validators to crash during ante handler execution while others process them successfully, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15e594ce-9a01-44ff-ab0b-465278e45144?mode=deep",
+    "timestamp": "2026-01-09 09:39:47.780943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Priority manipulation] Can attackers exploit decorator execution to manipulate transaction priority in the mempool, front-running DEX swaps or TokenWrapper operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8870362d-28ef-48ea-a19c-813dfe641a3c?mode=deep",
+    "timestamp": "2026-01-09 09:40:12.807247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [SDK version incompatibility] Are all the imported decorators (ante.*, wasmkeeper.*, circuitante.*, ibcante.*) from compatible SDK versions, or could version mismatches cause runtime panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da1bfcff-844b-4525-944d-0a0b2493e0d9?mode=deep",
+    "timestamp": "2026-01-09 09:40:38.254875",
+    "report_generated": false
   }
 ]
