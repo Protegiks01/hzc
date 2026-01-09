@@ -9298,5 +9298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c524b52-7634-43fa-9bb8-3397a041aa9f?mode=deep",
     "timestamp": "2026-01-09 22:05:48.354303",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Balance Manipulation] Can a Byzantine validator manipulate the balances returned by s.k.bankKeeper.GetAllBalances() at line 74 to show higher liquidity than actually exists, tricking users into attempting swaps that will fail? (Critical - requires Byzantine behavior)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67bf686e-1549-46a1-969d-bcc93a34b8b1?mode=deep",
+    "timestamp": "2026-01-09 22:07:02.379825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Missing Validation] Does the function validate that the balances returned at line 74 match the expected coin denoms in the pool metadata, or can pools have unexpected token balances that break AMM invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3df63f0e-e47c-4c1f-9b2b-3e997a3b6558?mode=deep",
+    "timestamp": "2026-01-09 22:07:14.723133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [BankKeeper Integration] Can an attacker exploit the direct bankKeeper call at line 74 to bypass DEX module access controls, querying balances of module accounts or restricted addresses that should not be publicly queryable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68dcdfb5-7a51-4f01-9370-08a36661ec22?mode=deep",
+    "timestamp": "2026-01-09 22:07:27.700422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Concurrent Balance Changes] If tokens are being swapped in the pool while GetPoolBalances() executes, can this cause GetAllBalances() to return balances mid-transaction, showing incorrect reserves that violate the x*y=k invariant? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17305486-518b-4672-ac37-a92a60349673?mode=deep",
+    "timestamp": "2026-01-09 22:07:41.109579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Empty Balances] What happens if s.k.bankKeeper.GetAllBalances() returns an empty slice at line 74? Can this cause downstream AMM calculations to divide by zero or panic when computing swap prices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a716302a-f12c-4c0f-8b4c-a08b0fd2679d?mode=deep",
+    "timestamp": "2026-01-09 22:07:54.959462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Pool Not Found Handling] Can an attacker query balances for a non-existent pool to trigger the error at line 69-71, but still receive the poolAddress calculation at line 73, leaking information about how pool addresses are derived? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2f03ec2-de3e-4883-bc09-2b68d4f52a7a?mode=deep",
+    "timestamp": "2026-01-09 22:08:09.746686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Negative Balances] Does the function handle cases where the bank module returns negative coin amounts (which should never happen but could indicate store corruption), or will it propagate these to clients causing logic errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a57262a-c1d1-40de-acca-225aabc1ed8d?mode=deep",
+    "timestamp": "2026-01-09 22:08:25.068853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Duplicate Coin Denoms] Can the bank keeper return duplicate coin denominations in the balances slice at line 74, and if so, how does this affect AMM calculations that assume unique denoms per pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c451346-c903-425f-b360-683713c54c07?mode=deep",
+    "timestamp": "2026-01-09 22:08:42.747329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Zero Amount Coins] Does GetAllBalances() at line 74 filter out coins with zero amounts, or can attackers create pools with many zero-balance denominations to inflate response sizes and cause DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4105c1db-a542-4c57-999c-b71675d56f4c?mode=deep",
+    "timestamp": "2026-01-09 22:09:00.289320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Balance Order] Can an attacker exploit the ordering of coins returned by GetAllBalances() if it differs from the ordering in the pool metadata, causing mismatches in base/quote pair identification during swaps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa91756c-5b10-4c5f-a278-5b44fca28a60?mode=deep",
+    "timestamp": "2026-01-09 22:09:19.791447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Module Account Safety] Since types.GetPoolAddress() derives module addresses, can an attacker cause this function to query balances of critical module accounts (e.g., distribution, staking) by finding pool IDs that hash to their addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa1b89cd-5edb-4f8b-ab6a-fb5529cbaba7?mode=deep",
+    "timestamp": "2026-01-09 22:09:39.992966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Store Service Security] Can an attacker exploit the shared storeService.OpenKVStore() pattern across all three functions to cause store corruption if queries execute concurrently with state-changing transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_36ee6204-b959-40cc-8120-f80aee292f00?mode=deep",
+    "timestamp": "2026-01-09 22:10:01.123236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Codec Vulnerability] Can an attacker exploit the shared s.k.cdc codec used for unmarshaling in ListPool and implicitly in GetPool to inject malicious protobuf messages that cause panics or memory corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c16f627-c820-44ea-b828-84d6e4503b5f?mode=deep",
+    "timestamp": "2026-01-09 22:10:22.838894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Query Server State] Can the queryServer struct at lines 15, 42, 60 be exploited if it maintains mutable state that could be corrupted by concurrent query execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4ca597c-0964-4ac8-a308-7c362135719f?mode=deep",
+    "timestamp": "2026-01-09 22:10:45.073397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Context Propagation] Do all three functions properly validate and propagate the context parameter, or can an attacker pass a malicious context with altered store keys or permissions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00e6d154-d579-4aa9-8530-ce33b2669157?mode=deep",
+    "timestamp": "2026-01-09 22:11:08.451755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Error Information Disclosure] Do the error messages returned by all functions leak sensitive information about the internal state of the DEX module, such as pool counts, storage layout, or validation logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a7012e7-df8a-471d-9061-84ac137b9997?mode=deep",
+    "timestamp": "2026-01-09 22:11:32.746405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool, GetPool] [Pool Data Consistency] Can an attacker exploit timing windows between when a pool is created and when it appears in ListPool results vs. when it's queryable via GetPool, causing inconsistent views of pool existence? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a0c1eec-9fcb-4399-95b4-ddfb79fb6643?mode=deep",
+    "timestamp": "2026-01-09 22:11:56.987133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPool, GetPoolBalances] [Duplicate Pool Queries] Can an attacker optimize gas usage by noting that GetPoolBalances internally calls GetPool, then exploit this to extract maximum information with minimum gas cost, enabling efficient DoS attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6efe9fd7-e1f5-41a1-a3a8-5ac5ca6db643?mode=deep",
+    "timestamp": "2026-01-09 22:12:21.676169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [gRPC Code Injection] Can an attacker manipulate the status.Error() calls with crafted error messages to inject gRPC status codes that clients interpret incorrectly, causing them to retry failed queries indefinitely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1a39afe-e719-4aaf-a0fd-3ea70b117e1a?mode=deep",
+    "timestamp": "2026-01-09 22:12:47.778724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Bank-DEX Consistency] Can an attacker create a discrepancy between pool metadata (showing certain tokens) and actual bank balances (containing different tokens) to exploit arbitrage opportunities when pool.Coins doesn't match balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a1910eb-bb70-49c9-99a3-eef20c1bdd73?mode=deep",
+    "timestamp": "2026-01-09 22:13:13.906621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Pool Creation Race] Can an attacker query ListPool() repeatedly during high pool creation activity to observe non-deterministic ordering of pools, extracting information about transaction ordering or validator behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28aa16f9-6b79-49c4-8dca-df161d455a03?mode=deep",
+    "timestamp": "2026-01-09 22:13:39.785815",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPool()] [LP Token Mismatch] Can an attacker exploit situations where the LP token supply in pool.LpToken differs from the total supply tracked by the bank module, indicating potential token duplication or loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a2cc7b2-0370-4573-9f1d-95832771b32a?mode=deep",
+    "timestamp": "2026-01-09 22:14:05.929501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Reserve Ratio Attack] Can an attacker use GetPoolBalances() to identify pools with imbalanced reserves (violating expected ratios) and exploit these through flash loan attacks or MEV extraction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dea3f5e9-2445-49bb-b2b9-ee94a686f770?mode=deep",
+    "timestamp": "2026-01-09 22:14:31.883152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Query Result Caching] If query results are cached at any layer, can an attacker exploit stale cache entries to observe pool states that no longer exist, making incorrect trading decisions based on outdated data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8ee0721-b55f-44d9-9133-2335538c3191?mode=deep",
+    "timestamp": "2026-01-09 22:14:57.932904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [IBC Token Identification] Can an attacker exploit GetPoolBalances() to identify IBC-bridged tokens in pools by their voucher denominations, then target these pools for attacks based on the known 18→6 decimal conversion vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cffa624-8285-4752-953f-815d7e208b4b?mode=deep",
+    "timestamp": "2026-01-09 22:15:22.786135",
+    "report_generated": false
   }
 ]
