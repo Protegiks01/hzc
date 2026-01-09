@@ -5848,5 +5848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d85d1601-4933-4077-8fb4-b93856b7177c?mode=deep",
     "timestamp": "2026-01-09 15:50:09.015386",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Middleware stack manipulation] Can a malicious middleware in the im.app stack (line 82) modify the acknowledgement to appear successful while actually failing, causing the wrapping logic to execute on failed transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_179cd074-58b8-4291-bbd2-94d8d541d448?mode=deep",
+    "timestamp": "2026-01-09 15:51:25.324449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Success acknowledgement bypass] When ack.Success() returns false (line 83), the function returns the failed ack but still executes all subsequent validation and wrapping logic - can this cause double-processing or state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f8fd573-b870-46de-89f9-7dc358d5c9e7?mode=deep",
+    "timestamp": "2026-01-09 15:51:37.765190",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Packet processing race] The comment at line 90 states IBC vouchers are received by this point - but if im.app.OnRecvPacket (line 82) fails after partial execution, can this create state where vouchers are partially transferred? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71f887f7-e63e-41af-9e83-1442f9dbaf17?mode=deep",
+    "timestamp": "2026-01-09 15:51:50.523391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Amount consistency] Between the amount validation (line 74) and the actual token operations (lines 169-177), can the amount variable be modified by concurrent operations, leading to race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64052b5e-dfde-4ba8-b1fa-161258fea412?mode=deep",
+    "timestamp": "2026-01-09 15:52:03.742104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Maximum amount DoS] Can an attacker send packets with extremely large amounts (near Int256 max) that pass validation (line 74) but cause overflow in ScaleDownTokenPrecision (line 152) or subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16ac711b-ebbe-4363-9586-5a5b38604841?mode=deep",
+    "timestamp": "2026-01-09 15:52:17.723019",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Negative amount attack] The IsNegative check (line 74) rejects negative amounts - but can an attacker exploit integer underflow in earlier parsing to create amounts that appear positive but become negative after decimal conversion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bda3cbdc-0524-4046-a118-37b9d3afc7e9?mode=deep",
+    "timestamp": "2026-01-09 15:52:32.360021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Zero amount processing] After rejecting zero amounts (line 74), does the error acknowledgement properly prevent the im.app.OnRecvPacket call (line 82) from executing, or can zero-amount packets still modify state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96342124-a17b-42ec-aef5-f6d3cf425e3d?mode=deep",
+    "timestamp": "2026-01-09 15:52:47.871285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Negative zero bypass] Can an attacker send amount as \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca2041e2-de3e-4751-aa47-3e9169556a85?mode=deep",
+    "timestamp": "2026-01-09 15:53:05.963082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Precision manipulation] Does NewIntFromString (line 65) handle decimal points or fractional amounts, and can an attacker exploit this to send fractional token amounts that cause precision errors in decimal conversion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d435ba80-6620-4a48-853f-2b192c05c8cc?mode=deep",
+    "timestamp": "2026-01-09 15:53:24.458451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Amount parsing bypass] Can an attacker craft data.Amount strings (line 65) with special formats (scientific notation, hex, octal) that parse into unexpected values, bypassing the positivity check at line 74? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a74a7d4b-4075-4d7b-abd1-c123306dae20?mode=deep",
+    "timestamp": "2026-01-09 15:53:43.390636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Integer overflow in parsing] When sdkmath.NewIntFromString(data.Amount) parses the amount (line 65), can an attacker provide values larger than Int256 max that wrap around or cause overflow in subsequent calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_469dbd63-f5d4-4954-ba1d-54308b00b0b9?mode=deep",
+    "timestamp": "2026-01-09 15:54:02.843429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Receiver validation timing] After receiver address validation succeeds (line 57), can the receiver address be modified before tokens are unlocked (line 177), creating a receiver substitution vulnerability? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_575a432e-d804-418d-95ed-6c5156395eb9?mode=deep",
+    "timestamp": "2026-01-09 15:54:23.745297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Zero address attack] Can an attacker send packets with receiver address as the zero address (all zeros), which might pass Bech32 validation but cause undefined behavior in subsequent token operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11b11ddf-b6b8-4705-ba17-974769c9af19?mode=deep",
+    "timestamp": "2026-01-09 15:54:46.174761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Receiver collision] Does the AccAddressFromBech32 function (line 57) check for address collisions or specially crafted addresses that could target multiple accounts simultaneously? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fff4963-178a-4b4f-901a-6b30e3e7fbe6?mode=deep",
+    "timestamp": "2026-01-09 15:55:09.536793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Module account targeting] Can an attacker set data.Receiver (line 57) to the TokenWrapper module address or other system module addresses, allowing them to directly credit tokens to module accounts and drain the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a4f6ee4-9529-43cd-a06c-a4a7fcb10491?mode=deep",
+    "timestamp": "2026-01-09 15:55:36.246441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Address format bypass] Does sdk.AccAddressFromBech32(data.Receiver) (line 57) validate that the receiver address uses ZigChain's bech32 prefix, or can an attacker specify addresses from other chains that pass validation but cause issues in token transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b34f0249-b1a5-4ab2-bc5e-f082707a6fff?mode=deep",
+    "timestamp": "2026-01-09 15:56:01.379721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Sender injection attack] Can an attacker inject malicious data into the Sender field (line 48) that later gets logged or processed unsafely, leading to log injection or other side effects? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ace43f8a-1ca5-4f3e-8df6-274e36a1f687?mode=deep",
+    "timestamp": "2026-01-09 15:56:26.780075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Cross-chain sender validation] Since data.Sender (line 48) is from a different chain's address format, can an attacker craft addresses that are valid on the source chain but cause issues when processed on ZigChain, leading to state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a0b8f72-127f-4cea-aae1-11fce9dac9a0?mode=deep",
+    "timestamp": "2026-01-09 15:56:53.595846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Sender spoofing] Does the function verify that data.Sender (line 48) matches the actual sender on the source chain, or can a malicious relayer modify the Sender field in the packet to impersonate other users? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e167a8d9-1641-4cc9-ac0f-a94dad56dad9?mode=deep",
+    "timestamp": "2026-01-09 15:57:21.617281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Empty sender bypass] The check data.Sender == \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86bff3c6-9ae5-4fd3-85aa-0bfd878d1d0c?mode=deep",
+    "timestamp": "2026-01-09 15:57:48.257248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Unmarshal error handling] When UnmarshalJSON fails (line 41), the error acknowledgement is returned but is the packet state already partially modified, creating state inconsistency between chains? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a014aa4f-ee78-4c21-876f-a329d1c5602f?mode=deep",
+    "timestamp": "2026-01-09 15:58:15.640672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Buffer overflow] Does packet.GetData() (line 40) properly bound the data size before unmarshaling, or can an attacker send oversized packets that cause buffer overflows or memory exhaustion during JSON parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c30f5e1-1f21-4ca5-8d56-bf9e506d52c5?mode=deep",
+    "timestamp": "2026-01-09 15:58:42.929245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Type confusion] Can an attacker exploit the UnmarshalJSON function (line 40) by providing packet data that unmarshals into unexpected types, bypassing subsequent validation checks for Sender, Receiver, Amount, or Denom fields? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ed90912-c780-4366-b80c-4b626953c352?mode=deep",
+    "timestamp": "2026-01-09 15:59:11.353828",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [JSON injection] Does the UnmarshalJSON operation (line 40) properly sanitize all fields in FungibleTokenPacketData, or can an attacker inject malicious JSON that overwrites critical fields like Sender, Receiver, Amount, or Denom? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04c99886-71db-47fa-bc53-c9fb46d620f5?mode=deep",
+    "timestamp": "2026-01-09 15:59:38.648923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Malformed packet DoS] Can an attacker send specially crafted packet data that causes transfertypes.ModuleCdc.UnmarshalJSON (line 40) to panic or consume excessive resources, creating a denial-of-service condition for all IBC packet processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_046bc43c-cc48-4a19-b3cd-b2965a45c3a0?mode=deep",
+    "timestamp": "2026-01-09 16:00:05.650049",
+    "report_generated": false
   }
 ]
