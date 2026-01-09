@@ -11698,5 +11698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29685490-fe92-40d7-8b02-14db3197fe3d?mode=deep",
     "timestamp": "2026-01-09 22:49:41.177814",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrNoIBCVouchersAvailableInAddress Line 20] [Zero balance exploitation] Can an attacker call RecoverZig with an address that has zero IBC voucher balance to trigger ErrNoIBCVouchersAvailableInAddress repeatedly, causing DoS through excessive error events or state checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_afe4a468-b3b8-4c94-bb81-824ffb1f36cb?mode=deep",
+    "timestamp": "2026-01-09 22:50:53.441683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrIBCSettingsMismatch Line 19] [Timeout packet mismatch] When ErrIBCSettingsMismatch is detected in OnTimeoutPacket (line 83-88), are tokens refunded through the default timeout handler, or does the early return bypass refund logic causing permanent token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff278144-177f-499a-9ca2-32454fe01f81?mode=deep",
+    "timestamp": "2026-01-09 22:51:05.739184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrIBCSettingsMismatch Line 19] [Mismatch in acknowledgement] When ErrIBCSettingsMismatch occurs in OnAcknowledgementPacket (line 67-73), it returns an error preventing misuse of unit-zig vouchers - but does this error handling properly trigger refunds, or are tokens permanently lost? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10f0b443-eedd-45ef-b98d-18e46fa69596?mode=deep",
+    "timestamp": "2026-01-09 22:51:18.570580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrIBCSettingsMismatch Line 19] [Selective mismatch bypass] Does ErrIBCSettingsMismatch validate all four parameters (source port, source channel, dest port, dest channel) atomically, or can attackers craft packets that pass some checks but fail others to partially bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54ee83e7-039f-43c5-8c5e-acb117e6a459?mode=deep",
+    "timestamp": "2026-01-09 22:51:31.706689",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrIBCSettingsMismatch Line 19] [Settings mismatch timing] Can an attacker exploit the timing between validateIBCSettingsMatchOnRecvPacket check (on_recv_packet.go line 141-146) and actual token operations to route packets through mismatched channels after validation succeeds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_60d90309-6309-4c2e-a6bb-c289ccfdb933?mode=deep",
+    "timestamp": "2026-01-09 22:51:45.496283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrIBCSettingsNotSet Line 18] [Recovery without settings] When ErrIBCSettingsNotSet occurs in OnRecvPacket (line 109-113), tokens are still received but not wrapped - can attackers exploit this to receive 18-decimal tokens when only 6-decimal conversion is expected, breaking the decimal invariant? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc6f2c48-7a55-44b1-b5df-b7024ecc28ab?mode=deep",
+    "timestamp": "2026-01-09 22:52:00.308225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrIBCSettingsNotSet Line 18] [Settings reset attack] Can an attacker with operator privileges reset IBC settings to empty values mid-operation, causing ErrIBCSettingsNotSet to be triggered while packets are being processed, leading to inconsistent wrapping behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7932207-143f-4350-9765-3433f287621f?mode=deep",
+    "timestamp": "2026-01-09 22:52:16.065942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrIBCSettingsNotSet Line 18] [Partial initialization] If only some IBC settings (e.g., counterparty port) are set but others are empty, does validateIBCSettingsExist return false, or can attackers exploit partially initialized states to bypass specific validations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2622c54-5bc9-47e4-b065-9bf540fd58b7?mode=deep",
+    "timestamp": "2026-01-09 22:52:33.428103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrIBCSettingsNotSet Line 18] [Uninitialized state exploitation] Can an attacker trigger token wrapping operations before IBC settings are properly initialized, exploiting the undefined behavior when validateIBCSettingsExist returns false to bypass decimal conversion or validation checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c409853a-8d2a-45b3-b1e3-6e2426635065?mode=deep",
+    "timestamp": "2026-01-09 22:52:51.344622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrChannelNotOpen Line 17] [Validation consistency] Is ErrChannelNotOpen checked in both validateChannel (validators.go line 14-23) and checkCounterypartyChannelMatchesIBCSettings (validators.go line 37-67), or can attackers bypass one check by targeting the other validation path? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e15bb9d-fc9c-404e-9273-87df5fd98ad3?mode=deep",
+    "timestamp": "2026-01-09 22:53:10.004144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrChannelNotOpen Line 17] [Channel state manipulation] Can a malicious relayer manipulate channel state to oscillate between OPEN and CLOSED, causing ErrChannelNotOpen intermittently to create race conditions in packet processing that lead to token duplication? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_341f8967-e74e-44dd-9c75-967c59308635?mode=deep",
+    "timestamp": "2026-01-09 22:53:30.526738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrChannelNotOpen Line 17] [Closed channel packet processing] When ErrChannelNotOpen is triggered for a CLOSED channel, are in-flight packets properly handled, or can attackers cause tokens to be permanently locked by closing channels with pending transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f874e55c-ec6b-44b2-a9fb-0f76ccd89859?mode=deep",
+    "timestamp": "2026-01-09 22:53:51.813045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrChannelNotOpen Line 17] [State transition race] Can an attacker exploit the timing window between channel state checks (OPEN vs other states) to send packets through channels in INIT or TRY_OPEN states, bypassing full validation and potentially duplicating tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2161000-c0e4-42fc-adeb-ef4f4b547c26?mode=deep",
+    "timestamp": "2026-01-09 22:54:13.708393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrChannelNotFound Line 16] [Validation bypass via non-existent channel] If ErrChannelNotFound is caught and ignored in certain code paths, can attackers use non-existent channels to bypass counterparty validation checks and route tokens to malicious destinations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7cf9f196-11ef-47d7-bdd3-97286138efa4?mode=deep",
+    "timestamp": "2026-01-09 22:54:36.799707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrChannelNotFound Line 16] [Race on channel creation] Can an attacker exploit a race condition where a channel is deleted after validation but before packet processing, causing ErrChannelNotFound in the middle of a cross-chain transfer and leaving tokens in limbo? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_441a38aa-a2fb-4a10-ae4d-0a02280d4c08?mode=deep",
+    "timestamp": "2026-01-09 22:54:59.664580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrChannelNotFound Line 16] [Channel cache poisoning] Can an attacker cause ErrChannelNotFound by poisoning the channel cache in validateChannel, forcing legitimate packets to be rejected while keeping malicious channels accessible, enabling selective DoS or packet routing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7a8340d-f698-4289-806b-2e2949d2c013?mode=deep",
+    "timestamp": "2026-01-09 22:55:24.561379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrModuleDisabled Line 15] [Acknowledgement processing when disabled] When module is disabled and ErrModuleDisabled is returned in OnAcknowledgementPacket, are the tokens properly refunded, or does this create a scenario where tokens are lost because refund logic is also disabled? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4df8c3e9-3dc9-4022-91cc-cca615e3b320?mode=deep",
+    "timestamp": "2026-01-09 22:55:49.469235",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrModuleDisabled Line 15] [Emergency pause bypass] Does ErrModuleDisabled properly halt all module operations including recovery mechanisms, or can attackers exploit RecoverZig even when the module is disabled to drain stuck tokens during emergency situations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f68811e-77a3-4f30-96f4-776f9a0a3994?mode=deep",
+    "timestamp": "2026-01-09 22:56:14.561938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrModuleDisabled Line 15] [Disable during packet flight] If the module is disabled while IBC packets are in flight, can the packets still be processed in OnRecvPacket callbacks, causing token wrapping despite the module being disabled and creating state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0bb6883-8775-41d7-a8b3-14cd451f8b84?mode=deep",
+    "timestamp": "2026-01-09 22:56:40.375435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrModuleDisabled Line 15] [Bypass via non-wrapped transfers] When ErrModuleDisabled is triggered in SendPacket, can attackers still perform IBC transfers by avoiding the wrapped token path, potentially bypassing decimal conversion and creating 18-decimal native tokens on the destination chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf45a231-0d0f-4ecd-8f5e-1c4d3aa810c8?mode=deep",
+    "timestamp": "2026-01-09 22:57:07.656079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrModuleDisabled Line 15] [Race condition on enable check] Can an attacker exploit a race condition between IsEnabled() checks and token operations in RecoverZig, where the module is disabled after the check but before token transfer, causing partial operations that corrupt state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c87f460f-debc-4d00-b78c-37b321ffceea?mode=deep",
+    "timestamp": "2026-01-09 22:57:34.946203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrInvalidVersion Line 14] [Version bypass] Is version validation performed consistently across all IBC callbacks (OnRecvPacket, OnAcknowledgementPacket, OnTimeoutPacket), or can attackers bypass version checks by targeting specific callback paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_012b441a-63c2-4ea1-9114-490722a389fd?mode=deep",
+    "timestamp": "2026-01-09 22:58:03.555595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrInvalidVersion Line 14] [Version downgrade attack] Can an attacker exploit ErrInvalidVersion by forcing a version downgrade in IBC channel negotiation to an older version with known vulnerabilities in token wrapping logic, allowing token duplication or theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1272963f-f3df-4b7a-afc9-38cef531d81c?mode=deep",
+    "timestamp": "2026-01-09 22:58:31.057863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrInvalidPacketTimeout Line 13] [Timeout vs block height] Does ErrInvalidPacketTimeout validation occur before checking if the timeout has already passed, allowing attackers to submit packets with past timeouts that trigger immediate refunds, breaking token conservation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7aeeee71-a3dd-4aef-9eda-55fa28e07898?mode=deep",
+    "timestamp": "2026-01-09 22:58:58.469215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/errors.go] [ErrInvalidPacketTimeout Line 13] [Timeout underflow] Is there validation to prevent timeout underflow attacks where an attacker sets timeout to 0 or negative values, causing immediate packet expiration and refund without actual cross-chain transfer, allowing free token minting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e16ad5f-9bd7-44f6-a075-3cd739db0086?mode=deep",
+    "timestamp": "2026-01-09 22:59:24.051930",
+    "report_generated": false
   }
 ]
