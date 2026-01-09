@@ -10048,5 +10048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9e52d2c-0832-4e28-ba36-e6ca2d7e6c07?mode=deep",
     "timestamp": "2026-01-09 22:54:06.269534",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool storage] At line 279, LpToken is set to lpAmount (total shares) but only userShares were actually minted - when users try to withdraw liquidity, will the mismatch between recorded total supply and actual minted supply cause withdrawal failures or allow over-withdrawal? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7980b6fe-4a1e-4422-b859-0112dfe0a008?mode=deep",
+    "timestamp": "2026-01-09 22:55:22.678686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool storage] At line 280, Fee is set from params.NewPoolFeePct - if this parameter changes between pool creation and first swap, can users be charged unexpected fees, or can governance manipulation cause retroactive fee changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c70a005-c4f0-46b6-851b-a783a6510873?mode=deep",
+    "timestamp": "2026-01-09 22:55:35.453853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool storage] At line 282, Coins are set using sdk.NewCoins(msg.Base, msg.Quote) - if the coin amounts don't match the actual pool account balance (due to rounding or transfer issues), can this cause AMM invariant violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b11516ac-ac40-44ba-92ca-74150c4329b9?mode=deep",
+    "timestamp": "2026-01-09 22:55:48.319423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool storage] At line 283, Address is stored as poolAddress.String() - if this string representation doesn't match the actual account address used for token storage, can this cause funds to be lost or operations to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ff198e7-5d59-4644-bca5-f2e7e2437b23?mode=deep",
+    "timestamp": "2026-01-09 22:56:01.522842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [State write order] SetPool is called at line 287 before SetPoolUidFromPool at line 293 - if the transaction reverts after SetPool but before SetPoolUidFromPool, can this create a pool without a secondary index that cannot be discovered by token pair lookups? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d415f1d2-7c11-4195-bb85-0c015e0a724c?mode=deep",
+    "timestamp": "2026-01-09 22:56:15.909775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [State atomicity] Between SetPool at line 287 and SetPoolUidFromPool at line 293, if a query is executed, can it see the pool in an inconsistent state where it exists in primary storage but not in the UID index? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_427bfd3c-6a8c-4612-a117-0879a77c8f31?mode=deep",
+    "timestamp": "2026-01-09 22:56:30.811224",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool UID uniqueness] At line 293, SetPoolUidFromPool creates a secondary index - if the UID derivation in types.GetPoolUidString produces collisions for different coin pairs, can this overwrite existing pool UIDs and cause pool discovery to return wrong pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0abd0627-e8a2-4b59-8eb8-c73dfd257459?mode=deep",
+    "timestamp": "2026-01-09 22:56:46.626126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Event emission] At line 295, EmitPoolCreateEvent is called after all state changes - if event emission fails or is manipulated, can this cause off-chain indexers to miss pool creations, breaking UI/API functionality? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55721e07-4c62-4af4-915e-4a77db0c5803?mode=deep",
+    "timestamp": "2026-01-09 22:57:04.227597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Response construction] At lines 297-302, the response includes Base, Quote, and LpToken values - if these values don't match the actual stored pool state due to rounding or conversion errors, can this mislead clients about the true pool composition? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a446f310-c3fd-4ece-93a4-fb4b12bee155?mode=deep",
+    "timestamp": "2026-01-09 22:57:22.441735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Response validation] The response at line 301 includes userShares as LpToken, not lpAmount - can this discrepancy cause confusion where clients expect the total LP supply but receive only the user's portion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c4042ec-b3f1-4e82-acf5-1bc19878f0ab?mode=deep",
+    "timestamp": "2026-01-09 22:57:40.951804",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Parameter manipulation] At line 77, params are fetched once at the start - if governance changes params.CreationFee mid-execution through a concurrent proposal execution, can this cause inconsistent fee charging between the check at line 79 and payment at line 91? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c154541d-ea61-4803-830c-849b5ed77ca2?mode=deep",
+    "timestamp": "2026-01-09 22:58:01.983716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Parameter manipulation] If params.Beneficiary is changed from an address to empty string during execution (between line 94 check and line 107 SendCoins), can this cause the fee path to switch from beneficiary to burn mid-transaction, leading to unexpected state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7564798f-c979-4614-84c9-37be6074b7da?mode=deep",
+    "timestamp": "2026-01-09 22:58:22.748506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Parameter manipulation] If params.MinimalLiquidityLock is changed to a very high value through governance during execution (between fetching params and the check at line 338), can this cause previously valid pool creations to fail unexpectedly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d944113-49e6-4807-8e2d-bcf6153b54bd?mode=deep",
+    "timestamp": "2026-01-09 22:58:44.161281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Parameter validation] At line 77, GetParams is called but are params validated - if governance sets invalid params (e.g., NewPoolFeePct > 10000), can this cause pool creation with incorrect fee calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f9333d4-5092-415e-a78a-e2e4f9cf9682?mode=deep",
+    "timestamp": "2026-01-09 22:59:06.623712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Governance attack] Can a malicious governance proposal set params.CreationFee to uint32.MaxValue to make pool creation prohibitively expensive, effectively DoSing the entire DEX functionality? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a11536a4-fb20-4ecd-8b97-fee10ee1860b?mode=deep",
+    "timestamp": "2026-01-09 22:59:29.863307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Bank module interaction] Multiple bank keeper calls (HasBalance, SendCoins, MintCoins) are made - if the bank module is paused or has rate limiting enabled, can this cause pool creation to fail in unexpected ways, potentially after fees have been charged? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_949dcc4e-1df2-4a2a-9f35-e66f50dbdf5f?mode=deep",
+    "timestamp": "2026-01-09 22:59:52.990541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Account keeper interaction] At line 194, CreatePoolAccount uses account keeper - if the account module's state is corrupted or has duplicate accounts, can this cause pool account creation to silently fail or overwrite existing accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e2c3337-4ae4-4de8-b9dc-49b3b1ab58fd?mode=deep",
+    "timestamp": "2026-01-09 23:00:16.294965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Module account permissions] At line 239, MintCoins is called on types.ModuleName - if the DEX module doesn't have minting permissions for arbitrary denominations (pool ID tokens), can this cause minting to fail and lock liquidity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd19dd08-b09a-4935-9c36-6d27e4f5ff31?mode=deep",
+    "timestamp": "2026-01-09 23:00:40.260223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [IBC token handling] If msg.Base or msg.Quote is an IBC token with a very long denomination (channel + denom hash), can this cause poolId string construction at line 174 to exceed maximum lengths and fail storage operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4440bd6-cfa1-4436-b3d2-e9dbbd9d4884?mode=deep",
+    "timestamp": "2026-01-09 23:01:04.465963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Transaction atomicity] If any operation after line 171 (GetAndSetNextPoolID) fails, is the pool counter properly rolled back, or will the failed pool ID be permanently skipped, eventually exhausting the ID space? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5712d39-b36b-4cdd-91a3-614c7b8da03d?mode=deep",
+    "timestamp": "2026-01-09 23:01:29.698731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Transaction atomicity] If the creation fee payment succeeds (lines 91-168) but subsequent operations fail, can users lose their creation fee without getting a pool, and is there any refund mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fa4235c-8098-4d99-81ba-2e13bed3341f?mode=deep",
+    "timestamp": "2026-01-09 23:01:55.392679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Partial state writes] If the transaction panics at any point (e.g., in integerSqrt at line 308), can this leave partial state writes where some operations completed but others didn't, causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f1c91eb-e267-4200-9e7f-17f73089aebb?mode=deep",
+    "timestamp": "2026-01-09 23:02:21.027627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Error propagation] Multiple operations can fail at different points - are all errors properly wrapped with context about which operation failed, or can generic errors make debugging difficult and hide the true failure point? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee67f5a6-92af-4da7-adc1-05206ec0d53c?mode=deep",
+    "timestamp": "2026-01-09 23:02:45.393534",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [DoS - Pool ID exhaustion] At line 171, GetAndSetNextPoolID increments a counter - can an attacker create and immediately abandon pools repeatedly to exhaust the uint64 pool ID space, permanently preventing new pools after 2^64 creations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9c3edbb-a82d-4eb6-b9e5-a4b1cc7d8bd3?mode=deep",
+    "timestamp": "2026-01-09 23:03:08.551649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [DoS - Storage exhaustion] Can an attacker create many pools with dust amounts (minimum above minimal lock) to bloat the state store, increasing storage costs for validators and potentially causing sync issues for new nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4336cc6c-40a4-4570-a308-e764b9cc028d?mode=deep",
+    "timestamp": "2026-01-09 23:03:31.299664",
+    "report_generated": false
   }
 ]
