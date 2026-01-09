@@ -4348,5 +4348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5cab6a8-368a-4d45-a8f4-64e977a94769?mode=deep",
     "timestamp": "2026-01-09 14:11:18.699153",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Module account invariants] After handleRefund completes at line 106, are there invariant checks to ensure module account balances remain consistent with locked IBC vouchers, or can subtle bugs violate these invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_93563152-522b-4fd2-b65c-9a01f18c741d?mode=deep",
+    "timestamp": "2026-01-09 14:12:32.181176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Escrow accounting] Does OnTimeoutPacket properly update global escrow accounting counters (TotalTransferredIn/Out) when refunds occur, or can timeouts cause escrow counters to become permanently desynchronized from actual balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe60ec15-4d9b-4b67-9c0d-46bf43a2894d?mode=deep",
+    "timestamp": "2026-01-09 14:12:44.483839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Overflow in conversion] Can an attacker send an amount close to sdkmath.Int max value that, when multiplied or divided during decimal conversion in handleRefund, causes integer overflow resulting in incorrect refund amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9775585-c36b-4832-b48d-121494eb9a3b?mode=deep",
+    "timestamp": "2026-01-09 14:12:57.551749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Zero amount after conversion] If the original amount is between 1 and 999999999999 (less than 10^12), will ScaleDownTokenPrecision in handleRefund return zero or error, and can this be exploited to timeout small transfers without any refund? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b589a8ce-3f04-422d-bb5e-f4511dc91777?mode=deep",
+    "timestamp": "2026-01-09 14:13:10.924487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Conversion factor manipulation] Can an attacker exploit a race condition where the decimal conversion factor (10^12) is changed via governance during handleRefund execution, causing refunds to use incorrect conversion rates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f09a2219-bb6b-4221-a555-f1f2f31905dc?mode=deep",
+    "timestamp": "2026-01-09 14:13:25.423897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Precision loss accumulation] If many small-amount timeouts occur where ScaleDownTokenPrecision rounds down, can the accumulated precision loss over thousands of packets result in significant token loss for users or profit for attackers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23763b44-34a5-4722-ac4c-97a251d86c34?mode=deep",
+    "timestamp": "2026-01-09 14:13:40.964912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Counterparty validation] Does OnTimeoutPacket verify that the packet actually timed out on the counterparty chain (via light client proofs), or can a malicious relayer claim timeouts that never actually occurred? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57e38465-7e33-43df-9f3a-a5e5b5db6e7c?mode=deep",
+    "timestamp": "2026-01-09 14:13:57.476752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Channel version mismatch] Does OnTimeoutPacket validate that channelVersion parameter at line 16 matches expected versions (e.g., 'ics20-1'), or can attackers send timeouts with wrong versions to bypass certain checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19b8f180-f662-4771-a61e-9d6e8dd30054?mode=deep",
+    "timestamp": "2026-01-09 14:14:15.418329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Middleware ordering] If OnTimeoutPacket is called as part of an IBC middleware stack, can the ordering of middleware affect whether refunds happen correctly, especially if upstream middleware modify packet data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed4dd214-532e-4fff-bb0c-9c87192a3952?mode=deep",
+    "timestamp": "2026-01-09 14:14:35.002284",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Timeout semantics violation] Does the conditional refund logic (skipping at lines 68, 78) violate IBC timeout semantics where ALL timed-out packets should restore original state, potentially breaking cross-chain atomic swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5f45691-a018-4821-98d1-ee3d21bbae17?mode=deep",
+    "timestamp": "2026-01-09 14:14:54.231550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Packet sequence validation] Does OnTimeoutPacket verify that packet.GetSequence() (referenced at line 114) is legitimate and not replayed from an old timeout, or can attackers replay old sequence numbers to cause duplicate refunds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45cc8377-2063-4226-918b-4ae14add5ac7?mode=deep",
+    "timestamp": "2026-01-09 14:15:14.310203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Relayer address trust] The relayer parameter at line 18 is accepted but never validated - can a malicious relayer impersonate legitimate relayers to influence metrics, events, or future IBC incentive mechanisms? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_621f3dde-45f1-4056-a48d-52f536e83d30?mode=deep",
+    "timestamp": "2026-01-09 14:15:36.353537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Channel state TOCTOU] Between GetChannel check in validateChannel and the actual packet processing, can the channel transition from OPEN to other states, causing inconsistent behavior where validation passes but execution fails? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0be3a80-345f-4ade-845c-686978e3f0e2?mode=deep",
+    "timestamp": "2026-01-09 14:15:59.258201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Context manipulation] Does OnTimeoutPacket properly isolate the sdk.Context passed at line 15, or can previous middleware in the IBC stack have manipulated context values that affect validation or refund behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fbe74de-8883-4eb3-97d3-b24725ce4b8f?mode=deep",
+    "timestamp": "2026-01-09 14:16:22.275737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Logger flood] Can an attacker trigger the Logger().Error calls at lines 20, 26, 34, 42, 51, 59, 86, 94, 101, 108 repeatedly to flood validator logs, consuming disk space and making legitimate errors harder to find? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e6dd2c5-f0dd-4012-9022-5278424c59f2?mode=deep",
+    "timestamp": "2026-01-09 14:16:46.773926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Rollback completeness] If handleRefund at line 106 partially succeeds but then the transaction fails due to consensus issues, does the Cosmos SDK properly rollback ALL state changes including the underlying OnTimeoutPacket at line 99, or can this leave split-brain states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42ff1084-617c-4c6b-a7cc-62cae668616b?mode=deep",
+    "timestamp": "2026-01-09 14:17:11.359238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Cross-chain synchronization] If the same timeout packet is processed on multiple relayer paths simultaneously, does OnTimeoutPacket have proper locking mechanisms to prevent race conditions, or can this lead to double refunds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46c311fd-b6c6-4fdc-8aeb-a53937d405f6?mode=deep",
+    "timestamp": "2026-01-09 14:17:37.298080",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Gas griefing] Can an attacker craft timeout packets that pass all checks until the expensive handleRefund operation at line 106, then force it to fail at the last step, causing validators to waste gas on failed refund computations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28a11a52-488f-4e95-82df-52ca2ef631b3?mode=deep",
+    "timestamp": "2026-01-09 14:18:03.920816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [State consistency] If multiple timeout packets for the same original transfer arrive simultaneously (due to IBC retry), does OnTimeoutPacket properly handle them atomically, or can concurrent execution cause multiple refunds for a single transfer? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_174bc3dc-faa1-4190-8c35-90bedc876f42?mode=deep",
+    "timestamp": "2026-01-09 14:18:31.763308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Validation bypass sequence] Can an attacker craft a packet that passes all validation checks (lines 23-96) but then exploits subtle bugs in the handleRefund function to gain tokens without a legitimate timeout actually occurring? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfff0f08-cb3f-46ab-a55e-b848d067a2cc?mode=deep",
+    "timestamp": "2026-01-09 14:18:59.984462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Event ordering] If EmitTokenWrapperErrorEvent at line 114 emits AFTER handleRefund succeeds, but then the transaction reverts for unrelated reasons, does this create a mismatch between events and actual state, confusing off-chain systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d34fd40-603d-4c05-97b5-11223f8bca1c?mode=deep",
+    "timestamp": "2026-01-09 14:19:28.851374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Information leakage] Does the error event at line 114 expose sensitive packet information (sequence numbers, amounts, addresses) that could help attackers coordinate cross-chain attacks or front-run legitimate timeout processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c09df9a2-0f27-413f-8e23-fd9136eed066?mode=deep",
+    "timestamp": "2026-01-09 14:19:58.367773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Event replay] Can an attacker observe the EmitTokenWrapperErrorEvent at line 114 and replay the event to confuse off-chain monitors into thinking multiple timeouts occurred, causing incorrect tracking of token supplies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12a8e05c-22ec-4024-9d77-f21ad865136c?mode=deep",
+    "timestamp": "2026-01-09 14:20:27.053020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Partial refund] Can the handleRefund operation at line 106 partially succeed (e.g., lock IBC tokens but fail to unlock native tokens) without proper rollback, leaving tokens in an inconsistent state split between module and user? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54133d0f-4e0b-41de-b921-7603bebb45a7?mode=deep",
+    "timestamp": "2026-01-09 14:20:55.047693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Double refund attack] If handleRefund succeeds at line 106, but then OnTimeoutPacket is called again for the same packet sequence (due to IBC retry logic), will the second call also refund tokens, causing double-spending? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_caccca75-ed38-4664-916f-b12a137422d8?mode=deep",
+    "timestamp": "2026-01-09 14:21:23.892457",
+    "report_generated": false
   }
 ]
