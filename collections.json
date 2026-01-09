@@ -748,5 +748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df97b50c-9cb6-46f9-80e3-3115a3b22cab?mode=deep",
     "timestamp": "2026-01-09 08:13:44.801971",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Trace store] Can the traceStore writer be used to leak sensitive data about transaction execution to unauthorized parties? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a88ad801-816f-46ea-be88-b0103e39a980?mode=deep",
+    "timestamp": "2026-01-09 08:14:51.160668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: GetKey()] [Race conditions] Can concurrent calls to GetKey cause race conditions when accessing the underlying store key map? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6c1f169-3e7b-418a-825e-f510c0a0e4be?mode=deep",
+    "timestamp": "2026-01-09 08:15:03.733070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: GetKey()] [Invalid keys] Can requesting non-existent store keys return nil without error, causing modules to panic when trying to use the nil key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89fd4ab2-4b63-4ad3-80fc-98ee9709601b?mode=deep",
+    "timestamp": "2026-01-09 08:15:16.454174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: GetMemKey()] [Memory leaks] Can repeatedly calling GetMemKey for transient stores cause memory leaks if the stores are not properly cleaned up? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42c460e5-452a-4de8-b23d-4f0efd778436?mode=deep",
+    "timestamp": "2026-01-09 08:15:29.629017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: kvStoreKeys()] [Map modification] If callers modify the returned map, does this affect the app's internal store key mapping? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_363e8f29-8709-4409-9ed6-484fffa75837?mode=deep",
+    "timestamp": "2026-01-09 08:15:43.410337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Struct: App - ModuleBasics] [Module registration] Can external code access ModuleBasics to query module information and identify potential attack surfaces? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c412c6aa-df4d-40ed-8c3e-16af0102433f?mode=deep",
+    "timestamp": "2026-01-09 08:15:57.993715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Struct: App - ModuleBasics] [Basic manager] Does the module basic manager allow registration of duplicate modules with conflicting implementations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d69f2844-2581-4b71-a622-fd79c48b0bfe?mode=deep",
+    "timestamp": "2026-01-09 08:16:13.651793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SimulationManager()] [Decoder registration] Do registered store decoders have access to raw store bytes that could include encrypted or sensitive data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fadc8904-b74b-4640-99c8-c29d564b66e4?mode=deep",
+    "timestamp": "2026-01-09 08:16:31.166522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SimulationManager()] [Simulation state] Can simulation state be used to test exploits against the live chain by replaying simulation operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b19f32ad-736b-4ffa-aeec-067bda2d9459?mode=deep",
+    "timestamp": "2026-01-09 08:16:49.676417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: LegacyAmino()] [Amino codec] Can the legacy amino codec be used to deserialize messages with unexpected types that bypass protobuf validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10efbc4d-e6e5-4494-b943-76b7da2c02ab?mode=deep",
+    "timestamp": "2026-01-09 08:17:09.101125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: AppCodec()] [Protobuf codec] Does the app codec properly validate message types during deserialization to prevent type confusion attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e892c56e-18d8-4b87-baa1-f2ad78701915?mode=deep",
+    "timestamp": "2026-01-09 08:17:29.539460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: InterfaceRegistry()] [Interface registration] Can malicious modules register interfaces that override critical implementations like sdk.Msg or sdk.Tx? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e13c6183-593f-41cd-9dcf-440a53ecc305?mode=deep",
+    "timestamp": "2026-01-09 08:17:50.421633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: TxConfig()] [TX encoding] Can the TxConfig be used to craft malformed transactions that cause panics during decoding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3dc972c7-f819-4fd3-949f-07e270f0cf9a?mode=deep",
+    "timestamp": "2026-01-09 08:18:12.426884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - appBuilder.Build()] [Build options] Can baseAppOptions be manipulated to disable critical security features like transaction signature verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c02c8ded-b84d-427f-bf96-7dcc28cec271?mode=deep",
+    "timestamp": "2026-01-09 08:18:35.333639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - appBuilder.Build()] [DB backend] Can using different database backends (db parameter) cause consensus failures due to different iteration orders? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17419514-381d-488e-89c2-afa583fe2f54?mode=deep",
+    "timestamp": "2026-01-09 08:18:58.492266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - appBuilder.Build()] [Trace store usage] Does trace store logging reveal transaction data that should be kept confidential? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b3eb002-4977-4c5f-8790-48e0984b0ea3?mode=deep",
+    "timestamp": "2026-01-09 08:19:23.237800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Module configuration] Can the Configurator() passed to upgrade handlers be used to reconfigure modules in unauthorized ways? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3874b36-9eb0-4cd4-a985-82eedce10a5d?mode=deep",
+    "timestamp": "2026-01-09 08:19:47.305907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Module manager] Does the ModuleManager allow late registration of modules that bypass initialization security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf191670-8e05-490c-b215-0228536444e5?mode=deep",
+    "timestamp": "2026-01-09 08:20:11.081481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [Response handling] Is the ResponsePreBlock from PreBlocker properly validated before being used by consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6352879c-0e56-47ba-99d2-32fc940bc330?mode=deep",
+    "timestamp": "2026-01-09 08:20:35.485099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [IBC middleware] Can the ordering of IBC middleware layers be exploited by crafting packets that trigger different code paths in different layers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7db6968-1ca3-4217-b263-98f5926f9e6d?mode=deep",
+    "timestamp": "2026-01-09 08:21:00.427250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Keeper references] Are there any circular dependencies in keeper initialization\n\n### Citations\n\n**File:** app/app.go (L1-404)\n```go\npackage app\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7ffa170-ee14-45ef-9463-53407f195b72?mode=deep",
+    "timestamp": "2026-01-09 08:21:26.110287",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Store key collision] Can an attacker exploit potential store key collisions between ibcexported.StoreKey, ibctransfertypes.StoreKey, and other registered keys to corrupt state or access unauthorized data across modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e437402-91c7-41e0-a1f9-7757c3cfc59c?mode=deep",
+    "timestamp": "2026-01-09 08:21:51.037150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Store initialization] If RegisterStores fails partway through (lines 69-79), does the system leave some stores initialized while others are not, creating an inconsistent state that could allow attackers to bypass security checks in partially-initialized modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8840e664-d165-4810-83d7-5e9bc02498fd?mode=deep",
+    "timestamp": "2026-01-09 08:22:17.015899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Transient store security] Does the TransientStore for paramstypes.TStoreKey (line 74) properly clear sensitive data after transactions, or can attackers read leftover parameter data from previous transactions to extract secrets or predict state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09a01a1d-0f8f-4c82-9c34-267e18b6b7f5?mode=deep",
+    "timestamp": "2026-01-09 08:22:42.243609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Store key reuse] Can an attacker cause a store key reuse attack by triggering module reinitialization, allowing them to overwrite existing store data with malicious values that bypass normal validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b23b7c55-89e5-4628-9ff6-0907342f02f5?mode=deep",
+    "timestamp": "2026-01-09 08:23:06.662463",
+    "report_generated": false
   }
 ]
