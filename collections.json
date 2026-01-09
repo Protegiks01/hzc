@@ -2698,5 +2698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8164595b-a0a2-4f1e-a49d-d2331ffbfd0c?mode=deep",
     "timestamp": "2026-01-09 10:19:16.310828",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Emergency upgrade bypass] If an emergency upgrade proposal is passed to halt a critical bug, can the upgrade handler registration system properly handle out-of-order upgrades, or will it require all previous upgrades to execute first? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2cd601c-e1b9-4865-be86-a9c02198397d?mode=deep",
+    "timestamp": "2026-01-09 10:20:30.999507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Binary version mismatch] Can validators running different binary versions register different upgrade handlers from different Upgrades slices, causing them to execute incompatible upgrade logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e21717b-6df3-45cb-9cca-0d71679e6ae5?mode=deep",
+    "timestamp": "2026-01-09 10:20:43.308376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Backward compatibility] If validators downgrade their binary after an upgrade, does setupUpgradeStoreLoaders detect this and prevent initialization, or can downgraded validators corrupt state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5751b03-af47-4be4-b746-f972a8535191?mode=deep",
+    "timestamp": "2026-01-09 10:20:56.165628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Genesis export during upgrade] If genesis state is exported while store loaders are configured for an upgrade, does the export include upgrade metadata that could cause import to fail on a clean chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe139f88-297a-48cc-a8f3-82533736d680?mode=deep",
+    "timestamp": "2026-01-09 10:21:09.470080",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [State snapshot consistency] Can state snapshots taken during upgrade handler execution include partial migration state, causing nodes syncing from snapshots to have inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cafd0557-8950-4ed3-8dc7-c2b2b4bfd64b?mode=deep",
+    "timestamp": "2026-01-09 10:21:23.283873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Zero upgrade height] Can upgradeInfo.Height being 0 cause SetStoreLoader to be called with height 0, potentially affecting genesis processing or state initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_18f0d25b-0534-4e44-b2b7-c5c85ccf86f7?mode=deep",
+    "timestamp": "2026-01-09 10:21:38.250810",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork at block 1] Can a fork scheduled at block height 1 execute during the first block after genesis, potentially modifying genesis state through PreBlockForkLogic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b61084a8-8c64-4107-8dd1-547f851540c2?mode=deep",
+    "timestamp": "2026-01-09 10:21:54.221221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Empty upgrade name] Can an upgrade with an empty UpgradeName be registered, and if so, can it cause string matching issues in setupUpgradeStoreLoaders? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9aeb614c-d840-4df7-8937-a569e4e11e8c?mode=deep",
+    "timestamp": "2026-01-09 10:22:11.386990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Upgrade info with empty name] If upgradeInfo.Name is empty string, will the name comparison at line 51 match the first upgrade with empty name, or will it skip all upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d123ed3-b49f-4608-9612-2ab11ae1f94b?mode=deep",
+    "timestamp": "2026-01-09 10:22:29.615848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Concurrent handler registration] Can setupUpgradeHandlers be called from multiple goroutines during app initialization, causing race conditions in SetUpgradeHandler? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b807ea9c-6427-4453-95f7-e1a658bc524f?mode=deep",
+    "timestamp": "2026-01-09 10:22:49.165704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Concurrent disk reads] Can multiple goroutines call ReadUpgradeInfoFromDisk simultaneously, causing file descriptor exhaustion or read conflicts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03dbf452-76d8-4e00-9edd-db75bbff511a?mode=deep",
+    "timestamp": "2026-01-09 10:23:09.643488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork execution concurrency] Is PreBlockForks called from BeginBlock in a thread-safe manner, or can concurrent calls cause fork logic to execute multiple times at the same height? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21247bc6-c437-464b-9aa4-6e5530b00da8?mode=deep",
+    "timestamp": "2026-01-09 10:23:30.754196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Gas exhaustion in migrations] If mm.RunMigrations consumes more gas than the block gas limit during upgrade handler execution, can this cause the upgrade to fail and halt the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ea54896-f35f-4521-b56a-96f32a8beb0e?mode=deep",
+    "timestamp": "2026-01-09 10:23:52.537647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork logic gas] Can fork.PreBlockForkLogic consume unbounded gas or CPU time, causing block processing to timeout and validators to fail to produce blocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_735acf14-3d61-4fb4-90dd-e3f7bbd3d6cc?mode=deep",
+    "timestamp": "2026-01-09 10:24:14.753416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Failed migration recovery] If an upgrade handler fails during RunMigrations, can the chain recover by rolling back to pre-upgrade state, or is manual intervention required? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_853821a5-866c-4f9b-94be-92a5c57b7994?mode=deep",
+    "timestamp": "2026-01-09 10:24:38.268536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store loader reset] If store loader configuration fails, can setupUpgradeStoreLoaders be safely called again with different parameters, or will this cause duplicate loader registration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2dcb84af-0da8-4a65-b09c-f4ed3fb65563?mode=deep",
+    "timestamp": "2026-01-09 10:25:03.104159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork rollback] If fork logic needs to be reverted (e.g., due to a bug), is there any mechanism to undo PreBlockForkLogic state changes, or are they permanent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d879ad08-9ea7-48a5-a478-1621338011cc?mode=deep",
+    "timestamp": "2026-01-09 10:25:28.876486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Module init order] Does CreateUpgradeHandler account for module initialization order dependencies, or can upgrade handlers access modules that haven't been fully initialized yet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8acc9279-faee-4597-bf22-b36f39149af3?mode=deep",
+    "timestamp": "2026-01-09 10:25:55.870274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Circular dependencies] Can upgrade handlers create circular dependencies between modules through AppKeepers access, causing deadlocks or initialization failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d601515-24c9-4509-ac69-d967a03bf3f0?mode=deep",
+    "timestamp": "2026-01-09 10:26:23.669628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store key uniqueness] When new stores are added via StoreUpgrades.Added, does the system validate that store keys are globally unique across all modules, or can key collisions corrupt multiple modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e401b35-a20d-4344-b14f-292db41ddb9e?mode=deep",
+    "timestamp": "2026-01-09 10:26:52.076504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Deleted store key reuse] After the crisis store is deleted in v2, can its store key be immediately reused by a new module in the same upgrade, causing orphaned data from the deleted store to be read by the new module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77d6c3e8-d505-4877-b75e-491749a455a0?mode=deep",
+    "timestamp": "2026-01-09 10:27:20.165507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Split brain attack] Can an attacker cause network partition where some validators upgrade and others don't, leading to two separate chains each with valid consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_068b6a65-f614-4e4f-ac39-d574cc8e8067?mode=deep",
+    "timestamp": "2026-01-09 10:27:52.847495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Upgrade timing attack] Can an attacker manipulate network latency to cause validators to read different upgrade info at different times, leading to non-deterministic store loader configuration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_604661f1-d6db-4c36-9716-ee45d97cb880?mode=deep",
+    "timestamp": "2026-01-09 10:28:20.643055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Crisis module removal] When v2 deletes the crisis store, are all crisis module transactions, state, and invariants properly cleaned up, or can orphaned crisis data cause issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ac4f5b4-cc91-44d9-9e3d-b515fde81814?mode=deep",
+    "timestamp": "2026-01-09 10:28:46.614495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Invariant check removal] Does deleting the crisis store remove critical invariant checks that other modules depend on, potentially allowing invariant violations to go undetected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a623a816-0808-4686-8c23-13ef89444102?mode=deep",
+    "timestamp": "2026-01-09 10:29:12.078623",
+    "report_generated": false
   }
 ]
