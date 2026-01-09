@@ -11248,5 +11248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee7fb937-2035-4d0a-a19f-3f3125371559?mode=deep",
     "timestamp": "2026-01-09 22:20:49.432693",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Message Ordering Attack] Can an attacker exploit the specific registration order of messages to execute a complex attack sequence where messages are processed out-of-order due to deserialization timing, bypassing security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e466a1df-4ae4-48d4-be4e-b48c7850ebbd?mode=deep",
+    "timestamp": "2026-01-09 22:22:01.436934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 36] [Interface Registry Corruption] Does the NewProtoCodec call properly handle the case where cdctypes.NewInterfaceRegistry() returns a corrupted or nil registry, or will this cause validator panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_105399ef-4b7b-4c52-ba68-0b3fbb80b9f9?mode=deep",
+    "timestamp": "2026-01-09 22:22:13.715234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 36] [Codec Initialization Timing] Can an attacker exploit the timing of codec.NewProtoCodec() initialization to cause a race condition where messages are processed before the codec is fully initialized, leading to consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8da77b3f-24a9-4a55-adf0-db29783eb533?mode=deep",
+    "timestamp": "2026-01-09 22:22:26.356743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 30-36] [Global Codec Manipulation] Since ModuleCdc is a global variable, can an attacker exploit race conditions during module initialization to replace or corrupt the codec, causing all subsequent message processing to fail or behave maliciously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ba4b026-3f6d-49f4-8a89-12181bb391b1?mode=deep",
+    "timestamp": "2026-01-09 22:22:40.201055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 27] [Service Descriptor Validation] Does the message service registration validate the _Msg_serviceDesc properly, or can an attacker register a corrupted descriptor that causes deserialization failures for all TokenWrapper operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d2a2ecf-0950-4d9d-9cb5-ae2e660b133f?mode=deep",
+    "timestamp": "2026-01-09 22:22:53.902722",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 27] [Service Descriptor Injection] Can an attacker exploit the RegisterMsgServiceDesc call to inject a malicious service descriptor that overrides legitimate message handlers, allowing them to intercept and manipulate all TokenWrapper messages? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_626e8658-d87d-4fbb-9c70-22ca516cf5bc?mode=deep",
+    "timestamp": "2026-01-09 22:23:08.689025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 23] [Recovery Reentrancy] Can the registration of MsgRecoverZig allow reentrancy attacks where an attacker triggers multiple recovery operations before the first completes, draining the module wallet through repeated recoveries? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb40448c-a3e3-43fc-9b1c-54095b95d2c3?mode=deep",
+    "timestamp": "2026-01-09 22:23:24.360601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 23] [Decimal Precision Attack] Does the codec registration for MsgRecoverZig properly handle decimal conversion parameters, or can an attacker manipulate precision values during serialization to cause token duplication in the recovery process? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fd27271-a17e-43c1-a4c1-b53a95db9b2a?mode=deep",
+    "timestamp": "2026-01-09 22:23:41.876593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 23] [Recovery Exploit] Can an attacker exploit the registration of MsgRecoverZig to bypass the operator exclusion check by crafting specially formatted recovery messages that deserialize with manipulated addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ad664f3-94e6-4360-be13-109e5f4bb946?mode=deep",
+    "timestamp": "2026-01-09 22:24:00.280003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 22] [Pauser List Corruption] Does the codec handle pauser address lists correctly during deserialization, or can an attacker craft messages that corrupt the pauser list, causing all pause/unpause operations to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68d480bb-f882-4ff2-b9bb-1c8d89aa4c26?mode=deep",
+    "timestamp": "2026-01-09 22:24:19.889429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 21-22] [Pauser Removal Attack] Can an attacker use MsgRemovePauserAddress to remove all legitimate pausers, preventing the protocol from halting malicious activity during an active exploit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b80972ec-0adb-408c-a05e-bc9c22076048?mode=deep",
+    "timestamp": "2026-01-09 22:24:39.924076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 21-22] [Pauser Authority Escalation] Can an attacker exploit the registration of MsgAddPauserAddress to add themselves as a pauser without proper authorization, gaining the ability to halt all bridge operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cab1c080-fa1e-4eb9-9be4-ee4c6a9dff0b?mode=deep",
+    "timestamp": "2026-01-09 22:25:01.161821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 20] [Channel Hijacking] Does the codec registration properly validate IBC channel updates, or can an attacker register malicious IBC settings that hijack legitimate cross-chain transfers to steal funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d62c492-b8a5-403e-ba91-4770f8528eca?mode=deep",
+    "timestamp": "2026-01-09 22:25:22.733760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 20] [IBC Parameter Manipulation] Can an attacker exploit the registration of MsgUpdateIbcSettings to manipulate IBC channel IDs, port IDs, or timeout values, allowing them to redirect cross-chain transfers to attacker-controlled channels? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a21962b-ffb0-4282-8dc1-9e42f33cff20?mode=deep",
+    "timestamp": "2026-01-09 22:25:46.195949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 19] [Disable Timing Attack] Can an attacker exploit MsgDisableTokenWrapper registration to disable the bridge immediately before a large cross-chain transfer completes, causing tokens to be stuck in transit permanently? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ce93862-8223-4e57-a653-5e62254b58c8?mode=deep",
+    "timestamp": "2026-01-09 22:26:08.766807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 18-19] [State Transition Attack] Does the codec enforce proper state transition validation between enable/disable messages, or can an attacker craft messages that put the bridge in an inconsistent state (e.g., simultaneously enabled and disabled)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3e15fa3-ae70-4fd0-83d8-c12b634bb4ba?mode=deep",
+    "timestamp": "2026-01-09 22:26:33.270626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 18-19] [Bridge Control] Can an attacker exploit the registration of MsgEnableTokenWrapper and MsgDisableTokenWrapper to repeatedly enable/disable the bridge, causing DoS by preventing legitimate cross-chain transfers during critical periods? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6dfd13ce-e3e9-4e48-af50-bb1a48211b35?mode=deep",
+    "timestamp": "2026-01-09 22:26:57.633775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 16-17] [Race Condition] Can the sequential registration of MsgProposeOperatorAddress before MsgClaimOperatorAddress create a race condition where an attacker claims operator privileges before the proposal is fully validated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46e8a935-97b6-44e5-99a8-2087318584ba?mode=deep",
+    "timestamp": "2026-01-09 22:27:21.307029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 16-17] [Address Format Bypass] Does the codec properly validate address formats for operator transfer messages, or can an attacker register messages with malformed addresses that bypass validation checks in ValidateBasic()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b1516a9-bc29-48cc-a9ff-9e29debd7cf7?mode=deep",
+    "timestamp": "2026-01-09 22:27:44.721226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 16-17] [Operator Transfer Exploit] Can an attacker exploit the registration of MsgProposeOperatorAddress and MsgClaimOperatorAddress to perform a front-running attack where they claim operator privileges before the legitimate operator, gaining complete control over the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_abd9f037-6ecd-4e6f-91fd-acdec0316a36?mode=deep",
+    "timestamp": "2026-01-09 22:28:08.519711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 15] [Balance Validation] Can the registration of MsgWithdrawFromModuleWallet allow withdrawal requests that exceed module balances, causing state inconsistencies when the message is processed across different validators with varying state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03941c59-a3a1-4d19-b708-4c8cd6f961f6?mode=deep",
+    "timestamp": "2026-01-09 22:28:33.522452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 15] [Withdrawal Authorization] Does the codec registration for MsgWithdrawFromModuleWallet enforce proper authorization checks, or can an attacker craft unauthorized withdrawal messages that drain the module wallet when deserialized by Byzantine validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82ee381f-3b4b-4cde-b3fd-94e49a5cd58c?mode=deep",
+    "timestamp": "2026-01-09 22:28:59.493456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 14] [Denomination Validation] Can the MsgFundModuleWallet registration be exploited to fund the module wallet with invalid or malicious denominations that bypass coin validation, allowing attackers to inject fake tokens into the bridge? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc6d59dd-fb88-4678-8ae7-c0910a5eb1fd?mode=deep",
+    "timestamp": "2026-01-09 22:29:21.638904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 14] [Coin Amount Overflow] Does the codec registration for MsgFundModuleWallet properly handle integer overflow in coin amounts during serialization/deserialization, or can an attacker craft messages with overflow amounts to artificially inflate module wallet balances? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_74505348-2968-4126-98ee-013062b26ed0?mode=deep",
+    "timestamp": "2026-01-09 22:29:44.976392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 13] [Parameter Injection] Can the registration of MsgUpdateParams allow parameter injection attacks where an attacker embeds malicious parameters during serialization that get executed during deserialization, compromising module state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96921b57-3a33-43ec-befc-0b4a4be8f281?mode=deep",
+    "timestamp": "2026-01-09 22:30:09.533838",
+    "report_generated": false
   }
 ]
