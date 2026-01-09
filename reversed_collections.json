@@ -2698,5 +2698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2a77869-b9c2-43fb-895e-d8c93db3cf12?mode=deep",
     "timestamp": "2026-01-09 10:40:43.544657",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomURI()] [Hash algorithm confusion] The URIHash field doesn't specify the hashing algorithm (SHA256 assumed) - can a contract provide hashes using different algorithms to bypass validation or create confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1895f886-2334-45be-a026-67a90336ed31?mode=deep",
+    "timestamp": "2026-01-09 10:41:56.093876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomURI()] [URI length DoS] Can a contract set an extremely long URI (e.g., megabytes) that causes storage bloat, increases state sync time, or causes DoS when validators try to process or validate it? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e2db049-4816-44b0-8ec4-43cb0e9cf321?mode=deep",
+    "timestamp": "2026-01-09 10:42:08.421797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomURI()] [URIHash mismatch] Can a contract provide a URI and URIHash that don't match, causing wallets to reject the metadata or display warnings, effectively making the token appear invalid or scam-like? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e1205eb-e8e9-4ed8-bda0-80ea34502c70?mode=deep",
+    "timestamp": "2026-01-09 10:42:21.714023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomURI()] [URI injection] At lines 406-411, URI and URIHash are passed without validation - can a contract set URIs pointing to malicious content, phishing sites, or IPFS hashes containing malware that wallets automatically fetch? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d6afa2e-0f84-41c8-b7e2-7fb5db83f20a?mode=deep",
+    "timestamp": "2026-01-09 10:42:34.734682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: updateDenomMetadataAuth()] [Self-revocation prevention] Can a contract accidentally or maliciously revoke its own metadata admin rights, locking metadata permanently if the contract has no admin recovery mechanism? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_768bd6ed-88c2-451e-84d9-f7cae5390cf3?mode=deep",
+    "timestamp": "2026-01-09 10:42:48.546643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMetadataAuth()] [Contract to EOA handover] Can a contract transfer MetadataAdmin to an externally owned account (EOA), then exploit the fact that EOAs and contracts have different security properties to bypass contract-level restrictions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d3a7083-0f74-42de-8ef5-32ebee77e05f?mode=deep",
+    "timestamp": "2026-01-09 10:43:03.419851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMetadataAuth()] [Authorization check] At line 362, contractAddr.String() is used as sender - does the keeper verify that the contract is actually the current metadata admin before allowing the update? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3078f234-c7a2-4eff-ba55-6087970d9229?mode=deep",
+    "timestamp": "2026-01-09 10:43:18.843847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMetadataAuth()] [Immediate effect] Does UpdateDenomMetadataAuth take effect immediately, or can a malicious admin front-run legitimate metadata updates to change admin rights just before losing control? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98f75b0d-84ba-4e38-b8e6-456ed13f23af?mode=deep",
+    "timestamp": "2026-01-09 10:43:35.804298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMetadataAuth()] [Metadata admin revocation] At lines 362-366, a contract can update the MetadataAdmin - can the current admin change it to address zero to permanently lock metadata updates, or to a lost/burned address making metadata immutable forever? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19e5d107-fbba-48cb-8be2-8bbe7143fc82?mode=deep",
+    "timestamp": "2026-01-09 10:43:54.019256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformProposeDenomAuth()] [Cross-denom proposals] Can a contract propose admin changes for multiple denoms in rapid succession to exploit race conditions in proposal acceptance logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c2d6330-f933-4697-90d0-4e9dab98ee2b?mode=deep",
+    "timestamp": "2026-01-09 10:44:12.966678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: proposeDenomAuth()] [ClaimDenomAdmin missing] The bindings include ClaimDenomAdmin in ZMsg but it's not handled in DispatchMsg - can this cause inconsistent proposal flows if users expect to claim after proposal? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_841d0aeb-b647-4ba1-8db5-c0b44c57b0e9?mode=deep",
+    "timestamp": "2026-01-09 10:44:33.326481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformProposeDenomAuth()] [Admin proposal spam] Can a malicious contract repeatedly call ProposeDenomAdmin to spam proposal state, causing DoS by filling storage or making legitimate proposals hard to track? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de698209-5714-43f4-a376-7f897ade0462?mode=deep",
+    "timestamp": "2026-01-09 10:44:54.265724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformProposeDenomAuth()] [Split admin rights] At lines 316-317, BankAdmin and MetadataAdmin can be set to different addresses - can this create ambiguity about who controls what, enabling social engineering attacks or disputes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8453ab35-a18a-47b8-b097-b775e9c3547c?mode=deep",
+    "timestamp": "2026-01-09 10:45:15.737702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformProposeDenomAuth()] [Module account admin] Can a contract propose module accounts (e.g., 'tokenwrapper', 'dex') as admin, potentially granting those modules unintended control over user-created denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e389f77d-a4c8-405c-a2b7-368ad1a0d821?mode=deep",
+    "timestamp": "2026-01-09 10:45:37.953675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformProposeDenomAuth()] [Zero address admin] Can a contract propose the zero address (empty string) as admin to permanently lock admin functions, making the denom immutable and potentially breaking critical operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4b33708-1f56-415e-adfc-bcdb215f19aa?mode=deep",
+    "timestamp": "2026-01-09 10:46:00.591065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformProposeDenomAuth()] [Proposal without claim] Does ProposeDenomAdmin create a pending proposal that requires acceptance, or can the proposed admin immediately take control? If immediate, can this be exploited to perform admin takeover without victim consent? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61470a4b-0162-4990-a5fb-4e25b11bd7a4?mode=deep",
+    "timestamp": "2026-01-09 10:46:24.154433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformProposeDenomAuth()] [Admin takeover] At lines 313-318, a contract can propose new BankAdmin and MetadataAdmin addresses - can a malicious contract propose itself or a controlled address as admin for denoms it doesn't own, then exploit race conditions to claim admin rights before the legitimate owner? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4da7cd99-d045-49c6-89f3-5343aae30c56?mode=deep",
+    "timestamp": "2026-01-09 10:46:47.167813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformMintAndSendTokens()] [Supply tracking] If minting succeeds but supply tracking fails, can this cause total supply to be underreported, leading to inflation beyond intended caps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69a329b3-12f7-405a-935c-dc48052c5c6c?mode=deep",
+    "timestamp": "2026-01-09 10:47:10.055941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: mintAndSendTokens()] [Self-minting] Can a contract mint tokens directly to its own address to bypass token distribution logic or create artificial liquidity for malicious purposes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_640daa89-c9a2-40f3-b92a-8efe2905e7d3?mode=deep",
+    "timestamp": "2026-01-09 10:47:34.426172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformMintAndSendTokens()] [Blacklisted addresses] Can a contract mint and send tokens to blacklisted or sanctioned addresses, bypassing compliance checks that may exist in normal user transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34fa17da-c411-46a0-aa2d-c827d7bab1c2?mode=deep",
+    "timestamp": "2026-01-09 10:48:00.112709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformMintAndSendTokens()] [Denom mismatch] Can a contract mint tokens with a denom that doesn't belong to it (e.g., minting factory/otherContract/token) by exploiting insufficient authorization checks in the keeper? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ceb425f-f3bc-4bca-b975-07f4d4e0eb63?mode=deep",
+    "timestamp": "2026-01-09 10:48:24.936288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformMintAndSendTokens()] [Negative amounts] Does the Token.Amount validation properly reject negative amounts, or can a contract exploit sdk.Coin to specify negative minting that actually burns tokens from arbitrary accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b774b008-9de8-44ad-b417-006747e4c21d?mode=deep",
+    "timestamp": "2026-01-09 10:48:50.703185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformMintAndSendTokens()] [Zero amount minting] Can a contract call MintAndSendTokens with zero token amount to bypass validation checks, potentially triggering unexpected code paths or consuming gas without state changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_395f35c3-830d-4096-aa32-57880a205269?mode=deep",
+    "timestamp": "2026-01-09 10:49:15.331688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformMintAndSendTokens()] [Recipient validation] At line 263, the Recipient string is passed directly - can a contract provide malformed recipient addresses that cause panics, or valid addresses of critical system modules to mint tokens directly into module accounts and drain them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4591158f-aa29-4a12-afa6-3e6874e4a4f5?mode=deep",
+    "timestamp": "2026-01-09 10:49:40.372823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformMintAndSendTokens()] [Integer overflow] Can a contract specify mintAndSendTokens.Token.Amount with values near math.MaxInt that cause overflow when added to existing supply, wrapping around to small values and bypassing cap checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea22389d-6a27-4324-a3e4-0349df256b90?mode=deep",
+    "timestamp": "2026-01-09 10:50:05.937710",
+    "report_generated": false
   }
 ]
