@@ -4048,5 +4048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a89c3a0d-70e4-44a4-b750-7e5baae5b773?mode=deep",
     "timestamp": "2026-01-09 13:02:58.365018",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Time zone attack] Do the StartTime and EndTime fields (lines 22-23) account for time zone differences, or could attackers exploit UTC vs local time mismatches to manipulate vesting schedules? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4410af1b-c3b6-4c21-8290-7c09a1da560b?mode=deep",
+    "timestamp": "2026-01-09 13:04:17.447431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Leap second handling] Can an attacker exploit leap seconds or calendar edge cases (like February 29) in the UNIX Epoch time representation to create off-by-one errors in vesting calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cf18390-25df-4841-8625-e7996c59c941?mode=deep",
+    "timestamp": "2026-01-09 13:04:29.954187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Memory exhaustion] Can an attacker create a GenesisAccount with extremely large OriginalVesting coin arrays (thousands of different denominations) that pass validation but cause memory exhaustion during genesis initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68fe9b08-d423-4055-9427-d13a8986e7e2?mode=deep",
+    "timestamp": "2026-01-09 13:04:42.540139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Module permission DoS] Can an attacker set ModulePermissions to an array with thousands of permission strings that pass validation but cause excessive gas consumption during permission checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4200858-c2e8-4b90-b57d-31c8d1b5f404?mode=deep",
+    "timestamp": "2026-01-09 13:04:55.937462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Deep recursion] If BaseAccount.Validate() or ModuleAccount.Validate() involve deep recursion, could an attacker craft nested account structures that cause stack overflow during validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cfbcfb1-603d-4e6e-ba11-c15e89675296?mode=deep",
+    "timestamp": "2026-01-09 13:05:09.657546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Embedded struct mutation] Since BaseAccount is embedded as a pointer (line 16), can an attacker modify the BaseAccount after validation passes but before genesis initialization, bypassing validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fddf6c82-c10e-47af-a53a-5fede9548c8b?mode=deep",
+    "timestamp": "2026-01-09 13:05:24.621487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Field shadowing] Can the embedded BaseAccount fields shadow any of the GenesisAccount fields (like if BaseAccount also had a ModuleName field), causing ambiguity and validation bypass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19d838e2-a0c7-41c8-97a4-d23c4f0daf20?mode=deep",
+    "timestamp": "2026-01-09 13:05:40.796987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Type assertion failure] When creating the ModuleAccount at line 39, if the BaseAccount pointer is nil, does the type assertion fail gracefully or cause a panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c4281a4-e321-403d-be43-1ab9d5edf9db?mode=deep",
+    "timestamp": "2026-01-09 13:05:57.567631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Delegation consistency] Can an attacker set DelegatedFree + DelegatedVesting to exceed OriginalVesting, causing the vesting account to claim more delegated coins than it owns? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a78d3393-dc71-495e-a03c-84d32678c85f?mode=deep",
+    "timestamp": "2026-01-09 13:06:15.674114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Negative delegation] If DelegatedFree or DelegatedVesting is set to negative values through unsafe deserialization, could this cause token duplication when delegation is undone? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae0c22a8-053c-4d63-a8d2-9a217ffd7a2d?mode=deep",
+    "timestamp": "2026-01-09 13:06:36.263950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Delegation at genesis] Can an attacker set non-zero DelegatedFree or DelegatedVesting values at genesis without corresponding validator delegation records, creating impossible delegation states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_029ea9f9-61f5-40aa-899a-6e8104218b07?mode=deep",
+    "timestamp": "2026-01-09 13:06:56.722328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Vesting-delegation invariant] Does the validation ensure that if OriginalVesting is zero but DelegatedFree or DelegatedVesting is non-zero, the account is rejected, or can attackers create accounts with delegation but no vesting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b9c63d1-7d9b-4d07-ae70-7b2f8bc7e1c3?mode=deep",
+    "timestamp": "2026-01-09 13:07:18.500619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [TokenWrapper interaction] Can an attacker create a module account with ModuleName='tokenwrapper' and custom ModulePermissions that conflict with the actual TokenWrapper module's permissions, causing bridge drainage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7cfca7d3-af3d-401a-affc-a2ca4770cf97?mode=deep",
+    "timestamp": "2026-01-09 13:07:41.042691",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Factory module conflict] Can an attacker create a GenesisAccount with ModuleName='factory' to hijack the Factory module's token creation permissions, enabling unlimited token minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3362f10-6c67-45fb-ace2-d98e21c5c059?mode=deep",
+    "timestamp": "2026-01-09 13:08:04.105028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [DEX module hijacking] Can an attacker create a module account with ModuleName='dex' to control DEX liquidity pools and drain all AMM reserves at genesis? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0eaab302-f282-4735-b303-73683022eafe?mode=deep",
+    "timestamp": "2026-01-09 13:08:27.723534",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Bank module bypass] Can an attacker create a GenesisAccount with 'minter' permissions to mint unlimited tokens of any denomination, including the native ZIG token and IBC vouchers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a56afa90-b081-4de9-be37-7699032d60c1?mode=deep",
+    "timestamp": "2026-01-09 13:08:52.677281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [IBC module conflict] Can an attacker create a module account that impersonates the IBC module to intercept or manipulate cross-chain token transfers during genesis initialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23281d96-4f82-46f8-825d-284dbefa84e8?mode=deep",
+    "timestamp": "2026-01-09 13:09:16.690883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Validation order bypass] Since vesting validation (lines 32-36) occurs before module validation (lines 38-44), can an attacker set both vesting and module fields to create accounts that pass individual checks but are invalid in combination? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a17eccea-71de-4a37-8b2b-4973626d6029?mode=deep",
+    "timestamp": "2026-01-09 13:09:41.386027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Short-circuit exploitation] Can an attacker exploit the short-circuit evaluation at line 32 (!sga.OriginalVesting.IsZero()) to skip time validation by setting OriginalVesting to a specific coin configuration that returns true for IsZero()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1eb707e-ca6b-4861-9257-6d9cfeeb4699?mode=deep",
+    "timestamp": "2026-01-09 13:10:07.435665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Multiple return paths] The Validate() function has multiple return points (lines 34, 43, 47) - could an attacker craft input that causes early return before critical validation at line 47? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10610513-68e6-4e21-bded-4ac2aaef18ba?mode=deep",
+    "timestamp": "2026-01-09 13:10:34.210242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Validation completeness] Does the Validate() function check ALL invariants for a GenesisAccount, or are there unchecked fields that could be exploited (like unchecked relationships between vesting and delegation amounts)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cec34e77-9300-4a60-a754-ae848a439ba4?mode=deep",
+    "timestamp": "2026-01-09 13:11:00.264269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Consensus divergence] Can different validators receive slightly different GenesisAccount JSON (due to floating point precision, whitespace, or encoding differences) that all pass Validate() but cause consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91a32fac-b2fa-4453-b63f-846a3486c4e0?mode=deep",
+    "timestamp": "2026-01-09 13:11:26.883071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Determinism] Is the Validate() function deterministic across all platforms and Go versions, or could differences in error message generation or validation logic cause consensus splits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42c8e17d-64bf-401b-a2ad-7e270e65eb22?mode=deep",
+    "timestamp": "2026-01-09 13:11:52.995573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Genesis hash manipulation] Can an attacker craft a GenesisAccount with specific field values that alter the genesis state hash in a way that's accepted by 1/3+ Byzantine validators to fork the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_053537a0-db33-4305-8327-841d525a4a15?mode=deep",
+    "timestamp": "2026-01-09 13:12:17.045901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Backward compatibility] If the GenesisAccount struct changes in a chain upgrade, can old genesis accounts with missing fields pass validation but cause state corruption in the new version? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_892332a9-1c65-444a-8009-1aa53e57e2e8?mode=deep",
+    "timestamp": "2026-01-09 13:12:42.244392",
+    "report_generated": false
   }
 ]
