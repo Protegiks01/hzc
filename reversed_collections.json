@@ -2248,5 +2248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85fb69cb-9c3e-4bfa-851c-547c9683aedc?mode=deep",
     "timestamp": "2026-01-09 10:11:08.387419",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/stargate_whitelist.go] [Function: init()] [Race condition] Can a malicious contract exploit the init() function's sequential whitelist registration to trigger race conditions if multiple goroutines access stargateResponsePools before initialization completes, causing non-deterministic query results that lead to consensus failure across validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a059fc96-758f-4474-977f-7774971fb487?mode=deep",
+    "timestamp": "2026-01-09 10:12:12.200080",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: All functions] [Panic recovery] None of the functions have explicit panic recovery - can panics in underlying keeper operations crash the validator node or cause consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8b96f9e-7b3a-4956-b6e1-5dd187dd4d82?mode=deep",
+    "timestamp": "2026-01-09 10:12:24.394005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: CustomMessenger] [Wrapped messenger bypass] At line 134, non-custom messages are delegated to wrapped messenger - can a malicious contract craft messages that appear non-custom but exploit the wrapped messenger to bypass security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0df5a39-1397-4af4-9fd1-306a6e359328?mode=deep",
+    "timestamp": "2026-01-09 10:12:37.036690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Nil context validation] The ctx sdk.Context parameter is not validated for nil - can passing a nil or malformed context cause panics or undefined behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31c0bac5-b388-4fea-9d53-e4b73f2cff14?mode=deep",
+    "timestamp": "2026-01-09 10:12:50.127303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: All wrapper functions] [Error context loss] When errors are wrapped with errorsmod.Wrap, does this preserve all necessary context for debugging and security monitoring, or is critical information lost? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a89da804-2732-42d9-969d-42658ebd0f26?mode=deep",
+    "timestamp": "2026-01-09 10:13:04.080040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [Unused bank keeper] The bank keeper parameter at line 154 is explicitly ignored with underscore - does this indicate missing balance checks that should validate the contract has sufficient funds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6002bc20-06b9-4fdb-bf12-a413ea6f3f16?mode=deep",
+    "timestamp": "2026-01-09 10:13:18.768744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: All Perform functions] [ValidateBasic bypass] All functions call msgXYZ.ValidateBasic() - but are these validation functions comprehensive, or can malformed data pass ValidateBasic and cause issues in keeper logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5e343ca-c685-4fad-a2c1-f898c7b36bc6?mode=deep",
+    "timestamp": "2026-01-09 10:13:34.997787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Message type exhaustion] The switch statement handles 13 message types - can adding new message types in the future cause switch statement collisions or unexpected fallthrough behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_abc4d374-cd10-4de4-89ee-6f6a440a2dd3?mode=deep",
+    "timestamp": "2026-01-09 10:13:52.389100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: CustomMessenger] [Module account protection] Can contracts interact with module accounts (e.g., 'tokenwrapper' module, 'dex' module) to drain their balances or manipulate their state through the custom messages? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e357b43-7b39-4b88-9447-0ba6f3ab433a?mode=deep",
+    "timestamp": "2026-01-09 10:14:10.827852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: All Perform functions] [Authorization model] All Perform functions use contractAddr as the sender - does this mean any contract can perform these operations, or is there additional authorization checking in the underlying keepers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48d26e22-ab59-4d99-9db3-0021e263d454?mode=deep",
+    "timestamp": "2026-01-09 10:14:30.105647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Error propagation] When operations fail with errors at lines 146, 199, 243, etc., are these errors properly propagated to cause full transaction reversion, or can some state changes persist despite errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_000f1011-7f6f-408e-9a59-a7d84b66ed8f?mode=deep",
+    "timestamp": "2026-01-09 10:14:50.379868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: CustomMessenger] [Bank keeper usage] At line 51, bank keeper is stored but never used in the file - is this a vestigial parameter that could indicate missing validation checks that should use bank keeper? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5d3d657-ef16-412a-bd8e-194fea1b3219?mode=deep",
+    "timestamp": "2026-01-09 10:15:11.500030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Event ordering] If multiple operations emit events, can event ordering be exploited to confuse off-chain indexers or monitoring systems about the actual sequence of operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1c9beb8-cb53-4012-8b9a-20bd7fc55759?mode=deep",
+    "timestamp": "2026-01-09 10:15:33.990272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: CustomMessageDecorator()] [Keeper reference safety] At lines 26-28, keepers are passed by pointer - can concurrent contract executions cause race conditions when multiple contracts access the same keeper state simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2bd85ed-f489-4573-96f3-79889b6f135d?mode=deep",
+    "timestamp": "2026-01-09 10:15:57.049559",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: CustomMessenger] [Cross-module reentrancy] Can a contract exploit interactions between Factory and DEX modules (e.g., create token, immediately create pool, mint more, swap) within a single transaction to bypass security checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbf0ab21-08d9-465a-9daa-e6b51c379b76?mode=deep",
+    "timestamp": "2026-01-09 10:16:19.981239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Gas exhaustion] Can a malicious contract craft messages that consume excessive gas during validation or execution, causing transactions to run out of gas after partial state changes are committed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6767d67b-f424-4a94-80c2-50e65d81ac42?mode=deep",
+    "timestamp": "2026-01-09 10:16:44.690520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: CustomMessenger] [State atomicity] If a contract calls multiple operations in sequence (e.g., CreateDenom, then MintAndSendTokens, then CreatePool), and the last one fails, are all previous operations rolled back atomically, or can partial state changes persist? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b91b642-5daf-44ff-9bd1-01e43c55f323?mode=deep",
+    "timestamp": "2026-01-09 10:17:10.076798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformRemoveLiquidity()] [Reentrancy during LP burn] Can a malicious LP token (if it's an extended CW20) reenter during burning to manipulate pool reserves before Base/Quote tokens are transferred? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b55a47e-7dac-4837-b598-1cde968f2cdc?mode=deep",
+    "timestamp": "2026-01-09 10:17:35.829436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: removeLiquidity()] [Minimum output protection] Does RemoveLiquidity have minimum output protection, or can a contract be sandwiched by MEV bots manipulating pool price just before liquidity removal? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6e69afe-adcb-4f46-9892-6a230fdecc9c?mode=deep",
+    "timestamp": "2026-01-09 10:18:01.126650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformRemoveLiquidity()] [LP token from different pool] Can a contract provide LP tokens from Pool A but specify Pool B's ID, causing accounting errors or fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62f680a9-df32-48ec-88df-751d53773460?mode=deep",
+    "timestamp": "2026-01-09 10:18:27.714927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformRemoveLiquidity()] [Pool drainage] Can a contract remove all liquidity from a pool, setting reserves to zero and causing division by zero errors for subsequent swaps or liquidity additions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07aab3b7-3576-4dd1-abd5-f3894efc1b14?mode=deep",
+    "timestamp": "2026-01-09 10:18:52.894858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformRemoveLiquidity()] [Partial LP burn] Can a contract burn only part of its LP tokens in a way that causes rounding errors, extracting more Base/Quote than deserved over multiple partial withdrawals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_396dc8ea-9fbe-4258-b482-b3b36802c671?mode=deep",
+    "timestamp": "2026-01-09 10:19:18.740396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformRemoveLiquidity()] [Zero LP token removal] Can a contract call RemoveLiquidity with zero LPToken amount to probe pool state or trigger edge cases without actually removing liquidity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6673b358-0c7e-4cbe-a7eb-b78b9c6e9876?mode=deep",
+    "timestamp": "2026-01-09 10:19:44.979934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformRemoveLiquidity()] [Receiver address manipulation] At line 720, withdrawn tokens can be sent to arbitrary Receiver - can a contract remove liquidity but send funds to a victim's address, forcing them to receive tokens and violating whitelists? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bdb085be-780f-4080-b30a-76d753ccc008?mode=deep",
+    "timestamp": "2026-01-09 10:20:12.762338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformRemoveLiquidity()] [LP token burning] At lines 717-721, LPToken is burned to remove liquidity - does the function verify the contract owns these tokens, or can it burn LP tokens from arbitrary addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ca3976f-1e09-446b-903d-a36a96c90a46?mode=deep",
+    "timestamp": "2026-01-09 10:20:40.995707",
+    "report_generated": false
   }
 ]
