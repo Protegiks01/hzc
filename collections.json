@@ -1198,5 +1198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26a789e9-bce3-4549-b702-1de2bcda80b2?mode=deep",
     "timestamp": "2026-01-09 08:42:08.148978",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBCv2 missing tokenwrapper] The IBCv2 stack (lines 233-241) does NOT include tokenwrapper middleware. Can an attacker force packets through the v2 route to bypass decimal conversion entirely, creating 18-decimal tokens on a 6-decimal chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aede4af4-9d56-42fb-8eb1-7719e9b42202?mode=deep",
+    "timestamp": "2026-01-09 08:43:26.064462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBCv2 missing PacketForward] The IBCv2 stack doesn't include PacketForward middleware. Can this be exploited to bypass forwarding security checks or rate limits by routing through v2? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32f054f3-bfc8-433a-ae92-08b3d70c8004?mode=deep",
+    "timestamp": "2026-01-09 08:43:38.547397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBCv2 callbacks gas limit] The IBCv2 callbacks (line 234) use the same MaxIBCCallbackGas (line 239). Can an attacker exploit v2-specific callback behaviors to consume more gas than allowed or bypass gas limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da779732-fdff-4261-922e-6e6c5e91167d?mode=deep",
+    "timestamp": "2026-01-09 08:43:51.229275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBCv2 ChannelKeeperV2 differences] The v2 stack uses ChannelKeeperV2 (lines 236, 238). Can differences between v1 and v2 ChannelKeeper APIs be exploited to bypass channel state validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_662911a2-0f73-4cf8-a7c1-2ca49ffcbbe4?mode=deep",
+    "timestamp": "2026-01-09 08:44:04.649987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBCv2 ratelimit compatibility] The v2 stack uses ratelimitv2 (line 241). Can an attacker exploit differences between v1 and v2 rate limiting to exceed limits by spreading packets across both protocol versions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44494e54-dcce-4d9c-831e-40a2d979f58a?mode=deep",
+    "timestamp": "2026-01-09 08:44:19.626992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA host stack isolation] The icaHostStack (line 244) is a simple wrapper. Can an attacker bypass ICA security by exploiting the lack of rate limiting or callbacks in the ICA host stack? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29fc23a6-e749-42ec-8969-b70593eadaa7?mode=deep",
+    "timestamp": "2026-01-09 08:44:34.619172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA controller callbacks exploitation] The ICA controller stack includes callbacks (lines 248-253). Can an attacker inject malicious callbacks that execute arbitrary code during ICA operations, stealing funds or corrupting state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2682f049-74c3-494b-af98-119a5b16a945?mode=deep",
+    "timestamp": "2026-01-09 08:44:50.455301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA controller ChannelKeeper vs wasmStack] The callbacks use ChannelKeeper (line 250) and wasmStack (line 251). Can an attacker exploit inconsistencies between channel state and WASM contract state to bypass ICA validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65bf08aa-97a4-4ad2-a12f-b7c79645eeaf?mode=deep",
+    "timestamp": "2026-01-09 08:45:07.517636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA ICS4Wrapper type assertion] Line 254 performs a type assertion to porttypes.ICS4Wrapper. Can this assertion fail in certain scenarios, causing panics that crash validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d80c3bab-92d9-4a50-93e2-8a0bb8a117a9?mode=deep",
+    "timestamp": "2026-01-09 08:45:26.552640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA WithICS4Wrapper security] Line 255 calls WithICS4Wrapper. Can an attacker exploit this to replace the ICS4Wrapper with a malicious implementation that bypasses ICA security checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8cf6f3d-b6b5-413a-9cda-e9a16e012dad?mode=deep",
+    "timestamp": "2026-01-09 08:45:45.826802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Router port collision] The ibcRouter (line 258) registers multiple routes (lines 259-262). Can an attacker exploit port name collisions between icahosttypes.SubModuleName, icacontrollertypes.SubModuleName, ibctransfertypes.ModuleName, and wasmtypes.ModuleName? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e167bb6e-81a4-4f67-b511-02fc53d14fb4?mode=deep",
+    "timestamp": "2026-01-09 08:46:06.315543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Router sealing bypass] After SetRouter (line 271), the router is sealed. Can an attacker exploit race conditions during the sealing process to add malicious routes that persist after sealing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5c81ef2-796a-474b-b95c-f626387adb40?mode=deep",
+    "timestamp": "2026-01-09 08:46:28.061998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBCv2 router route collision] The ibcv2Router (line 265) uses ibctransfertypes.PortID (line 266). Can an attacker exploit differences between ModuleName and PortID to create routing conflicts between v1 and v2? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64540fa4-8e4a-4bb4-b964-6ba370558dc7?mode=deep",
+    "timestamp": "2026-01-09 08:46:50.713943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [SetRouterV2 before SetRouter] SetRouterV2 (line 267) is called before SetRouter (line 271). Can this ordering be exploited to make v2 routing take precedence over v1, bypassing v1 security middleware? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96db7691-64a7-4874-920d-711bf2e44ddf?mode=deep",
+    "timestamp": "2026-01-09 08:47:14.142146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Router modification after sealing] Can an attacker exploit module reinitialization or upgrade mechanisms to modify the sealed routers (lines 267, 271) after initialization, injecting malicious routes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a888b49-eb22-4b50-bb31-bf21b38fee45?mode=deep",
+    "timestamp": "2026-01-09 08:47:38.507788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM query plugin AcceptList bypass] The AcceptListStargateQuerier (line 279) only allows three query paths (lines 280-282). Can an attacker craft malicious queries that bypass the accept list using path traversal or encoding tricks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb1bb489-ddec-42d5-82c4-1dd506e41686?mode=deep",
+    "timestamp": "2026-01-09 08:48:05.912016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM query ClientState exploitation] The allowed query /ibc.core.client.v1.Query/ClientState (line 280) can reveal sensitive client information. Can an attacker exploit this to extract private validator keys or forge client proofs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3cd33f8-27a9-4213-825a-92eb517e215b?mode=deep",
+    "timestamp": "2026-01-09 08:48:31.940339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM query ConsensusState manipulation] The allowed query /ibc.core.client.v1.Query/ConsensusState (line 281) can return consensus state. Can an attacker manipulate consensus state queries to make WASM light clients accept invalid state transitions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2eeeb822-3b35-408a-a12c-12632200c801?mode=deep",
+    "timestamp": "2026-01-09 08:48:58.671542",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM query Connection exploitation] The allowed query /ibc.core.connection.v1.Query/Connection (line 282) can reveal connection details. Can an attacker use this to learn about connection topology and launch targeted attacks on specific connections? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5d49972-2f2d-4f69-9b5b-d6f08d94e6ac?mode=deep",
+    "timestamp": "2026-01-09 08:49:26.249870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM custom querier BLS exploit] The Custom querier uses blsverifier.CustomQuerier() (line 284). Can an attacker exploit BLS signature verification in the custom querier to forge light client proofs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0cc566c-8b6f-4a6b-a4b7-7926a0d651ee?mode=deep",
+    "timestamp": "2026-01-09 08:49:53.991866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM query router access] The query plugins use app.GRPCQueryRouter() (line 283). Can an attacker exploit the query router to access queries outside the accept list by crafting specially-formatted query paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_925169b2-92c0-413c-8fa5-a202bc4064c7?mode=deep",
+    "timestamp": "2026-01-09 08:50:21.300342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM home directory injection] The homePath (lines 288-293) can be overridden via appOpts. Can an attacker inject a malicious home directory path that points to attacker-controlled WASM bytecode? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b548884-57de-4485-b68d-1e9db40bc230?mode=deep",
+    "timestamp": "2026-01-09 08:50:50.513079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM dataDir path traversal] The dataDir (line 294) uses filepath.Join with user-controlled homePath. Can an attacker exploit path traversal to make the WASM VM load bytecode from arbitrary filesystem locations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af5ab289-76e1-4707-a559-fb53e9bc47ab?mode=deep",
+    "timestamp": "2026-01-09 08:51:18.572367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM VM memory cache overflow] The memCacheSizeMB is hardcoded to 100 (line 296). Can an attacker craft light client contracts that exceed this cache, causing memory exhaustion DoS on validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b853915f-9cd7-47f4-a55d-a8c6e39d3047?mode=deep",
+    "timestamp": "2026-01-09 08:51:46.670743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM VM capabilities bypass] The VM uses wasmkeeper.BuiltInCapabilities() (line 297). Can an attacker exploit missing capability checks to execute privileged operations from light client contracts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7ce08a2-0d5e-4d01-b8bf-f26a5c823045?mode=deep",
+    "timestamp": "2026-01-09 08:52:14.026667",
+    "report_generated": false
   }
 ]
