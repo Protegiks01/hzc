@@ -9448,5 +9448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cffa624-8285-4752-953f-815d7e208b4b?mode=deep",
     "timestamp": "2026-01-09 22:15:22.786135",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Pool Enumeration] Can an attacker use ListPool() pagination to enumerate all pool IDs in the system, then use this information to predict future pool IDs and front-run pool creation transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2385cccf-616c-4639-98dc-a4742da9cb64?mode=deep",
+    "timestamp": "2026-01-09 22:16:40.458440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Finality Assumptions] Do these query functions assume block finality, or can an attacker exploit them on chains with probabilistic finality to query pool states that might be reverted in chain reorganizations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8495a9f-71cb-473b-879f-5c8fccafb3fc?mode=deep",
+    "timestamp": "2026-01-09 22:16:52.753531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Pagination Boundary] Can an attacker craft pagination parameters to repeatedly request the boundary between two pages, causing duplicate processing of pools and amplifying resource consumption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2500366-95d2-4727-8d52-355ca3ee8051?mode=deep",
+    "timestamp": "2026-01-09 22:17:05.417003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPool()] [Pool ID Bruteforce] Can an attacker bruteforce pool IDs using GetPool() to discover the existence of private or restricted pools that are not intended to be publicly queryable? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1dd8e238-a6cb-4eca-baf9-2785b70561db?mode=deep",
+    "timestamp": "2026-01-09 22:17:19.444973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Front-Running] Can traders use GetPoolBalances() in the mempool to observe pending swaps based on expected balance changes, then front-run these transactions using their own higher-fee swaps? (High - MEV issue)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b849a6e-e6d5-4809-9559-310dbb2d2a9b?mode=deep",
+    "timestamp": "2026-01-09 22:17:33.138569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Query Gas Limits] Are there sufficient gas limits on query execution to prevent attackers from crafting queries that consume excessive CPU time during pagination or balance retrieval? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59e30c8d-2589-4bd4-81ae-36a78d7648d3?mode=deep",
+    "timestamp": "2026-01-09 22:17:48.163544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Decimal Precision] When querying balances of IBC-bridged tokens that underwent 18→6 decimal conversion, does GetPoolBalances() show raw 6-decimal amounts or scaled amounts, potentially confusing clients? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc60721f-d704-4df5-8810-77899d992994?mode=deep",
+    "timestamp": "2026-01-09 22:18:04.115287",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Store Iterator Exhaustion] Can an attacker create millions of pools to exhaust the iterator limit in query.Paginate(), causing ListPool() to fail for all users even with valid pagination parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e95f0064-107c-4b5a-a2ce-b231909b8f94?mode=deep",
+    "timestamp": "2026-01-09 22:18:21.297256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPool()] [Creator Address Leak] Does GetPool() return the creator address in the pool metadata, and can this information be used to link pseudonymous addresses across multiple pools or identify high-value targets? (Low - privacy issue)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cad5cada-72e0-4cd9-b3ec-f68963fabbf9?mode=deep",
+    "timestamp": "2026-01-09 22:18:40.169502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Fee Calculation] Can an attacker query balances before and after a swap to reverse-engineer the exact fee structure and identify pools with misconfigured fees for arbitrage exploitation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56cd46bd-17dc-4bca-b9ab-15159c2d7bbe?mode=deep",
+    "timestamp": "2026-01-09 22:18:58.820095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Byzantine Validator Queries] Can Byzantine validators (up to 1/3) return false query results from these functions to mislead light clients or off-chain systems about pool liquidity and reserves? (Critical - trust assumption)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_157f3aab-6275-45ef-bb3b-ca29d1965ebf?mode=deep",
+    "timestamp": "2026-01-09 22:19:19.164903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Consensus Dependency] Does ListPool() depend on consensus state, and can an attacker exploit non-deterministic query results during consensus failures to cause different validators to return different pool lists? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29994e14-f63c-4cc8-8422-969d1ff3a7b2?mode=deep",
+    "timestamp": "2026-01-09 22:19:39.954737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Light Client Verification] Can light clients verify the authenticity of balances returned by GetPoolBalances() using Merkle proofs, or must they trust the queried validator, creating a vector for false balance reporting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee0ff3d3-fdaf-4bb6-93b4-a4560d181385?mode=deep",
+    "timestamp": "2026-01-09 22:20:01.379447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Query Result Determinism] Are query results guaranteed to be deterministic across all validators at the same block height, or can slight timing differences cause GetPool() and GetPoolBalances() to return different results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ea0f363-f35f-4d18-8c86-022d8fbd7f9f?mode=deep",
+    "timestamp": "2026-01-09 22:20:23.742182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPool()] [State Proof Availability] Does GetPool() provide state proofs alongside query results, allowing clients to cryptographically verify the pool exists in the committed state tree? (Medium - verification issue)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ff474d5-b25f-4abb-8d98-720672068916?mode=deep",
+    "timestamp": "2026-01-09 22:20:48.135864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Pagination Amplification] Can an attacker send thousands of ListPool() requests with small page sizes to amplify the number of KVStore accesses, causing read amplification and degrading validator performance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a884b56-fe5d-45b4-93dd-4d3c345ba4ff?mode=deep",
+    "timestamp": "2026-01-09 22:21:10.656981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Balance Query Spam] Can an attacker spam GetPoolBalances() queries for pools with thousands of different token denominations to exhaust the bank keeper's query capacity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eabaadac-55e7-427a-a7c5-201b4aa4bd44?mode=deep",
+    "timestamp": "2026-01-09 22:21:34.905862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Query Concurrency] Can an attacker send thousands of concurrent queries to all three functions to exhaust goroutine pools or connection limits in the gRPC server? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_137edee6-bfca-4ec6-b772-0d2d34fa93f4?mode=deep",
+    "timestamp": "2026-01-09 22:21:59.264802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Response Serialization] Can an attacker craft queries that return extremely large response messages that consume excessive CPU during protobuf serialization at line 39, causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_840fa5c5-8f5c-4e7d-92ce-ef2f4b701c97?mode=deep",
+    "timestamp": "2026-01-09 22:22:24.239478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPool()] [Cache Thrashing] If query results are cached, can an attacker query rarely-accessed pools to evict frequently-accessed pool data from cache, degrading performance for legitimate users? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f6d9af4-1280-49dc-b306-b1751b4d90bb?mode=deep",
+    "timestamp": "2026-01-09 22:22:49.241334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Balance Overflow] Can pool balances exceed uint64 max value for high-volume pools, and if so, does GetAllBalances() at line 74 properly handle overflow or truncation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31eb45d4-8897-49ef-8229-4e21b9cc1803?mode=deep",
+    "timestamp": "2026-01-09 22:23:14.112141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPool()] [Pool Metadata Tampering] Can an attacker with store write access (e.g., via governance exploit) modify pool metadata to show incorrect fees or formulas, and will GetPool() detect this tampering? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b3fda5e-6dc1-4f47-b5c3-ea0bd49d4e6a?mode=deep",
+    "timestamp": "2026-01-09 22:23:38.424756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Ordering Attacks] Can an attacker exploit the ordering of pools returned by ListPool() to manipulate pool discovery by aggregators or frontends, hiding certain pools from users? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6eb5b21b-1b9d-4db1-8805-5a670b8bcc1b?mode=deep",
+    "timestamp": "2026-01-09 22:24:01.352612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Phantom Balances] Can the bank keeper return balances for coins that don't actually exist in the pool's expected denoms, indicating potential state corruption or cross-contamination? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e05d26b3-188f-4b6d-8114-7eb28f3ae03c?mode=deep",
+    "timestamp": "2026-01-09 22:24:25.386986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: All] [Store Key Validation] Do these functions validate that the store keys they access are within the expected DEX module namespace, or can an attacker manipulate keys to access data from other modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f856e6c-3b94-42f3-8881-787aced8c061?mode=deep",
+    "timestamp": "2026-01-09 22:24:48.457750",
+    "report_generated": false
   }
 ]
