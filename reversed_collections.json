@@ -6298,5 +6298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91f9a606-be5d-4a00-a267-7328c8acd5b8?mode=deep",
     "timestamp": "2026-01-09 16:19:43.413519",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Silent failure in event emission] After successfully completing the refund at lines 78-85, if EmitTokenWrapperRefundEvent fails or panics, does the entire transaction rollback even though the refund has completed, or do tokens get stuck in an unverifiable state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8a56cfd-093b-4698-a493-b13bfef077d4?mode=deep",
+    "timestamp": "2026-01-09 16:53:07.768180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Nested error wrapping] The error at line 72 wraps an error that already wraps another error from UnlockTokens - can excessive error wrapping cause the original error context to be lost, making it impossible to diagnose the root cause of refund failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4585290-a565-49be-80d8-8e1c4579ada5?mode=deep",
+    "timestamp": "2026-01-09 16:53:20.185003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Error propagation bypass] If LockTokens at line 60 returns an error, the function wraps it at line 61 and returns immediately - can this bypass important cleanup logic that should run regardless of success/failure, leaving the system in an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df814a41-5e1e-491a-9bc0-5f0a48261606?mode=deep",
+    "timestamp": "2026-01-09 16:53:32.920699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Error context loss] At line 48 where CheckAccountBalance error is wrapped with fmt.Errorf, does the error context preserve enough information for upstream handlers to distinguish between different failure modes, or can an attacker exploit ambiguous error messages to trigger incorrect recovery logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aab93e12-e290-4c02-bb56-e5f24d78e1ea?mode=deep",
+    "timestamp": "2026-01-09 16:53:46.070392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [State corruption on panic] If a panic occurs between lines 60-67 after LockTokens succeeds but before UnlockTokens completes, does the transaction rollback properly, or are the locked IBC tokens permanently stuck in the module without any native tokens being released? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c95761f-bede-4328-9767-4187817310a4?mode=deep",
+    "timestamp": "2026-01-09 16:53:59.850600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Double-spend via failed unlock] If UnlockTokens at line 67 fails after LockTokens at line 60 succeeds, but the error handling at lines 68-72 fails to properly rollback, can the same refund be retried, causing the IBC tokens to be locked twice while native tokens are only unlocked once? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5231ab4-9d2a-4e09-af00-6ac8b19338c5?mode=deep",
+    "timestamp": "2026-01-09 16:54:15.303171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Rollback failure silence] The error logging at line 70 for failed rollback does not propagate the failure to the caller - can an attacker intentionally trigger scenarios where rollbacks fail silently, gradually accumulating locked tokens in the module that become unrecoverable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5978591-772a-4fc3-90c3-86332a1108ae?mode=deep",
+    "timestamp": "2026-01-09 16:54:31.491874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Incomplete rollback] At lines 68-72, if UnlockTokens fails and the rollback (unlocking IBC tokens) also fails, the function only logs an error without panicking - can this lead to a state where both IBC and native tokens are locked in the module, permanently freezing user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30495a3d-b6ee-4988-b0d6-1cad69f08eac?mode=deep",
+    "timestamp": "2026-01-09 16:54:49.175915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Non-atomic lock-unlock] Between LockTokens at line 60 and UnlockTokens at line 67, if the chain experiences a consensus failure or validator crash, can the transaction be partially committed where IBC tokens are locked but native tokens are never unlocked, causing permanent fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b81eede-133b-43e7-8bc2-84c681ab212b?mode=deep",
+    "timestamp": "2026-01-09 16:55:08.189107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Balance check bypass via reentrancy] Can an attacker exploit potential reentrancy in the bank keeper's HasBalance function called by CheckAccountBalance (line 47) to manipulate their balance during the check, passing validation with insufficient funds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e07d02b-4f80-4f2d-a261-d1737bd8b74a?mode=deep",
+    "timestamp": "2026-01-09 16:55:27.453582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Module balance underflow] At line 55 where CheckModuleBalance is called, can an attacker trigger multiple concurrent refunds that all pass the balance check simultaneously but collectively exceed the module balance, causing the last UnlockTokens call to fail after previous refunds have drained the module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f15699c-37d5-46a3-b7d5-1a9c13f6b51a?mode=deep",
+    "timestamp": "2026-01-09 16:55:48.501716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Insufficient balance bypass] Can an attacker exploit the CheckAccountBalance implementation to pass the balance check at line 47 with a zero-amount coin, then exploit subsequent logic to lock zero IBC tokens but receive non-zero native tokens, effectively minting native tokens for free? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3cc0902-e06b-4610-a0d6-88452f227fe5?mode=deep",
+    "timestamp": "2026-01-09 16:56:09.994238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [TOCTOU on module balance] Between CheckModuleBalance at line 55 and UnlockTokens at line 67, can a governance proposal or another concurrent refund drain the module balance, causing UnlockTokens to fail after IBC tokens have already been locked at line 60, permanently locking user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33a8a100-deae-40a1-956e-d02047fa14a6?mode=deep",
+    "timestamp": "2026-01-09 16:56:32.151769",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [TOCTOU race condition] Between CheckAccountBalance at line 47 and LockTokens at line 60, can an attacker transfer their IBC tokens to another account, causing the LockTokens operation to fail but only after the function has already validated balances, potentially leaving the system in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a7d6985-1b67-456f-83d8-778fd8b36ac5?mode=deep",
+    "timestamp": "2026-01-09 16:56:55.426136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Empty denom handling] What happens if ExtractDenomFromPath(denom).IBCDenom() at line 35 returns an empty string due to malformed input - does the subsequent CheckAccountBalance at line 47 fail gracefully, or can this be exploited to bypass balance checks entirely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c031de93-658a-46a3-9174-fae6da4ccd5c?mode=deep",
+    "timestamp": "2026-01-09 16:57:19.488018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [IBC denom collision] If two different denom paths result in the same IBCDenom() output at line 35, can an attacker exploit this collision to lock tokens of a worthless denom while the system treats them as valuable tokens during the refund process? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8bc7ee0-db10-4c06-b97c-93fdbde9f35a?mode=deep",
+    "timestamp": "2026-01-09 16:57:44.638769",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Denom path injection] Can an attacker inject multiple denom paths separated by the path separator (/) in the denom parameter to cause ExtractDenomFromPath at line 35 to return an unexpected IBC denom, bypassing denomination validation and allowing cross-denomination attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10e03d89-e722-43c6-b66d-0e4fb11fe98e?mode=deep",
+    "timestamp": "2026-01-09 16:58:10.674181",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Malicious denom path] At line 35 where ExtractDenomFromPath is called, can an attacker craft a malicious denom string with special characters or excessively long paths that causes ExtractDenomFromPath to extract the wrong IBC denom, allowing them to lock tokens of one denomination while receiving native tokens as if they locked a different, more valuable denomination? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ffee76ad-df08-4b31-a639-50ac79b2ae68?mode=deep",
+    "timestamp": "2026-01-09 16:58:37.502876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Integer overflow in conversion] Can an attacker provide an extremely large amount parameter at line 41 that causes integer overflow in the ScaleDownTokenPrecision calculation, wrapping around to a small value and allowing them to receive native tokens for free while only locking a small amount of IBC tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c75234a-bb3d-4a45-9c7d-f792993f86bf?mode=deep",
+    "timestamp": "2026-01-09 16:59:04.644717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Zero converted amount] When ScaleDownTokenPrecision returns an error at line 42-44 due to zero or negative converted amount, the function returns without rolling back the state - can an attacker exploit this to lock their IBC tokens permanently by triggering refunds with amounts that convert to zero? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8274936-9880-47b4-9b6f-a619d82091db?mode=deep",
+    "timestamp": "2026-01-09 16:59:31.947571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Conversion factor manipulation] If an attacker can manipulate the conversion factor used by ScaleDownTokenPrecision before line 41 executes, can they cause the 18→6 conversion to use an incorrect factor, resulting in users receiving more native tokens than they should during refunds, draining the module wallet? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f9d74c4-5eb7-410f-9b4a-c9b6ba91fe29?mode=deep",
+    "timestamp": "2026-01-09 16:59:58.738345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Rounding exploitation] Can an attacker repeatedly trigger refunds with carefully crafted amounts that exploit the integer division rounding in ScaleDownTokenPrecision (Quo rounds down), accumulating dust amounts in the module that eventually allow draining the module balance through repeated small refunds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6d46a26-c0ae-4e8a-a28b-d6f92e4bcf1b?mode=deep",
+    "timestamp": "2026-01-09 17:00:26.461147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Decimal precision loss] At line 41 where ScaleDownTokenPrecision is called, can an attacker exploit precision loss during the 18→6 decimal conversion by sending amounts that result in truncation (e.g., amounts less than 10^12), causing the refunded amount to be zero while the IBC tokens are still locked in the module, permanently locking user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8158fac3-d670-4750-8de0-1ec380b85693?mode=deep",
+    "timestamp": "2026-01-09 17:00:54.457768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Module account exploitation] Can an attacker exploit the fact that no validation is performed on whether escrowAddress is actually a legitimate escrow account, allowing them to drain the module account itself by providing it as the escrowAddress parameter? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27698f2f-16a8-4564-9446-4f35d7f37ea3?mode=deep",
+    "timestamp": "2026-01-09 17:01:23.398492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken()] [Error wrapping vulnerability] At line 19, the error is wrapped but does not preserve the original context - can this allow an attacker to cause SendCoins failures that get misinterpreted upstream, leading to incorrect refund logic or state transitions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5bfdc39-7a6c-4486-8688-0d2c1cbc47bb?mode=deep",
+    "timestamp": "2026-01-09 17:01:52.143830",
+    "report_generated": false
   }
 ]
