@@ -3298,5 +3298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b953245f-56f8-4324-91e0-5560a245fa78?mode=deep",
     "timestamp": "2026-01-09 13:02:22.957134",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Type confusion] If an attacker can somehow pass a keeper of the wrong type (e.g., passing a modified keeper that implements the interface but has malicious logic) to NewQueryPlugin(), can this bypass security checks in the actual keeper implementations and allow unauthorized state modifications through query operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b24bd32-45a8-412c-8577-ceae97ab3cda?mode=deep",
+    "timestamp": "2026-01-09 13:03:43.023367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Memory corruption] Can an attacker exploit unsafe pointer operations in Go's memory model to corrupt the keeper pointers stored in QueryPlugin, causing queries to read from arbitrary memory locations and potentially leak sensitive validator private keys or consensus state information? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b013472e-b6ea-4c03-8262-fd5fd482409a?mode=deep",
+    "timestamp": "2026-01-09 13:03:55.390010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [State corruption] If the dexKeeper pointer in QueryPlugin is replaced with a malicious keeper implementation after initialization, can an attacker return falsified pool reserve data to CosmWasm contracts performing swap calculations, enabling price manipulation attacks that drain liquidity from DEX pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa4499a5-a0f7-4e7c-b179-73baf9c746d4?mode=deep",
+    "timestamp": "2026-01-09 13:04:07.989612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [State corruption] Can malicious code modify the factoryKeeper reference in QueryPlugin after initialization to point to a compromised keeper instance, allowing attackers to manipulate denom query responses to CosmWasm contracts and potentially cause contracts to mint unlimited tokens based on falsified minting cap information? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_554a28d8-6240-411a-9f47-54bd7cfaefca?mode=deep",
+    "timestamp": "2026-01-09 13:04:21.158799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [State corruption] Since the bankKeeper field is a pointer to BaseKeeper, can an attacker exploit concurrent modifications to the underlying BaseKeeper state during QueryPlugin queries to cause state inconsistencies, such as incorrect token balances being returned to CosmWasm contracts that then execute incorrect token transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_850af940-cd9f-401e-a17f-07ebf2478c65?mode=deep",
+    "timestamp": "2026-01-09 13:04:35.404946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Nil pointer dereference] If all three keeper parameters (bankKeeper, factoryKeeper, dexKeeper) are nil during an improper initialization sequence, can this cause cascading failures across the CosmWasm query system, making all custom queries unusable and potentially bricking CosmWasm contract functionality chain-wide? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ebdc7a24-505c-4a36-ad87-62b66d6331e8?mode=deep",
+    "timestamp": "2026-01-09 13:04:50.203570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Initialization timing] Can an attacker exploit a race condition during chain startup where NewQueryPlugin() is called before keepers are fully initialized, causing the QueryPlugin to hold references to partially initialized keepers that could lead to state corruption when CosmWasm contracts query DEX pools or factory denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11fd6123-9db2-4133-9f1b-51afbba7f6b7?mode=deep",
+    "timestamp": "2026-01-09 13:05:06.001454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Nil pointer dereference] Can an attacker exploit a nil dexKeeper reference in the QueryPlugin to cause chain halts by submitting CosmWasm contracts that query pool information, triggering panics across validator nodes during query execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63b42aa0-058e-495e-8ff5-5457f3e52f56?mode=deep",
+    "timestamp": "2026-01-09 13:05:23.141373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Nil pointer dereference] If the factoryKeeper parameter is nil during QueryPlugin initialization, can malicious smart contracts exploit this by triggering denom queries that cause validator panics, resulting in network-wide DoS as validators crash when processing CosmWasm query requests? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_586d4c73-bafc-4f26-bfaa-3e13a9b72773?mode=deep",
+    "timestamp": "2026-01-09 13:05:41.787739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Nil pointer dereference] Can an attacker cause a consensus failure by triggering CosmWasm queries when the bankKeeper parameter passed to NewQueryPlugin() is nil, leading to nil pointer dereference when the QueryPlugin attempts to access bank state during token balance queries? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a283703-3d09-4421-bb83-97cd1e042570?mode=deep",
+    "timestamp": "2026-01-09 13:06:00.912503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Type confusion] If an attacker can somehow pass a keeper of the wrong type (e.g., passing a modified keeper that implements the interface but has malicious logic) to NewQueryPlugin(), can this bypass security checks in the actual keeper implementations and allow unauthorized state modifications through query operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3621e255-1976-48b0-bafd-47874971aa8c?mode=deep",
+    "timestamp": "2026-01-09 13:06:20.930037",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Memory corruption] Can an attacker exploit unsafe pointer operations in Go's memory model to corrupt the keeper pointers stored in QueryPlugin, causing queries to read from arbitrary memory locations and potentially leak sensitive validator private keys or consensus state information? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45fb8f03-aa51-4922-9634-2aceee4c0232?mode=deep",
+    "timestamp": "2026-01-09 13:06:41.748516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [State corruption] If the dexKeeper pointer in QueryPlugin is replaced with a malicious keeper implementation after initialization, can an attacker return falsified pool reserve data to CosmWasm contracts performing swap calculations, enabling price manipulation attacks that drain liquidity from DEX pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d4c0cb2-52f1-4694-9aa6-7a7ed7d8e289?mode=deep",
+    "timestamp": "2026-01-09 13:07:02.399613",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [State corruption] Can malicious code modify the factoryKeeper reference in QueryPlugin after initialization to point to a compromised keeper instance, allowing attackers to manipulate denom query responses to CosmWasm contracts and potentially cause contracts to mint unlimited tokens based on falsified minting cap information? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_265d4746-dbd8-49ba-8538-c80ed5a35e7a?mode=deep",
+    "timestamp": "2026-01-09 13:07:24.249602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [State corruption] Since the bankKeeper field is a pointer to BaseKeeper, can an attacker exploit concurrent modifications to the underlying BaseKeeper state during QueryPlugin queries to cause state inconsistencies, such as incorrect token balances being returned to CosmWasm contracts that then execute incorrect token transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0fdc3872-a196-4025-b347-318495fd2b49?mode=deep",
+    "timestamp": "2026-01-09 13:07:47.706911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Nil pointer dereference] If all three keeper parameters (bankKeeper, factoryKeeper, dexKeeper) are nil during an improper initialization sequence, can this cause cascading failures across the CosmWasm query system, making all custom queries unusable and potentially bricking CosmWasm contract functionality chain-wide? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63288344-bfbc-4d61-a577-562239ab2cbe?mode=deep",
+    "timestamp": "2026-01-09 13:08:11.043516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Initialization timing] Can an attacker exploit a race condition during chain startup where NewQueryPlugin() is called before keepers are fully initialized, causing the QueryPlugin to hold references to partially initialized keepers that could lead to state corruption when CosmWasm contracts query DEX pools or factory denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c7ffcee-1dea-460a-9ff1-532786f9007e?mode=deep",
+    "timestamp": "2026-01-09 13:08:35.736509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Nil pointer dereference] Can an attacker exploit a nil dexKeeper reference in the QueryPlugin to cause chain halts by submitting CosmWasm contracts that query pool information, triggering panics across validator nodes during query execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86f0ca7c-8c45-4262-b60a-b0f8ae67f2bd?mode=deep",
+    "timestamp": "2026-01-09 13:08:59.645395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Nil pointer dereference] If the factoryKeeper parameter is nil during QueryPlugin initialization, can malicious smart contracts exploit this by triggering denom queries that cause validator panics, resulting in network-wide DoS as validators crash when processing CosmWasm query requests? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bdf2dcd5-ca4a-4624-a761-8bdb7ec36d2a?mode=deep",
+    "timestamp": "2026-01-09 13:09:24.483643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Nil pointer dereference] Can an attacker cause a consensus failure by triggering CosmWasm queries when the bankKeeper parameter passed to NewQueryPlugin() is nil, leading to nil pointer dereference when the QueryPlugin attempts to access bank state during token balance queries? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17eb3002-79cc-45af-97dd-b2ab3e12a642?mode=deep",
+    "timestamp": "2026-01-09 13:09:49.218685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Plugin\n\n### Citations\n\n**File:** wasmbinding/wasm.go (L1-56)\n```go\npackage wasmbinding\n\nimport (\n\twasmkeeper",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80616a86-82d9-4cf0-b01b-c31eac2408e0?mode=deep",
+    "timestamp": "2026-01-09 13:10:15.117660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Query-message race] Can a contract exploit timing between querying pool state through QueryPlugin and executing swap through MessageDecorator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a0276cb-c00c-45c0-90ed-979c88d3c4ca?mode=deep",
+    "timestamp": "2026-01-09 13:10:40.695580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Emergency actions] Can contracts trigger emergency pause/unpause functions through keepers bypassing proper authorization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a74ab2f7-fb5d-4c43-919b-17e706ca547e?mode=deep",
+    "timestamp": "2026-01-09 13:11:04.920821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Admin override] Can contracts use factory keeper at line 15 to override governance-set admin addresses for critical denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d3882ec-fe74-4693-9ecc-32308b5b78a8?mode=deep",
+    "timestamp": "2026-01-09 13:11:30.016379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Param change bypass] Can contracts exploit keeper access at lines 14-16 to change module parameters without going through governance? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fabbd85-43c0-4441-ae19-5e4a0f1324bd?mode=deep",
+    "timestamp": "2026-01-09 13:11:54.090132",
+    "report_generated": false
   }
 ]
