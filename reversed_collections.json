@@ -7498,5 +7498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c95fef0-cabe-43f1-bcc7-485787081483?mode=deep",
     "timestamp": "2026-01-09 18:10:07.939557",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Validation bypass] Does InitGenesis call genState.Validate() before setting state, or does it directly call keeper methods on lines 13-42 without validation, allowing an attacker to bypass all GenesisState.Validate() checks by directly modifying the genesis file to inject malicious operator addresses, IBC settings, or transfer amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d12a9886-df17-41b9-a194-62e0ff8e38b9?mode=deep",
+    "timestamp": "2026-01-09 18:11:22.641290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Panic conditions] Can a malicious genesis file contain a DecimalDifference value of 19 (exceeding the max of 18) that passes JSON unmarshaling but causes SetDecimalDifference on line 40 to return an error, triggering the panic on line 41 and halting chain initialization permanently? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35d4b288-dad8-41a3-a100-fc870d48da3a?mode=deep",
+    "timestamp": "2026-01-09 18:11:35.183062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Panic conditions] Can an attacker inject a malicious genesis state with invalid Params structure that causes SetParams to return an error, triggering the panic on line 14 and preventing the entire blockchain from initializing, resulting in a complete network-wide DoS? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d45a62a-24d8-4f75-8228-535b185a559f?mode=deep",
+    "timestamp": "2026-01-09 18:11:47.791921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Type safety]\n\n### Citations\n\n**File:** x/tokenwrapper/types/message_update_ibc_settings.go (L1-64)\n```go\npackage types\n\nimport (\n\tsdk",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f1ff9a2-51ec-4efe-b7f8-55e3f0dbeb52?mode=deep",
+    "timestamp": "2026-01-09 18:12:00.998953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Resource exhaustion] Does repeated calling of ValidateBasic on the same message (e.g., by replay attacks) cause cumulative resource consumption that DoS the chain? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f625908-2800-4f8d-8632-c1d57ec7d232?mode=deep",
+    "timestamp": "2026-01-09 18:12:14.743768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Resource exhaustion] Can an attacker submit messages with extremely long client IDs, ports, channels, or denoms (lines 31-57) that pass length checks but consume excessive gas during validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2a3a4fa-9f36-4c33-b19d-3639589a2e6f?mode=deep",
+    "timestamp": "2026-01-09 18:12:29.385644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Reentrancy] Does the validation prevent external contract calls (via CosmWasm) that could reenter the validation logic with different parameters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea62225b-d738-4659-86e4-5a4c07c75458?mode=deep",
+    "timestamp": "2026-01-09 18:12:45.007779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Reentrancy] Can validators called on lines 27-61 trigger callbacks into the TokenWrapper module that modify state before ValidateBasic completes, causing TOCTOU issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_002054fa-a501-413f-bca1-46b4834cfa79?mode=deep",
+    "timestamp": "2026-01-09 18:13:02.731991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation order] Can an attacker exploit the validation order to pass malicious later fields by intentionally failing earlier checks during testing, then fixing the early fields in production? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_159fdae1-50a0-49ec-b884-2b758aea0546?mode=deep",
+    "timestamp": "2026-01-09 18:13:21.236032",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation order] Does the sequential validation order (Signer→NativeClientId→...→DecimalDifference on lines 27-61) allow short-circuit attacks where early failures prevent detection of critical issues in later fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da780675-20ba-4a58-90c7-d9ae77c49780?mode=deep",
+    "timestamp": "2026-01-09 18:13:40.757056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Can rapid sequential updates of IBC settings (multiple messages in consecutive blocks) cause race conditions in IBC packet processing that's still using old settings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6cf37b70-834f-4a5f-8a8d-04eeb0c239d1?mode=deep",
+    "timestamp": "2026-01-09 18:14:00.555679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: NewMsgUpdateIbcSettings()] [Edge case] Does the constructor handle cases where all parameters are set to zero/empty values, which might be valid protobuf but invalid bridge configuration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed182092-7bed-4577-860d-37f71d2dce95?mode=deep",
+    "timestamp": "2026-01-09 18:14:21.010752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Can an attacker exploit different string encoding formats (UTF-8 vs ASCII) to create denoms that appear identical but have different byte representations, bypassing validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee8b06fc-8cab-4665-8bd4-e04980b9734f?mode=deep",
+    "timestamp": "2026-01-09 18:14:42.814022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Does the function validate that the message size after protobuf encoding doesn't exceed block size limits, preventing DoS through oversized messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51b5a40c-8d05-42ef-902e-610fece57bd1?mode=deep",
+    "timestamp": "2026-01-09 18:15:05.799531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Can submitting MsgUpdateIbcSettings in the same block as operator address changes create authorization confusion about which operator's settings are valid? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6256ca41-b777-4f3f-afe3-c3e444f1b858?mode=deep",
+    "timestamp": "2026-01-09 18:15:29.039028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Does the validation handle Unicode normalization attacks where different Unicode representations of the same string bypass equality checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bebfeaf-c303-4c4e-b145-f06c953c4326?mode=deep",
+    "timestamp": "2026-01-09 18:15:54.146212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Can an operator set all string fields (lines 27-57) to their maximum allowed lengths simultaneously, causing memory exhaustion when processing the message? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a33064d-7d3d-4255-a31d-c9d39bb93f31?mode=deep",
+    "timestamp": "2026-01-09 18:16:19.805159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Consensus attack] Does the validation prevent a malicious validator from modifying message fields after ValidateBasic but before execution, exploiting non-determinism? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_93b210da-23d1-45e2-a900-8a5c4abb48b1?mode=deep",
+    "timestamp": "2026-01-09 18:16:46.862425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Consensus attack] Can Byzantine validators (up to 1/3) collude to include MsgUpdateIbcSettings messages that fail ValidateBasic but are still processed, causing chain state divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33f59cb7-8b93-4668-adc8-c67d8149aee7?mode=deep",
+    "timestamp": "2026-01-09 18:17:13.861318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Timelock bypass] Can an operator use MsgUpdateIbcSettings to make critical bridge changes without any timelock delay, potentially front-running user withdrawals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21c47d41-44c7-4df2-845b-1e982b08a3c4?mode=deep",
+    "timestamp": "2026-01-09 18:17:39.021391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Governance bypass] Does the validation on lines 25-64 allow an operator to bypass governance-mandated IBC settings by submitting updates during the governance voting period? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc661229-81fe-41d0-8dbb-7fa347103398?mode=deep",
+    "timestamp": "2026-01-09 18:18:03.488759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Privilege escalation] Can an operator exploit the settings update to redirect IBC packets to a chain where they control validator majority, enabling double-spend attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e83bfffc-fa71-4de3-b09a-e8ef807c4d77?mode=deep",
+    "timestamp": "2026-01-09 18:18:27.745340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Privilege escalation] Does the validation prevent an operator from updating IBC settings to point to a malicious relayer-controlled chain, enabling the relayer to forge IBC acknowledgments? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e71be184-8afa-40ca-948e-46c7dae5782f?mode=deep",
+    "timestamp": "2026-01-09 18:18:52.594986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Privilege escalation] Can a compromised operator use MsgUpdateIbcSettings validated by lines 25-64 to permanently disable the bridge by setting invalid IBC parameters that pass validation but fail at execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41a71613-486e-48b5-b9d1-1dc59a31ed30?mode=deep",
+    "timestamp": "2026-01-09 18:19:17.394086",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Settings interaction] Does simultaneous update of Denom and DecimalDifference on lines 55-61 require validation that the new decimal difference matches the new denom's actual decimals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f70f986-3aed-4525-b047-4918e450a450?mode=deep",
+    "timestamp": "2026-01-09 18:19:44.186958",
+    "report_generated": false
   }
 ]
