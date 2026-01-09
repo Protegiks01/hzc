@@ -1048,5 +1048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12e3c9df-4fca-4fc6-84fe-984dbb555d75?mode=deep",
     "timestamp": "2026-01-09 08:32:39.386357",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Transfer MsgServiceRouter access] Does the MsgServiceRouter (line 151) properly validate all messages routed through TransferKeeper, or can an attacker inject malicious messages that bypass validation by exploiting the router's trust in the keeper? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_680ab563-001c-47db-a0b3-8a50243ef7a9?mode=deep",
+    "timestamp": "2026-01-09 08:33:46.034753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Transfer authority validation] Can the authority address (line 154) be manipulated to grant an attacker governance-level control over transfer operations, allowing them to modify transfer parameters or pause the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_167894a2-e132-40e5-bfda-dd152ebc8ad9?mode=deep",
+    "timestamp": "2026-01-09 08:33:58.462816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Transfer account/bank keeper race] If AccountKeeper (line 152) and BankKeeper (line 153) are accessed concurrently during transfers, can this cause race conditions where tokens are transferred but account balances don't update correctly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4bdb58f-fce4-4fa1-afdd-542cd8ec3e59?mode=deep",
+    "timestamp": "2026-01-09 08:34:10.996566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [SetTransferKeeper race condition] If IBC packets arrive between lines 158 and 161, can the system be in a state where PacketForwardKeeper has the TransferKeeper set but ICS4Wrapper doesn't, causing routing inconsistencies that lose or duplicate tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_257fc70c-889f-49ba-af67-4e3c95221bc8?mode=deep",
+    "timestamp": "2026-01-09 08:34:25.145110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Circular reference deadlock] Can the circular references between PacketForwardKeeper, TransferKeeper, and ICS4Wrapper create deadlock scenarios during concurrent packet processing where each keeper waits for the other? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91d97ce7-19b2-4e52-84cb-c5a71a1d81a9?mode=deep",
+    "timestamp": "2026-01-09 08:34:38.954413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Double initialization attack] Can an attacker trigger SetTransferKeeper (lines 158, 161) multiple times by exploiting reinitialization vectors, causing keepers to point to different TransferKeeper instances and creating state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64e15b70-063f-463c-948c-ee48cb1a8b2f?mode=deep",
+    "timestamp": "2026-01-09 08:34:53.884216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA host authority bypass] Does the ICAHostKeeper authority (line 173) properly prevent unauthorized interchain account operations, or can an attacker exploit weak authority validation to execute arbitrary messages on behalf of other chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16103b7a-d594-49a6-9cc7-ecd1eadf9ee3?mode=deep",
+    "timestamp": "2026-01-09 08:35:10.010646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA host router exploitation] Can an attacker exploit the MsgServiceRouter (line 171) and GRPCQueryRouter (line 172) in ICAHostKeeper to execute arbitrary messages or queries that bypass normal transaction validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2f297f4-9f7b-4cf8-9b7a-e7c6ab627a48?mode=deep",
+    "timestamp": "2026-01-09 08:35:27.117515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA host channel keeper double reference] The ICAHostKeeper uses ChannelKeeper twice (lines 168-169). Can this dual reference be exploited to create packet routing loops or bypass channel state validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_543d7cf3-5a7e-45b2-bfad-87bdc6a5221a?mode=deep",
+    "timestamp": "2026-01-09 08:35:45.351016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA controller authority bypass] Can an attacker exploit the authority parameter (line 183) to create interchain accounts on other chains without proper authorization, allowing them to control accounts on remote chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30283da2-fb72-4b20-b16c-0908b82f3144?mode=deep",
+    "timestamp": "2026-01-09 08:36:04.838216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA controller router exploitation] Does the MsgServiceRouter (line 182) in ICAControllerKeeper properly validate that only authorized controllers can route messages, or can an attacker inject malicious routing rules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff789083-63de-4c6a-bc13-00a858a31c23?mode=deep",
+    "timestamp": "2026-01-09 08:36:24.436968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICA controller channel keeper race] Can concurrent access to ChannelKeeper (lines 180-181) cause race conditions where multiple ICA operations interfere with each other, leading to state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09114a22-4d37-416c-a6c2-9ef4189266b5?mode=deep",
+    "timestamp": "2026-01-09 08:36:45.837777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM stack initialization failure] If registerWasmModules (line 186) returns an error, does the function properly clean up all previously initialized keepers and stores, or does it leave the system in a partially-initialized state vulnerable to attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_361ebc9a-db7d-4021-b09d-9a7046dfcb46?mode=deep",
+    "timestamp": "2026-01-09 08:37:07.636223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [WASM stack nil reference] If wasmStack is nil after line 186, can this cause nil pointer panics in the callback middleware (lines 208, 237, 251) that crash validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6abc9c98-ad8e-4ce2-9b0e-c06782b0d0ad?mode=deep",
+    "timestamp": "2026-01-09 08:37:30.805092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Middleware ordering bypass] The transfer stack is built bottom-up (lines 203-229). Can an attacker exploit incorrect ordering to bypass rate limiting by sending packets that are processed by tokenwrapper before ratelimit, or bypass callbacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc8eed78-8911-4762-b84b-81728a3e510c?mode=deep",
+    "timestamp": "2026-01-09 08:37:54.669724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Transfer base module wrapping] The base transferStack (line 205) wraps TransferKeeper. Can an attacker send packets directly to this base layer, bypassing all middleware (callbacks, tokenwrapper, PFM, ratelimit)? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10ca7cc2-dc58-4568-8077-d88b315f595c?mode=deep",
+    "timestamp": "2026-01-09 08:38:19.553135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Callbacks middleware exploitation] The cbStack (line 208) uses constants.MaxIBCCallbackGas. Can an attacker craft callbacks that consume exactly MaxIBCCallbackGas to maximize attack cost-effectiveness, or bypass the gas limit through nested callbacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c11b6158-a51b-45df-ab46-ab8b5587dc1c?mode=deep",
+    "timestamp": "2026-01-09 08:38:46.083555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Callbacks use PacketForwardKeeper] Can an attacker exploit the PacketForwardKeeper reference in callbacks (line 208) to forward packets to malicious destinations during callback execution, stealing funds in callback hooks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8856bc1d-3db7-4ffe-8b32-4818c3fb8d5d?mode=deep",
+    "timestamp": "2026-01-09 08:39:12.581999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [TokenWrapper middleware position] The tokenwrapper middleware (lines 211-218) sits between callbacks and PFM. Can an attacker exploit this position to wrap/unwrap tokens during packet forwarding, causing decimal conversion errors that duplicate or lose tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d072d23c-35c1-4417-9c41-d8e248f20637?mode=deep",
+    "timestamp": "2026-01-09 08:39:40.225295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [TokenWrapper channel state checks] The tokenwrapper receives both ChannelKeeper (line 216) and ConnectionKeeper (line 217). Can an attacker exploit inconsistencies between channel and connection state to bypass wrapping/unwrapping rules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e526b6e-99cb-497b-af04-c29bffdfa767?mode=deep",
+    "timestamp": "2026-01-09 08:40:04.360623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [PacketForward timeout manipulation] The PFM middleware (lines 221-226) uses DefaultForwardTransferPacketTimeoutTimestamp (line 225). Can an attacker manipulate this timeout value to make forwarded packets timeout immediately, causing funds to be stuck or returned to wrong addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4083004d-573b-44c9-aafb-83f017ac38d7?mode=deep",
+    "timestamp": "2026-01-09 08:40:30.181240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [PacketForward retries value] The PFM uses 0 retries (line 224). Can an attacker exploit this to make all forwarding packets fail on first timeout, then claim the timed-out funds by exploiting acknowledgment handling? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91bfead1-e2b5-4f62-9202-e15a2cf206ed?mode=deep",
+    "timestamp": "2026-01-09 08:40:55.716599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [RateLimit top layer bypass] The ratelimit middleware (line 229) is the outermost layer. Can an attacker exploit gaps in the rate limiting logic where certain packet types bypass the middleware entirely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b30e006c-8a8c-4f55-8fab-84157fe79951?mode=deep",
+    "timestamp": "2026-01-09 08:41:19.558602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Middleware layer skip attack] Can an attacker craft malicious IBC packets that skip entire middleware layers by exploiting type assertions or interface mismatches in the stack (lines 203-229)? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92e093f0-6a87-431d-ba9c-a29dfe1af9ed?mode=deep",
+    "timestamp": "2026-01-09 08:41:43.855175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBCv2 vs v1 routing confusion] Can an attacker exploit differences between IBCv1 (lines 203-229) and IBCv2 (lines 232-241) stacks to route packets through the less-secure stack, bypassing tokenwrapper or other security middleware? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26a789e9-bce3-4549-b702-1de2bcda80b2?mode=deep",
+    "timestamp": "2026-01-09 08:42:08.148978",
+    "report_generated": false
   }
 ]
