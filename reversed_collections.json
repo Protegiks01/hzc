@@ -6148,5 +6148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d85384d7-292a-4b54-9c67-0565eedfe0e2?mode=deep",
     "timestamp": "2026-01-09 16:09:52.562127",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken] [Bank keeper interface assumptions] Does the function assume that bankKeeper.SendCoins (line 18) is atomic, or can partial coin transfers occur in failure scenarios, violating the all-or-nothing guarantee needed for secure escrow operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_feb4bcc2-7a3d-4c11-b2d2-725c330764e8?mode=deep",
+    "timestamp": "2026-01-09 16:11:10.567499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken] [KVStore exhaustion] Can repeatedly calling handleUnescrowToken with many different denominations cause the escrow tracking storage (SetTotalEscrowForDenom at line 25) to grow unboundedly, eventually exhausting the validator's KVStore capacity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a6b1932-5854-435e-9094-0d0cdeba84b6?mode=deep",
+    "timestamp": "2026-01-09 16:11:23.533454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund] [Gas exhaustion DoS] Can an attacker craft refund parameters (extremely long denom paths, many concurrent refunds) that cause excessive gas consumption in ExtractDenomFromPath (line 35) or balance checks (lines 47, 55), preventing legitimate refunds from being processed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55592ad4-9c4a-4848-962e-6d6310942ba3?mode=deep",
+    "timestamp": "2026-01-09 16:11:36.284352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund] [Module balance invariant] Does the function maintain the invariant that module balance ≥ sum of all potential refunds, or can edge cases in the refund logic cause the module balance to go negative, breaking the bank module's accounting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4743cfe8-8832-4b24-9550-6781fa41f998?mode=deep",
+    "timestamp": "2026-01-09 16:11:49.904427",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund] [Conservation of value violation] Can the refund mechanism violate token conservation where the total value locked (IBC tokens at 18 decimals) doesn't equal the total value unlocked (native tokens at 6 decimals) due to conversion errors, creating or destroying value in the system? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5159ed99-7f98-4723-ad9e-cf8888bd02f7?mode=deep",
+    "timestamp": "2026-01-09 16:12:04.212192",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken] [Escrow invariant violation] Can the escrow total tracked by GetTotalEscrowForDenom/SetTotalEscrowForDenom become desynchronized from the actual tokens held in escrow accounts, allowing attackers to exploit the discrepancy to extract more tokens than are actually available? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05c078dc-b121-4375-9400-b75f0a2ab3e0?mode=deep",
+    "timestamp": "2026-01-09 16:12:19.387184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken] [Token type safety] Does the token parameter at line 17 undergo validation to ensure it's a valid SDK coin with positive amount and valid denomination, or can malformed coins cause panics in SendCoins? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73579aff-0f35-4fbd-a04e-d039878e8975?mode=deep",
+    "timestamp": "2026-01-09 16:12:35.824333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund] [Sender type validation] Can the sender parameter at line 31 be a smart contract address or module account that behaves unexpectedly during LockTokens/UnlockTokens, causing reentrancy or access control bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03b94516-7b05-4c52-921b-968ccb4228ea?mode=deep",
+    "timestamp": "2026-01-09 16:12:53.691360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken] [Receiver type confusion] Does the function validate that the receiver parameter at line 17 is a standard account address and not a module account or validator address, which could have special permissions that break security assumptions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f0dea5df-d276-4447-9d34-236fd80923e3?mode=deep",
+    "timestamp": "2026-01-09 16:13:11.547500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken & handleRefund] [Denomination confusion] Can an attacker exploit differences in how handleUnescrowToken (line 23) and handleRefund (line 35) extract and validate denominations to cause tokens of one denom to be locked while tokens of another denom are released? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_053c0239-a2a7-4e24-82fe-8e679762b553?mode=deep",
+    "timestamp": "2026-01-09 16:13:30.673164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken & handleRefund] [Module balance desynchronization] Can concurrent execution of handleUnescrowToken (which doesn't check module balance) and handleRefund (which does at line 55) cause the module balance to drop below safe thresholds between operations, causing future refunds to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b6ad7b2-cecc-41e5-bf68-2035aca27e8e?mode=deep",
+    "timestamp": "2026-01-09 16:13:50.345046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleUnescrowToken & handleRefund] [Escrow-refund race] Can an attacker trigger simultaneous handleUnescrowToken and handleRefund operations for the same denomination, causing race conditions in the escrow tracking where the total escrow value becomes inconsistent with actual locked tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5352b486-0000-4af7-9cee-f4f8d1915b76?mode=deep",
+    "timestamp": "2026-01-09 16:14:11.415875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Log injection attack] Can an attacker craft sender addresses or denom strings containing log injection payloads (newlines, ANSI codes) that corrupt the log files at lines 32, 64, 70, and 75, potentially hiding attack traces? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44fc6518-d740-41a9-b760-57fb612da312?mode=deep",
+    "timestamp": "2026-01-09 16:14:30.487322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Sensitive information leakage] At line 32 where the logger outputs sender address, amount, and denom, can an attacker use this verbose logging to extract sensitive transaction patterns or user behavior that aids in timing attacks or front-running? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ba85cd8-6028-488f-a6b4-e2cb427f9e53?mode=deep",
+    "timestamp": "2026-01-09 16:14:53.523765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Missing event validation] The event emission at line 78 doesn't validate that the emitted amounts match the actual locked/unlocked amounts - can a bug in the event emission logic cause off-chain systems to track incorrect refund volumes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c310964a-fc97-42f2-88bd-3288626b3323?mode=deep",
+    "timestamp": "2026-01-09 16:15:17.591113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Event emission ordering] Does EmitTokenWrapperRefundEvent execute after all state changes are finalized, or can a chain reorganization cause events to be emitted for refunds that didn't actually complete, leading to accounting discrepancies in indexers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec4a17e4-96ca-4e28-a892-7221bf3062b8?mode=deep",
+    "timestamp": "2026-01-09 16:15:42.688237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Event parameter manipulation] At lines 78-85 where EmitTokenWrapperRefundEvent is called, can an attacker manipulate the event parameters (sender, amount, denoms) to emit false events that deceive off-chain monitoring systems about the actual refund amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_588de05f-fda5-48b4-a5c3-c47d9dad021a?mode=deep",
+    "timestamp": "2026-01-09 16:16:07.532450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Module account drainage] Can an attacker craft a refund scenario where the native tokens unlocked at line 67 exceed the IBC tokens locked at line 60 (due to decimal conversion manipulation), gradually draining the module account's native token reserves? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25fc084b-c588-4a79-81b6-59280c2f8e3f?mode=deep",
+    "timestamp": "2026-01-09 16:16:32.922754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Sender validation bypass] The sender parameter at line 31 is used throughout the function without validation - can an attacker provide a malformed or malicious sender address that passes type checking but causes unexpected behavior in LockTokens or UnlockTokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_853f190a-982f-4778-9929-1e5b0d592506?mode=deep",
+    "timestamp": "2026-01-09 16:16:59.723199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Module account authorization] Does LockTokens at line 60 verify that the module account has permission to receive the specific IBC denom being locked, or can an attacker lock non-standard tokens that the module shouldn't accept, polluting the module's token holdings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_296e99c3-a7b5-4262-88ab-4f7542abd618?mode=deep",
+    "timestamp": "2026-01-09 16:17:26.808524",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Invalid denom characters] If the ibcDenom extracted at line 35 contains invalid characters for the SDK's coin denomination validation, does sdk.NewCoin at line 38 reject it, or can malformed denoms be used to bypass security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a802ee4-1fe0-40e8-aae7-bc09e28f1a1b?mode=deep",
+    "timestamp": "2026-01-09 16:17:53.603437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Zero coin creation] Can an attacker trigger a scenario where convertedAmount at line 52 is zero (but not caught by earlier validation), creating zero-value native coins that pass through CheckModuleBalance and UnlockTokens, potentially causing unexpected behavior in downstream code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20df3c07-f111-4c52-8ed7-05b1b6897d12?mode=deep",
+    "timestamp": "2026-01-09 16:18:21.385366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Coin denomination mismatch] At lines 38 and 52 where coins are created with different denominations (ibcDenom and constants.BondDenom), can an attacker exploit inconsistencies in denom handling to lock tokens of one type while unlocking tokens of a different type? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_93309cdb-bcf7-4afb-9bbc-89e2b144b7e9?mode=deep",
+    "timestamp": "2026-01-09 16:18:47.971629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Nil amount handling] If the amount parameter at line 38 is nil or uninitialized, does sdk.NewCoin handle it safely, or can this cause a panic that leaves the refund in a partially completed state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8c1ce0e-0928-468d-9879-f36f2fd2da7c?mode=deep",
+    "timestamp": "2026-01-09 16:19:15.778092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/handlers.go] [Function: handleRefund()] [Negative amount injection] At line 38 where sdk.NewCoin is called with the amount parameter, can an attacker pass a negative amount that bypasses validation, creating coins with negative values that corrupt the module balance tracking? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91f9a606-be5d-4a00-a267-7328c8acd5b8?mode=deep",
+    "timestamp": "2026-01-09 16:19:43.413519",
+    "report_generated": false
   }
 ]
