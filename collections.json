@@ -7498,5 +7498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7e142bc-17da-4b13-8198-7d557ae7bf61?mode=deep",
     "timestamp": "2026-01-09 20:08:50.491235",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Validator censorship] Can Byzantine validators selectively censor SendFromPoolToAddress transactions to prevent liquidity withdrawals during price manipulation attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16fc0968-d36d-45f9-b105-c04ffc1e6f3e?mode=deep",
+    "timestamp": "2026-01-09 20:10:08.207087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [State machine determinism] If SetPool is called with identical parameters but different execution contexts (gas, block time), can it produce non-deterministic results causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c43056b-4155-4d1b-939f-48bfb3192fad?mode=deep",
+    "timestamp": "2026-01-09 20:10:20.572396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Factory module interaction] If coins include tokens created by the Factory module with minting caps, does sending them to a pool affect cap accounting or can it bypass minting limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e90816b0-55a5-4f43-9b24-d9ff59a20db9?mode=deep",
+    "timestamp": "2026-01-09 20:10:33.826072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [TokenWrapper interaction] Can pool accounts receive wrapped IBC tokens, and if so, does the decimal conversion (18→6) affect pool balance accounting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df392cb6-8c5b-4758-9b84-a9a0185d02b2?mode=deep",
+    "timestamp": "2026-01-09 20:10:46.822133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Vesting account interaction] If receiver is a vesting account, can the sent coins bypass vesting schedules and be immediately spendable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_482d4065-c872-4616-8b2d-f613acd9957f?mode=deep",
+    "timestamp": "2026-01-09 20:11:00.534666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Context propagation] The ctx context.Context parameter - if this is a different context than the transaction context, can pool updates be committed without the transaction succeeding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da238f2a-beac-4d46-ac72-49d3283c7183?mode=deep",
+    "timestamp": "2026-01-09 20:11:15.415316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Context cancellation] If the context is cancelled during iteration, does the function properly clean up the iterator or can it leak resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_174be2aa-c6e3-493b-bb8e-8756dbcaf47a?mode=deep",
+    "timestamp": "2026-01-09 20:11:31.533468",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Transaction rollback] If CreatePoolAccount succeeds but the transaction reverts later, is the account creation rolled back or does a pool account persist without a pool? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f71cc217-896b-45a6-afda-854f61cb8ef9?mode=deep",
+    "timestamp": "2026-01-09 20:11:48.459683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Event emission] The function doesn't emit events - can this cause indexers to miss important fund transfers, enabling hidden fund movements? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e16ff282-2939-40c3-80e0-3606a8351875?mode=deep",
+    "timestamp": "2026-01-09 20:12:07.337231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Iterator ordering] Does the KVStorePrefixIterator at line 58 guarantee deterministic ordering? Can different validators return pools in different orders causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_269f9d45-108b-42ca-b333-cb1f5dbeb07d?mode=deep",
+    "timestamp": "2026-01-09 20:12:25.879806",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetNextPoolIDString()] [String formatting determinism] Is strconv.FormatUint() deterministic across all platforms and Go versions, or can it produce different strings causing consensus issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_524a008e-ea26-4bd3-bbef-f371149d622d?mode=deep",
+    "timestamp": "2026-01-09 20:12:44.965618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Reflection determinism] Do reflect.TypeOf() operations at lines 173, 178, 184 produce consistent results across validators with different Go versions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10876545-b481-4af1-9bdf-07a88601336d?mode=deep",
+    "timestamp": "2026-01-09 20:13:05.784506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Blacklist bypass] If certain addresses are blacklisted at the bank keeper level, does sending to a pool first allow bypassing blacklist checks when funds move from pool to final destination? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a631049-68d8-42f6-bfea-ae2a24701233?mode=deep",
+    "timestamp": "2026-01-09 20:13:28.088004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Permissioned account override] If an admin account exists at a computed pool address, can pool creation forcibly overwrite it if it matches the overridable types? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_347a8f4c-55d2-4ad3-acc3-a205d727405a?mode=deep",
+    "timestamp": "2026-01-09 20:13:50.773586",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Cache poisoning] If there's query caching, can an attacker cause GetPool to cache incorrect/malicious pool data that's returned to subsequent callers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7be54a5d-4094-479b-8d26-982632a8e873?mode=deep",
+    "timestamp": "2026-01-09 20:14:13.027412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetNextPoolID()] [Replicated state] In a distributed system, can different validators compute different values for NextPoolId due to message reordering or network delays? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1344dd1b-dc4d-45b3-836d-6296169f7fd4?mode=deep",
+    "timestamp": "2026-01-09 20:14:36.800213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Fee handling] Does the function account for transaction fees being deducted from the sent amount, or can this cause accounting mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_694c8b93-671f-4b01-b806-d90771da5f9a?mode=deep",
+    "timestamp": "2026-01-09 20:15:02.326647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Maximum pool count] What's the upper limit on pools that can be created? Can reaching this limit cause storage exhaustion or make GetAllPool() unusably slow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db1f1242-3844-46d9-8696-dcddbf13b853?mode=deep",
+    "timestamp": "2026-01-09 20:15:27.339100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Maximum coins length] Can an attacker pass a coins slice with thousands of entries to cause excessive iteration and gas consumption in the validation loop? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f19e303-cad8-455e-ad80-50d562532da7?mode=deep",
+    "timestamp": "2026-01-09 20:15:51.885049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Module account limits] Is there a limit to how many module accounts can exist? Can pool creation hit this limit and fail? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e47ea99-2678-48e5-979b-c958329e0686?mode=deep",
+    "timestamp": "2026-01-09 20:16:16.815313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Account nonce edge case] If an account has sequence=0 but has signed a transaction that's in the mempool, can pool creation proceed and invalidate that transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6619449-f808-4ea9-9534-d1c9a228f95a?mode=deep",
+    "timestamp": "2026-01-09 20:16:42.016526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetNextPoolID()] [Bootstrap state] On a fresh chain, when GetPoolsMeta returns found=false, is there a race where multiple pool creations all think they're creating pool ID 1? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15ecd8e3-17d6-4650-b695-0035242fcd57?mode=deep",
+    "timestamp": "2026-01-09 20:17:07.970707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Marshaling limits] Is there a size limit for marshaled pool data? Can an attacker craft a pool with massive metadata to exceed storage limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0e9ac77-120b-46ac-979e-6abe9546bb18?mode=deep",
+    "timestamp": "2026-01-09 20:17:34.097314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Circular transfer] Can funds be sent from pool A to pool B and back in the same transaction, potentially bypassing some accounting checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48815632-85f9-4e31-b185-d9688740afbe?mode=deep",
+    "timestamp": "2026-01-09 20:17:59.287664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Deleted pool resurrection] If a pool is deleted but later recreated with the same ID, does GetPool return the old data or correctly return found=false? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05f3a005-7340-4187-9ca0-58839383a5f4?mode=deep",
+    "timestamp": "2026-01-09 20:18:25.611989",
+    "report_generated": false
   }
 ]
