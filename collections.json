@@ -6148,5 +6148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8b5c10a-5f30-4f75-8803-8041b51a13b5?mode=deep",
     "timestamp": "2026-01-09 18:00:48.821129",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Governance] [Quorum Manipulation] Can an attacker manipulate validator voting on the v2 upgrade proposal to achieve malicious quorum, forcing execution of the 'crisis' store deletion even if it's dangerous? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56cf796b-5fd4-49f1-92cf-f49067ef8ab1?mode=deep",
+    "timestamp": "2026-01-09 18:01:56.875697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Migration] [Data Backup] Before deleting the 'crisis' store at line 20, is there any mechanism to backup or archive the data for forensic analysis if issues arise post-upgrade? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_852a1d43-5453-498e-8b93-48496edc9c35?mode=deep",
+    "timestamp": "2026-01-09 18:02:09.331996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Migration] [Module Shutdown] Does the system properly shut down the crisis module before deleting its store at line 20, or can active crisis module operations cause race conditions during deletion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb01cc64-2ff3-4e8e-9fa4-a5193d578f27?mode=deep",
+    "timestamp": "2026-01-09 18:02:22.191243",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Migration] [Dependency Resolution] Does the upgrade framework automatically detect and fail if other modules have runtime dependencies on the 'crisis' store being deleted at line 20? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f06f167-3765-4a6d-bdb7-62cf1b86fb5c?mode=deep",
+    "timestamp": "2026-01-09 18:02:35.327836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Migration] [Version Compatibility] Can nodes running older versions of ZigChain software (pre-v2) continue operating after some validators execute this upgrade, or will this cause immediate chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3ecdea2-a0ba-495a-89d9-fa63ee50dd97?mode=deep",
+    "timestamp": "2026-01-09 18:02:48.463880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Error Handling] [Panic Recovery] If the store deletion at line 20 triggers a panic (due to locked resources or concurrent access), does the system have proper panic recovery to prevent validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b941642c-3715-4af3-9f2a-7ebdc2890c4b?mode=deep",
+    "timestamp": "2026-01-09 18:03:03.711108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Error Handling] [Failure Modes] What happens if the 'crisis' store deletion at line 20 fails due to insufficient permissions or filesystem errors - does the upgrade abort cleanly or leave the chain in a corrupted state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76d08bed-36a5-4b2d-98dc-4c02e58f46b8?mode=deep",
+    "timestamp": "2026-01-09 18:03:19.656300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Error Handling] [Error Logging] Are errors during the execution of the upgrade defined at lines 14-22 properly logged with sufficient detail to diagnose issues, or can silent failures occur? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c897bfe9-31d3-424a-b223-53f415b6fa03?mode=deep",
+    "timestamp": "2026-01-09 18:03:37.156448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Error Handling] [Retry Logic] If the upgrade execution fails, is there built-in retry logic that could cause the 'crisis' store at line 20 to be deleted multiple times, or deleted after being partially deleted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_408b1f05-985c-4cc2-9d0c-ebcf4a39b73b?mode=deep",
+    "timestamp": "2026-01-09 18:03:55.944268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Const Security] [String Immutability] Is the UpgradeName constant 'v2' at line 11 truly immutable, or can reflection or unsafe Go operations modify it at runtime to cause upgrade name confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c1a30fd-c1e6-4a95-b9c6-fc5def388a78?mode=deep",
+    "timestamp": "2026-01-09 18:04:16.127719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Const Security] [Var Mutability] Is the exported Upgrade var at line 14 protected from external mutation, or can other packages modify the StoreUpgrades configuration before execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ceeb089-022f-4ac6-943f-ddf16427d6e4?mode=deep",
+    "timestamp": "2026-01-09 18:04:35.766829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Const Security] [Reference Semantics] Does passing the Upgrade struct by reference allow external code to modify the Deleted slice at line 20 after initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_758326cf-2d5e-492d-82b1-56db49480597?mode=deep",
+    "timestamp": "2026-01-09 18:04:57.174853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Resources] [Memory Leak] Can the store deletion process at line 20 cause memory leaks if the 'crisis' store data isn't properly freed, gradually degrading validator performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44a3dfe9-0c06-4358-b40f-b8781ad64314?mode=deep",
+    "timestamp": "2026-01-09 18:05:19.403265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Resources] [Disk Space] Does deleting the 'crisis' store at line 20 immediately free disk space, or can accumulated crisis module data remain on disk causing storage exhaustion over time? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3ebbfb5-ed00-433e-a1b7-7b1bce6ca01a?mode=deep",
+    "timestamp": "2026-01-09 18:05:41.053180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Resources] [Lock Contention] Can the store deletion at line 20 cause lock contention with other modules trying to access the store, leading to deadlocks or validator freezes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a27cfd0-275a-4f46-9fd8-428084c4155d?mode=deep",
+    "timestamp": "2026-01-09 18:06:05.716299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Coordination] [Network Consensus] Can differences in how validators interpret the v2 upgrade configuration at lines 14-22 cause consensus failures where different validators end up with different state merkle roots? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54fb48ac-3f66-46a9-8ba2-43e092c2c4e8?mode=deep",
+    "timestamp": "2026-01-09 18:06:29.420970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Coordination] [Hard Fork Risk] If some validators don't upgrade their binaries before the v2 upgrade executes, will the 'crisis' store deletion at line 20 cause a hard fork splitting the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f27fdc3-b24f-473d-adc8-c21aed84a0a9?mode=deep",
+    "timestamp": "2026-01-09 18:06:54.821663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Coordination] [Upgrade Signaling] Is there proper signaling in the v2 upgrade at line 14 to warn validators and node operators about the impending 'crisis' module removal? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f9b8e3c-4dca-4886-ae88-729665b81be6?mode=deep",
+    "timestamp": "2026-01-09 18:07:20.903051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Governance] [Quorum Manipulation] Can an attacker manipulate validator voting on the v2 upgrade proposal to achieve malicious quorum, forcing execution of the 'crisis' store deletion even if it's dangerous? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00d61fa1-fa9b-4b4d-a5f1-c29ffa1fb92a?mode=deep",
+    "timestamp": "2026-01-09 18:07:48.052994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Migration] [Data Backup] Before deleting the 'crisis' store at line 20, is there any mechanism to backup or archive the data for forensic analysis if issues arise post-upgrade? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac48e9da-8cc3-482c-86ca-3cc948e68c6d?mode=deep",
+    "timestamp": "2026-01-09 18:08:16.382798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Migration] [Module Shutdown] Does the system properly shut down the crisis module before deleting its store at line 20, or can active crisis module operations cause race conditions during deletion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e55f1a7-bb2a-4704-ab87-7afe911b2ade?mode=deep",
+    "timestamp": "2026-01-09 18:08:44.511511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Migration] [Dependency Resolution] Does the upgrade framework automatically detect and fail if other modules have runtime dependencies on the 'crisis' store being deleted at line 20? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2266e8fa-f5b1-4bfe-843b-ade852ad8636?mode=deep",
+    "timestamp": "2026-01-09 18:09:12.271595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Migration] [Version Compatibility] Can nodes running older versions of ZigChain software (pre-v2) continue operating after some validators execute this upgrade, or will this cause immediate chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b5ae89f1-ee79-47ee-9d94-6ad37f62ba79?mode=deep",
+    "timestamp": "2026-01-09 18:09:37.427007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Error Handling] [Panic Recovery] If the store deletion at line 20 triggers a panic (due to locked resources or concurrent access), does the system have proper panic recovery to prevent validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bffd684c-39eb-4189-82e3-9679fb293469?mode=deep",
+    "timestamp": "2026-01-09 18:10:02.401947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Error Handling] [Failure Modes] What happens if the 'crisis' store deletion at line 20 fails due to insufficient permissions or filesystem errors - does the upgrade abort cleanly or leave the chain in a corrupted state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c496fda3-2d81-4b3d-b31e-665da3b3f50d?mode=deep",
+    "timestamp": "2026-01-09 18:10:27.599111",
+    "report_generated": false
   }
 ]
