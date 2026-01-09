@@ -7948,5 +7948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_343c49eb-fbdf-4b16-896f-05560953c637?mode=deep",
     "timestamp": "2026-01-09 18:39:15.555076",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Denom manipulation] Can an operator set Denom to a value that matches a DEX pool token (zp0, zp1), causing wrapped tokens to be mistaken for LP tokens and breaking pool accounting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e411757-fad1-41e9-a47a-923cf2f4de58?mode=deep",
+    "timestamp": "2026-01-09 18:40:22.407450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Denom manipulation] Does ValidateDenom on line 55-57 reject denoms containing only special characters (e.g., '...', '---'), which could exploit string parsing vulnerabilities in downstream IBC processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cea30220-3667-478a-a1c9-52af88b62a07?mode=deep",
+    "timestamp": "2026-01-09 18:40:34.710770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Denom manipulation] Can an operator change Denom from 'uzig' to 'UZIG' (case variation), potentially creating two separate token pools and enabling arbitrage attacks that drain liquidity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2ce782d-26da-40a7-b037-6f4077876460?mode=deep",
+    "timestamp": "2026-01-09 18:40:47.561939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Denom manipulation] Does the validation check if the Denom length exceeds MaxDenomLength (127 characters) through ValidateDenom on line 55-57, or can an operator use an extremely long denom string to cause memory exhaustion during IBC packet processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3190225-15e1-4ba5-9247-9c3cfa22dfab?mode=deep",
+    "timestamp": "2026-01-09 18:41:00.609598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Denom manipulation] Can an attacker set Denom to a value that passes ValidateDenom but doesn't exist in the bank module, causing all unwrap operations to fail and permanently locking tokens in the module wallet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33bcaa49-871e-4af0-9639-8ea5ef2936f8?mode=deep",
+    "timestamp": "2026-01-09 18:41:14.560001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Denom manipulation] Does the Denom validation on line 55-57 prevent setting it to an IBC voucher denom (ibc/...), which would cause circular wrapping and unwrapping leading to infinite token creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6156d205-98aa-41d9-b121-7872ec535f59?mode=deep",
+    "timestamp": "2026-01-09 18:41:29.550819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Denom manipulation] Can an operator exploit ValidateDenom on line 55-57 to change the Denom from 'uzig' to a factory-created token (factory/zig.../subdenom), enabling unlimited minting through the factory module? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7349a4ed-add0-4a9d-8896-ae727a1c968c?mode=deep",
+    "timestamp": "2026-01-09 18:41:45.230652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Client ID attack] Can an operator exploit the client ID format validation to use a client with a different trust level (e.g., 1/3 vs 2/3), weakening bridge security against Byzantine validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf447026-c82d-4158-9dd8-c5746f17b371?mode=deep",
+    "timestamp": "2026-01-09 18:42:02.948330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Client ID attack] Does the validation prevent setting NativeClientId and CounterpartyClientId to the same value on lines 31-37, which would create a loop causing infinite packet forwarding and chain halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5cf2de0-a396-49a0-a316-ffdcf0f0ca95?mode=deep",
+    "timestamp": "2026-01-09 18:42:21.520829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Client ID attack] Can an attacker use ValidateClientId on line 31-33 to set NativeClientId to a client that has been substituted via governance, potentially creating an inconsistent bridge state that locks funds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e571b984-d7b7-4ddd-b073-63be746117c7?mode=deep",
+    "timestamp": "2026-01-09 18:42:40.600814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Client ID attack] Does the CounterpartyClientId check on line 35-37 verify the client is not frozen or expired, or can a malicious operator set it to a frozen client that causes all IBC packets to fail permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aaa55b6a-c823-4fde-a7ca-fcd408344472?mode=deep",
+    "timestamp": "2026-01-09 18:43:00.720211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Client ID attack] Can an operator exploit NativeClientId validation on line 31-33 to switch between multiple light clients pointing to different forks of the counterparty chain, enabling selective transaction acknowledgment and token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ac56129-3b5c-4aa9-9a41-a4ae715d5850?mode=deep",
+    "timestamp": "2026-01-09 18:43:22.076627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [IBC manipulation] Does the port validation on line 39-45 prevent setting ports that exceed the IBC module's rate limiting thresholds, potentially causing all transfers to be rejected and bridge DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f31c3178-878d-430c-a16a-96cae64e9e6a?mode=deep",
+    "timestamp": "2026-01-09 18:43:43.450777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [IBC manipulation] Can an operator update CounterpartyClientId on line 35-37 to point to a Byzantine light client that accepts invalid state proofs, enabling double-spending attacks across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ed2c330-05e8-4451-a018-3410d6780d71?mode=deep",
+    "timestamp": "2026-01-09 18:44:06.205455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [IBC manipulation] Does the validation logic check that NativeClientId and NativeChannel (lines 31-33, 47-49) belong to the same IBC connection, or can they reference different connections causing packet routing failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e42cac1-5bc7-455b-9301-841c987c9b60?mode=deep",
+    "timestamp": "2026-01-09 18:44:29.406610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [IBC manipulation] Can an operator use ValidateChannel on line 47-49 to switch to a channel with a shorter timeout period, causing legitimate user transfers to timeout and requiring expensive recovery operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5716d96a-c69f-46be-ae8e-792773a67ee0?mode=deep",
+    "timestamp": "2026-01-09 18:44:54.099246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [IBC manipulation] Does the CounterpartyChannel validation on line 51-53 verify that the channel exists and is in OPEN state on the counterparty chain, or can it be set to a CLOSED channel that automatically refunds all transfers and drains the module wallet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_068147ae-8a93-43ce-8ade-882e5f36d68e?mode=deep",
+    "timestamp": "2026-01-09 18:45:20.313397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [IBC manipulation] Can an attacker exploit the NativeChannel validation on line 47-49 to point to a channel with a different connection than expected, bypassing light client verification and enabling man-in-the-middle attacks on IBC packets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a394be75-b5fc-4bbb-84aa-7066b8e53427?mode=deep",
+    "timestamp": "2026-01-09 18:45:47.542461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [IBC manipulation] Does the CounterpartyPort validation on line 43-45 ensure the port matches the expected IBC transfer module, or can it be set to 'wasm' to route packets through a malicious CosmWasm contract? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00e998e0-c24a-44e9-829d-bd791baf0dbe?mode=deep",
+    "timestamp": "2026-01-09 18:46:14.945855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [IBC manipulation] Can an operator exploit the NativePort validation on line 39-41 to change from 'transfer' to a custom port after users have locked funds, redirecting all IBC packets to a malicious middleware that steals tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee00db32-af82-44a6-8373-563a8d6f2878?mode=deep",
+    "timestamp": "2026-01-09 18:46:42.345531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Decimal conversion] Can an operator set DecimalDifference to 1 when the actual difference is 12, causing a 10^11 precision loss that effectively steals user funds by rounding down wrapped token amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8975c622-05a7-47e8-b36e-c2e8f72db44c?mode=deep",
+    "timestamp": "2026-01-09 18:47:12.308478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: NewMsgUpdateIbcSettings()] [Decimal conversion] Does the constructor on line 11-23 validate that DecimalDifference is immutable once set, or can an operator change it mid-flight during active IBC transfers, causing state inconsistency between locked and unlocked token amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7e34ed1-35a2-4359-8c8f-45d44ecc9df9?mode=deep",
+    "timestamp": "2026-01-09 18:47:40.186503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Decimal conversion] Can an attacker exploit the absence of a lower bound check (only checks <= 18) in ValidateDecimalDifference on line 59-61 to set extremely small values that cause rounding errors in ScaleDownTokenPrecision calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee643c37-96b2-4d02-b744-07bd55bddb4f?mode=deep",
+    "timestamp": "2026-01-09 18:48:07.600347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Decimal conversion] Does the uint32 type for DecimalDifference on line 59-61 prevent negative values, but fail to prevent an operator from gradually incrementing the value over multiple transactions to slowly drain the module wallet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86877b5a-a9ea-43f6-a957-302fdff5c804?mode=deep",
+    "timestamp": "2026-01-09 18:48:35.921610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Decimal conversion] Can an operator maliciously update DecimalDifference from 12 to 6 while tokens are in transit, causing mismatched precision scaling when IBC packets are acknowledged, leading to 10^6x token duplication or loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc56070f-697c-4ddd-9893-8977cc53de9b?mode=deep",
+    "timestamp": "2026-01-09 18:49:02.634252",
+    "report_generated": false
   }
 ]
