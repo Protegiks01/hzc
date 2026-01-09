@@ -2398,5 +2398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_268500c4-e5b6-4b31-bcda-746c4b4c3925?mode=deep",
     "timestamp": "2026-01-09 09:59:37.146242",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Missing store migration] If an upgrade requires state migration from a deleted store to a new store, but the migration logic is in the upgrade handler while store deletion happens in StoreUpgrades, can this ordering cause data loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_835f7149-2ce8-4a37-a39d-507c80fece19?mode=deep",
+    "timestamp": "2026-01-09 10:00:51.737351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store version inconsistency] Can validators that skip certain heights via IsSkipHeight have different store versions than validators that don't skip, causing permanent state divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b045396-78d0-446d-b53b-c6f2cddef5f6?mode=deep",
+    "timestamp": "2026-01-09 10:01:04.217944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Height precision attack] Can an attacker exploit block height comparison to trigger store loaders at heights that are off-by-one from the intended upgrade height, causing stores to initialize with incorrect versions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4975318-b3e4-4c82-b58d-a076095c0982?mode=deep",
+    "timestamp": "2026-01-09 10:01:17.173828",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Height comparison overflow] Can block heights near int64 maximum value cause comparison issues in ctx.BlockHeight() == fork.UpgradeHeight, preventing forks from executing or causing them to execute at wrong heights? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_36802736-f405-4ea6-8e10-1d61323c1bda?mode=deep",
+    "timestamp": "2026-01-09 10:01:31.174843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Negative height exploitation] Can negative fork heights in the Forks slice cause forks to execute during genesis or early blocks, allowing unauthorized state initialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4165fa87-7c2d-4c00-b896-a69563bf9607?mode=deep",
+    "timestamp": "2026-01-09 10:01:45.277545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Genesis height handling] Does setupUpgradeStoreLoaders properly handle the case where upgradeInfo.Height is 0 or 1 (genesis/first block), which could cause store loaders to be configured at chain start? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_efea5eb2-1537-4590-a0dd-f109118fcedb?mode=deep",
+    "timestamp": "2026-01-09 10:02:00.396363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Panic without recovery] The panic at line 39 when ReadUpgradeInfoFromDisk fails will crash all validators simultaneously - is there any recovery mechanism or can this be triggered by disk corruption to halt the entire network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05fb062d-01c8-4da9-9cac-897dd2040918?mode=deep",
+    "timestamp": "2026-01-09 10:02:16.713533",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Handler execution panic] If an upgrade handler panics during SetUpgradeHandler registration, does the panic propagate up and crash the application during initialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa9bc8db-80f7-4686-9605-8d282d08e72d?mode=deep",
+    "timestamp": "2026-01-09 10:02:34.243611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork execution failure] If PreBlockForkLogic returns an error or panics, is the error properly handled or does it cause the entire block processing to fail, potentially halting the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_466c83d0-0ed4-40c4-b101-eb748cc6b261?mode=deep",
+    "timestamp": "2026-01-09 10:02:52.763331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Partial error recovery] If SetStoreLoader succeeds but subsequent operations fail, is there rollback logic to undo the store loader configuration, or can this leave the app in a partially configured state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9436cf8a-8a7c-4eb6-bf22-25922efd263c?mode=deep",
+    "timestamp": "2026-01-09 10:03:11.545436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Sensitive data logging] Does the Debug logging of upgradeInfo at line 47 expose sensitive upgrade details (store names, heights) that could help attackers time attacks or predict store structure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fdb46d11-d659-45fb-918d-0cb5189a4b11?mode=deep",
+    "timestamp": "2026-01-09 10:03:31.972178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store upgrade exposure] Does logging of storeUpgrades at line 55 reveal internal store structure that could be exploited to craft attacks targeting specific store deletions or renames? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e69393a-cf1f-4f0b-b00e-40be252da279?mode=deep",
+    "timestamp": "2026-01-09 10:03:52.878882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Log injection] Can malicious upgrade names or store upgrade configurations inject control characters into logs to manipulate log parsing or monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9055e4e4-c869-4ea7-92f4-78b18ab3dd43?mode=deep",
+    "timestamp": "2026-01-09 10:04:15.369311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Non-deterministic handler registration] Can the order of upgrade handler registration vary across validators due to race conditions or different Upgrades slice ordering, causing handlers to execute differently during upgrades? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00a774e8-26ce-4646-9466-4e8a372ba934?mode=deep",
+    "timestamp": "2026-01-09 10:04:38.150683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Non-deterministic store loader] If multiple validators read different upgradeInfo from disk due to timing differences, can they configure different store loaders, leading to permanent consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01c7a8f5-544e-4825-b0e4-890980ee3e69?mode=deep",
+    "timestamp": "2026-01-09 10:05:02.247012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Non-deterministic fork execution] Can fork logic that depends on external state or random values cause different validators to execute different fork transitions, breaking consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b271526-3827-4a89-bc24-55feb19b2f1f?mode=deep",
+    "timestamp": "2026-01-09 10:05:27.700908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: All functions] [Go map iteration] Does any code use Go map iteration over upgrade or fork collections, which would be non-deterministic and cause consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6622b82a-dd73-4349-9ec4-36559e1ffbc7?mode=deep",
+    "timestamp": "2026-01-09 10:05:53.649589",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Unauthorized handler modification] Can validators modify their local Upgrades slice after app initialization to register different upgrade handlers than the rest of the network, causing them to execute unauthorized code during upgrades? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00b0a53b-d45f-49a9-9f61-46440ca98894?mode=deep",
+    "timestamp": "2026-01-09 10:06:19.986079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store loader override] Can a malicious validator override the store loader after setupUpgradeStoreLoaders completes to use a different upgrade height, causing their state to diverge from the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_917c2b2d-6457-4c0d-9eaa-7685db1fcb6b?mode=deep",
+    "timestamp": "2026-01-09 10:06:46.572394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork logic injection] Can validators inject custom fork logic into the Forks slice to execute arbitrary code at specific block heights through PreBlockForks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee8efee8-3d5e-4ee0-8ad3-cff988cd95d7?mode=deep",
+    "timestamp": "2026-01-09 10:07:12.281441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Memory leak in handler closure] Do the upgrade handler closures created by CreateUpgradeHandler properly release references to app.ModuleManager and app.AppKeepers, or can this cause memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_183bf0d7-7389-49a5-aaf9-2b320f4a14ed?mode=deep",
+    "timestamp": "2026-01-09 10:07:37.473640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Unbounded slice growth] Can the Upgrades slice grow unboundedly over time as new upgrades are added, eventually causing memory issues during setupUpgradeStoreLoaders iteration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27470ff1-e986-4d56-8f13-6a51fdc95f1b?mode=deep",
+    "timestamp": "2026-01-09 10:08:02.217702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork slice memory] Does the Forks slice retain fork definitions indefinitely after execution, causing unnecessary memory usage, or are executed forks cleaned up? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21f4e0a0-7fb6-47b3-9483-6e19e7f7a462?mode=deep",
+    "timestamp": "2026-01-09 10:08:26.417342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Upgrade proposal validation] Does the upgrade handler registration validate that registered upgrade names match pending governance upgrade proposals, or can handlers be registered for non-existent upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c158bb5-3ab7-49ac-8c18-71e8ed3bf773?mode=deep",
+    "timestamp": "2026-01-09 10:08:51.508285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Upgrade cancellation handling] If an upgrade is cancelled via governance, does setupUpgradeStoreLoaders detect this and skip store loader configuration, or will it proceed with store migrations for cancelled upgrades? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e6189c4-03ae-4179-b034-95d479d2c067?mode=deep",
+    "timestamp": "2026-01-09 10:09:16.603672",
+    "report_generated": false
   }
 ]
