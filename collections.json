@@ -2848,5 +2848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a623a816-0808-4686-8c23-13ef89444102?mode=deep",
     "timestamp": "2026-01-09 10:29:12.078623",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Crisis fees outstanding] If the crisis module has outstanding fee payments or locked funds when v2 upgrade deletes it, are those funds properly migrated or do they become permanently inaccessible? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b991562-9851-42b0-ba81-3428d3e614c3?mode=deep",
+    "timestamp": "2026-01-09 10:30:17.586953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Height manipulation] Can a malicious validator exploit the height calculation logic (height = app.LastBlockHeight() + 1) to cause off-by-one errors in the exported genesis state, leading to consensus failure when the chain restarts from the exported genesis? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfc20fa9-4f80-451e-9be7-8b41042325e2?mode=deep",
+    "timestamp": "2026-01-09 10:30:30.063447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Context manipulation] Can an attacker exploit the NewContextLegacy call with cmtproto.Header{Height: app.LastBlockHeight()} to create a context with inconsistent block metadata, causing state export to capture incorrect validator sets or token balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ceb51452-af41-422a-81e4-344228bbf76f?mode=deep",
+    "timestamp": "2026-01-09 10:30:42.740262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [State inconsistency] Does the forZeroHeight conditional logic properly handle the case where prepForZeroHeightGenesis modifies state while the context still references the original height, potentially causing exported validators to not match the actual validator set? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05edb190-82fa-4428-889a-84853d3f668f?mode=deep",
+    "timestamp": "2026-01-09 10:30:56.121070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Module export] Can a malicious module exploit the ModuleManager.ExportGenesisForModules call to inject invalid state into genState by returning crafted JSON that passes validation but breaks consensus on chain restart? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e0848a2-6824-4909-8874-7ca4f0820cdc?mode=deep",
+    "timestamp": "2026-01-09 10:31:09.888677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [JSON marshaling] Can an attacker cause a denial of service by triggering json.MarshalIndent to consume excessive memory when exporting large state objects, preventing successful genesis export and chain migration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0954472e-1f7a-439a-bfc7-18f0959de82c?mode=deep",
+    "timestamp": "2026-01-09 10:31:25.140861",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Validator export] Can staking.WriteValidators return a validator set that is inconsistent with the exported app state, causing the new chain to start with mismatched validators and trigger immediate consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49d0e167-3598-40a2-880d-93a9e2f1dde1?mode=deep",
+    "timestamp": "2026-01-09 10:31:41.145439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Consensus params] Can the app.BaseApp.GetConsensusParams call return outdated or manipulated consensus parameters that differ from the actual chain state, causing validators to reject the exported genesis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0c86dde-7a7a-4eaf-98d0-545de7aa6321?mode=deep",
+    "timestamp": "2026-01-09 10:31:57.988964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Error handling] If ModuleManager.ExportGenesisForModules returns an error after partial state export, can this leave the chain in an inconsistent state where some modules are exported but others are not? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a787769-34cf-4a3a-a740-cc33568a53d8?mode=deep",
+    "timestamp": "2026-01-09 10:32:16.806435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Module selection] Can an attacker exploit the modulesToExport parameter to selectively export only certain modules, creating an incomplete genesis state that causes chain halt on restart due to missing critical state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a45a757-476e-4307-bd0c-e78285314897?mode=deep",
+    "timestamp": "2026-01-09 10:32:35.409323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Height overflow] Can the height calculation (app.LastBlockHeight() + 1) overflow when the chain has been running for an extremely long time, causing the exported genesis to have height 0 unintentionally? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7c563c9-d8b1-45a2-96b3-7c5bc0611a12?mode=deep",
+    "timestamp": "2026-01-09 10:32:56.105315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Address validation] Can an attacker include malformed Bech32 addresses in jailAllowedAddrs that pass sdk.ValAddressFromBech32 validation but cause state corruption when used in subsequent validator operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_470a7133-83ec-4995-a82d-d783e3fb2ff8?mode=deep",
+    "timestamp": "2026-01-09 10:33:17.411250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Log.Fatal abuse] Can a malicious actor trigger the log.Fatal call by providing invalid addresses in jailAllowedAddrs during a coordinated genesis export, causing all validators to crash simultaneously and halting the entire network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de4d719a-345e-4378-a5a0-25e2921b2900?mode=deep",
+    "timestamp": "2026-01-09 10:33:40.086368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Allowlist bypass] Can an attacker craft validator addresses that match entries in allowedAddrsMap through hash collisions or case sensitivity issues, preventing legitimate validators from being jailed while allowing malicious ones to remain active? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01ed1d77-da21-4d72-af7c-60b8883c823b?mode=deep",
+    "timestamp": "2026-01-09 10:34:03.781484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Map initialization] Can a race condition occur between the allowedAddrsMap initialization and its usage in validator jailing, allowing validators to be incorrectly jailed or unjailed during concurrent genesis exports? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9db4e45-24ed-4337-8a6e-f3e366da8fe1?mode=deep",
+    "timestamp": "2026-01-09 10:34:27.094245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Commission withdrawal] Can the app.StakingKeeper.IterateValidators callback panic during commission withdrawal, leaving some validators with withdrawn commissions while others retain theirs, causing unfair token distribution in the new genesis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8485273b-a7e1-43c5-904a-483dcfbee339?mode=deep",
+    "timestamp": "2026-01-09 10:34:52.709581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [ValidatorAddressCodec] Can the ValidatorAddressCodec().StringToBytes call fail for certain validator operator addresses due to encoding issues, causing a panic that prevents the entire genesis export from completing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e42c15d3-23c2-4690-9f21-ef47ae7ed764?mode=deep",
+    "timestamp": "2026-01-09 10:35:19.241950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Commission double-withdrawal] If a validator has already withdrawn their commission before genesis export, can the WithdrawValidatorCommission call duplicate the withdrawal, effectively doubling the validator's rewards at the expense of the community pool? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9e33324-cd5d-42f8-a2b0-273084461352?mode=deep",
+    "timestamp": "2026-01-09 10:35:45.354254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Iterator safety] Can the IterateValidators function be called concurrently during genesis export, causing race conditions where the same validator's commission is withdrawn multiple times or not at all? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b349c4bf-2f8a-424d-bf50-a7d8109aa18e?mode=deep",
+    "timestamp": "2026-01-09 10:36:12.099589",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Panic propagation] If WithdrawValidatorCommission panics for one validator, does the panic handler properly roll back all previous commission withdrawals, or are some validators left with withdrawn funds while others are not? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c2b1517-cea2-4695-8736-5400377fb189?mode=deep",
+    "timestamp": "2026-01-09 10:36:39.160735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Delegation rewards] Can app.StakingKeeper.GetAllDelegations return a stale or incomplete list of delegations, causing some delegators to lose their pending rewards during the genesis export? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db63e58d-6d82-4cb4-b292-8342028582d0?mode=deep",
+    "timestamp": "2026-01-09 10:37:06.186004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Address conversion] Can sdk.ValAddressFromBech32 or sdk.MustAccAddressFromBech32 fail for certain delegation addresses stored in the state, causing a panic that prevents genesis export and locks all user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c9947cd-cd29-4883-8017-da0e53452b0d?mode=deep",
+    "timestamp": "2026-01-09 10:37:30.994397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Reward calculation] Can the WithdrawDelegationRewards call calculate incorrect reward amounts due to rounding errors or precision loss, causing delegators to receive less than their entitled rewards in the new genesis? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88db7a36-1d3e-4368-aa0d-a4cdd554e4ad?mode=deep",
+    "timestamp": "2026-01-09 10:37:56.370280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Double withdrawal] If a delegation exists to multiple validators, can the iteration logic cause rewards to be withdrawn multiple times for the same delegator, effectively creating tokens out of thin air? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf305457-0de7-4491-b37b-dd6e4c088c75?mode=deep",
+    "timestamp": "2026-01-09 10:38:22.465452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Partial withdrawal] If WithdrawDelegationRewards fails for some delegations but succeeds for others, can this create an inconsistent state where some delegators have their rewards while others lose them permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c61a8c8d-7cfb-4cdc-90e5-5cb5f0b8fa5e?mode=deep",
+    "timestamp": "2026-01-09 10:38:48.201197",
+    "report_generated": false
   }
 ]
