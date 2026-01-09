@@ -5248,5 +5248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce2bcedb-af51-4131-b847-61313e0510a9?mode=deep",
     "timestamp": "2026-01-09 15:10:36.371389",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Access control] At lines 76-80, the IsEnabled check is performed AFTER IBC settings validation. Can an attacker send packets when the module is disabled, have them validated, then exploit a race condition where the module is enabled before this check, bypassing intended security controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd7c29d1-79d1-4136-befc-b057e58137f1?mode=deep",
+    "timestamp": "2026-01-09 15:11:50.651299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [IBC settings] Can an attacker manipulate packet fields (sourcePort, sourceChannel, destPort, destChannel) after packet creation but before acknowledgment to pass the validation at line 67 while circumventing security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cde185f-a7eb-45fb-84ee-cce710a04cf3?mode=deep",
+    "timestamp": "2026-01-09 15:12:03.075088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [IBC settings] The error at line 68 wraps ErrIBCSettingsMismatch and returns without calling the underlying OnAcknowledgementPacket. Does this leave the IBC transfer module in an inconsistent state where the packet is acknowledged by IBC core but not processed by the transfer module? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1144831d-e3c1-4089-be76-131c2ed8ad58?mode=deep",
+    "timestamp": "2026-01-09 15:12:15.725556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Error handling] When validateIBCSettingsMatchOnSendPacket fails at line 67, the comment at line 71 states 'unit-zig IBC vouchers can only be recovered'. Can an attacker exploit this by intentionally sending tokens through wrong channels, forcing users to use the recovery mechanism which may have different security properties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30dd4402-2152-47f8-95fa-452e70948d2b?mode=deep",
+    "timestamp": "2026-01-09 15:12:29.623292",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [IBC settings] At lines 67-72, validateIBCSettingsMatchOnSendPacket checks port/channel matching. Can an attacker exploit packet forwarding or multi-hop transfers to bypass this check while still transferring module denom tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66853943-8959-45b2-b8f2-e200793a1328?mode=deep",
+    "timestamp": "2026-01-09 15:12:43.724690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Denom validation] Can an attacker create a denom that has the same hash as the module denom but different string representation, passing validateIBCDenomIsModuleDenom at line 57 but causing misaccounting in tracking operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ede64718-2194-4826-b1e7-219405f5e2b6?mode=deep",
+    "timestamp": "2026-01-09 15:12:58.476120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Denom validation] Does the baseDenom extraction at line 54 properly handle denoms with special characters, null bytes, or unicode that could bypass string comparison at line 57 but still represent the module denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8428ce1-9c21-40c3-9c48-0ff636bd1347?mode=deep",
+    "timestamp": "2026-01-09 15:13:13.916059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Denom validation] At lines 57-61, if validateIBCDenomIsModuleDenom returns false, tracking is skipped. Can an attacker exploit this by wrapping the module denom in additional IBC hops so baseDenom doesn't match, bypassing all security checks while still transferring module tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c20f2c44-7709-43f0-8ad2-73b0a3e0469e?mode=deep",
+    "timestamp": "2026-01-09 15:13:31.695119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Denom validation] At line 54, ExtractDenomFromPath is called on data.Denom. Can an attacker craft a denom with deeply nested IBC path prefixes that cause excessive gas consumption or stack overflow, leading to DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40214a32-5056-4dd9-8896-a3f9a50cec4a?mode=deep",
+    "timestamp": "2026-01-09 15:13:48.976690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] If IBC settings are modified via governance between packet send and acknowledgment receipt, can the mismatch between validateIBCSettingsMatchOnSendPacket at line 67 cause legitimate packets to be rejected, permanently locking user tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ed51f10-f292-4529-a8ff-2ab4e4e57a29?mode=deep",
+    "timestamp": "2026-01-09 15:14:08.346113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [IBC settings] Does the validateIBCSettingsExist check at line 41 handle the case where settings are partially configured (e.g., port set but channel empty), and can this lead to unexpected behavior in downstream validation at line 67? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e6650fd-5b57-4ee2-a312-75093a8efe76?mode=deep",
+    "timestamp": "2026-01-09 15:14:28.577428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [IBC settings] When IBC settings validation fails at line 41, the code logs and skips wrapping at line 45. Can an attacker manipulate the timing of IBC settings updates to create a window where tokens are transferred but not tracked, causing permanent accounting discrepancies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dafc3290-2c50-4aea-813f-e1f0868a6fdc?mode=deep",
+    "timestamp": "2026-01-09 15:14:49.648396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [IBC settings] At lines 41-45, if validateIBCSettingsExist returns false, the function calls the underlying app.OnAcknowledgementPacket without tracking. Can an attacker exploit this to send module denom tokens through alternate channels, bypassing accounting and potentially duplicating tokens across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9004e899-00f3-4ef8-a91c-42773da24e6f?mode=deep",
+    "timestamp": "2026-01-09 15:15:12.209845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Packet unmarshaling] Can an attacker provide a packet with malformed UTF-8 sequences in the data.Denom field that causes ExtractDenomFromPath at line 54 to panic or behave unexpectedly, leading to consensus failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a39bb178-1a60-4fa3-9dba-841a93ac4506?mode=deep",
+    "timestamp": "2026-01-09 15:15:35.129145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Error handling] If packet unmarshaling fails at line 34 and an error event is emitted at line 35, does the early return at line 37 leave any state modifications uncommitted, and can this be exploited to cause state divergence across validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55498696-975e-4cc7-ae50-faf410e39936?mode=deep",
+    "timestamp": "2026-01-09 15:15:58.453270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Packet unmarshaling] Does the UnmarshalJSON call at line 34 properly validate all fields of FungibleTokenPacketData, or can an attacker inject unexpected data types that cause panics in subsequent operations like ExtractDenomFromPath at line 54? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c74452f-bd73-4053-a502-371b36277076?mode=deep",
+    "timestamp": "2026-01-09 15:16:23.586041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Packet unmarshaling] At lines 33-38, can an attacker craft a malformed FungibleTokenPacketData that passes JSON unmarshaling but contains malicious field values (e.g., negative amounts, overflowing integers) that exploit downstream processing logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f53887c0-aee8-4d4f-9b42-aea44a7177f6?mode=deep",
+    "timestamp": "2026-01-09 15:16:48.609433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Channel validation] Can an attacker provide a maliciously crafted sourcePort or sourceChannel value in the packet at line 25 that bypasses validation but causes downstream processing failures, leading to permanent token lock in the module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3956f4c-2e8e-453f-b7e8-f853c73215bd?mode=deep",
+    "timestamp": "2026-01-09 15:17:15.541365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Error handling] At lines 26-29, if validateChannel fails and returns an error after emitting an error event, can an attacker exploit the early return to bypass tracking and cause accounting inconsistencies in TotalTransferredOut statistics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_477b27a3-360e-4cf1-a5fb-43f527aa4a2d?mode=deep",
+    "timestamp": "2026-01-09 15:17:41.754156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Channel validation] Does the validateChannel check at line 25 properly handle the case where a channel exists but is in a CLOSED or FLUSHING state after passing initial validation, allowing malicious relayers to process acknowledgments on invalid channels? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7290421e-1f9c-43c9-8bf5-d5fc7f1dfa9d?mode=deep",
+    "timestamp": "2026-01-09 15:18:08.552521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Channel validation] Can an attacker exploit a race condition between channel validation at line 25 and the underlying OnAcknowledgementPacket call at line 101 to process packets on a channel that gets closed mid-execution, leading to state inconsistency and potential token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38aef89b-d667-4a02-9df3-b1bad5513926?mode=deep",
+    "timestamp": "2026-01-09 15:18:35.608361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Access control] At lines 76-80, the IsEnabled check is performed AFTER IBC settings validation. Can an attacker send packets when the module is disabled, have them validated, then exploit a race condition where the module is enabled before this check, bypassing intended security controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd4cba0e-436d-42e8-a6c5-c91623525184?mode=deep",
+    "timestamp": "2026-01-09 15:19:03.564461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [IBC settings] Can an attacker manipulate packet fields (sourcePort, sourceChannel, destPort, destChannel) after packet creation but before acknowledgment to pass the validation at line 67 while circumventing security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c14607f-f086-403f-98a6-8e77bbb853e4?mode=deep",
+    "timestamp": "2026-01-09 15:19:33.490850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [IBC settings] The error at line 68 wraps ErrIBCSettingsMismatch and returns without calling the underlying OnAcknowledgementPacket. Does this leave the IBC transfer module in an inconsistent state where the packet is acknowledged by IBC core but not processed by the transfer module? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f097902e-d9b4-4d70-9253-a5b080f6a049?mode=deep",
+    "timestamp": "2026-01-09 15:20:03.329535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Error handling] When validateIBCSettingsMatchOnSendPacket fails at line 67, the comment at line 71 states 'unit-zig IBC vouchers can only be recovered'. Can an attacker exploit this by intentionally sending tokens through wrong channels, forcing users to use the recovery mechanism which may have different security properties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6337adea-f6c0-47f6-abbe-d7cc1a894fea?mode=deep",
+    "timestamp": "2026-01-09 15:20:31.694888",
+    "report_generated": false
   }
 ]
