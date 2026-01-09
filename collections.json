@@ -3448,5 +3448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3af06761-fc91-4868-9a7c-98d201c0f9ab?mode=deep",
     "timestamp": "2026-01-09 11:08:09.685584",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [IBC channel state] Can IBC channel state be exported in a way that causes packet replay or loss when the new chain starts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6bc44925-53ad-4965-b745-0902766f366f?mode=deep",
+    "timestamp": "2026-01-09 11:09:22.365386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Module wallet balance] Can the TokenWrapper module wallet balance become inconsistent with wrapped token supply during genesis export, causing unwrapping failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c50a7a5-b125-408a-bd3c-0786a615348a?mode=deep",
+    "timestamp": "2026-01-09 11:09:35.373904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Empty validator set] Can the genesis export succeed with an empty validator set, causing the new chain to be unable to produce blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1a36cce-288d-4959-a5ca-cea220c675ee?mode=deep",
+    "timestamp": "2026-01-09 11:09:48.224033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Zero delegation amount] Can delegations with zero amounts cause division by zero or other arithmetic errors during reward withdrawal or reinitialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf74a169-92dd-4b8e-97ff-25937cc57ad4?mode=deep",
+    "timestamp": "2026-01-09 11:10:01.491670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Negative rewards] Can reward calculation errors result in negative reward amounts that corrupt the community pool or validator balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab9511b7-3af5-4417-9e47-79457c5fa4ab?mode=deep",
+    "timestamp": "2026-01-09 11:10:15.957829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Maximum validator limit] Can the validator iteration process more than the maximum allowed validators, causing consensus parameter violations in the exported genesis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_915ffb3d-6ed0-4f2f-bae8-98a02566db87?mode=deep",
+    "timestamp": "2026-01-09 11:10:31.017954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Silent failures] Can important errors be logged but not returned, causing the genesis export to appear successful while actually containing invalid state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a921c35f-92a6-432d-8475-477ab79bd742?mode=deep",
+    "timestamp": "2026-01-09 11:10:47.680951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Debug log injection] Can the app.Logger().Debug call be exploited to inject misleading log messages that obscure actual security issues during genesis export? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_abc43121-6f52-450c-bf6e-4f159b5db9ca?mode=deep",
+    "timestamp": "2026-01-09 11:11:06.854106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Timestamp inconsistency] Can the context created with an empty cmtproto.Header cause time-dependent operations to use incorrect timestamps during export? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d1ed968-87f2-43c0-943b-f63c62f47105?mode=deep",
+    "timestamp": "2026-01-09 11:11:25.822629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Block time reset] Can setting block height to 0 cause block time to reset or become invalid, affecting time-locked operations like vesting or unbonding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff8d8c92-736d-4993-9d4b-0bd82798a7a6?mode=deep",
+    "timestamp": "2026-01-09 11:11:45.872234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Proposal state] Can active governance proposals be exported in a way that causes them to execute incorrectly or be lost in the new chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6c00afb-612d-4a16-8089-41a6432c7046?mode=deep",
+    "timestamp": "2026-01-09 11:12:06.187689",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Upgrade plan] Can a scheduled chain upgrade be improperly exported, causing the upgrade to be skipped or executed twice? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35195c36-c989-4aa6-b3a5-51ba80612cc3?mode=deep",
+    "timestamp": "2026-01-09 11:12:27.551895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator status] Can validator status (bonded/unbonded/unbonding) be incorrectly reset during genesis export, causing validators to be in invalid states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c463f2f9-459f-43dc-8526-40745aa89e57?mode=deep",
+    "timestamp": "2026-01-09 11:12:50.394865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator commission rate] Can validator commission rates be reset or modified during genesis export, causing validators to charge incorrect fees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e94a756f-4097-4199-8a62-bc044cc2e919?mode=deep",
+    "timestamp": "2026-01-09 11:13:14.624156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator description] Can validator description or metadata be lost during genesis export, causing identity confusion in the new chain? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c07e1467-a19f-4adc-bfd1-217e14713104?mode=deep",
+    "timestamp": "2026-01-09 11:13:39.293947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Current rewards] Can the current rewards period be improperly reset, causing delegators to lose rewards accrued since the last withdrawal? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b91ba2e4-ee4b-4f38-bb23-cc5f142a70bf?mode=deep",
+    "timestamp": "2026-01-09 11:14:05.136420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Reference count] Can the reference counting used by the distribution module become inconsistent during genesis export, causing memory leaks or incorrect reward calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfc57e5f-a654-481e-92f4-0edbde2769a7?mode=deep",
+    "timestamp": "2026-01-09 11:14:32.257759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [LastBlockHeight] Can app.LastBlockHeight() return an incorrect value if called during certain consensus states, causing the exported height to be wrong? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2f6071b-3135-470f-bfe7-ca19743200be?mode=deep",
+    "timestamp": "2026-01-09 11:14:58.899219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Validator voting power] Can the voting power of validators in the exported genesis not match their actual delegated amounts, causing immediate consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b0e389bc-cf7a-4179-9fe1-6ef90ba84415?mode=deep",
+    "timestamp": "2026-01-09 11:15:26.143299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Double sign evidence] Can evidence of double signing be lost during genesis export, allowing malicious validators to escape slashing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb09df86-a3d6-4fdf-b887-01ee690e7496?mode=deep",
+    "timestamp": "2026-01-09 11:15:53.764062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Inflation rate] Can the inflation rate or minting parameters be incorrectly exported, causing the new chain to mint tokens at the wrong rate? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0313c93-e42a-4f01-864c-f4a0b67e980d?mode=deep",
+    "timestamp": "2026-01-09 11:16:21.389896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Community tax] Can the community tax setting be lost during genesis export, causing the community pool to stop accumulating funds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3dc26e03-bd6a-4129-9732-b076b92b8218?mode=deep",
+    "timestamp": "2026-01-09 11:16:47.956655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Module account balances] Can module account balances become inconsistent with their expected values during genesis export, causing modules to run out of funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1641dc98-ad76-4860-b87a-8db28947ab9b?mode=deep",
+    "timestamp": "2026-01-09 11:17:14.473091",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Total supply] Can the total token supply change during genesis export due to rounding errors or bugs in reward withdrawal logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a99bd35e-0fbe-4c52-9cd9-3f8ee51d6eab?mode=deep",
+    "timestamp": "2026-01-09 11:17:41.223077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Module parameters] Can module parameters be exported with values that violate consensus rules or cause chain halt in the new genesis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_927a4c18-c1ea-4eac-913e-29b1c7f719cc?mode=deep",
+    "timestamp": "2026-01-09 11:18:07.425270",
+    "report_generated": false
   }
 ]
