@@ -448,5 +448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3179fc3-3c98-4863-8f82-f12d0b452ef0?mode=deep",
     "timestamp": "2026-01-09 07:54:38.722722",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - simulation manager] [Module override] Can the auth module override in overrideModules with RandomGenesisAccounts be exploited to generate genesis accounts with special properties that bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d0c65b5-a4c0-4db0-9dbe-9d6f4ebc1d55?mode=deep",
+    "timestamp": "2026-01-09 07:55:51.030054",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - simulation manager] [WASM wrapper] Does wrapping the wasm module in newWasmModuleSimulationWrapper prevent testing of critical security-relevant operations beyond MsgStoreCode? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2941cc0c-6d94-4336-af04-eff17481b37b?mode=deep",
+    "timestamp": "2026-01-09 07:56:03.419144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - simulation manager] [Module registration] Can the NewSimulationManagerFromAppModules call merge modules in a way that causes name collisions, allowing module behavior override? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35063531-4760-41b8-ba63-7819d924c254?mode=deep",
+    "timestamp": "2026-01-09 07:56:16.717268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - app.Load()] [Load latest] If loadLatest is false but the app tries to load anyway, can this cause loading of incorrect historical state that allows replay of old transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f9d34f9-8d35-4846-af52-0d9dccafe63e?mode=deep",
+    "timestamp": "2026-01-09 07:56:29.835669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - app.Load()] [Load failure] If app.Load fails but error handling is incomplete, can the chain start in a partially loaded state where some modules are initialized but others are not? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51493e12-3de4-4bb5-9855-2b459b8d008c?mode=deep",
+    "timestamp": "2026-01-09 07:56:43.552614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - app.Load()] [Store mismatch] Can store key mismatches between what's registered and what's on disk cause app.Load to succeed but modules to operate with incorrect store bindings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b080eea-9e66-4d37-8b5b-c1eeb175991f?mode=deep",
+    "timestamp": "2026-01-09 07:56:58.622461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - InitializePinnedCodes] [Pinned contracts] Can malicious contracts be pinned during chain genesis to ensure they remain in memory and execute faster, giving attackers an advantage in MEV extraction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54bbca98-f0c3-4004-a5ca-8b1903111aba?mode=deep",
+    "timestamp": "2026-01-09 07:57:15.903152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - InitializePinnedCodes] [Context usage] Does using NewUncachedContext for pinning codes bypass transaction gas limits, allowing unlimited gas consumption during initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96d2b817-0466-4fa5-94b7-5216dfcff5ee?mode=deep",
+    "timestamp": "2026-01-09 07:57:33.207469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - InitializePinnedCodes] [Error handling] If InitializePinnedCodes fails, is the error properly returned or can the app continue operating with unpinned critical contracts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa7778bd-58fb-4c05-887a-20d99a447282?mode=deep",
+    "timestamp": "2026-01-09 07:57:51.639899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Constants: Name, AccountAddressPrefix, ChainCoinType] [Prefix usage] Can the AccountAddressPrefix being set from constants.AddressPrefix be exploited if the constant is mutable, allowing address prefix changes that break bech32 validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc19cb97-873a-4526-893a-133f0bc24f42?mode=deep",
+    "timestamp": "2026-01-09 07:58:11.439470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Constants: Name, AccountAddressPrefix, ChainCoinType] [Coin type] Does the ChainCoinType constant being sourced from constants.CoinType allow BIP44 path manipulation in wallet derivation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db066200-ed67-4534-805b-0c860ee2c6b3?mode=deep",
+    "timestamp": "2026-01-09 07:58:31.825778",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Type: App] [runtime.AppI] Does implementing runtime.AppI expose methods that can be called to bypass security checks in custom module logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5498307e-002d-4d9b-99af-d4fa936e5133?mode=deep",
+    "timestamp": "2026-01-09 07:58:53.176606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Type: App] [servertypes.Application] Does implementing servertypes.Application require exposing methods that could leak sensitive configuration or state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_306c5d2e-9ed7-499d-a48f-33f9f7fb8a81?mode=deep",
+    "timestamp": "2026-01-09 07:59:15.109347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [appBuilder pointer] Can passing appBuilder as a double pointer to NewAppKeepers allow it to be reassigned to a malicious builder that modifies app construction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a590d203-943a-4081-97a7-6349d386ac2a?mode=deep",
+    "timestamp": "2026-01-09 07:59:37.741474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Codec pointers] Are the codec, legacyAmino, txConfig, and interfaceRegistry passed as pointers to NewAppKeepers to allow modification, potentially replacing them with malicious implementations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47355bea-7dcd-404e-9e12-88e1a3ceaac4?mode=deep",
+    "timestamp": "2026-01-09 08:00:02.088563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [AppOptions] Can appOpts passed to NewAppKeepers contain malicious configuration that override security settings for TokenWrapper or Factory modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cacb414b-5bdd-4af7-a760-c2051ae25c5b?mode=deep",
+    "timestamp": "2026-01-09 08:00:26.996574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Logger injection] Can a malicious logger passed to NewAppKeepers intercept and suppress security-relevant log messages from TokenWrapper operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97ff10d5-f084-40aa-948d-822f8281c630?mode=deep",
+    "timestamp": "2026-01-09 08:00:52.993565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Optimistic execution] Does enabling optimistic execution cause IBC acknowledgements to be processed optimistically, potentially allowing token release before acknowledgement verification is complete? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3cdb190-18f8-4c62-8cb0-da167f10df09?mode=deep",
+    "timestamp": "2026-01-09 08:01:19.147727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Optimistic execution] Can optimistic execution of TokenWrapper wrap/unwrap operations cause balance updates to be applied before decimal conversion validation completes, leading to incorrect token amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_700c6d57-d604-4d1e-b359-3b83ec5fb549?mode=deep",
+    "timestamp": "2026-01-09 08:01:46.231756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Optimistic execution] Does optimistic execution interact poorly with the TokenWrapper recovery mechanism, allowing recovery operations to proceed before lock/unlock validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50a04790-8500-446e-a7ff-673ecfe62af6?mode=deep",
+    "timestamp": "2026-01-09 08:02:11.868969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Optimistic execution] Can optimistic execution of Factory mint operations bypass minting cap checks by executing mints before cap validation completes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1a66c8f-5165-4d76-b489-5b28a6946072?mode=deep",
+    "timestamp": "2026-01-09 08:02:37.998598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Optimistic execution] Does optimistic execution of DEX swap operations allow price manipulation by executing swaps before slippage validation completes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78ea7719-7192-4318-82ff-b96b91914354?mode=deep",
+    "timestamp": "2026-01-09 08:03:03.240104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [Fork array] Even though Forks is empty now, if forks are added later, can they execute arbitrary state transitions that bypass consensus validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c6a4e04-68ca-477e-a1e5-70c9d155438e?mode=deep",
+    "timestamp": "2026-01-09 08:03:28.935595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [Block height check] Can an attacker manipulate the block height in PreBlockForks to trigger fork logic at incorrect heights, causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9965035-38b7-4009-a3a2-b7e52f813d29?mode=deep",
+    "timestamp": "2026-01-09 08:03:55.326610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [AppKeepers access] Does passing &app.AppKeepers to fork logic allow forks to directly manipulate keeper state without going through proper validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d304234b-ba72-4f24-860e-b0e311ade81d?mode=deep",
+    "timestamp": "2026-01-09 08:04:21.215170",
+    "report_generated": false
   }
 ]
