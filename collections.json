@@ -8698,5 +8698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8f42b4d-d96d-4b9f-8372-81de4adeaa5d?mode=deep",
     "timestamp": "2026-01-09 21:26:49.657616",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Store iteration order] Does the KVStorePrefixIterator guarantee deterministic ordering of pool UIDs across different validator nodes, or can Byzantine validators return differently ordered results to cause consensus failures when other modules depend on consistent pool ordering? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d65cc025-3bd0-4d33-b7e1-4f233dd25129?mode=deep",
+    "timestamp": "2026-01-09 21:27:58.248098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids()] [Error handling] When query.Paginate returns an error, the function wraps it with status.Error(codes.Internal) - does this leak internal implementation details or stack traces that could help attackers understand the store structure for targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_355bff59-8212-49c4-bb87-1b6ff1854a1f?mode=deep",
+    "timestamp": "2026-01-09 21:28:10.627373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Coin sorting manipulation] The function uses sdk.NewCoins to automatically sort base and quote denoms - can an attacker exploit this sorting to query the same pool using different denom orders, causing cache misses or excessive lookups that degrade query performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1dba921d-37ea-40be-9d12-67a7ffe8f683?mode=deep",
+    "timestamp": "2026-01-09 21:28:23.160993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Integer overflow] When constructing coins with math.NewInt(1), if the underlying math.Int implementation has overflow vulnerabilities, can an attacker exploit this to create malformed coins that bypass the sorting or length checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7992d777-b06a-4f62-820c-49cbbb683838?mode=deep",
+    "timestamp": "2026-01-09 21:28:37.365694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Coin validation bypass] Since the coins are created with amount=1 only for sorting purposes, can an attacker provide denoms that are invalid but pass NewCoins validation, leading to incorrect pool UID lookups that return wrong pool information to traders? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a17b3e4-2438-4f04-b29b-0eab36683844?mode=deep",
+    "timestamp": "2026-01-09 21:28:51.213696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Duplicate denom attack] What happens if req.Base and req.Quote are identical strings? Does sdk.NewCoins deduplicate them, causing len(coins) != 2 and returning ErrPoolNotFound, or does it create unexpected behavior in the DEX system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71f795bf-b551-4b05-a74e-b1cc97b88b78?mode=deep",
+    "timestamp": "2026-01-09 21:29:06.348601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Empty denom strings] Can an attacker provide empty strings for req.Base or req.Quote that pass the nil request check but create invalid coins, leading to panics in NewCoins or undefined behavior in string concatenation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d9b7f55-c426-48ff-bca0-f43e33fbf0d5?mode=deep",
+    "timestamp": "2026-01-09 21:29:22.217833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [String concatenation injection] The poolUidString is constructed using coins[0].Denom + types.PoolUidSeparator + coins[1].Denom - can an attacker provide denoms containing the separator character '-' to create ambiguous pool UIDs that collide with legitimate pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3eb2da04-8476-4ff5-92e4-8308ba66f103?mode=deep",
+    "timestamp": "2026-01-09 21:29:39.536796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Pool UID collision] If two different denom pairs can produce the same poolUidString due to separator collisions (e.g., 'abc-' + '-' + 'xyz' vs 'abc' + '-' + '-xyz'), can attackers query wrong pools or manipulate routing in swap operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de2a14be-aa49-4eb4-806b-c2a39fd53742?mode=deep",
+    "timestamp": "2026-01-09 21:29:57.788838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Unicode normalization] Can an attacker use Unicode normalization vulnerabilities in denom strings to create visually identical but byte-different pool UIDs, allowing them to create fake pools that deceive users during swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f9f0ebc0-5797-44ca-9f45-be262b578a9d?mode=deep",
+    "timestamp": "2026-01-09 21:30:16.783100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Case sensitivity] Are pool UID lookups case-sensitive? Can an attacker create pools with denoms that differ only in casing (e.g., 'ABC-usdt' vs 'abc-usdt') to fragment liquidity or enable front-running attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6807c220-8dd8-420c-8fd4-749acb65f12b?mode=deep",
+    "timestamp": "2026-01-09 21:30:36.867858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Whitespace manipulation] Can an attacker inject leading/trailing whitespace or control characters in denom strings that survive NewCoins validation but create different pool UIDs when concatenated, leading to pool discovery failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_061a7d5d-eb37-4442-a036-33a16fcc1d7a?mode=deep",
+    "timestamp": "2026-01-09 21:30:58.401037",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [TOCTOU vulnerability] Between the time GetPoolUids checks if the pool exists and returns it, can a concurrent transaction delete the pool, causing the response to reference a non-existent pool that leads to failed swaps or liquidity operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89a0f1c4-28c7-4871-b1ba-c039de781303?mode=deep",
+    "timestamp": "2026-01-09 21:31:20.526747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Stale data] If the returned PoolUids struct contains a PoolId that points to a deleted or modified pool in the main pool store, can this cause state inconsistencies where users attempt operations on phantom pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14dd461f-175a-4a7d-be4a-44b30aa596f9?mode=deep",
+    "timestamp": "2026-01-09 21:31:43.445292",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Cache poisoning] If client applications cache the results of GetPoolUid queries, can an attacker exploit race conditions to poison caches with stale pool IDs that redirect users to wrong pools during high-volume trading? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c578d60-4021-4d52-8c0c-9de960880c09?mode=deep",
+    "timestamp": "2026-01-09 21:32:06.860793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Store key collision] The PoolUidsKey function appends '/' to the pool UID string - can an attacker create pool UIDs containing '/' characters that cause key collisions in the prefix store, overwriting other pool mappings? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_152c4bfa-15c6-45a0-a954-e095fb9d3283?mode=deep",
+    "timestamp": "2026-01-09 21:32:31.335373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Memory leak] Does the GetPoolUids keeper function properly release resources if the store lookup fails, or does repeated failed queries leak file descriptors or memory in the store adapter? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_340d15ee-1a8c-4d3d-bcf3-fa4dfe232830?mode=deep",
+    "timestamp": "2026-01-09 21:32:54.808528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Error message information leak] The error message includes the exact pool UID string, base, and quote denoms - can this leak information about attempted attacks or user behavior patterns that privacy-conscious traders want to keep confidential? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff8f76c6-812e-423b-a717-40c8239f575e?mode=deep",
+    "timestamp": "2026-01-09 21:33:22.761593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Nil pointer dereference] If GetPoolUids returns found=false but val is not properly zero-initialized, could accessing val.PoolUid in downstream code cause nil pointer dereferences that crash validator processes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95fb1948-7230-4c9a-93a6-15eafe2caaea?mode=deep",
+    "timestamp": "2026-01-09 21:33:48.339092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Status code manipulation] The function returns status.Error with specific error codes - can an attacker use these error codes to perform timing attacks that reveal whether specific pools exist without having direct query access? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5610bec5-e332-4896-a5c8-6fed45dee33e?mode=deep",
+    "timestamp": "2026-01-09 21:34:13.959647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Response validation] The QueryGetPoolUidResponse contains the full PoolUids struct - is there any sanitization of fields like PoolId to prevent response injection or cross-site scripting if these values are displayed in web interfaces? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f0e8fb0-0cf1-4b68-98e4-12dcf13e6aff?mode=deep",
+    "timestamp": "2026-01-09 21:34:39.553469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid()] [Error wrapping depth] The sdkerrors.Wrapf call wraps ErrPoolNotFound with a formatted message - can excessive error wrapping in high-frequency failed queries cause stack overflow or memory pressure from accumulated error chains? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e0f6a11-b936-4246-8100-c89b7078c385?mode=deep",
+    "timestamp": "2026-01-09 21:35:05.525037",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [Inconsistent state] If ListPoolUids shows a pool exists but concurrent GetPoolUid query for that pool returns not found, can this race condition cause trading bots to fail or exhibit unexpected behavior during high-load conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_678fcd3d-0b9b-4d5e-8e4f-7b918c038586?mode=deep",
+    "timestamp": "2026-01-09 21:35:31.018445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [Denial of service] Can an attacker interleave rapid ListPoolUids pagination with targeted GetPoolUid queries to cause lock contention in the underlying KV store, degrading query performance for all users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d722f047-c66c-45a2-b712-12b9a0b3b6b8?mode=deep",
+    "timestamp": "2026-01-09 21:35:58.132947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [Query amplification] Can an attacker use ListPoolUids to enumerate all pool UIDs, then flood GetPoolUid with queries for each pool, amplifying their attack surface to overwhelm validator query endpoints? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f00d454c-0e69-42d3-80a2-91ddf1718b52?mode=deep",
+    "timestamp": "2026-01-09 21:36:26.294804",
+    "report_generated": false
   }
 ]
