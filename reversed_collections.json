@@ -10798,5 +10798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d423c33e-1902-4952-b4f5-d7f516e0bdea?mode=deep",
     "timestamp": "2026-01-09 21:51:41.969734",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Pauser address list] If future Params include a list of pauser addresses, does ValidateBasic() validate each address format, check for duplicates, and enforce maximum list size limits to prevent DoS through oversized pauser lists? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5795e238-bf6e-45ed-a064-33135adf478d?mode=deep",
+    "timestamp": "2026-01-09 21:52:58.159036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Operator address parameter] If future Params include an operator address field, does ValidateBasic() ensure the address is valid and not the zero address, preventing attackers from setting an invalid operator that breaks the RecoverZig functionality's operator exclusion check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48c3a67f-e010-4de1-b536-d523eec6ebd2?mode=deep",
+    "timestamp": "2026-01-09 21:53:10.362170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [IBC channel parameters] If future Params include IBC channel, port, or client ID fields, does ValidateBasic() validate these against the actual IBC state, or can an attacker set invalid IBC parameters that cause all cross-chain transfers to fail, effectively disabling the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1ae9d0b-a313-4433-ab37-415eaf710734?mode=deep",
+    "timestamp": "2026-01-09 21:53:22.962329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Decimal factor validation] If future parameters include a decimal conversion factor for the 18→6 decimal conversion (currently hardcoded in keeper), does ValidateBasic() validate that the factor is exactly 10^12, preventing attackers from setting incorrect conversion factors that cause token duplication or loss during wrap/unwrap operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec02291f-ed79-4415-a522-cefcb2d48f3c?mode=deep",
+    "timestamp": "2026-01-09 21:53:36.553753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Authority initialization] Does ValidateBasic() handle the case where the keeper's authority has never been set (empty string), and can an attacker exploit this to update parameters before proper governance authority is established? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_771aead0-0e72-4773-a942-0e10006a0c91?mode=deep",
+    "timestamp": "2026-01-09 21:53:50.371749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Store corruption] If keeper.SetParams() uses k.cdc.Marshal() which can fail for certain parameter values, does ValidateBasic() pre-validate that marshaling will succeed, or can an attacker cause partial store writes that corrupt the parameter state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1caed252-2bf0-47ad-bfa8-ffef12e8268b?mode=deep",
+    "timestamp": "2026-01-09 21:54:05.202913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Event emission bypass] Does ValidateBasic() ensure that parameters are validated before the keeper emits ParamsUpdatedEvent, or can an attacker cause spurious events to be emitted for invalid parameter updates that ultimately fail, confusing monitoring systems and creating false alerts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a82b2c7c-a247-4940-a3ef-63923f2c0c76?mode=deep",
+    "timestamp": "2026-01-09 21:54:21.438234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [SetParams failure] Since ValidateBasic() at line 16 only validates the Params structure but not its storability, can an attacker craft parameters that pass ValidateBasic() but cause keeper.SetParams() to fail due to store key collisions, encoding errors, or size limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3ae5bc6-818b-445b-8549-d76c7d5558de?mode=deep",
+    "timestamp": "2026-01-09 21:54:38.955093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Keeper authority mismatch] Does ValidateBasic() verify that m.Authority matches the expected format and constraints of the keeper's authority address, or can an attacker submit proposals with syntactically valid but semantically incorrect authority addresses that cause keeper.UpdateParams() to fail inconsistently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9466f648-14ef-441e-bde4-a65194c04d03?mode=deep",
+    "timestamp": "2026-01-09 21:54:57.581022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Encoding errors] Does ValidateBasic() detect and reject Params objects that will fail to marshal in keeper.SetParams(), or can an attacker submit proposals that pass validation but fail during state storage, causing transaction reverts after consuming gas? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e90286c6-f26a-4aa2-a2a4-6270e8942ece?mode=deep",
+    "timestamp": "2026-01-09 21:55:17.255681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Protobuf recursion] If future Params fields include nested structures, does ValidateBasic() prevent deeply nested or recursive protobuf messages that could cause stack overflow during unmarshaling in keeper.SetParams()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09f73b3f-59f6-41ff-9bf8-9822b4299a8c?mode=deep",
+    "timestamp": "2026-01-09 21:55:37.123735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Deterministic marshaling] Does the Params struct guarantee deterministic protobuf marshaling, or can non-deterministic field ordering cause different validators to produce different state roots when processing the same parameter update, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0da41dd6-0768-488e-8497-acae7509c136?mode=deep",
+    "timestamp": "2026-01-09 21:55:57.747531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Protobuf size limits] Does ValidateBasic() check the serialized size of m.Params to prevent an attacker from submitting extremely large parameter objects that consume excessive memory during marshal/unmarshal operations, causing validator crashes or DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_429ed54b-b46c-43d1-aeb6-48ff0e887cff?mode=deep",
+    "timestamp": "2026-01-09 21:56:19.578011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Protobuf injection] Can an attacker craft a MsgUpdateParams message with additional unknown protobuf fields that pass ValidateBasic() but cause unexpected behavior when unmarshaled by keeper.SetParams(), potentially injecting malicious data into the params store? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d66c65c1-167a-483c-bebd-127ffd1a3b7e?mode=deep",
+    "timestamp": "2026-01-09 21:56:41.562216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [State snapshot] Does ValidateBasic() operate on a consistent state snapshot, or can changes to the keeper's authority or params between the proposal creation and execution time cause validation to pass for proposals that should be rejected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfe83df9-353d-4b81-86d0-b3a03752bd38?mode=deep",
+    "timestamp": "2026-01-09 21:57:04.310481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Read-modify-write race] If ValidateBasic() reads current params state for validation purposes (not currently implemented), could multiple concurrent proposals cause read-modify-write races where updates overwrite each other, losing critical parameter changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8bf7b74-994c-48ec-8017-19d890bde945?mode=deep",
+    "timestamp": "2026-01-09 21:57:28.267945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Atomic updates] Does ValidateBasic() ensure that parameter updates are atomic, or can an attacker craft a sequence of parameter update proposals that create intermediate invalid states, causing wrap/unwrap operations to fail or produce incorrect decimal conversions during the transition period? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67123766-1c41-4ecb-900b-763c36c8b851?mode=deep",
+    "timestamp": "2026-01-09 21:57:53.766960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [TOCTOU vulnerability] Is there a time-of-check-time-of-use vulnerability between ValidateBasic() execution and keeper.UpdateParams() execution where an attacker could modify the keeper's authority address through another governance proposal, causing the second proposal to execute with stale authority checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c393cc0-62c2-476f-bb49-8ff0857181c8?mode=deep",
+    "timestamp": "2026-01-09 21:58:18.037510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Race condition] Can an attacker submit multiple concurrent MsgUpdateParams transactions that all pass ValidateBasic() checks simultaneously but cause race conditions when keeper.SetParams() attempts to marshal and store parameters, leading to corrupted parameter state or partial updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_858a0877-1b41-4b10-9f4b-ca7d39bf5c16?mode=deep",
+    "timestamp": "2026-01-09 21:58:43.481509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Params overflow] If future parameters include numeric fields (conversion factors, limits, timeouts), does Params.Validate() check for integer overflow, underflow, or division by zero conditions that could cause panics during parameter usage in keeper functions like ScaleDownTokenPrecision or ScaleUpTokenPrecision? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e05971ae-4d88-4b9b-bf70-91e44b8151f3?mode=deep",
+    "timestamp": "2026-01-09 21:59:09.304265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Params state inconsistency] Since ValidateBasic() calls Params.Validate() which returns nil, can an attacker update params to invalid states (e.g., zero decimal conversion factors if added in future) that pass validation but cause all subsequent wrap/unwrap operations to fail, effectively disabling the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_426a4d45-5bb9-445f-8735-f085b062daec?mode=deep",
+    "timestamp": "2026-01-09 21:59:33.591841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Params nil check] Does the code at line 16 check if m.Params is nil before calling Validate(), and if not, could an attacker trigger a nil pointer dereference panic by submitting a MsgUpdateParams message with a nil Params field, causing validator crashes and potential consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_045989b1-9bce-472a-bc2c-dd73f481c52e?mode=deep",
+    "timestamp": "2026-01-09 21:59:57.552025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Params validation bypass] Given that Params.Validate() at line 16 currently performs no validation, if future parameters are added to the Params struct (such as decimal conversion factors, IBC channel settings, or operator addresses) without updating the Validate() function, can attackers submit parameter updates that violate critical invariants and break the token wrapper bridge functionality? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bb3a8fb-5cc9-43c9-bd5a-9ff37d42d083?mode=deep",
+    "timestamp": "2026-01-09 22:00:19.808861",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Empty params validation] Since Params.Validate() returns nil without any checks, can an attacker submit a governance proposal with a maliciously crafted Params object (containing invalid protobuf fields, oversized byte arrays, or malformed nested structures) that passes ValidateBasic() but causes state corruption when marshaled by keeper.SetParams()? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24d0dc74-bee6-486f-90e7-7e1dc8825d89?mode=deep",
+    "timestamp": "2026-01-09 22:00:42.212109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Nil authority] If m.Authority is an empty string, does AccAddressFromBech32 return a valid zero address or an error, and could this lead to accepting parameter updates from the zero address if the keeper's authority is misconfigured during initialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9a08388-1624-42cd-8735-9947b33be656?mode=deep",
+    "timestamp": "2026-01-09 22:01:06.050989",
+    "report_generated": false
   }
 ]
