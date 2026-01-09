@@ -4198,5 +4198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_892332a9-1c65-444a-8009-1aa53e57e2e8?mode=deep",
     "timestamp": "2026-01-09 13:12:42.244392",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Field migration] If new fields are added to GenesisAccount in future versions, could old accounts have undefined/zero values for these fields that break validation or create security vulnerabilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e2a1cd0-ff58-44bd-8191-68be9a707fa4?mode=deep",
+    "timestamp": "2026-01-09 13:13:55.585470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Version-specific validation] Does the Validate() function account for different chain versions or protocol upgrades, or could accounts valid in one version become invalid in another causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_afc2d8d7-d74b-4ec0-8dd2-2f083df76555?mode=deep",
+    "timestamp": "2026-01-09 13:14:07.877989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Time arithmetic overflow] When downstream vesting logic calculates EndTime - StartTime (lines 22-23), could integer overflow occur for extreme time values that passed validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01fae3e5-7b36-4acb-9841-6e9e87d5cb81?mode=deep",
+    "timestamp": "2026-01-09 13:14:20.889237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Coin amount overflow] Can an attacker set OriginalVesting, DelegatedFree, and DelegatedVesting to values near math.MaxInt64 that cause overflow when summed in vesting calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81abba8d-b3c9-4fd1-87aa-6942c59b430f?mode=deep",
+    "timestamp": "2026-01-09 13:14:33.186410",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Subtraction underflow] If vesting logic performs OriginalVesting - DelegatedFree - DelegatedVesting, could underflow occur if delegations exceed vesting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e467064d-537c-481f-aa07-13f7694fe169?mode=deep",
+    "timestamp": "2026-01-09 13:14:48.087722",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Concurrent validation] If Validate() is called concurrently by multiple goroutines during genesis initialization, could race conditions in sdk.Coins or BaseAccount internal state cause validation failures or state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00764f75-57ae-4ef9-9f11-2682e1dc28ff?mode=deep",
+    "timestamp": "2026-01-09 13:15:02.987816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Shared pointer attack] Since BaseAccount is a pointer (line 16), could multiple GenesisAccounts share the same BaseAccount pointer, causing mutations in one account to affect others? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db8842c6-2ceb-4a50-a353-9ebfcb9d5dac?mode=deep",
+    "timestamp": "2026-01-09 13:15:18.474600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Lock-free validation] Does the Validate() function use any locks or synchronization primitives, or could concurrent calls lead to TOCTOU (Time-Of-Check-Time-Of-Use) vulnerabilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f7e6c88-7723-4e0c-965b-82ddc9fa5f87?mode=deep",
+    "timestamp": "2026-01-09 13:15:36.712989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [ModuleName injection] Can an attacker inject special characters, unicode, or null bytes into ModuleName (line 26) to bypass validation or cause string comparison failures in downstream module lookups? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d5a5026-760a-4dce-9f1d-05414864808b?mode=deep",
+    "timestamp": "2026-01-09 13:15:54.449865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Permission string attack] Can an attacker inject malformed permission strings in ModulePermissions (line 27) with special characters that break permission parsing or comparison logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a280246-14e6-42c1-a09b-143a77bfd8cd?mode=deep",
+    "timestamp": "2026-01-09 13:16:13.393179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [UTF-8 encoding attack] Could non-UTF-8 or mixed encoding in ModuleName or ModulePermissions cause validation to pass but downstream operations to fail? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae65c7a2-80ea-4a17-9ff1-bbae30f15b94?mode=deep",
+    "timestamp": "2026-01-09 13:16:33.266633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Zero value attack] If a GenesisAccount is created with all zero values (the Go default), does it pass Validate() and get initialized as a valid account with empty balance and no vesting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f53ecc9b-c5bb-4d19-bd9f-377755a31b8b?mode=deep",
+    "timestamp": "2026-01-09 13:16:54.190141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Nil slice vs empty slice] Is there a difference in behavior between ModulePermissions being nil vs []string{}, and could attackers exploit this difference to bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c37dd02-820d-402b-9c5c-d0daa1c2ae01?mode=deep",
+    "timestamp": "2026-01-09 13:17:17.259896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Uninitialized BaseAccount] If BaseAccount pointer is not initialized (remains nil), does Validate() panic at line 47 when calling BaseAccount.Validate()? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd6306c3-3ba1-4058-86bc-c92dbc1308e5?mode=deep",
+    "timestamp": "2026-01-09 13:17:40.164020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Boundary time values] Can an attacker set StartTime to 0 (Unix epoch start) or EndTime to math.MaxInt64 to test boundary conditions that might overflow in time calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccc6d8ca-de42-49c0-a2e6-412c93bbe48e?mode=deep",
+    "timestamp": "2026-01-09 13:18:03.891247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Empty coin validation] If OriginalVesting contains empty denominations (coins with zero amount), does IsZero() at line 32 return true or false, potentially bypassing validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5f99eb2-cce9-4da4-bf91-6c451b1ea611?mode=deep",
+    "timestamp": "2026-01-09 13:18:28.147071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Single coin vs multiple] Does the validation handle accounts with OriginalVesting containing multiple coin denominations differently than single denominations, potentially missing cross-denom attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_842dd7ee-472a-4dbb-8c9a-e0acb2e15c3d?mode=deep",
+    "timestamp": "2026-01-09 13:18:54.777355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Module account without permissions] Can an attacker create a module account (ModuleName set) with empty ModulePermissions []string{} to create powerless module accounts that still occupy namespace? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06e92312-35e9-480a-bcba-af66f4bd88f8?mode=deep",
+    "timestamp": "2026-01-09 13:19:21.595890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Vesting clawback] If a vesting account has DelegatedVesting set at genesis, can tokens be clawed back before they vest, allowing theft from the account? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9fc66147-97f0-4ab9-9b95-14e50670a04d?mode=deep",
+    "timestamp": "2026-01-09 13:19:48.796982",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Premature delegation] Can an attacker set DelegatedFree at genesis to delegate unvested tokens, allowing staking rewards on tokens that shouldn't be accessible yet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44fa94a5-c73c-42da-86db-c30e1e3e43f7?mode=deep",
+    "timestamp": "2026-01-09 13:20:14.904116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Circular delegation] Could multiple vesting accounts delegate to each other at genesis, creating circular delegation chains that amplify voting power or staking rewards? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf017daa-6532-4dc5-a3ca-4b97f331bf24?mode=deep",
+    "timestamp": "2026-01-09 13:20:42.294267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Vesting bypass via module] Can an attacker create a module account with vesting properties to bypass vesting restrictions by executing transactions as a module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a635ba2-f581-49f1-aea5-d35d6c04f2f4?mode=deep",
+    "timestamp": "2026-01-09 13:21:09.291280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Auth module bypass] Does the custom GenesisAccount properly integrate with the auth module's account storage, or could custom fields be lost during account persistence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cefde062-0c98-4aca-bfa1-aebc2b406e70?mode=deep",
+    "timestamp": "2026-01-09 13:21:36.849105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Bank module mismatch] If the bank module is initialized with balances that don't match OriginalVesting amounts, could this create token minting or burning at genesis? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59fac503-142c-4833-8273-f63ee15c6590?mode=deep",
+    "timestamp": "2026-01-09 13:22:04.559049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: GenesisAccount struct] [Staking module conflict] Can a vesting account with DelegatedVesting set at genesis conflict with the staking module's validator records, causing double-delegation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52156453-eea1-4acd-9f4d-374321da005f?mode=deep",
+    "timestamp": "2026-01-09 13:22:30.335939",
+    "report_generated": false
   }
 ]
