@@ -1,1 +1,152 @@
-[]
+[
+  {
+    "question": "[File: docs/docs.go] [Constant: apiFile] [URL Path Validation] The apiFile constant starts with '/' but the RegisterOpenAPIService function doesn't validate this - if the constant is modified to not start with '/', can this cause the route to be registered incorrectly, breaking the documentation service or creating unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e627bde7-aeb7-42e5-b483-9e2108c99dd0?mode=deep",
+    "timestamp": "2026-01-09 07:27:58.093438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Missing Validation] The function does not validate that the provided mux.Router is properly configured (middleware, security handlers) - can this allow the documentation service to be registered on an insecure router that bypasses authentication, rate limiting, or other security controls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ac3aea0-2320-4ca9-a10b-26503de4202d?mode=deep",
+    "timestamp": "2026-01-09 07:28:10.451297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Template Execution Concurrency] Multiple goroutines may execute t.Execute concurrently when handling parallel requests - while html/template.Template claims to be safe for concurrent execution, can edge cases in template parsing or execution cause data races that corrupt the output or crash the handler? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7eebb44-b8f2-4525-ad77-671590d5c6ac?mode=deep",
+    "timestamp": "2026-01-09 07:28:23.691760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Variable: Static] [Concurrent FS Access] The Static embedded.FS is accessed concurrently by the http.FileServer at line 23 - while embed.FS should be safe for concurrent reads, can high concurrency cause file descriptor exhaustion or filesystem lock contention that degrades validator performance during consensus rounds? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b2840b5-76fa-4177-bdc9-3020693b1749?mode=deep",
+    "timestamp": "2026-01-09 07:28:36.824301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [API Surface Expansion] By exposing OpenAPI documentation, this increases the attack surface of the blockchain node - can attackers use the documented API endpoints to find undocumented or poorly secured endpoints that allow unauthorized access to consensus operations or validator keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ac1c191-a104-4fae-a2a5-a635b7568c35?mode=deep",
+    "timestamp": "2026-01-09 07:28:50.571497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Validator Identity Exposure] The appName parameter may contain the validator's name or node identifier - can attackers correlate documentation access logs with validator identities to build a database of validator IP addresses and node information for targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08981ef8-b609-4b8c-b46c-77877bb04b06?mode=deep",
+    "timestamp": "2026-01-09 07:29:05.508949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [HTTP Status Code] The template execution at line 32 does not explicitly set an HTTP status code - if template execution fails, will the server return 200 OK with an empty body, misleading clients into thinking the request succeeded when it actually failed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6bd8023f-68d7-426f-b1ee-4da3496e7d22?mode=deep",
+    "timestamp": "2026-01-09 07:29:21.596616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Response Hijacking] The handler writes directly to http.ResponseWriter at line 32 without checking if the response has already been written - if middleware or the Gorilla mux router has already written headers, can this cause duplicate headers or HTTP protocol violations that confuse clients or proxies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2831c8a-93d8-435e-8b85-ba1674aefb54?mode=deep",
+    "timestamp": "2026-01-09 07:29:39.551544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Variable: Static] [Filesystem Immutability] The embedded Static filesystem at line 17 should be immutable - but if the http.FS wrapper or FileServer implementation has bugs, can an attacker exploit write operations to modify the embedded static files at runtime, persisting malicious content across requests? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d97a82e0-ec4a-4664-861d-0040d3a2bf0b?mode=deep",
+    "timestamp": "2026-01-09 07:29:57.691719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Template Caching] The template is parsed once at line 29 when handler() is called (during registration) - if the embedded template filesystem is modified after registration (which should be impossible with embed, but could happen with custom FS implementations), can this cause stale templates to be served, leading to incorrect API documentation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ad18d36-9115-418f-9763-1278b610561d?mode=deep",
+    "timestamp": "2026-01-09 07:30:17.278528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Package: docs] [Error Handling Philosophy] The package consistently discards errors (lines 29, 32) - does this error handling pattern indicate a broader security-ignorant culture in the codebase, suggesting that other critical components may also fail to properly handle errors, leading to exploitable undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72f36c97-5adf-43a2-9d0b-5d742447f534?mode=deep",
+    "timestamp": "2026-01-09 07:30:38.044852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Request Logging] There is no logging of documentation access attempts - can attackers repeatedly access the documentation endpoint to perform reconnaissance without detection, allowing them to gather information for planning attacks without triggering security alerts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4678146d-365f-4921-b56c-88489283676e?mode=deep",
+    "timestamp": "2026-01-09 07:30:58.435140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Service Discovery] The documentation endpoint is registered at the root path '/' - can attackers use automated scanners to discover that this is a blockchain node by fingerprinting the OpenAPI documentation format, then target the node with blockchain-specific exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4bbb35a-b9dd-4e8b-9a41-2d68ab8b8d85?mode=deep",
+    "timestamp": "2026-01-09 07:31:19.555816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Import: html/template] [Template Engine Security] The code uses 'html/template' for automatic escaping - however, if the template file contains unsafe constructs or if the template is marked as 'trusted', can this bypass HTML escaping and allow XSS attacks through the appName or URL fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04f91a13-771d-494b-b125-9564819a2464?mode=deep",
+    "timestamp": "2026-01-09 07:31:39.926083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Import: gorilla/mux] [Third-Party Dependency] The code depends on github.com/gorilla/mux - if this third-party library has security vulnerabilities (route injection, middleware bypass), can attackers exploit these to compromise the documentation service or pivot to attacking other blockchain endpoints? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9cd44142-abf7-4ec3-b0f9-919c29f93331?mode=deep",
+    "timestamp": "2026-01-09 07:31:59.229260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Import: embed] [Stdlib Dependency] The code uses the 'embed' package from Go standard library - if a vulnerability is discovered in Go's embed implementation (e.g., path traversal in embedded FS), can this be exploited to access files outside the embedded directories on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b45b3c1-8032-4bed-bab5-e39753e8b878?mode=deep",
+    "timestamp": "2026-01-09 07:32:17.753502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Route Priority] The routes are registered in a specific order (apiFile at line 23, then '/' at line 24) - can the '/' catch-all route intercept requests intended for the apiFile, or can route priority ambiguities cause the wrong handler to be invoked? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7f254f6-9c17-4901-95d5-89748d5a3f12?mode=deep",
+    "timestamp": "2026-01-09 07:32:37.892743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Router Handler Type] At line 23, rtr.Handle is used for the file server while line 24 uses rtr.HandleFunc - if the Gorilla mux router has different security properties for these handler types (middleware execution, error handling), can this create inconsistencies in security enforcement? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_558289e7-f823-496b-99a2-157e6c308a18?mode=deep",
+    "timestamp": "2026-01-09 07:32:58.159532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Validator Node Exposure] The documentation service is registered on the same router as critical blockchain endpoints - can attackers use the documentation endpoints to perform timing attacks, measure response times, or gather system information that reveals details about validator hardware, network topology, or consensus state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b0ade5c-091d-4eeb-929c-141c1eb0f45b?mode=deep",
+    "timestamp": "2026-01-09 07:33:18.743203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [API Documentation Accuracy] The function serves a static openapi.yml file without runtime validation - if the actual blockchain API changes (new endpoints, parameter changes, security updates) but the OpenAPI spec is not updated, can this mislead developers into using deprecated or insecure API patterns, leading to vulnerabilities in client applications? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7c8109d-bbb0-4aaa-9764-f53a89a02cf1?mode=deep",
+    "timestamp": "2026-01-09 07:33:38.696591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Constant: apiFile] [Route Collision] The apiFile path '/static/openapi.yml' is hardcoded - if other parts of the application register overlapping routes (e.g., '/static/*'), can this cause route precedence issues where the OpenAPI file is never served, or worse, where sensitive files are accidentally exposed under the /static/ prefix? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a6a403c-913f-4124-9149-7ba987f32d9f?mode=deep",
+    "timestamp": "2026-01-09 07:33:57.620635",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Global State] The Static and template variables at lines 17 and 20 are package-level globals - can concurrent access to these variables during multiple RegisterOpenAPIService calls cause race conditions that corrupt the embedded filesystem state or cause data races detected by Go's race detector? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0613eed4-eef3-4dee-bed9-91f5bd46aa12?mode=deep",
+    "timestamp": "2026-01-09 07:34:18.067055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Router Mutation] The function mutates the provided mux.Router by registering new routes - if this function is called multiple times with different appNames, can this cause route conflicts or overwrite existing routes, breaking other API endpoints or creating security bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e3379c4-7171-4860-9ac2-348c6353a2f1?mode=deep",
+    "timestamp": "2026-01-09 07:34:39.925860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Package: docs] [Go Embed Paths] The go:embed directives at lines 16 and 19 reference 'static' and 'template' directories - if these directories don't exist at build time, can the compilation fail silently or produce a binary with empty embedded filesystems, causing runtime errors that crash the node when documentation is accessed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d5bfc37-0425-4022-8551-ea3b47b225ad?mode=deep",
+    "timestamp": "2026-01-09 07:35:02.043824",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Panic Recovery] There is no panic recovery mechanism in the handler function - if template parsing or execution panics due to malformed data, can this crash the HTTP server goroutine and make the API endpoint permanently unavailable until node restart? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a29059c-594d-4ad7-be25-eac221d55bca?mode=deep",
+    "timestamp": "2026-01-09 07:35:24.716760",
+    "report_generated": false
+  }
+]
