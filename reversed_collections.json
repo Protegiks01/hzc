@@ -10648,5 +10648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10cd636b-6587-4e38-a3b3-0a55d0de5b31?mode=deep",
     "timestamp": "2026-01-09 21:42:07.016589",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Repeated validation] Can an attacker include the same MsgUpdateParams in multiple transactions in the same block, causing ValidateBasic() to be called repeatedly and consuming excessive block gas? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce256081-4658-4231-92af-a25efa517c7b?mode=deep",
+    "timestamp": "2026-01-09 21:43:27.501387",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Validation complexity] If future Params.Validate() implements complex validation logic (e.g., cryptographic signature verification, merkle proof validation), could an attacker submit computationally expensive validations to slow down block production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d576bcd6-b952-44f1-b203-cdcbe6b83579?mode=deep",
+    "timestamp": "2026-01-09 21:43:40.398970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Memory allocation] Can an attacker submit params with oversized fields that cause excessive memory allocation in ValidateBasic(), leading to out-of-memory conditions on validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8b58dac-c4a4-42a1-9b1e-b0937be811b1?mode=deep",
+    "timestamp": "2026-01-09 21:43:53.327419",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Gas exhaustion] Does ValidateBasic() consume bounded gas, or can an attacker craft params that cause excessive gas consumption during validation (e.g., through complex nested validation logic if added in future), causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9d342de-2db1-483b-a043-81c5ff4e1811?mode=deep",
+    "timestamp": "2026-01-09 21:44:07.424456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Governance module recursion] Does ValidateBasic() prevent recursive governance proposals where updating params triggers another param update proposal, potentially causing infinite loops or stack overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01688251-858f-4274-bbda-38970d5c7996?mode=deep",
+    "timestamp": "2026-01-09 21:44:21.461585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [DEX module impact] Can an attacker update params in a way that affects tokens in DEX liquidity pools, causing pool reserves to become inconsistent or LP token calculations to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b21f4f8-d9ea-42af-852e-b5eea1f2e784?mode=deep",
+    "timestamp": "2026-01-09 21:44:36.539992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Factory module interaction] Does ValidateBasic() validate that parameter updates won't break interactions with the factory module (e.g., if wrapped tokens are used as base denoms in factory), potentially causing factory operations to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fdb1be99-72b3-4580-9bdd-0956b2c579e6?mode=deep",
+    "timestamp": "2026-01-09 21:44:52.300752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [IBC module coordination] If params include IBC-related settings, does ValidateBasic() ensure these are consistent with the IBC module's current state, or can an attacker set params that conflict with existing IBC channels, causing transfer failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0093af5a-9c88-499c-b858-821a4bc538d7?mode=deep",
+    "timestamp": "2026-01-09 21:45:09.888267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Bank module dependency] Does ValidateBasic() consider that parameter updates might affect the bank module's behavior (e.g., if params include denom metadata), and can an attacker update params to cause inconsistencies between tokenwrapper and bank module states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d6cb9e3-0483-4583-933f-c5e3cb5c1288?mode=deep",
+    "timestamp": "2026-01-09 21:45:28.544924",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Validation order] Is the validation order (authority first, then params) at lines 12-17 correct, or should params be validated first to fail fast on obviously invalid proposals before expensive Bech32 decoding? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a6bcc7f-260a-4938-a198-698182a036c2?mode=deep",
+    "timestamp": "2026-01-09 21:45:48.233030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Error context loss] Does error wrapping at line 13 preserve sufficient context about the validation failure to enable proper error handling and monitoring, or can attackers exploit vague errors to probe for valid authority addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ef7426d-8980-4b9f-ad65-bdb48c822785?mode=deep",
+    "timestamp": "2026-01-09 21:46:08.968461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Early return] Can an attacker exploit the early return at line 17 to bypass additional validation logic that should be performed after Params.Validate(), if future security checks are added below the return statement? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea273da3-955e-4a14-a2c7-218618dca49c?mode=deep",
+    "timestamp": "2026-01-09 21:46:30.717568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Panic recovery] If Params.Validate() panics due to malformed data, does ValidateBasic() have panic recovery logic, or will validator processes crash, causing network disruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ebbf3060-0420-48bf-8c7b-ad856507f96a?mode=deep",
+    "timestamp": "2026-01-09 21:46:52.498664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Error propagation] Does the error returned at line 13 properly propagate through the entire transaction execution path, or can error handling code in higher layers swallow the error, causing invalid parameter updates to be accepted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec7dad50-7103-4123-9114-845279d37767?mode=deep",
+    "timestamp": "2026-01-09 21:47:15.774596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Validator bypass] Can a malicious validator with >2/3 voting power exploit the minimal validation in ValidateBasic() to force through parameter updates that steal funds, even if the update doesn't pass through normal governance? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a2d9861-3ea0-4db9-b738-efabf309fbda?mode=deep",
+    "timestamp": "2026-01-09 21:47:39.848577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Module account authority] Does ValidateBasic() prevent setting authority to a module account address that could have unexpected behavior (e.g., burning received tokens, having no private key), causing loss of governance control? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72254aea-a0a4-4518-82da-28d8766bf33b?mode=deep",
+    "timestamp": "2026-01-09 21:48:04.402131",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Authority transfer attack] Can an attacker submit two sequential proposals where the first changes the authority address and the second updates params with the new authority, bypassing the intended governance process? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4f441f0-4b1a-4b8a-bbf6-71f5da1abf44?mode=deep",
+    "timestamp": "2026-01-09 21:48:29.595316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Multi-sig authority] Does ValidateBasic() properly handle multi-signature authority addresses, or can an attacker exploit differences in how Bech32 addresses are interpreted for multi-sig accounts to bypass authorization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8cd9917-bef8-4dc8-b016-67c3443c0bc1?mode=deep",
+    "timestamp": "2026-01-09 21:48:53.832239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Governance bypass] Can an attacker exploit the lack of validation in ValidateBasic() to submit a governance proposal with parameters that effectively disable governance control (e.g., changing authority to an inaccessible address), causing permanent loss of upgrade capability? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2153327-72ae-4dc1-818b-66932d659013?mode=deep",
+    "timestamp": "2026-01-09 21:49:17.393150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Backwards compatibility] Does ValidateBasic() ensure that parameter updates maintain backwards compatibility with existing wrapped tokens, or can an attacker update parameters in a way that makes existing tokens unrecoverable? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f33fc071-5fc3-4540-8ec7-73cbb379a09d?mode=deep",
+    "timestamp": "2026-01-09 21:49:40.838036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Denom parameter] If future Params include the module's denom configuration, does ValidateBasic() prevent changing the denom while tokens exist in circulation, which would orphan existing wrapped tokens and break the wrap/unwrap mechanism? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12e9120d-e12a-46dc-9993-67a653cd5ab3?mode=deep",
+    "timestamp": "2026-01-09 21:50:03.840187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Rate limit parameters] If future Params include rate limiting settings for IBC transfers, does ValidateBasic() ensure rate limits are reasonable (not zero or excessively high), preventing DoS attacks through unlimited transfer volume? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80791b07-d27a-4d05-b0dd-35b791c130d6?mode=deep",
+    "timestamp": "2026-01-09 21:50:27.919016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Fee parameters] If future Params include wrap/unwrap fees, does ValidateBasic() validate that fees are non-negative and below a maximum threshold to prevent attackers from setting fees to zero (losing protocol revenue) or maximum (making the bridge unusable)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce85308c-5090-4137-8d9b-4cd04aa64817?mode=deep",
+    "timestamp": "2026-01-09 21:50:52.291143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Timeout duration] If future Params include IBC timeout duration, does ValidateBasic() enforce minimum and maximum timeout values to prevent too-short timeouts (causing frequent failures) or too-long timeouts (locking funds indefinitely)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6386797b-3e9e-41a1-8463-91a412a7ae13?mode=deep",
+    "timestamp": "2026-01-09 21:51:17.249666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Enabled flag] If future Params include a module enabled/disabled flag, does ValidateBasic() prevent setting this flag in a way that locks funds (e.g., disabling while tokens are locked in the module wallet), causing permanent loss of user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d423c33e-1902-4952-b4f5-d7f516e0bdea?mode=deep",
+    "timestamp": "2026-01-09 21:51:41.969734",
+    "report_generated": false
   }
 ]
