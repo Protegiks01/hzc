@@ -2248,5 +2248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bcd29ea-ab48-4294-bc30-9dc1ac3b7553?mode=deep",
     "timestamp": "2026-01-09 09:50:28.535039",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Panic recovery] If SetStoreLoader panics when given invalid StoreUpgrades configuration, is there panic recovery logic to prevent validator crashes, or will all validators crash simultaneously causing network halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b14c6c2-84ab-47d3-8cc2-b246b582e933?mode=deep",
+    "timestamp": "2026-01-09 09:51:41.096023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Height precision] Can block height comparison using == at line 71 fail to trigger fork logic if there are off-by-one errors in fork height calculation, causing fork logic to never execute and leaving the chain in a pre-fork state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c9b46de-1e31-484e-813f-8578f4a95d01?mode=deep",
+    "timestamp": "2026-01-09 09:51:53.589825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Early return vulnerability] Does the early return after executing the first matching fork at line 73 prevent multiple forks scheduled for the same height from executing, potentially skipping critical state migrations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a30dbfec-2b0c-4603-bcf6-2bd9467729a6?mode=deep",
+    "timestamp": "2026-01-09 09:52:06.401348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [AppKeepers mutation] Can fork.PreBlockForkLogic mutate the AppKeepers state in non-deterministic ways across validators, causing consensus failure if fork logic contains race conditions or depends on external state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf125ef2-5bc7-4267-85f5-1c22c1d8d6de?mode=deep",
+    "timestamp": "2026-01-09 09:52:19.565920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Nil fork handler] Can an attacker insert a fork with nil PreBlockForkLogic into the Forks slice, causing a nil pointer dereference panic when the fork height is reached and crashing all validators simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1aaac741-f86e-442d-a3a6-511ca355fde7?mode=deep",
+    "timestamp": "2026-01-09 09:52:34.416780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Context manipulation] Can malicious fork logic exploit the passed sdk.Context to modify block-level state (gas meter, event manager, header) in ways that affect transaction execution later in the block? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d5e7be0-4901-453a-b12f-17c81912406f?mode=deep",
+    "timestamp": "2026-01-09 09:52:48.861029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork ordering] If multiple forks have the same UpgradeHeight, does the execution order depend on slice ordering, and can this be exploited to cause non-deterministic fork execution across validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db6f4322-41b0-4053-8e8b-ff602361fc19?mode=deep",
+    "timestamp": "2026-01-09 09:53:05.679413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Missing fork validation] Does PreBlockForks validate that fork heights are in ascending order and not duplicated, or can validators process forks in different orders if the Forks slice is manipulated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9b200a9-9160-4260-94a0-6626af7325a8?mode=deep",
+    "timestamp": "2026-01-09 09:53:23.523332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Empty forks array] If the Forks slice is empty, does PreBlockForks silently succeed without any validation, potentially allowing expected forks to be skipped if the slice is accidentally cleared? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5919702a-a494-42dc-b880-5a81a6b37fc7?mode=deep",
+    "timestamp": "2026-01-09 09:53:41.943954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Block height overflow] Can extremely large fork heights (near int64 max) cause integer overflow issues in block height comparison, causing forks to execute at unexpected heights or never execute? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd133150-0663-4696-a362-d5c5afab773a?mode=deep",
+    "timestamp": "2026-01-09 09:54:01.926020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Fork panic recovery] If PreBlockForkLogic panics during execution, is there panic recovery to prevent validator crashes, or will the panic propagate and crash all validators at the same block height? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cffe568-80a5-4228-8c2f-a7985bb1d902?mode=deep",
+    "timestamp": "2026-01-09 09:54:21.801617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers() + setupUpgradeStoreLoaders()] [State synchronization] Can race conditions between setupUpgradeHandlers registering upgrade handlers and setupUpgradeStoreLoaders reading upgrade info cause store loaders to be configured before handlers are registered, leading to inconsistent upgrade state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_295daebf-abdb-406f-926d-6d44af6ef8a3?mode=deep",
+    "timestamp": "2026-01-09 09:54:42.397640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers() + setupUpgradeStoreLoaders()] [Upgrade data consistency] If upgradeInfo.Name matches an upgrade but SetUpgradeHandler was never called for that upgrade, can the chain proceed with store migrations without a registered handler, causing execution to fail at upgrade height? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5cd3c716-efac-4512-a62a-07927653d293?mode=deep",
+    "timestamp": "2026-01-09 09:55:04.243161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers() + PreBlockForks()] [Fork vs upgrade conflict] Can a fork and upgrade be scheduled for the same block height, and if so, does PreBlockForks execute before or after the upgrade handler, potentially causing state transition ordering issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4892638a-b8aa-40b6-87b4-fca83b09344f?mode=deep",
+    "timestamp": "2026-01-09 09:55:26.874919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: All functions] [Global variable mutation] Can concurrent modification of the global Upgrades or Forks slices during runtime cause non-deterministic behavior if multiple goroutines access these variables simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1236e2ec-a898-4540-b2f6-211c15a8171a?mode=deep",
+    "timestamp": "2026-01-09 09:55:51.229774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Disk I/O manipulation] Can an attacker with filesystem access manipulate the upgrade-info.json file between ReadUpgradeInfoFromDisk and SetStoreLoader calls to cause time-of-check-time-of-use (TOCTOU) vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a7d9363-a1e2-4fd4-8a43-fd8a7fee2b38?mode=deep",
+    "timestamp": "2026-01-09 09:56:15.070897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [TokenWrapper keeper access] During upgrade handler execution, can malicious upgrade logic access the TokenWrapper keeper via AppKeepers to manipulate IBC voucher balances or decimal conversion parameters, causing cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a350e43-6a3c-4380-87f8-d13d9367fee4?mode=deep",
+    "timestamp": "2026-01-09 09:56:37.302757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Factory keeper exploitation] Can upgrade handlers access the Factory keeper to mint unlimited tokens by bypassing minting caps during the upgrade migration window when normal transaction validation is suspended? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab562b2d-ca23-400b-b3b5-7e5f391eea1d?mode=deep",
+    "timestamp": "2026-01-09 09:56:59.955451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [DEX pool manipulation] Can malicious upgrade logic modify DEX pool reserves or liquidity token supplies through AppKeepers access, breaking the x*y=k invariant and enabling price manipulation attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f593d98-d74a-4c3c-8978-eb4d5e92820e?mode=deep",
+    "timestamp": "2026-01-09 09:57:22.464319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [IBC middleware bypass] During upgrade handler execution, can attackers bypass IBC middleware validation by directly accessing IBC keeper methods through AppKeepers, allowing unauthorized cross-chain transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cf737d0-01de-41a0-bba1-6f8e8e24a307?mode=deep",
+    "timestamp": "2026-01-09 09:57:45.704970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Token minting in forks] Can fork logic use AppKeepers to mint tokens in the Factory module without proper authorization, creating inflation attacks that execute at a specific block height? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b52a252c-cbe2-4982-a395-a57d962e0cda?mode=deep",
+    "timestamp": "2026-01-09 09:58:07.091946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Bridge drainage via forks] Can malicious fork logic access the TokenWrapper module wallet through AppKeepers to drain native ZIG tokens, breaking the bridge's ability to process unwrap operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7523046a-c0ec-4411-b692-039b16eaa61a?mode=deep",
+    "timestamp": "2026-01-09 09:58:29.880266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store deletion atomicity] When v2 upgrade deletes the 'crisis' store, is the deletion atomic across all validators, or can partial deletions cause some validators to retain crisis store data while others don't? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea8e113d-9f51-4b4f-86ea-169382355d18?mode=deep",
+    "timestamp": "2026-01-09 09:58:52.167782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store rename conflicts] If future upgrades use StoreUpgrades.Renamed to rename stores, can name collisions with existing stores cause data corruption or loss of store access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1625bc79-944e-4cf6-945b-e30b5f0baee7?mode=deep",
+    "timestamp": "2026-01-09 09:59:14.176764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store addition validation] When new stores are added via StoreUpgrades.Added, does the loader validate that store keys don't conflict with existing keeper prefixes, preventing KVStore key collisions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_268500c4-e5b6-4b31-bcda-746c4b4c3925?mode=deep",
+    "timestamp": "2026-01-09 09:59:37.146242",
+    "report_generated": false
   }
 ]
