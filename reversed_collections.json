@@ -148,5 +148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a29059c-594d-4ad7-be25-eac221d55bca?mode=deep",
     "timestamp": "2026-01-09 07:35:24.716760",
     "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Template Error Disclosure] If template execution fails at line 32, the error is silently discarded but may have already written partial output to the ResponseWriter - can this partial output leak sensitive information about the template structure, filesystem paths, or internal variable names that aid attackers in crafting exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_58e8e180-751b-4aa3-ad58-4e283f50de60?mode=deep",
+    "timestamp": "2026-01-09 07:36:36.486791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [CORS Headers] No Cross-Origin Resource Sharing (CORS) headers are configured - can malicious websites make cross-origin requests to the documentation endpoints, potentially exfiltrating API documentation data or using the validator node as a proxy for attacks against other services? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_451389e7-affb-44d3-8451-754396f490fa?mode=deep",
+    "timestamp": "2026-01-09 07:36:48.860599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Content-Type Validation] The handler at line 31 does not set explicit Content-Type headers - can an attacker exploit browser content-type sniffing to interpret the HTML response as a different MIME type (e.g., application/javascript), causing browsers to execute the documentation content as code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89cdfbc9-7529-4b0a-a54f-68885b3a3ef2?mode=deep",
+    "timestamp": "2026-01-09 07:37:01.459957",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [HTTP Method Validation] The function registers handlers without HTTP method restrictions (GET, POST, etc.) - can an attacker send unexpected HTTP methods (PUT, DELETE, TRACE) to the documentation endpoints, triggering undefined behavior or bypassing security controls in the underlying Gorilla mux router? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23c2907a-ca3b-4f8d-91ef-eeb735758399?mode=deep",
+    "timestamp": "2026-01-09 07:37:14.789176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Constant: indexFile] [Path Injection] The indexFile constant at line 13 specifies 'template/index.tpl' - if this path is modified programmatically or through configuration, can an attacker inject path traversal sequences to load arbitrary template files from the filesystem, potentially executing malicious templates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51adc01f-7f5f-4b1c-894d-e8a434caeb10?mode=deep",
+    "timestamp": "2026-01-09 07:37:28.691038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [URL Injection] The apiFile constant is passed to the template as the URL field at line 37 - if the constant is modified or if template logic is changed, can an attacker inject malicious URLs (javascript:, data:, file:) that execute scripts or access local files when users click on API links in the documentation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_303b991f-d554-4913-b39b-f19838006261?mode=deep",
+    "timestamp": "2026-01-09 07:37:43.792801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [AppName Injection] The appName parameter at line 22 is passed directly to the handler and used in template execution without sanitization - can an attacker who controls the appName during node initialization inject malicious strings (control characters, format specifiers, SQL injection payloads) that corrupt template output or cause unexpected behavior in downstream systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_edeebf96-83fa-4ec3-aa8f-bb054f57d4ec?mode=deep",
+    "timestamp": "2026-01-09 07:37:59.859931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [No IP Filtering] There is no IP allowlist or network-based access control in the RegisterOpenAPIService function - can attackers from arbitrary networks access the documentation endpoint to gather intelligence about the blockchain's API structure, then use this to plan attacks against consensus mechanisms or economic exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51f8aa5e-20c5-4619-9c41-23fdbc48a229?mode=deep",
+    "timestamp": "2026-01-09 07:38:17.197499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Public API Exposure] The function registers routes on the provided mux.Router without checking if the router is publicly exposed - if the router is accessible from the internet, can external attackers access internal API documentation that reveals sensitive implementation details, admin endpoints, or debugging interfaces that should only be available to operators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7dea8386-116d-4482-a04f-ca37896d08f3?mode=deep",
+    "timestamp": "2026-01-09 07:38:35.632777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [No Authentication] The RegisterOpenAPIService function at line 22-25 registers HTTP handlers without any authentication or authorization checks - can an attacker access the OpenAPI documentation endpoint to discover all API endpoints, parameter formats, and potential vulnerabilities, then use this information to craft targeted attacks against sensitive blockchain operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cdd8c5e-4a15-4298-bc03-552d82465135?mode=deep",
+    "timestamp": "2026-01-09 07:38:54.555756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Goroutine Leak] Each HTTP request to the '/' endpoint triggers template execution at line 32 - if template execution blocks indefinitely due to I/O issues or locks, can this cause goroutines to accumulate without termination, eventually exhausting the node's goroutine pool and causing validator performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_665cf78f-782d-47fb-af02-f33103e462b5?mode=deep",
+    "timestamp": "2026-01-09 07:39:13.915081",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [File Server DoS] The http.FileServer at line 23 serves static files without rate limiting or size restrictions - can an attacker repeatedly request large openapi.yml files to exhaust bandwidth and disk I/O, causing the node's API to become unresponsive and preventing legitimate users from accessing blockchain data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae1b430a-db16-4d77-acf5-a2aebe86c1bd?mode=deep",
+    "timestamp": "2026-01-09 07:39:32.798127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Template Parsing DoS] At line 29, httptemplate.ParseFS is called on every invocation of the outer handler function (once per RegisterOpenAPIService call, not per request) - however, if RegisterOpenAPIService is called repeatedly during reconfiguration, can this cause repeated filesystem reads and template parsing operations that consume excessive CPU/memory, degrading node performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_018e6ff8-3c4d-443a-b610-d7abb0856630?mode=deep",
+    "timestamp": "2026-01-09 07:39:50.955764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Memory Exhaustion] The handler function at line 28 returns a new http.HandlerFunc for every request - if an attacker sends millions of requests to the documentation endpoint, can this cause unbounded memory allocation for handler functions, leading to out-of-memory conditions that crash the validator node and disrupt consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d903082-1c49-4ddb-bff7-759569b058ed?mode=deep",
+    "timestamp": "2026-01-09 07:40:08.933040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Variable: template] [Embedded Template Security] The template variable at line 19-20 uses go:embed for template/index.tpl without validation - if an attacker compromises the build pipeline and injects malicious template directives into index.tpl, can this execute arbitrary code on validator nodes when the template is parsed and executed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6c9c368-ebcf-4235-930f-b0165277b892?mode=deep",
+    "timestamp": "2026-01-09 07:40:27.388735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Variable: Static] [Embedded FS Integrity] The Static variable at line 16-17 uses go:embed directive without integrity checks - if the build process is compromised and malicious files are injected into the docs/static directory before compilation, can these malicious files be served to all API documentation users, potentially distributing malware or phishing pages? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e94349a-ab8d-4387-ac29-2b86873785ec?mode=deep",
+    "timestamp": "2026-01-09 07:40:46.830780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Constant: apiFile] [Hardcoded Path] The apiFile constant at line 12 is hardcoded as '/static/openapi.yml' - if the embedded filesystem structure changes but this constant is not updated, can this cause the file server to return 404 errors or serve incorrect files, leading to API documentation mismatch that could mislead developers into using incorrect/insecure API endpoints? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ab8ad46-4bad-4d32-a6fb-78842881c0a7?mode=deep",
+    "timestamp": "2026-01-09 07:41:07.124477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [Path Traversal] At line 23, http.FileServer(http.FS(Static)) serves files from the embedded Static filesystem without path sanitization - can an attacker craft HTTP requests with path traversal sequences (../, %2e%2e%2f) to access files outside the intended static directory, potentially reading sensitive configuration files or blockchain state data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fcb5707-1066-441e-a7e7-186d08c49fad?mode=deep",
+    "timestamp": "2026-01-09 07:41:27.524485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: RegisterOpenAPIService()] [HTTP Security Headers] The RegisterOpenAPIService function at line 22-25 does not set any HTTP security headers (Content-Security-Policy, X-Frame-Options, X-Content-Type-Options) - can an attacker exploit this to embed the documentation page in an iframe for clickjacking attacks, or serve malicious content-types to exploit browser vulnerabilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf3a7dad-f01f-4539-82bb-2e4b511c4164?mode=deep",
+    "timestamp": "2026-01-09 07:41:48.078330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Response Error Handling] At line 32, the template Execute method returns an error that is discarded with '_' - if template execution fails due to invalid data or I/O errors, can this cause partial responses to be sent to clients, leading to information disclosure or client-side parsing errors that could be exploited? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_522afbb6-1240-41dd-958d-dc2dfeaea885?mode=deep",
+    "timestamp": "2026-01-09 07:42:09.902439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Template Parsing Error] At line 29, httptemplate.ParseFS returns an error that is silently discarded with '_' - if template parsing fails (corrupted embedded files, syntax errors), can this cause a nil pointer dereference when t.Execute is called at line 32, resulting in a panic that crashes the HTTP server and makes the node's API unavailable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21c464bd-7c46-4997-86c2-abe5d0739e7f?mode=deep",
+    "timestamp": "2026-01-09 07:42:31.696519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [XSS] The handler function at line 32-38 executes a template with user-controlled 'title' parameter passed to RegisterOpenAPIService - if the appName contains HTML/JavaScript, can an attacker exploit the template execution to inject malicious scripts that execute in users' browsers when they access the documentation endpoint, potentially stealing validator credentials or session tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f59c6c29-66d4-475a-b68a-f3671ebfea39?mode=deep",
+    "timestamp": "2026-01-09 07:42:53.026471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: docs/docs.go] [Function: handler()] [Template Injection] In the handler function at line 28-40, the httptemplate.ParseFS call does not validate the template content - can an attacker who gains write access to the embedded template filesystem inject malicious template directives (e.g., {{.}} expansions) that execute arbitrary Go code when the template is rendered, leading to remote code execution on the validator node? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d78561ad-cdb0-40fe-a746-edd00f193b56?mode=deep",
+    "timestamp": "2026-01-09 07:43:14.789565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: CoinType] [Key derivation weakness] If CoinType=118 is used in deterministic key generation without additional entropy from chain-specific data, can an attacker who breaks one key across any Cosmos chain using CoinType 118 automatically break all user keys on ZigChain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9f0fef2-b8ae-4165-ab56-bef943d6b6b4?mode=deep",
+    "timestamp": "2026-01-09 07:43:34.327603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURIHashLength] [Weak hash algorithm] If MaxURIHashLength=64 matches SHA256 output but code doesn't enforce SHA256, can an attacker provide MD5 hashes (32 hex chars) padded to 64 chars, bypassing collision-resistant hash verification and enabling metadata tampering? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_308eeb14-45d5-4df9-acf9-72c141ff4838?mode=deep",
+    "timestamp": "2026-01-09 07:43:54.639252",
+    "report_generated": false
   }
 ]
