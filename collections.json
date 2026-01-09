@@ -9748,5 +9748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28c65342-01b2-4fe0-a949-877bf18e56ea?mode=deep",
     "timestamp": "2026-01-09 22:34:45.757168",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Fee payment - burn] At lines 126-131, if SendCoinsFromAccountToModule succeeds but the subsequent BurnCoins at line 144 fails, can this cause creation fees to accumulate in the module account without being burned, effectively creating an unbounded token supply increase over time? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e393883-e7fc-45d5-81e5-4f75feb6d1a6?mode=deep",
+    "timestamp": "2026-01-09 22:36:12.483395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Fee payment - burn] If BurnCoins at line 144 fails, the error is logged at line 159 but does the transaction actually revert, or can this lead to pools being created without fees being properly burned, circumventing the fee mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94816005-7226-41cd-a5ca-0fb1f341fc32?mode=deep",
+    "timestamp": "2026-01-09 22:36:25.011370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Fee payment - burn] Can an attacker exploit the two-step process of SendCoinsFromAccountToModule followed by BurnCoins to cause a state where tokens are sent to the module but not burned, then extract those tokens through another module function? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7101f92c-0727-44d1-af47-7bbf84231e12?mode=deep",
+    "timestamp": "2026-01-09 22:36:38.418499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Error handling] At line 160-164, if BurnCoins fails, the function returns an ErrInsufficientFunds error which is misleading - can this cause developers or users to misinterpret the actual failure reason and make incorrect state assumptions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88b61033-5bd1-4dfa-b466-f1f9c3d10ec9?mode=deep",
+    "timestamp": "2026-01-09 22:36:51.762195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [State consistency] Between SendCoinsFromAccountToModule at line 126 and BurnCoins at line 144, if the transaction is interrupted or panics, can this leave tokens in the module account that should have been burned, accumulating over multiple failed transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a3d4286-6df0-40ce-9b9c-c82d44995ef6?mode=deep",
+    "timestamp": "2026-01-09 22:37:05.779553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool ID generation] At line 171, GetAndSetNextPoolID increments the pool counter - if this is called but the subsequent pool creation fails, can this cause permanently skipped pool IDs, and after enough failures, could this lead to pool ID exhaustion or prediction attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e14e467c-9a15-4256-965b-49b9647bc986?mode=deep",
+    "timestamp": "2026-01-09 22:37:21.344403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Integer overflow] At line 174, strconv.FormatUint converts poolID to string - if poolID reaches uint64 max value, can this cause an overflow in the pool.go file's SetNextPoolID function (line 97-99) that panics but leaves the current pool creation in a partially completed state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_841561d9-9d4a-4bea-89f2-5d2533176efc?mode=deep",
+    "timestamp": "2026-01-09 22:37:37.606189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool ID collision] At lines 176-190, the GetPool check verifies if poolIDString exists - but if two transactions execute GetAndSetNextPoolID concurrently before either writes to storage, can they get the same poolID and both pass the existence check, creating a collision? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e50ad178-ff4c-40d2-8b46-0fdd19c29145?mode=deep",
+    "timestamp": "2026-01-09 22:37:55.035250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [String formatting] At line 174, the poolIDString uses constants.PoolPrefix - if this constant is empty or contains special characters, can it cause pool address derivation issues in types.GetPoolAddress or create pools with unpredictable IDs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d27584fb-b7ce-4d3b-9af1-c5a9f2b97394?mode=deep",
+    "timestamp": "2026-01-09 22:38:13.318796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [State inconsistency] If GetAndSetNextPoolID at line 171 successfully increments the counter but the transaction reverts later, is the counter properly rolled back, or can this cause the next successful pool creation to skip an ID? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8347312a-2348-4bf0-aa00-f8d09edfec11?mode=deep",
+    "timestamp": "2026-01-09 22:38:32.709547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool account] At line 194, CreatePoolAccount is called - if an account already exists at the derived pool address due to a collision in the address derivation algorithm, can this cause pool creation to fail after fees have been charged, resulting in fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76b948dc-eb81-487e-9c5b-8b463835f9b6?mode=deep",
+    "timestamp": "2026-01-09 22:38:53.219948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool account] Can an attacker pre-create an account at a predictable future pool address (by predicting the next pool ID) to prevent that pool from being created, effectively censoring specific token pairs from being listed on the DEX? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_732f41d3-3da4-4ac7-ab91-4e788480f050?mode=deep",
+    "timestamp": "2026-01-09 22:39:14.884805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Pool account] If CreatePoolAccount at line 194 fails but GetAndSetNextPoolID at line 171 already incremented the counter, can this cause the pool ID to be skipped permanently, and after enough failures, could an attacker exhaust the pool ID space through repeated DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59bd13f9-5420-4ff5-b6d0-1b66122a7aa1?mode=deep",
+    "timestamp": "2026-01-09 22:39:37.252574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Account validation] In pool.go lines 147-185, CanCreateModuleAccountAtAddr checks if an account can be created - if an attacker sends transactions to the future pool address to increment its sequence number, can this permanently prevent pool creation at that ID? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a71acba-4e37-4ebb-bd1d-f11cb767ef88?mode=deep",
+    "timestamp": "2026-01-09 22:39:59.885424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Account validation] If an account at the pool address exists with a zero sequence but has a pubkey set (checked in pool.go line 158), does this properly prevent pool creation, or can an attacker exploit edge cases in the validation to create pools at addresses with existing keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_762cdffe-4427-45d6-aa61-a13cea8bafbb?mode=deep",
+    "timestamp": "2026-01-09 22:40:22.904757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Receiver validation] At lines 203-207, if msg.Receiver is provided but AccAddressFromBech32 fails, does the error properly propagate or can this fail silently and send LP tokens to the wrong address (defaulting to sender at line 209)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5dd3b4f8-42b6-4258-9d71-7325ae940718?mode=deep",
+    "timestamp": "2026-01-09 22:40:46.226956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Receiver validation] Can an attacker set msg.Receiver to a module account address or a contract that cannot hold tokens, causing LP tokens to be minted but become permanently locked, effectively burning liquidity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10f074c4-c504-41a4-bea4-a8588b536e61?mode=deep",
+    "timestamp": "2026-01-09 22:41:10.634499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Receiver validation] If msg.Receiver is set to an address on a different chain or with a different bech32 prefix, will AccAddressFromBech32 at line 204 reject it properly, or can cross-chain addresses be accepted, causing LP tokens to be sent to unreachable addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4736f857-62cc-423c-bb73-7203a5a38ecf?mode=deep",
+    "timestamp": "2026-01-09 22:41:34.763887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Access control] Can a malicious user set msg.Receiver to another user's address to force LP token ownership transfer without the recipient's consent, potentially causing tax or regulatory issues for the unwitting recipient? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9fbfb361-f3e1-4431-b53a-28fa634f451e?mode=deep",
+    "timestamp": "2026-01-09 22:41:58.747906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Token transfer] At line 213-218, SendFromAddressToPool is called with sdk.NewCoins(msg.Base, msg.Quote) - if the coins are not sorted properly by denom, can this cause the transfer to fail or create a pool with mis-ordered reserves? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11b4075d-1428-44ca-8847-8850ac159981?mode=deep",
+    "timestamp": "2026-01-09 22:42:22.246075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Token transfer] In pool.go SendFromAddressToPool (lines 217-284), if one coin transfer succeeds but the second fails, can this create a pool account that holds only one type of token, violating the constant product AMM invariant? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16e7f1b7-cb6a-4a55-970d-717b31d82676?mode=deep",
+    "timestamp": "2026-01-09 22:42:46.209522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Token transfer] Can an attacker pass coins with denominations that are not registered in the bank module, causing SendFromAddressToPool to fail after the pool account has been created and fees paid, resulting in an unusable pool account and lost fees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2eb6e8fa-3b49-42c4-83f6-5a00d5a2d594?mode=deep",
+    "timestamp": "2026-01-09 22:43:10.603765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Reentrancy] If msg.Base or msg.Quote is a CW20 token or a token with hooks, can the transfer at line 213 trigger a callback that re-enters CreatePool, creating multiple pools with the same UID or exploiting the incremented pool ID? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a7a509e-f18a-4537-a601-1516792a9341?mode=deep",
+    "timestamp": "2026-01-09 22:43:34.970727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Token transfer validation] In pool.go lines 231-256, SendFromAddressToPool checks each coin individually - if an attacker sends a Coins array with duplicate denominations, can this bypass validation and cause double-spending or incorrect reserve calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4aeb2903-5f90-4981-88be-50e43d872a23?mode=deep",
+    "timestamp": "2026-01-09 22:43:58.902998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [LP calculation] At line 232, initialLiquidityShares computes LP tokens - if the returned lpAmount is less than minimalLock, does the error occur before or after tokens are transferred to the pool, and can this cause funds to be locked without LP tokens being minted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53f20ecc-5c1d-49a2-b8ce-f792d8ee0f65?mode=deep",
+    "timestamp": "2026-01-09 22:44:22.256354",
+    "report_generated": false
   }
 ]
