@@ -298,5 +298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96d07188-c26a-4a9c-a356-b6abc5cc74c3?mode=deep",
     "timestamp": "2026-01-09 07:45:24.724652",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: AppCodec()] [Codec access] Can external modules access the app codec to register malicious message types that impersonate TokenWrapper or Factory messages? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9dd2860-8751-498e-8680-87c46ed28aa9?mode=deep",
+    "timestamp": "2026-01-09 07:46:33.043363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: InterfaceRegistry()] [Registry manipulation] Can the returned interface registry be modified to register fake implementations of critical interfaces like ICS4Wrapper or IBCModule? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e79c70a-dfe4-4531-a5d9-02bc75cdb10a?mode=deep",
+    "timestamp": "2026-01-09 07:46:45.407365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: TxConfig()] [Transaction config] Does exposing TxConfig allow attackers to manipulate transaction encoding/decoding to inject additional messages into signed transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5bd3067f-7b55-4e94-984e-88f12c6a23bf?mode=deep",
+    "timestamp": "2026-01-09 07:46:58.424392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SimulationManager()] [Simulation access] Can the simulation manager be accessed during non-simulation runtime to execute simulation-only code paths that bypass security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6879f769-b9c3-47b5-84fb-36fb916c60ed?mode=deep",
+    "timestamp": "2026-01-09 07:47:11.884188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SimulationManager()] [Store decoders] Do the registered store decoders in simulation mode allow decoding of encrypted or sensitive data that should remain private? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6cfe2ebd-f6a7-43e1-af17-448e0df0b6cd?mode=deep",
+    "timestamp": "2026-01-09 07:47:26.032987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Struct: App] [Embedded runtime] Does embedding runtime.App expose unsafe methods that can be called to bypass custom security logic in TokenWrapper or Factory modules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b725110b-d8f6-463a-94dc-63ce43285b53?mode=deep",
+    "timestamp": "2026-01-09 07:47:41.226640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Struct: App] [AppKeepers embedding] Can the embedded AppKeepers be accessed directly to manipulate keeper state without going through proper message handlers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6e03583-05bd-498c-be1c-2d86c67113d7?mode=deep",
+    "timestamp": "2026-01-09 07:47:58.028568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Struct: App] [ModuleBasics exposure] Does exposing ModuleBasics allow external code to register fake module basics that override legitimate module implementations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ac012ba-23ac-40fd-bdcc-7fb5cf4d0f81?mode=deep",
+    "timestamp": "2026-01-09 07:48:15.114424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: init()] [EnvPrefix] Can setting clienthelpers.EnvPrefix to the chain name allow environment variable injection attacks where malicious configs are loaded from environment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cc07d373-4355-44c5-a252-933508363564?mode=deep",
+    "timestamp": "2026-01-09 07:48:32.808333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: init()] [Home directory] If GetNodeHomeDirectory fails and panics, can an attacker trigger this by manipulating the file system to cause all nodes to fail startup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_799cb411-6371-4848-87b9-043a18b5b022?mode=deep",
+    "timestamp": "2026-01-09 07:48:51.247851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: init()] [Default home] Is DefaultNodeHome accessible globally after init, allowing other packages to modify it and redirect data storage to attacker-controlled locations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2a64d4a-3bd3-4919-be55-4fb93b618a93?mode=deep",
+    "timestamp": "2026-01-09 07:49:11.430035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [Module order] Can the order of IBC middleware layers (RateLimit -> PacketForward -> TokenWrapper -> Callbacks) be exploited where an attacker sends packets that bypass TokenWrapper decimal conversion by triggering packet forwarding first? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_244ee388-777d-487c-9aab-ccd6dce39243?mode=deep",
+    "timestamp": "2026-01-09 07:49:32.528841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [Middleware injection] Can a malicious module register itself in the IBC middleware stack between TokenWrapper and Transfer to intercept and manipulate token amounts during cross-chain transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59f847cf-9cff-4832-9515-5ec2c6924a5f?mode=deep",
+    "timestamp": "2026-01-09 07:49:55.475978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [ICS4Wrapper] Does the custom ICS4Wrapper created for TokenWrapper allow bypassing rate limits by sending packets through alternative IBC channels? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f05765e0-240a-4e4f-a97f-34f87df746eb?mode=deep",
+    "timestamp": "2026-01-09 07:50:17.438446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [Transfer keeper reference] Can the nil transfer keeper reference set initially in ICS4Wrapper be exploited in a race condition where IBC packets are processed before SetTransferKeeper is called? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b0c0992-0cb0-4482-b01a-576bcfc79668?mode=deep",
+    "timestamp": "2026-01-09 07:50:40.906852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [Store key registration] Can an attacker exploit the RegisterStores call to register duplicate store keys for IBC modules, causing state corruption when both stores are accessed simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6caf0e0-337e-481d-8843-e221c628f3ff?mode=deep",
+    "timestamp": "2026-01-09 07:51:05.912780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [Param key tables] Does the ParamKeyTable registration for IBC modules allow parameter values to be set that violate TokenWrapper invariants (e.g., disabling decimal conversion)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_482ae718-e7b8-4856-88cc-12c20a2bab27?mode=deep",
+    "timestamp": "2026-01-09 07:51:29.285869",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [Router sealing] Is the IBC router sealed after all routes are added, or can additional routes be added later that bypass security middleware like TokenWrapper? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ed59505-8216-4b1f-a7d0-54edc18f2740?mode=deep",
+    "timestamp": "2026-01-09 07:51:52.128133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [IBCv2 stack] Does the separate IBCv2 transfer stack with ratelimitv2 and callbacksv2 middleware have different security properties than the v1 stack, allowing attackers to exploit protocol version differences? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90f3ab38-4843-457f-a188-5505fec437f1?mode=deep",
+    "timestamp": "2026-01-09 07:52:15.792017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [Light client] Can the WasmClientKeeper with custom query plugins be exploited to execute malicious queries that leak sensitive chain state during IBC light client verification? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6913436-6f84-4861-9a34-9a038cbc1cab?mode=deep",
+    "timestamp": "2026-01-09 07:52:39.892018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> registerIBCModules] [Stargate queries] Does the AcceptListStargateQuerier allow queries outside the specified list through query parameter manipulation or encoding tricks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f7786fe-0d85-4754-8c1e-5dc2ef4a3a68?mode=deep",
+    "timestamp": "2026-01-09 07:53:04.492862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> configureWasmVariables] [Max wasm size] Can setting MaxWasmSize to 1638400 bytes allow deployment of excessively large contracts that consume all validator memory during execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94592ca5-bf08-4d95-8233-61271bc1ab8c?mode=deep",
+    "timestamp": "2026-01-09 07:53:27.541974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> configureWasmVariables] [Label size] Does increasing MaxLabelSize to 256 allow attackers to create contracts with labels that cause DoS when iterated over in query operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1e0d7e3-8451-4e36-9745-03770ac095e5?mode=deep",
+    "timestamp": "2026-01-09 07:53:49.748984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> configureWasmVariables] [Proposal size] Can the MaxProposalWasmSize of 6291456 bytes be exploited to create governance proposals with massive WASM payloads that crash validators during voting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17314ebd-cc98-40db-b4a3-72dfb7853e01?mode=deep",
+    "timestamp": "2026-01-09 07:54:13.988175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() -> configureWasmVariables] [Global mutation] Does mutating global wasmtypes variables affect other chain instances in test environments, causing test contamination? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3179fc3-3c98-4863-8f82-f12d0b452ef0?mode=deep",
+    "timestamp": "2026-01-09 07:54:38.722722",
+    "report_generated": false
   }
 ]
