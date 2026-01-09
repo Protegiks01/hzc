@@ -11098,5 +11098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_513603ef-ec44-4ca3-b62a-0fc0322ebf71?mode=deep",
     "timestamp": "2026-01-09 22:11:08.275877",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 31-35] [Test-Only Codec in Production] If ModuleCdc is accidentally used in production message handling instead of the application-level codec, can this cause different serialization behavior that leads to consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_517e93a5-0294-4ca7-84fc-8bf4da1ff661?mode=deep",
+    "timestamp": "2026-01-09 22:12:27.648234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 31-35] [Codec Usage Violation] The comment warns that ModuleCdc should ONLY be used in tests and JSON encoding, but can this codec be improperly used in production code paths, leading to security vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7469b293-b270-4f48-9841-dbe7a32e0e2a?mode=deep",
+    "timestamp": "2026-01-09 22:12:40.136512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 23] [MsgRecoverZig Double Spend] Can the codec registration for MsgRecoverZig allow double-spend attacks where an attacker recovers the same tokens multiple times? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b5ea11b6-ea8a-4a47-a2b1-70a4226edacb?mode=deep",
+    "timestamp": "2026-01-09 22:12:52.684522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 22] [MsgRemovePauserAddress Emergency Response] If an attacker removes all pausers during an active exploit, can this prevent the protocol from halting malicious activity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c62bc90-d356-4bdc-a8d6-1363d40c25a8?mode=deep",
+    "timestamp": "2026-01-09 22:13:05.974109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 21] [MsgAddPauserAddress Sybil Attack] Can an attacker add multiple pauser addresses they control to execute a Sybil attack on the pause mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9198709b-99e1-4d08-b29d-4e7a9802668d?mode=deep",
+    "timestamp": "2026-01-09 22:13:19.770494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 20] [MsgUpdateIbcSettings Channel Redirection] Can the codec registration for MsgUpdateIbcSettings allow an attacker to redirect IBC channels to malicious endpoints mid-transfer? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3dee631-7b5c-4e05-907e-b48c4d344bbf?mode=deep",
+    "timestamp": "2026-01-09 22:13:34.854947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 19] [MsgDisableTokenWrapper Griefing] Can an attacker repeatedly submit MsgDisableTokenWrapper messages to grief users by making the bridge unreliable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6984cd52-f6de-454e-a97b-edbea375a7cc?mode=deep",
+    "timestamp": "2026-01-09 22:13:51.617564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 18] [MsgEnableTokenWrapper Flash Loan Attack] Can an attacker enable the bridge just long enough to execute a malicious transaction, then disable it to avoid detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1773e0c-14d1-4477-a3e2-e15c47f463ad?mode=deep",
+    "timestamp": "2026-01-09 22:14:09.178181",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 17] [MsgClaimOperatorAddress Front-Running] Does the codec registration enforce proper timing for MsgClaimOperatorAddress, or can an attacker front-run legitimate claims to steal operator privileges? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d9235e5-a369-418d-aa0d-3c208048a226?mode=deep",
+    "timestamp": "2026-01-09 22:14:27.906774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 16] [MsgProposeOperatorAddress Squatting] Can an attacker register multiple MsgProposeOperatorAddress messages to squat operator addresses, preventing legitimate operators from claiming their roles? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35023653-c69a-421f-8b63-bf87c7791d05?mode=deep",
+    "timestamp": "2026-01-09 22:14:47.164409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 15] [MsgWithdrawFromModuleWallet Reentrancy] Can the codec registration allow multiple MsgWithdrawFromModuleWallet messages to be processed in the same block, enabling reentrancy attacks on the module wallet? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d37b341e-d3ff-4ed2-9110-4ca7a59b43c9?mode=deep",
+    "timestamp": "2026-01-09 22:15:07.355306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 14] [MsgFundModuleWallet Decimal Manipulation] Does the codec properly handle decimal precision for coin amounts in MsgFundModuleWallet, or can an attacker exploit serialization to inject coins with incorrect decimal places? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a49a7fdb-6746-4851-a25c-fbc32538e1d8?mode=deep",
+    "timestamp": "2026-01-09 22:15:28.663980",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 13] [MsgUpdateParams Governance Bypass] Can the codec registration for MsgUpdateParams be exploited to update parameters without going through proper governance, allowing an attacker to disable security features? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dde87356-b903-4c97-8331-0ed768ba8524?mode=deep",
+    "timestamp": "2026-01-09 22:15:50.935820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Reflection Attack] Can an attacker use Go reflection to modify the registered message types after registration, altering their behavior to bypass security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d316a72-dfd8-4fb7-adcf-b2e7f1d36320?mode=deep",
+    "timestamp": "2026-01-09 22:16:14.055238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Registration Authority] Does the RegisterInterfaces function validate that only authorized code can register message types, or can malicious modules register additional message types at runtime to hijack the TokenWrapper module? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3af5522-f9a2-4e4d-8679-e9ed5de84f64?mode=deep",
+    "timestamp": "2026-01-09 22:16:38.768733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 36] [Codec Memory Leak] Does the ModuleCdc initialization properly handle memory cleanup, or can repeated codec operations cause memory leaks that eventually crash validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_181ec6d9-13aa-4a39-9797-e44d65cf1101?mode=deep",
+    "timestamp": "2026-01-09 22:17:03.729946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Memory Exhaustion] Can an attacker craft messages that exploit the codec registration to cause excessive memory allocation during deserialization, leading to validator OOM crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a879e686-5013-4126-b0ea-d6e590fa6a57?mode=deep",
+    "timestamp": "2026-01-09 22:17:29.039424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Interface Polymorphism Attack] Can an attacker register multiple types that all implement sdk.Msg but behave differently, exploiting polymorphism to bypass message-specific validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b285fd45-ab8c-4bff-9bc1-d17fdbc57da9?mode=deep",
+    "timestamp": "2026-01-09 22:17:55.859884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Line: 12] [Type Assertion Failure] Can an attacker exploit the sdk.Msg type assertion to register messages that implement the interface incorrectly, causing type assertion panics during message processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d481a104-44c5-490e-a873-6b042c33e1e9?mode=deep",
+    "timestamp": "2026-01-09 22:18:23.568998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Consensus State Divergence] If different validators register message types in different orders due to race conditions, can this cause state divergence where validators disagree on message validation results? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbd3fa9d-e58a-4e39-b730-3f4b3606e19c?mode=deep",
+    "timestamp": "2026-01-09 22:18:49.633293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Non-Deterministic Deserialization] Can the codec registration lead to non-deterministic deserialization behavior across different validator implementations, causing consensus failures when validators process the same message differently? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51d18dcb-deec-4bf3-8a8e-4c7805a11bcc?mode=deep",
+    "timestamp": "2026-01-09 22:19:14.724236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Protobuf Unknown Fields] Can an attacker inject unknown protobuf fields into registered message types that get silently accepted during deserialization, allowing them to smuggle malicious data through validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d87c8b7-2017-4577-a89b-5e9ec609f81e?mode=deep",
+    "timestamp": "2026-01-09 22:19:38.447770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Protobuf Buffer Overflow] Does the codec registration handle extremely large protobuf messages correctly, or can an attacker craft oversized messages that cause buffer overflows during deserialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfa57e1d-cdf0-4b61-951c-dbb01b843e7c?mode=deep",
+    "timestamp": "2026-01-09 22:20:01.557095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Function: RegisterInterfaces()] [Protobuf Field Tampering] Can an attacker manipulate protobuf field numbers during serialization to cause registered messages to deserialize with swapped field values, bypassing validation logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b725c670-0fa5-4af1-a19a-e784019c7257?mode=deep",
+    "timestamp": "2026-01-09 22:20:26.056977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/codec.go] [Lines: 12-23] [Batch Message Exploit] Can an attacker craft a batch of messages containing multiple registered types (e.g., MsgDisableTokenWrapper + MsgWithdrawFromModuleWallet) that exploit deserialization order to drain funds while the bridge is disabled? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee7fb937-2035-4d0a-a19f-3f3125371559?mode=deep",
+    "timestamp": "2026-01-09 22:20:49.432693",
+    "report_generated": false
   }
 ]
