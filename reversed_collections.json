@@ -2998,5 +2998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5de59cf5-8f02-4edd-a37d-66da6f1df356?mode=deep",
     "timestamp": "2026-01-09 12:43:06.840159",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Message routing] Can a malicious CosmWasm contract craft a msg.Custom payload with multiple non-nil fields in the ZMsg struct to trigger simultaneous execution of multiple operations (e.g., CreateDenom + MintAndSendTokens), potentially bypassing validation checks or causing state inconsistencies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e41c0f7-4e3d-4f89-9681-61fac35d4271?mode=deep",
+    "timestamp": "2026-01-09 12:44:19.800676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Message routing] Can a malicious CosmWasm contract craft a msg.Custom payload with multiple non-nil fields in the ZMsg struct to trigger simultaneous execution of multiple operations (e.g., CreateDenom + MintAndSendTokens), potentially bypassing validation checks or causing state inconsistencies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ca4e173-f601-4dee-9221-26ee1100d41b?mode=deep",
+    "timestamp": "2026-01-09 12:44:32.593531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Context isolation] Can the lack of per-query context in QueryPlugin cause queries from different CosmWasm contracts to interfere with each other, such as one contract's query affecting gas consumption or cache state for another contract's concurrent query? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06bf838d-4663-4c9f-80e4-34df34ff7c21?mode=deep",
+    "timestamp": "2026-01-09 12:44:45.642763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Context loss] Does NewQueryPlugin() lose important context information (e.g., gas limits, block height, transaction sender) by only storing keeper references without context, potentially causing queries to execute without proper gas metering or security context? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_697d4ab8-2f95-4374-b843-60e0818a3724?mode=deep",
+    "timestamp": "2026-01-09 12:44:58.959807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Field mutation] Can malicious code that has access to a QueryPlugin instance modify its keeper fields after initialization, replacing legitimate keepers with malicious implementations that return falsified query data to CosmWasm contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd3a59c6-50e6-41f2-8e66-11660caebe3b?mode=deep",
+    "timestamp": "2026-01-09 12:45:12.955858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Encapsulation violation] Can external packages that import wasmbinding create custom QueryPlugin instances by directly instantiating the struct instead of using NewQueryPlugin(), potentially bypassing initialization logic or security checks that should be enforced during QueryPlugin creation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a127aab-8ba7-4744-be95-7ff137055cec?mode=deep",
+    "timestamp": "2026-01-09 12:45:28.278308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Encapsulation violation] Since QueryPlugin's keeper fields are accessible (package-level), can code outside the wasmbinding package directly access and modify these keeper pointers, bypassing any intended query restrictions and potentially corrupting the QueryPlugin's internal state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9102f55f-13d4-4f76-8ef9-38bcd2f08216?mode=deep",
+    "timestamp": "2026-01-09 12:45:44.303297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Migration bug] Can an attacker exploit the window between keeper upgrades and QueryPlugin reinitialization during chain upgrades to query inconsistent state, potentially extracting sensitive information or causing state corruption through query-based attacks during the migration period? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b618ca73-6017-4203-bb03-fc92983b66a5?mode=deep",
+    "timestamp": "2026-01-09 12:46:01.490310",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Migration bug] If keeper state schemas change during an upgrade but QueryPlugin continues using old keeper references, can queries return data in outdated formats that CosmWasm contracts can't parse, causing widespread contract failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d44b593-c7e6-46f9-adb3-52676962d0b2?mode=deep",
+    "timestamp": "2026-01-09 12:46:20.709211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Migration bug] During chain upgrades, if keeper interfaces change but QueryPlugin initialization doesn't update accordingly, can this cause incompatibility issues where queries fail or return incorrect data, breaking all CosmWasm contracts that depend on custom queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_302aca15-3d3c-44b3-ae91-6b8665cb97a5?mode=deep",
+    "timestamp": "2026-01-09 12:46:39.452108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Resource exhaustion] Can malicious CosmWasm contracts exploit the QueryPlugin to perform deeply nested or recursive queries across multiple keepers, exhausting stack space or causing query timeouts that disrupt normal chain operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_322b6ccf-591c-4cd1-ae93-4e053d5257fe?mode=deep",
+    "timestamp": "2026-01-09 12:46:59.959351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [DoS attack] If QueryPlugin instances are created repeatedly without proper pooling or caching, can high-volume CosmWasm query traffic cause excessive object allocations that trigger garbage collection storms, degrading validator performance and potentially causing block production delays? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b62bf240-8fd2-4c9f-9ee7-c129715a1c32?mode=deep",
+    "timestamp": "2026-01-09 12:47:22.201493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [DoS attack] Can an attacker exploit the QueryPlugin's direct keeper access to perform expensive queries without proper rate limiting, such as enumerating all denoms or pools, causing validator performance degradation and enabling query-based DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a950eefd-5a18-46f1-baf2-e78afdf75362?mode=deep",
+    "timestamp": "2026-01-09 12:47:44.391699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Cross-module consistency] If the keepers passed to NewQueryPlugin() are from different chain contexts or snapshots, can this cause cross-module queries to return data from mismatched states, potentially causing CosmWasm contracts to perform invalid operations based on inconsistent query results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53beaf09-bcaf-4e8c-acc9-f77e446c85a7?mode=deep",
+    "timestamp": "2026-01-09 12:48:06.091211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Cross-module consistency] Can queries that span multiple keepers (bank, factory, dex) through QueryPlugin return data that's inconsistent across modules due to different update timing, allowing attackers to exploit temporal inconsistencies to manipulate contract behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85016b0d-bb95-43cd-a2e6-65dd193ff1c7?mode=deep",
+    "timestamp": "2026-01-09 12:48:28.350057",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Cross-module consistency] When a CosmWasm contract queries both factory denoms and DEX pools through the same QueryPlugin, can inconsistencies between the factoryKeeper and dexKeeper states cause contracts to see mismatched data (e.g., a denom exists in factory but related pool doesn't exist in DEX), leading to contract logic errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b00da552-fb8b-4c00-b9c0-15a451ef0fd1?mode=deep",
+    "timestamp": "2026-01-09 12:48:50.007555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Consensus failure] If NewQueryPlugin() is called with keepers that have different caching behaviors on different validator nodes, can this cause query results to diverge, breaking consensus when multiple validators process the same CosmWasm contract execution but get different query responses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bc0e8da-8239-40ab-a317-c65aa5b817ca?mode=deep",
+    "timestamp": "2026-01-09 12:49:13.242901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Consensus failure] Can variations in keeper state between validators cause QueryPlugin queries to return different results on different validators, leading to consensus disagreements when CosmWasm contracts execute transactions that depend on query results? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e52b5d5-ea6b-4be6-a220-221d498c69bf?mode=deep",
+    "timestamp": "2026-01-09 12:49:36.331414",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Consensus failure] If different validators initialize their QueryPlugin instances with slightly different keeper states (e.g., due to state sync issues or timing differences), can this cause non-deterministic query results that lead to consensus failures when CosmWasm contracts make state-changing decisions based on queries? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_064a8284-9056-476e-aceb-5fae0886fa0a?mode=deep",
+    "timestamp": "2026-01-09 12:50:00.910028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [State isolation] Can queries through QueryPlugin observe uncommitted state changes from other concurrent transactions, allowing CosmWasm contracts to make decisions based on state that might be rolled back, potentially causing contracts to execute logic based on invalid assumptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83fed6fd-67f3-4f12-abdd-ce586d0a1845?mode=deep",
+    "timestamp": "2026-01-09 12:50:26.245298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [State isolation] If multiple QueryPlugin instances are created with the same keeper references, can they interfere with each other's query operations, causing query results to be cached incorrectly or shared between different CosmWasm contract executions, leading to information leakage between contracts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eeeaf857-b222-4d78-bb8e-fc16110aef85?mode=deep",
+    "timestamp": "2026-01-09 12:50:50.798734",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [State isolation] Since QueryPlugin holds direct references to keepers, can malicious CosmWasm contracts exploit this to observe keeper state mutations in real-time during transaction execution, potentially front-running other transactions by querying intermediate state before block finalization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_afbd989a-3740-42e5-807b-f0dd65589f09?mode=deep",
+    "timestamp": "2026-01-09 12:51:16.537079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Struct: QueryPlugin] [Circular dependency] If the keepers referenced by QueryPlugin themselves depend on QueryPlugin or CosmWasm functionality, can this create circular dependencies that cause deadlocks during query execution, making the chain unresponsive to CosmWasm contract calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2314e25c-ddf4-4cf6-af87-5ac29cbf498f?mode=deep",
+    "timestamp": "2026-01-09 12:51:42.809249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Dependency injection] Can an attacker exploit the dependency injection pattern in NewQueryPlugin() by providing malicious keeper implementations that appear valid but contain backdoors, allowing unauthorized state access or manipulation through what should be read-only query operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aecd14b9-fd94-48bb-a1f8-26458a7fac04?mode=deep",
+    "timestamp": "2026-01-09 12:52:10.016145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/queries.go] [Function: NewQueryPlugin()] [Initialization order] If NewQueryPlugin() is called before the chain's genesis state is fully initialized, can queries through the returned QueryPlugin access uninitialized keeper stores, potentially reading garbage data or causing panics when CosmWasm contracts perform queries during chain startup? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9dced3f-465e-4161-9bfd-973703eed0b0?mode=deep",
+    "timestamp": "2026-01-09 12:52:37.320319",
+    "report_generated": false
   }
 ]
