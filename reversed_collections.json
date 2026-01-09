@@ -12148,5 +12148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed547ed6-810b-44fc-a2f4-f8fb08bd037e?mode=deep",
     "timestamp": "2026-01-09 23:18:59.495622",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperDisabledEvent()] [DoS vector] Can a malicious pauser repeatedly emit enable/disable events to flood the event log and cause performance degradation in validators or monitoring systems, leading to delayed detection of actual bridge attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_120f547a-567a-4530-9c5d-474b6c88b2dc?mode=deep",
+    "timestamp": "2026-01-09 23:20:16.199943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperEnabledEvent()] [Race condition] Can an attacker emit multiple enable events in rapid succession before state updates, causing monitoring systems to have incorrect enable/disable state and allowing operations when the wrapper should be disabled? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b0e494e-430e-408a-a78c-415f458b0d28?mode=deep",
+    "timestamp": "2026-01-09 23:20:28.509146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitIbcSettingsUpdatedEvent()] [Channel validation] Are native_channel and counterparty_channel values validated for format and existence before emission, or can an attacker emit events with non-existent channels that route IBC packets incorrectly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_018f09d1-b560-4f3a-83d1-eb9c227656db?mode=deep",
+    "timestamp": "2026-01-09 23:20:41.180537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitIbcSettingsUpdatedEvent()] [Missing validation] If the settings map contains invalid values for AttributeKeyDecimalDifference (e.g., negative or very large numbers), will the event emit these values without validation, causing downstream systems to apply incorrect decimal conversions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02289d01-acee-42ef-80e0-327e070ae9da?mode=deep",
+    "timestamp": "2026-01-09 23:20:54.900930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitIbcSettingsUpdatedEvent()] [Map injection] Can an attacker inject arbitrary keys into the settings map that get emitted as event attributes, potentially overwriting critical IBC parameters like decimal_difference and causing incorrect decimal conversions in subsequent transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_137f3e6a-190a-4205-9d55-6af7a6a6ac0d?mode=deep",
+    "timestamp": "2026-01-09 23:21:08.897759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitIbcSettingsUpdatedEvent()] [Type assertion] The function uses type assertion msg.(map[string]string) without proper error handling - can an attacker pass a malicious interface that causes panic during type assertion, crashing validators during IBC settings updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b7ec4c0-9c22-48dc-aad3-ea5b43650c8e?mode=deep",
+    "timestamp": "2026-01-09 23:21:25.097597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitOperatorAddressClaimedEvent()] [State synchronization] If the operator claim event is emitted before the state change is finalized, can a transaction revert after event emission, creating permanent inconsistency between events and actual operator state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3cb0d56-ae9d-440b-b8ca-aee74a1bd79a?mode=deep",
+    "timestamp": "2026-01-09 23:21:41.525994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitOperatorAddressProposedEvent()] [Operator takeover] If oldOperator and newOperator parameters are not properly validated, can an attacker emit fake operator change events that mislead governance participants or monitoring systems about who controls the bridge operator role? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eae1e380-f7f3-46e2-8e99-577b7884ddb3?mode=deep",
+    "timestamp": "2026-01-09 23:21:59.258351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitPauserAddressRemovedEvent()] [Access control bypass] Can an attacker emit a pauser removal event without actually removing the pauser from state, creating confusion about which addresses have pause privileges and enabling unauthorized bridge operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ca43295-cc3f-4a0e-9117-4ca870f89dcc?mode=deep",
+    "timestamp": "2026-01-09 23:22:16.410886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitPauserAddressAddedEvent()] [Address validation] Does the function validate that pauserAddress is a valid bech32 address before emission, or can an attacker emit events with malformed addresses that bypass pauser checks in dependent systems, potentially allowing unauthorized bridge pausing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_431b5044-e905-4af1-ac2c-02fa5fc31b20?mode=deep",
+    "timestamp": "2026-01-09 23:22:34.811908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperRefundEvent()] [State inconsistency] If the refund event is emitted but the actual refund transaction fails, can this create a permanent inconsistency between event logs and blockchain state, causing bridge accounting errors that accumulate over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4fd983ee-73d7-4b12-8632-a7344f4a37b9?mode=deep",
+    "timestamp": "2026-01-09 23:22:54.091000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperRefundEvent()] [Decimal inconsistency] Can an attacker exploit discrepancies between refundAmount and convertedAmount to emit events that hide precision loss during decimal conversion, making it impossible to audit whether the 18→6 decimal conversion preserved token conservation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7da2978-ec26-446b-ab9a-9e94db1cd349?mode=deep",
+    "timestamp": "2026-01-09 23:23:15.409147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperPacketEvent()] [Channel validation] Are sourcePort, sourceChannel, destPort, and destChannel parameters validated before emission, or can an attacker inject fake channel identifiers that cause monitoring systems to incorrectly route or validate IBC packets, leading to token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b871a894-86ae-4619-9748-029bf69a5062?mode=deep",
+    "timestamp": "2026-01-09 23:23:36.847320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperPacketEvent()] [Amount manipulation] Can an attacker provide a negative sdkmath.Int amount that passes validation but gets converted to String() in an unexpected way, causing event data to misrepresent the actual token transfer amount and hide bridge drainage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_860707e4-d52c-4917-8d3b-87061e7c627f?mode=deep",
+    "timestamp": "2026-01-09 23:23:58.793007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperPacketEvent()] [Type validation] If IsValidPacketType() returns false but event emission continues due to a race condition or bypass, can an attacker emit arbitrary packet types that mislead monitoring systems about the true state of cross-chain transfers, enabling undetected token duplication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34eaf827-4c55-4b38-a772-e793ada48cf1?mode=deep",
+    "timestamp": "2026-01-09 23:24:21.830793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperPacketEvent()] [Input validation] Can an attacker inject malicious characters or escape sequences in the sender, receiver, or denom parameters that could corrupt event logs or exploit downstream event parsing systems, potentially leading to incorrect bridge state tracking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9df411c-5124-48e2-b8f5-775a140bbec9?mode=deep",
+    "timestamp": "2026-01-09 23:24:44.458263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperErrorEvent()] [Nil pointer] If ctx.EventManager() is nil and the nil check fails or is bypassed, can this cause a panic that crashes the validator during critical IBC packet processing, leading to network-wide DoS as multiple validators process the same malicious packet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81e57e10-79d7-4396-b53b-cb2c60b30d9f?mode=deep",
+    "timestamp": "2026-01-09 23:25:07.121675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/events_ibc.go] [Function: EmitTokenWrapperErrorEvent()] [Information leakage] Can an attacker exploit the error message emission to extract sensitive internal state information or stack traces that could reveal vulnerabilities in the token wrapper implementation, potentially aiding in bridge exploitation attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b42985c-dde1-4894-96a2-b0771ef7263d?mode=deep",
+    "timestamp": "2026-01-09 23:25:30.884645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Testing blindspot] Does the empty params structure prevent comprehensive testing of param validation logic, allowing bugs to remain undetected until actual param fields are added in production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_878f7ccc-4d48-4238-9e82-6c1c0efe4157?mode=deep",
+    "timestamp": "2026-01-09 23:25:54.387561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: DefaultParams()] [JSON serialization] Can the empty params cause JSON serialization issues in REST API endpoints or CLI tools, returning ambiguous empty objects that clients misinterpret? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fadb82d-52cd-4fad-a1b2-397776a3c31a?mode=deep",
+    "timestamp": "2026-01-09 23:26:16.872547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: NewParams()] [Reflection metadata] Can the empty struct cause issues with Go reflection-based tooling (like proto-gen tools, linters, or analyzers) that assume param structs have meaningful fields? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bbccd58-cf3c-4dab-b7d4-459aa39d38b5?mode=deep",
+    "timestamp": "2026-01-09 23:26:40.663147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: ParamSetPairs()] [Legacy param migration] If ZigChain needs to migrate from legacy param subspace to newer param management systems, will the empty ParamSetPairs cause migration failures that brick the TokenWrapper module? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b42bf5c7-d3ae-4657-a51a-485c934382ac?mode=deep",
+    "timestamp": "2026-01-09 23:27:03.795333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: Validate()] [Empty message validity] Is an empty Params message semantically valid according to protobuf specifications, or could it be rejected by strict proto validators in downstream systems, causing interoperability failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d06bc027-4a76-4cb2-a3cd-39b5d26c4af8?mode=deep",
+    "timestamp": "2026-01-09 23:27:27.823305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: NewParams()] [Field evolution] Can the empty params structure prevent safe field addition/removal in future versions, forcing breaking changes that require coordinated hard forks across all ZigChain instances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ab46756-3256-4a91-8b7f-75c43291cb6f?mode=deep",
+    "timestamp": "2026-01-09 23:27:51.882237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/params.go] [Function: DefaultParams()] [Default mismatch] If default values are added in future versions, can the current empty DefaultParams() cause new nodes to have different genesis state than existing chains, preventing synchronization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fed4268-2fcd-481a-8ae2-1256b8598aca?mode=deep",
+    "timestamp": "2026-01-09 23:28:16.071798",
+    "report_generated": false
   }
 ]
