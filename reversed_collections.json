@@ -2548,5 +2548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b11c0759-baa5-4716-a28a-290c4c9a8008?mode=deep",
     "timestamp": "2026-01-09 10:30:41.849592",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactIn()] [Slippage bypass] At line 589, OutgoingMin is optional - if not provided, can a contract execute swaps with no slippage protection, getting sandwiched or manipulated by MEV bots causing severe fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_516a19ba-764b-4712-b4ec-b7e2d841b9d4?mode=deep",
+    "timestamp": "2026-01-09 10:32:02.698322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreatePool()] [Module account as receiver] Can a contract specify a module account as the receiver of LP tokens, potentially granting that module unintended liquidity control? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a0d948c-ba70-411b-85b3-6ddcd5f5b0dc?mode=deep",
+    "timestamp": "2026-01-09 10:32:15.132710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: createPool()] [Pool ID collision] If pool IDs are derived from token pairs deterministically, can a contract predict and front-run pool creation to claim desirable pool IDs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c308cc7-bb5e-4511-9683-b856c0cd2a29?mode=deep",
+    "timestamp": "2026-01-09 10:32:27.927052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreatePool()] [Initial price manipulation] Can a contract create a pool with extreme Base/Quote ratios (e.g., 1:1000000) to set an artificial price, then exploit arbitrage opportunities against this manipulated price? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d062643-26a0-4d6d-b072-c335643d7ee8?mode=deep",
+    "timestamp": "2026-01-09 10:32:42.106484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreatePool()] [Decimal mismatch pools] Can a contract create pools mixing tokens with different decimals (e.g., 6-decimal and 18-decimal) without proper conversion, causing price calculation errors and fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8da9ca83-6964-41b2-8b09-e0bf36bea199?mode=deep",
+    "timestamp": "2026-01-09 10:32:55.944678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreatePool()] [Same token pool] Can a contract create a pool where Base and Quote are the same token, causing accounting errors or enabling circular arbitrage exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f271daf8-40bc-4d3a-8484-c6f329b45631?mode=deep",
+    "timestamp": "2026-01-09 10:33:10.832944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreatePool()] [Receiver address spoofing] At line 546, the Receiver address can be specified - can a contract create a pool but direct LP tokens to a different address, potentially trapping funds or enabling front-running? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7c187d5-2ca7-4b72-b217-1af534157a9c?mode=deep",
+    "timestamp": "2026-01-09 10:33:26.753158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreatePool()] [Zero liquidity pool] Can a contract create a pool with zero Base or Quote amounts, causing division by zero errors in price calculations or enabling price manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d6a7bda-2556-46bf-a9fe-f3b008160fee?mode=deep",
+    "timestamp": "2026-01-09 10:33:44.632157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreatePool()] [Duplicate pools] Can a contract create multiple pools for the same token pair (Base/Quote), causing confusion about which pool to use and fragmenting liquidity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3427db5a-3bcc-46c6-b63f-05213c762cae?mode=deep",
+    "timestamp": "2026-01-09 10:34:03.394965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreatePool()] [Pool creation spam] At lines 542-547, a contract can create pools with arbitrary token pairs - can a malicious contract create hundreds of pools to bloat state, increase storage costs, or DoS pool enumeration queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfc10840-c860-4be4-89f0-9af1c296c4aa?mode=deep",
+    "timestamp": "2026-01-09 10:34:22.097441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: burnTokens()] [Insufficient balance] Does the function properly handle cases where the contract has insufficient token balance to burn, or can partial burns cause unexpected state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_995c6633-eb47-4ce3-b0eb-98287606e2e4?mode=deep",
+    "timestamp": "2026-01-09 10:34:42.870430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformBurnTokens()] [Burn LP tokens] Can a contract burn DEX LP tokens without properly removing liquidity first, causing pool accounting errors and potential fund loss for liquidity providers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29859a9f-8704-476a-8c9f-dc1f5679e425?mode=deep",
+    "timestamp": "2026-01-09 10:35:04.179465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformBurnTokens()] [Zero amount burn] Can a contract burn zero tokens to bypass state transition checks or trigger unexpected code paths without actual state changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3666c0d3-b2c1-4656-930a-6887b4241984?mode=deep",
+    "timestamp": "2026-01-09 10:35:26.765279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformBurnTokens()] [Supply accounting] If burn succeeds but supply tracking fails or isn't atomic, can total supply remain unchanged while circulating supply decreases, causing inflation accounting errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_668b919e-79f8-4427-ae89-b2a90aad7940?mode=deep",
+    "timestamp": "2026-01-09 10:35:49.387622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformBurnTokens()] [Burn non-factory tokens] Can a contract burn native ZIG tokens, IBC tokens, or other denoms it doesn't control, potentially griefing users or breaking protocol invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79bbbd53-39e0-4515-a268-0972a9a7f762?mode=deep",
+    "timestamp": "2026-01-09 10:36:12.936735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformBurnTokens()] [Negative burn] Can a contract specify negative token amounts in the Coin structure to effectively mint tokens instead of burning, exploiting integer underflow in the burn logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1125697a-3fd8-40fb-b85e-0d4c3c32dba5?mode=deep",
+    "timestamp": "2026-01-09 10:36:38.351275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformBurnTokens()] [Burn from contract balance] At lines 497-500, the burn operation uses contractAddr as sender - does this burn from the contract's own balance only, or can a contract exploit this to burn tokens from arbitrary accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f92926a-ad27-43cf-b695-65366a0233ac?mode=deep",
+    "timestamp": "2026-01-09 10:37:04.284905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: updateDenomMintingCap()] [Current supply check] Does the function verify that the new MintingCap is at least equal to current total supply, or can it be set to arbitrary low values causing accounting inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03923a1f-0b27-43cc-97b8-d1c94d0a54d9?mode=deep",
+    "timestamp": "2026-01-09 10:37:31.663868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMintingCap()] [Zero cap lock] Can a contract set MintingCap to zero and CanChangeMintingCap to false, permanently preventing any future minting and effectively killing the token? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28bddc2e-fbfe-47c6-8eaf-81eb5d524cde?mode=deep",
+    "timestamp": "2026-01-09 10:37:59.136265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMintingCap()] [Race condition] Can multiple contracts or contract instances race to update minting cap in the same block, with only the last one taking effect, causing unpredictable cap changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb141b7d-cb03-4fc4-ab95-71402330d681?mode=deep",
+    "timestamp": "2026-01-09 10:38:27.173197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMintingCap()] [CanChangeMintingCap lock] At line 455, if CanChangeMintingCap is set to false, is this irreversible? Can a contract lock itself out of cap adjustments permanently, making the token inflexible for legitimate needs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d346cd0e-1cd0-4c0b-9064-d0bcd8ec2d6d?mode=deep",
+    "timestamp": "2026-01-09 10:38:54.705144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMintingCap()] [Cap decrease DoS] Can a contract decrease MintingCap below current total supply, causing accounting errors or making it impossible to burn tokens back to compliant levels? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fffd6ef7-cec3-4144-82c4-de82836149f0?mode=deep",
+    "timestamp": "2026-01-09 10:39:21.076873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomMintingCap()] [Cap increase exploit] At lines 451-456, a contract can increase MintingCap and set CanChangeMintingCap - can a malicious contract increase the cap to MaxUint just before a governance proposal to lock caps, then mint unlimited tokens before the proposal executes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59153ecf-b879-4613-b168-d39262acd5b6?mode=deep",
+    "timestamp": "2026-01-09 10:39:47.457373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomURI()] [URI change rug pull] Can a contract legitimately establish a token with proper URI, gain user trust, then update URI to point to different content (e.g., change from legitimate project docs to scam site) for rug pull attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_93b1d21b-7c65-41c1-bc8c-4a3df78dc581?mode=deep",
+    "timestamp": "2026-01-09 10:40:15.473202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformUpdateDenomURI()] [Empty URI] Can a contract set URI to empty string to make token metadata disappear from explorers and wallets, effectively hiding the token or making it appear suspicious? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2a77869-b9c2-43fb-895e-d8c93db3cf12?mode=deep",
+    "timestamp": "2026-01-09 10:40:43.544657",
+    "report_generated": false
   }
 ]
