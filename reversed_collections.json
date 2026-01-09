@@ -5098,5 +5098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20707886-5fff-45f1-aa36-0a05dbcdc208?mode=deep",
     "timestamp": "2026-01-09 15:00:56.524644",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Refund logic] At line 121, handleRefund is called with sender, amount, and data.Denom. Can an attacker exploit a race condition where the sender's IBC voucher balance changes between validation and the actual refund, causing the refund to fail or process incorrect amounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6796cc74-88e2-4982-ae40-824904024ae4?mode=deep",
+    "timestamp": "2026-01-09 15:02:05.429873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Logic error] The comment at line 128 states 'no need to track the transfer' when acknowledgment fails. But shouldn't failed transfers still be tracked for auditing purposes to detect repeated failures or attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_610ad45f-df3c-4b12-9bd4-66ba50c10188?mode=deep",
+    "timestamp": "2026-01-09 15:02:17.743507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] When acknowledgment fails and handleRefund succeeds, the function returns nil at line 129 without tracking. Does this cause TotalTransferredOut to be inaccurate since the transfer attempt is not recorded? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bdb7cdad-ea7e-4178-99ad-e90e2ca759b4?mode=deep",
+    "timestamp": "2026-01-09 15:02:31.303301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Error handling] At lines 121-126, if handleRefund fails, the function logs the error but returns nil at line 125 with comment 'apply default behavior'. Does this mask refund failures and cause users to permanently lose tokens without any indication of the failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94c176d8-3392-4fbd-87e8-8fad85c67a48?mode=deep",
+    "timestamp": "2026-01-09 15:02:45.091001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Logic error] At line 118, if ack.Success() returns false, handleRefund is called at line 121. Can an attacker craft an acknowledgment that returns false for Success() but still successfully transferred tokens on the destination chain, causing double-spending? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7780af53-9590-4a36-b4d9-67a400c9468e?mode=deep",
+    "timestamp": "2026-01-09 15:02:58.815660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Acknowledgment parsing] Can an attacker exploit differences in how different validators unmarshal the acknowledgment at line 108 to cause consensus failures when computing the ack.Success() result at line 118? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d554677-38a8-4d1a-aef3-d3e8727e01d1?mode=deep",
+    "timestamp": "2026-01-09 15:03:13.481167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Error handling] If acknowledgment unmarshaling fails at line 108, the function returns an error at line 111 AFTER calling the underlying OnAcknowledgementPacket. Does this create an inconsistent state where the underlying module has processed the ack but tokenwrapper hasn't? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_482a66ff-d767-41e3-bb97-942e77883665?mode=deep",
+    "timestamp": "2026-01-09 15:03:29.002959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Acknowledgment parsing] Does the UnmarshalJSON call at line 108 properly validate the acknowledgment structure, or can an attacker inject additional fields that modify behavior in downstream processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f4f82a8-b9ba-40b2-9dd8-3e1dabe8e9a6?mode=deep",
+    "timestamp": "2026-01-09 15:03:46.604315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Acknowledgment parsing] At lines 107-111, the acknowledgment bytes are unmarshaled into channeltypes.Acknowledgement. Can an attacker craft a malicious acknowledgment that passes unmarshaling but has unexpected fields or values that bypass the Success() check at line 118? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc0edafd-8010-41b0-9a5e-4f682288845c?mode=deep",
+    "timestamp": "2026-01-09 15:04:04.426731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] Between the app.OnAcknowledgementPacket call at line 101 and the acknowledgment unmarshaling at line 108, can state be modified by other transactions that affect the outcome of success/failure handling? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5741a3da-db28-45f9-a76e-d3508248d526?mode=deep",
+    "timestamp": "2026-01-09 15:04:23.711614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Reentrancy] Does the call to app.OnAcknowledgementPacket at line 101 allow for callbacks or hooks that could re-enter OnAcknowledgementPacket, causing race conditions in state updates and potential token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b564882-447a-4043-8890-90ea48e5958b?mode=deep",
+    "timestamp": "2026-01-09 15:04:43.634953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Error handling] If app.OnAcknowledgementPacket fails at line 101, the function returns an error at line 104 without processing refunds or tracking. Can this cause permanent loss of tracking data and incorrect TotalTransferredOut values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4122c09-a3d8-48ef-85ca-438f033c7300?mode=deep",
+    "timestamp": "2026-01-09 15:05:04.419518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] Can an attacker exploit the ordering of operations where app.OnAcknowledgementPacket is called at line 101 before handleRefund at line 121 to create a scenario where tokens are both refunded to user AND released from escrow, duplicating tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19d88b00-4001-4c8e-bc88-d1f779792e4f?mode=deep",
+    "timestamp": "2026-01-09 15:05:25.187454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] At lines 100-104, the underlying app.OnAcknowledgementPacket is called BEFORE acknowledgment success/failure is checked. If the underlying call succeeds but acknowledgment is error, does this create a state where tokens are escrowed/unescrowed incorrectly? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b0f27f8c-c81c-4219-a192-55eb6e5402b8?mode=deep",
+    "timestamp": "2026-01-09 15:05:47.820521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Address validation] Can an attacker provide a sender address that resolves to a contract or module account, and does handleRefund at line 121 properly handle these special account types without causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b29f38c3-96b5-4ff5-8639-afe3987524bf?mode=deep",
+    "timestamp": "2026-01-09 15:06:12.134146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Address validation] If AccAddressFromBech32 fails at line 93, an error is returned at line 97. Can an attacker exploit this to prevent acknowledgments for legitimate transfers, causing tokens to remain locked on the counterparty chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b094e263-314b-4227-a71e-e1b2584e2923?mode=deep",
+    "timestamp": "2026-01-09 15:06:36.373596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Address validation] Does the sender address validation at line 93 properly handle addresses with mixed case, special characters, or checksums that could pass Bech32 validation but represent different addresses to different parts of the system? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8608126d-8c7b-4de5-ad06-bf77b22dcc24?mode=deep",
+    "timestamp": "2026-01-09 15:07:01.930749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Address validation] At lines 93-97, AccAddressFromBech32 is called on data.Sender. Can an attacker provide a sender address in an alternate bech32 prefix (e.g., 'cosmos' instead of 'zig') that passes validation but causes issues in handleRefund or other operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_923f4b00-ccc4-4c55-8029-bed8e18958ff?mode=deep",
+    "timestamp": "2026-01-09 15:07:28.059354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Amount validation] If NewIntFromString returns ok=false at line 84, an error is returned at line 89. Can an attacker exploit this to DoS the IBC relayer by sending malformed amount strings, preventing legitimate acknowledgments from being processed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a4727f7-d60b-433b-982c-6062da46b9c7?mode=deep",
+    "timestamp": "2026-01-09 15:07:54.069455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Amount validation] Can an attacker craft a data.Amount string that appears different to different validators due to parsing ambiguities (e.g., '1.0' vs '1'), causing consensus failures when computing state transitions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99f40e16-ef8c-4afb-9e8b-5090f9f20675?mode=deep",
+    "timestamp": "2026-01-09 15:08:20.034753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Amount validation] The amount parsing at line 84 only checks if conversion succeeds (ok). Does this allow negative amounts, zero amounts, or amounts exceeding maximum sdkmath.Int to pass validation and cause issues in downstream operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f55d7374-df0e-416b-95e4-760134a3ab45?mode=deep",
+    "timestamp": "2026-01-09 15:08:45.798564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Integer overflow] At lines 84-89, NewIntFromString is used to parse data.Amount. Can an attacker provide an amount string with leading zeros, scientific notation, or extremely large values that cause integer overflow when converted to sdkmath.Int? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a07d7b1-ecea-4961-9ffd-33db7e621b26?mode=deep",
+    "timestamp": "2026-01-09 15:09:12.795700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Access control] Does the IsEnabled check at line 76 consider all possible states (enabled/disabled/paused), or can an attacker exploit an undefined state to bypass this check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfe32611-2418-42bc-8c2e-9e042858eb5b?mode=deep",
+    "timestamp": "2026-01-09 15:09:40.768445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [State consistency] Can a malicious pauser disable the module via MsgPauseTokenWrapper while packets are in-flight, causing acknowledgments to fail and tokens to be locked indefinitely across multiple users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_077a43ec-df57-4d3b-8940-10174b3f4590?mode=deep",
+    "timestamp": "2026-01-09 15:10:07.917211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_acknowledgment_packet.go] [Function: OnAcknowledgementPacket()] [Access control] If the module is disabled at line 76 and an error is returned at line 80, the underlying OnAcknowledgementPacket is NOT called. Does this cause IBC acknowledgments to be lost, leading to tokens being permanently stuck on the source chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce2bcedb-af51-4131-b847-61313e0510a9?mode=deep",
+    "timestamp": "2026-01-09 15:10:36.371389",
+    "report_generated": false
   }
 ]
