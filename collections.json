@@ -5848,5 +5848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_980c9516-5a3b-4347-affb-9444fa06db85?mode=deep",
     "timestamp": "2026-01-09 17:41:45.802809",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Nil pointer] Can the mm (module.Manager), configurator, or keepers parameters be nil, causing nil pointer dereference panics during RunMigrations() and halting the upgrade? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5d969d0-37c5-4d42-bcfd-c26afa6b39a0?mode=deep",
+    "timestamp": "2026-01-09 17:43:00.803338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Panic propagation] If RunMigrations() panics, will it be caught and handled gracefully, or will the panic propagate and crash all validators simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_802d9a20-5e0a-4a40-af8d-8299c53e12fb?mode=deep",
+    "timestamp": "2026-01-09 17:43:13.167514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Goroutine leak] Does the upgrade handler spawn any goroutines that might not be properly cleaned up, causing validator resource leaks during and after the upgrade? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e54289fa-7ec3-439a-9c42-834aaa1294f1?mode=deep",
+    "timestamp": "2026-01-09 17:43:26.052496",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Integer overflow] If the version map contains extremely large version numbers, can integer overflow occur in version comparisons, causing migrations to execute in wrong order? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21a2d7ab-8ae0-4948-b47d-d3146369f071?mode=deep",
+    "timestamp": "2026-01-09 17:43:39.859629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Defer statement] If there were defer statements for cleanup, would they execute properly if RunMigrations() panics, or would resources remain locked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_199fc21c-d500-4686-bdf2-51da532ac569?mode=deep",
+    "timestamp": "2026-01-09 17:43:53.637336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Block time manipulation] Can validators manipulate block timestamps during the upgrade to cause time-dependent migrations (if any) to behave unexpectedly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a93d4437-b16a-4cdd-a4dd-9896a18276aa?mode=deep",
+    "timestamp": "2026-01-09 17:44:08.937840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Upgrade cancellation] Is there any mechanism to cancel or abort the upgrade if critical issues are detected mid-migration, or is the process irreversible once started? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_449f94b3-506b-46a5-a45e-0ce948112ee4?mode=deep",
+    "timestamp": "2026-01-09 17:44:25.350303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Deletion] [Critical] Can the deletion of the 'crisis' module store at line 20 cause permanent loss of critical invariant checking data that was previously used to detect state corruption, allowing attackers to exploit state inconsistencies that would have been caught by the crisis module? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac8b5bcc-eb02-4d13-a2e7-1e5b579d4fad?mode=deep",
+    "timestamp": "2026-01-09 17:44:43.628178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Deletion] [State Corruption] Does the deletion of the 'crisis' store at line 20 occur atomically with all other upgrade operations, or can a Byzantine validator trigger a partial deletion that leaves the chain in an inconsistent state where some nodes have deleted the store while others haven't, causing consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ab0f77f-65f9-4e55-a6c3-2afe5bad1331?mode=deep",
+    "timestamp": "2026-01-09 17:45:02.057886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Deletion] [Data Loss] Can an attacker exploit the timing window during the 'crisis' store deletion at line 20 to cause other modules that depend on crisis module functionality to fail catastrophically, leading to network-wide DoS or state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91375162-3a23-4666-9aa1-ac2c53f370b5?mode=deep",
+    "timestamp": "2026-01-09 17:45:21.853035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Deletion] [Rollback] If the upgrade fails mid-execution after the 'crisis' store has been deleted at line 20, is there a proper rollback mechanism to restore the deleted data, or will the chain be permanently in a corrupted state requiring manual intervention? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ecb5a11-97c5-473d-9266-7a6aa1203249?mode=deep",
+    "timestamp": "2026-01-09 17:45:42.671941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Deletion] [Module Dependencies] Does the system properly validate that no other modules (TokenWrapper, Factory, DEX, IBC) depend on the 'crisis' module before allowing its deletion at line 20, or can this cause cascading failures across critical bridge and DEX operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a969fc4-788f-4bc5-b330-72d1ed71db16?mode=deep",
+    "timestamp": "2026-01-09 17:46:03.204428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Deletion] [Invariant Checking] With the 'crisis' module deleted at line 20, are there alternative mechanisms in place to detect TokenWrapper decimal conversion errors, Factory minting cap violations, or DEX AMM invariant breaks that the crisis module previously would have caught? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_373a556e-8808-4571-aaaa-57e3ba9e7dbc?mode=deep",
+    "timestamp": "2026-01-09 17:46:25.842051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Deletion] [Emergency Halt] Does the deletion of the 'crisis' store at line 20 remove the ability to perform emergency chain halts in response to critical vulnerabilities like IBC token duplication or bridge drainage attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d0b51f3-6ebc-4eba-814f-3668a11d3a2d?mode=deep",
+    "timestamp": "2026-01-09 17:46:48.911962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Deletion] [Migration Safety] Can an attacker exploit race conditions during the 'crisis' store deletion at line 20 by submitting transactions that reference the crisis module simultaneously, causing undefined behavior or panic conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67d62cd0-c7e3-48d0-b34a-3507bff33733?mode=deep",
+    "timestamp": "2026-01-09 17:47:13.405440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Upgrade Name] [Version Confusion] Can an attacker exploit the hardcoded upgrade name 'v2' at line 11 by proposing a malicious upgrade with a similar name ('V2', 'v2.0', 'v2 ') that bypasses version checking and executes unauthorized state transitions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd53436a-3966-4ba5-bc34-84257bf07dd2?mode=deep",
+    "timestamp": "2026-01-09 17:47:38.352186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Upgrade Name] [Replay Attack] Can a malicious validator replay the 'v2' upgrade proposal at line 14 after it has already executed, causing the 'crisis' store to be deleted again (if somehow recreated) or triggering duplicate migration logic that corrupts state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6021c3d5-5636-45bf-81c8-a41e405ec4d2?mode=deep",
+    "timestamp": "2026-01-09 17:48:04.955150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Upgrade Name] [Governance Manipulation] Can an attacker submit multiple governance proposals with the same upgrade name 'v2' at line 11 to confuse validators about which proposal is legitimate, potentially leading to chain splits if different validator sets execute different proposals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5d5d147-4691-466c-a118-a046e57e4453?mode=deep",
+    "timestamp": "2026-01-09 17:48:30.620207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Upgrade Name] [Case Sensitivity] Is the upgrade name comparison at line 11 case-sensitive, or can an attacker bypass upgrade validation checks by submitting a proposal with uppercase 'V2' that gets treated differently by different nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04671521-354d-4e8b-99ff-594e19ddd842?mode=deep",
+    "timestamp": "2026-01-09 17:48:56.982442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Struct Init] [Nil Pointer] Can the Upgrade struct initialization at lines 14-22 result in a nil CreateUpgradeHandler function pointer if the CreateUpgradeHandler function is not properly defined in upgrades.go, causing a panic when the upgrade executes and taking down all validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66f257d0-5741-404a-931e-8323bd2971a8?mode=deep",
+    "timestamp": "2026-01-09 17:49:23.270903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Struct Init] [Memory Safety] Does the StoreUpgrades struct initialization at lines 17-21 properly allocate memory for the Deleted slice, or can a malformed upgrade proposal cause buffer overflow when the runtime tries to process the deletion list? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_153ebac0-baf1-4331-8a2a-5001bcc333ca?mode=deep",
+    "timestamp": "2026-01-09 17:49:48.864736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Struct Init] [Export Security] Is the exported Upgrade variable at line 14 properly protected from external modification, or can a malicious module import this package and mutate the upgrade configuration before it executes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12e8e748-8740-4d1c-9b00-19630b75e680?mode=deep",
+    "timestamp": "2026-01-09 17:50:15.395048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Struct Init] [Field Validation] Does the system validate that all required fields in the Upgrade struct at lines 14-22 are properly initialized, or can missing fields cause undefined behavior during upgrade execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f139a0d9-16ec-4c93-9730-0e841b136521?mode=deep",
+    "timestamp": "2026-01-09 17:50:41.172048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Config] [Commented Arrays] Can an attacker exploit the commented-out Added and Renamed arrays at lines 18-19 by uncommenting them in a malicious fork of the code, causing the upgrade to add or rename stores in addition to deleting 'crisis', potentially bypassing security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24f0c156-7537-419c-b778-2cec5a80e3d4?mode=deep",
+    "timestamp": "2026-01-09 17:51:08.173843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Config] [Empty Validation] Does the system properly validate that the Deleted array at line 20 only contains the 'crisis' string, or can an attacker modify this to include other critical stores like TokenWrapper or Factory module stores, causing catastrophic data loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34e1f6ef-5bb5-40c5-b668-1c1cd4e96bbf?mode=deep",
+    "timestamp": "2026-01-09 17:51:35.023705",
+    "report_generated": false
   }
 ]
