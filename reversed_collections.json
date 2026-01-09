@@ -3748,5 +3748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4f4f067-5e43-499e-9f94-85cda22b5162?mode=deep",
     "timestamp": "2026-01-09 13:32:05.113376",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Context isolation] Are SDK contexts properly isolated between concurrent contract executions, or can one contract's context modifications affect another contract executing in parallel? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d0f1132-2734-4693-b710-f5322f3a8f0e?mode=deep",
+    "timestamp": "2026-01-09 13:33:15.457615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Denom race] Can multiple contracts create denoms with the same name simultaneously through factory keeper at line 15, causing nonce collision in denom ID generation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ddf118c2-f91d-4538-a547-107d312e4bd5?mode=deep",
+    "timestamp": "2026-01-09 13:33:27.816897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Pool race] Can two contracts simultaneously add liquidity to the same pool through dex keeper at line 16, causing race conditions where LP token calculations use stale reserve values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d8ff463-4b61-4edf-bd24-9c6b48dec8a7?mode=deep",
+    "timestamp": "2026-01-09 13:33:40.767306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Concurrent contracts] Can multiple contracts executing in parallel access the same keeper references at lines 14-16, causing race conditions where one contract reads stale state modified by another? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8eb6e6fb-21ff-44dd-aefb-f4ab2bc29208?mode=deep",
+    "timestamp": "2026-01-09 13:33:54.674348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [State recovery] If a query in CustomQuerier at line 27 reads corrupted state, does it return an error or panic, and is the state recovered to a consistent checkpoint? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8be31b7-b8f0-4032-93ef-0a052d1d82e8?mode=deep",
+    "timestamp": "2026-01-09 13:34:08.389297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Error propagation] Do errors from keeper operations at lines 14-16 properly propagate to the contract, or are they silently swallowed causing contracts to assume success when operations failed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20493cd4-f88a-49e5-892f-527c3102896a?mode=deep",
+    "timestamp": "2026-01-09 13:34:24.189981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Partial rollback] When a contract message fails in CustomMessageDecorator, are all keeper state changes rolled back atomically, or can partial changes persist causing inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb5aa8ff-5138-4917-b373-47ac41413636?mode=deep",
+    "timestamp": "2026-01-09 13:34:39.730024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Panic recovery] If a keeper method panics during contract execution through message decorator at line 30-35, is the panic properly caught and converted to an error, or does it crash the validator? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5572b93e-5564-453f-85bb-fc99fe0c2f65?mode=deep",
+    "timestamp": "2026-01-09 13:34:57.165948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Query spam] Can contracts spam queries through CustomQuerier at line 27 faster than validators can process them, causing query queue buildup and block production delays? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1645f557-39e9-49db-b8d5-27d6b788e2d4?mode=deep",
+    "timestamp": "2026-01-09 13:35:16.461556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Goroutine leak] If message decorator at line 30-35 spawns goroutines during message processing, are they properly cleaned up, or do failed contract executions leak goroutines causing validator memory issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08f01035-a339-435b-b431-7646ef93b110?mode=deep",
+    "timestamp": "2026-01-09 13:35:34.975195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [State bloat] Can contracts create unlimited denoms or pools through keepers at lines 15-16 without paying proportional storage costs, causing state bloat that makes the chain unsyncable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85c6f20b-e2d6-4ff8-b999-41b3d9147cdb?mode=deep",
+    "timestamp": "2026-01-09 13:35:55.245150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Gas exhaustion] Does CustomMessageDecorator at line 30-35 properly meter gas for expensive operations, or can contracts execute operations that consume more gas than available in block limit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce83f4f1-7888-4d80-afba-423b5896861f?mode=deep",
+    "timestamp": "2026-01-09 13:36:16.310680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Memory exhaustion] Can a contract call query methods through QueryPlugin at line 20-24 with parameters that cause keepers to load entire state into memory (e.g., query all pools), causing OOM crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fe88377-915b-4817-ba72-829c21daa65e?mode=deep",
+    "timestamp": "2026-01-09 13:36:38.172087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Pool ID validation] Does the dex keeper at line 16 validate pool ID format, or can contracts provide malformed IDs that cause state corruption when used as map keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad51b556-c75b-4e3f-8979-3c5a7aefe149?mode=deep",
+    "timestamp": "2026-01-09 13:37:00.168721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Address validation] Can contracts provide invalid bech32 addresses through message decorator at line 30-35 that cause panics when keepers attempt to parse them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33f36ee5-505d-496c-8a99-e9619994e7b1?mode=deep",
+    "timestamp": "2026-01-09 13:37:24.948139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Denom validation] Does the factory keeper at line 15 validate denom name format when called through contracts, or can contracts create denoms with special characters that break bank module denomination parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6311edd-1c28-461e-9ab0-fbc476db5fcd?mode=deep",
+    "timestamp": "2026-01-09 13:37:49.527094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Amount validation] Can contracts pass negative or zero coin amounts through the message decorator at line 30-35 that cause integer underflows in keeper math operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_accadc53-3d3d-41fc-b319-f89d7df68e1b?mode=deep",
+    "timestamp": "2026-01-09 13:38:13.233755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Input validation] Does CustomMessageDecorator at line 30-35 perform input validation before passing messages to keeper methods, or can contracts send malformed data that bypasses ValidateBasic() checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_374a0a70-c3bb-4440-bf4c-0c8b0b6e4b21?mode=deep",
+    "timestamp": "2026-01-09 13:38:38.583138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [DEX ownership] Can a contract manipulate pool ownership by exploiting the dex keeper at line 16 to claim pools created by other contracts, redirecting fees to attacker addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5262cc1-bc60-4d2b-9e31-203a74ed9c57?mode=deep",
+    "timestamp": "2026-01-09 13:39:03.040270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Factory admin] Can a contract use the factory keeper at line 15 to modify denom admin settings for denoms it doesn't own by exploiting missing authorization checks in keeper methods exposed to contracts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ae0b9c3-7eff-4b61-a4a3-03b7cfb72e69?mode=deep",
+    "timestamp": "2026-01-09 13:39:27.389592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Sudo privileges] Can a contract gain sudo-level access to keepers by exploiting the fact that keeper methods called at lines 14-16 may not distinguish between native module calls and contract calls, treating all as privileged? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b517ad74-8fc1-4c46-a508-1889c107d66d?mode=deep",
+    "timestamp": "2026-01-09 13:39:51.782708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Contract identity] Does CustomMessageDecorator properly validate that the contractAddr parameter represents the actual calling contract, or can a contract impersonate other contracts by providing fake addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43daf51b-bfc6-4f8e-8d93-cf3c3defcc1d?mode=deep",
+    "timestamp": "2026-01-09 13:40:17.341137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Permission escalation] Can a contract deployed by a regular user gain admin-level privileges by exploiting the direct keeper access at lines 14-16, bypassing normal governance-controlled admin role checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a22b726e-3a8b-4392-b51d-b34b1e2fe156?mode=deep",
+    "timestamp": "2026-01-09 13:40:43.119117",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Denom namespace] Does the factory keeper at line 15 properly enforce that contract-created denoms are namespaced under the contract address, or can a contract create denoms that collide with native chain denoms like 'uzig'? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_429f7cdc-d249-4fbe-9a6e-aad99a492466?mode=deep",
+    "timestamp": "2026-01-09 13:41:08.870197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/wasm.go] [Function: RegisterCustomPlugins()] [Module balance] Can a contract exploit cross-keeper calls to drain the factory or dex module accounts by manipulating bank keeper transfers at line 14 while bypassing module-specific balance checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1c0dff7-2058-4624-95cc-48fe505ab52b?mode=deep",
+    "timestamp": "2026-01-09 13:41:36.491282",
+    "report_generated": false
   }
 ]
