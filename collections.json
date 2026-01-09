@@ -9598,5 +9598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f856e6c-3b94-42f3-8881-787aced8c061?mode=deep",
     "timestamp": "2026-01-09 22:24:48.457750",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Empty Pool Store] What happens if the pool store is completely empty when ListPool() executes? Does it return an empty list gracefully or trigger unexpected behavior in pagination? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72947af7-0440-4de1-bba6-258347a1ab46?mode=deep",
+    "timestamp": "2026-01-09 22:26:21.530925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPool()] [Zero-Length Pool ID] Can an attacker pass a zero-length string as pool_id to test boundary conditions in types.PoolKey() generation, potentially causing key construction errors or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd2d8bcf-7e26-428d-bf7c-107425c05893?mode=deep",
+    "timestamp": "2026-01-09 22:26:33.844959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Deleted Pool Query] If a pool is deleted but its account still exists with remaining balances, does GetPoolBalances() detect this inconsistency or return misleading data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35ba411c-c663-4c5d-a27f-1207c51c7b50?mode=deep",
+    "timestamp": "2026-01-09 22:26:46.520422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Unmarshal Partial Failure] If some pools in the pagination result unmarshal successfully but others fail at line 27-28, does the function return partial results or fail entirely, and which behavior is more secure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6bb0c3d-0435-4092-95d3-b597033dd899?mode=deep",
+    "timestamp": "2026-01-09 22:26:59.597065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: GetPoolBalances()] [Address String Format] Does types.GetPoolAddress() properly handle all valid pool ID formats, or can certain Unicode or special characters in pool IDs cause address derivation to fail or produce unexpected addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d794699d-a2dd-4f37-98cf-29ce167d3550?mode=deep",
+    "timestamp": "2026-01-09 22:27:13.818316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Address validation] Can an attacker submit a malformed Bech32 address in msg.Creator that passes AccAddressFromBech32 validation but causes downstream operations to fail, leading to partial state writes where the pool ID counter is incremented but pool creation fails, resulting in permanently skipped pool IDs and state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a911892-5e8c-4b13-a735-e91f4fbadf25?mode=deep",
+    "timestamp": "2026-01-09 22:27:28.826937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Address validation] Does the address validation at line 31-39 properly handle all edge cases including empty strings, addresses from different chain prefixes, or addresses with invalid checksums that could bypass validation and create pools with invalid creator fields? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_70016544-ddf3-4e33-8e77-8d84b9841cf8?mode=deep",
+    "timestamp": "2026-01-09 22:27:45.184459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Input validation] Can an attacker pass msg.Base and msg.Quote with the same denomination, causing GetPoolUidsFromCoins to create a duplicate pool check that always fails or allows creation of invalid single-asset pools that break AMM invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2aab2f92-3c12-4441-91ef-3de555db1bbe?mode=deep",
+    "timestamp": "2026-01-09 22:28:02.749848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Input validation] Can an attacker pass msg.Base and msg.Quote coins with zero amounts that pass the initial validation but fail later checks, causing the creation fee to be charged without pool creation, resulting in permanent fund loss for the user? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c113c312-26ed-4d95-a508-2b599d0f8305?mode=deep",
+    "timestamp": "2026-01-09 22:28:21.756374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Input validation] Can an attacker pass msg.Base and msg.Quote with negative amounts that bypass validation checks at lines 55-75, allowing creation of pools with negative reserve balances that violate AMM invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6077f8a-3358-4d1b-88c3-91819e422ac5?mode=deep",
+    "timestamp": "2026-01-09 22:28:39.972386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Race condition] Between lines 42-53 where GetPoolUidsFromCoins checks for pool existence and line 293 where SetPoolUidFromPool writes the secondary index, can two concurrent CreatePool transactions for the same token pair both pass the existence check and create duplicate pools, violating the uniqueness constraint? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_657a6fd6-79c7-40a3-86fe-f2002c7647d5?mode=deep",
+    "timestamp": "2026-01-09 22:28:59.486814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Race condition] Between lines 176-190 where GetPool checks if poolIDString already exists and line 287 where SetPool writes the pool, can a race condition allow multiple pools with the same poolID to be created if transactions execute concurrently, causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4942035-1e97-4598-94bd-19b7856fd0ba?mode=deep",
+    "timestamp": "2026-01-09 22:29:19.639309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [State inconsistency] If GetPoolUidsFromCoins at line 42 returns found=false but SetPoolUidFromPool at line 293 fails silently, can this create a pool without a secondary index, making it permanently undiscoverable through the UID lookup but still accessible by pool ID? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90ff4136-ef7e-4ef8-bba3-36fb77bd8402?mode=deep",
+    "timestamp": "2026-01-09 22:29:40.228319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [TOCTOU] Between the pool existence check at lines 176-190 and the actual pool creation at line 287, if another transaction creates the same pool ID through a different code path, can this cause pool state to be overwritten, leading to loss of liquidity or incorrect LP token accounting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bad94567-87fb-4efa-ad23-550462af8a55?mode=deep",
+    "timestamp": "2026-01-09 22:30:02.586270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [State inconsistency] If SetPool at line 287 succeeds but SetPoolUidFromPool at line 293 fails, can this create an orphaned pool that exists in primary storage but not in the secondary index, breaking pool discovery and potentially locking funds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed79ace9-91a0-468c-8ef5-c97d01e7bf1f?mode=deep",
+    "timestamp": "2026-01-09 22:30:25.759979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [TOCTOU] Between the HasBalance check at line 57 for msg.Base and the actual SendFromAddressToPool at line 213, can the sender's balance be reduced by another transaction, causing the pool creation to fail after the creation fee has already been charged and burned, resulting in permanent fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_386c3654-4b5a-45cf-bbf6-bee5201e5fc6?mode=deep",
+    "timestamp": "2026-01-09 22:30:49.530069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [TOCTOU] Between the HasBalance check at line 68 for msg.Quote and the SendFromAddressToPool at line 213, if a concurrent transaction spends the sender's quote tokens, can this cause pool creation to fail in a state where the base tokens were already transferred but quote tokens cannot be, leading to partial pool creation and fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51063e7c-91c5-403d-a965-1d8993173bfa?mode=deep",
+    "timestamp": "2026-01-09 22:31:15.303353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [TOCTOU] Between the creation fee balance check at line 80 and the fee payment at lines 91-168, can another transaction spend the sender's BondDenom tokens, causing the fee payment to fail but still creating the pool account at line 194, resulting in an account without a corresponding pool and state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a111771e-f71c-45af-b30a-a9ab585d3265?mode=deep",
+    "timestamp": "2026-01-09 22:31:40.853404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Double-check inefficiency] The comment at line 56 states this is a double check since SendCoins will check again - can an attacker exploit the redundant validation to cause unnecessary gas consumption in the failed transaction path, enabling a DoS attack by forcing validators to perform duplicate expensive checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_942a3390-8092-4d11-bfc0-147d7ee488db?mode=deep",
+    "timestamp": "2026-01-09 22:32:06.323550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Balance validation] Can an attacker pass msg.Base or msg.Quote with amounts that equal exactly the sender's balance, causing the subsequent creation fee payment to fail due to insufficient funds, after the pool has already been partially created? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9b5b683-a84a-49b6-831e-db0fd51f22f3?mode=deep",
+    "timestamp": "2026-01-09 22:32:32.926327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Fee payment - beneficiary] At lines 94-104, if params.Beneficiary is set to a valid address but AccAddressFromBech32 fails due to a state corruption or encoding issue, can this cause the creation fee to not be charged while still creating the pool, allowing free pool creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1944bb63-2f49-4fb7-8512-fa160416e3e6?mode=deep",
+    "timestamp": "2026-01-09 22:32:59.816246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Fee payment - beneficiary] If SendCoins to beneficiary at line 107 fails due to beneficiary account not existing or being blocked, does the transaction properly rollback all state changes including the pool ID increment at line 171, or can this cause the pool counter to skip IDs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1091f243-c2c3-4872-9122-9ad7eba3c877?mode=deep",
+    "timestamp": "2026-01-09 22:33:27.785503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Fee payment - beneficiary] Can a malicious governance proposal set params.Beneficiary to a contract address that reverts on receiving tokens, causing all pool creations to fail and completely DoSing the DEX pool creation functionality? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3bc73ac-cd19-4b72-b983-6f2f107d6826?mode=deep",
+    "timestamp": "2026-01-09 22:33:54.855137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Fee payment - beneficiary] At line 95, the fee is constructed as sdk.NewCoins() - can this fail if constants.BondDenom is malformed or empty, causing a panic during pool creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e4500e8-ce60-4395-a4e6-fad1423c6c87?mode=deep",
+    "timestamp": "2026-01-09 22:34:20.770795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Integer conversion] At line 95 and line 85, params.CreationFee is cast from uint32 to int64 - can this cause unexpected behavior if CreationFee is set to a value near uint32 max that changes sign when converted to int64? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28c65342-01b2-4fe0-a949-877bf18e56ea?mode=deep",
+    "timestamp": "2026-01-09 22:34:45.757168",
+    "report_generated": false
   }
 ]
