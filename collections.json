@@ -6598,5 +6598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_759e2dd1-bdc3-4c58-9da9-51c6d121c603?mode=deep",
     "timestamp": "2026-01-09 18:30:44.098418",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Nil parameter handling] Can any of the input parameters (mm, configurator, keepers) be nil? If so, does the handler validate them before use, or will mm.RunMigrations() at line 26 panic with nil pointer dereference causing chain halt? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32766cd8-4212-4504-9871-033e3e5ddb55?mode=deep",
+    "timestamp": "2026-01-09 18:31:57.087031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Concurrent upgrade attempts] Can multiple upgrade proposals execute simultaneously, causing the same handler to run concurrently? If so, can race conditions in mm.RunMigrations() cause state corruption where migrations execute multiple times, duplicating tokens or corrupting DEX pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_267d87a6-28d3-4e0a-98ed-165918ad5e7b?mode=deep",
+    "timestamp": "2026-01-09 18:32:09.500087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Upgrade replay] After the v2 upgrade completes successfully, can an attacker submit another governance proposal to re-execute the same upgrade, causing migrations to run twice and potentially breaking TokenWrapper decimal conversions or Factory minting caps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ed717e4-c520-46a8-85a9-9217452a4517?mode=deep",
+    "timestamp": "2026-01-09 18:32:22.323814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer struct definition] [Access control bypass] Does the embedded Keeper field in msgServer struct (line 8) expose internal keeper methods that should not be accessible through the message server interface, potentially allowing attackers to bypass intended access controls by calling unexported keeper methods directly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d9d1c3c-92b6-47c2-8290-86aa2a53f793?mode=deep",
+    "timestamp": "2026-01-09 18:32:36.627940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer struct definition] [State corruption] Can the embedded Keeper field (line 8) be manipulated through reflection or type assertion to access and modify internal state without going through proper validation in message handlers, leading to DEX pool state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7dae660a-f74d-4ead-8bfb-ca244666bb9d?mode=deep",
+    "timestamp": "2026-01-09 18:32:50.918341",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer struct definition] [Concurrency issues] Does the unexported msgServer struct (line 7-9) lack synchronization primitives, allowing concurrent access to the embedded Keeper from multiple goroutines handling simultaneous transactions, potentially causing race conditions in pool balance updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2eb144d-0082-4174-8c25-91553828d001?mode=deep",
+    "timestamp": "2026-01-09 18:33:06.130785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer struct definition] [Type safety] Can an attacker exploit Go's struct embedding mechanism to cast msgServer to Keeper type and access internal banking operations (bankKeeper, mintKeeper) directly, bypassing DEX-specific validation logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1495ceb0-6097-4463-86a5-c4509d71c52f?mode=deep",
+    "timestamp": "2026-01-09 18:33:22.473073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer struct definition] [Privilege escalation] Does the embedding of Keeper (line 8) grant the msgServer unintended access to authority-gated operations through k.GetAuthority(), allowing non-governance transactions to execute privileged operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa41b166-905e-45d9-b629-88f75ed783c0?mode=deep",
+    "timestamp": "2026-01-09 18:33:40.028657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Initialization vulnerability] Does NewMsgServerImpl (line 13-15) perform any validation on the input Keeper parameter before returning a msgServer, or can a nil/malformed Keeper be passed causing panic when message handlers try to access keeper methods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d146ed8-7932-436a-b4e5-8ceb95d84e38?mode=deep",
+    "timestamp": "2026-01-09 18:33:58.075013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: NewMsgServerImpl()] [State inconsistency] Can NewMsgServerImpl be called multiple times with different Keeper instances for the same module, creating multiple msgServer instances that maintain inconsistent state across DEX operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5de5d8fe-f823-4dcb-8131-ec84b43fc021?mode=deep",
+    "timestamp": "2026-01-09 18:34:16.534568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Access control] Does NewMsgServerImpl check if the provided Keeper has been properly initialized with valid bankKeeper, mintKeeper, and accountKeeper dependencies, or can an attacker register a msgServer with a partially initialized Keeper leading to nil pointer dereference in swap/liquidity operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97db9c5f-9905-4a71-95b8-80248b06ecd8?mode=deep",
+    "timestamp": "2026-01-09 18:34:36.132479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Module registration] Can an attacker call NewMsgServerImpl during module initialization with a malicious Keeper implementation that overrides critical methods like SetPool or GetPool to manipulate AMM invariants without detection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ee9a41b-997d-4757-8f60-99a79f6c7e16?mode=deep",
+    "timestamp": "2026-01-09 18:34:56.884802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Type confusion] Does the function validate that the returned msgServer properly implements all methods of types.MsgServer interface, or can method delegation fail silently causing transactions to appear successful while not executing intended DEX operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_425f1974-a267-4468-bfe7-b6aa5d139982?mode=deep",
+    "timestamp": "2026-01-09 18:35:18.277654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: Type assertion line 17] [Interface compliance] Does the compile-time type assertion (line 17) guarantee that all MsgServer interface methods are correctly implemented on msgServer struct, or can method signature mismatches go undetected until runtime causing transaction failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b41a369-8426-4804-8448-aef9a3cfafc3?mode=deep",
+    "timestamp": "2026-01-09 18:35:39.881743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: Type assertion line 17] [Method delegation] Can the embedded Keeper's method names collide with MsgServer interface methods, causing Go's method resolution to call the wrong implementation and bypass critical validation in CreatePool, SwapExactIn, or AddLiquidity handlers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3b51bb3-3fe4-4e9d-8450-bc9cee382dad?mode=deep",
+    "timestamp": "2026-01-09 18:36:03.157661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: Type assertion line 17] [Interface evolution] If types.MsgServer interface adds new methods in future versions, will the msgServer struct fail to implement them causing backwards compatibility issues and potential transaction rejection for valid DEX operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da19bcce-701c-4e1e-ac3b-06d8484965d9?mode=deep",
+    "timestamp": "2026-01-09 18:36:26.779090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer embedding] [Direct state access] Can message handlers that receive msgServer bypass intended keeper method abstractions by directly accessing k.storeService to manipulate pool data, liquidity reserves, or LP token balances without enforcing AMM invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44421991-6f2b-444d-a94a-6123bacc24f1?mode=deep",
+    "timestamp": "2026-01-09 18:36:50.928144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer embedding] [Authority bypass] Does the embedded Keeper expose GetAuthority() method through msgServer, allowing non-privileged message handlers to check or impersonate the governance authority when executing pool creation or parameter updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38d0b007-77e3-4df4-8af2-1ea00396870e?mode=deep",
+    "timestamp": "2026-01-09 18:37:14.538025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer embedding] [Banking operations] Can the embedded Keeper's bankKeeper reference be accessed from message handlers to perform unrestricted coin minting, burning, or transfers that bypass DEX fee calculations and slippage protection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_328c45bb-d18e-4c40-9e0c-32d8df05c848?mode=deep",
+    "timestamp": "2026-01-09 18:37:37.848178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer embedding] [Logger exposure] Does the embedded Keeper's logger field allow message handlers to log sensitive transaction details (user addresses, swap amounts) that could leak trading strategies or be exploited for front-running attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95444a7c-687c-4e02-a3e5-6d5ed424cbb2?mode=deep",
+    "timestamp": "2026-01-09 18:38:01.052247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: msgServer embedding] [Codec access] Can attackers exploit the embedded Keeper's codec (cdc field) to deserialize malicious protobuf messages that bypass validation and corrupt pool state or trigger integer overflows in AMM calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2ca218f-cf49-408b-879b-2706da14d865?mode=deep",
+    "timestamp": "2026-01-09 18:38:24.194045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: Overall architecture] [Lack of validation layer] Does the msgServer wrapper (line 7-9) provide any additional validation, access control, or sanitization before delegating to embedded Keeper methods, or are all security checks assumed to be in individual message handler files? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b27b872d-1803-45fc-baf4-11891b524e13?mode=deep",
+    "timestamp": "2026-01-09 18:38:48.414167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: Overall architecture] [Missing context isolation] Does the msgServer struct maintain any per-request context or transaction isolation, or can concurrent message handlers interfere with each other's pool state modifications during high-frequency trading? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ff62957-22a3-429f-9648-debfdf60da61?mode=deep",
+    "timestamp": "2026-01-09 18:39:13.192043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: Overall architecture] [Error handling delegation] Are all error handling and rollback mechanisms delegated to the embedded Keeper, or does msgServer add any safety checks that prevent partial state updates when swap or liquidity operations fail mid-execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80e40384-bfa7-4101-8954-dcb9cc566710?mode=deep",
+    "timestamp": "2026-01-09 18:39:37.812979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server.go] [Function: Overall architecture] [Middleware absence] Does the msgServer implement any middleware pattern for cross-cutting concerns (rate limiting, anti-spam, MEV protection), or are all message handlers directly exposed to potential abuse without central coordination? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69f34346-a5c4-4196-8440-acdf0de17cf0?mode=deep",
+    "timestamp": "2026-01-09 18:40:00.421107",
+    "report_generated": false
   }
 ]
