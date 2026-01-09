@@ -5698,5 +5698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d327d4d3-145c-4d68-a4e7-ef9892600305?mode=deep",
     "timestamp": "2026-01-09 15:40:03.108599",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Enabled check bypass] Does IsEnabled (line 133) check a single flag, or can an attacker find conditions where certain module functions are enabled while others are disabled, creating inconsistent behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2ea5480-d1b1-483f-8d68-76b2897d7805?mode=deep",
+    "timestamp": "2026-01-09 15:41:22.557933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Disable during processing] Can a governance proposal disable the module while OnRecvPacket is executing, leaving packets in inconsistent states where validation passed but operations fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39e51c74-b0af-4904-8ab4-5f8687df7ac7?mode=deep",
+    "timestamp": "2026-01-09 15:41:35.239990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Race on module disable] If the module is disabled between the IsEnabled check (line 133) and the token locking operations (line 169), can tokens be locked without wrapping, causing permanent loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d22c71f2-695e-4f19-a843-7d60ebfeeab0?mode=deep",
+    "timestamp": "2026-01-09 15:41:48.598500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Sender/source distinction] The validation checks sender chain vs source chain (line 125) - can an attacker exploit confusion between these concepts to send tokens that shouldn't be wrapped? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_325a7bf3-4dfa-42f0-b212-be67f38d2f66?mode=deep",
+    "timestamp": "2026-01-09 15:42:02.485035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Denom path prefix confusion] Does ExtractDenomFromPath().HasPrefix() (line 125) validate the full port/channel prefix, or can an attacker use partial prefix matches to bypass source chain validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b55c05ad-afbf-4399-9c6f-cc0376df6891?mode=deep",
+    "timestamp": "2026-01-09 15:42:16.618232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Circular routing attack] Can an attacker route tokens through multiple chains to create a path where validateReceiverChainIsNotSourceChain (line 125) passes but the receiver chain is actually the source chain, enabling double wrapping? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d0ac903-fa32-4bf2-b7f4-918f6814dc48?mode=deep",
+    "timestamp": "2026-01-09 15:42:31.467657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Source chain bypass] Does validateReceiverChainIsNotSourceChain (line 125) correctly extract the denom path, or can an attacker craft denoms with multiple path segments that bypass the source chain check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1450194-cef3-44f7-a34f-a574efcc3b8b?mode=deep",
+    "timestamp": "2026-01-09 15:42:46.104250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [IBC denom path manipulation] Since data.Denom may include IBC path prefixes (port/channel), can an attacker manipulate the path to match the module denom check (line 117) while actually referencing a different token? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94664048-1775-4ea2-87f2-e467671d8760?mode=deep",
+    "timestamp": "2026-01-09 15:43:04.699978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Unicode normalization attack] Can an attacker use Unicode normalization issues in data.Denom (line 117) to create denoms that appear identical to the module denom but fail the equality check, or vice versa? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b0ed8254-53c3-4cd1-9f93-c9f2557c4b5c?mode=deep",
+    "timestamp": "2026-01-09 15:43:23.019855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Case sensitivity bypass] Does validateIBCDenomIsModuleDenom (line 117) perform case-sensitive comparison, or can an attacker send packets with different case variations of the module denom to skip wrapping? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1dd74827-93e7-4405-adfe-74b05223c966?mode=deep",
+    "timestamp": "2026-01-09 15:43:42.157786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Denom spoofing] Can an attacker craft data.Denom values (line 117) that partially match the module denom but include additional characters or prefixes, bypassing validateIBCDenomIsModuleDenom check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_848ece5f-f9e1-4bf0-a18e-de9b58924ecd?mode=deep",
+    "timestamp": "2026-01-09 15:44:02.944885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Settings validation bypass via logging] The function logs and emits info events (lines 111-112) when settings validation fails but continues execution - can this logging create side channels or resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79b6f193-effa-4a98-a966-3ba2058f69b4?mode=deep",
+    "timestamp": "2026-01-09 15:44:24.227534",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Partial settings validation] Does validateIBCSettingsExist (line 109) check all required settings atomically, or can an attacker exploit partially configured settings where some fields are set but others are empty? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44d894a6-7105-415a-9a12-4038158dfcc8?mode=deep",
+    "timestamp": "2026-01-09 15:44:45.961118",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Settings initialization race] Can an attacker send packets during the window when IBC settings are being initialized (validateIBCSettingsExist at line 109), causing some packets to skip wrapping while others are wrapped, creating token supply inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd49a930-2688-40be-bb78-c09c17f7ea75?mode=deep",
+    "timestamp": "2026-01-09 15:45:08.937466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Uninitialized settings bypass] When validateIBCSettingsExist returns false (line 109), wrapping is skipped but tokens are still transferred - can an attacker exploit uninitialized state to drain the module by sending tokens before settings are configured? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f349729c-5f25-416b-81b6-5840bf2652bf?mode=deep",
+    "timestamp": "2026-01-09 15:45:32.731779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Multi-hop attack] Does validateConnectionClientId (line 101) verify all connection hops in the channel.ConnectionHops array, or only the first hop, allowing multi-hop routing attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db7e78fe-d196-4976-9f41-57730be5e113?mode=deep",
+    "timestamp": "2026-01-09 15:45:57.497948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Client expiry bypass] If the light client expires or becomes invalid between validateConnectionClientId check (line 101) and token operations (lines 169-177), can packets be processed with expired client state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a206569-205f-49b7-8328-33c1082aaa65?mode=deep",
+    "timestamp": "2026-01-09 15:46:23.483656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Client state manipulation] Can a Byzantine validator manipulate the connectionKeeper to return incorrect client IDs during validateConnectionClientId (line 101), allowing unauthorized cross-chain transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4ca79bc-7004-43e2-b987-8d9d72e835d5?mode=deep",
+    "timestamp": "2026-01-09 15:46:49.680606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Client ID substitution] Does validateConnectionClientId (line 101) verify that the client IDs match at the connection level, or can an attacker route packets through connections with different client IDs that pass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68d1f821-7dd3-4cf7-97a0-54b93bea8e3a?mode=deep",
+    "timestamp": "2026-01-09 15:47:15.977999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Counterparty validation timing] Between checkCounterypartyChannelMatchesIBCSettings (line 93) and validateConnectionClientId (line 101), can the channel counterparty settings be modified to create inconsistent validation results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79ff17e7-1987-4c7f-bca2-94bc250c19a9?mode=deep",
+    "timestamp": "2026-01-09 15:47:43.200351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Multiple channel exploitation] Can an attacker send tokens through various channels that all fail checkCounterypartyChannelMatchesIBCSettings (line 93), accumulating IBC vouchers in users' accounts that bypass the module's wrapping mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daca1953-b950-435b-84b3-3c6cbbe9eb28?mode=deep",
+    "timestamp": "2026-01-09 15:48:11.630069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Channel migration attack] If IBC settings are updated mid-transfer via MsgUpdateIbcSettings, can packets in flight fail the counterparty check (line 93) causing tokens to be stuck as unwrapped IBC vouchers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28538524-823a-4714-95d8-ffa055f25e43?mode=deep",
+    "timestamp": "2026-01-09 15:48:40.994840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Counterparty mismatch bypass] When checkCounterypartyChannelMatchesIBCSettings fails (line 93), the function returns ack successfully (line 97) - can an attacker exploit this to send tokens through non-configured channels that skip wrapping? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96e77b9c-793f-4e0b-b72f-b7e15d86f098?mode=deep",
+    "timestamp": "2026-01-09 15:49:10.596671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [State divergence] After im.app.OnRecvPacket succeeds (line 82), the receiver now has IBC vouchers - if any subsequent validation fails (lines 93-146), the vouchers remain with the receiver but wrapping doesn't occur. Can this be exploited to accumulate unwrapped IBC vouchers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a67ef86-a3bc-4618-a29a-5571fda3443b?mode=deep",
+    "timestamp": "2026-01-09 15:49:40.153194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_recv_packet.go] [Function: OnRecvPacket()] [Reentrancy via OnRecvPacket] When calling im.app.OnRecvPacket (line 82), can the callback chain re-enter OnRecvPacket before the current execution completes, causing reentrancy issues in token locking/unlocking? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d85d1601-4933-4077-8fb4-b93856b7177c?mode=deep",
+    "timestamp": "2026-01-09 15:50:09.015386",
+    "report_generated": false
   }
 ]
