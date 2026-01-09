@@ -298,5 +298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_308eeb14-45d5-4df9-acf9-72c141ff4838?mode=deep",
     "timestamp": "2026-01-09 07:43:54.639252",
     "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Pool lifecycle state] If pools can be created up to MaxPoolID=99,999,999,999 but pool deletion doesn't properly clean up state, can an attacker spam pool creation/deletion cycles to accumulate orphaned state that eventually exceeds storage limits and crashes validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4af24f5-47c4-4d59-a9e6-6119d5969dc0?mode=deep",
+    "timestamp": "2026-01-09 07:45:02.957108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenomDecimals] [Decimal state machine] If token state transitions require BondDenomDecimals=6 precision but intermediate calculations use higher precision, can an attacker exploit precision differences between state transitions to accumulate rounding errors that eventually manifest as token duplication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a387eb08-8709-4d5b-adb5-0a51c5f505ac?mode=deep",
+    "timestamp": "2026-01-09 07:45:15.333836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Callback state rollback] If IBC callbacks exceed MaxIBCCallbackGas causing transaction revert, but some state changes were already persisted (e.g., to cache), can an attacker exploit partial rollbacks to create state inconsistencies where callbacks appear to fail but side effects persist? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_230bbeb3-b3d7-4d4a-8c4c-fca78695d187?mode=deep",
+    "timestamp": "2026-01-09 07:45:28.000975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Fee state consistency] If pool state stores fees in scaled form (using PoolFeeScalingFactor=100,000) but queries return unscaled fees, can an attacker exploit the mismatch to manipulate fee displays in UIs, tricking users into trading in pools with hidden high fees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_652c751f-4f08-4e8c-9bb1-cc7ddd8fc83a?mode=deep",
+    "timestamp": "2026-01-09 07:45:41.597569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenom] [State transition atomicity] If state transitions involving BondDenom='uzig' are not atomic (e.g., deduct before credit), can an attacker exploit transaction aborts to cause BondDenom to be deducted from one account but never credited to another, causing token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fca8c345-ee8c-4a0e-9bf0-e400d581f6c9?mode=deep",
+    "timestamp": "2026-01-09 07:45:55.412113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURIHashLength] [Hash length edge cases] If MaxURIHashLength=64 accepts any 64-char string but hash comparison uses case-sensitive matching, can an attacker provide uppercase hex hashes that differ from lowercase canonical hashes, causing hash verification to fail despite valid hash length? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_220d6fd7-6edc-4840-b31d-d7230cca86b6?mode=deep",
+    "timestamp": "2026-01-09 07:46:09.833029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxURILength] [URI length at limit] If metadata URIs are validated at MaxURILength=256 but HTTP clients add headers or parameters that push total request size over limits, can an attacker create tokens with 256-char URIs that cause metadata fetching to fail, breaking token functionality? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_039a0706-459d-4685-a164-e7c4ecc5fd62?mode=deep",
+    "timestamp": "2026-01-09 07:46:25.986929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Exact limit exploitation] If IBC callbacks that consume exactly MaxIBCCallbackGas=10M are treated differently than those under the limit, can an attacker craft packets that hit the exact boundary to trigger edge case behavior, such as partial state updates or incomplete acknowledgements? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb93e3db-4b6d-4847-8cfd-c84aaabffd12?mode=deep",
+    "timestamp": "2026-01-09 07:46:43.047179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Boundary condition at max] If pool creation allows poolID=MaxPoolID=99,999,999,999 but pool deletion doesn't free IDs, can an attacker create the last possible pool to permanently prevent new pool creation, causing DoS on DEX functionality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd16d522-fa11-44f2-b77b-6b09d0052443?mode=deep",
+    "timestamp": "2026-01-09 07:47:01.417864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Scaling factor of 1] If PoolFeeScalingFactor=100,000 is divided in fee calculations without checking for zero, can an attacker exploit governance to set pool fees to 100,000 (100%), causing division by (PoolFeeScalingFactor - fee) to divide by zero? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a87df968-4f7e-47aa-abef-91f5cec1705d?mode=deep",
+    "timestamp": "2026-01-09 07:47:20.799666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxSubDenomLength] [Boundary overflow] If MaxSubDenomLength=44 is enforced with <= check but string concatenation uses 44+1 byte buffers assuming null termination, can an attacker create 44-character subdenoms that overflow buffers when null-terminated, causing memory corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22341d96-7f45-4833-8e66-4cca299fc46c?mode=deep",
+    "timestamp": "2026-01-09 07:47:40.953614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MinSubDenomLength] [Boundary value attack] If MinSubDenomLength=3 is validated with >= check, can an attacker create a subdenom of exactly 3 characters consisting of control characters (e.g., null bytes, tabs) that pass length validation but cause parsing errors in downstream systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e91d9f9a-4fdd-4ce3-97b1-c70a36956926?mode=deep",
+    "timestamp": "2026-01-09 07:48:01.965767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenomDecimals] [Zero decimal handling] If BondDenomDecimals=6 but code doesn't handle the case where decimals=0, can an attacker create factory tokens with 0 decimals to bypass decimal conversion logic, causing integer division by zero panics in wrap/unwrap operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e55e4bd8-6fa2-4356-9451-237c234f560f?mode=deep",
+    "timestamp": "2026-01-09 07:48:23.554043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: MaxPoolID] [Pool ID generation race] If pool IDs are generated by incrementing toward MaxPoolID without atomic compare-and-swap, can concurrent pool creation requests generate duplicate pool IDs, causing state collisions where multiple pools share the same ID and liquidity can be stolen? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31f6a14f-8596-4c52-88a1-2ba91075d900?mode=deep",
+    "timestamp": "2026-01-09 07:48:46.700661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxDenomLength] [TOCTOU validation] If denom length is validated against MaxDenomLength=127 in one transaction but the denom is modified before storage (time-of-check-time-of-use), can an attacker exploit the race to store denoms longer than the limit, causing downstream parsing errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25964c82-5c0d-4a89-9e25-68eef4065a69?mode=deep",
+    "timestamp": "2026-01-09 07:49:10.819047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Callback concurrency overflow] If MaxIBCCallbackGas limits are checked non-atomically across concurrent IBC packet processing, can an attacker send simultaneous packets that each pass individual gas checks but collectively exceed total available gas, causing validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb0dca1f-826c-4577-8b56-424f462fefe4?mode=deep",
+    "timestamp": "2026-01-09 07:49:35.897349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolFeeScalingFactor] [Concurrent fee calculation] If pool swaps calculate fees using PoolFeeScalingFactor=100,000 without atomic operations, can an attacker submit parallel swaps that race on fee accumulation, causing fees to be under-collected or over-collected depending on race outcome? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_554cde45-c889-4782-9ff0-21045f830229?mode=deep",
+    "timestamp": "2026-01-09 07:50:01.417302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenom] [Concurrent denom resolution] If multiple goroutines resolve BondDenom='uzig' to module balances simultaneously without locking, can an attacker trigger race conditions where the same BondDenom tokens are counted twice in total supply calculations, causing inflation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b9d78a6-06ec-4eae-a2d5-47a2b0c55463?mode=deep",
+    "timestamp": "2026-01-09 07:50:27.728818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Rate limiting bypass] If IBC rate limiting uses MaxIBCCallbackGas to estimate packet processing cost, can an attacker send many small packets that each allocate 10M gas despite low actual cost, exhausting rate limits and preventing legitimate high-value transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02c3381a-9279-425d-8ede-7d6fdc0f2149?mode=deep",
+    "timestamp": "2026-01-09 07:50:55.445060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: MaxDenomLength] [ACL validation truncation] If access control lists (ACLs) store denoms truncated to MaxDenomLength=127 but full denoms are longer, can an attacker create two denoms that truncate to the same 127-character prefix, causing ACL permission collisions where permissions intended for one denom apply to another? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41ebbd65-0a4a-474e-9ee0-92e2eb70f4b5?mode=deep",
+    "timestamp": "2026-01-09 07:51:23.651136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [LP token privilege bypass] If the DEX module grants special withdraw permissions to addresses holding tokens starting with PoolPrefix='zp', can an attacker create factory tokens with 'zp' prefix to impersonate LP token holders and drain liquidity pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e34e67c4-180b-4104-b11a-323d789ee1b3?mode=deep",
+    "timestamp": "2026-01-09 07:51:51.709858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/denom.go] [Constant: BondDenom] [Native token privilege escalation] If access control logic grants special privileges to BondDenom='uzig' holders without checking token authenticity, can an attacker create factory tokens with 'uzig' in the subdenom (e.g., 'factory/addr/uzig') to bypass privilege checks and gain admin access? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cd15a6f-238f-4107-ba5d-06333a712d59?mode=deep",
+    "timestamp": "2026-01-09 07:52:19.452092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/global.go] [Constant: AddressPrefix] [Module account identification] If code identifies module accounts by checking AddressPrefix='zig' without additional verification, can an attacker create regular accounts with addresses that mimic module account patterns, bypassing permissions checks that rely on prefix-based identification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6002b87-1a8e-408e-8309-f55afb35a545?mode=deep",
+    "timestamp": "2026-01-09 07:52:46.582308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/ibc.go] [Constant: MaxIBCCallbackGas] [Network upgrade gas mismatch] If a network upgrade increases block gas limits significantly but MaxIBCCallbackGas=10M remains unchanged, can an attacker exploit the gap to trigger IBC operations that consume more gas than MaxIBCCallbackGas allows, causing callback failures despite sufficient block gas? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50b575bb-e666-4963-ae32-2a899c52a3c9?mode=deep",
+    "timestamp": "2026-01-09 07:53:12.942090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: zutils/constants/pool.go] [Constant: PoolPrefix] [Upgrade collision] If a chain upgrade introduces a new module that also uses PoolPrefix='zp' for its own purposes, can the collision cause ambiguous denom parsing where DEX LP tokens are confused with the new module's tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8dea9d42-ddb0-438e-bc1f-dd9560d1acb9?mode=deep",
+    "timestamp": "2026-01-09 07:53:37.086981",
+    "report_generated": false
   }
 ]
