@@ -7198,5 +7198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb5e60ce-6b89-4c56-a950-01e58ab7a4c7?mode=deep",
     "timestamp": "2026-01-09 19:49:06.293515",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Concurrent iteration] If multiple goroutines call GetAllPool() simultaneously, can they interfere with each other's iterators or cause data races in the KVStore? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe58b988-0934-4c8b-bc7b-f6d2aaabe0f0?mode=deep",
+    "timestamp": "2026-01-09 19:50:20.488734",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Infinite loop] If the iterator never reaches Valid() == false due to KVStore corruption, can the for loop at line 67 run forever and lock up the validator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e8a9d1f-00ff-41d6-a426-7f3af4240acb?mode=deep",
+    "timestamp": "2026-01-09 19:50:33.006207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Pool ID validation] The function accepts poolIDString without validation - can an attacker pass malformed strings (empty, special characters, extremely long) to cause panics or DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03b950b3-a9fb-4ae7-a488-f8aed42ef924?mode=deep",
+    "timestamp": "2026-01-09 19:50:45.842689",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Coin denom validation] While coin amounts are validated, are denominations checked for validity? Can an attacker pass fake denoms like 'fake/uzig' that bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc4bd651-d5b8-4e42-a41f-5104be77e2e2?mode=deep",
+    "timestamp": "2026-01-09 19:50:59.213748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Pool ID string validation] The poolIDString parameter is not validated before being used in types.GetPoolAddress() - can malformed input cause address derivation vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ebecdab-59f1-4e67-8e4f-34c974df3743?mode=deep",
+    "timestamp": "2026-01-09 19:51:13.277497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Receiver validation] The receiver address is not validated - can an attacker pass an invalid bech32 address that causes SendCoins to fail after pool balances are checked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d90fd95-d503-4ce8-acf1-990f8ae8bd80?mode=deep",
+    "timestamp": "2026-01-09 19:51:28.612171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Duplicate coin check] The function iterates through coins but doesn't check for duplicate denominations - can an attacker pass [100uzig, 200uzig] to bypass total balance checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2d83c97-3bd7-40dc-91fe-1a14910429f0?mode=deep",
+    "timestamp": "2026-01-09 19:51:44.925970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetNextPoolID()] [Uint64 wraparound] At math.MaxUint64 (line 97), the code panics, but what if the value is MaxUint64 - 1? Can the next increment cause undefined behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c3ca9f2-1cd3-4801-b43b-10a57655f5cc?mode=deep",
+    "timestamp": "2026-01-09 19:52:00.976302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetNextPoolIDString()] [String conversion] Using strconv.FormatUint() at line 89 - can extremely large pool IDs cause the string to be too long for address derivation functions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1a9a82d-0f3d-498a-946f-bbd02ec48a7d?mode=deep",
+    "timestamp": "2026-01-09 19:52:18.811180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Zero amount bypass] The check for coin.IsZero() at line 239 is separate from IsNegative() - can a coin with Amount=sdk.NewInt(0) pass one check but fail the other? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1ad16e7-d62f-46e6-b047-014670943a92?mode=deep",
+    "timestamp": "2026-01-09 19:52:37.336200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Account keeper interaction] The accountKeeper.NewAccount() at line 202 and SetAccount() at line 212 - if these are from different keeper instances, can this cause state desynchronization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52adc0ff-9e38-4655-a3fe-10503ed3b9d0?mode=deep",
+    "timestamp": "2026-01-09 19:52:56.735953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Bank keeper trust] The function trusts bankKeeper.HasBalance() at line 246 and SendCoins() at line 269 - if bank keeper is compromised, can it return false balance info? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6ec8970-c199-4616-9e8a-ffee6ed05382?mode=deep",
+    "timestamp": "2026-01-09 19:53:17.291794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Bank keeper atomicity] If bankKeeper.SendCoins() partially completes before failing, can coins be debited from the pool but not credited to receiver? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_780e5747-d061-4398-baf9-77c8d1aa1d3e?mode=deep",
+    "timestamp": "2026-01-09 19:53:38.830826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Account keeper consistency] If accountKeeper.GetAccount() returns stale data at line 150, can outdated sequence/pubkey values allow account overwriting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4b9bce4-2975-403a-857f-553e8a3bdb64?mode=deep",
+    "timestamp": "2026-01-09 19:54:01.754282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetNextPoolID()] [Metadata initialization] If GetPoolsMeta() returns found=false (line 78), is this a valid initial state or an error condition? Can this cause pools to be created with ID=1 when higher IDs already exist? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1cb3658-c0bc-451a-b13e-330dced13ccf?mode=deep",
+    "timestamp": "2026-01-09 19:54:24.897878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetNextPoolID()] [Metadata corruption] If SetPoolsMeta() at line 102 silently fails due to KVStore issues, can GetNextPoolID() continue returning stale values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ad236ac-bcee-41d8-9069-8870e3b22efc?mode=deep",
+    "timestamp": "2026-01-09 19:54:49.208370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Pool ID consistency] The function stores a pool but doesn't validate that pool.PoolId is properly formatted or hasn't been used before - can this cause ID collisions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a72ffa8d-5e52-4f24-b6f1-1bfbda0dc9ba?mode=deep",
+    "timestamp": "2026-01-09 19:55:12.900506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Return value ambiguity] The function returns (val, found) - if found=false, what is the value of val? Can callers misuse a zero-value pool thinking it's valid? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10638536-74fa-4ea3-8011-791deccb9139?mode=deep",
+    "timestamp": "2026-01-09 19:55:37.245127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAndSetNextPoolID()] [Non-atomic operation] The get (line 110) and set (line 111) are separate calls - can two transactions interleave and both get the same ID before either sets the new value? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1696cf4-09bd-4033-8644-ad4581c591c3?mode=deep",
+    "timestamp": "2026-01-09 19:56:02.529508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [TOCTOU vulnerability] Between CanCreateModuleAccountAtAddr() check at line 194 and accountKeeper.SetAccount() at line 212, can another transaction create an account at the same address? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_295828e6-30bd-4db2-9df6-c928516420b2?mode=deep",
+    "timestamp": "2026-01-09 19:56:26.251557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Balance check race] The HasBalance loop (lines 231-256) and SendCoins (line 269) are not atomic - can the sender's balance change between these operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2413bf74-a5ad-4f5f-a3b1-1a697f96855b?mode=deep",
+    "timestamp": "2026-01-09 19:56:50.544960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Concurrent withdrawals] Can two transactions simultaneously withdraw from the same pool, both passing the HasBalance check but together exceeding the pool's balance? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c838632-5298-43c7-996e-756f824a611d?mode=deep",
+    "timestamp": "2026-01-09 19:57:15.760444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Concurrent updates] If two transactions call SetPool() for the same poolIDString simultaneously, can one overwrite the other's changes causing state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6881950-6d32-4169-b71f-abd6461828e4?mode=deep",
+    "timestamp": "2026-01-09 19:57:40.306665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [DoS via pool creation] Can an attacker create millions of pools to make GetAllPool() consume excessive gas and time, effectively DoSing all operations that need to enumerate pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daa806ba-5113-4c5d-8cfe-e285f838aa43?mode=deep",
+    "timestamp": "2026-01-09 19:58:05.098512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Gas exhaustion] The loop at lines 231-256 checks each coin individually - can an attacker pass a coins slice with thousands of zero-amount coins to exhaust gas? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1aa14908-26e0-4fa9-8e39-77d520f89bd2?mode=deep",
+    "timestamp": "2026-01-09 19:58:30.765849",
+    "report_generated": false
   }
 ]
