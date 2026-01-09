@@ -5398,5 +5398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e06b109-d183-4b24-9952-ad7d70e5d831?mode=deep",
     "timestamp": "2026-01-09 17:11:28.025349",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Upgrade name squatting] Can an attacker pre-register upgrade names to prevent legitimate upgrades from using those names, causing governance proposal failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81787702-c82e-4c14-bb41-e77c540725a3?mode=deep",
+    "timestamp": "2026-01-09 17:12:47.199599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Concurrent upgrade execution] Can multiple upgrade handlers execute concurrently if proposals are submitted at the same height, causing race conditions in state modifications? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d46fe67-63a2-4351-b6ce-ae02a5e589d9?mode=deep",
+    "timestamp": "2026-01-09 17:12:59.834903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Reorg impact on forks] If a chain reorganization occurs at the fork height, can PreBlockForkLogic execute multiple times, causing duplicate state transitions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ccafd8e-2dd5-46e0-94b9-2bfa176ceb5a?mode=deep",
+    "timestamp": "2026-01-09 17:13:12.511303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Version downgrade attack] Can an attacker use upgrade/fork mechanisms to downgrade module versions or revert to vulnerable code, reintroducing previously patched security bugs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d4f6932-3be6-4256-9eb5-8ba366f96c9e?mode=deep",
+    "timestamp": "2026-01-09 17:13:25.644915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Store key length limits] Can an attacker provide extremely long store keys in StoreUpgrades that exceed database key length limits, causing store operations to fail during upgrade? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f137a375-69c0-4932-86ca-89ac4f8b768b?mode=deep",
+    "timestamp": "2026-01-09 17:13:39.371487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork at genesis] Can an attacker set fork.UpgradeHeight to 0 or 1, causing fork logic to execute at genesis and potentially corrupting initial state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c57a03bb-9617-423f-9d09-459c395a466b?mode=deep",
+    "timestamp": "2026-01-09 17:13:54.476508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Module dependency violations] Can an attacker use store upgrades to break module dependencies (e.g., deleting a store that other modules depend on), causing cascading failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dce9765f-7741-4d8b-abed-91e1d517d6d8?mode=deep",
+    "timestamp": "2026-01-09 17:14:10.125841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Gas accounting] Do upgrade handlers and fork logic properly account for gas consumption, or can they bypass gas limits and execute unbounded computations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_066e1cc8-53cc-4334-9044-3276dec63f35?mode=deep",
+    "timestamp": "2026-01-09 17:14:28.119704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork execution atomicity] Is PreBlockForkLogic execution atomic with block state transitions, or can partial fork changes commit even if the block fails? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62d076e7-36d4-41f8-a89d-bf715d6f615b?mode=deep",
+    "timestamp": "2026-01-09 17:14:46.361459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Upgrade info file tampering] Can an attacker tamper with the upgrade info file read by setupUpgradeStoreLoaders() to cause wrong store upgrades to be applied? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec97f84b-2cde-499e-9278-51cb64ff807c?mode=deep",
+    "timestamp": "2026-01-09 17:15:04.752641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Type assertion failures] If upgrade/fork handlers perform type assertions on keepers or modules, can an attacker cause type assertion panics by providing unexpected types? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_754f742b-5edb-46f7-a508-83bb6f68dd7d?mode=deep",
+    "timestamp": "2026-01-09 17:15:25.010048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Upgrade name squatting] Can an attacker pre-register upgrade names to prevent legitimate upgrades from using those names, causing governance proposal failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69f9d4ce-7cf5-4332-8b50-c495a924e25e?mode=deep",
+    "timestamp": "2026-01-09 17:15:46.420604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Concurrent upgrade execution] Can multiple upgrade handlers execute concurrently if proposals are submitted at the same height, causing race conditions in state modifications? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ab1d270-2be3-48d3-87f3-e7828fe7e8e5?mode=deep",
+    "timestamp": "2026-01-09 17:16:08.769747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Reorg impact on forks] If a chain reorganization occurs at the fork height, can PreBlockForkLogic execute multiple times, causing duplicate state transitions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e956342c-b8fd-43a5-9490-74638c6e1450?mode=deep",
+    "timestamp": "2026-01-09 17:16:31.755632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Version downgrade attack] Can an attacker use upgrade/fork mechanisms to downgrade module versions or revert to vulnerable code, reintroducing previously patched security bugs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ec64b04-1240-470c-b728-62c7ae19eb65?mode=deep",
+    "timestamp": "2026-01-09 17:16:56.558360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Store key length limits] Can an attacker provide extremely long store keys in StoreUpgrades that exceed database key length limits, causing store operations to fail during upgrade? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_995e558f-ad93-4dee-9115-1d4baf3db32f?mode=deep",
+    "timestamp": "2026-01-09 17:17:21.138077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork at genesis] Can an attacker set fork.UpgradeHeight to 0 or 1, causing fork logic to execute at genesis and potentially corrupting initial state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2475d869-bae1-4458-b48b-0b77ba8a1bcb?mode=deep",
+    "timestamp": "2026-01-09 17:17:46.199826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Module dependency violations] Can an attacker use store upgrades to break module dependencies (e.g., deleting a store that other modules depend on), causing cascading failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_632faf88-8241-4ad2-a6b3-3301c0ef21ff?mode=deep",
+    "timestamp": "2026-01-09 17:18:11.736175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Gas accounting] Do upgrade handlers and fork logic properly account for gas consumption, or can they bypass gas limits and execute unbounded computations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0df16ab-9eed-40e4-a8e3-c61fcdd851e8?mode=deep",
+    "timestamp": "2026-01-09 17:18:38.507003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork execution atomicity] Is PreBlockForkLogic execution atomic with block state transitions, or can partial fork changes commit even if the block fails? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7025e45-eec7-44f4-a039-c965457e1858?mode=deep",
+    "timestamp": "2026-01-09 17:19:06.378379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Upgrade info file tampering] Can an attacker tamper with the upgrade info file read by setupUpgradeStoreLoaders() to cause wrong store upgrades to be applied? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01e83b2d-b1fb-49ba-a420-d059b5c83f45?mode=deep",
+    "timestamp": "2026-01-09 17:19:34.135653",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Type assertion failures] If upgrade/fork handlers perform type assertions on keepers or modules, can an attacker cause type assertion panics by providing unexpected types? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99da27f1-8ba1-4dbd-9b2b-b2365b018a5b?mode=deep",
+    "timestamp": "2026-01-09 17:20:02.863045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [State inconsistency] Can a Byzantine validator exploit the RunMigrations() call to manipulate the version map during module migrations, causing state inconsistencies between validators and leading to consensus failures when the upgrade completes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2655e63c-5114-4486-aaaf-a7a2b9a4664a?mode=deep",
+    "timestamp": "2026-01-09 17:20:33.292103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Module migration] If RunMigrations() partially succeeds for some modules but fails for others, can this lead to an inconsistent state where some modules are upgraded but others remain at old versions, potentially causing cross-module interaction failures and token loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02b2a223-770c-400a-b726-b0d1d9bbb78b?mode=deep",
+    "timestamp": "2026-01-09 17:21:04.903498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v1/upgrades.go] [Function: CreateUpgradeHandler()] [Race condition] Can concurrent upgrade attempts from multiple validators create a race condition in RunMigrations(), leading to duplicate migrations being executed and causing state corruption or token duplication across modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_919c486c-9bf8-4af0-bd16-1303958b4b3d?mode=deep",
+    "timestamp": "2026-01-09 17:21:35.676541",
+    "report_generated": false
   }
 ]
