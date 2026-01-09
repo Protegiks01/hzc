@@ -6298,5 +6298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c496fda3-2d81-4b3d-b31e-665da3b3f50d?mode=deep",
     "timestamp": "2026-01-09 18:10:27.599111",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Context handling] Can an attacker exploit the sdk.UnwrapSDKContext(c) operation by providing a malformed context.Context that causes a panic during unwrapping, leading to chain halt during the v2 upgrade and network-wide DoS? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d98e9157-4d01-413a-990c-02b91bb859e8?mode=deep",
+    "timestamp": "2026-01-09 18:11:43.315796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Race condition] If multiple validators attempt to execute the upgrade handler simultaneously, can a race condition in mm.RunMigrations() cause state inconsistencies where some validators complete migrations while others fail, resulting in consensus failure and chain split? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ff03a4d-58b3-410f-973c-d5f55304a788?mode=deep",
+    "timestamp": "2026-01-09 18:11:55.631422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Context immutability] Can an attacker modify the unwrapped SDK context after line 23 but before mm.RunMigrations() at line 26, potentially injecting malicious state changes or bypassing validation checks during module migrations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c0a314c-fb37-4dfd-8dca-6e0100240918?mode=deep",
+    "timestamp": "2026-01-09 18:12:08.411394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Context isolation] Does the context unwrapping at line 23 properly isolate upgrade state from concurrent transaction processing, or can an attacker submit transactions during the upgrade that corrupt the migration state by accessing the same context? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_810b141d-2621-439c-a073-e133a1da6207?mode=deep",
+    "timestamp": "2026-01-09 18:12:22.120301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Migration atomicity] If mm.RunMigrations() at line 26 fails midway through migrating multiple modules (TokenWrapper, Factory, DEX), can partial migrations cause state inconsistencies where some modules operate with v2 state while others remain on v1, enabling cross-module exploits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b38c76f2-dc67-4c98-8999-9828d872533b?mode=deep",
+    "timestamp": "2026-01-09 18:12:36.047931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Migration rollback] When mm.RunMigrations() returns an error at line 27-28, is there a rollback mechanism to revert partial state changes, or can failed upgrades leave the chain in an inconsistent state with corrupted TokenWrapper decimal conversions or DEX pool invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8424e28b-4e5f-4e14-8c88-61128a296e6a?mode=deep",
+    "timestamp": "2026-01-09 18:12:50.925978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Version map manipulation] Can an attacker manipulate the input VersionMap parameter to skip critical module migrations (e.g., TokenWrapper decimal conversion fixes) by providing incorrect version numbers, enabling them to exploit old vulnerabilities after the upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e82ef2e4-744d-4e5e-9bd0-d1058ab6998d?mode=deep",
+    "timestamp": "2026-01-09 18:13:06.595258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Module migration order] Does mm.RunMigrations() enforce a correct dependency order when migrating modules, or can improper ordering cause issues where DEX module attempts to use TokenWrapper functionality before TokenWrapper migration completes, leading to token duplication or bridge drainage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6160df8f-23b6-4384-9947-187948a117f1?mode=deep",
+    "timestamp": "2026-01-09 18:13:24.052409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Migration state corruption] Can an attacker exploit the time window between line 26 (RunMigrations start) and line 32 (completion log) to submit IBC packets or Factory token creation requests that interact with partially migrated state, causing decimal conversion errors or minting cap bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d6922f2-d267-405c-8161-0d4907d79c98?mode=deep",
+    "timestamp": "2026-01-09 18:13:42.385315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Cross-module migration] If the TokenWrapper module migration changes decimal scaling factors but the DEX module migration doesn't update pool reserves accordingly, can this inconsistency be exploited to drain liquidity pools through price manipulation after the v2 upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc3e15b0-a8b1-4b9f-b47d-8b3c095a0708?mode=deep",
+    "timestamp": "2026-01-09 18:14:01.573544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Store deletion timing] The v2 upgrade deletes the 'crisis' module store - can an attacker exploit the timing between store deletion and migration execution to trigger crisis module invariant checks that reference deleted state, causing validator panics and network-wide DoS? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b46229e-18c9-4e79-8198-2a61a000920e?mode=deep",
+    "timestamp": "2026-01-09 18:14:21.695715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Store deletion rollback] If mm.RunMigrations() fails after the crisis module store has been deleted, can the chain recover, or does the deleted store prevent rollback and cause permanent chain halt requiring hard fork intervention? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff85ac29-e683-491b-bebf-bb3ef4c2c1b8?mode=deep",
+    "timestamp": "2026-01-09 18:14:43.364658",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Module dependencies] Can deleting the crisis module break invariant checks in TokenWrapper, Factory, or DEX modules that may depend on crisis module functionality, leading to undetected state corruption or token duplication vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82875c49-8d2e-4c6e-a577-44c1c6349b2d?mode=deep",
+    "timestamp": "2026-01-09 18:15:06.339251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Store upgrade validation] Does the upgrade handler validate that the StoreUpgrades configuration (Deleted: [",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2eec74bb-3e36-4717-889a-e7193f18fd3e?mode=deep",
+    "timestamp": "2026-01-09 18:15:29.743489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Error wrapping] When mm.RunMigrations() returns an error at line 27, the errorsmod.Wrapf() only wraps the error message - does this preserve enough context to diagnose which specific module migration failed (TokenWrapper, Factory, DEX), or can attackers exploit ambiguous error handling to hide malicious migration failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e307811b-8f66-43ad-a538-6414c288d6e8?mode=deep",
+    "timestamp": "2026-01-09 18:15:54.184053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Partial failure handling] If mm.RunMigrations() fails after successfully migrating the TokenWrapper module but before migrating the DEX module, does the returned VersionMap reflect the partial success, potentially causing replay attacks where the upgrade is retried but TokenWrapper migrations execute twice, duplicating wrapped tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f149fdf-aa0c-4319-944c-ca797b92bbcd?mode=deep",
+    "timestamp": "2026-01-09 18:16:20.015542",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Error propagation] When the upgrade handler returns an error at line 28, how does the Cosmos SDK handle this at the consensus layer - can Byzantine validators report success while honest validators report failure, causing consensus divergence and chain split? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daf6b409-d117-4739-b0ae-a8cc3a5e9544?mode=deep",
+    "timestamp": "2026-01-09 18:16:46.712935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [State cleanup] If an error occurs during mm.RunMigrations(), does the upgrade handler clean up any allocated resources (gas meters, event managers, cache contexts), or can resource leaks accumulate across multiple failed upgrade attempts leading to memory exhaustion and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae82b7a1-e69c-4c6b-9e97-48363c0443c5?mode=deep",
+    "timestamp": "2026-01-09 18:17:14.055394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Information disclosure] The ctx.Logger().Info() calls at lines 24 and 31 may expose sensitive upgrade state - can an attacker monitor these logs to time attacks precisely during the migration window when modules are in inconsistent states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3255ff97-7317-4846-bc11-aa81b5a12efb?mode=deep",
+    "timestamp": "2026-01-09 18:17:41.886830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Log injection] Can an attacker manipulate the UpgradeName constant to inject malicious log entries that disguise failed upgrades as successful, preventing operators from detecting state corruption in TokenWrapper decimal conversions or Factory minting caps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8347e167-2ec0-48ec-be84-22128d74e294?mode=deep",
+    "timestamp": "2026-01-09 18:18:10.813187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Timing information] Does logging",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de231268-fec7-4c11-ade6-742a9999d7fa?mode=deep",
+    "timestamp": "2026-01-09 18:18:40.068749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Byzantine upgrade] Can Byzantine validators (up to 1/3) execute a modified upgrade handler that skips critical TokenWrapper decimal conversion migrations, causing their state to diverge from honest validators and enabling them to double-spend wrapped tokens across different validator sets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d8e9cae-c6c7-4cb4-916e-b1c5b92f5331?mode=deep",
+    "timestamp": "2026-01-09 18:19:09.919487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Upgrade timing attack] If Byzantine validators delay executing the upgrade handler while continuing to process pre-upgrade transactions, can they exploit the state discrepancy to front-run the upgrade with token wrapping operations that get converted at old decimal rates, profiting from precision differences? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89db3a6a-9b2d-4b6d-b6d3-994f6acffad9?mode=deep",
+    "timestamp": "2026-01-09 18:19:38.932390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Consensus state divergence] Does the upgrade handler ensure deterministic execution across all validators, or can differences in module.Manager initialization cause some validators to migrate modules in different orders, leading to consensus failure when computing app hash after the upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7b25118-5af4-4fa0-a3c1-b5c1a04b7d85?mode=deep",
+    "timestamp": "2026-01-09 18:20:08.077229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/upgrades.go] [Function: CreateUpgradeHandler()] [Validator exclusion] Can Byzantine validators selectively exclude certain module migrations from their mm.RunMigrations() call, causing their Factory module to retain old minting cap logic while honest validators enforce new caps, enabling them to mint unlimited tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27b9bb63-99fb-4bee-9a7b-44cee5afc444?mode=deep",
+    "timestamp": "2026-01-09 18:20:37.451751",
+    "report_generated": false
   }
 ]
