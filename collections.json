@@ -3148,5 +3148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f6e1a44-91df-4bd5-a77e-3425cf197af5?mode=deep",
     "timestamp": "2026-01-09 10:48:45.739213",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [KVStore access] Can the direct ctx.KVStore(app.GetKey(stakingtypes.StoreKey)) access bypass module-level access controls or validation logic, allowing invalid state modifications during genesis export? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8ba2236-914b-456d-b200-4c2bcd0ca4a1?mode=deep",
+    "timestamp": "2026-01-09 10:49:58.544503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Store key validation] Can app.GetKey(stakingtypes.StoreKey) return an incorrect or nil store key, causing the subsequent KVStore operations to fail or corrupt other module state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e54c935-9c6f-478b-84e4-fb99cac6df05?mode=deep",
+    "timestamp": "2026-01-09 10:50:10.664321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Reverse iterator] Can the KVStoreReversePrefixIterator iterate in an unexpected order if the ValidatorsKey prefix matches other keys in the store, causing validators to be processed incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62aef8fc-b1f5-4a66-901c-f4eef29ba10d?mode=deep",
+    "timestamp": "2026-01-09 10:50:23.250196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Iterator validity] Can the iter.Valid() check fail to detect corrupted or partially deleted validators, causing the iteration to include invalid validator data in the genesis export? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e3cfa4b-5aed-47b6-9a7b-2a6cdf47dec2?mode=deep",
+    "timestamp": "2026-01-09 10:50:37.131978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Iterator memory leak] If the iterator.Close() call fails or is skipped due to an earlier panic, can this cause a memory leak that eventually crashes validators during repeated genesis export attempts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07f9753b-2d4e-4e15-a4b5-ffa9331c15f7?mode=deep",
+    "timestamp": "2026-01-09 10:50:50.931960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Address extraction] Can stakingtypes.AddressFromValidatorsKey(iter.Key()) return an incorrect or malformed validator address if the key format is unexpected, causing GetValidator to panic or return wrong validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ac38338-368e-40b9-bbbf-4417d541815e?mode=deep",
+    "timestamp": "2026-01-09 10:51:05.427492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator not found] Can the GetValidator call return an error even though the validator exists in the iterator, indicating a state inconsistency that should be handled instead of panicking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11433f47-693b-4014-a804-b1c5e69515df?mode=deep",
+    "timestamp": "2026-01-09 10:51:20.900736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [UnbondingHeight reset] Can setting validator.UnbondingHeight = 0 interfere with active unbonding processes, causing tokens to be released prematurely or remain locked indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_337c475e-01d5-47a5-8a8e-17aa0bec8167?mode=deep",
+    "timestamp": "2026-01-09 10:51:37.890978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator jailing] Can the validator jailing logic based on allowedAddrsMap be bypassed by validators whose addresses have different string representations but represent the same cryptographic key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f2cb15d-bd40-410a-980d-e842b8c195ed?mode=deep",
+    "timestamp": "2026-01-09 10:51:55.817743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Jailing state inconsistency] If applyAllowedAddrs is true but the allowlist is empty or contains only invalid addresses, can this cause all validators to be jailed, making the new chain unable to produce blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c72df193-28fb-4b6a-a86e-b1185ecc5379?mode=deep",
+    "timestamp": "2026-01-09 10:52:15.397860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [SetValidator failure] If SetValidator fails for some validators after modifying their state, can this create an inconsistent validator set where some validators are updated and others are not? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eaa3c16d-fc10-4bd2-8107-69c2d42e3f28?mode=deep",
+    "timestamp": "2026-01-09 10:52:35.522348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Counter overflow] Can the int16 counter overflow if there are more than 32,767 validators, causing subsequent validators to have negative or incorrect intra-tx counters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_140eb651-e7ac-44fc-bdf6-d84caecc9d36?mode=deep",
+    "timestamp": "2026-01-09 10:52:56.776976",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Iterator close error] Can the iter.Close() error be safely ignored, or does ignoring it cause resource leaks or state corruption that affects subsequent operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c3c5e7a-c1db-42e8-918e-39b16d6cee36?mode=deep",
+    "timestamp": "2026-01-09 10:53:18.863527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Error handling after close] If iter.Close() fails and the function returns early, can this skip the ApplyAndReturnValidatorSetUpdates call, leaving the validator set in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_367617c8-929a-4fe9-875c-8c48b17eadbb?mode=deep",
+    "timestamp": "2026-01-09 10:53:42.420190",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [ValidatorSetUpdates] Can ApplyAndReturnValidatorSetUpdates fail to apply all validator changes if the validator set is too large or contains invalid validators, causing consensus failure in the new chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65f6dfc0-a2f9-47c5-a637-d0a484d079b0?mode=deep",
+    "timestamp": "2026-01-09 10:54:06.765558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Log.Fatal in updates] Can the log.Fatal call be triggered by an attacker who manipulates validator state to cause ApplyAndReturnValidatorSetUpdates to return an error, halting all validators simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f41ae8c3-8cc1-4e4b-a8c8-3e4198ec3187?mode=deep",
+    "timestamp": "2026-01-09 10:54:31.607741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Validator set consistency] Can the validator set returned by ApplyAndReturnValidatorSetUpdates differ from the actual validators in state, causing the exported genesis to have a mismatched validator set? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1ad5d3d-a201-40f5-8990-ec4c6bcb27aa?mode=deep",
+    "timestamp": "2026-01-09 10:54:56.620567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [SigningInfo iteration] Can app.SlashingKeeper.IterateValidatorSigningInfos fail to iterate over all signing infos if the set changes during iteration, causing some validators to retain old signing info? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_488490fc-af72-4fff-9f3f-e03459aa5bba?mode=deep",
+    "timestamp": "2026-01-09 10:55:22.849943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [StartHeight reset] Can setting info.StartHeight = 0 cause validators to be incorrectly evaluated for downtime slashing in the new chain, either slashing innocent validators or failing to slash malicious ones? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12a548f0-1e26-409a-817b-effbbb48f881?mode=deep",
+    "timestamp": "2026-01-09 10:55:48.291897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [SetValidatorSigningInfo failure] If SetValidatorSigningInfo fails for some validators, can this create inconsistent signing info where some validators have reset start heights and others do not? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f341fd05-de86-4e90-b9d1-ac5d9f96c225?mode=deep",
+    "timestamp": "2026-01-09 10:56:14.635359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [ConsAddress validation] Can invalid consensus addresses in the signing info cause SetValidatorSigningInfo to fail or corrupt state when called with modified info? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfd753f4-7132-42dd-80d9-4812e6188e3c?mode=deep",
+    "timestamp": "2026-01-09 10:56:41.273610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Log.Fatal in slashing] Can an attacker cause IterateValidatorSigningInfos to return an error that triggers log.Fatal, crashing all validators during a coordinated genesis export attack? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c462e2a3-5374-4433-b637-96518445ba8b?mode=deep",
+    "timestamp": "2026-01-09 10:57:08.535515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Atomic operations] If the chain crashes during prepForZeroHeightGenesis execution, can the partial state modifications cause the exported genesis to be invalid, preventing chain restart? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6cc8a51-5d3b-4b30-bf4c-00726a667290?mode=deep",
+    "timestamp": "2026-01-09 10:57:35.931298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Rollback mechanism] Is there any mechanism to roll back all state changes if prepForZeroHeightGenesis fails midway, or can partial execution leave the chain in an unrecoverable state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb2bdb5f-0337-48dc-832f-2340a47ca29f?mode=deep",
+    "timestamp": "2026-01-09 10:57:59.889614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Concurrent export] Can multiple genesis exports be triggered simultaneously, causing race conditions in state modification that corrupt the exported genesis or chain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7f70720-5e2b-412e-8247-f7091b746aed?mode=deep",
+    "timestamp": "2026-01-09 10:58:22.959344",
+    "report_generated": false
   }
 ]
