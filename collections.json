@@ -5098,5 +5098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eeea25a6-7f34-484c-95d2-4caee573cd4c?mode=deep",
     "timestamp": "2026-01-09 14:10:49.913304",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Struct embedding] If Fork or Upgrade uses struct embedding, can an attacker exploit method shadowing or field name collisions to cause unexpected behavior during fork/upgrade execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_903888da-cd4b-4ad3-8584-1e3f2810538b?mode=deep",
+    "timestamp": "2026-01-09 16:53:20.049238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Reflection attacks] Can an attacker use Go reflection to modify private fields in Upgrade or Fork structs after they've been registered, bypassing validation and causing malicious upgrades? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc5cd7d3-0131-4482-affb-9c069d4eec51?mode=deep",
+    "timestamp": "2026-01-09 16:53:32.334484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Interface satisfaction] If Upgrade or Fork are expected to implement specific interfaces, can an attacker create structs that don't properly satisfy those interfaces, causing type assertion failures at runtime? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7191947f-e58d-4bad-ba91-2561edfa3704?mode=deep",
+    "timestamp": "2026-01-09 16:53:45.125373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Zero value] Can an attacker exploit Go's zero-value initialization by providing partial Upgrade or Fork structs, causing fields to have zero values that pass validation but cause runtime errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db95b584-0a23-4ab8-a4d7-a847cd160a45?mode=deep",
+    "timestamp": "2026-01-09 16:53:59.017259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Exported vs unexported] Can an attacker exploit the fact that all struct fields are exported (capitalized) by importing the package and creating malicious Upgrade/Fork structs outside the controlled initialization code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82634b92-a638-4a49-aecc-4d5995104ebc?mode=deep",
+    "timestamp": "2026-01-09 16:54:12.690859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Byzantine consensus] Can up to 1/3 Byzantine validators propose conflicting Upgrade configurations that cause different validators to execute different upgrade handlers, leading to chain split? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_323fce6e-1201-433e-8a6d-4d6dd3ef6926?mode=deep",
+    "timestamp": "2026-01-09 16:54:27.000520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Upgrade timing] Can Byzantine validators delay executing upgrade handlers while honest validators proceed, causing them to fall out of consensus and creating a temporary chain fork? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19b109ab-0cc6-44fc-9130-d789617e732b?mode=deep",
+    "timestamp": "2026-01-09 16:54:42.488656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork height manipulation] Can Byzantine validators report different block heights to PreBlockForks(), causing some nodes to execute fork logic while others don't, leading to consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc043889-5907-4583-8ce0-f15dcca49009?mode=deep",
+    "timestamp": "2026-01-09 16:54:59.966909",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Non-deterministic fork logic] Can Byzantine validators exploit non-deterministic behavior in PreBlockForkLogic to execute different state transitions than honest validators, causing permanent chain split? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b83aca31-8efd-4079-90cf-a6da00555535?mode=deep",
+    "timestamp": "2026-01-09 16:55:18.208431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Proposal manipulation] Can Byzantine validators manipulate governance proposals to inject malicious upgrade/fork configurations that bypass normal validation in the types.go struct definitions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d0ad9fb-f7b6-45f1-8fad-824b9d1cab24?mode=deep",
+    "timestamp": "2026-01-09 16:55:37.457680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Selective execution] Can Byzantine validators selectively execute only some upgrades/forks while skipping others, causing their state to diverge from honest validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5c84bdc-9dfd-48fc-b361-3d60d421d234?mode=deep",
+    "timestamp": "2026-01-09 16:55:57.430720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Partial application] Can an attacker cause UpgradeStoreLoader() to partially apply StoreUpgrades (e.g., only adding stores but not deleting), leading to inconsistent store state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33d4da04-0545-421a-abf7-e51d7e5fdf28?mode=deep",
+    "timestamp": "2026-01-09 16:56:17.084339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Module version map corruption] Can an attacker craft an upgrade handler that corrupts the module.VersionMap returned by mm.RunMigrations(), causing subsequent upgrades to fail or skip critical migrations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e508228-e585-4a20-93f9-ffe26aa0b678?mode=deep",
+    "timestamp": "2026-01-09 16:56:37.944594",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Configurator state corruption] Can an attacker exploit the module.Configurator passed to CreateUpgradeHandler to corrupt module configuration state in ways that persist after the upgrade completes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_babe4b38-34be-4ee7-b26f-9025e1cf7710?mode=deep",
+    "timestamp": "2026-01-09 16:56:59.656749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Keeper state inconsistency] Can an attacker's PreBlockForkLogic leave keepers.AppKeepers in an inconsistent state where some keepers are updated but others aren't, violating cross-keeper invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c556a26-47ce-450e-bde3-d1e405e51e68?mode=deep",
+    "timestamp": "2026-01-09 16:57:21.417695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Context state leakage] Can an attacker exploit context state modifications in PreBlockForkLogic that persist beyond the fork execution, affecting subsequent block processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da508207-89a8-4256-bf7b-6361ed140183?mode=deep",
+    "timestamp": "2026-01-09 16:57:44.604908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Store commit ordering] Can an attacker exploit the ordering between store upgrades (via StoreUpgrades) and module migrations (via RunMigrations) to cause state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfe96ab8-bcb3-4dd3-8e1f-542605b830f1?mode=deep",
+    "timestamp": "2026-01-09 16:58:09.032189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Handler registration privilege] Does setupUpgradeHandlers() require elevated privileges to register upgrade handlers, or can any code path call SetUpgradeHandler() to overwrite legitimate upgrade handlers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d66cca0-428b-4a5d-9edd-a8256cfb4aa6?mode=deep",
+    "timestamp": "2026-01-09 16:58:32.828281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Governance bypass] Can an attacker execute upgrade handlers without going through governance approval by directly invoking the CreateUpgradeHandler function pointer outside the normal upgrade flow? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7978e139-5fea-47df-997b-a820c084a29c?mode=deep",
+    "timestamp": "2026-01-09 16:58:59.125374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork execution privilege] Does PreBlockForks() check that it's being called from the appropriate consensus context, or can an attacker invoke fork logic at arbitrary heights outside the consensus process? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e10d5fb8-c72c-47c0-8f82-34afa3b9c164?mode=deep",
+    "timestamp": "2026-01-09 16:59:24.156264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Keeper privilege escalation] Can an attacker exploit PreBlockForkLogic access to keepers.AppKeepers to perform privileged operations that wouldn't normally be allowed during regular block processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_581b4c1a-31fa-487b-aa91-e20720d899d3?mode=deep",
+    "timestamp": "2026-01-09 16:59:49.055095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Both] [Module manager privilege] Can an attacker exploit the module.Manager passed to CreateUpgradeHandler to register new modules or modify existing module configurations without governance approval? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e45fc3a6-6136-4887-87a1-05210c2bd245?mode=deep",
+    "timestamp": "2026-01-09 17:00:14.369107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Handler execution time] Can an attacker create an upgrade handler that takes excessive time to execute, causing block production to stall beyond acceptable timeouts and halting the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b860c89-e225-45ab-8a3a-09e0e1ebfcdd?mode=deep",
+    "timestamp": "2026-01-09 17:00:39.825006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Memory exhaustion in migrations] Can an attacker craft store migrations in StoreUpgrades that allocate excessive memory during UpgradeStoreLoader() execution, causing OOM crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9c2f063-e482-42f2-af28-080bd69688de?mode=deep",
+    "timestamp": "2026-01-09 17:01:06.089688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Fork logic complexity] Can an attacker create PreBlockForkLogic with excessive computational complexity that causes PreBlockForks() to exceed block time limits, preventing block finalization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b633d9dd-4645-4b04-95b9-93e9f71b23a1?mode=deep",
+    "timestamp": "2026-01-09 17:01:31.265219",
+    "report_generated": false
   }
 ]
