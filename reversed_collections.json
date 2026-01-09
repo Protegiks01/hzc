@@ -1498,5 +1498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b5457bd-78b7-4836-bd44-00d164777562?mode=deep",
     "timestamp": "2026-01-09 09:23:47.764415",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Cross-Contract] [Gas Exhaustion] Can an attacker contract make thousands of sequential queries (Denom, Pool, SwapIn) in a single transaction, exhausting gas for other operations or causing validator resource starvation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69e33066-4de6-4539-844b-78c466fe67ed?mode=deep",
+    "timestamp": "2026-01-09 09:24:58.475809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Cross-Contract] [Reentrancy] Can a malicious contract make nested queries (contract A queries denom, which somehow triggers contract B to query pool, which queries denom again) creating reentrancy-like conditions in query processing that leak state or cause stack overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_535068a4-775e-4998-9e30-35ca3a141929?mode=deep",
+    "timestamp": "2026-01-09 09:25:10.890826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [JSON Marshaling] [String Encoding] Can special characters in string fields (Denom, PoolID, Creator, etc.) cause JSON encoding issues, injection vulnerabilities, or broken responses when contracts parse the JSON output? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa0f5062-00d3-46c9-b01a-81f7bd380beb?mode=deep",
+    "timestamp": "2026-01-09 09:25:23.448307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [JSON Marshaling] [Precision Loss] When marshaling cosmosmath.Uint fields in responses, can very large numbers lose precision during JSON encoding (JavaScript MAX_SAFE_INTEGER issues), causing contracts receiving responses to work with incorrect values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5a6093e-eb79-4739-a524-bdc652b002f8?mode=deep",
+    "timestamp": "2026-01-09 09:25:37.943699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [JSON Tags] [Extra Fields] Can contracts send queries with extra JSON fields that are ignored during unmarshaling, potentially bypassing validation or causing confusion about query intent, especially if future versions add new query types? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_789789cb-c65a-4278-a77e-4aa95f91d3fc?mode=deep",
+    "timestamp": "2026-01-09 09:25:51.823744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [JSON Tags] [Omitempty Logic] The ZQuery struct uses 'omitempty' on all query type fields - can this cause ambiguity where a query with all nil fields produces valid JSON '{}' that bypasses error handling and returns default responses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54d314b8-ef96-4e21-ad26-12c849889bf2?mode=deep",
+    "timestamp": "2026-01-09 09:26:06.525991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [JSON Tags] [Case Sensitivity] All JSON tags use snake_case (e.g., 'pool_id', 'coin_in') - can case sensitivity issues in JSON unmarshaling cause queries with different case patterns to be silently ignored or routed incorrectly, leading to query failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed43b672-74c0-443a-b69c-d6165b183903?mode=deep",
+    "timestamp": "2026-01-09 09:26:23.271669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapOutResponse] [Unimplemented Handler] If SwapOut queries are not handled in query_plugin.go's CustomQuerier (no case for contractQuery.SwapOut), can contracts calling this query receive default/zero responses that they interpret as successful swaps with zero cost, leading to logic errors? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90fb36f3-50fa-4ab1-8d49-09bbdb5be287?mode=deep",
+    "timestamp": "2026-01-09 09:26:40.530502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapOutResponse] [Field Naming] The SwapOutResponse has CoinIn and Fee fields - but if the query specifies desired output (CoinOut), how is the required input (CoinIn) calculated, and can rounding errors or overflow in the inverse AMM calculation cause incorrect input amounts that drain pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_452511cd-48ad-448f-a392-11ca92ce2f50?mode=deep",
+    "timestamp": "2026-01-09 09:26:58.308959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapOut] [PoolID Validation] SwapOut accepts any PoolID string without validation - unlike SwapIn which validates at line 159 of query_plugin.go, can SwapOut queries bypass validation entirely if the implementation exists, allowing invalid pool queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_971e45e8-aded-4cf3-9098-74f3245954ff?mode=deep",
+    "timestamp": "2026-01-09 09:27:17.728352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapOut] [Inverse Calculation] SwapOut is meant for reverse swap queries (specify desired output) but the struct definition seems incomplete compared to SwapIn - is SwapOut actually implemented in query_plugin.go or is this a dead code path that contracts could call causing unexpected behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e389667-7d23-49c4-8105-5ca020963a51?mode=deep",
+    "timestamp": "2026-01-09 09:27:37.464736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapOut] [Field Name Typo] Line 66 has a critical typo - the CoinIn field is labeled 'coin_out' in JSON tags - can this cause confusion where contracts query for desired output but the binding interprets it as input, leading to completely incorrect swap calculations and user fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_994b9153-5e85-41ed-a80d-af90d7410121?mode=deep",
+    "timestamp": "2026-01-09 09:27:58.175646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapInResponse] [Slippage Calculation] If contracts use SwapInResponse.CoinOut to calculate expected slippage but the actual swap executes with different pool state (due to intervening transactions), can this cause slippage protection to be ineffective, resulting in worse execution prices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86772e7a-e28e-4adc-b6ee-d52ac0cefee3?mode=deep",
+    "timestamp": "2026-01-09 09:28:21.068253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapInResponse] [Price Manipulation] Can an attacker query SwapIn amounts immediately before or after large swaps to observe price impact, then use this information to execute sandwich attacks where they query, swap, contract swaps, attacker swaps back? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05d49b88-befb-43fe-b985-3116dc8b27c2?mode=deep",
+    "timestamp": "2026-01-09 09:28:43.584350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapInResponse] [Front-Running Vulnerability] Since SwapIn is a read-only query that doesn't update state, can attackers query swap amounts, observe profitable opportunities, then front-run the actual swap transaction before the contract executes, extracting MEV and causing user losses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d78cc256-098c-437e-a3c5-e3de54dec550?mode=deep",
+    "timestamp": "2026-01-09 09:29:06.834522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapInResponse] [Fee Calculation Error] The Fee field is calculated separately from CoinOut - can inconsistencies between these values (e.g., Fee > CoinIn) occur due to rounding errors or manipulation, causing contracts to approve swaps with hidden excessive fees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef2c7cf3-3446-46f3-a19f-e2bf8b2a8bb1?mode=deep",
+    "timestamp": "2026-01-09 09:29:30.077921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapInResponse] [CoinOut Validation] The CoinOut field in SwapInResponse has no validation - can the response include negative amounts, zero amounts when swaps should fail, or amounts exceeding pool reserves, misleading contracts about swap feasibility? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb8edf0e-20b5-4318-8452-a1e8fb5bc281?mode=deep",
+    "timestamp": "2026-01-09 09:29:54.565032",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapIn] [Overflow Attack] Can an attacker query SwapIn with CoinIn amounts that approach cosmosmath.Uint maximum values, causing integer overflow in CalculateSwapAmount's AMM math (x*y=k calculations) and returning incorrect CoinOut amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12fea538-f914-4853-bb6c-43f1e52d4a7d?mode=deep",
+    "timestamp": "2026-01-09 09:30:19.350684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapIn] [Precision Loss] When CoinIn has extremely small amounts (e.g., 1 unit of an 18-decimal token), can the swap calculation lose precision in conversion, causing SwapInResponse to show zero output when non-zero output should be possible, leading to stuck liquidity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_770734a1-8eb8-4e5f-a120-df19b4135fdc?mode=deep",
+    "timestamp": "2026-01-09 09:30:44.953092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapIn] [Denom Mismatch] Can an attacker query SwapIn with a CoinIn denom that doesn't exist in the target pool's reserves, causing query_plugin.go to return misleading swap amounts or error messages that leak information about pool composition? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3189ebe3-9108-4747-9d65-26e093242f14?mode=deep",
+    "timestamp": "2026-01-09 09:31:08.683400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapIn] [Coin Amount Validation] The CoinIn field uses sdk.Coin which could have zero, negative, or nil amounts - can contracts query swaps with invalid coin amounts that bypass initial validation but cause panics or incorrect calculations in CalculateSwapAmount? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ef70631-ef41-4dd4-abf0-23570b20c2f4?mode=deep",
+    "timestamp": "2026-01-09 09:31:32.424188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: SwapIn] [Input Validation] The SwapIn struct accepts any string for PoolID and any sdk.Coin for CoinIn without validation in the struct itself - can an attacker send mismatched types (e.g., poolID for a different pool) causing incorrect swap calculations in query_plugin.go line 174? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_019528c4-efb2-4a64-9444-7757ec3198db?mode=deep",
+    "timestamp": "2026-01-09 09:31:56.553154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: PoolResponse] [Creator Address Exposure] The Creator field exposes the pool creator's address - can malicious contracts use this for targeted MEV attacks, front-running the creator's liquidity operations, or social engineering attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b08cf43-e0f8-4504-af64-8cf7b922668b?mode=deep",
+    "timestamp": "2026-01-09 09:32:22.640758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: PoolResponse] [Concurrent Query Issues] When multiple contracts query the same pool simultaneously during high-volume trading, can inconsistent PoolResponse data (where Coins reserves don't match the current AMM invariant) cause arbitrage opportunities or incorrect swap calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0000e7cf-00cf-4d2e-a92e-81392fd5872d?mode=deep",
+    "timestamp": "2026-01-09 09:32:47.100203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/bindings/query.go] [Struct: PoolResponse] [LP Token Validation] The LPToken field (sdk.Coin) has no validation - can query responses include LP tokens with zero amounts, negative amounts (through sdk.Int underflow), or invalid denoms, causing contract logic errors when calculating liquidity shares? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2bebab0a-44bb-4e04-855d-f78965f2121d?mode=deep",
+    "timestamp": "2026-01-09 09:33:12.313705",
+    "report_generated": false
   }
 ]
