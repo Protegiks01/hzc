@@ -898,5 +898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b23b7c55-89e5-4628-9ff6-0907342f02f5?mode=deep",
     "timestamp": "2026-01-09 08:23:06.662463",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [KVStore access control] Are the KVStore keys (lines 70-76) properly isolated, or can one module's keeper access another module's store through improper key derivation, leading to unauthorized state modifications? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22a9b5f2-8ae1-40e3-bdf7-45691d9e0e7a?mode=deep",
+    "timestamp": "2026-01-09 08:24:16.305970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Param subspace isolation] Can an attacker exploit the shared ParamsKeeper to modify IBC client parameters (line 84) that affect other modules' subspaces (lines 85-88), causing cross-module parameter pollution that bypasses rate limits or security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a630bb7d-5778-4fc6-8834-834590517c74?mode=deep",
+    "timestamp": "2026-01-09 08:24:28.543701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [KeyTable registration race] If multiple goroutines attempt to register param sets on the same keyTable (lines 82-83) simultaneously, can this cause a race condition where parameter validation rules are incompletely registered, allowing invalid parameters to be accepted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbc85b5b-c233-41f8-8e18-5c74820827a4?mode=deep",
+    "timestamp": "2026-01-09 08:24:41.684573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Legacy param migration] Does the WithKeyTable method (lines 84-88) properly validate that param subspaces for ibcexported, ibctransfertypes, icacontrollertypes, icahosttypes, and ratelimittypes cannot be manipulated to inject malicious parameter schemas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa554c1a-5069-4fb0-a723-d37faa97cd7c?mode=deep",
+    "timestamp": "2026-01-09 08:24:55.485766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Param subspace authority] Can an attacker bypass governance by directly modifying the param subspace state in the KVStore, since the subspaces are set up before proper authority checks are established? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d78b0f1-989d-499b-8fcc-c6f626a37ef0?mode=deep",
+    "timestamp": "2026-01-09 08:25:09.084374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Keeper authority validation] Does the IBCKeeper initialization (lines 91-97) properly validate that authtypes.NewModuleAddress(govtypes.ModuleName).String() returns a valid, non-exploitable address, or can an attacker manipulate the governance module address to gain unauthorized IBC authority? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3c0c0bf-f507-4346-b1db-e9c81a8e30d4?mode=deep",
+    "timestamp": "2026-01-09 08:25:23.783666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Upgrade keeper dependency] Can an attacker exploit the UpgradeKeeper reference (line 95) to trigger malicious upgrades that bypass IBC security checks by manipulating the keeper initialization order? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5036b10b-8fe7-4ecf-b363-396a92b4238c?mode=deep",
+    "timestamp": "2026-01-09 08:25:40.119729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Subspace injection] Can an attacker inject a malicious subspace through app.GetSubspace(ibcexported.ModuleName) (line 94) before this function runs, causing the IBCKeeper to use attacker-controlled parameters? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db641782-aeaa-4f1a-8317-46359e016828?mode=deep",
+    "timestamp": "2026-01-09 08:25:57.524592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Legacy proposal handler] Can an attacker exploit the legacy govv1beta1.ProposalHandler (line 105) to bypass modern governance security checks, submitting malicious proposals through the deprecated v1beta1 interface? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80da391a-5a9d-463a-93c1-51851c997d82?mode=deep",
+    "timestamp": "2026-01-09 08:26:16.129242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ParamChange proposal bypass] Does the ParamChangeProposalHandler (line 106) properly validate all parameter changes, or can an attacker craft malicious param change proposals that modify critical IBC, rate limit, or transfer parameters without proper governance approval? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e942cef-a3ba-4eca-a89b-9c34bdfd9d0d?mode=deep",
+    "timestamp": "2026-01-09 08:26:35.847457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Router route collision] Can an attacker exploit potential route collisions in the govRouter (lines 104-106) by registering conflicting route keys that override legitimate proposal handlers with malicious ones? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d79fccbb-de69-4a34-83cc-bd35537e9ca5?mode=deep",
+    "timestamp": "2026-01-09 08:26:55.260732",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Nil TransferKeeper window] Between lines 115 and 161, the ICS4Wrapper is created with a nil TransferKeeper. Can an attacker trigger IBC packet processing during this initialization window, causing nil pointer dereference panics that crash validators and halt the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_037b95bf-5373-4a72-88ea-ec3d92c370cd?mode=deep",
+    "timestamp": "2026-01-09 08:27:15.907847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [ICS4Wrapper injection] Can an attacker replace the ics4Wrapper instance between its creation (line 112) and when SetTransferKeeper is called (line 161), injecting a malicious wrapper that bypasses tokenwrapper decimal conversion or rate limiting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd710692-4dff-4b65-aa46-2a2924274aa9?mode=deep",
+    "timestamp": "2026-01-09 08:27:38.511582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Channel keeper double wrapping] Does the ICS4Wrapper receive both app.IBCKeeper.ChannelKeeper (lines 113, 116) and app.IBCKeeper.ConnectionKeeper (line 117), and can an attacker exploit this dual reference to create circular routing that processes packets multiple times, duplicating tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7155bbfd-4ce1-41af-9e88-55275b6ff2ec?mode=deep",
+    "timestamp": "2026-01-09 08:28:00.417125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [TokenWrapper keeper exploit] Can an attacker manipulate the TokenwrapperKeeper (line 118) before the ICS4Wrapper is fully initialized, causing the wrapper to use attacker-controlled decimal conversion parameters that steal funds through precision manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f569f59-2544-4c94-a07d-92c8158294cc?mode=deep",
+    "timestamp": "2026-01-09 08:28:23.239145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [BankKeeper reference vulnerability] Does the BankKeeper reference in ICS4Wrapper (line 114) have proper access controls, or can the wrapper be exploited to mint/burn tokens directly without going through proper validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e90e5216-658a-4098-89b0-346ebf0dd6dc?mode=deep",
+    "timestamp": "2026-01-09 08:28:47.308631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [RateLimit bypass via ICS4Wrapper] The RatelimitKeeper uses ics4Wrapper as its ICS4Wrapper (line 130). Can an attacker exploit the tokenwrapper middleware to bypass rate limits by wrapping/unwrapping tokens in a way that resets the rate limit counters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2414f7cb-6ef5-47cb-8892-d97f5599e54c?mode=deep",
+    "timestamp": "2026-01-09 08:29:11.431597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [RateLimit authority validation] Does the authority address (line 126) properly validate that only governance can modify rate limit parameters, or can an attacker craft a transaction that spoofs the governance module address? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8560d45-e1fc-4bdf-bb9d-03e8d48c8490?mode=deep",
+    "timestamp": "2026-01-09 08:29:36.380596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [RateLimit client keeper exploitation] Can an attacker exploit the IBCKeeper.ClientKeeper reference (line 129) in RatelimitKeeper to manipulate client state validation, bypassing rate limits by making clients appear as new connections? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94de56bc-4dbe-4850-b525-12e09d0ba300?mode=deep",
+    "timestamp": "2026-01-09 08:30:02.339964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [RateLimit channel keeper race] If the ChannelKeeper (line 128) processes multiple packets concurrently, can this cause race conditions in rate limit counting where limits are exceeded due to concurrent packet processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_043166fa-d474-441c-af9b-c708b2d0d177?mode=deep",
+    "timestamp": "2026-01-09 08:30:28.864599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [PacketForward nil TransferKeeper window] Between lines 137 and 158, PacketForwardKeeper has a nil TransferKeeper. Can an attacker send forwarding packets during initialization that crash the chain or bypass security checks due to nil pointer operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a06d73fd-9130-4322-8cd5-2e578820fec1?mode=deep",
+    "timestamp": "2026-01-09 08:30:56.382854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [PacketForward uses RatelimitKeeper] The PacketForwardKeeper uses RatelimitKeeper as ICS4Wrapper (line 140). Can an attacker exploit packet forwarding to send packets through multiple hops, each hop resetting rate limits, effectively bypassing rate limiting entirely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a8db27d-bbf2-4f82-bba7-ed895b17c8c8?mode=deep",
+    "timestamp": "2026-01-09 08:31:22.738087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [PacketForward authority bypass] Can an attacker exploit the authority parameter (line 141) to modify packet forwarding rules without governance approval, redirecting user funds to attacker-controlled addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_535f2d77-6d78-4855-b0b8-8b4f6c742821?mode=deep",
+    "timestamp": "2026-01-09 08:31:48.083767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [PacketForward bank keeper exploitation] Does the BankKeeper reference (line 139) in PacketForwardKeeper allow the keeper to mint/burn tokens during forwarding, and can an attacker exploit this to duplicate tokens across forwarding hops? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09149b3a-6014-4a35-8487-501488de73c6?mode=deep",
+    "timestamp": "2026-01-09 08:32:14.029632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Transfer uses PacketForward as ICS4] The TransferKeeper uses PacketForwardKeeper as its ICS4Wrapper (line 149). Can an attacker exploit this to force all transfers through packet forwarding, bypassing direct transfer security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12e3c9df-4fca-4fc6-84fe-984dbb555d75?mode=deep",
+    "timestamp": "2026-01-09 08:32:39.386357",
+    "report_generated": false
   }
 ]
