@@ -2098,5 +2098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da1bfcff-844b-4525-944d-0a0b2493e0d9?mode=deep",
     "timestamp": "2026-01-09 09:40:38.254875",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Deprecated decorator usage] Are any of the decorators in the chain deprecated in Cosmos SDK v0.53.4, potentially containing known vulnerabilities that should be replaced? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27d22fc1-1f9c-443b-bbce-c4a195b6f047?mode=deep",
+    "timestamp": "2026-01-09 09:41:50.860186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Missing required decorators] Are there any required ante decorators for Cosmos SDK v0.53.4 that are missing from the chain, potentially leaving security gaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50b58ab0-3ff9-4f64-a497-fd1fbd7655d2?mode=deep",
+    "timestamp": "2026-01-09 09:42:03.243758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [State corruption] Can an attacker exploit the upgrade handler registration loop to register duplicate upgrade handlers for the same upgrade name by manipulating the Upgrades slice, causing non-deterministic upgrade execution across validators and leading to consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_570a8042-0a13-4f14-98ca-aaf81f21718a?mode=deep",
+    "timestamp": "2026-01-09 09:42:15.924349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Access control] Does the SetUpgradeHandler method validate that upgrade handlers cannot be overwritten once registered, or can a malicious validator re-register upgrade handlers mid-consensus to execute unauthorized state transitions during upgrades? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cbf1bed-ff7b-47d0-887f-fa4a626131f0?mode=deep",
+    "timestamp": "2026-01-09 09:42:29.858131",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Nil pointer dereference] Can an attacker cause a chain-wide panic by inserting a nil upgrade handler into the Upgrades slice, which would crash all validators when SetUpgradeHandler is called with upgrade.CreateUpgradeHandler returning nil? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6666b84b-c24d-41cb-b1f9-11678077d97c?mode=deep",
+    "timestamp": "2026-01-09 09:42:43.911513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Module manager manipulation] Can an attacker exploit race conditions in accessing app.ModuleManager during handler registration to cause inconsistent module version maps across validators, leading to state divergence during RunMigrations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5458b451-d465-41c4-b087-d317cabdafb6?mode=deep",
+    "timestamp": "2026-01-09 09:42:59.143865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Configurator injection] Can a malicious actor manipulate app.Configurator() to inject modified migration handlers that execute during CreateUpgradeHandler, causing unauthorized state transitions or token minting during upgrades? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_414c6f28-a118-4ca7-9a48-d224fbeb82de?mode=deep",
+    "timestamp": "2026-01-09 09:43:16.066707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [AppKeepers reference] Can an attacker exploit the passing of &app.AppKeepers pointer to CreateUpgradeHandler to gain unauthorized access to all keeper methods (TokenWrapper, Factory, DEX), enabling cross-module exploits during upgrade execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53f6b8ed-cb3a-490f-acc0-61696547c762?mode=deep",
+    "timestamp": "2026-01-09 09:43:33.510154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Upgrade ordering] Can an attacker exploit the sequential iteration over the Upgrades slice to cause upgrade handlers to execute in a different order on different validators due to slice mutation, leading to consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9777574e-914d-49df-9fec-0d47f878de66?mode=deep",
+    "timestamp": "2026-01-09 09:43:52.127057",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Empty upgrades array] If the Upgrades slice is empty, does setupUpgradeHandlers silently succeed without registering any handlers, potentially allowing the chain to proceed with undefined upgrade behavior when an upgrade height is reached? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2be288db-4108-45c2-b9d5-42ca1ad0e425?mode=deep",
+    "timestamp": "2026-01-09 09:44:12.392252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Duplicate upgrade names] Can multiple upgrades in the Upgrades slice have the same UpgradeName, causing the last registered handler to overwrite earlier ones and creating unpredictable upgrade execution that differs from governance proposals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6dd09236-b713-4e7d-b473-32867d6e60e8?mode=deep",
+    "timestamp": "2026-01-09 09:44:33.070471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Handler creation failure] If upgrade.CreateUpgradeHandler panics or returns a nil handler during registration, does the function properly catch and handle the error, or will it cause validator crashes during setupUpgradeHandlers execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54487a37-b96e-427e-841e-829ef1cb9ad6?mode=deep",
+    "timestamp": "2026-01-09 09:44:54.775359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Panic on disk read] Can an attacker manipulate the upgrade-info.json file on validator disk storage to cause ReadUpgradeInfoFromDisk to panic, triggering chain-wide validator crashes with the panic message 'failed to read upgrade info from disk'? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c107c1a6-4399-4014-90a2-0ef0c102e298?mode=deep",
+    "timestamp": "2026-01-09 09:45:17.441446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Skip height bypass] Can a malicious validator exploit the IsSkipHeight check to skip critical store upgrades at specific heights, causing their node to have inconsistent store state compared to other validators and leading to consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a932c099-d3d8-4a84-8f39-ffc9728b6e09?mode=deep",
+    "timestamp": "2026-01-09 09:45:40.755281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Height manipulation] Can an attacker modify upgradeInfo.Height on disk to trigger store loader configuration at an incorrect block height, causing new store modules to initialize with wrong version numbers and creating state inconsistency across the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3760dda9-baff-4c29-99b7-07ee0ad574ae?mode=deep",
+    "timestamp": "2026-01-09 09:46:05.413354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Upgrade name mismatch] Can an attacker exploit the string comparison upgradeInfo.Name == upgrade.UpgradeName to cause store upgrades to be skipped by manipulating upgrade name formatting (e.g., case sensitivity, whitespace), leading to missing store migrations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5f78cbd-ee4c-456c-8419-9b196ebccf83?mode=deep",
+    "timestamp": "2026-01-09 09:46:30.724326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store upgrade injection] Can a malicious validator modify the StoreUpgrades configuration in the Upgrades slice to inject unauthorized store additions/deletions/renames during upgrade execution, corrupting the KVStore structure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a1d1f3a-71e3-4af8-bd22-83950bb0a483?mode=deep",
+    "timestamp": "2026-01-09 09:46:55.991135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Multiple matching upgrades] If multiple upgrades in the Upgrades slice match upgradeInfo.Name, does the function apply store loaders multiple times or only for the first match, and can this be exploited to skip critical store migrations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd7138a7-72ac-4df5-b81d-fd1e5c93d6fe?mode=deep",
+    "timestamp": "2026-01-09 09:47:23.446697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store loader race condition] Can validators experience race conditions when SetStoreLoader is called simultaneously during app initialization, causing non-deterministic store loader configuration and state divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_112f7200-aa8c-47a7-8c99-7f61d2091059?mode=deep",
+    "timestamp": "2026-01-09 09:47:51.383422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Deleted store handling] When v2 upgrade deletes the 'crisis' store, can an attacker exploit insufficient cleanup logic to cause references to the deleted crisis store to persist, leading to nil pointer panics during module operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fa49eeb-552e-4e10-9b65-c4bf366c1860?mode=deep",
+    "timestamp": "2026-01-09 09:48:16.688231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Version number corruption] Can an attacker exploit the UpgradeStoreLoader height parameter to set incorrect version numbers for new stores, causing future upgrades to fail when they check store versions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7d71e96-c73a-4e59-a13d-4eb6837b313b?mode=deep",
+    "timestamp": "2026-01-09 09:48:43.434151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Early return exploitation] If IsSkipHeight returns true, does the early return at line 43 prevent critical store initialization, leaving the chain in an inconsistent state where some stores are upgraded and others are not? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77f633a3-3488-4ead-a0f4-ad80db1d558c?mode=deep",
+    "timestamp": "2026-01-09 09:49:10.288720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Logger manipulation] Can debug-level logging of upgradeInfo expose sensitive upgrade information that could be exploited to predict or manipulate upgrade timing and execution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a4b45dd-7eab-4898-a7c8-e8e68a55828d?mode=deep",
+    "timestamp": "2026-01-09 09:49:36.138340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [No upgrade match] If no upgrade in the Upgrades slice matches upgradeInfo.Name, does the function leave the store loader unset, potentially causing default loader behavior that initializes stores with version 0 instead of the current chain height? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_761a7630-f68e-460c-8015-76786b8c509e?mode=deep",
+    "timestamp": "2026-01-09 09:50:02.306155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [StoreUpgrades validation] Are the Added/Deleted/Renamed fields in StoreUpgrades validated to prevent conflicting operations (e.g., adding and deleting the same store), which could corrupt the store structure during upgrade? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bcd29ea-ab48-4294-bc30-9dc1ac3b7553?mode=deep",
+    "timestamp": "2026-01-09 09:50:28.535039",
+    "report_generated": false
   }
 ]
