@@ -7648,5 +7648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f70f986-3aed-4525-b047-4918e450a450?mode=deep",
     "timestamp": "2026-01-09 18:19:44.186958",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Settings interaction] Can updating CounterpartyPort without updating CounterpartyChannel (lines 43-45, 51-53) cause packets to be routed to the correct channel but wrong port module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0a02280-7287-400d-bfb9-377a026e5d3c?mode=deep",
+    "timestamp": "2026-01-09 18:21:06.531425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Settings interaction] Does changing NativeClientId without updating NativeChannel (lines 31-33, 47-49) create a configuration where the channel exists but uses a different client, breaking IBC packet verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aab111ae-a458-4b2c-ab62-0a8a4df54c10?mode=deep",
+    "timestamp": "2026-01-09 18:21:19.039665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Settings interaction] Can an operator atomically update all 8 IBC settings on lines 27-61, but have them applied non-atomically in msg_server, causing intermediate inconsistent states? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cffbf41e-a2a1-4a0e-8208-19a24bc753bf?mode=deep",
+    "timestamp": "2026-01-09 18:21:31.665530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Does the uint32 type for DecimalDifference prevent setting negative values through type casting exploits in the msg_server? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a94c907a-12ed-4f24-bc6e-bbbe5ad1e8d9?mode=deep",
+    "timestamp": "2026-01-09 18:21:44.811617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Can setting DecimalDifference to a value where 10^DecimalDifference exceeds MaxInt64 cause integer overflow panics in downstream scaling operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a585cddd-d56b-4ba2-bf52-39e0bdb6a560?mode=deep",
+    "timestamp": "2026-01-09 18:21:59.364322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Edge case] Does ValidateDecimalDifference on line 59-61 handle the boundary case of DecimalDifference=18 where 10^18 scaling could overflow uint256 in token amount calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65b8daa4-e060-488d-bc01-31fafa1c2364?mode=deep",
+    "timestamp": "2026-01-09 18:22:15.264317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Serialization attack] Can an attacker exploit proto3's zero-value semantics where DecimalDifference=0 might be treated as unset rather than an explicit zero value on line 59-61? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a872d5c-4f16-401f-8ce3-b32759276984?mode=deep",
+    "timestamp": "2026-01-09 18:22:32.042537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Serialization attack] Does the validation account for protobuf's treatment of empty strings vs unset fields, which could bypass validation checks on lines 27-57? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da044452-9ba6-440a-bb5d-c7865faffdc4?mode=deep",
+    "timestamp": "2026-01-09 18:22:48.801875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Serialization attack] Can an attacker craft a MsgUpdateIbcSettings that deserializes correctly from protobuf but has different values after ValidateBasic due to type coercion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f41f9bff-1042-48d5-97f8-b0d494a59bae?mode=deep",
+    "timestamp": "2026-01-09 18:23:06.610966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: NewMsgUpdateIbcSettings()] [Construction attack] Can an attacker exploit the direct field assignment in the constructor (lines 13-21) to inject malicious data before ValidateBasic is called? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a67b28b-a82e-4b26-a126-3581bc1bfd0f?mode=deep",
+    "timestamp": "2026-01-09 18:23:25.289330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: NewMsgUpdateIbcSettings()] [Construction attack] Does the constructor validate parameter consistency (e.g., NativeClientId must match NativeChannel's client), or can inconsistent settings be created? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ce770be-bda3-4f90-868a-febff0527215?mode=deep",
+    "timestamp": "2026-01-09 18:23:46.032875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: NewMsgUpdateIbcSettings()] [Construction attack] Can an attacker call the constructor on lines 11-23 with mismatched parameter types (e.g., passing uint64 as uint32 for DecimalDifference) that cause silent truncation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_269c1a17-5494-40a4-8367-fc1105efdf83?mode=deep",
+    "timestamp": "2026-01-09 18:24:06.984161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Cross-module attack] Does changing NativePort on line 39-41 affect rate limiting configurations in the IBC module, potentially bypassing transfer limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d8250c1-76ef-4b5a-86d7-5bba071907f5?mode=deep",
+    "timestamp": "2026-01-09 18:24:29.310672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Cross-module attack] Can an attacker exploit MsgUpdateIbcSettings to point to an IBC channel that triggers CosmWasm hooks, executing arbitrary contract code during token transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca4a8fe2-885d-4d34-944d-3d90302fd0e0?mode=deep",
+    "timestamp": "2026-01-09 18:24:51.870043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Cross-module attack] Does the validation prevent setting NativeChannel to a channel used by the DEX module, potentially causing cross-chain DEX operations to interfere with bridge operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_243cb318-7c98-46d7-8d17-95665e0844c5?mode=deep",
+    "timestamp": "2026-01-09 18:25:15.755174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Cross-module attack] Can an operator change Denom on line 55-57 to a token controlled by the Factory module, then use factory admin powers to drain wrapped tokens through minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b489f89f-16d0-4825-b445-ce838e95d76a?mode=deep",
+    "timestamp": "2026-01-09 18:25:40.690130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Dependency attack] Does validators.IsValidIdentifier used in port/denom validation have consistent character set definitions across versions, or can version mismatches allow invalid characters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_396caa59-8edf-4382-a873-05a85fd6ffc2?mode=deep",
+    "timestamp": "2026-01-09 18:26:06.111125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Dependency attack] Can an attacker exploit regex complexity in validators.ValidateDenom (line 55-57) by providing a denom string that causes catastrophic backtracking and validator DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de4d9592-a1c8-43d2-8459-51ba2c0423f0?mode=deep",
+    "timestamp": "2026-01-09 18:26:32.342697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Dependency attack] Does validators.ValidateClientId on line 31-33 use the IBC-Go IsValidClientID function that has known issues with certain client ID formats, potentially allowing invalid clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_530620a2-903f-4dfb-8b69-eeab916c410b?mode=deep",
+    "timestamp": "2026-01-09 18:27:00.215095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Dependency attack] Can an attacker exploit vulnerabilities in validators.SignerCheck (line 27) by passing addresses that are valid Bech32 but trigger edge cases in the underlying Cosmos SDK address parser? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62f44dea-4739-4db0-9f0e-d1b188e3ab0e?mode=deep",
+    "timestamp": "2026-01-09 18:27:28.123606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Channel validation] Does ValidateChannel prevent using channel IDs with leading zeros (e.g., 'channel-007') that could be interpreted differently in string vs numeric comparisons? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_949bd041-8862-47c8-9fd6-ab02196c19fb?mode=deep",
+    "timestamp": "2026-01-09 18:27:56.197167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Channel validation] Can an attacker set both NativeChannel and CounterpartyChannel to the same value on lines 47-53, creating a reflexive channel that causes packet loops and chain halt? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7383984f-bcfc-4688-b532-c085f7295287?mode=deep",
+    "timestamp": "2026-01-09 18:28:24.879499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Channel validation] Does the channel validation on line 51-53 check if CounterpartyChannel has been upgraded to a different version, potentially causing packet format incompatibilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11ecff3a-b888-4ff6-b354-84b75d21adb2?mode=deep",
+    "timestamp": "2026-01-09 18:28:52.686885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Channel validation] Can an operator exploit ValidateChannel on line 47-49 to set NativeChannel to a channel that exists but belongs to a different port, causing packet routing confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_353912a5-dcc5-421c-ac30-ec57859a644f?mode=deep",
+    "timestamp": "2026-01-09 18:29:19.130520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Port validation] Does the port validation prevent setting CounterpartyPort to exactly 128 characters on line 43-45, which might trigger buffer overflow in fixed-size port arrays in C-based IBC implementations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4da22b63-0711-4d2a-83da-8c704dc73e34?mode=deep",
+    "timestamp": "2026-01-09 18:29:46.184714",
+    "report_generated": false
   }
 ]
