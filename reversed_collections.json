@@ -10498,5 +10498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_837cd7b1-2ced-442e-9d2a-d8963525c13d?mode=deep",
     "timestamp": "2026-01-09 21:32:46.811328",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Store key collision] Does ValidateBasic() ensure that params won't cause key collisions in the KVStore when marshaled, particularly if params include fields used as store keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1df7a235-b418-4b2c-badb-e02be697fc74?mode=deep",
+    "timestamp": "2026-01-09 21:34:03.389187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Default values] When params are upgraded with new fields, does ValidateBasic() ensure new fields have safe default values, or can uninitialized fields cause undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e98d3be4-77b3-4f0b-990c-c1b4da97ccbc?mode=deep",
+    "timestamp": "2026-01-09 21:34:15.964473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Version compatibility] Does ValidateBasic() include version checks to ensure params are compatible with the current chain version, preventing attackers from submitting params designed for a different version? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a28caf3-861f-42d2-858c-3cdba02c2738?mode=deep",
+    "timestamp": "2026-01-09 21:34:29.191426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Upgrade migration] If the Params struct is upgraded with new fields, does ValidateBasic() handle migration from old param formats, or will existing governance proposals become invalid after upgrade? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7d39eee-76bc-47a8-90c8-3dfdc02b0879?mode=deep",
+    "timestamp": "2026-01-09 21:34:42.211743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Test isolation] Do tests properly isolate ValidateBasic() from keeper state, or can test failures in keeper tests affect ValidateBasic() test results, hiding validation bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eed3511d-b0d3-44a7-a8e2-a9fcf7e84c7e?mode=deep",
+    "timestamp": "2026-01-09 21:34:56.087175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Test coverage gaps] Do the existing tests cover all edge cases in ValidateBasic(), including empty authority, invalid Bech32 prefixes, and all possible Params.Validate() failures, or are there untested code paths that could contain bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1efcae18-a35d-4ec6-85b3-d6ce6ef40900?mode=deep",
+    "timestamp": "2026-01-09 21:35:11.012140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Monitoring evasion] Can an attacker craft params that pass ValidateBasic() but cause keeper.UpdateParams() to fail silently without emitting events, evading monitoring systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cee294e-726e-48f2-af4f-7536ee5d76f3?mode=deep",
+    "timestamp": "2026-01-09 21:35:26.928555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Audit trail] Does ValidateBasic() validation failure generate sufficient information for audit trails, or can attackers probe for valid authorities without detection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2aee0c31-9fa8-4bda-8420-dd160a444518?mode=deep",
+    "timestamp": "2026-01-09 21:35:44.808374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Event ordering] Does ValidateBasic() affect the order of events emitted, and can an attacker exploit event ordering to confuse monitoring systems about the state of parameter updates? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3cb838b-981e-421c-8dcd-0e4ed776f914?mode=deep",
+    "timestamp": "2026-01-09 21:36:03.152418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Concurrent access] Can concurrent goroutines call ValidateBasic() on the same MsgUpdateParams instance, causing data races if m.Params contains pointer fields or internal mutexes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd40ba83-2a5f-4f0f-8daf-fc058dd24cf6?mode=deep",
+    "timestamp": "2026-01-09 21:36:22.364771",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Slice bounds] If m.Params contains slice fields (in future), does ValidateBasic() check slice bounds before accessing elements, preventing out-of-bounds panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61cf0c2b-ea6d-4ac0-9f4a-5cda69d84af2?mode=deep",
+    "timestamp": "2026-01-09 21:36:42.364477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Interface satisfaction] Does the sdk.Msg interface implementation at line 8 correctly handle all required methods, or can type assertion failures cause panics when MsgUpdateParams is processed by the SDK? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_545c1693-4549-4141-b903-8ad8b2c6aa17?mode=deep",
+    "timestamp": "2026-01-09 21:37:02.845172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [String interning] Does Go's string interning for m.Authority cause unexpected behavior when comparing authorities in keeper.UpdateParams(), particularly for authorities read from different sources (protobuf vs hardcoded)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78324b14-0256-4cd6-ac7c-a2f438c02189?mode=deep",
+    "timestamp": "2026-01-09 21:37:23.971797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Nil pointer] Does ValidateBasic() check if the MsgUpdateParams receiver 'm' is nil before accessing m.Authority and m.Params, or can an attacker trigger a nil pointer dereference panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a600e0ff-32c1-465f-8fc7-ef2008e5fd35?mode=deep",
+    "timestamp": "2026-01-09 21:37:45.935915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Balance tracking] If params include balance tracking settings, can an attacker manipulate these to cause discrepancies between actual balances and tracked balances (TotalTransferredIn/Out), breaking accounting invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_423b048a-f48e-4c9c-b497-67af126e887f?mode=deep",
+    "timestamp": "2026-01-09 21:38:07.501149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Lock bypass] Can an attacker update params to bypass the token locking mechanism in RecoverZig, enabling double-spending of IBC vouchers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_adbfe966-4017-4d9a-b771-7319480b5c5d?mode=deep",
+    "timestamp": "2026-01-09 21:38:31.606623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Module wallet drain] Can an attacker update params to disable security checks in wrap/unwrap operations, then drain the module wallet through malicious wrap/unwrap sequences? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0fa0abc-8e95-418b-b40f-09200767922c?mode=deep",
+    "timestamp": "2026-01-09 21:38:55.659217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Conversion factor attack] If params include decimal conversion factors, can an attacker set them to values that cause precision loss during wrap/unwrap operations, enabling theft through repeated wrap/unwrap cycles? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce8ee661-3732-4e88-a5b4-2838e1766d91?mode=deep",
+    "timestamp": "2026-01-09 21:39:20.086590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Supply manipulation] Can an attacker update params to modify how token supply is tracked (if supply tracking params are added), causing discrepancies between wrapped and native token supplies that enable token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8846457-ba46-43ec-aa2f-46991332fa52?mode=deep",
+    "timestamp": "2026-01-09 21:39:45.064016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Replay attack] Does ValidateBasic() include any replay protection, or can an attacker replay a valid MsgUpdateParams from one chain on another chain (e.g., testnet to mainnet) if authorities are the same? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6dee196b-116e-4461-85f4-a3b522cc47db?mode=deep",
+    "timestamp": "2026-01-09 21:40:08.527971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Network partition] During a network partition, can an attacker submit parameter updates that are accepted by one partition but rejected by another due to subtle differences in ValidateBasic() execution, causing state divergence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81911615-9979-4920-b2ed-2e39e7b798ff?mode=deep",
+    "timestamp": "2026-01-09 21:40:32.367217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Byzantine validators] Can Byzantine validators (up to 1/3) exploit weak validation in ValidateBasic() to censor valid parameter update proposals or force through invalid ones, even without consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8120bb3-c1d4-438a-82a1-7a42dc802178?mode=deep",
+    "timestamp": "2026-01-09 21:40:56.394712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Soft fork risk] If ValidateBasic() validation logic is updated in a new software version, can this create a soft fork where old validators accept parameter updates that new validators reject, causing chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b57c64c2-4cf3-4eb4-b01c-629000038058?mode=deep",
+    "timestamp": "2026-01-09 21:41:20.375733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [Non-determinism] Can differences in AccAddressFromBech32 implementation across validator nodes cause non-deterministic validation results, leading to consensus failures where some validators accept and others reject the same proposal? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4716a0f-bd3b-4871-ab2d-57a0dc4bf3ab?mode=deep",
+    "timestamp": "2026-01-09 21:41:44.120011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/msg_update_params.go] [Function: ValidateBasic()] [String allocation] Does the Bech32 validation at line 12 allocate new strings for address decoding, and can an attacker exploit this to cause memory pressure through many concurrent invalid addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10cd636b-6587-4e38-a3b3-0a55d0de5b31?mode=deep",
+    "timestamp": "2026-01-09 21:42:07.016589",
+    "report_generated": false
   }
 ]
