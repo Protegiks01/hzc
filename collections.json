@@ -7048,5 +7048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22c0b86a-af01-449d-9984-c166e0759fbe?mode=deep",
     "timestamp": "2026-01-09 19:39:43.518171",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Negative coin validation] The check for coin.IsNegative() at line 233 occurs after coins.Empty() - can malformed SDK coins with negative amounts bypass the empty check and trigger incorrect error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c7849a2-481e-4253-8e94-3160c371003a?mode=deep",
+    "timestamp": "2026-01-09 19:40:46.451057",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Balance check race] Between HasBalance() check at line 246 and SendCoins() at line 269, can the sender's balance be drained by another transaction, causing SendCoins to fail but leaving pool metadata updated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ede51ec-a33f-4ded-9bf1-800381a8a31b?mode=deep",
+    "timestamp": "2026-01-09 19:40:58.818432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Pool existence check] The poolAccount existence check at line 259 occurs AFTER all balance validations - can an attacker pass all validations but then fail at SendCoins if the pool account was deleted between checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_60c41556-ec16-4f87-93dd-3f0ef913e69c?mode=deep",
+    "timestamp": "2026-01-09 19:41:11.658997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Individual coin validation] The loop validates each coin individually (lines 231-256), but does it check for duplicate denominations in the coins slice that could bypass total balance checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8fe2cf4-9331-4083-a61f-008e42aca3df?mode=deep",
+    "timestamp": "2026-01-09 19:41:25.748129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Empty coins behavior] The function returns an error for empty coins at line 289, but the error message references variables that are computed - can this cause a panic if coins.Empty() but the pool doesn't exist? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0911f187-6929-4df6-9dd8-f8844b878de1?mode=deep",
+    "timestamp": "2026-01-09 19:41:39.559670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Insufficient balance loop] The loop checks HasBalance() for each coin individually (line 313), but can an attacker drain one coin type between loop iterations, causing partial withdrawals and state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c1a1761-c741-4321-8594-6bc2abff6ef9?mode=deep",
+    "timestamp": "2026-01-09 19:41:54.470616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Pool account deletion] If the pool account is deleted between the existence check at line 302 and SendCoins at line 325, does SendCoins fail gracefully or can it create coins from a non-existent account? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f4e50e8-27af-42dc-8681-4e4d011e64bb?mode=deep",
+    "timestamp": "2026-01-09 19:42:10.684838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Error message leak] Error messages at lines 306, 316, 329 include full pool addresses - can this leak information about internal pool structure that helps attackers craft collision attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2abcc20-b4f7-4c8a-9c69-e83430fa1ecd?mode=deep",
+    "timestamp": "2026-01-09 19:42:27.967641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Reentrancy] If the bankKeeper.SendCoins() call at line 269 triggers a contract hook that calls back into the DEX module, can an attacker exploit reentrancy to drain pools before balance checks complete? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f27fd9e-57aa-47eb-a988-ec59dc86f998?mode=deep",
+    "timestamp": "2026-01-09 19:42:46.640961",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Reentrancy] Can an attacker use CosmWasm contract hooks during bankKeeper.SendCoins() at line 325 to recursively call SendFromPoolToAddress and withdraw more funds than the pool contains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38aceb3b-8314-41aa-911d-b94319a67c49?mode=deep",
+    "timestamp": "2026-01-09 19:43:06.725862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [State atomicity] If SetPool() is called but the transaction later fails, does the KVStore rollback properly, or can pool metadata be persisted while related state (like pool accounts) is not? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2e3c1cc-1649-473c-91a5-a72c877a7e27?mode=deep",
+    "timestamp": "2026-01-09 19:43:27.354997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Atomicity failure] If accountKeeper.SetAccount() at line 212 succeeds but the calling transaction reverts, can a pool account exist without corresponding pool metadata, allowing fund theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72c096d9-970b-420d-80f9-219b78413265?mode=deep",
+    "timestamp": "2026-01-09 19:43:49.032784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAndSetNextPoolID()] [Cross-transaction consistency] If a transaction gets the pool ID but fails before creating the pool, is that ID permanently lost, causing gaps in pool numbering that could break external indexers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1f59b0a-bffd-4df0-a835-bea799236bcd?mode=deep",
+    "timestamp": "2026-01-09 19:44:10.884646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Module permissions] The created module account at line 205-209 inherits what permissions? Can it mint tokens, bypass IBC rate limits, or access other privileged operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd619d89-fe62-4946-a1d0-a629337036e8?mode=deep",
+    "timestamp": "2026-01-09 19:44:33.514513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Access control] There are no access control checks - can any transaction call this function to drain any pool to any address, or is access control enforced in a calling function? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82c3784f-43b4-4f14-9501-5ea55ee14029?mode=deep",
+    "timestamp": "2026-01-09 19:44:57.745157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Sender validation] The function accepts sender as a parameter without validation - can an attacker pass an address they don't control and drain that address's funds into a pool they control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb486b26-fa7b-476f-9379-777bcb0f482c?mode=deep",
+    "timestamp": "2026-01-09 19:45:22.818663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Unauthorized updates] There are no permission checks in SetPool() - can any transaction modify any pool's state, including reserves, fees, or other critical parameters? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_156ff720-3944-4116-8d44-99583b3dd60b?mode=deep",
+    "timestamp": "2026-01-09 19:45:48.254067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanOverwriteAccountTypes] [Global state mutation] The global variable at line 126 can be modified at runtime - can a malicious proposal or governance action add dangerous account types to this map and enable account takeover attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7007db6f-79a2-44de-966e-c4cfb6b6c164?mode=deep",
+    "timestamp": "2026-01-09 19:46:13.741547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Panic propagation] If k.cdc.MustUnmarshal() panics at line 69, does it properly close the iterator via defer, or can the panic bypass the defer and leak resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb1f8a67-649c-4b40-a216-414abdf09ce0?mode=deep",
+    "timestamp": "2026-01-09 19:46:39.825020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Marshal panic] If k.cdc.MustMarshal() panics at line 28, can it leave the KVStore in a partially written state where the key exists but the value is corrupted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6059f130-a10a-4210-b9d6-2a8bff789ce9?mode=deep",
+    "timestamp": "2026-01-09 19:47:05.257951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetNextPoolID()] [Panic on overflow] The panic at line 99 provides no recovery mechanism - if triggered, does it crash the entire validator node or just abort the transaction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3195030a-f057-4826-8307-c813ac24102a?mode=deep",
+    "timestamp": "2026-01-09 19:47:29.891236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Error wrapping] Errors are wrapped with errorsmod.Wrapf() at lines 223, 235, 241, 248, 262, 273 - do these preserve enough context for debugging, or can they mask underlying issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ba34e44-b9f7-4fae-a414-814e6894ea37?mode=deep",
+    "timestamp": "2026-01-09 19:47:53.905198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Silent failure] If bankKeeper.SendCoins() returns an error at line 325, the error is wrapped and returned, but is the pool state rolled back or can it be left inconsistent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f93af608-3a5a-4b11-b3ed-1159699ae4ba?mode=deep",
+    "timestamp": "2026-01-09 19:48:17.644090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Iterator close failure] If iterator.Close() fails at line 61 and logs an error, can subsequent operations on the same KVStore prefix fail or behave incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ff76706-b335-4387-9ac2-e5764c00a65a?mode=deep",
+    "timestamp": "2026-01-09 19:48:41.756833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Large result set] If there are thousands of pools, can GetAllPool() consume excessive memory and crash the validator when all pools are loaded into the slice? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb5e60ce-6b89-4c56-a950-01e58ab7a4c7?mode=deep",
+    "timestamp": "2026-01-09 19:49:06.293515",
+    "report_generated": false
   }
 ]
