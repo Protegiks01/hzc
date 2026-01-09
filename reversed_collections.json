@@ -7798,5 +7798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4da22b63-0711-4d2a-83da-8c704dc73e34?mode=deep",
     "timestamp": "2026-01-09 18:29:46.184714",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Port validation] Can an attacker set NativePort to a value containing '#' or '<>' characters (allowed by IsValidIdentifier on line 39-41) that break IBC packet serialization formats? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9a8d568-48f6-4f24-8eca-54ffc483731a?mode=deep",
+    "timestamp": "2026-01-09 18:30:58.692343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Port validation] Does ValidatePort on line 43-45 for CounterpartyPort prevent using ports with trailing slashes or dots that could exploit path traversal vulnerabilities in IBC routing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7437ac41-06ff-4cbe-a379-fd06831f858d?mode=deep",
+    "timestamp": "2026-01-09 18:31:10.902951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Port validation] Can an operator exploit the 2-128 character length check in ValidatePort (line 39-41) to set NativePort to a 2-character value that conflicts with system reserved ports? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5fc2ef5-0b13-49aa-8f50-1e7b957da67b?mode=deep",
+    "timestamp": "2026-01-09 18:31:23.742114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Panic recovery] If any validator function (lines 27-61) panics due to malformed input, does ValidateBasic recover gracefully or allow the panic to crash the validator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84e818f5-6bd8-48b4-9321-8298f1810ee0?mode=deep",
+    "timestamp": "2026-01-09 18:31:37.323896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: NewMsgUpdateIbcSettings()] [Type confusion] Does the constructor properly validate that string parameters are not nil before assignment (lines 13-21), or can nil strings cause panics in subsequent operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_916d6b26-d911-490f-bbf9-ce3a8483ac69?mode=deep",
+    "timestamp": "2026-01-09 18:31:51.042350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [String handling] Can an attacker inject UTF-8 encoding exploits into the Denom string on line 55-57 that pass validation but cause parsing errors in IBC packet marshalling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_224cd14c-2ecc-4db5-8ea1-d258e97c0906?mode=deep",
+    "timestamp": "2026-01-09 18:32:06.071267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Integer overflow] Does the uint32 type for DecimalDifference on line 59-61 prevent casting to int32 in downstream code, which could cause negative values after overflow and break decimal scaling? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8aa1609-b14b-40e4-a6e2-af4406d95acb?mode=deep",
+    "timestamp": "2026-01-09 18:32:21.824072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: NewMsgUpdateIbcSettings()] [Memory leak] Can repeated calls to the constructor on lines 11-23 with extremely long string values (2^32 bytes for port/channel/denom) cause memory exhaustion and validator DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_167d8541-aaa9-4e93-9fb5-b13a4bf4026d?mode=deep",
+    "timestamp": "2026-01-09 18:32:38.647862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Nil pointer] Does the function handle nil message pointers gracefully, or can passing nil to ValidateBasic on line 25 cause a panic that crashes validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7eb7e964-277c-4260-83e2-a44f2ce75675?mode=deep",
+    "timestamp": "2026-01-09 18:32:57.396462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Race condition] Does the validator framework guarantee that ValidateBasic executes atomically with msg_server execution, or can settings change between validation and application? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f2f9a19-09c1-4de8-987a-d38a6039c895?mode=deep",
+    "timestamp": "2026-01-09 18:33:17.426614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Race condition] Can an attacker submit MsgUpdateIbcSettings simultaneously with IBC packet processing, causing the packet to use partially updated settings (e.g., old channel with new decimal difference)? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_711a149d-b634-49d9-bc74-486ddb035099?mode=deep",
+    "timestamp": "2026-01-09 18:33:37.145853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Race condition] Does the validation logic on lines 27-61 read from KVStore state that could be modified by concurrent transactions, leading to TOCTOU (time-of-check-time-of-use) vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0105e11a-d139-40c7-a281-915556916c1c?mode=deep",
+    "timestamp": "2026-01-09 18:33:58.117140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Race condition] Can concurrent MsgUpdateIbcSettings messages from the operator create race conditions where validation checks pass for both but only one should succeed, causing conflicting IBC settings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a797c26-614d-4c5a-b037-462d555a7e3d?mode=deep",
+    "timestamp": "2026-01-09 18:34:20.204412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Error handling] If validation fails mid-way (e.g., at line 47-49), does the function properly clean up any state mutations, or can partial validation changes leak into the keeper state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89bd801e-304c-4744-8e5f-eb1bef3f1393?mode=deep",
+    "timestamp": "2026-01-09 18:34:42.587842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: NewMsgUpdateIbcSettings()] [State inconsistency] Can an attacker exploit the lack of atomicity in the constructor (lines 11-23) by modifying field values between construction and ValidateBasic execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e5cbce4-deed-4f59-ae0f-70f6437d1f88?mode=deep",
+    "timestamp": "2026-01-09 18:35:06.473453",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [State inconsistency] Does the validation prevent updating IBC settings while there are in-flight IBC packets, which could cause packets to be processed with mismatched channel/port/decimal settings? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21f44167-dc44-49f9-aba6-e59f5c5c14dc?mode=deep",
+    "timestamp": "2026-01-09 18:35:31.134106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [State inconsistency] Can an operator submit multiple MsgUpdateIbcSettings in the same block on lines 25-64, causing race conditions where the second message uses stale validation data from before the first message's state changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20b0ceff-10ad-4a03-84ed-451fa729aa72?mode=deep",
+    "timestamp": "2026-01-09 18:35:55.503489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Error handling] Does the validation logic handle validator errors consistently, or can certain error types be silently ignored allowing invalid IBC settings to be persisted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_933b87c9-2a3d-4dc2-aee2-bdeac997781c?mode=deep",
+    "timestamp": "2026-01-09 18:36:20.304402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Error handling] Can an attacker exploit the sequential validation checks (lines 27-61) by crafting a message where early validations pass but later ones fail after state mutations, causing partial updates in msg_server? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42b934ab-016e-4f69-88fa-de95d78f967f?mode=deep",
+    "timestamp": "2026-01-09 18:36:46.702798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Error handling] If ValidateClientId fails on line 31-33, does the error properly propagate to prevent the message from being included in a block, or can a malicious validator include it anyway causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a9746ed-1456-49ff-8f47-961d11a2c99a?mode=deep",
+    "timestamp": "2026-01-09 18:37:13.227739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Access control] Does SignerCheck validate the address length to prevent extremely long Bech32 addresses that could cause buffer overflows in downstream string processing operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03e72d67-710c-4351-9256-a34b15f1dcfa?mode=deep",
+    "timestamp": "2026-01-09 18:37:38.555350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Access control] Can an attacker craft a signer address that passes AccAddressFromBech32 validation on line 27-29 but contains embedded null bytes, allowing partial string matching to bypass operator authentication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c79fb55-06ea-41a8-a709-a51c54642b7c?mode=deep",
+    "timestamp": "2026-01-09 18:38:01.960182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Access control] Does the validation prevent address format manipulation where an attacker uses different Bech32 encodings of the operator address (all caps vs lowercase) to bypass the string equality check in msg_server_update_ibc_settings.go? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b0eda88d-043f-40a0-a400-04c19276f995?mode=deep",
+    "timestamp": "2026-01-09 18:38:25.747144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Access control] Can an attacker exploit the empty string check in SignerCheck (line 27-29) by using an address consisting only of whitespace characters that passes the empty check but fails operator comparison? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1507e430-5a03-482f-8420-61734da19ef3?mode=deep",
+    "timestamp": "2026-01-09 18:38:51.061910",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Access control] Does SignerCheck on line 27-29 verify the signer prefix matches constants.AddressPrefix ('zig'), or can an attacker submit messages from other chains (e.g., 'cosmos1...') that pass Bech32 validation but bypass operator checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_343c49eb-fbdf-4b16-896f-05560953c637?mode=deep",
+    "timestamp": "2026-01-09 18:39:15.555076",
+    "report_generated": false
   }
 ]
