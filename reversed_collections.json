@@ -7198,5 +7198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e08122fb-2689-418e-9369-2e7a7ec81df6?mode=deep",
     "timestamp": "2026-01-09 17:50:14.248229",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Decimal difference zero value] When GetDecimalDifference on line 66 returns 0 (either uninitialized or actually set to 0), does the exported genesis distinguish between 'not set' vs 'set to 0', and could this ambiguity cause incorrect decimal conversion behavior after import? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cdcf3704-282a-41a8-b9f9-e6a23f1f1c33?mode=deep",
+    "timestamp": "2026-01-09 17:51:42.919287",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Nil pointer handling] If any of the getter methods on lines 49-66 return nil or zero values for uninitialized state, does ExportGenesis handle these correctly, or could exported genesis contain empty/zero values that are interpreted differently when imported? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_146c9b25-0686-4729-90e6-93f925154a84?mode=deep",
+    "timestamp": "2026-01-09 17:51:54.879594",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [State export atomicity] Is ExportGenesis on lines 46-71 executed within a consistent snapshot of the blockchain state, or can concurrent block processing cause exported values like TotalTransferredIn on line 51 to be inconsistent with actual module wallet balances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25f47624-7d80-4e51-93b4-3348ebc62c40?mode=deep",
+    "timestamp": "2026-01-09 17:52:07.971383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Channel ID format] Does SetNativeChannel on line 36 validate that the channel follows the 'channel-{N}' format required by IBC, or can genesis specify arbitrary channel strings that break IBC packet routing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4e9751e-0111-49f1-9d90-e67f93e6e3a4?mode=deep",
+    "timestamp": "2026-01-09 17:52:21.840569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Proposed operator initialization] Can ProposedOperatorAddress on line 23 be set to a different address than OperatorAddress in genesis, and if so, does this create an immediate pending operator transfer that bypasses the normal proposal flow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99957add-d445-4f4d-8e5d-42004c41efec?mode=deep",
+    "timestamp": "2026-01-09 17:52:36.756929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Enabled default value] If Enabled is set to false on line 29 in genesis, but the keeper's IsEnabled method returns true by default when the key is not set, could there be a race condition on first access where the module appears enabled before genesis is fully applied? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fd809c2-1ab5-4aa2-9805-d4f6036552c4?mode=deep",
+    "timestamp": "2026-01-09 17:52:51.659026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [State store isolation] Do the SetX methods called on lines 13-42 write to isolated KVStore keys that don't conflict with other modules, or could there be key collisions if another module uses similar key prefixes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9915e7a-cec8-4c41-84ec-b41644c6710d?mode=deep",
+    "timestamp": "2026-01-09 17:53:07.926475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [IBC settings immutability] After IBC settings are initialized on lines 32-38, can they be changed by the operator through MsgUpdateIbcSettings, or are genesis IBC settings meant to be permanent, and if they're changeable, does that create a security risk? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab011272-c66c-40c6-9e26-1d15380b65c9?mode=deep",
+    "timestamp": "2026-01-09 17:53:25.718435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Pauser list immutability] After SetPauserAddresses on line 26 is called during genesis, can the pauser list be modified by non-governance transactions, or is the genesis-initialized pauser list meant to be immutable except through governance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16ecd1b0-1680-40ff-bf8b-01948ba6a351?mode=deep",
+    "timestamp": "2026-01-09 17:53:44.688603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Address encoding] Does SetOperatorAddress on line 22 store the address as a raw string, and could there be encoding inconsistencies where the same address in different formats (e.g., with/without chain prefix) would be considered different operators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d12bd916-1ef7-43bf-99a3-96900d492d3c?mode=deep",
+    "timestamp": "2026-01-09 17:54:04.323280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Negative transfer amounts] Although GenesisState.Validate() checks for negative amounts, if that validation is bypassed, would SetTotalTransferredIn/Out on lines 18-19 accept negative math.Int values, causing integer underflow when amounts are later added to these values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c368c2d4-8eef-492e-b272-e66b1e23578b?mode=deep",
+    "timestamp": "2026-01-09 17:54:24.947573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [SetDecimalDifference validation] Does SetDecimalDifference on line 40 use the same validation logic as ValidateDecimalDifference in the genesis validation, or could there be inconsistencies where a value passes genesis validation but fails keeper validation (or vice versa)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71c46efa-1f0e-474d-8097-2f93355650f2?mode=deep",
+    "timestamp": "2026-01-09 17:54:46.370729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [SetParams error handling] If SetParams on line 13 fails due to a marshaling error in the keeper, does the panic on line 14 preserve enough error context to debug the root cause, or would the panic message be generic making it impossible to diagnose the exact validation failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e23b529d-dc6c-4cb9-a149-22c0fb371a41?mode=deep",
+    "timestamp": "2026-01-09 17:55:08.407298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Denom format validation] Does SetDenom on line 38 validate that the denom string matches IBC denom format requirements (non-empty, valid identifier characters), or can invalid denom strings be set in genesis that cause IBC packet creation to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37d1cb8d-de3e-4a61-9766-bd8343ee1a45?mode=deep",
+    "timestamp": "2026-01-09 17:55:31.658061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Module account creation] Does InitGenesis verify that the tokenwrapper module account exists before setting state, or could genesis initialization complete successfully but fail at runtime when trying to lock/unlock tokens because the module account was never created? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32e1a59b-670b-4083-a974-4ba42dd459bc?mode=deep",
+    "timestamp": "2026-01-09 17:55:55.727244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Port/Channel consistency] Is there validation that the NativePort/NativeChannel pair on lines 34-36 and CounterpartyPort/CounterpartyChannel pair on lines 35-37 are consistent with the actual IBC connection topology, or can genesis create logical inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59155fcc-f2ac-4195-8d8e-5e749f3270dc?mode=deep",
+    "timestamp": "2026-01-09 17:56:20.985791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Client ID correlation] Does genesis validation ensure NativeClientId and CounterpartyClientId on lines 32-33 correspond to the same IBC connection, or can they be set to clients from completely different connections, breaking packet routing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_967a1dcb-27f5-4daa-b71e-9333c9d00167?mode=deep",
+    "timestamp": "2026-01-09 17:56:47.607980",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Channel matching] Is there validation that NativeChannel and CounterpartyChannel on lines 36-37 form a valid bidirectional IBC channel pair, or can genesis specify mismatched channels that don't connect to each other? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_549983b4-5849-478f-8a60-43ab139ed7ab?mode=deep",
+    "timestamp": "2026-01-09 17:57:15.216734",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Duplicate pausers] Can PauserAddresses on line 26 contain duplicate addresses in genesis, and would this cause issues with RemovePauserAddress functionality where removing one address removes all duplicates, or does SetPauserAddresses handle deduplication? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f5987e1-6061-4125-a1fc-175c010c24b9?mode=deep",
+    "timestamp": "2026-01-09 17:57:42.973675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Empty operator address] Can OperatorAddress on line 22 be set to an empty string in genesis, and would this cause all operator privilege checks to fail or pass incorrectly when comparing against empty string? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_155bc4cc-411c-4b3c-959d-574a44fb0d04?mode=deep",
+    "timestamp": "2026-01-09 17:58:10.507466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Transfer amount consistency] Is there any validation that TotalTransferredIn >= TotalTransferredOut on lines 18-19 during genesis, or can genesis specify a state where more tokens were transferred out than in, indicating a broken conservation invariant from block 0? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e98a38b9-c2c3-497e-b6ff-27a6baeae1a0?mode=deep",
+    "timestamp": "2026-01-09 17:58:36.985847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Params validation] Does SetParams on line 13 perform its own validation, or does it assume the Params struct passed to it is already validated, potentially allowing invalid params to be set if GenesisState.Validate() is not called by the caller? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aaaaa054-5450-4c48-a170-06b03c1c39a8?mode=deep",
+    "timestamp": "2026-01-09 17:59:03.409815",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Initialization order] Does the order of state initialization on lines 13-42 matter, and could changing the order (e.g., setting DecimalDifference before Denom) cause subtle bugs where keeper methods depend on previously set state values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b5486da4-f447-42eb-a067-d2b238a4f82e?mode=deep",
+    "timestamp": "2026-01-09 17:59:29.318385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Operator proposal loss] Does ExportGenesis on line 55 export the ProposedOperatorAddress, and if an operator transfer proposal was pending during export, would restarting the chain reset this proposal, allowing the operator change to be lost? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05b65693-7bc3-4d8b-aeaf-228c3af5e9ee?mode=deep",
+    "timestamp": "2026-01-09 17:59:55.408796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Empty state export] If the module was just initialized but never used, can ExportGenesis return empty strings for IBC settings on lines 59-65, and would importing this empty genesis cause InitGenesis to set invalid empty string values for client IDs, ports, and channels? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b7031bf-925b-4890-a588-93e2f1fa339f?mode=deep",
+    "timestamp": "2026-01-09 18:00:22.901776",
+    "report_generated": false
   }
 ]
