@@ -4798,5 +4798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_515743ce-7e09-43d7-b5cd-c6fbc7ce340e?mode=deep",
     "timestamp": "2026-01-09 13:51:03.924268",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: CreateUpgradeHandler] [Parameter validation] Can an attacker pass nil values for module.Manager, module.Configurator, or keepers.AppKeepers parameters when CreateUpgradeHandler is invoked in setupUpgradeHandlers(), causing panic in the upgrade handler implementation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6a5449e-a399-4b15-82d4-3eab69321e04?mode=deep",
+    "timestamp": "2026-01-09 13:52:16.342305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: CreateUpgradeHandler] [Return value validation] Does the code validate that CreateUpgradeHandler returns a non-nil upgradetypes.UpgradeHandler, or can an attacker craft an upgrade that returns nil, causing panic when the UpgradeKeeper attempts to execute the nil handler? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cc149c99-9eb3-4983-b930-9232aecb86fb?mode=deep",
+    "timestamp": "2026-01-09 13:52:28.840718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: CreateUpgradeHandler] [Closure capture] Can an attacker exploit variable capture in closures if CreateUpgradeHandler implementations capture mutable state, causing race conditions when multiple goroutines access the upgrade handler during concurrent proposal evaluation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06aca25a-f014-4a7c-ba89-ee3255ef0950?mode=deep",
+    "timestamp": "2026-01-09 13:52:42.114911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: CreateUpgradeHandler] [Panic recovery] If CreateUpgradeHandler panics during invocation in setupUpgradeHandlers(), does the panic propagate to crash the entire node, or is there recover() logic that could mask critical initialization failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b21b2b89-5181-4116-8f12-8c1b326d786d?mode=deep",
+    "timestamp": "2026-01-09 13:52:55.232607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: CreateUpgradeHandler] [Memory leak] Can an attacker cause memory leaks by creating upgrade handlers that capture large objects in closures but never release them, causing OOM when multiple upgrade proposals accumulate in memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8bb494c-92ba-4eca-baba-645d28048931?mode=deep",
+    "timestamp": "2026-01-09 13:53:09.452469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: CreateUpgradeHandler] [Type safety] Can an attacker exploit Go's type system by casting CreateUpgradeHandler to an incompatible function signature through unsafe operations, causing type confusion when the handler is invoked? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_611f092f-2d68-4f70-8c1a-417a0711ff92?mode=deep",
+    "timestamp": "2026-01-09 13:53:24.806808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Store deletion] Can an attacker include critical system stores (e.g., 'bank', 'staking', 'gov') in the StoreUpgrades.Deleted slice, causing those stores to be deleted during upgrade and leading to total chain state loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87f0cdfc-b98b-4625-af6f-0de30f77ec04?mode=deep",
+    "timestamp": "2026-01-09 13:53:41.075158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Store rename collision] Can an attacker create a StoreUpgrades.Renamed entry that maps an existing store to a name that already exists, causing store key collision in UpgradeStoreLoader() that overwrites critical state data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cc9539ac-8f58-44f7-8f6a-3fd56cb6852a?mode=deep",
+    "timestamp": "2026-01-09 13:53:58.901571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Duplicate additions] Can an attacker include the same store key multiple times in StoreUpgrades.Added, causing duplicate store initialization in UpgradeStoreLoader() that leads to undefined behavior or state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c7673ba-d94b-4a44-b1d5-af301f0c7125?mode=deep",
+    "timestamp": "2026-01-09 13:54:17.898977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Deleted store resurrection] Can an attacker add a store in StoreUpgrades.Added that was previously deleted in an earlier upgrade, causing the old deleted data to be resurrected and corrupting current state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e23f8721-3100-43e6-a5f5-76c28de5a45d?mode=deep",
+    "timestamp": "2026-01-09 13:54:39.332811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Rename without migration] Can an attacker use StoreUpgrades.Renamed to rename a store without providing data migration logic, causing all previous state in that store to become inaccessible under the new key? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c8a7367-f983-4890-bec3-ea21fd3158d0?mode=deep",
+    "timestamp": "2026-01-09 13:54:59.834643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Invalid store names] Can an attacker provide invalid store names in StoreUpgrades (e.g., names with special characters, empty strings, or reserved keywords) that cause UpgradeStoreLoader() to fail in unpredictable ways? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd83826c-19cc-4b3c-8c57-823ff35240d3?mode=deep",
+    "timestamp": "2026-01-09 13:55:21.494971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Store ordering] Does the order of operations in StoreUpgrades (Added, Deleted, Renamed) matter, and can an attacker exploit the ordering by deleting a store before renaming it, causing undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37a49da4-249f-4983-bf4f-382979cba95f?mode=deep",
+    "timestamp": "2026-01-09 13:55:44.198405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Store limit exhaustion] Can an attacker add an extremely large number of stores in StoreUpgrades.Added, exceeding the maximum number of allowed stores and causing resource exhaustion or performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_118b14db-7d20-4616-a3e4-3810a3ce99bb?mode=deep",
+    "timestamp": "2026-01-09 13:56:07.154099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: StoreUpgrades] [Cross-upgrade consistency] Can an attacker create inconsistent StoreUpgrades across multiple upgrade versions that conflict with each other, causing state corruption when upgrades are executed in sequence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bcff6661-59a7-47e8-8327-a641ac8fe1f2?mode=deep",
+    "timestamp": "2026-01-09 13:56:29.813438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Height validation] Can an attacker create a Fork with UpgradeHeight set to 0 or negative value, causing PreBlockForks() to execute the fork logic at genesis or never execute it, leading to protocol deviation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0565a36e-9e2e-474e-8696-ab91ba938df5?mode=deep",
+    "timestamp": "2026-01-09 13:56:53.456657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Height collision] Can an attacker create multiple Fork structs with identical UpgradeHeight values in the Forks slice, causing PreBlockForks() to execute only the first fork and ignore subsequent forks at the same height? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1e80d90-a28c-457e-9642-c7752863d63c?mode=deep",
+    "timestamp": "2026-01-09 13:57:20.120384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Height overflow] Can an attacker set UpgradeHeight to math.MaxInt64, causing integer overflow in height comparison logic within PreBlockForks(), leading to fork execution at unexpected heights? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbb1d59e-11f7-44b0-9e10-e8a0c7c4237d?mode=deep",
+    "timestamp": "2026-01-09 13:57:44.699592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Past height] Can an attacker propose a Fork with UpgradeHeight in the past (less than current block height), and does PreBlockForks() handle this case, or will it skip the fork entirely, causing protocol inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6efcf788-65f4-4769-9417-b5d432bd6f4b?mode=deep",
+    "timestamp": "2026-01-09 13:58:09.613630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Future height] Can an attacker set UpgradeHeight far in the future (e.g., billions of blocks away), causing the Fork to remain in the Forks slice indefinitely and consuming memory without ever executing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c4ec184-a54f-412f-8939-8d2218e6224e?mode=deep",
+    "timestamp": "2026-01-09 13:58:35.423392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Name validation] Can an attacker create a Fork with an empty or invalid UpgradeName that passes validation but causes confusion in monitoring/logging systems, making it difficult to track fork execution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed7896bd-f47e-43e6-b9ec-e229fc005c00?mode=deep",
+    "timestamp": "2026-01-09 13:59:01.867415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Name collision with Upgrade] Can an attacker create a Fork with UpgradeName identical to an existing Upgrade name, causing confusion between software upgrades and hard forks, potentially leading to wrong upgrade execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ae7d481-848f-4b88-84d9-64d6858836a4?mode=deep",
+    "timestamp": "2026-01-09 13:59:27.455230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork] [Nil function pointer] Can an attacker create a Fork with nil PreBlockForkLogic function pointer, causing panic when PreBlockForks() attempts to invoke fork.PreBlockForkLogic() at the specified height? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f211a2bd-d453-4dda-9f21-e1d7772dca7c?mode=deep",
+    "timestamp": "2026-01-09 13:59:54.057595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork, Field: PreBlockForkLogic] [Context manipulation] Can an attacker exploit PreBlockForkLogic by passing a manipulated sdk.Context with incorrect block height, chain ID, or timestamp, causing the fork logic to execute in the wrong chain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49bd8a93-916f-42c0-a9bb-3b828877d8cc?mode=deep",
+    "timestamp": "2026-01-09 14:00:21.748056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Fork, Field: PreBlockForkLogic] [Keeper mutation] Can an attacker's fork logic in PreBlockForkLogic mutate critical keepers.AppKeepers state in unexpected ways that violate protocol invariants, causing consensus failure across validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0610d7fa-f992-4b5a-8b0d-269fb6a6d6d5?mode=deep",
+    "timestamp": "2026-01-09 14:00:45.849452",
+    "report_generated": false
   }
 ]
