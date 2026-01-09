@@ -2848,5 +2848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea22389d-6a27-4324-a3e4-0349df256b90?mode=deep",
     "timestamp": "2026-01-09 10:50:05.937710",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformMintAndSendTokens()] [Minting cap bypass] At line 260-264, the MintAndSendTokens message is created but does the underlying keeper properly enforce minting caps, or can a contract exploit race conditions to mint beyond the cap by submitting multiple transactions in the same block? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46599710-1472-4930-9c23-4080b1404af8?mode=deep",
+    "timestamp": "2026-01-09 12:34:49.682550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSetDenomMetadata()] [Base denom mismatch] Can a contract call SetDenomMetadata with metadata.Base pointing to a different denom than intended, causing metadata to be associated with the wrong token? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f27d7a2-cf9f-45e4-871b-ba46d9a2f498?mode=deep",
+    "timestamp": "2026-01-09 12:35:02.055540",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: setDenomMetadata()] [Nil pointer] At line 210, the nil check returns wasmvmtypes.InvalidRequest - can this error type be exploited differently than standard errors to bypass upstream error handling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b4db66d-3753-4394-ad9b-44399cb05e60?mode=deep",
+    "timestamp": "2026-01-09 12:35:14.892456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSetDenomMetadata()] [DenomUnits manipulation] Can a contract provide malformed DenomUnits arrays with duplicate aliases, negative exponents, or missing base units that break token conversion logic in wallets and exchanges? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aeb003e6-ec56-4666-9139-6a4b68de2add?mode=deep",
+    "timestamp": "2026-01-09 12:35:27.951474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSetDenomMetadata()] [Display name spoofing] Can a contract set metadata.Display to impersonate established tokens (e.g., setting display='USDC' for a fake token) to facilitate scams and phishing attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9c68aec-d9bc-46fc-9bb7-afdb30be59ca?mode=deep",
+    "timestamp": "2026-01-09 12:35:41.497999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSetDenomMetadata()] [Authorization bypass] At line 216, contractAddr is used as the sender - does the underlying SetDenomMetadata properly check that the contract is actually the denom admin, or can any contract modify arbitrary denom metadata? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef476baf-d91c-4578-bddc-bdc366f8ad8b?mode=deep",
+    "timestamp": "2026-01-09 12:35:56.000036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSetDenomMetadata()] [Decimal mismatch] Can a contract set metadata with incorrect decimal values that don't match the actual token precision, causing calculation errors in DEX swaps or IBC transfers that lead to fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0384bff1-9f73-43ad-9165-1051f05e9f87?mode=deep",
+    "timestamp": "2026-01-09 12:36:11.645424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSetDenomMetadata()] [Metadata manipulation] At line 218, the entire Metadata object is passed from the contract without field-level validation - can a malicious contract set misleading metadata (e.g., fake symbol, wrong decimals) to trick users into accepting worthless tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9006ea5e-fb83-4a39-9098-26f553a682f4?mode=deep",
+    "timestamp": "2026-01-09 12:36:28.475299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [Denom name injection] Can a contract create denoms with names containing path separators, null bytes, or control characters that break denom parsing logic in other parts of the system (e.g., IBC transfers, DEX pools)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42a0c515-fb0d-4edf-85c6-82215866eecf?mode=deep",
+    "timestamp": "2026-01-09 12:36:46.418908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: createDenom()] [Error wrapping] At line 146, errors are wrapped but original error details may be exposed - can an attacker exploit verbose error messages to extract sensitive information about keeper state or validation logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bdb4120f-5d21-40c6-94f7-36cbe055a5ff?mode=deep",
+    "timestamp": "2026-01-09 12:37:05.248925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [Contract address as creator] At line 167, contractAddr.String() is used as the creator - can this be exploited if contract addresses can be deterministically generated to claim desirable denom names before contracts are deployed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b36a9e5-6f6f-4f77-be95-55206cfee3f7?mode=deep",
+    "timestamp": "2026-01-09 12:37:24.602564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [MsgServer creation] At line 165, a new MsgServerImpl is created each time - can repeated calls cause memory leaks or goroutine leaks if the server maintains internal state or connections? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b3b2dbd-16ff-4e6f-a65a-346564cdbaae?mode=deep",
+    "timestamp": "2026-01-09 12:37:44.947176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [ValidateBasic bypass] At line 176, msgCreateDenom.ValidateBasic() is called - can an attacker craft inputs that pass ValidateBasic but fail deeper validation in CreateDenom, causing state inconsistencies or locked tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4265784-ddf1-4296-81f8-d4e733aaf5b2?mode=deep",
+    "timestamp": "2026-01-09 12:38:06.662247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [Nil check bypass] At line 160, the function checks if createDenom is nil but returns a generic error - can an attacker exploit error handling differences to determine internal state or trigger different code paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da69b95d-4554-4b2d-a4e0-dd5cb9dc26da?mode=deep",
+    "timestamp": "2026-01-09 12:38:29.299424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [URI validation] At lines 172-173, the URI and URIHash fields are not validated before passing to msgCreateDenom - can an attacker inject malicious URLs or XSS payloads that execute when metadata is displayed in wallets/explorers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0c0db8c-0816-4aea-ad78-7fd690d01db6?mode=deep",
+    "timestamp": "2026-01-09 12:38:52.424000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [CanChangeMintingCap flag] At line 171, if CanChangeMintingCap is set to true, can a malicious contract creator later increase the minting cap to arbitrary values and mint unlimited tokens, violating tokenomics guarantees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b4ba5ce-ced4-4fdf-9d44-8beb98998ef1?mode=deep",
+    "timestamp": "2026-01-09 12:39:16.340809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [Minting cap overflow] At line 170, the MintingCap field uses cosmosmath.Uint - can an attacker set this to math.MaxUint to effectively create unlimited minting rights, then exploit integer overflow bugs in the minting logic to bypass cap enforcement? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_628701c8-5ac4-4667-9a94-c91fbac72d99?mode=deep",
+    "timestamp": "2026-01-09 12:39:41.575681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformCreateDenom()] [Denom creation] Can a malicious contract create denoms with names that collide with existing native tokens or IBC denoms (e.g., using special characters, zero-width spaces, or Unicode tricks) to confuse users and steal funds through phishing attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50664ceb-148c-4c3e-a2ac-6c10e6197aa1?mode=deep",
+    "timestamp": "2026-01-09 12:40:07.291321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Contract IBC port ID] The contractIBCPortID parameter at line 64 is passed but not validated or used in custom message handling - can an attacker exploit this to bypass IBC-related security checks or spoof IBC packet sources? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d3fe9d1-3bbc-4a5c-930b-6fe0929580af?mode=deep",
+    "timestamp": "2026-01-09 12:40:32.821775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Return values] The function returns events, data, msgResponses, and error - can an attacker exploit improper handling of these return values to cause state inconsistencies if events are emitted but the transaction later fails? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f9a454a-3ae8-4857-bd62-67e20069c174?mode=deep",
+    "timestamp": "2026-01-09 12:40:58.752158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Wrapped messenger delegation] At line 134, when msg.Custom is nil, the function delegates to m.wrapped.DispatchMsg - can an attacker exploit timing issues or race conditions between custom and wrapped message processing to bypass security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b6176ea-35a9-418d-b1ff-67b426e16db0?mode=deep",
+    "timestamp": "2026-01-09 12:41:25.407441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Default case handling] In the switch statement at line 86-130, if all contractMsg fields are nil, the function returns an 'unsupported custom message' error - can an attacker exploit this to cause DoS by flooding the chain with empty custom messages that consume gas without proper rate limiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5bd41f3-7169-446a-849b-e7c695109197?mode=deep",
+    "timestamp": "2026-01-09 12:41:51.049319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Reentrancy] Can a malicious contract trigger reentrancy attacks by calling back into the DispatchMsg function during message execution (e.g., during token minting callbacks), potentially causing double-spending or state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0314aaf6-8dc5-4b48-8731-b8cfc22c9155?mode=deep",
+    "timestamp": "2026-01-09 12:42:16.771367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [Access control] Does the DispatchMsg function properly validate that the contractAddr parameter is actually a valid CosmWasm contract address before executing privileged operations, or can an attacker spoof this address to impersonate contracts and execute unauthorized operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f42212df-bca0-40ac-a6ae-60612665721f?mode=deep",
+    "timestamp": "2026-01-09 12:42:42.307906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: DispatchMsg()] [JSON unmarshaling] Can an attacker exploit the json.Unmarshal operation at line 81 to inject malformed JSON that causes panic/DoS when parsing large numbers, nested structures, or special characters in the contractMsg, potentially crashing validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5de59cf5-8f02-4edd-a37d-66da6f1df356?mode=deep",
+    "timestamp": "2026-01-09 12:43:06.840159",
+    "report_generated": false
   }
 ]
