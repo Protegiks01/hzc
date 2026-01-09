@@ -7048,5 +7048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e96c34af-2822-4aed-b4a2-a8af890a2dba?mode=deep",
     "timestamp": "2026-01-09 17:40:33.942085",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Empty pauser list] If PauserAddresses is an empty list on line 26, does this mean nobody can pause the module (only operator via governance), or does it allow anyone to pause, and is this behavior documented and intended? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c164e08-2c0d-4549-8b24-23943ca46037?mode=deep",
+    "timestamp": "2026-01-09 17:41:49.414266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Maximum decimal difference] If DecimalDifference is set to the maximum value of 18 on line 40, does this cause overflow when calculating 10^18 in GetDecimalConversionFactor, or when multiplying token amounts by this factor in ScaleUpTokenPrecision? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cab3d8d6-e5c5-441f-80b8-29dc55e7ba20?mode=deep",
+    "timestamp": "2026-01-09 17:42:01.950195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Zero decimal difference] If DecimalDifference is set to 0 on line 40 (which is technically valid per validation), does this cause GetDecimalConversionFactor to return 10^0=1, disabling all decimal conversion and causing tokens to be swapped 1:1 instead of with proper scaling? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b08f2840-937f-4953-85a8-404560d2e00c?mode=deep",
+    "timestamp": "2026-01-09 17:42:14.967072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Store snapshot consistency] Does ExportGenesis read all values from a consistent KVStore snapshot, or could individual GetX calls on lines 49-66 read from different block heights if store writes are happening concurrently, resulting in an internally inconsistent exported genesis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02f41023-0c01-497d-a0e4-4f5dc3d6fcb0?mode=deep",
+    "timestamp": "2026-01-09 17:42:28.830118",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Concurrent block processing] If ExportGenesis on lines 46-71 is called while the chain is still processing blocks, can concurrent AddToTotalTransferredIn/Out calls cause GetTotalTransferredIn/Out on lines 51-52 to return values that don't match each other or the module balance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3be575a-173d-4b4f-b76b-945032e701d5?mode=deep",
+    "timestamp": "2026-01-09 17:42:42.948457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [IBC stack initialization] Does InitGenesis assume the IBC module and routing stack are already initialized when setting IBC parameters on lines 32-37, or could there be a race where tokenwrapper genesis runs before IBC genesis, causing SetNativeChannel to reference non-existent channels? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_682e15b0-00a8-4038-9578-688ee2d16499?mode=deep",
+    "timestamp": "2026-01-09 17:42:57.734537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Module registration timing] Does InitGenesis on lines 11-43 assume the tokenwrapper module is already registered with the module manager, or could there be a race condition where genesis initialization happens before module registration completes, causing keeper methods to access uninitialized state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d465c48c-e38e-4924-b0b2-8628fc11cfb5?mode=deep",
+    "timestamp": "2026-01-09 17:43:13.490719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Concurrent genesis loading] If multiple validators initialize from the same genesis file concurrently, could race conditions in the keeper's SetX methods on lines 13-42 cause different validators to end up with different initial states, leading to consensus failures from block 0? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9d2d8b0-40a6-428c-8d1e-ddf4c8a575fe?mode=deep",
+    "timestamp": "2026-01-09 17:43:30.677209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Empty string handling] If any of the IBC settings (ClientIds, Ports, Channels, Denom) on lines 32-38 are empty strings in genesis, would this cause nil pointer dereferences or empty string comparison bugs in the keeper methods that use these values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0f7b7c6-7d7c-4956-ac94-59270dfacc84?mode=deep",
+    "timestamp": "2026-01-09 17:43:48.780521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Boolean encoding] Does SetEnabled on line 29 correctly interpret boolean values from genesis, or could there be issues with different boolean representations (true/false vs 1/0 vs",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_70957cce-8272-42c7-9b3a-396037a7981f?mode=deep",
+    "timestamp": "2026-01-09 17:44:07.902993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Decimal difference type conversion] Does SetDecimalDifference on line 40 correctly handle the conversion from genState.DecimalDifference (uint32) to the internal storage format, or could there be truncation or signedness issues if the keeper stores it differently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8a7c11f-c938-4836-9e70-5c5cb3298680?mode=deep",
+    "timestamp": "2026-01-09 17:44:28.569738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [String encoding issues] Do SetOperatorAddress, SetPauserAddresses, and IBC setting methods on lines 22-37 validate UTF-8 encoding of address strings, or can genesis contain malformed UTF-8 that causes string comparison bugs or display issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c24fbb42-aee7-41d6-b457-32669e455645?mode=deep",
+    "timestamp": "2026-01-09 17:44:49.831312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Integer overflow in totals] Can TotalTransferredIn or TotalTransferredOut on lines 18-19 be set to values near math.MaxInt256, such that when new transfers are added via AddToTotalTransferredIn/Out, the addition overflows and wraps around to negative values, corrupting the accounting system? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a2ff3da-5998-4820-a86c-905bdb3715ef?mode=deep",
+    "timestamp": "2026-01-09 17:45:11.151383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Consensus parameter manipulation] Can genesis set Enabled=true on line 29 with invalid IBC settings (empty channels/ports) on lines 34-37, causing the module to appear enabled but actually be non-functional, leading to user funds being locked in a broken bridge? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b430c5b-d598-465d-bd26-e0544b6c6494?mode=deep",
+    "timestamp": "2026-01-09 17:45:34.308508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Module account preallocation] If genesis allocates a large balance to the tokenwrapper module account but sets TotalTransferredOut=0 on line 19, does this create a vulnerability where attackers can unwrap tokens without having wrapped them first, draining the pre-allocated module balance? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d41ae3e7-7cb8-43c5-a08e-e6b937420851?mode=deep",
+    "timestamp": "2026-01-09 17:45:58.226973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [IBC counterparty spoofing] Can an attacker set CounterpartyClientId and CounterpartyChannel on lines 33-37 to point to a fake blockchain they control, where they can mint unlimited IBC vouchers and transfer them to the real chain, effectively duplicating tokens through genesis manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_709b2157-1423-4d3b-b6d5-2fac1ec09459?mode=deep",
+    "timestamp": "2026-01-09 17:46:22.639928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Supply chain attack] Can a malicious chain coordinator distribute a genesis file with their own address as OperatorAddress on line 22, giving them full control over the bridge from block 0, including the ability to update IBC settings to redirect funds to attacker-controlled chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf960653-ca30-419e-8da2-9210177cc74a?mode=deep",
+    "timestamp": "2026-01-09 17:46:47.708588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: InitGenesis()] [Genesis file tampering] If an attacker gains access to the genesis.json file before chain initialization and modifies TotalTransferredOut to be less than the actual module wallet balance, can they create 'phantom reserves' that allow unlimited token wrapping beyond what was actually transferred in, leading to token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19b85862-ba39-4228-a135-ca8d19fbf1a9?mode=deep",
+    "timestamp": "2026-01-09 17:47:12.199932",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Operator proposal state] If an operator transfer is in progress (OperatorAddress != ProposedOperatorAddress), does the exported genesis on lines 54-55 preserve this pending state, and after import, will the proposal still be valid or will it need to be re-submitted? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1dd990a0-0d5f-4828-9181-4411ca66cffe?mode=deep",
+    "timestamp": "2026-01-09 17:47:37.495893",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Denom trace preservation] If the Denom on line 65 is an IBC denom with a trace path, is the full trace preserved during export, or could the denom be shortened/truncated causing the imported chain to lose IBC denom origin information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85cf8ff2-30fb-46cb-93fc-270960c46b5b?mode=deep",
+    "timestamp": "2026-01-09 17:48:02.381599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Client ID persistence] If IBC client IDs on lines 59-60 are dynamic and change during chain upgrades, does ExportGenesis capture the current client IDs correctly, or could exported genesis reference outdated client IDs that don't exist after import? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd15aacb-eb49-4d1c-9b17-f4f52cfe2bb6?mode=deep",
+    "timestamp": "2026-01-09 17:48:28.602633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Module balance export] Does ExportGenesis include any information about the module wallet balance, or is it assumed that the bank module's genesis handles this, and could there be inconsistencies where transfer amounts don't match balances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1b4ed60-3281-471b-81a7-559f9f69d24a?mode=deep",
+    "timestamp": "2026-01-09 17:48:55.347802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [IBC state completeness] Are there any IBC-related state fields (like packet commitments, acknowledgments, receipts) that should be exported but are not included in ExportGenesis on lines 46-71, potentially causing IBC functionality to break after chain restart? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0a18413-7d80-43a0-a96e-b265cce4dcde?mode=deep",
+    "timestamp": "2026-01-09 17:49:21.602641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Address list export] Does GetPauserAddresses on line 56 return a copy or reference to the internal state, and if it's a reference, could modifications to the returned slice affect the exported genesis state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3a5a0fe-8a7d-4f9f-af18-d9dc69c61a55?mode=deep",
+    "timestamp": "2026-01-09 17:49:48.474920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/genesis.go] [Function: ExportGenesis()] [Params marshaling] If Params contain any pointer fields or complex nested structures, could GetParams on line 49 return values that don't marshal/unmarshal correctly through JSON, causing data loss during export/import cycles? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e08122fb-2689-418e-9369-2e7a7ec81df6?mode=deep",
+    "timestamp": "2026-01-09 17:50:14.248229",
+    "report_generated": false
   }
 ]
