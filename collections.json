@@ -7798,5 +7798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cdcd042c-205e-4a33-a6a1-3e2adce26a9c?mode=deep",
     "timestamp": "2026-01-09 20:28:09.191356",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: GetPoolsMeta()] [Memory exhaustion] Can an attacker store an extremely large serialized PoolsMeta protobuf that causes MustUnmarshal() to allocate excessive memory when GetPoolsMeta() is called, enabling DoS through memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e93cb75-6b19-4bc2-b3ef-e60ba9e44596?mode=deep",
+    "timestamp": "2026-01-09 20:29:23.534811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: GetPoolsMeta()] [Deterministic reads] Does GetPoolsMeta() guarantee that all validators read identical pool metadata at the same block height, or can non-deterministic store behaviors cause consensus failures in pool creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31fa23f1-900e-4cb9-a6bd-d1d9fd32b01a?mode=deep",
+    "timestamp": "2026-01-09 20:29:36.013119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [Access control] Does RemovePoolsMeta() implement any authorization checks, or can any module or governance proposal call this function to delete the pool counter, causing all future pool creations to restart from ID 1 and overwrite existing pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06fcfad9-918f-43f6-bbba-772d5c6f363f?mode=deep",
+    "timestamp": "2026-01-09 20:29:48.939049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [State recovery] If RemovePoolsMeta() is called accidentally or maliciously, is there any mechanism to recover the deleted pool metadata, or is the NextPoolId counter permanently lost, requiring chain halt and manual intervention? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_237b193b-29d3-4b3d-8317-fc70f33c8db1?mode=deep",
+    "timestamp": "2026-01-09 20:30:01.969358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [Atomicity] Can RemovePoolsMeta() be called in the middle of a pool creation transaction, causing a race where the pool counter is deleted after GetPoolsMeta() but before SetPoolsMeta(), leading to pool ID corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2408844d-6098-4c1e-a81a-8143a02d5240?mode=deep",
+    "timestamp": "2026-01-09 20:30:16.402799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [Genesis state] If RemovePoolsMeta() is called and then the chain is restarted, does the genesis export/import process properly reinitialize the pool metadata, or can this result in permanent loss of the NextPoolId counter? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03da964a-27f7-4faf-b055-80aa7ae61142?mode=deep",
+    "timestamp": "2026-01-09 20:30:31.165343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [Denial of service] Can an attacker with governance or admin access repeatedly call RemovePoolsMeta() to force all pool creation operations to fail or restart the counter, enabling persistent DoS on the DEX module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0817efbe-0144-4051-95ea-52743be58b59?mode=deep",
+    "timestamp": "2026-01-09 20:30:47.379925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [Store deletion side effects] Does store.Delete() at line 38 properly clean up all related metadata, or can orphaned data remain in the store that causes issues when pool metadata is re-initialized? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87dbcd8f-9957-4e10-939d-26745914dfd6?mode=deep",
+    "timestamp": "2026-01-09 20:31:04.484347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [Context handling] If RemovePoolsMeta() is called with a cancelled or expired context, can the deletion partially complete, leaving the store in an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26653d6d-ddaf-4a57-b430-91148896c9a4?mode=deep",
+    "timestamp": "2026-01-09 20:31:22.956123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [Event emission] Does RemovePoolsMeta() emit any events to notify clients that pool metadata was deleted, or can this operation occur silently, preventing detection of malicious or accidental deletions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55f71a2e-494b-4b58-91e5-023f28763388?mode=deep",
+    "timestamp": "2026-01-09 20:31:42.384503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Function: RemovePoolsMeta()] [Prefix store isolation] Can RemovePoolsMeta() accidentally delete data from other namespaces if the prefix.NewStore() at line 37 is misconfigured or exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_458f3c6f-dddc-4635-a2ff-d5473cd5c241?mode=deep",
+    "timestamp": "2026-01-09 20:32:02.365942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Cross-function] Can an attacker exploit timing between GetPoolsMeta() and SetPoolsMeta() calls to create a TOCTOU vulnerability where multiple transactions read the same NextPoolId value before any of them increment it, causing pool ID collisions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb655093-e5ef-4a5a-a460-0f5f622756cb?mode=deep",
+    "timestamp": "2026-01-09 20:32:23.510403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Cross-function] If RemovePoolsMeta() is called after GetPoolsMeta() but before SetPoolsMeta() in a pool creation flow, can this cause the SetPoolsMeta() to recreate metadata with NextPoolId starting from the just-deleted value, enabling pool overwrites? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_184197ba-5acd-41f2-925b-d004de3ea57b?mode=deep",
+    "timestamp": "2026-01-09 20:32:45.151333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Cross-function] Can the sequence GetPoolsMeta() -> RemovePoolsMeta() -> GetPoolsMeta() within the same block produce non-deterministic results across validators, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e8b3272-a38e-484c-b92f-a127d9bd0e07?mode=deep",
+    "timestamp": "2026-01-09 20:33:07.911023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Genesis initialization] During genesis import via InitGenesis(), if SetPoolsMeta() is called with a PoolsMeta containing NextPoolId=0, can this overwrite the default initialization and cause all pools to collide at ID 0? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62100f08-6de3-40bd-9e2b-d57e0b9947a3?mode=deep",
+    "timestamp": "2026-01-09 20:33:31.571943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Genesis export] Can the ExportGenesis() function's handling of the 'found' boolean from GetPoolsMeta() cause pool metadata to be omitted from genesis exports if metadata was deleted, preventing proper chain restarts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bdfc7537-15d8-40dc-85e4-ee788b05d8b2?mode=deep",
+    "timestamp": "2026-01-09 20:33:56.134565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Module upgrade] During a module upgrade that modifies the PoolsMeta structure, can the existing stored data become incompatible with new code, causing MustUnmarshal() panics in GetPoolsMeta() that halt the chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cfc8c9c-a507-4b41-8890-2c6928044c00?mode=deep",
+    "timestamp": "2026-01-09 20:34:21.828729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Transaction ordering] Can block proposers manipulate transaction ordering to sequence SetPoolsMeta() calls in ways that benefit them, such as reserving specific pool IDs for their own pools by predicting NextPoolId values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e89e709c-9f28-404a-98e4-17ed996517f2?mode=deep",
+    "timestamp": "2026-01-09 20:34:48.012877",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Multi-pool creation] If multiple pool creation transactions are included in the same block, does the sequential execution guarantee that each gets a unique NextPoolId, or can parallel execution in some Cosmos SDK versions cause races? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0536b79d-f0ed-42b8-aa6a-74d5a686b34a?mode=deep",
+    "timestamp": "2026-01-09 20:35:13.572772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [State machine determinism] Can differences in the order of SetPoolsMeta() and GetPoolsMeta() calls across validators lead to divergent NextPoolId values and consensus failures during pool creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb9a5808-2996-4a96-aa89-0d3c09cb9f0a?mode=deep",
+    "timestamp": "2026-01-09 20:35:40.272822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Store corruption] If the underlying KVStore is corrupted at the OS or database level, can GetPoolsMeta() return invalid data that passes protobuf deserialization but contains exploitable NextPoolId values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcc64b19-e7b1-4083-ba4a-d49d58aa93c9?mode=deep",
+    "timestamp": "2026-01-09 20:36:07.239068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Store key collision] Can the []byte{0} key used in all three functions collide with keys from other modules if the PoolsMetaKey prefix is improperly configured in types package? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9371a1c1-10c0-44ef-8976-eb1fa2a8d91e?mode=deep",
+    "timestamp": "2026-01-09 20:36:34.640688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Store adapter security] Can vulnerabilities in runtime.KVStoreAdapter() or the underlying storeService.OpenKVStore() be exploited to bypass SetPoolsMeta() validation or corrupt GetPoolsMeta() returns? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35225f10-58e5-44ae-9628-bf6621fa8e27?mode=deep",
+    "timestamp": "2026-01-09 20:36:59.775885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Prefix store bypass] Can an attacker with direct store access bypass the prefix.NewStore() wrapper and write malicious data directly to the PoolsMetaKey, corrupting the NextPoolId counter? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_266a1e93-d17c-4b94-a945-1aa580ee63c2?mode=deep",
+    "timestamp": "2026-01-09 20:37:24.361717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pools_meta.go] [Store snapshot consistency] During state sync or snapshot operations, can the pool metadata be inconsistent with actual pool data, causing NextPoolId to be lower than the highest existing pool ID? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b98f177c-f058-4854-ba6c-61fc532d68a5?mode=deep",
+    "timestamp": "2026-01-09 20:37:49.185331",
+    "report_generated": false
   }
 ]
