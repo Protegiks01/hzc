@@ -5998,5 +5998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34e1f6ef-5bb5-40c5-b668-1c1cd4e96bbf?mode=deep",
     "timestamp": "2026-01-09 17:51:35.023705",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Config] [Store Naming] Can an attacker exploit potential typos or variations in the 'crisis' store name at line 20 (e.g., 'Crisis', 'crisis ', ' crisis') to bypass the deletion, leaving the old store intact while the system expects it to be gone? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02a19585-76b8-4dab-a6e6-4e245b1df7af?mode=deep",
+    "timestamp": "2026-01-09 17:52:49.243904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Store Config] [Injection Attack] Can the string 'crisis' at line 20 be exploited through string injection if the store deletion mechanism doesn't properly sanitize input, potentially allowing deletion of other stores through SQL-injection-like attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c90fdeb-5ddf-45b8-8690-52ff3f483b4e?mode=deep",
+    "timestamp": "2026-01-09 17:53:01.577351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Handler Integration] [Function Mismatch] Can the CreateUpgradeHandler reference at line 16 point to a function with an incompatible signature compared to what the upgrade framework expects, causing runtime type errors during upgrade execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27125513-3d8c-4b0a-a26a-7619a1b3f097?mode=deep",
+    "timestamp": "2026-01-09 17:53:14.422584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Handler Integration] [Migration Ordering] Does the CreateUpgradeHandler function referenced at line 16 execute the 'crisis' store deletion at the correct point in the migration sequence, or can incorrect ordering cause modules to fail when trying to access the deleted store? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aca18e79-2c7a-4ff6-9c5b-66f851911b1a?mode=deep",
+    "timestamp": "2026-01-09 17:53:27.702967",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Handler Integration] [Error Propagation] If the CreateUpgradeHandler function referenced at line 16 encounters an error during migration, does it properly handle the error and prevent the 'crisis' store deletion, or can partial execution leave the chain in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2ec3e50-50ff-473c-8688-0cfe5aab41a0?mode=deep",
+    "timestamp": "2026-01-09 17:53:41.454888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Handler Integration] [Context Handling] Does the CreateUpgradeHandler referenced at line 16 properly receive and validate the upgrade context, or can an attacker manipulate context parameters to cause the upgrade to execute with incorrect permissions or state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_058c0780-9236-4118-b2c9-0776623e9607?mode=deep",
+    "timestamp": "2026-01-09 17:53:56.105100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Package] [Import Injection] Can an attacker exploit the storetypes import at line 4 by providing a malicious version of the cosmossdk.io/store/types package that modifies StoreUpgrades behavior to delete additional stores beyond 'crisis'? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8e10393-347e-4765-abd3-b661af3b9d5a?mode=deep",
+    "timestamp": "2026-01-09 17:54:12.064838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Package] [Package Name] Can the package name 'v2' at line 1 conflict with other packages in the codebase, causing import confusion where the wrong upgrade configuration gets executed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1b4c58d-2088-4234-bf54-c88ac9e3f720?mode=deep",
+    "timestamp": "2026-01-09 17:54:29.789738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Package] [Nolint Directive] Does the revive nolint directive at line 1 suppress important security warnings about the upgrade configuration that should have been addressed before deployment? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4674bec7-2bd1-4437-ac80-9d5fa84aa8af?mode=deep",
+    "timestamp": "2026-01-09 17:54:47.808594",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Package] [Import Path] Can the 'zigchain/app/upgrades' import at line 6 be exploited through path traversal or import hijacking to load a malicious upgrades package that alters upgrade behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0048835d-1c80-4778-aad4-97588b7985fe?mode=deep",
+    "timestamp": "2026-01-09 17:55:07.448141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Timing] [Upgrade Execution] Can an attacker exploit race conditions in the upgrade execution by submitting IBC transfers, TokenWrapper operations, or DEX swaps during the exact moment the 'crisis' store is being deleted at line 20, causing state corruption or transaction failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95a23381-040a-448c-a03c-b880614437c8?mode=deep",
+    "timestamp": "2026-01-09 17:55:27.243478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Timing] [Block Height] Does the upgrade framework properly validate the block height at which the v2 upgrade should execute, or can an attacker manipulate governance proposals to trigger the upgrade at an unexpected height, catching validators off-guard? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23b4d7a8-2b7c-46ac-a84c-ba7df02d7416?mode=deep",
+    "timestamp": "2026-01-09 17:55:47.092017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Timing] [Concurrent Upgrades] Can multiple upgrade proposals referencing this v2 configuration at lines 14-22 be executed concurrently, causing race conditions in the store deletion process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d764e6b-4722-4568-8bd3-6ea831fdda30?mode=deep",
+    "timestamp": "2026-01-09 17:56:07.762127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Timing] [Validator Synchronization] If validators execute the v2 upgrade at line 14 at slightly different times due to clock skew, can this cause consensus failures where some validators have deleted the 'crisis' store while others haven't? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b1f0084-e43e-4bda-9abd-ebff17359af5?mode=deep",
+    "timestamp": "2026-01-09 17:56:30.065038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [State Transition] [Atomic Execution] Does the StoreUpgrades configuration at lines 17-21 guarantee atomic execution of the store deletion, or can a system crash mid-deletion leave the chain with a partially deleted 'crisis' store? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d480ea8e-120e-4fde-bdd2-a25fe753a95c?mode=deep",
+    "timestamp": "2026-01-09 17:56:52.866555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [State Transition] [Pre-Upgrade Validation] Before executing the store deletion defined at line 20, does the system validate that the 'crisis' store exists and is safe to delete, or can attempting to delete a non-existent store cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_031f1381-8764-4b27-929b-01ba57439477?mode=deep",
+    "timestamp": "2026-01-09 17:57:16.276045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [State Transition] [Post-Upgrade Validation] After the 'crisis' store deletion at line 20 completes, does the system verify that all other modules are still functioning correctly, or can silent failures in TokenWrapper/Factory/DEX go undetected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad977f34-e7de-4507-93b3-28f7b181f4ed?mode=deep",
+    "timestamp": "2026-01-09 17:57:39.157865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [State Transition] [Merkle Root] Does deleting the 'crisis' store at line 20 properly update the state merkle root, or can this cause merkle proof verification failures for light clients and IBC counterparty chains? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fed0b80-a7ba-4775-81a6-11b30472cfc8?mode=deep",
+    "timestamp": "2026-01-09 17:58:01.176995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Cross-Module] [TokenWrapper Impact] Can the deletion of the 'crisis' module at line 20 affect TokenWrapper's ability to detect decimal conversion errors during IBC transfers, potentially allowing 18→6 precision loss to go undetected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00d6d405-0e85-4320-83cb-0aae1a1de881?mode=deep",
+    "timestamp": "2026-01-09 17:58:22.812188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Cross-Module] [Factory Impact] Does the Factory module rely on crisis module invariant checks to enforce minting caps, and if so, can the deletion at line 20 allow unlimited token creation bypassing configured limits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b3ad5e3-b64c-4251-b6e4-d69e94af0129?mode=deep",
+    "timestamp": "2026-01-09 17:58:45.940886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Cross-Module] [DEX Impact] Can the removal of the 'crisis' store at line 20 disable AMM invariant checking in the DEX module, allowing attackers to exploit x*y=k violations for price manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb123be1-db40-496a-a50e-394abc88b47a?mode=deep",
+    "timestamp": "2026-01-09 17:59:09.346837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Cross-Module] [IBC Impact] Does the IBC middleware depend on crisis module functionality for rate limiting or packet validation, and can the deletion at line 20 remove these protections? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_810d7692-433d-4620-a4f4-80349cc9f355?mode=deep",
+    "timestamp": "2026-01-09 17:59:33.396116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Governance] [Proposal Validation] Can a malicious governance proposal modify the Upgrade configuration at lines 14-22 before it executes, changing the Deleted array to include critical stores beyond 'crisis'? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13b1e134-e612-4d6f-aadf-3a43bcf1411d?mode=deep",
+    "timestamp": "2026-01-09 17:59:58.335530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Governance] [Execution Authority] Does the system properly validate that only governance-approved upgrade proposals can trigger the v2 upgrade defined at line 14, or can unauthorized actors trigger it through alternative code paths? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95dd7723-45bc-4c9b-ad1b-f5e5892f1f0d?mode=deep",
+    "timestamp": "2026-01-09 18:00:23.760640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/v2/constants.go] [Governance] [Veto Mechanism] Once a governance proposal to execute this v2 upgrade passes, is there a veto mechanism to prevent execution if critical vulnerabilities are discovered, or is execution inevitable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8b5c10a-5f30-4f75-8803-8041b51a13b5?mode=deep",
+    "timestamp": "2026-01-09 18:00:48.821129",
+    "report_generated": false
   }
 ]
