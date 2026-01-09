@@ -1498,5 +1498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_286cb581-8e00-4927-ad7e-f2869f9d3b35?mode=deep",
     "timestamp": "2026-01-09 09:02:00.855504",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Error propagation completeness] When errors occur (lines 77, 187, 298, 331), does the function properly clean up all resources and prevent partial initialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50a3d034-5351-4d1a-bf34-f17ad2376438?mode=deep",
+    "timestamp": "2026-01-09 09:03:11.269139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Concurrent initialization] If registerIBCModules is called concurrently by multiple goroutines, can this cause race conditions in keeper initialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de374b34-fd86-43a1-9171-3dfa036189e6?mode=deep",
+    "timestamp": "2026-01-09 09:03:24.211526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Store service isolation] All keepers use runtime.NewKVStoreService. Can an attacker exploit the store service to access data across module boundaries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b937c2e2-98e8-4e82-85e9-597a57c76996?mode=deep",
+    "timestamp": "2026-01-09 09:03:36.877272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [MsgServiceRouter shared access] The same MsgServiceRouter is used by multiple keepers (lines 151, 171, 182). Can this shared access be exploited for message routing attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fed540db-4b5f-4897-868f-821dc19dfbc3?mode=deep",
+    "timestamp": "2026-01-09 09:03:51.389926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [GRPCQueryRouter shared access] The GRPCQueryRouter is shared between ICAHost and WASM (lines 172, 283). Can query routing conflicts be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43851925-f571-4097-a8d3-cad868aafcf7?mode=deep",
+    "timestamp": "2026-01-09 09:04:05.360023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [TokenWrapper position in RecvPacket] In the RecvPacket flow (line 200), TokenWrapper processes after PFM. Can an attacker forward a packet multiple times, causing TokenWrapper to wrap the same IBC voucher repeatedly and duplicate native tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_475818c6-b303-49eb-a018-8ec0ec1051de?mode=deep",
+    "timestamp": "2026-01-09 09:04:20.477059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [TokenWrapper position in SendPacket] In the SendPacket flow (line 201), TokenWrapper processes before PFM. Can an attacker exploit this to wrap native tokens, then forward them, bypassing unwrapping validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5acb7640-bde6-4863-afea-25b7d0815d7a?mode=deep",
+    "timestamp": "2026-01-09 09:04:36.313199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Callbacks before TokenWrapper in RecvPacket] Callbacks execute before TokenWrapper in RecvPacket. Can an attacker craft callback hooks that manipulate token state before decimal conversion happens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4baa87a2-1100-4fc2-9b7e-91fb243be549?mode=deep",
+    "timestamp": "2026-01-09 09:04:53.541369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [Callbacks after TokenWrapper in SendPacket] Callbacks execute after TokenWrapper in SendPacket. Can callback hooks access already-wrapped tokens and manipulate their decimal representation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_520798d3-7a95-4f37-bf31-312f9a8489de?mode=deep",
+    "timestamp": "2026-01-09 09:05:12.147122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [RateLimit sees pre-wrapped tokens] In SendPacket flow, RateLimit is outermost (line 201). Does it see tokens before or after wrapping? Can attacker exploit this to bypass rate limits by wrapping? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a8a1e13-79e9-4fbf-99eb-e2f870622f0d?mode=deep",
+    "timestamp": "2026-01-09 09:05:31.634863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [PFM retry logic missing] PFM is configured with 0 retries (line 224). Can attackers exploit this to make forwarding packets fail permanently on first timeout, capturing timed-out funds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6f1d01f-a085-4ca5-be77-47aff2d68507?mode=deep",
+    "timestamp": "2026-01-09 09:05:52.402380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ibc.go] [Function: registerIBCModules()] [IBCv2 parallel packet processing] If v1 and v2 routes process packets for the same denom concurrently, can this cause race conditions in supply tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ddd188eb-cb53-4af9-9c2e-7fc6f30eeae6?mode=deep",
+    "timestamp": "2026-01-09 09:06:13.442264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Nil pointer dereference] Can an attacker exploit a scenario where options.IBCKeeper is nil despite passing the initial validation checks, causing a panic during IBC packet processing via ibcante.NewRedundantRelayDecorator that crashes validator nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44760c50-4b7e-4168-8115-650d933a69ef?mode=deep",
+    "timestamp": "2026-01-09 09:06:35.507494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Nil pointer dereference] If options.WasmKeeper is nil but options.WasmConfig is set, can this cause a panic in wasmkeeper.NewGasRegisterDecorator when GetGasRegister() is called, leading to validator crashes during transaction processing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e413ead-07d6-46ad-bcd4-668f62b78ff9?mode=deep",
+    "timestamp": "2026-01-09 09:06:58.884529",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Input validation bypass] Does the validation logic check if options.AccountKeeper, options.BankKeeper, and other keepers are non-nil but point to uninitialized or corrupted keeper instances that could cause state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d70e7453-f445-41f7-a5a2-178ebe816971?mode=deep",
+    "timestamp": "2026-01-09 09:07:22.273805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Race condition] Can a race condition occur between the nil-check validation and the actual usage of keepers in decorator construction, allowing a nil keeper to be used if modified concurrently by another goroutine? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c41e68d-70e6-41c3-bb51-bfc4901f4707?mode=deep",
+    "timestamp": "2026-01-09 09:07:47.108817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Error handling] If all required fields pass nil checks but one of the decorator constructors returns an error internally, will that error be propagated properly, or could it cause silent failures in the ante handler chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9cdbf202-3585-40b7-8579-bb02d00d87a1?mode=deep",
+    "timestamp": "2026-01-09 09:08:12.779860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Struct: HandlerOptions] [Missing validation] Are there additional fields in HandlerOptions.HandlerOptions that should be validated but aren't explicitly checked, potentially causing panics when decorators attempt to use them? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_75d7cdd3-f5c6-4ef8-95ed-b2da8de76405?mode=deep",
+    "timestamp": "2026-01-09 09:08:39.767478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Dependency injection] Can an attacker manipulate the construction of HandlerOptions to inject malicious keeper implementations that pass nil checks but contain backdoor logic for fund draining? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cb24751-16c4-4dc5-93f6-f0052131d958?mode=deep",
+    "timestamp": "2026-01-09 09:09:04.663667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Missing validation] Is options.ExtensionOptionChecker validated before being passed to ante.NewExtensionOptionsDecorator, or could a nil checker cause panics when processing transactions with extension options? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_caeb43d6-4c66-48d2-a759-0fbb61b22511?mode=deep",
+    "timestamp": "2026-01-09 09:09:30.731467",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator ordering] Can an attacker exploit the fact that NewSetUpContextDecorator runs before gas limit decorators to craft transactions that bypass gas metering entirely by manipulating the context setup? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe1b199b-7549-44d7-b0f0-0a9a41f084bc?mode=deep",
+    "timestamp": "2026-01-09 09:09:57.766499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator ordering] Since NewLimitSimulationGasDecorator is second in the chain, can an attacker craft a malicious SetUpContext that disables gas tracking, causing the simulation gas limit to be bypassed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20e4a177-948f-4b74-89c4-b634c84bc0d0?mode=deep",
+    "timestamp": "2026-01-09 09:10:24.830265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator ordering] Can an attacker exploit the ordering where NewCircuitBreakerDecorator runs before NewValidateBasicDecorator to trigger circuit breaker logic with invalid transactions, causing DoS by exhausting circuit breaker state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6da092f4-c58b-4f74-92c0-6080b65b8ef0?mode=deep",
+    "timestamp": "2026-01-09 09:10:53.531720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator ordering] Does placing NewDeductFeeDecorator before signature verification allow an attacker to drain user accounts by crafting unsigned transactions that deduct fees before signature validation fails? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_992da01a-88b6-4917-b91a-65857034f814?mode=deep",
+    "timestamp": "2026-01-09 09:11:22.086775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/ante.go] [Function: NewAnteHandler()] [Decorator ordering] Can an attacker exploit the fact that NewSetPubKeyDecorator runs before signature verification to set a public key that doesn't match the signer, causing subsequent signature checks to pass incorrectly? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b3534eb-fa7d-44a1-80d4-63350fb88792?mode=deep",
+    "timestamp": "2026-01-09 09:11:49.949565",
+    "report_generated": false
   }
 ]
