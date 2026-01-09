@@ -7348,5 +7348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1aa14908-26e0-4fa9-8e39-77d520f89bd2?mode=deep",
     "timestamp": "2026-01-09 19:58:30.765849",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Pool account spam] Can an attacker create pools and immediately delete them to spam the account keeper with module accounts that persist even after pool deletion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b5dba15-194d-4000-973e-b7078ebfcfa4?mode=deep",
+    "timestamp": "2026-01-09 19:59:50.003751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetNextPoolID()] [Counter manipulation] Can an attacker repeatedly trigger pool creation to rapidly increment the counter toward MaxUint64, eventually causing the panic condition and permanently disabling pool creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89bb4514-4858-460a-b726-7519fc5d72c2?mode=deep",
+    "timestamp": "2026-01-09 20:00:02.940935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Storage key collision] Does types.PoolKey() use a secure hashing function? Can an attacker find two pool IDs that map to the same storage key? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fae12a08-01b7-422c-a834-3987291e8701?mode=deep",
+    "timestamp": "2026-01-09 20:00:16.522557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Stale reads] If the KVStore has caching, can GetPool() return outdated pool data that's been modified by another transaction in the same block? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ba678e6-10c1-44d8-b172-3d5d70b6bf1a?mode=deep",
+    "timestamp": "2026-01-09 20:00:29.760573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Partial writes] If the store.Set() at line 31 is interrupted, can the pool data be partially written causing unmarshal failures in GetPool()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8ca2632-7aec-4144-b767-0a6c27258e2f?mode=deep",
+    "timestamp": "2026-01-09 20:00:45.176959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Storage prefix collision] The prefix at line 57 is types.PoolKeyPrefix - if other data uses similar prefixes, can GetAllPool() accidentally return non-pool data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99e88316-db12-40e3-b232-1eaa6b52c004?mode=deep",
+    "timestamp": "2026-01-09 20:01:01.492903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Type assertion safety] The reflect.TypeOf() calls at lines 173, 178, 184 - if existingAcct is a custom type that embeds an overridable type, can it bypass the safety check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_823e5b51-8eb9-48df-8a04-50c4cc5b7a56?mode=deep",
+    "timestamp": "2026-01-09 20:01:19.056823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Module account casting] The authtypes.NewModuleAccount() wrapping at line 205-209 - does this preserve all properties of the base account or can information be lost? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_015bf7a5-7796-448f-a0ab-2ebaeddb6723?mode=deep",
+    "timestamp": "2026-01-09 20:01:37.738168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Unmarshal type safety] The k.cdc.MustUnmarshal() at line 50 unmarshals into types.Pool - if the stored data is for a different type, can this cause undefined behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2714bd14-99c3-4f9c-b3a3-99c39d00f0cc?mode=deep",
+    "timestamp": "2026-01-09 20:01:56.579276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [IBC token handling] If coins contain IBC voucher tokens (e.g., ibc/hash), are they handled differently? Can decimal conversion issues from TokenWrapper module affect pool balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7dce9cc-9556-4f58-9da9-4ec3b7a21169?mode=deep",
+    "timestamp": "2026-01-09 20:02:17.599803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Cross-chain withdrawal] If receiver is an IBC address or the coins are IBC vouchers, does SendCoins handle the cross-chain transfer correctly or can tokens get stuck? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1592c390-3263-4527-95aa-5ef49212b900?mode=deep",
+    "timestamp": "2026-01-09 20:02:39.384309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [IBC channel permissions] Can the created pool account interact with IBC channels, and if so, are there restrictions to prevent pool accounts from initiating unauthorized cross-chain transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69da269b-959d-49d1-ac47-bab402367174?mode=deep",
+    "timestamp": "2026-01-09 20:03:02.981154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanOverwriteAccountTypes] [Governance attack] Can a malicious governance proposal modify the CanOverwriteAccountTypes global variable at line 126 to add dangerous account types and enable mass account takeover? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c348949f-7226-4576-b157-bef36ba161bd?mode=deep",
+    "timestamp": "2026-01-09 20:03:26.923622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Migration risk] During a chain upgrade, if the types.Pool struct changes, can existing pools fail to unmarshal causing all DEX operations to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7546c4f6-2790-4cfd-8da4-ae47d9a670b4?mode=deep",
+    "timestamp": "2026-01-09 20:03:52.226894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetNextPoolID()] [State migration] If the PoolsMeta structure changes in an upgrade, can GetNextPoolID() return incorrect values or panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b378746a-b994-4bd0-944b-d4688699d2c0?mode=deep",
+    "timestamp": "2026-01-09 20:04:17.592966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Zero-length denom] Can an attacker pass a coin with an empty denom string that bypasses validation but causes errors in bankKeeper.SendCoins? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28090e35-79a6-4d01-8da2-d4a72f4c9d46?mode=deep",
+    "timestamp": "2026-01-09 20:04:44.423055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Nil return handling] If types.Pool{} is returned when found=false, do callers properly check the found bool or do they use the zero-value pool? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4df38e2-34e1-4e55-8f91-05f4179a2813?mode=deep",
+    "timestamp": "2026-01-09 20:05:11.947185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Address format validation] Does types.GetPoolAddress() validate that poolIDString produces a valid bech32 address, or can malformed input cause downstream failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92973d9c-a5a8-47f2-8455-e4e151e4b840?mode=deep",
+    "timestamp": "2026-01-09 20:05:40.714432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromPoolToAddress()] [Self-transfer] Can a pool send funds to its own address? If so, does this bypass balance checks and can it be used to manipulate pool accounting? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fca01c2-908f-4ed3-9fa4-6993db3ec9ed?mode=deep",
+    "timestamp": "2026-01-09 20:06:03.180564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Nil account handling] If GetAccount() returns nil at line 150, the function returns nil (allows creation), but should there be additional checks before allowing module account creation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_930e5882-329a-4e6e-a79c-455eba1babca?mode=deep",
+    "timestamp": "2026-01-09 20:06:31.422952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Empty pool list] If no pools exist, does returning an empty slice cause issues in calling code that expects at least one pool? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77be657c-701d-4d37-9f3a-6ea43ae6ce08?mode=deep",
+    "timestamp": "2026-01-09 20:06:59.972666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetNextPoolID()] [Backwards time travel] If the chain experiences a rollback/reorg, can the NextPoolId counter decrease, causing pool ID reuse? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3de508cc-bd1a-43cb-a1e2-e2f41caf1cd4?mode=deep",
+    "timestamp": "2026-01-09 20:07:27.770331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Module account sender] Can a sender be a module account? If so, does this bypass certain security checks that assume human operators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94da7dfa-d51a-4a1c-970f-66c75cd1f3c5?mode=deep",
+    "timestamp": "2026-01-09 20:07:56.255577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Consensus attack] Can a malicious validator manipulate address.Module() computation to create pool accounts at addresses they control, allowing fund theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45d5e1c1-5371-4b0c-8a26-2df2415544ae?mode=deep",
+    "timestamp": "2026-01-09 20:08:22.724122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAndSetNextPoolID()] [MEV exploitation] Can validators/searchers front-run pool creation by observing GetAndSetNextPoolID calls and creating pools at predicted addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7e142bc-17da-4b13-8198-7d557ae7bf61?mode=deep",
+    "timestamp": "2026-01-09 20:08:50.491235",
+    "report_generated": false
   }
 ]
