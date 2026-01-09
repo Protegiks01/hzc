@@ -4648,5 +4648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41b0993a-33ba-4d66-8e26-b75f68553f6e?mode=deep",
     "timestamp": "2026-01-09 13:41:40.722717",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Relayer confusion] IBC relayers parse Bech32 addresses using the configured prefixes. Can an attacker modify these prefixes to cause relayers to misroute IBC packets, directing cross-chain transfers to attacker-controlled addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f42b62c0-70d2-4d1a-a54c-1a0961a53d89?mode=deep",
+    "timestamp": "2026-01-09 13:42:53.351742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [TokenWrapper integration] The TokenWrapper module relies on correct address validation using these prefixes. If prefix configuration fails, can wrapped tokens be sent to invalid addresses, causing permanent loss when attempting to unwrap? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acb6e089-0c3f-4212-aee2-30aefed55ca4?mode=deep",
+    "timestamp": "2026-01-09 13:43:05.683657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Factory module] The Factory module uses these address prefixes to validate denom creators. Can incorrect prefix configuration allow unauthorized denom creation by bypassing creator address validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_754788a8-5765-45a7-827f-72edb1b008d0?mode=deep",
+    "timestamp": "2026-01-09 13:43:18.944354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [DEX module] DEX pool addresses are derived using the configured prefixes. Can prefix manipulation cause liquidity to be locked in unreachable pool addresses that don't match expected validation rules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ddef03d-d293-4888-bcd3-41809c554701?mode=deep",
+    "timestamp": "2026-01-09 13:43:31.850172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Consensus split] If different validators load different values for AccountAddressPrefix due to build variations, will they generate different Bech32 prefixes at lines 7-11, causing consensus failures when validating addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ab2db05-1d4a-4340-bf0c-56dd1608a0d5?mode=deep",
+    "timestamp": "2026-01-09 13:43:46.595679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Network upgrade] During a chain upgrade that changes address prefixes, can transactions signed with old prefix formats be replayed with new prefixes, allowing double-spending attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ba9b034-36ef-4afb-a322-715f310559b2?mode=deep",
+    "timestamp": "2026-01-09 13:44:01.101370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Validator operator addresses] The validatorAddressPrefix at line 8 is used for validator operator keys. Can an attacker register a validator with a malformed operator address that crashes other validators when they try to process delegation transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42164a68-3bcb-4830-9892-d3ef508c5e31?mode=deep",
+    "timestamp": "2026-01-09 13:44:16.602936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [String interning] The string literals 'pub', 'valoper', 'valoperpub', 'valcons', 'valconspub' at lines 7-11 are concatenated with AccountAddressPrefix. Can an attacker force these operations to run repeatedly (e.g., via test imports) causing memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a53b5894-c3d6-4d4f-af5b-cc5dde726404?mode=deep",
+    "timestamp": "2026-01-09 13:44:33.596713",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Config struct size] The sdk.Config struct returned at line 14 stores all these prefix strings. Can an attacker craft extremely long prefixes that cause the config object to exceed memory limits, triggering OOM kills on validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ad4560d-27a1-4289-a8a7-3c6fc14eff71?mode=deep",
+    "timestamp": "2026-01-09 13:44:52.020023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Type confusion] The config.SetCoinType() at line 15 accepts an integer. Can an attacker pass a coin type value that overflows uint32 internally, causing it to wrap to a small value that collides with test network coin types? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e67c7873-18d9-49c3-a651-e46bdf9a2dad?mode=deep",
+    "timestamp": "2026-01-09 13:45:10.982799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Nil config] If sdk.GetConfig() at line 14 returns nil due to SDK initialization failure, will subsequent method calls panic, crashing all validators simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e24b62a5-7ac2-4583-a96a-caec000682b7?mode=deep",
+    "timestamp": "2026-01-09 13:45:30.724300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Constant tampering] The constants used (AccountAddressPrefix, ChainCoinType) are defined in external files. Can an attacker modify these constant files in the build pipeline to inject malicious values without changing config.go itself? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da07abd1-8d30-4d4e-8263-b5de040a7818?mode=deep",
+    "timestamp": "2026-01-09 13:45:51.484609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Reproducible builds] Different builds of the same source might have different constant values due to build environment differences. Can this cause validators to use different address prefixes, breaking consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cacdba7-91d9-4a1b-b01d-dc59279191da?mode=deep",
+    "timestamp": "2026-01-09 13:46:12.892757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/config.go] [Function: init()] [Linker flags] Can an attacker use Go linker flags (-X) to override the string constants used in prefix construction at lines 7-11, injecting malicious prefixes at build time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35015db1-f901-47c9-ad09-b54fce79aacc?mode=deep",
+    "timestamp": "2026-01-09 13:46:35.384342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Nil pointer] Can an attacker exploit the Upgrade struct by providing a nil CreateUpgradeHandler function pointer, causing the chain to panic when setupUpgradeHandlers() attempts to invoke upgrade.CreateUpgradeHandler(), leading to network-wide DoS during upgrade execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b60ecae-93e7-4b11-a409-f80b12b85a05?mode=deep",
+    "timestamp": "2026-01-09 13:46:59.260727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [String validation] Can an attacker create an Upgrade with an empty UpgradeName string, causing string comparison failures in setupUpgradeStoreLoaders() that skip critical store upgrades, leading to state corruption when the upgrade executes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_58c6b174-a5fe-4b01-ab78-9f862d866536?mode=deep",
+    "timestamp": "2026-01-09 13:47:23.811931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [String validation] Can an attacker inject special characters (null bytes, unicode control characters, or path traversal sequences) into the UpgradeName field to bypass upgrade name matching logic in setupUpgradeStoreLoaders(), causing incorrect store upgrades to be applied? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_136b86d2-6132-4a62-a5ef-8f8d00131f0b?mode=deep",
+    "timestamp": "2026-01-09 13:47:48.051171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Name collision] Can an attacker create multiple Upgrade structs with identical UpgradeName values in the Upgrades slice, causing setupUpgradeHandlers() to register only the last handler and skip previous handlers, leading to incomplete upgrade execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c5e7bc1-3958-4f52-b221-f319473e56ee?mode=deep",
+    "timestamp": "2026-01-09 13:48:13.724490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Case sensitivity] Can an attacker exploit case-insensitive file systems or string comparison bugs by creating upgrade names that differ only in case (e.g., 'v1' vs 'V1'), causing upgrade name collision that leads to wrong upgrade handler execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef03dc37-f195-4676-b83a-2a06e16d906c?mode=deep",
+    "timestamp": "2026-01-09 13:48:39.427866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Unicode normalization] Can an attacker create visually identical but byte-different upgrade names using Unicode normalization forms (NFC vs NFD), causing setupUpgradeStoreLoaders() to fail matching the upgrade name and skip critical store migrations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae14fa10-9402-494b-a92b-9627a89948a9?mode=deep",
+    "timestamp": "2026-01-09 13:49:04.866304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Whitespace handling] Can an attacker inject leading/trailing whitespace or internal whitespace into UpgradeName that passes validation but fails exact string matching in setupUpgradeStoreLoaders(), causing upgrade mismatch and state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed6862df-0a53-417e-9724-f1c0184199d0?mode=deep",
+    "timestamp": "2026-01-09 13:49:29.441876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Length limits] Does the Upgrade struct enforce maximum length limits on UpgradeName to prevent memory exhaustion attacks where an attacker proposes an upgrade with an extremely long name that causes OOM during string comparison loops? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f8b7c81-b219-4aaf-ab1c-198e4ffe4d1d?mode=deep",
+    "timestamp": "2026-01-09 13:49:54.697803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Store upgrades validation] Can an attacker provide a StoreUpgrades struct with conflicting operations (e.g., both Added and Deleted containing the same store key), causing UpgradeStoreLoader() to enter an inconsistent state that corrupts the module store? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9a086b2-9737-44da-893f-98309b2d0d67?mode=deep",
+    "timestamp": "2026-01-09 13:50:19.220776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade] [Store upgrades nil safety] Can an attacker provide a nil StoreUpgrades struct or nil slices within StoreUpgrades (Added/Deleted/Renamed), causing panic when setupUpgradeStoreLoaders() passes it to upgradetypes.UpgradeStoreLoader()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5911469a-957f-40d7-986f-ea72e87f1071?mode=deep",
+    "timestamp": "2026-01-09 13:50:42.193680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/upgrades/types.go] [Struct: Upgrade, Field: CreateUpgradeHandler] [Function injection] Can an attacker exploit the function pointer pattern by replacing CreateUpgradeHandler with a malicious function during runtime through Go reflection or unsafe pointer manipulation, executing arbitrary code during upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_515743ce-7e09-43d7-b5cd-c6fbc7ce340e?mode=deep",
+    "timestamp": "2026-01-09 13:51:03.924268",
+    "report_generated": false
   }
 ]
