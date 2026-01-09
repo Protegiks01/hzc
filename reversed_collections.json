@@ -9748,5 +9748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a995668-9be8-4f1e-acae-4b112634fbba?mode=deep",
     "timestamp": "2026-01-09 20:45:09.105391",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Gov module bypass] Does ValidateBasic() check if operator address changes should go through governance? Can the two-step operator transfer mechanism bypass governance requirements, enabling operator changes without community approval even if governance requires such changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11630cd1-a994-40e7-adf3-daa2c0d576b8?mode=deep",
+    "timestamp": "2026-01-09 20:46:21.379670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [IBC module dependency] Does ValidateBasic() verify the claimed operator address is not used in active IBC channels? Can claiming operator role with an address already used as IBC relayer cause packet handling conflicts or authorization confusion in IBC operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f86f31be-eb93-4755-b9ad-2a9e335072ac?mode=deep",
+    "timestamp": "2026-01-09 20:46:33.869082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Staking module conflict] Does ValidateBasic() check if the proposed operator address is a validator? Can an attacker who controls a validator propose their validator address as operator, creating a conflict of interest where the same entity controls both consensus and bridge operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_75d89b7a-157f-4115-9cc8-e75bca795655?mode=deep",
+    "timestamp": "2026-01-09 20:46:46.652935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Bank module interaction] Does ValidateBasic() consider whether the proposed operator address has any bank module restrictions? Can an attacker claim operator role with a blocked or sanctioned address, causing TokenWrapper operations to fail when the operator address is used for fund transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b8f7979-e026-42d3-87e5-35a93f8a7518?mode=deep",
+    "timestamp": "2026-01-09 20:46:59.917782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Event emission reliability] ValidateBasic() doesn't emit events, but the keeper does - if event emission fails after state updates succeed, can this cause external systems monitoring events to miss operator changes, leading to access control bypasses in off-chain components? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a396b1a2-b7eb-461c-adbb-2fc9c82a4339?mode=deep",
+    "timestamp": "2026-01-09 20:47:14.340813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Rollback safety] If the keeper handler for MsgClaimOperatorAddress fails after ValidateBasic() succeeds, does the rollback properly clean up any state changes? Can partial execution leave the system in an inconsistent state where proposed operator is cleared but operator address is not updated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96a5a19d-8247-4367-b42a-d4009ac21947?mode=deep",
+    "timestamp": "2026-01-09 20:47:29.888403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Transaction atomicity] If a block contains both MsgProposeOperatorAddress and MsgClaimOperatorAddress, does transaction ordering guarantee the proposal executes first? Can transaction reordering by Byzantine validators cause the claim to execute before the proposal, leading to state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_afadb796-047d-468a-b18c-8a4632dbaab6?mode=deep",
+    "timestamp": "2026-01-09 20:47:45.475197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [State read consistency] ValidateBasic() doesn't read state, but the keeper handler does - is there a mechanism ensuring state reads in the handler are consistent with ValidateBasic's assumptions? Can state changes between ValidateBasic() and handler execution violate invariants assumed by ValidateBasic()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_460236a5-3034-4720-9c92-aa94e24dc2b6?mode=deep",
+    "timestamp": "2026-01-09 20:48:02.838910",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [HRP validation] Does validators.SignerCheck validate the human-readable part (HRP) is exactly 'zig' and not 'zig1' or 'zigtest'? Can an attacker submit addresses from testnet or other chains that pass ValidateBasic() but reference different key material? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_939e2a91-410b-4ded-960b-97d6a9137a3f?mode=deep",
+    "timestamp": "2026-01-09 20:48:20.764882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Bech32 edge cases] Does validators.SignerCheck handle all Bech32 edge cases (invalid separators, mixed case, padding errors)? Can an attacker craft Bech32 strings that decode to valid addresses in some validators but fail in others, causing consensus divergence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af626f79-0214-4bd8-bd36-f9f6a277642b?mode=deep",
+    "timestamp": "2026-01-09 20:48:40.157260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Empty string handling] The code checks if signer is empty in validators.SignerCheck, but does it handle whitespace-only strings? Can an attacker submit msg.Signer containing only spaces or tabs that bypass empty string checks but cause issues in keeper state storage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_614cfbf9-f5db-438a-b35a-15639de7ba25?mode=deep",
+    "timestamp": "2026-01-09 20:49:00.573201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Error message leakage] Do the error messages from validators.SignerCheck leak sensitive information about the proposed operator address or system state? Can an attacker use error messages to perform reconnaissance on the proposed operator address without authorization? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c925db9-a4d5-4d88-9685-e638a5fce5f1?mode=deep",
+    "timestamp": "2026-01-09 20:49:21.840395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Panic recovery] Does ValidateBasic() have proper panic recovery? If validators.SignerCheck panics due to malformed input, can this cause the validator to crash, enabling a DoS attack where Byzantine attackers broadcast crafted messages to crash honest validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d71a59bc-4440-447c-87ed-4b90d489dfae?mode=deep",
+    "timestamp": "2026-01-09 20:49:44.476978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Repeated validation cost] Is ValidateBasic() called multiple times for the same message during transaction lifecycle (CheckTx, DeliverTx)? Can an attacker exploit this by making ValidateBasic() computationally expensive through carefully crafted addresses, multiplying the DoS impact? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5241e109-c4fe-482a-870d-5950ddb1b136?mode=deep",
+    "timestamp": "2026-01-09 20:50:07.660894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Unbounded string operations] Does validators.SignerCheck perform unbounded string operations on msg.Signer? Can an attacker exploit Go string allocation behavior by submitting addresses with specific lengths that trigger expensive memory allocations, causing validator nodes to experience memory pressure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_75299488-b8b8-4854-b699-d4f59230b34b?mode=deep",
+    "timestamp": "2026-01-09 20:50:31.794408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Gas metering] Does ValidateBasic() properly account for gas costs of validators.SignerCheck execution? Can an attacker submit extremely long signer addresses (within Bech32 limits) that cause ValidateBasic() to consume excessive gas, enabling gas-based DoS attacks on transaction processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c7e6620-5c9f-421c-945f-7b5b207cc94e?mode=deep",
+    "timestamp": "2026-01-09 20:50:56.844668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Validator address confusion] Does ValidateBasic() distinguish between user addresses and validator addresses? Can an attacker use a validator consensus address (zigvalcons...) or operator address (zigvaloper...) as the signer, causing confusion in state storage or privilege escalation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_806bea6b-3b0b-414a-aa2b-a145e6402c59?mode=deep",
+    "timestamp": "2026-01-09 20:51:23.259676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Zero address check] Does ValidateBasic() explicitly reject the zero address (zig1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq...)? Can an attacker propose and claim the zero address as operator, causing operator privileges to become inaccessible and permanently locking operator functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_198de545-c910-4d8e-8a68-0fecf0a5e912?mode=deep",
+    "timestamp": "2026-01-09 20:51:50.319411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Module account restriction] Does ValidateBasic() prevent module accounts from being the signer? Can an attacker propose a module account (e.g., tokenwrapper module, bank module) as operator and claim it, leading to circular dependencies or privilege escalation where module funds are controlled by operator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb97884a-198d-4d9f-a407-10abbab52f56?mode=deep",
+    "timestamp": "2026-01-09 20:52:17.429449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Multi-signature bypass] Does ValidateBasic() support multi-signature addresses as signers? If the proposed operator is a multi-sig address, can a single key holder submit MsgClaimOperatorAddress without all required signatures, bypassing multi-sig governance and seizing operator privileges? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb867f71-ad25-48a2-bdfb-fde82be78f04?mode=deep",
+    "timestamp": "2026-01-09 20:52:45.753475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Operator self-claim] Does ValidateBasic() prevent the current operator from claiming operator role again? Can the current operator propose themselves and immediately claim, bypassing the two-step transfer mechanism's security benefits and enabling unilateral operator changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_445c6010-ee6d-4553-8b67-a1640d98e2e6?mode=deep",
+    "timestamp": "2026-01-09 20:53:13.089826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Deterministic execution] Does ValidateBasic() use any non-deterministic operations (e.g., random numbers, timestamps, external state)? Can different validators get different ValidateBasic() results for the same message, causing consensus divergence when 1/3+ Byzantine validators exploit this? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26c859e0-d99e-40ca-9281-2d3fe4e094a0?mode=deep",
+    "timestamp": "2026-01-09 20:53:39.731430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Mempool ordering attack] Can an attacker submit multiple MsgClaimOperatorAddress transactions to the mempool simultaneously? If validators order transactions differently, could this cause multiple claims to succeed in different validator states, leading to chain fork and consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f321662a-3c0c-414b-94a3-58dc0e1336b8?mode=deep",
+    "timestamp": "2026-01-09 20:54:06.507440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Block boundary race] If ValidateBasic() and keeper execution occur in different blocks, can the proposed operator address change between blocks? Can an attacker coordinate with a Byzantine validator to manipulate block ordering and claim operator role with an outdated proposal? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57d50f25-dbed-4d59-8173-fe21f22381a8?mode=deep",
+    "timestamp": "2026-01-09 20:54:32.548133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_claim_operator_address.go] [Function: ValidateBasic()] [Concurrent proposal bypass] Can multiple MsgProposeOperatorAddress transactions execute between ValidateBasic() and keeper execution? Can an attacker submit MsgClaimOperatorAddress for an old proposal that gets overwritten by a new proposal, but still succeeds in the keeper because ValidateBasic() doesn't check proposal currency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1423f5e0-a937-4e99-af1f-6e4a4f6e3cc4?mode=deep",
+    "timestamp": "2026-01-09 20:54:59.507461",
+    "report_generated": false
   }
 ]
