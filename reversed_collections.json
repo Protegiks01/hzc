@@ -8098,5 +8098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc56070f-697c-4ddd-9893-8977cc53de9b?mode=deep",
     "timestamp": "2026-01-09 18:49:02.634252",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Decimal conversion] Does the DecimalDifference validation on line 59-61 allow setting values that don't match the actual decimal difference between native (6) and counterparty (18) tokens, enabling precision manipulation attacks that drain 10^12 tokens per transaction? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00974372-eb27-427b-a7a8-1332db93bb12?mode=deep",
+    "timestamp": "2026-01-09 18:50:13.538458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Decimal conversion] Can an attacker exploit ValidateDecimalDifference() on line 59-61 by setting DecimalDifference to 0, effectively disabling decimal conversion and causing 1:1 token mapping that duplicates tokens when moving between 18-decimal and 6-decimal chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_648c25c2-b5c6-4b19-8551-ca4d5fa34669?mode=deep",
+    "timestamp": "2026-01-09 18:50:25.954431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the validation on line 27-29 check if the Signer address format can be manipulated to bypass the operator equality check in msg_server_update_ibc_settings.go using different address encodings (uppercase vs lowercase Bech32)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4bf634c-797d-4567-8000-f067eaa851ca?mode=deep",
+    "timestamp": "2026-01-09 18:50:38.904640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker set DecimalDifference to exactly 18 on line 59-61 (the maximum allowed value), then exploit integer overflow in subsequent 10^18 scaling calculations to drain the module wallet through precision manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10aa4447-38c6-4970-89e8-cdb3c7ef732e?mode=deep",
+    "timestamp": "2026-01-09 18:50:52.121171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the ValidateDenom() check on line 55-57 prevent setting Denom to a denomination that conflicts with IBC voucher denoms (ibc/...), potentially causing denomination collisions and cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff08616c-b231-4a4c-b137-10edd95bc5db?mode=deep",
+    "timestamp": "2026-01-09 18:51:05.945010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker exploit the lack of channel state validation in CounterpartyChannel check (line 51-53) to point to a non-existent channel, causing all cross-chain transfers to timeout and draining the module wallet through repeated timeout refunds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9598ef6b-9681-4445-9cee-15cb23d7f2bd?mode=deep",
+    "timestamp": "2026-01-09 18:51:20.844267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the ValidateChannel() check for NativeChannel on line 47-49 prevent channel ID spoofing attacks where an attacker uses a closed or invalid channel that still passes IsValidChannelID(), leading to permanent token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e681dea1-7a89-4eb1-8645-344adbaa6c05?mode=deep",
+    "timestamp": "2026-01-09 18:51:36.998611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker set CounterpartyPort to a port value on line 43-45 that matches a different module's port (e.g., 'bank', 'staking'), causing IBC packets to be misrouted and triggering unauthorized state changes in other modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_338c7f31-0816-417d-99aa-2fc7fb8e7881?mode=deep",
+    "timestamp": "2026-01-09 18:51:53.747799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the ValidatePort() check on NativePort (line 39-41) properly reject port strings containing control characters (\\\\x00-\\\\x1F) that could exploit IBC packet parsing logic and cause state corruption in the IBC module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99c402e6-06cb-4ecc-adbe-c287a29cd27c?mode=deep",
+    "timestamp": "2026-01-09 18:52:11.700644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker inject special characters into CounterpartyClientId on line 35-37 that pass IsValidClientID() but cause IBC packet routing failures, permanently breaking the bridge and locking user funds in transit? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af04482c-ee11-4e10-8209-f7a1d3f7fd94?mode=deep",
+    "timestamp": "2026-01-09 18:52:30.809973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the ValidateClientId() check for NativeClientId on line 31-33 prevent homograph attacks using Unicode lookalike characters (e.g., '07-tendermint-0' vs '07-tendermįnt-0'), potentially routing IBC packets to malicious counterparty chains? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4c63fe9-d4c3-4685-af1b-dad4b72c0f32?mode=deep",
+    "timestamp": "2026-01-09 18:52:50.398935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker craft a signer address string that passes SignerCheck() but has trailing/leading whitespace or null bytes that could bypass operator validation in msg_server_update_ibc_settings.go, allowing unauthorized IBC settings updates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90615fd7-2433-4846-84f8-30f4d14026d1?mode=deep",
+    "timestamp": "2026-01-09 18:53:09.951248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Decimal conversion] Does the DecimalDifference validation on line 59-61 allow setting values that don't match the actual decimal difference between native (6) and counterparty (18) tokens, enabling precision manipulation attacks that drain 10^12 tokens per transaction? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_514ebf86-ed21-4b68-8467-430dc297330a?mode=deep",
+    "timestamp": "2026-01-09 18:53:30.584115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Decimal conversion] Can an attacker exploit ValidateDecimalDifference() on line 59-61 by setting DecimalDifference to 0, effectively disabling decimal conversion and causing 1:1 token mapping that duplicates tokens when moving between 18-decimal and 6-decimal chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28491417-d598-4f7b-9698-76a05c71a2bf?mode=deep",
+    "timestamp": "2026-01-09 18:53:52.468097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the validation on line 27-29 check if the Signer address format can be manipulated to bypass the operator equality check in msg_server_update_ibc_settings.go using different address encodings (uppercase vs lowercase Bech32)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_830f12ff-5aaf-447c-bcad-d870a441211c?mode=deep",
+    "timestamp": "2026-01-09 18:54:14.866616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker set DecimalDifference to exactly 18 on line 59-61 (the maximum allowed value), then exploit integer overflow in subsequent 10^18 scaling calculations to drain the module wallet through precision manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f14f207-4833-4334-9f3b-ae1200c0f5b9?mode=deep",
+    "timestamp": "2026-01-09 18:54:38.264963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the ValidateDenom() check on line 55-57 prevent setting Denom to a denomination that conflicts with IBC voucher denoms (ibc/...), potentially causing denomination collisions and cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5229c2ae-061b-4a28-834f-37b184bd6453?mode=deep",
+    "timestamp": "2026-01-09 18:55:02.779560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker exploit the lack of channel state validation in CounterpartyChannel check (line 51-53) to point to a non-existent channel, causing all cross-chain transfers to timeout and draining the module wallet through repeated timeout refunds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77870f2a-ff6f-4b8c-9ff3-1599a7825522?mode=deep",
+    "timestamp": "2026-01-09 18:55:27.836746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the ValidateChannel() check for NativeChannel on line 47-49 prevent channel ID spoofing attacks where an attacker uses a closed or invalid channel that still passes IsValidChannelID(), leading to permanent token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30514105-8879-4ae5-b03d-ce66c2eefb8e?mode=deep",
+    "timestamp": "2026-01-09 18:55:53.890155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker set CounterpartyPort to a port value on line 43-45 that matches a different module's port (e.g., 'bank', 'staking'), causing IBC packets to be misrouted and triggering unauthorized state changes in other modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e60341b9-590a-4a2f-a200-9cf230ad1d33?mode=deep",
+    "timestamp": "2026-01-09 18:56:18.775672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the ValidatePort() check on NativePort (line 39-41) properly reject port strings containing control characters (\\\\x00-\\\\x1F) that could exploit IBC packet parsing logic and cause state corruption in the IBC module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22831b2f-42b2-4abd-af2b-f48136330431?mode=deep",
+    "timestamp": "2026-01-09 18:56:44.050203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker inject special characters into CounterpartyClientId on line 35-37 that pass IsValidClientID() but cause IBC packet routing failures, permanently breaking the bridge and locking user funds in transit? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2256c1e2-5d08-4470-82cf-428888c7e9e0?mode=deep",
+    "timestamp": "2026-01-09 18:57:10.550149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Does the ValidateClientId() check for NativeClientId on line 31-33 prevent homograph attacks using Unicode lookalike characters (e.g., '07-tendermint-0' vs '07-tendermįnt-0'), potentially routing IBC packets to malicious counterparty chains? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_18fb7916-3754-4d1c-8302-3a9cf51aa148?mode=deep",
+    "timestamp": "2026-01-09 18:57:37.114894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_update_ibc_settings.go] [Function: ValidateBasic()] [Validation bypass] Can an attacker craft a signer address string that passes SignerCheck() but has trailing/leading whitespace or null bytes that could bypass operator validation in msg_server_update_ibc_settings.go, allowing unauthorized IBC settings updates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5786cb12-4d31-4e92-aab4-443606c954d2?mode=deep",
+    "timestamp": "2026-01-09 18:58:04.982351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_recover_zig.go] [Function: ValidateBasic()] [International characters] Can international characters or emojis in error messages from validators cause encoding issues in logs or client applications? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f755bc6-2931-4a7c-a4fe-f3e13132dd61?mode=deep",
+    "timestamp": "2026-01-09 18:58:30.896906",
+    "report_generated": false
   }
 ]
