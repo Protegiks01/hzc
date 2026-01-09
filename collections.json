@@ -2548,5 +2548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e6189c4-03ae-4179-b034-95d479d2c067?mode=deep",
     "timestamp": "2026-01-09 10:09:16.603672",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Handler version mismatch] Can upgrade handlers be registered with version numbers that don't match the actual binary version, causing the UpgradeKeeper to execute the wrong handler during upgrades? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fda011ca-d9a3-47db-8329-0477f3d9e061?mode=deep",
+    "timestamp": "2026-01-09 10:10:23.925544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Migration rollback failure] If mm.RunMigrations fails during v1 or v2 upgrade handler execution, is there proper rollback of partial migrations, or can this leave module state in an inconsistent partially-migrated state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4343b016-0685-4c31-ac08-1fed3b3a7b45?mode=deep",
+    "timestamp": "2026-01-09 10:10:36.374295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Version map corruption] Can attackers manipulate the module.VersionMap passed to CreateUpgradeHandler to cause RunMigrations to skip or repeat critical module migrations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_839aa626-30b8-44ac-8ba3-615bc66d1040?mode=deep",
+    "timestamp": "2026-01-09 10:10:49.092490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Configurator state] Can the module.Configurator passed to upgrade handlers be in an inconsistent state if called before all modules are registered, causing migration failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_122f5009-0a4f-4df5-865b-a77f6da79a8f?mode=deep",
+    "timestamp": "2026-01-09 10:11:02.222174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [IBC channel disruption] Can upgrade handlers that modify IBC-related state (TokenWrapper settings, channel parameters) execute during active IBC packet processing, causing in-flight packets to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85819906-ed72-4d27-a922-53bc76234ad7?mode=deep",
+    "timestamp": "2026-01-09 10:11:16.015358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Cross-chain state sync] If ZigChain upgrades while connected IBC chains don't, can state inconsistencies in upgrade handlers break IBC packet acknowledgements or timeouts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d6c1be2-2ba5-41be-a7c5-f3ac74b5ef4c?mode=deep",
+    "timestamp": "2026-01-09 10:11:31.549337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [IBC middleware during forks] Can fork logic modify IBC middleware configuration through AppKeepers while IBC packets are being processed, causing packet routing failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8f0ae62-eb75-4503-a638-dafa1b2bd8c4?mode=deep",
+    "timestamp": "2026-01-09 10:11:48.901448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [KVStore corruption] If UpgradeStoreLoader fails to properly initialize a new store during v2 upgrade, can this cause KVStore Get/Set operations to panic when modules try to access the corrupted store? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8755914-f9c0-4023-8979-f4342c841c86?mode=deep",
+    "timestamp": "2026-01-09 10:12:06.518868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store key collision] When crisis store is deleted in v2, can the freed store key namespace be reused by another module, causing key collisions if crisis store data wasn't properly cleaned up? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7564f83-e810-4a4e-8b33-54ed8843db12?mode=deep",
+    "timestamp": "2026-01-09 10:12:24.789432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Multi-store consistency] Can store loaders configured at different heights for different upgrades cause the multi-store to have inconsistent version numbers across its sub-stores? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2aaa7437-8601-4e98-9b37-b42874400b79?mode=deep",
+    "timestamp": "2026-01-09 10:12:43.916509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Malicious upgrade proposal] Can a malicious governance proposal schedule an upgrade at a height where no matching handler exists in the Upgrades slice, causing the chain to halt when the upgrade height is reached? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0099e935-f284-4d9d-ad17-42e7e3fb3fad?mode=deep",
+    "timestamp": "2026-01-09 10:13:03.719339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeStoreLoaders()] [Store upgrade mismatch] Can governance proposals include upgrade plans with store migrations that don't match the StoreUpgrades defined in code, causing setupUpgradeStoreLoaders to skip necessary store migrations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ae24048-e95f-4ae7-86dd-b33a5ffb7c31?mode=deep",
+    "timestamp": "2026-01-09 10:13:25.188562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Handler name collision] Can two different upgrade proposals schedule upgrades with the same name but at different heights, causing SetUpgradeHandler to overwrite the earlier handler with the later one? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c7b6de0-79fc-4155-b63b-243e836dd223?mode=deep",
+    "timestamp": "2026-01-09 10:13:47.361260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Transaction replay] During the upgrade block, can transactions submitted before the upgrade be replayed after the upgrade completes with different state transition semantics, causing double-spending or other exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0523cd4-a4e2-4687-9b05-e5dd7361ccf1?mode=deep",
+    "timestamp": "2026-01-09 10:14:10.397082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Transaction ordering] Can fork logic that executes in PreBlockForks modify account nonces or balances in ways that cause transactions in the same block to fail or execute with unexpected results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35242508-cf5d-4f15-b152-0a8a92796280?mode=deep",
+    "timestamp": "2026-01-09 10:14:34.549754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Mempool state] Are transactions in the mempool validated against pre-upgrade or post-upgrade state during upgrade block processing, and can this be exploited to include invalid transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06733e3f-1eb8-4101-a8ce-946cd6aa0155?mode=deep",
+    "timestamp": "2026-01-09 10:14:59.912217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Decimal precision migration] Can upgrade handlers that modify TokenWrapper decimal conversion parameters (18→6 decimal scaling) cause existing IBC voucher balances to be calculated incorrectly after the upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_253b2d9e-6c33-47a8-baa8-044295131c25?mode=deep",
+    "timestamp": "2026-01-09 10:15:25.811315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Bridge balance after fork] If fork logic modifies TokenWrapper module wallet balances or IBC settings through AppKeepers, can this break decimal conversion invariants for subsequent wrap/unwrap operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e19fd463-c7f7-4f04-ac77-b41e3af8a002?mode=deep",
+    "timestamp": "2026-01-09 10:15:52.030829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Minting cap bypass] Can upgrade handlers use Factory keeper access through AppKeepers to modify or remove minting caps during migration, enabling unlimited token minting after the upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22629d96-65a0-49c6-b685-0f9f3da9ac54?mode=deep",
+    "timestamp": "2026-01-09 10:16:19.243852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Denom admin hijacking] Can malicious upgrade logic reassign denom admin rights for existing tokens through the Factory module, stealing control of user-created tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b58882a-258e-4587-b239-527585582594?mode=deep",
+    "timestamp": "2026-01-09 10:16:47.430218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [AMM invariant breaking] Can upgrade handlers modify DEX pool reserves through AppKeepers without updating liquidity token supplies, breaking the x*y=k invariant and enabling liquidity drainage attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_200bdb7a-f38d-4a08-877f-2aaa37b8a8fb?mode=deep",
+    "timestamp": "2026-01-09 10:17:16.572836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Pool token supply manipulation] During upgrades, can handlers mint or burn pool tokens without corresponding liquidity changes, allowing attackers to drain pools after the upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d46bf8ae-ce4e-4e5e-afdc-b06366c4bc4c?mode=deep",
+    "timestamp": "2026-01-09 10:17:45.030484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Validator consensus during upgrade] Can validators that haven't upgraded to the new binary participate in consensus during upgrade handler execution, causing proposals or blocks to be accepted with mixed handler versions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1397805f-89d9-4ed9-b4d5-36036f5825bd?mode=deep",
+    "timestamp": "2026-01-09 10:18:15.114259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: PreBlockForks()] [Byzantine validator exploitation] Can Byzantine validators (up to 1/3) skip fork logic execution while honest validators execute it, causing permanent state divergence at fork height? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89c89727-a5fc-46bf-a988-e8faa029d273?mode=deep",
+    "timestamp": "2026-01-09 10:18:45.841954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/setup_handlers.go] [Function: setupUpgradeHandlers()] [Upgrade height manipulation] Can a malicious governance proposal set an upgrade height in the past or at height 0, causing setupUpgradeStoreLoaders to immediately configure store loaders and potentially corrupt genesis state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8164595b-a0a2-4f1e-a49d-d2331ffbfd0c?mode=deep",
+    "timestamp": "2026-01-09 10:19:16.310828",
+    "report_generated": false
   }
 ]
