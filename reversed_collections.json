@@ -2398,5 +2398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ca3976f-1e09-446b-903d-a36a96c90a46?mode=deep",
     "timestamp": "2026-01-09 10:20:40.995707",
     "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformAddLiquidity()] [Dust attack] Can a contract repeatedly add tiny amounts of liquidity to bloat the pool's LP token holder set, increasing storage costs and slowing down pool operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c60c941-455a-4f96-822f-c1c00c573d3e?mode=deep",
+    "timestamp": "2026-01-09 10:22:05.144373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformAddLiquidity()] [Reentrancy during transfer] Can a malicious token's transfer hook reenter AddLiquidity during token deposits, manipulating pool state before LP tokens are minted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7fdb1725-a77a-4c3f-bbc2-6d93cfb59487?mode=deep",
+    "timestamp": "2026-01-09 10:22:17.528441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: addLiquidity()] [Decimal precision loss] When adding liquidity with different decimal tokens, can rounding errors cause loss of funds or incorrect LP token amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1718c28-c0b4-42f6-84d3-0e36e06e5e20?mode=deep",
+    "timestamp": "2026-01-09 10:22:30.788016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformAddLiquidity()] [Invalid pool ID] Can a contract provide a non-existent PoolID causing panics, or add liquidity to a pool that doesn't match the provided token denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45859794-a841-4082-8721-718d0708ba40?mode=deep",
+    "timestamp": "2026-01-09 10:22:43.881709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformAddLiquidity()] [LP token inflation attack] Can a contract donate tokens to a pool before initial liquidity is added, inflating LP token supply and diluting future liquidity providers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b4cc69a-94fe-45ee-b7a7-033a27c2601b?mode=deep",
+    "timestamp": "2026-01-09 10:22:57.518867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformAddLiquidity()] [First liquidity provider attack] Can a contract be the first to add liquidity with extreme ratios (e.g., 1 wei Base, MaxInt Quote) to lock in a manipulated price that affects all future LPs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a51b220c-356b-43f1-a40d-d16aeb274bba?mode=deep",
+    "timestamp": "2026-01-09 10:23:12.602946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformAddLiquidity()] [Zero liquidity addition] Can a contract call AddLiquidity with zero Base or Quote amounts to probe pool state, trigger edge cases, or manipulate LP token minting calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52f84ac1-7340-450c-84da-a98262e14091?mode=deep",
+    "timestamp": "2026-01-09 10:23:29.408040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformAddLiquidity()] [Receiver address exploit] At line 674, LP tokens can be sent to arbitrary Receiver - can a contract add liquidity using its tokens but send LP tokens to a controlled EOA, bypassing contract restrictions on LP token holding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0310dba4-3801-43c5-86e9-d845677a1b1d?mode=deep",
+    "timestamp": "2026-01-09 10:23:47.472684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformAddLiquidity()] [Unbalanced liquidity] At lines 669-675, Base and Quote amounts are provided - can a contract add liquidity with ratios far from current pool ratio, causing price manipulation or enabling arbitrage attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6bf75ac-cbd7-4f76-9d0c-0e5ac082a0a5?mode=deep",
+    "timestamp": "2026-01-09 10:24:05.726632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactOut()] [Swap vs withdraw confusion] Can a contract use SwapExactOut to effectively withdraw liquidity without burning LP tokens, bypassing proper liquidity removal mechanisms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3f3af45-34b1-48d2-a818-a1fb6f298d67?mode=deep",
+    "timestamp": "2026-01-09 10:24:25.328774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: swapExactOut()] [AMM invariant violation] Can SwapExactOut operations violate the x*y=k invariant due to rounding errors, allowing gradual pool drainage over many transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09118b2f-6c20-44e6-97eb-5bdf80a9e8e8?mode=deep",
+    "timestamp": "2026-01-09 10:24:45.979150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactOut()] [IncomingMax overflow] If IncomingMax is set to MaxInt, does the swap validation properly check against actual token balance, or can this cause integer overflow in balance checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0025a6bb-f577-47fd-87c7-7faf82eb214a?mode=deep",
+    "timestamp": "2026-01-09 10:25:07.379814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactOut()] [Price manipulation window] Can a contract use SwapExactOut to manipulate pool prices, then use the manipulated price in other operations (e.g., liquidations) within the same transaction? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_beb6b288-d13d-4b3c-93ee-5ff3748ab28f?mode=deep",
+    "timestamp": "2026-01-09 10:25:29.683356",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactOut()] [Excessive outgoing] Can a contract request Outgoing amounts larger than pool reserves, causing underflow errors or enabling pool drainage attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8632e85-73fd-4fcf-9ad8-e059effaf81c?mode=deep",
+    "timestamp": "2026-01-09 10:25:52.148543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactOut()] [Zero outgoing amount] Can a contract call SwapExactOut with zero Outgoing to drain contract token balance without receiving anything, or trigger edge cases in reverse price calculation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e130e13-4d8c-4fb5-9999-0824b84ed347?mode=deep",
+    "timestamp": "2026-01-09 10:26:16.345031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactOut()] [Receiver manipulation] At line 631, can a contract swap tokens but send output to a different address, enabling front-running or sandwich attacks where the contract swaps using user funds but redirects profits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14a289a4-e003-4deb-a604-7cc5e5b38d58?mode=deep",
+    "timestamp": "2026-01-09 10:26:40.706466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactOut()] [IncomingMax bypass] At line 632, IncomingMax is optional - can a contract execute swaps without maximum input protection, allowing unlimited token extraction if pool prices are manipulated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c9f5808-80e6-4ffa-be34-f4545a3e441a?mode=deep",
+    "timestamp": "2026-01-09 10:27:07.098095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactIn()] [Integer overflow in amounts] Can a contract specify Incoming amounts near MaxInt that cause overflow in swap calculations, wrapping to small values and getting more output than deserved? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03ed05ad-7d7a-4f29-b951-c693fec75ed8?mode=deep",
+    "timestamp": "2026-01-09 10:27:32.788276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: swapExactIn()] [Reentrancy during swap] Can a malicious token's transfer hook reenter SwapExactIn during the swap execution, manipulating pool state or enabling double-spending? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d33e3338-74cb-4779-ada8-c574acae8b6b?mode=deep",
+    "timestamp": "2026-01-09 10:28:00.539253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactIn()] [Rounding errors] Do swap calculations use proper rounding that favors the pool, or can a contract exploit rounding to extract small amounts of value over many swaps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41099cbb-3326-4aea-94e2-e0ea87a25871?mode=deep",
+    "timestamp": "2026-01-09 10:28:27.323295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactIn()] [Flash loan exploit] Can a contract perform SwapExactIn as part of a flash loan attack, manipulating pool prices within a single transaction to extract value? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6b266e5-c832-46bf-bbe7-46fb206d4fa8?mode=deep",
+    "timestamp": "2026-01-09 10:28:55.025890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactIn()] [Negative OutgoingMin] If OutgoingMin is set to a negative value, does validation properly reject it, or can this bypass slippage checks entirely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e005ec30-a910-4dd4-a05a-d6c5d242c0a0?mode=deep",
+    "timestamp": "2026-01-09 10:29:22.016648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactIn()] [Invalid pool ID] Can a contract provide a non-existent PoolID causing panics, or a pool ID for a different token pair than Incoming token, causing accounting errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_636c7416-ad7e-4a50-84a0-87b8be5002b3?mode=deep",
+    "timestamp": "2026-01-09 10:29:49.335502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactIn()] [Zero incoming amount] Can a contract call SwapExactIn with zero Incoming amount to probe pool state, manipulate prices through zero-amount swaps, or trigger edge cases in AMM math? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2ca3721-ded1-4368-b99c-bc6261a05d9e?mode=deep",
+    "timestamp": "2026-01-09 10:30:15.335293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: wasmbinding/message_plugin.go] [Function: PerformSwapExactIn()] [Receiver address exploit] At line 588, the Receiver can be arbitrary - can a contract specify a victim's address as receiver to force them to receive unwanted tokens, griefing them or violating token whitelists? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b11c0759-baa5-4716-a28a-290c4c9a8008?mode=deep",
+    "timestamp": "2026-01-09 10:30:41.849592",
+    "report_generated": false
   }
 ]
