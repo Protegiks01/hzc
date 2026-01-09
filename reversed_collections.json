@@ -4498,5 +4498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_caccca75-ed38-4664-916f-b12a137422d8?mode=deep",
     "timestamp": "2026-01-09 14:21:23.892457",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Error handling vulnerability] When handleRefund returns an error at line 106, it's logged but the function returns nil at line 110 - why does timeout success not propagate the refund error, and can this be exploited to mark packets as timed out without actual refunds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98a0c647-7477-4104-a988-5d3c7c9d1ee8?mode=deep",
+    "timestamp": "2026-01-09 14:22:42.146427",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Balance check bypass] Does handleRefund at line 106 properly check both sender's IBC token balance AND module's native token balance atomically, or can an attacker exploit a window where balances are inconsistent during the refund? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1977653-9c20-4987-99a9-8f705a129eb0?mode=deep",
+    "timestamp": "2026-01-09 14:22:54.877048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Lock/unlock race] In handleRefund at line 106, can an attacker exploit race conditions between the LockTokens and UnlockTokens operations to cause partial locks where IBC vouchers are locked but native tokens aren't unlocked, or vice versa? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a23422e4-e28f-4354-b944-1b6d90eb2a59?mode=deep",
+    "timestamp": "2026-01-09 14:23:07.697696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Module balance exhaustion] If handleRefund fails at line 106 due to insufficient module balance, the error is logged but nil is returned at line 110 - does this mean the IBC timeout is marked as successful while users don't get refunds, creating accounting discrepancies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4f1bcc4-7473-4ee3-946c-db1433eb2bd2?mode=deep",
+    "timestamp": "2026-01-09 14:23:21.281037",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Integer truncation] When handleRefund calls ScaleDownTokenPrecision at line 106, does the Quo operation properly handle amounts not evenly divisible by 10^12, or can attackers exploit remainder loss to accumulate dust that becomes unrefundable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38b7c5eb-ba99-446a-8611-0ff419f4bb20?mode=deep",
+    "timestamp": "2026-01-09 14:23:35.931334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Decimal conversion attack] In handleRefund at line 106, can an attacker exploit the ScaleDownTokenPrecision conversion (18→6 decimals) to cause precision loss that rounds down to zero for small amounts, allowing them to drain tokens by repeatedly timing out tiny transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17f2e15e-75bb-4710-9012-152638967737?mode=deep",
+    "timestamp": "2026-01-09 14:23:51.152703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Callback manipulation] Can a malicious IBC module in the middleware stack (im.app) manipulate the packet or context during the OnTimeoutPacket call at line 99 to cause the subsequent handleRefund at line 106 to send tokens to the wrong address? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c35e5ca-e5f8-47dc-bf47-7393d9e11216?mode=deep",
+    "timestamp": "2026-01-09 14:24:07.159799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [State rollback] If im.app.OnTimeoutPacket at line 99 modifies state (e.g., escrow accounting) but then panics before returning, does the error handling properly rollback state, or can this leave the escrow counters in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_348c4dfc-ee56-4293-9e47-5e5fa8826a39?mode=deep",
+    "timestamp": "2026-01-09 14:24:22.798440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Error suppression] If im.app.OnTimeoutPacket returns an error at line 99, it's logged and returned immediately at line 102 - does this mean the handleRefund at line 106 never executes, leaving tokens permanently stuck in the module account? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa5e1ea0-b98b-41dc-afbe-025f3b9fa3b8?mode=deep",
+    "timestamp": "2026-01-09 14:24:41.748494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Reentrancy attack] Can the im.app.OnTimeoutPacket call at line 99 trigger callbacks that re-enter OnTimeoutPacket for the same packet before handleRefund at line 106 completes, causing double refunds and token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05c97308-3cd1-4c14-b33f-3d13a2a36fdb?mode=deep",
+    "timestamp": "2026-01-09 14:25:01.178979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Atomicity violation] If im.app.OnTimeoutPacket succeeds at line 99 but handleRefund fails at line 106, the function returns nil at line 110 - does this create a state where the IBC layer marks the packet as timed out but tokens are never refunded, causing permanent loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cea336c0-60ce-4eff-8a47-c294231d4bfa?mode=deep",
+    "timestamp": "2026-01-09 14:25:21.320622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Griefing attack] Can an attacker time their transfers to timeout exactly when they know the module will be disabled (via governance vote tracking), causing their packets to timeout at line 91 without refunds while they keep the original tokens on the source chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_520eabf8-7488-498d-96b5-4dbf168ca151?mode=deep",
+    "timestamp": "2026-01-09 14:25:43.507280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Race condition] Can a malicious operator disable the module via pauser addresses between line 91 check and line 106 handleRefund call, causing the refund to fail while the underlying timeout is already processed, leading to double-spending? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26201a4d-9dea-4947-b8fb-e5b8067385fe?mode=deep",
+    "timestamp": "2026-01-09 14:26:06.028974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Emergency stop bypass] Can an attacker exploit the ordering of checks where IsEnabled is checked at line 91 AFTER all validation and BEFORE the underlying OnTimeoutPacket call, allowing partial state changes before the module is disabled? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da9dba23-1c11-4317-acc9-da19ccb146b0?mode=deep",
+    "timestamp": "2026-01-09 14:26:30.149227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [State inconsistency] If the module is disabled via IsEnabled check at line 91 after packets are already in flight, can this cause timeout packets to be rejected while tokens are stuck in escrow, with no recovery mechanism available? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72483db9-7eac-49f9-ae3f-421a41fa3ea4?mode=deep",
+    "timestamp": "2026-01-09 14:26:54.920629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Error propagation] When IBC settings mismatch at line 83, the error is emitted and logged but im.app.OnTimeoutPacket is still called at line 87 - does this create a state where the packet is marked as timed out but refund never happens, permanently locking tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3c5ae2f-3d4e-4c6a-86dd-9c2779b7a6f0?mode=deep",
+    "timestamp": "2026-01-09 14:27:19.977058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Race condition] Between the validateIBCSettingsMatchOnSendPacket check at line 83 and the handleRefund call at line 106, can IBC settings be updated via governance, causing the refund to use different channel settings than what was validated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90d58f88-de8d-4c94-9fbb-573bec2c30b4?mode=deep",
+    "timestamp": "2026-01-09 14:27:46.987039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Port confusion] Can an attacker craft timeout packets with source port/channel that don't match expected IBC settings but are still valid on the counterparty chain, causing validateIBCSettingsMatchOnSendPacket to fail at line 83 and skip refunds while tokens remain stuck? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_478884ed-5b00-4c6a-b24e-96d32d778603?mode=deep",
+    "timestamp": "2026-01-09 14:28:14.261019",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Channel mismatch exploit] If validateIBCSettingsMatchOnSendPacket fails at line 83 due to mismatched channels, the function returns the underlying app error at line 87 - can an attacker deliberately create packets with wrong channel IDs to bypass refund logic while still getting the timeout processed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b541a34f-564a-4195-8c6b-58442e32b4b5?mode=deep",
+    "timestamp": "2026-01-09 14:28:42.324098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Silent failure] When the packet denom is not the module denom at line 75, the function logs info and skips refunding at line 78 - can this be exploited to process timeouts without refunds for cross-chain attacks where attackers timeout their own packets to avoid penalties? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69db8fec-ce8f-4f74-9ba2-f2697402b5d1?mode=deep",
+    "timestamp": "2026-01-09 14:29:11.269697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Unicode attack] Can an attacker craft a denom with Unicode lookalike characters at line 72 that appear identical to the module denom but fail the exact match at line 75, causing legitimate timeout refunds to be skipped? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e05af1fe-c265-4050-87fc-0d8ac4e07058?mode=deep",
+    "timestamp": "2026-01-09 14:29:41.298938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Case sensitivity] Is the validateIBCDenomIsModuleDenom comparison at line 75 case-sensitive - can an attacker bypass it by using mixed case denoms (e.g., 'ModuleDenom' vs 'moduledenom') to either skip refunds or trigger refunds for wrong tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76cd55cd-3e21-4a88-bec1-1db2e739e9b9?mode=deep",
+    "timestamp": "2026-01-09 14:30:11.507226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Path traversal] Does the ExtractDenomFromPath call at line 72 properly sanitize the denom path, or can an attacker inject path traversal sequences (e.g., '../../../evil') to bypass the module denom check and refund non-module tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f34dc51-614b-4d40-9f98-3e532bd6b18f?mode=deep",
+    "timestamp": "2026-01-09 14:30:41.230598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Denom confusion] Can an attacker craft a packet with a denom that has the same base denom as the module denom but different path prefixes at line 72, causing validateIBCDenomIsModuleDenom to return false and skip refunding legitimate user tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3026e8e2-d7b6-4173-8101-bf8210b16245?mode=deep",
+    "timestamp": "2026-01-09 14:31:10.866951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/module/on_timeout_packet.go] [Function: OnTimeoutPacket()] [Inconsistent behavior] If validateIBCSettingsExist returns false at line 64, the code skips refunding and returns nil at line 68, but what happens to the tokens that should be refunded - are they permanently stuck in escrow, creating a token supply discrepancy? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccd34b76-ad9f-49eb-85cc-e83ecb86f310?mode=deep",
+    "timestamp": "2026-01-09 14:31:39.997987",
+    "report_generated": false
   }
 ]
