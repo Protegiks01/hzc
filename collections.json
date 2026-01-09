@@ -8998,5 +8998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bd6dbf9-7bd3-407b-9ade-5339148992e0?mode=deep",
     "timestamp": "2026-01-09 21:46:00.771464",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Protobuf determinism] Are the protobuf encodings of PoolUids deterministic across different SDK versions? Can non-deterministic encoding lead to different validators producing different query results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_caaed2bd-ac9d-4550-a333-0cc2e9951d29?mode=deep",
+    "timestamp": "2026-01-09 21:47:15.850026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [Codec injection] If an attacker can influence the cdc codec configuration, can they modify how PoolUids are marshaled/unmarshaled to inject malicious data into query responses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15410bae-0c3a-47db-879e-e3adbc6bf9c5?mode=deep",
+    "timestamp": "2026-01-09 21:47:28.258588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [Context cancellation] If the gRPC context is cancelled mid-query due to client timeout, are store resources properly cleaned up, or can cancelled queries leak iterators and file handles? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cd1f21f-cd79-44fa-aec6-55e583ba6a6f?mode=deep",
+    "timestamp": "2026-01-09 21:47:41.634055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Streaming response manipulation] If query.Paginate uses streaming internally, can an attacker exploit stream buffering to cause memory exhaustion by requesting large pages without consuming the response? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a039991b-56cd-46cc-97e0-0cf8f5160e68?mode=deep",
+    "timestamp": "2026-01-09 21:47:54.801633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [gRPC metadata injection] Can an attacker inject malicious gRPC metadata that influences how the query server processes requests, potentially bypassing rate limits or authentication checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33ab9251-b4f8-47f2-b7f6-0b5b877d973a?mode=deep",
+    "timestamp": "2026-01-09 21:48:08.518734",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [Error serialization] When errors are converted to gRPC status.Error, can malicious error messages containing special characters break gRPC protocol framing or client parsing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c577a38-9033-4264-a8ef-587c7a1495e6?mode=deep",
+    "timestamp": "2026-01-09 21:48:23.397025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Response size limits] Does the query server enforce maximum response size limits? Can an attacker create scenarios where ListPoolUids returns responses exceeding gRPC limits, causing connection failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6679e6e4-8dd0-42bf-9375-eca0cbbd66c5?mode=deep",
+    "timestamp": "2026-01-09 21:48:39.242477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids & GetPoolUid] [Store service consistency] Does the storeService.OpenKVStore guarantee consistent reads across concurrent queries, or can dirty reads return partially committed pool UID data during block execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46b4058b-bc12-486a-af3f-8b6022c16fd6?mode=deep",
+    "timestamp": "2026-01-09 21:48:56.941743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Prefix store isolation] Can an attacker craft pagination keys that escape the PoolUidsKeyPrefix boundary and access data from other prefixes, potentially leaking sensitive information from other modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a3f0885-7f5f-4bb4-8796-8b5c7ad89c55?mode=deep",
+    "timestamp": "2026-01-09 21:49:15.317974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Store adapter caching] Does KVStoreAdapter use internal caching that could be poisoned by malicious queries, causing subsequent legitimate queries to return incorrect cached data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b473652b-aad2-4068-8f73-06dccea62d5e?mode=deep",
+    "timestamp": "2026-01-09 21:49:34.670738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Iterator invalidation] If the underlying store is modified while the prefix iterator is active in query.Paginate, can this invalidate the iterator and cause crashes or incorrect results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1343c860-3c67-4381-aa87-8e01c509b79e?mode=deep",
+    "timestamp": "2026-01-09 21:49:55.318227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Key encoding vulnerabilities] The PoolUidsKey function uses simple byte concatenation - can an attacker exploit this to create keys that collide with other data structures in the store? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acf6518a-ec73-43c7-acce-53b9ec5350e5?mode=deep",
+    "timestamp": "2026-01-09 21:50:16.702164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Phishing via pool UIDs] Can an attacker create pools with UIDs that appear similar to legitimate pools (e.g., using homoglyphs) to trick users into trading on malicious pools with manipulated liquidity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8fc7168-64d9-4f48-a3d6-bc5f4919124a?mode=deep",
+    "timestamp": "2026-01-09 21:50:38.380889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Front-end parsing vulnerabilities] If web frontends parse ListPoolUids responses without proper sanitization, can an attacker inject HTML/JavaScript in pool UID strings to perform cross-site scripting attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73625d5c-4956-4c2f-a83c-7a7bc20435aa?mode=deep",
+    "timestamp": "2026-01-09 21:51:01.079989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid] [Trading bot exploitation] Can an attacker query patterns be designed to mislead trading bots into making unprofitable trades by returning pool UIDs that map to pools with manipulated prices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cd7890c-e774-4128-a359-44972e739bc7?mode=deep",
+    "timestamp": "2026-01-09 21:51:25.092680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: ListPoolUids] [Rate limit bypass] Can an attacker use pagination to effectively bypass per-query rate limits by making many small paginated requests that cumulatively retrieve the same data as one large request would? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fc07e74-a5bd-41d9-a624-ba6b8e8a3c5b?mode=deep",
+    "timestamp": "2026-01-09 21:51:49.442140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool_uids.go] [Function: GetPoolUid & ListPoolUids] [Timing side channels] Can an attacker use timing differences in query responses (e.g., found vs not found) to infer private information about pool creation patterns or trading activity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b06aec0-a9fe-49c7-bd13-240c4421673d?mode=deep",
+    "timestamp": "2026-01-09 21:52:14.894863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Nil Pointer Dereference] Can an attacker trigger a panic by passing a nil request parameter, bypassing the nil check at line 16-18, if the gRPC framework allows unmarshaling to produce a non-nil but partially initialized request object? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ddac614-c537-4fcf-ae27-7c128ed5f668?mode=deep",
+    "timestamp": "2026-01-09 21:52:40.644216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Store Access] Can a malicious validator exploit the storeService.OpenKVStore() call at line 22 during concurrent pool creation/deletion to cause a race condition that returns inconsistent pool states, leading to incorrect liquidity calculations in downstream AMM operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2524ee5b-b8b0-46d4-a2d8-40275437e415?mode=deep",
+    "timestamp": "2026-01-09 21:53:06.529512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Pagination DoS] Can an attacker craft a QueryAllPoolRequest with an extremely large pagination limit (e.g., uint64 max value) to exhaust node memory during the query.Paginate() call at line 25, causing validator crashes and network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7031c917-c9d6-465d-93e6-89c71437b5a8?mode=deep",
+    "timestamp": "2026-01-09 21:53:32.953930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Memory Exhaustion] If there are millions of pools in the store, can an attacker send repeated ListPool requests with maximum pagination limits to exhaust heap memory via the pools slice append operation at line 31, causing out-of-memory crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0aacf382-93a0-4c73-a8bb-37153aa97a5f?mode=deep",
+    "timestamp": "2026-01-09 21:53:59.331027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Unmarshaling Vulnerability] Can an attacker create a corrupted pool entry in the KVStore that causes s.k.cdc.Unmarshal() at line 27 to panic, triggering a chain halt when any user queries the pool list? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d06234e-7512-459b-91a9-b4ecd02bdad0?mode=deep",
+    "timestamp": "2026-01-09 21:54:26.158469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Error Handling] Does the error returned at line 28 properly propagate all unmarshal errors, or can certain protobuf parsing failures be silently ignored, leading to incomplete pool listings that hide liquidity from users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea8bc3aa-64f6-4933-8818-f952649afaa0?mode=deep",
+    "timestamp": "2026-01-09 21:54:53.656636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Pagination State Consistency] Can an attacker exploit the pagination mechanism to query the same pool multiple times across different pages if pools are being created/deleted concurrently, leading to double-counting of liquidity in aggregator services? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66ba1b50-7e82-4c22-b5cf-bf6c24fcd7d8?mode=deep",
+    "timestamp": "2026-01-09 21:55:22.175500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/query_pool.go] [Function: ListPool()] [Iterator Safety] Does the query.Paginate() function at line 25 properly close the underlying KVStore iterator in all error paths, or can repeated failed queries leak iterators and exhaust file descriptors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_74dda42a-622a-451d-9000-965f29ff278e?mode=deep",
+    "timestamp": "2026-01-09 21:55:50.221981",
+    "report_generated": false
   }
 ]
