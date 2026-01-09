@@ -8848,5 +8848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cdf21e49-33a7-47c0-b053-9460c6441eed?mode=deep",
     "timestamp": "2026-01-09 19:36:46.401982",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [IBC address attack] Can an attacker submit an IBC-derived address (e.g., ibc/...) as the Pauser that passes ValidateBasic() but causes cross-chain pauser management confusion when the keeper attempts to match against native chain addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8828239c-9185-4b55-a724-9d100923596c?mode=deep",
+    "timestamp": "2026-01-09 19:37:56.147548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Authority bypass] Could an attacker exploit the fact that ValidateBasic() doesn't check if Pauser is the module authority address, potentially allowing removal of the governance-controlled authority from the pauser list and breaking emergency pause functionality? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e41d728-84cc-4f68-afba-0d79678f1a2a?mode=deep",
+    "timestamp": "2026-01-09 19:38:08.534467",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Module account confusion] Can an attacker specify a module account address (e.g., TokenWrapper module address) as the Pauser to be removed, and does ValidateBasic() prevent this, or could removing a module account as pauser break cross-module invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec18c683-78b9-41f5-9d33-34b550a9e22e?mode=deep",
+    "timestamp": "2026-01-09 19:38:21.278887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Normalization attack] Does ValidateBasic() apply Unicode normalization (NFC/NFD) consistently with the keeper's address comparison logic, or could an attacker use different normalization forms to bypass pauser removal? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da93c6f6-5928-484e-ab7e-44809c5459b6?mode=deep",
+    "timestamp": "2026-01-09 19:38:35.753255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Character encoding] Can an attacker submit a Pauser address containing UTF-8 multibyte characters that pass Bech32 validation but cause string length mismatches during keeper string comparison, preventing pauser removal? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3759b5f-4f62-44f6-90e6-ebc489a907ce?mode=deep",
+    "timestamp": "2026-01-09 19:38:49.483734",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Prefix boundary] Does validators.AddressCheck() properly handle addresses where the length equals exactly constants.AddressPrefix length, preventing out-of-bounds access when checking address[:len(constants.AddressPrefix)]? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31ace32c-f975-4397-bc24-7d603c032f0c?mode=deep",
+    "timestamp": "2026-01-09 19:39:04.347854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Bech32 collision] Could an attacker exploit Bech32 checksum weaknesses to generate two addresses with different bytes but the same checksum that both pass validators.AddressCheck(), allowing removal of a pauser address different from the intended target? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4ce4283-e2c2-4a92-915a-6dd80e65a812?mode=deep",
+    "timestamp": "2026-01-09 19:39:20.318811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Validator resource attack] Can an attacker submit MsgRemovePauserAddress messages with addresses requiring expensive validation (e.g., addresses near the MaxDenomLength boundary) to specifically target validators with slower hardware, causing consensus delays? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21bd14ad-d00e-4090-b5a7-71cc72ca76aa?mode=deep",
+    "timestamp": "2026-01-09 19:39:37.940378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Memory leak] If ValidateBasic() is called repeatedly with addresses that fail validation, does error wrapping with errorsmod.Wrapf() cause memory leaks through accumulated error context strings that aren't garbage collected? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_798d4183-1988-4a56-a32a-e9735a6425a9?mode=deep",
+    "timestamp": "2026-01-09 19:39:56.533306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [CPU exhaustion] Could an attacker submit thousands of MsgRemovePauserAddress transactions with valid but non-pauser addresses that pass ValidateBasic() but fail in the keeper, causing validators to waste CPU cycles on futile pauser lookups? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9e2d050-41db-404a-bf8c-a79bbf5ea462?mode=deep",
+    "timestamp": "2026-01-09 19:40:16.127082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Gas exhaustion] Does validators.AddressCheck() with the 'PAUSER' field parameter have bounded gas consumption, or could an attacker craft a pauser address that causes exponential regex matching in ValidateDenom(), leading to gas exhaustion and transaction failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51fd9be5-5253-481b-b4c6-c2348b481bd3?mode=deep",
+    "timestamp": "2026-01-09 19:40:36.838747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Rollback safety] If transaction execution fails after ValidateBasic() but before keeper execution completes, are there any state changes made during validation that aren't properly rolled back, causing subtle state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_397d556b-f76f-4959-ae9e-62cb7f239bc7?mode=deep",
+    "timestamp": "2026-01-09 19:40:58.662864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Event ordering] If multiple MsgRemovePauserAddress messages are included in the same block removing different pausers, does the keeper's RemovePauserAddress() function handle concurrent removals correctly, or could the slice manipulation cause index out-of-bounds errors or missed removals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ac6f31b-e3c5-4414-9211-beda611e320c?mode=deep",
+    "timestamp": "2026-01-09 19:41:20.617429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Atomic execution] Does the message execution guarantee atomicity with other TokenWrapper operations, or could a pauser removal interleave with a MsgDisableTokenWrapper from the same pauser being removed, causing race conditions where the pauser successfully disables the module after being removed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a6aff9d-1184-49cf-bfe7-205069ad69e4?mode=deep",
+    "timestamp": "2026-01-09 19:41:43.508446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [State inconsistency] If validators.SignerCheck() uses different validation logic than sdk.AccAddressFromBech32() in the keeper, could an address that passes ValidateBasic() fail keeper parsing, causing transaction acceptance but failed execution that wastes user gas and creates confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c160ba0f-f7d8-4608-88ec-a6f89072b11b?mode=deep",
+    "timestamp": "2026-01-09 19:42:07.639464",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Replay attack] Can an attacker replay a valid MsgRemovePauserAddress transaction after the pauser has been re-added, causing the pauser to be removed again without proper authorization checks, if nonce/sequence validation is insufficient? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a4652e7-bcb1-4701-9bae-9152b65b8deb?mode=deep",
+    "timestamp": "2026-01-09 19:42:32.405885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Time-of-check-time-of-use] If ValidateBasic() passes but the pauser address is removed by a concurrent transaction before the keeper processes this message, does the keeper handle the 'pauser not found' case gracefully or could it cause state corruption or panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_960d1f22-972d-4ca0-817d-0489e7a2da31?mode=deep",
+    "timestamp": "2026-01-09 19:42:58.156001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Race condition] Between ValidateBasic() execution and keeper.RemovePauserAddress() execution, could the operator address change via a concurrent MsgClaimOperatorAddress transaction, causing the removal to fail but the transaction to be committed, resulting in inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e29bdc1-9cfb-432f-8e10-922c2ed80cdd?mode=deep",
+    "timestamp": "2026-01-09 19:43:24.609185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Access control] Does ValidateBasic() verify that the Signer is authorized to remove pausers (i.e., is the current operator), or does it only perform syntactic validation, allowing any valid address to submit the message and waste gas when the keeper rejects it? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28837a83-92dc-48a0-bd6f-255372e377d4?mode=deep",
+    "timestamp": "2026-01-09 19:43:49.763147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: NewMsgRemovePauserAddress()] [Type confusion] Could an attacker exploit Go's interface type system to pass non-string types to NewMsgRemovePauserAddress() that get coerced to strings in unexpected ways, causing validation bypass or state corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b76c596-6f7b-42c8-943b-370bcedac26d?mode=deep",
+    "timestamp": "2026-01-09 19:44:16.672863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: NewMsgRemovePauserAddress()] [Nil return] Under what conditions could NewMsgRemovePauserAddress() return a nil pointer instead of a valid message, and would calling code handle this gracefully or cause a panic when attempting to call ValidateBasic() on the nil pointer? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d358d17a-e227-47ec-849f-9c6126bd865a?mode=deep",
+    "timestamp": "2026-01-09 19:44:43.707917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: NewMsgRemovePauserAddress()] [Memory exhaustion] If an attacker calls NewMsgRemovePauserAddress() with extremely large string parameters in a tight loop, could this cause memory exhaustion in validator nodes processing the transaction, leading to out-of-memory crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b828c962-50a8-4712-9eb4-c2f9d3c325d5?mode=deep",
+    "timestamp": "2026-01-09 19:45:09.614817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: NewMsgRemovePauserAddress()] [Input sanitization] Does NewMsgRemovePauserAddress() perform any sanitization on the signer and pauser parameters before assigning them to the struct, or can an attacker inject malicious data (e.g., SQL injection patterns, control characters) that persist through to keeper execution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63b1f168-2ad8-47f8-8b15-675556291c6e?mode=deep",
+    "timestamp": "2026-01-09 19:45:34.871111",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Prefix manipulation] Does validators.AddressCheck() verify that the Pauser address has the correct constants.AddressPrefix, or could an attacker submit a valid Bech32 address with a different chain prefix that passes validation but references an address on a different chain, causing cross-chain pauser confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_984b92da-9ca2-4682-8763-8db4e6c332ce?mode=deep",
+    "timestamp": "2026-01-09 19:45:59.184386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/message_remove_pauser_address.go] [Function: ValidateBasic()] [Encoding attack] Can an attacker submit a Pauser address containing null bytes (\\x00) within the string that passes validators.AddressCheck() but causes state corruption when stored in the KVStore, leading to inability to remove legitimate pausers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_008f142b-d85e-4f7f-ac3e-328c6da1f6b7?mode=deep",
+    "timestamp": "2026-01-09 19:46:23.225465",
+    "report_generated": false
   }
 ]
