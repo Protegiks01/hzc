@@ -1,1 +1,152 @@
-[]
+[
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_2_list.Get()] [Slice bounds] Can an attacker call Get() with an out-of-bounds index to trigger a panic, causing validator crashes during genesis state queries and leading to network-wide DoS? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78afb0aa-b0e9-47fe-9ced-670dfaa2e3a1?mode=deep",
+    "timestamp": "2026-01-09 02:27:09.124397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_2_list.Set()] [Type confusion] Can an attacker provide a malicious protoreflect.Value that doesn't unwrap to *Pool, causing a type assertion panic in the Interface().(*Pool) conversion and crashing validators during genesis import? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30935f3d-f659-4d27-a662-59ad859e1954?mode=deep",
+    "timestamp": "2026-01-09 02:27:21.403081",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_2_list.Append()] [Memory exhaustion] Can an attacker craft a genesis file with millions of Pool entries to cause unbounded slice growth via repeated Append() calls, exhausting validator memory and causing consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08c50102-6d9a-4216-b798-eec5248d6005?mode=deep",
+    "timestamp": "2026-01-09 02:27:34.059065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_2_list.AppendMutable()] [Nil pointer] If the underlying x.list pointer is nil when AppendMutable() is called, can an attacker trigger a nil pointer dereference by appending to an uninitialized list, causing validator crashes during genesis state construction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c93bf28-5c85-4957-982b-eaa95d5a7150?mode=deep",
+    "timestamp": "2026-01-09 02:27:47.377871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_2_list.Truncate()] [Slice manipulation] Can an attacker provide a negative truncation index n to bypass the nil-setting loop (lines 52-56), leaving dangling Pool pointers in memory and potentially causing use-after-free vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1b5bea9-b4db-4ab2-ab29-54cd287e53e2?mode=deep",
+    "timestamp": "2026-01-09 02:28:01.338415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_2_list.Len()] [Race condition] If multiple goroutines call Len() while another goroutine modifies x.list, can a race condition cause inconsistent length readings, leading to slice bounds violations in concurrent genesis state operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa022288-7ad3-49cb-b73c-a91e94096c6e?mode=deep",
+    "timestamp": "2026-01-09 02:28:16.195634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_2_list.IsValid()] [Validation bypass] Can an attacker create a genesis state where x.list != nil but points to an empty slice, bypassing IsValid() checks while still causing issues in downstream operations that assume valid pool data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cbc5bb9-3842-4e73-9fc7-8e8b2ca9fc79?mode=deep",
+    "timestamp": "2026-01-09 02:28:32.285854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_2_list.NewElement()] [Resource exhaustion] Can an attacker repeatedly call NewElement() without adding elements to the list, allocating unbounded Pool objects and exhausting validator memory during genesis processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a59a83a2-3964-47db-a66f-11095726b6ec?mode=deep",
+    "timestamp": "2026-01-09 02:28:49.889643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_4_list.Get()] [Slice bounds] Can an attacker exploit Get() with an index >= len(*x.list) to trigger a runtime panic, causing validator crashes during PoolUids retrieval from genesis state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1fcc01b-556f-4546-a295-3aebf5827b74?mode=deep",
+    "timestamp": "2026-01-09 02:29:08.010346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_4_list.Set()] [Type confusion] Can an attacker inject a malformed protoreflect.Value that fails the (*PoolUids) type assertion, causing validator panics during genesis state modification operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f38342a4-0424-4145-867a-a188b86db414?mode=deep",
+    "timestamp": "2026-01-09 02:29:27.630983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_4_list.Append()] [Memory exhaustion] Can an attacker craft a genesis file with billions of PoolUids entries to cause unbounded memory allocation via Append() calls, exhausting validator resources and causing chain halts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2a65241-94dc-42c7-8137-b959446f7c78?mode=deep",
+    "timestamp": "2026-01-09 02:29:47.932656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_4_list.AppendMutable()] [State corruption] If AppendMutable() is called on a shared list during concurrent genesis processing, can race conditions cause duplicate or missing PoolUids entries, corrupting the DEX state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8c01597-f6be-462f-bc9e-af5cd8cbbf2f?mode=deep",
+    "timestamp": "2026-01-09 02:30:08.722846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_4_list.Truncate()] [Resource leak] If Truncate() is called with n > len(*x.list), does the bounds check prevent slice corruption, or can an attacker trigger undefined behavior leading to memory corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a22c711c-cf15-4e9e-ab43-3d652a2d9ac1?mode=deep",
+    "timestamp": "2026-01-09 02:30:30.483362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: _GenesisState_4_list.Len()] [Nil dereference] If x.list is nil when Len() is called, the function returns 0, but can subsequent operations that depend on Len() == 0 to mean 'uninitialized' be confused with 'empty list', causing state validation bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_942138c9-45c3-43ac-8e4b-8880459b45e5?mode=deep",
+    "timestamp": "2026-01-09 02:30:53.731736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: fastReflection_GenesisState.Range()] [Nil pointer] Can an attacker trigger Range() on a GenesisState where x.Params is nil, causing the ProtoReflect() call to panic and crash validators during genesis state iteration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07d5436a-719c-460a-96bd-6eae814dce00?mode=deep",
+    "timestamp": "2026-01-09 02:31:18.074942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: fastReflection_GenesisState.Has()] [Field validation bypass] Can an attacker exploit the Has() check for pool_list (line 243) where len(x.PoolList) != 0 returns true even with an empty but non-nil slice, bypassing validation logic that expects truly unpopulated fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db05c3e3-bd3f-48e1-b35e-01bc1743e1c8?mode=deep",
+    "timestamp": "2026-01-09 02:31:43.242648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: fastReflection_GenesisState.Clear()] [State corruption] If Clear() is called on multiple fields simultaneously during concurrent genesis operations, can race conditions leave the GenesisState in a partially cleared state, causing consensus divergence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ebc47a61-97f2-4c22-9f17-f57b14d7d3da?mode=deep",
+    "timestamp": "2026-01-09 02:32:09.261552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: fastReflection_GenesisState.Get()] [Type confusion] Can an attacker request a descriptor that doesn't match any known field, causing the panic at line 310 to crash validators during genesis queries with malformed field descriptors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2245e28e-2d5b-438c-8184-2ed368a6fac4?mode=deep",
+    "timestamp": "2026-01-09 02:32:34.952426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: fastReflection_GenesisState.Set()] [Type mismatch] Can an attacker call Set() for pool_list with a protoreflect.Value that doesn't contain a _GenesisState_2_list, causing the type assertion at line 330 to panic and crash validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00553d3c-3ca9-46fe-9f68-e75952dfe292?mode=deep",
+    "timestamp": "2026-01-09 02:33:01.613922",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: fastReflection_GenesisState.Mutable()] [Nil allocation] When Mutable() allocates a new Params at line 360 if x.Params == nil, can an attacker trigger repeated allocations without persisting them, causing memory leaks during genesis processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e40a7f0e-baed-4c51-8d4c-33f3b472f47d?mode=deep",
+    "timestamp": "2026-01-09 02:33:26.855532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: fastReflection_GenesisState.NewField()] [Resource exhaustion] Can an attacker repeatedly call NewField() for pool_list and pool_uids_list without using the returned values, allocating unbounded slices and exhausting validator memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_206bff7d-b7c7-4d80-9829-51e371dc7dc7?mode=deep",
+    "timestamp": "2026-01-09 02:33:52.981836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: size()] [Integer overflow] Can an attacker craft a genesis state with a Params object whose size causes integer overflow in the calculation 'n += 1 + l + runtime.Sov(uint64(l))' at line 476, leading to undersized buffer allocation in subsequent marshaling? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c132dde5-12ff-4522-8ccb-754b6d1669d3?mode=deep",
+    "timestamp": "2026-01-09 02:34:17.299810",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: size()] [Overflow in pool list] If len(x.PoolList) is extremely large and each Pool object has a size that causes 'l = options.Size(e)' to return a huge value, can the accumulation in lines 478-482 overflow the integer n, causing buffer overflows during marshaling? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f30dd4b-b7a1-4e72-a35e-073de857e07b?mode=deep",
+    "timestamp": "2026-01-09 02:34:40.796551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: size()] [Overflow in PoolsMeta] Can an attacker craft a PoolsMeta object with a size that causes 'l = options.Size(x.PoolsMeta)' at line 485 to return MaxInt, making the subsequent addition 'n += 1 + l + runtime.Sov(uint64(l))' overflow and corrupt the total size calculation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2761521f-a961-4c11-8d9d-d8d3b400805d?mode=deep",
+    "timestamp": "2026-01-09 02:35:05.263430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: api/zigchain/dex/genesis.pulsar.go] [Function: size()] [Overflow in PoolUids list] If len(x.PoolUidsList) contains millions of entries and each PoolUids has maximum size, can the loop at lines 488-492 cause integer overflow in n, leading to memory corruption when the undersized buffer is allocated? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_040d5661-ab91-403a-a9e6-5689890c16bc?mode=deep",
+    "timestamp": "2026-01-09 02:35:29.060889",
+    "report_generated": false
+  }
+]
