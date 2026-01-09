@@ -598,5 +598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d304234b-ba72-4f24-860e-b0e311ade81d?mode=deep",
     "timestamp": "2026-01-09 08:04:21.215170",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: PreBlocker()] [Context propagation] Is the context properly propagated through PreBlockForks to app.App.PreBlocker, or can context modifications be lost? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9eb74b46-a2fc-41dc-a54c-f0e7781e7967?mode=deep",
+    "timestamp": "2026-01-09 08:05:27.627096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - RegisterStreamingServices] [Service injection] Can malicious streaming services registered via RegisterStreamingServices intercept and modify IBC packet data before it's committed to state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ded7eac7-f522-4488-837e-76942b1f8e6b?mode=deep",
+    "timestamp": "2026-01-09 08:05:40.111269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - RegisterStreamingServices] [KV store exposure] Do streaming services get access to all kvStoreKeys including sensitive ones like TokenWrapper module wallet keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_779d8df8-aef5-4b6b-90da-92d24d06d648?mode=deep",
+    "timestamp": "2026-01-09 08:05:52.854204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - RegisterStreamingServices] [Error handling] If RegisterStreamingServices fails, is initialization properly aborted or can the chain continue with partial streaming setup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcdf9d27-236e-41c6-a810-e706a5104ab1?mode=deep",
+    "timestamp": "2026-01-09 08:06:05.974133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SetInitChainer() - SetModuleVersionMap] [Version manipulation] Can the module version map be manipulated to claim TokenWrapper is at a newer version than it actually is, causing upgrade logic to skip security fixes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac2539db-8c2e-4039-9f13-90807be043ad?mode=deep",
+    "timestamp": "2026-01-09 08:06:19.866973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SetInitChainer() - SetModuleVersionMap] [Consensus module] Does setting the module version map for consensus-critical modules like IBC risk causing chain splits if validators use different version maps? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb9ae28f-c6ca-49b8-99aa-9d679dfaf1da?mode=deep",
+    "timestamp": "2026-01-09 08:06:35.117982",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: SetInitChainer() - GetVersionMap] [Module manager] Can the ModuleManager.GetVersionMap() return incorrect versions due to module registration issues, causing state migrations to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a602759c-b163-49fc-9436-2e4790849ebc?mode=deep",
+    "timestamp": "2026-01-09 08:06:51.038289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeStoreLoaders()] [Multiple upgrades] If multiple upgrades in the Upgrades array match upgradeInfo.Name, does the loop set multiple store loaders causing conflicts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78c5d99a-43bf-4f27-a0c0-914f70ba1253?mode=deep",
+    "timestamp": "2026-01-09 08:07:07.773485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeStoreLoaders()] [Store upgrade struct] Can the storeUpgrades struct be manipulated to add or delete stores for security-critical modules like TokenWrapper? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ffaaa860-8f6b-4f42-8fcf-0174e8f5d033?mode=deep",
+    "timestamp": "2026-01-09 08:07:26.270823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeStoreLoaders()] [Logger usage] Does logging upgrade info at Debug level hide critical upgrade failures that should be visible to operators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a28c5b2-196f-467e-abb3-cc46fdd5d01f?mode=deep",
+    "timestamp": "2026-01-09 08:07:46.144609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: setupUpgradeStoreLoaders()] [Height comparison] Is the height comparison (upgradeInfo.Height == fork.UpgradeHeight) vulnerable to integer overflow attacks where height wraps around? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8628df7e-8f38-4d5a-a3d1-69eb29cab878?mode=deep",
+    "timestamp": "2026-01-09 08:08:06.327153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - NewAppKeepers] [Keeper ordering] Does the order of keeper initialization in NewAppKeepers matter for security, such as if TokenWrapper keeper is created before Bank keeper and tries to use it? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88699711-b5ca-4b98-8f71-712b1739f0e5?mode=deep",
+    "timestamp": "2026-01-09 08:08:27.244055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - NewAppKeepers] [Pointer mutability] Are keepers passed by reference allowing the NewAppKeepers function to replace them with malicious implementations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e977e4fb-9366-456c-bd6e-e4839383972f?mode=deep",
+    "timestamp": "2026-01-09 08:08:49.038072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - NewAppKeepers] [Depinject usage] Can the depinject framework used in NewAppKeepers be exploited to inject malicious dependencies into security-critical keepers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d091423-f3b8-4a24-b110-c7e69744dd99?mode=deep",
+    "timestamp": "2026-01-09 08:09:12.360121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - overrideModules] [Auth override] Does overriding auth module with RandomGenesisAccounts create deterministic account generation that attackers can predict to pre-generate keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35f391fa-1a21-4128-802e-86b5292c9124?mode=deep",
+    "timestamp": "2026-01-09 08:09:35.554680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - overrideModules] [WASM override] Can the wasm module override be bypassed to test MsgStoreCode operations in simulation despite the wrapper filtering them? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94ed84fb-0ec4-4f4c-be7a-fb24abbe3d4c?mode=deep",
+    "timestamp": "2026-01-09 08:10:00.491199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New() - overrideModules] [Keeper access] Do override modules get access to real keeper instances that can be used to manipulate state during simulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12c7ddbf-f42f-43bb-8fc3-e07b41bda30a?mode=deep",
+    "timestamp": "2026-01-09 08:10:25.118644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: RegisterAPIRoutes()] [Client context] Can the apiSvr.ClientCtx be manipulated to change the address codec or chain ID, causing API responses to contain invalid addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0741e316-25e2-4ed7-983c-3abbee6b4fc4?mode=deep",
+    "timestamp": "2026-01-09 08:10:50.767070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: RegisterAPIRoutes()] [Router access] Does exposing apiSvr.Router allow registration of arbitrary HTTP handlers that could serve malicious content? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0752614d-6424-4ecf-9c0e-7f346b986629?mode=deep",
+    "timestamp": "2026-01-09 08:11:15.686031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: RegisterAPIRoutes()] [Swagger config] Can apiConfig.Swagger settings be manipulated to enable features that expose sensitive chain information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6353146-4589-4616-ab48-e3eb832e8989?mode=deep",
+    "timestamp": "2026-01-09 08:11:41.419314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Error accumulation] If multiple initialization steps fail but errors are not properly propagated, can the app be left in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7291f29-0e6a-47e5-a0a2-647a784b506a?mode=deep",
+    "timestamp": "2026-01-09 08:12:06.575509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Panic recovery] Are there any deferred functions or panic recovery mechanisms that could catch initialization failures and allow the app to continue in an unsafe state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6950a28f-1742-48fe-a9fe-c7769d697e3f?mode=deep",
+    "timestamp": "2026-01-09 08:12:31.278664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Goroutine leaks] Does the initialization spawn any goroutines that could leak if initialization fails partway through? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f807ba4-3c0e-4daa-a350-47804efd8cc2?mode=deep",
+    "timestamp": "2026-01-09 08:12:55.947041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [Memory allocation] Can the initialization allocate excessive memory for large configurations (e.g., many pinned WASM contracts) causing validators to OOM? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec7c39ba-17b9-4c70-bca7-b237d3001d87?mode=deep",
+    "timestamp": "2026-01-09 08:13:21.104520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/app.go] [Function: New()] [DB connection] Can the db parameter be a corrupted or malicious database that returns incorrect data, causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df97b50c-9cb6-46f9-80e3-3115a3b22cab?mode=deep",
+    "timestamp": "2026-01-09 08:13:44.801971",
+    "report_generated": false
   }
 ]
