@@ -3748,5 +3748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20cf9d00-7c16-4891-b3c3-358ec88c1e28?mode=deep",
     "timestamp": "2026-01-09 12:43:53.682525",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Time validation bypass] Can an attacker set StartTime to exactly equal EndTime (sga.StartTime == sga.EndTime) to bypass the validation check at line 33, allowing creation of a malformed vesting account that could lead to immediate vesting of all tokens and breaking vesting invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_798bd9ee-6d35-408d-8c07-cdfaeca2c495?mode=deep",
+    "timestamp": "2026-01-09 12:45:04.826083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Integer overflow] Can an attacker set StartTime to math.MaxInt64 and EndTime to math.MaxInt64-1 to create an overflow condition when comparing sga.StartTime >= sga.EndTime, causing the validation to incorrectly pass and allowing genesis state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bd51c01-c328-4596-9350-9ffe6f508589?mode=deep",
+    "timestamp": "2026-01-09 12:45:17.113171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Negative time values] Does the validation at line 33 properly handle negative StartTime or EndTime values, or can an attacker craft a genesis account with StartTime = -1 and EndTime = 0 to bypass validation and create accounts with past or invalid vesting schedules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b535bd6-0720-4c13-9230-65ad52b98a24?mode=deep",
+    "timestamp": "2026-01-09 12:45:29.879340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Zero time validation] Can an attacker set both StartTime and EndTime to 0 to pass the validation check, potentially creating a vesting account that vests immediately at block 0 and allowing unauthorized token access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b17f13a3-ac98-484b-95e6-1e393adbb568?mode=deep",
+    "timestamp": "2026-01-09 12:45:43.969425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Time boundary attack] Can an attacker set StartTime to 1 and EndTime to math.MaxInt64 to create an extremely long vesting period that could cause integer overflow in downstream vesting calculations, leading to immediate or incorrect token vesting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa4fa501-9e68-400b-ae5e-449540bfce9d?mode=deep",
+    "timestamp": "2026-01-09 12:45:57.738709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Validation ordering] Does the Validate() function check the vesting time constraints before validating the BaseAccount at line 47, allowing an attacker to pass malformed BaseAccount data that could bypass time validation if BaseAccount.Validate() fails first? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54c9d86a-aabe-47a7-b3ce-297817cf802d?mode=deep",
+    "timestamp": "2026-01-09 12:46:12.408040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Short-circuit evaluation] If the condition !sga.OriginalVesting.IsZero() at line 32 is false, the time validation is skipped entirely - can an attacker set OriginalVesting to exactly zero coins while still setting invalid StartTime/EndTime values to bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a090e473-b8fb-4e7d-9b2f-46a261db4e8c?mode=deep",
+    "timestamp": "2026-01-09 12:46:28.004268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [UNIX epoch manipulation] Can an attacker exploit the UNIX Epoch time representation (line 22-23) by setting StartTime/EndTime to values that cause overflow when converted to time.Time objects in downstream vesting logic, leading to incorrect vesting schedules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db988520-c870-4cd2-871b-0f8d4790852d?mode=deep",
+    "timestamp": "2026-01-09 12:46:45.561276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [OriginalVesting validation] Does the Validate() function perform any validation on the OriginalVesting coins field beyond the IsZero() check at line 32, or can an attacker set negative coin amounts, invalid denominations, or duplicate denoms to create malformed vesting accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54c9f229-3e09-4cec-a9b5-1a76d39ffd98?mode=deep",
+    "timestamp": "2026-01-09 12:47:04.068282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [DelegatedFree validation] Can an attacker set DelegatedFree coins to exceed OriginalVesting amounts without any validation, allowing creation of genesis accounts with impossible delegation states that break vesting invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_247c1049-17e8-4740-b699-4f27687983cd?mode=deep",
+    "timestamp": "2026-01-09 12:47:23.508928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [DelegatedVesting validation] Does the Validate() function check if DelegatedVesting + DelegatedFree <= OriginalVesting, or can an attacker set these fields to arbitrary values that violate vesting conservation laws? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b2c4fd6-3b35-4b89-9299-63ee9d553bd4?mode=deep",
+    "timestamp": "2026-01-09 12:47:44.329222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Coin overflow] Can an attacker set OriginalVesting, DelegatedFree, and DelegatedVesting to math.MaxInt64 values that cause integer overflow when combined in vesting calculations, leading to token duplication or loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a6a83d0-1bd1-4edc-8054-244daeeece24?mode=deep",
+    "timestamp": "2026-01-09 12:48:05.553989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Zero coin attack] Can an attacker create a vesting account with all three coin fields (OriginalVesting, DelegatedFree, DelegatedVesting) set to zero but with valid time ranges, bypassing the OriginalVesting.IsZero() check at line 32 and creating phantom vesting accounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34d91be0-c3ab-4777-b048-ba8a918a7a62?mode=deep",
+    "timestamp": "2026-01-09 12:48:27.083908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Negative delegation] Can an attacker set DelegatedFree or DelegatedVesting to negative values (if the underlying sdk.Coins type allows it through unsafe deserialization) to drain tokens from the vesting account? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c0655ed-ca67-4350-b297-f2a70e580239?mode=deep",
+    "timestamp": "2026-01-09 12:48:49.523171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Denomination mismatch] Does the Validate() function ensure that OriginalVesting, DelegatedFree, and DelegatedVesting all contain the same denominations, or can an attacker create accounts with mismatched denoms that break vesting logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ff74f53-ae9e-4ea1-9043-07bc6a537733?mode=deep",
+    "timestamp": "2026-01-09 12:49:12.858246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Dust amount attack] Can an attacker set OriginalVesting to extremely small amounts (1 unit) while setting very long vesting periods to create dust accounts that consume state space and cause resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c564c1d-a0cb-41f8-9d1b-0d01828d970e?mode=deep",
+    "timestamp": "2026-01-09 12:49:35.615137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Permission escalation] Can an attacker set ModulePermissions to include privileged permissions like 'minter', 'burner', or 'staking' without proper validation, allowing genesis accounts to mint unlimited tokens or manipulate consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_085f80ad-8cca-46ba-827c-1320ed719d5e?mode=deep",
+    "timestamp": "2026-01-09 12:49:59.656111",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Module name collision] Does the validation at line 38-44 prevent an attacker from setting ModuleName to an existing critical module name (like 'bank', 'tokenwrapper', 'factory', 'dex') to create conflicting module accounts that could hijack module funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aadc6f04-a9f2-4fd3-a877-2fbcd4e288ca?mode=deep",
+    "timestamp": "2026-01-09 12:50:24.227640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Empty module name] Can an attacker set ModuleName to an empty string '' with non-empty ModulePermissions to bypass the ModuleName != '' check at line 38, creating a module account without a name but with permissions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4354a419-e531-4fb5-93d2-0e05367ff259?mode=deep",
+    "timestamp": "2026-01-09 12:50:49.076811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Permission array manipulation] Can an attacker set ModulePermissions to include duplicate permissions or invalid permission strings that pass the ModuleAccount.Validate() check at line 42 but cause downstream permission checks to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c724a121-028d-4025-bef3-5eedd2e69442?mode=deep",
+    "timestamp": "2026-01-09 12:51:12.798756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Nil permissions slice] Can an attacker set ModulePermissions to nil vs empty slice []string{} to bypass validation logic that checks for empty permissions, allowing creation of module accounts with undefined permission states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_704e9a49-c7e9-423e-884e-d4fb31c5a458?mode=deep",
+    "timestamp": "2026-01-09 12:51:37.485330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Module account address conflict] Does the validation ensure that a GenesisAccount with ModuleName set has an address that matches the derived module account address, or can an attacker set arbitrary addresses for module accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e7ac82f-d9f8-4f46-b44c-f736369641af?mode=deep",
+    "timestamp": "2026-01-09 12:52:02.470076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Combined vesting and module] Can an attacker create a genesis account that is simultaneously a vesting account (with OriginalVesting set) and a module account (with ModuleName set), potentially creating hybrid accounts with conflicting behaviors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6d4908e-002e-4889-a017-df49ae0bee1e?mode=deep",
+    "timestamp": "2026-01-09 12:52:28.793991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [Module permission injection] Can an attacker inject special characters or control codes into ModulePermissions strings to bypass permission validation in the ModuleAccount.Validate() call at line 42? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c2376ef-7950-436f-add3-882fbb4deee4?mode=deep",
+    "timestamp": "2026-01-09 12:52:57.928996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/genesis_account.go] [Function: Validate()] [BaseAccount bypass] Since BaseAccount validation occurs last at line 47, can an attacker craft a GenesisAccount that passes all previous checks but has a malformed BaseAccount (nil Address, invalid PubKey, incorrect AccountNumber/Sequence) that corrupts genesis state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ed02ab8-b2ab-4cbd-971c-77bb05e6ceb8?mode=deep",
+    "timestamp": "2026-01-09 12:53:23.391387",
+    "report_generated": false
   }
 ]
