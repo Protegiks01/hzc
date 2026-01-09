@@ -3598,5 +3598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_927a4c18-c1ea-4eac-913e-29b1c7f719cc?mode=deep",
     "timestamp": "2026-01-09 11:18:07.425270",
     "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Staking params] Can staking parameters like unbonding time or max validators be incorrectly exported, causing unexpected behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_408a59ac-6112-401f-80cf-4aab8661b69b?mode=deep",
+    "timestamp": "2026-01-09 12:35:15.223541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Empty delegation list] Can an empty delegation list cause the reinitialization logic to skip important state resets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_edec73cc-6fea-479d-b658-5262fa190bf4?mode=deep",
+    "timestamp": "2026-01-09 12:35:27.560048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Duplicate delegations] Can duplicate delegation entries exist in the returned list, causing rewards to be withdrawn or initialized multiple times? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d06b21b-de88-42cb-b3b0-03a9bb94b3ed?mode=deep",
+    "timestamp": "2026-01-09 12:35:40.481562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Self-delegation] Can self-delegations by validators be handled incorrectly during reinitialization, affecting validator power calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b7da355-fe22-4fbb-b75f-7bd4e8d1f09c?mode=deep",
+    "timestamp": "2026-01-09 12:35:54.161632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Bank balances] Can bank module balances be exported inconsistently with other module states, causing total supply mismatches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3b8ddf8-a214-479a-984d-e54a65e8936d?mode=deep",
+    "timestamp": "2026-01-09 12:36:08.047750",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Vesting accounts] Can vesting account schedules be incorrectly exported, causing tokens to vest immediately or never vest? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6ff4c0e-6db7-4329-8cc6-b04be1f6673f?mode=deep",
+    "timestamp": "2026-01-09 12:36:24.085077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [IBC commitments] Can IBC packet commitments be lost during export, causing in-flight transfers to fail? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89339fec-a61f-4f96-a702-3c29de618b32?mode=deep",
+    "timestamp": "2026-01-09 12:36:40.045992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [IBC timeout] Can IBC packet timeouts be incorrectly exported, causing packets to timeout immediately or never timeout? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef9b318d-98d5-4502-b0de-21ba4545f885?mode=deep",
+    "timestamp": "2026-01-09 12:36:57.905375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Channel sequence] Can IBC channel sequence numbers be reset during export, allowing packet replay attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7707766-44a2-4ec9-aaf5-6bd87cb6a1fa?mode=deep",
+    "timestamp": "2026-01-09 12:37:16.526390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Export authorization] Can unauthorized parties trigger genesis export, allowing them to observe or manipulate sensitive chain state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db2b2f4b-d6ee-4422-8822-69a37949f83e?mode=deep",
+    "timestamp": "2026-01-09 12:37:36.997216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Allowlist manipulation] Can the jailAllowedAddrs parameter be manipulated during the export call to unfairly jail or unjail specific validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f28bb493-f618-43b9-89e0-37fc34479d87?mode=deep",
+    "timestamp": "2026-01-09 12:37:57.380676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Nil pointer] Can any of the keeper methods return nil pointers that cause panics when accessed, preventing genesis export completion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d850f9a-f2fc-4409-8822-90c105990092?mode=deep",
+    "timestamp": "2026-01-09 12:38:18.788201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Type assertion] Can type assertions fail for certain state objects, causing panics during the export process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79c4e128-2dea-4b71-8a28-9d889867abaf?mode=deep",
+    "timestamp": "2026-01-09 12:38:40.774906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Genesis validation] Can the exported genesis JSON pass initial validation but fail consensus rules when used to start a new chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35fe7fbe-eb83-4d38-bcbc-317148a746b6?mode=deep",
+    "timestamp": "2026-01-09 12:39:02.477419",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Determinism] Is the genesis export deterministic, or can different validators produce different genesis files for the same state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cb6ea06-0d4d-447a-8581-569218c285f1?mode=deep",
+    "timestamp": "2026-01-09 12:39:27.001093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Locked tokens] Can tokens locked in smart contracts or other modules be incorrectly handled during genesis export, causing permanent loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69fbef72-286c-4298-80b5-82b09e322c90?mode=deep",
+    "timestamp": "2026-01-09 12:39:52.409736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Escrow balances] Can IBC escrow account balances become inconsistent with transferred token amounts during export? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbbe2cf5-6a05-4ee0-b972-d10f3eea2874?mode=deep",
+    "timestamp": "2026-01-09 12:40:18.273696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app\n\n### Citations\n\n**File:** app/export.go (L1-269)\n```go\npackage app\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1142049-b408-4951-b778-ee66d0cef955?mode=deep",
+    "timestamp": "2026-01-09 12:40:42.805028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Staking params] Can staking parameters like unbonding time or max validators be incorrectly exported, causing unexpected behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b96ff21a-aadc-45e1-b079-8d1174ee86ef?mode=deep",
+    "timestamp": "2026-01-09 12:41:08.967130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Empty delegation list] Can an empty delegation list cause the reinitialization logic to skip important state resets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da416011-a2de-4b44-8444-b7f763943c4a?mode=deep",
+    "timestamp": "2026-01-09 12:41:35.836608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Duplicate delegations] Can duplicate delegation entries exist in the returned list, causing rewards to be withdrawn or initialized multiple times? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_062453f7-7598-4e84-b1ab-c39d5eb6642e?mode=deep",
+    "timestamp": "2026-01-09 12:42:03.619124",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: prepForZeroHeightGenesis()] [Self-delegation] Can self-delegations by validators be handled incorrectly during reinitialization, affecting validator power calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a8545d7-c9e4-4618-8353-0569a53b167e?mode=deep",
+    "timestamp": "2026-01-09 12:42:32.084061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Bank balances] Can bank module balances be exported inconsistently with other module states, causing total supply mismatches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6baeb876-b887-4280-b827-173903b73955?mode=deep",
+    "timestamp": "2026-01-09 12:42:59.363159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [Vesting accounts] Can vesting account schedules be incorrectly exported, causing tokens to vest immediately or never vest? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bee2c248-b1f7-491f-b291-359fee079ca2?mode=deep",
+    "timestamp": "2026-01-09 12:43:26.744360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: app/export.go] [Function: ExportAppStateAndValidators()] [IBC commitments] Can IBC packet commitments be lost during export, causing in-flight transfers to fail? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20cf9d00-7c16-4891-b3c3-358ec88c1e28?mode=deep",
+    "timestamp": "2026-01-09 12:43:53.682525",
+    "report_generated": false
   }
 ]
