@@ -6898,5 +6898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5765f48-942d-42a5-9797-7ed7814740a5?mode=deep",
     "timestamp": "2026-01-09 18:49:23.858598",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetNextPoolID()] [Panic handling] Does the panic('overflow on pool id') at line 99 properly propagate up through the call stack, or can it leave the blockchain in an inconsistent state where NextPoolId is corrupted but the transaction appears successful? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a798961e-1b45-4d24-adbc-2583c2ce6d4c?mode=deep",
+    "timestamp": "2026-01-09 19:31:31.319164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAndSetNextPoolID()] [Race condition] Can two concurrent transactions call GetAndSetNextPoolID() simultaneously (lines 109-112) and both receive the same poolID value before either increments the counter, leading to pool ID collisions and state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89ceeb85-4060-4c33-84c9-87a4dfb27ab3?mode=deep",
+    "timestamp": "2026-01-09 19:31:43.707237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAndSetNextPoolIDString()] [Race condition] Is there a TOCTOU (Time-of-Check-Time-of-Use) vulnerability between GetNextPoolID() at line 117 and SetNextPoolID() at line 119 where concurrent transactions can observe the same pool ID and create duplicate pool accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a623fde-0e08-407a-85d4-8659f519e83d?mode=deep",
+    "timestamp": "2026-01-09 19:31:56.362180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetNextPoolID()] [State inconsistency] If GetPoolsMeta() returns found=false (line 80), the function returns 1, but what happens if pools with IDs 1, 2, 3 already exist in the store from a previous state? Can this cause pool ID reuse and account collision? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_537741ee-36a5-477f-973b-4f47e02b8d8e?mode=deep",
+    "timestamp": "2026-01-09 19:32:09.479910",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetNextPoolID()] [State corruption] If SetPoolsMeta() fails silently at line 102 but GetNextPoolID() was already called, can this create a desynchronization between the intended next pool ID and the actual stored value, causing pool creation failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5e599eb-f158-441d-bc56-eb1eb11f2fab?mode=deep",
+    "timestamp": "2026-01-09 19:32:24.062089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetNextPoolIDString()] [String formatting] Can an attacker manipulate the constants.PoolPrefix value to inject special characters into the poolIDString at line 89, causing address derivation vulnerabilities in types.GetPoolAddress()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c8784b2-be8c-41bb-850b-823bdb4bfbdf?mode=deep",
+    "timestamp": "2026-01-09 19:32:38.805896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAndSetNextPoolIDString()] [Atomicity] Since GetNextPoolID() and SetNextPoolID() are separate operations (lines 117, 119), can a validator crash between these calls, leaving the pool ID counter incremented but no pool created, causing ID gaps that break pool enumeration logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72c5579e-c109-4569-9006-895c4e878179?mode=deep",
+    "timestamp": "2026-01-09 19:32:54.529469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Marshaling] Can an attacker craft a malicious types.Pool struct that causes k.cdc.MustMarshal() to panic at line 28, triggering a denial of service for all pool creation operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33bf39ab-ea68-41ea-895a-60e945ced1aa?mode=deep",
+    "timestamp": "2026-01-09 19:33:12.365881",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SetPool()] [Key collision] Does the types.PoolKey() function at line 29 properly prevent collisions? Can an attacker create two different pool.PoolId values that hash to the same storage key, causing one pool to overwrite another's data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56d892a8-b9de-4fe2-b2e0-8528a174c0f3?mode=deep",
+    "timestamp": "2026-01-09 19:33:30.980442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Unmarshaling] If store.Get() returns corrupted data at line 43, can k.cdc.MustUnmarshal() at line 50 panic and crash the validator node, or does it return a malformed pool object that breaks subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd25a0e3-d1b5-4307-b1c9-897a31f4240a?mode=deep",
+    "timestamp": "2026-01-09 19:33:51.062532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetPool()] [Missing validation] After unmarshaling the pool at line 50, there's no validation that the returned pool.PoolId matches the requested poolIDString - can this cause incorrect pool data to be returned if the KV store is corrupted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_012e7ad5-d41d-458e-be5c-0b061dc3b5a5?mode=deep",
+    "timestamp": "2026-01-09 19:34:11.363884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Iterator leak] If the defer statement at line 60 fails to execute (e.g., due to panic in the for loop), can the iterator remain open indefinitely, causing memory leaks and eventual node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6c7d2fc-1ad5-4e4c-9581-6986afa2a451?mode=deep",
+    "timestamp": "2026-01-09 19:34:32.178956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Error handling] The iterator.Close() error at line 61 is only logged, not returned - can an iterator close failure cause subsequent KVStore operations to fail silently, corrupting the pool list? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c970a271-0690-4a22-b311-b4ede3c287ff?mode=deep",
+    "timestamp": "2026-01-09 19:34:53.977355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Unbounded growth] The function appends all pools to a slice without any limit (line 70) - can an attacker create millions of pools to cause memory exhaustion and crash validators when GetAllPool() is called? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eac68ab1-b747-47f5-a1a8-84cc2a1e33b3?mode=deep",
+    "timestamp": "2026-01-09 19:35:16.253898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: GetAllPool()] [Unmarshaling in loop] If k.cdc.MustUnmarshal() panics during iteration at line 69, does the defer at line 60 still execute to close the iterator, or is the iterator leaked causing KVStore corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96c4b251-9ca0-42ab-b258-451e84bbd9be?mode=deep",
+    "timestamp": "2026-01-09 19:35:40.005787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Sequence bypass] The function checks existingAcct.GetSequence() != 0 at line 158, but can an attacker create an account, set its sequence to 0 via some SDK operation, and then allow pool creation to overwrite their account? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8fce7a6-ffbb-477a-a745-164469125b5e?mode=deep",
+    "timestamp": "2026-01-09 19:36:05.075203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Public key manipulation] Can an attacker set an account's public key to nil after initialization but before pool creation (line 158), bypassing the safety check and allowing their account to be overwritten with a pool account? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c0bd65d-91ed-434d-915a-ae2d9b939aaa?mode=deep",
+    "timestamp": "2026-01-09 19:36:30.070297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Type confusion] The CanOverwriteAccountTypes global variable at line 126 can be modified by chain's app.go - can a malicious chain configuration add unauthorized account types to this map, allowing user accounts to be overwritten? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_690cf64d-81b6-49e3-a5f4-ee86d23187d4?mode=deep",
+    "timestamp": "2026-01-09 19:36:55.642812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Reflection vulnerability] Using reflect.TypeOf() at lines 173, 178, 184 - can an attacker create a custom account type that matches the reflection signature of an overridable type but has different behavior, bypassing security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2fd337f-e88a-410b-9b62-22548e5b6c9e?mode=deep",
+    "timestamp": "2026-01-09 19:37:20.484812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CanCreateModuleAccountAtAddr()] [Account type enumeration] The overridableTypes map includes 6 vesting account types (lines 163-170) - are all of these actually safe to overwrite, or could overwriting a vesting account with locked funds cause token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ecaa2eb9-04e3-482a-85e2-579dcd692826?mode=deep",
+    "timestamp": "2026-01-09 19:37:45.524647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Address derivation] Does types.GetPoolAddress() at line 191 use cryptographically secure address derivation? Can an attacker precompute pool addresses and create accounts at those addresses before pools are created? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11c88ce2-acf2-4f62-8bc5-d94cfc30b355?mode=deep",
+    "timestamp": "2026-01-09 19:38:09.547152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Account reuse] If CanCreateModuleAccountAtAddr() returns an error at line 194, but the account already exists as a valid pool account from a previous operation, should the function still fail or reuse the account? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a15565c-048b-42bf-a769-74db1b17c927?mode=deep",
+    "timestamp": "2026-01-09 19:38:34.424384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Module account permissions] The module account is created with addr.String() as the name at line 208 - can this collision with other module names, and what permissions does this grant the pool account? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d154e0e-3886-4870-a809-4b06cb4e63db?mode=deep",
+    "timestamp": "2026-01-09 19:38:58.218864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: CreatePoolAccount()] [Memory-only account] The poolAccount is created in memory at line 202 but only saved at line 212 - if a panic occurs between these lines, can the pool metadata exist but the account not be persisted, causing fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d0ff4eb-eb12-4aee-b38d-ea476309d868?mode=deep",
+    "timestamp": "2026-01-09 19:39:21.854768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/pool.go] [Function: SendFromAddressToPool()] [Empty coins bypass] While the function checks coins.Empty() at line 220, can an attacker pass a single-coin slice with amount=0 that bypasses the Empty() check but passes the loop check at line 239? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22c0b86a-af01-449d-9984-c166e0759fbe?mode=deep",
+    "timestamp": "2026-01-09 19:39:43.518171",
+    "report_generated": false
   }
 ]
