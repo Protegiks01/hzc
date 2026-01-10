@@ -15598,5 +15598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_373da41f-f5a1-4401-897e-50331b87dae6?mode=deep",
     "timestamp": "2026-01-10 13:41:42.559790",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Method Handler Hijacking] In the _Msg_serviceDesc registered at line 32, can an attacker modify method handlers for CreatePool, SwapExactIn, or AddLiquidity to bypass authentication checks, allowing unauthorized pool manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2df195e-2982-4bcf-b147-1f4ae10e8173?mode=deep",
+    "timestamp": "2026-01-10 13:43:15.290523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Service Name Collision] Does the service descriptor at line 32 properly namespace the DEX service name to prevent collisions with other modules, or can an attacker from another module register a conflicting service that intercepts DEX messages? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d865719a-cc66-4ca3-a8fd-b94ba84eaf30?mode=deep",
+    "timestamp": "2026-01-10 13:43:27.976476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Handler Registration Order] If _Msg_serviceDesc at line 32 is registered before interface implementations at lines 12-26, can this ordering allow unregistered message types to be routed to default handlers that lack proper validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8160e27a-ef82-4f15-9803-a865bc2e617a?mode=deep",
+    "timestamp": "2026-01-10 13:43:40.785482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Global Registry Pollution] Since RegisterInterfaces uses a shared InterfaceRegistry at line 11, can a malicious TokenWrapper or Factory module register conflicting implementations for sdk.Msg that override DEX message handlers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3f9ca91-43f3-4e66-adde-15b134a2c470?mode=deep",
+    "timestamp": "2026-01-10 13:43:54.125685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Variable: ModuleCdc] [Cross-Module Codec Access] If other modules (TokenWrapper, Factory) directly access the DEX ModuleCdc at lines 35-42 for encoding/decoding, can they inject malicious messages that appear to originate from the DEX module but bypass DEX validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98c40fa4-e948-44a2-ae29-f731260c3983?mode=deep",
+    "timestamp": "2026-01-10 13:44:08.835262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Module Initialization Order] If RegisterInterfaces is called after other modules have already registered sdk.Msg implementations, can registration order dependencies cause MsgCreatePool at lines 12-14 to be shadowed by earlier registrations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccef3001-d7a5-441b-a380-8878ce377703?mode=deep",
+    "timestamp": "2026-01-10 13:44:24.461623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Variable: ModuleCdc] [Codec Leak] Since ModuleCdc at lines 35-42 is exported and globally accessible, can CosmWasm contracts or IBC relayers exploit codec access to deserialize DEX messages with tampered fields that bypass ValidateBasic checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_269cdc53-0903-4eb9-b056-edec8976ae67?mode=deep",
+    "timestamp": "2026-01-10 13:44:40.359979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Registration Memory Leak] Does each RegisterImplementations call at lines 12-26 allocate memory that's never freed, and can an attacker repeatedly trigger RegisterInterfaces to exhaust validator memory via codec registration DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f89eb7a4-b5bf-4e74-acd0-59f34657baf5?mode=deep",
+    "timestamp": "2026-01-10 13:44:57.596412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Variable: ModuleCdc] [Codec Memory Overhead] When NewProtoCodec is called at line 41, does it load all registered message schemas into memory, and can an attacker exploit this by registering thousands of fake message types to cause OOM crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_36bce5cd-6629-43b1-8e78-eb5281e4ff18?mode=deep",
+    "timestamp": "2026-01-10 13:45:16.124923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Descriptor Cache Exhaustion] Does msgservice.RegisterMsgServiceDesc at line 32 cache method descriptors indefinitely, and can an attacker exhaust cache memory by repeatedly registering and unregistering service descriptors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_144c2c9e-363e-4984-9e55-bb879aa2888d?mode=deep",
+    "timestamp": "2026-01-10 13:45:35.875276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Goroutine Leak] If RegisterInterfaces spawns goroutines during registry initialization at line 11, can failed registrations cause goroutines to leak, eventually exhausting validator resources under sustained attack? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a201c6a5-ab83-4045-b1e7-3077565fdd39?mode=deep",
+    "timestamp": "2026-01-10 13:45:56.653375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Varint Overflow] Can an attacker craft MsgSwapExactIn messages with varint-encoded amounts that overflow during protobuf decoding, causing incorrect swap amounts that drain liquidity pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ed54ad5-e307-4861-9621-d8f7313038a9?mode=deep",
+    "timestamp": "2026-01-10 13:46:17.750122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Nested Message Depth] Does the codec registered at lines 11-32 enforce maximum nesting depth for messages containing Coin types, or can an attacker craft deeply nested MsgAddLiquidity messages that cause stack overflow during recursive decoding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3470256-0155-4ea3-9714-e472760de895?mode=deep",
+    "timestamp": "2026-01-10 13:46:40.228391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Unknown Field Handling] When deserializing MsgCreatePool at lines 12-14, does the codec silently ignore unknown protobuf fields, allowing an attacker to include hidden malicious data that bypasses validation but affects execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61c7205b-4654-4735-9a3d-89bdef8294d9?mode=deep",
+    "timestamp": "2026-01-10 13:47:03.178238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Packed Repeated Fields] If message types registered at lines 12-26 use packed repeated fields, can encoding/decoding inconsistencies cause different validators to interpret the same message data differently, leading to consensus splits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a90ba660-7d62-4f64-a51a-e6c380d28638?mode=deep",
+    "timestamp": "2026-01-10 13:47:27.401303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Variable: ModuleCdc] [Extension Registry] Does the InterfaceRegistry created at line 41 properly handle protobuf extensions, or can an attacker inject extension fields into MsgSwapExactOut that modify swap behavior without being validated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d4b92ff-6e0d-4b2e-97c5-f4ea7bbc464b?mode=deep",
+    "timestamp": "2026-01-10 13:47:51.692526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [IBC Message Wrapping] When DEX messages are wrapped in IBC packets, does the codec registration at lines 11-32 ensure proper unwrapping, or can an attacker craft IBC packets that deserialize as MsgCreatePool but execute with tampered parameters? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c16f4e5-74ca-4407-8f77-4b524b60bab0?mode=deep",
+    "timestamp": "2026-01-10 13:48:15.268437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Variable: ModuleCdc] [Cross-Chain Encoding] If ModuleCdc at lines 35-42 is used to encode DEX messages for IBC transfer, can encoding differences between source and destination chains cause MsgSwapExactIn to be decoded with incorrect amounts on the receiving chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_894a3c5d-2945-4301-8429-4e0e002207ab?mode=deep",
+    "timestamp": "2026-01-10 13:48:36.738299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Any Type Packing] When DEX messages are packed into Any types for IBC transmission, does the type URL resolution at lines 12-26 properly validate the unpacked message, or can an attacker substitute MsgSwapExactOut with a malicious implementation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ce9480e-d1a5-4e7b-94ab-647150a1000e?mode=deep",
+    "timestamp": "2026-01-10 13:48:58.403779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Codec Version Mismatch] If the protobuf codec version used by ZigChain differs from IBC counterparty chains, can this cause MsgAddLiquidity messages sent via IBC to be decoded incorrectly, leading to liquidity loss or duplication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7fe3538a-1b51-41a1-9086-44134b753734?mode=deep",
+    "timestamp": "2026-01-10 13:49:18.669396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Pre-Validation Deserialization] Does message deserialization occur before or after ValidateBasic checks, and can an attacker exploit deserialization to trigger code execution before MsgCreatePool validation at lines 12-14 catches invalid parameters? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa73f2da-fffe-4745-a4b0-484967dda14b?mode=deep",
+    "timestamp": "2026-01-10 13:49:39.012929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Validation Hook Bypass] Can an attacker register custom message interceptors during RegisterInterfaces at lines 11-32 that intercept MsgSwapExactIn before validation, modifying slippage parameters to enable sandwich attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89a5fe8c-95e9-4530-ba23-2bf44fc19e8b?mode=deep",
+    "timestamp": "2026-01-10 13:50:00.439967",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Message Aliasing] If two validators deserialize the same raw bytes into different message types (e.g., one as MsgSwapExactIn at lines 15-17, another as MsgSwapExactOut at lines 18-20), can this cause consensus divergence in swap execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb89f21d-ac09-4e31-bc45-ec02b65aba50?mode=deep",
+    "timestamp": "2026-01-10 13:50:23.411302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Default Field Values] Does protobuf deserialization properly enforce required fields for MsgAddLiquidity at lines 21-23, or can an attacker omit critical fields that default to zero, bypassing minimum liquidity checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aea0beef-8cf8-488c-8788-f212a01e43b9?mode=deep",
+    "timestamp": "2026-01-10 13:50:45.894211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/codec.go] [Function: RegisterInterfaces()] [Schema Evolution] During chain upgrades, if new fields are added to MsgCreatePool at lines 12-14, can old validators deserialize upgraded messages incorrectly, causing pool creation to fail or succeed with wrong parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c292a291-4677-44ef-ada6-72181cbf1106?mode=deep",
+    "timestamp": "2026-01-10 13:51:08.184978",
+    "report_generated": false
   }
 ]
