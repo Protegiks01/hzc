@@ -24148,5 +24148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbd7511c-286f-418c-a024-4885574c165f?mode=deep",
     "timestamp": "2026-01-10 12:21:52.878525",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [IBC denom format] Can an attacker create an IBC denom with format 'ibc/{hash}' that, when stored using DenomKey, collides with factory denoms 'coin.{creator}.{subdenom}' due to similar byte patterns after the '/' separator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af636ca8-459b-440e-922b-5fe02211d69f?mode=deep",
+    "timestamp": "2026-01-10 12:23:01.685994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Prefix store isolation] Does the use of prefix.NewStore in GetDenom/SetDenom operations properly isolate the key namespace, or can an attacker craft a denom that escapes the prefix boundary and accesses other module's storage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a2587ea-44d8-4f04-a683-db0e277facbc?mode=deep",
+    "timestamp": "2026-01-10 12:23:14.084651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [DenomAuth key collision] Since DenomAuthKey uses the same structure (denom bytes + '/'), can an attacker exploit the fact that both functions produce keys in different namespaces but with identical structure to cause confusion during state migration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c84f6272-fdde-4ed1-8516-b353ac916c4e?mode=deep",
+    "timestamp": "2026-01-10 12:23:26.747009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Cross-module collision] Can an attacker craft a denom string that, when prefixed with DenomKeyPrefix, produces a key that collides with keys used by other modules in the same store, causing cross-module state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68ef9cc9-1268-48c5-9542-116193131ad3?mode=deep",
+    "timestamp": "2026-01-10 12:23:40.496268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Partial key match] Can an attacker exploit prefix matching vulnerabilities where a denom key 'abc' could partially match and interfere with iteration over keys starting with 'abc', causing GetAllDenom operations to return incorrect or corrupted results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89e1e457-c61c-48fd-b301-6c97854ac143?mode=deep",
+    "timestamp": "2026-01-10 12:23:54.330305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Genesis state corruption] During genesis import, if an attacker includes multiple denoms in the genesis file that produce colliding keys, will the last one silently overwrite previous entries without error, causing loss of token state for legitimate denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e00d02d-b7ec-4020-afc5-dcb7cfb9693f?mode=deep",
+    "timestamp": "2026-01-10 12:24:09.351921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [State overwrite] Can an attacker who discovers a key collision use it to overwrite an existing denom's state (minting cap, minted amount, creator) by creating a malicious denom that maps to the same key, effectively taking control of another user's token? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ece69a7-e097-4869-a10b-91c8c0097aab?mode=deep",
+    "timestamp": "2026-01-10 12:24:25.332490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Mixed case bypass] Can an attacker exploit the lack of case normalization to create multiple denom entries with different capitalizations that all pass CheckSubDenomString validation but produce different storage keys, causing duplicate token creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48de42e7-bac1-4128-bb69-92434b97e7b7?mode=deep",
+    "timestamp": "2026-01-10 12:24:43.105476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Case sensitivity exploitation] Since the key generation is case-sensitive but factory denoms are expected to follow specific case rules (lowercase subdenom), can an attacker create 'Coin.Creator.Subdenom' vs 'coin.creator.subdenom' to generate different keys for what should be the same denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4cbc93c0-21a9-4395-99ea-7f1977283b5c?mode=deep",
+    "timestamp": "2026-01-10 12:25:01.861168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Zero-width character injection] Can an attacker inject zero-width Unicode characters (like U+200B) into denom strings to create visually identical denoms that produce different keys, allowing them to bypass duplicate denom checks in genesis validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e374c1a6-f0f0-4044-b6a1-cec379735a7e?mode=deep",
+    "timestamp": "2026-01-10 12:25:21.342057",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Multi-byte character splitting] If a denom contains multi-byte UTF-8 characters, can an attacker craft a string where the byte boundary splits a character, causing the append operation to create malformed keys that corrupt state during retrieval? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87e73281-de06-4e49-8e93-de9235b4d098?mode=deep",
+    "timestamp": "2026-01-10 12:25:42.061052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [UTF-8 encoding bypass] Can an attacker use invalid UTF-8 sequences in the denom string to cause the []byte(denom) conversion to produce unexpected byte patterns that collide with valid denom keys or corrupt the store iteration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b0e4768-9171-4a7d-a43e-0448bff77e62?mode=deep",
+    "timestamp": "2026-01-10 12:26:03.651181",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Unicode normalization] Can an attacker exploit Unicode normalization vulnerabilities where different Unicode representations of the same visual character (e.g., 'é' as single char vs 'e' + combining accent) produce different keys despite being semantically identical denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24e16120-6894-473d-b440-651e0b094b71?mode=deep",
+    "timestamp": "2026-01-10 12:26:26.262229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Variable length vulnerability] Does the lack of fixed-length key encoding allow an attacker to create denoms where 'abc' followed by 'def' could collide with 'abcdef' followed by empty string, since both would produce similar byte patterns in the store? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84d90bd0-9e08-4998-9f39-a3494c44f12b?mode=deep",
+    "timestamp": "2026-01-10 12:26:49.414776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Unbounded key creation] Since the DenomKey function has no length validation, can an attacker exploit this by creating denoms that exceed MaxDenomLength constant, generating keys that violate underlying KVStore constraints and cause state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2914d34b-cc4d-4db0-855e-cc341fae9392?mode=deep",
+    "timestamp": "2026-01-10 12:27:13.498879",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Length exhaustion] Can an attacker create a denom with maximum allowed length (127 characters) to generate extremely long keys that cause memory exhaustion during store operations, triggering out-of-memory panics in validators and causing chain halt? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f9a3aa0-a86d-430e-8364-a1be28f738bd?mode=deep",
+    "timestamp": "2026-01-10 12:27:39.037430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Prefix collision] Can an attacker craft a denom string that, when converted to bytes and combined with the '/' separator, produces a key that collides with the DenomKeyPrefix itself ('Denom/value/'), allowing state corruption across the entire denom storage namespace? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6d8b907-afc1-48e3-a6ab-bb426d828a4c?mode=deep",
+    "timestamp": "2026-01-10 12:28:05.158345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Empty string collision] If an attacker passes an empty string as the denom parameter, does the function generate a key that consists only of the '/' separator, potentially colliding with a prefix or causing all denoms to map to a single storage location? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14c80798-c300-4eb2-9f04-8d2bfe1921b7?mode=deep",
+    "timestamp": "2026-01-10 12:28:31.248928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Null byte injection] Can an attacker include null bytes (\\x00) in the denom string to truncate the key during byte conversion, where 'malicious\\x00legitimate' would create a key for 'malicious', allowing the attacker to overwrite existing denom state and bypass minting caps? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6917ca99-3fa5-475c-82f9-fcf752211b0a?mode=deep",
+    "timestamp": "2026-01-10 12:28:57.739969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Separator injection] Can an attacker inject the '/' separator character within the denom string itself (e.g., 'coin.creator.sub/denom') to create a key that collides with another legitimate denom key, causing state corruption where two different denoms point to the same storage location? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb9536dd-173f-4e6b-b7ff-20348fe59d4e?mode=deep",
+    "timestamp": "2026-01-10 12:29:23.721525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Key collision] Can an attacker create two different denom strings that produce identical keys by exploiting the lack of length encoding in the key generation, where 'abc' + '/' and 'ab' + 'c/' would both produce the same key structure, allowing state overwrite and token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99f60d56-a26f-45b1-831f-21c718d278c3?mode=deep",
+    "timestamp": "2026-01-10 12:29:50.444200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [IBC denom format] Can an attacker create an IBC denom with format 'ibc/{hash}' that, when stored using DenomKey, collides with factory denoms 'coin.{creator}.{subdenom}' due to similar byte patterns after the '/' separator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5d18ddb-83ad-4aec-82ae-085d03950b00?mode=deep",
+    "timestamp": "2026-01-10 12:30:16.479888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Prefix store isolation] Does the use of prefix.NewStore in GetDenom/SetDenom operations properly isolate the key namespace, or can an attacker craft a denom that escapes the prefix boundary and accesses other module's storage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbd94cbf-8699-4822-94a8-a3ae7c49249f?mode=deep",
+    "timestamp": "2026-01-10 12:30:42.148196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [DenomAuth key collision] Since DenomAuthKey uses the same structure (denom bytes + '/'), can an attacker exploit the fact that both functions produce keys in different namespaces but with identical structure to cause confusion during state migration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_feac5965-1617-4659-a2b8-3628382c5fa6?mode=deep",
+    "timestamp": "2026-01-10 12:31:08.770811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Cross-module collision] Can an attacker craft a denom string that, when prefixed with DenomKeyPrefix, produces a key that collides with keys used by other modules in the same store, causing cross-module state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e488991c-e1c4-4a35-a8de-7b28285ab3c7?mode=deep",
+    "timestamp": "2026-01-10 12:31:33.058862",
+    "report_generated": false
   }
 ]
