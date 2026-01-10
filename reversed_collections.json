@@ -17398,5 +17398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b255fb7a-4975-4499-b45d-ef866b5d99dd?mode=deep",
     "timestamp": "2026-01-10 04:53:22.297175",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Dependency injection] Does the depinject framework at lines 183-224 properly validate all injected dependencies, or can attackers provide malicious implementations through the dependency graph? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d097834-cfef-4b25-ae19-dd6666830a0e?mode=deep",
+    "timestamp": "2026-01-10 04:54:41.270948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: init()] [Module registration] Can an attacker exploit the appmodule.Register call at lines 177-180 to inject malicious module configurations during chain initialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa6a8182-a30a-4319-9ba2-caf1bcb0c3cd?mode=deep",
+    "timestamp": "2026-01-10 04:54:53.609424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: Name()] [Module name collision] Can an attacker register multiple modules with the same name returned by Name() at line 57 to create confusion or bypass module-specific security controls? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54f0b67a-918b-4ba0-8e38-b4adc9128583?mode=deep",
+    "timestamp": "2026-01-10 04:55:06.265650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: DefaultGenesis()] [Default state] Does the DefaultGenesis at line 72 return a secure default state, or can the default configuration allow permissionless token creation with insufficient minting caps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_894095b8-850d-4099-bf0e-378f504185ef?mode=deep",
+    "timestamp": "2026-01-10 04:55:20.556558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterLegacyAminoCodec()] [Legacy codec] Does the empty RegisterLegacyAminoCodec at line 62 create security issues if legacy amino encoding is still used anywhere in the system, allowing unvalidated message deserialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0dbed0e4-b88f-4b11-9f62-7c6da7c6c359?mode=deep",
+    "timestamp": "2026-01-10 04:55:34.305626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterInterfaces()] [Type registration] Can an attacker exploit the interface registration at line 66 to register malicious message types that impersonate legitimate factory messages and bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_426fe893-d097-4430-be99-cc07c47e8337?mode=deep",
+    "timestamp": "2026-01-10 04:55:48.928731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [Marshal security] Does the JSON marshaling at line 146 properly escape special characters and handle edge cases, or can malicious state values cause JSON injection attacks in the exported genesis? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c5425bf-25e7-48df-80ce-de97467dcddb?mode=deep",
+    "timestamp": "2026-01-10 04:56:04.370840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Import validation] Does InitGenesis at line 135 properly validate imported state for consistency, or can attackers import genesis states with contradictory denom/denomAuth relationships? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c76fa26b-2430-43d4-8373-7d8e0d565ce9?mode=deep",
+    "timestamp": "2026-01-10 04:56:21.277535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [Incomplete export] Does ExportGenesis at lines 35-42 capture all factory state including pending admin transfers and temporary locks, or can state be lost during chain migration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_527f992c-1ebe-4ba5-8432-fa6adbb15904?mode=deep",
+    "timestamp": "2026-01-10 04:56:40.028609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [Data leakage] Can an attacker exploit ExportGenesis at line 144 to extract sensitive factory state including admin private keys or minting capabilities that should remain confidential? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b817ed5-fe55-47a2-b61c-382055e33d12?mode=deep",
+    "timestamp": "2026-01-10 04:56:59.229297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Store service validation] Does the StoreService provided at line 186 undergo proper validation, or can an attacker substitute a malicious store service that corrupts or leaks factory state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_447dd7dc-a9cc-4b62-8dfd-30e9dd9bed74?mode=deep",
+    "timestamp": "2026-01-10 04:57:18.727582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Keeper initialization] Can an attacker exploit the keeper initialization at lines 208-215 to provide malicious dependencies through the depinject framework, compromising factory operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b546a9aa-0c23-416e-8304-2b46d4286213?mode=deep",
+    "timestamp": "2026-01-10 04:57:39.564664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: NewAppModuleBasic()] [Codec validation] Does the NewAppModuleBasic at lines 51-53 validate that the codec is properly configured for all factory types, or can codec misconfigurations lead to incorrect serialization and state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5d3289f-ed96-41ce-8fce-a5a502ef0f15?mode=deep",
+    "timestamp": "2026-01-10 04:58:01.089060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: NewAppModule()] [Keeper injection] Can an attacker inject a malicious keeper implementation during module initialization that bypasses all factory security controls and allows arbitrary token minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d3e3422-3a1c-4f48-8d48-b115cb80e1c1?mode=deep",
+    "timestamp": "2026-01-10 04:58:22.570679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: NewAppModule()] [Keeper validation] Does the NewAppModule constructor at lines 104-116 validate that the keeper, accountKeeper, and bankKeeper are non-nil and properly initialized, or can nil keepers cause panics during module operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_997046e9-6711-4c7d-ab13-26f8d15fcfce?mode=deep",
+    "timestamp": "2026-01-10 04:58:45.091382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: EndBlock()] [State finalization] Does the empty EndBlock at line 162 miss critical state finalization steps like committing pending admin transfers or enforcing minting cap updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7314718a-6bf3-4ff0-8011-43778d30c470?mode=deep",
+    "timestamp": "2026-01-10 04:59:08.652288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: BeginBlock()] [Error propagation] Does the error return type at line 156 properly propagate failures up the chain, or can certain BeginBlock errors be silently ignored leading to state corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_870b294a-5f6f-4963-8264-71bf9f858a01?mode=deep",
+    "timestamp": "2026-01-10 04:59:33.698460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: EndBlock()] [Missed invariant checks] Does the empty EndBlock implementation at lines 161-164 allow invalid states to persist across block boundaries without detection, such as tokens with supply exceeding minting caps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e2e20ba-3a7a-4cba-828d-6b272d43186f?mode=deep",
+    "timestamp": "2026-01-10 04:59:59.111771",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: BeginBlock()] [Missed state updates] Does the empty BeginBlock implementation at lines 155-158 mean that time-sensitive operations like minting cap resets or admin transitions are not properly triggered at block boundaries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da5c739e-44bc-4b1c-969e-333ccb2cec7e?mode=deep",
+    "timestamp": "2026-01-10 05:00:25.611662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ConsensusVersion()] [Downgrade attack] Can an attacker force a consensus version downgrade from 2 to 1 to revert to the legacy denom structure and bypass new security controls introduced in V2? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_efe5a137-e54b-4c3e-afb3-b99ab46a12b3?mode=deep",
+    "timestamp": "2026-01-10 05:00:50.248207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ConsensusVersion()] [Migration trigger] Does the consensus version increment properly coordinate with the V2Migration, or can there be states where the version is 2 but migration hasn't executed, causing state format mismatches? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_294e1b2b-b943-4ec6-9c6a-bca7960e7bdf?mode=deep",
+    "timestamp": "2026-01-10 05:01:15.523141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ConsensusVersion()] [Version mismatch] Can an attacker exploit the hardcoded consensus version 2 at line 152 to create chain splits by running validators with different module versions that have incompatible state representations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91b6c511-3947-4d11-b029-da1527d2f160?mode=deep",
+    "timestamp": "2026-01-10 05:01:40.550577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterGRPCGatewayRoutes()] [Context manipulation] Can an attacker manipulate the context.Background() at line 86 to bypass authentication or authorization checks in the query handler registration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4ad7c6d-c666-49c9-a238-00df3ab2c6e9?mode=deep",
+    "timestamp": "2026-01-10 05:02:06.785339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterGRPCGatewayRoutes()] [Gateway panic] Does the panic at line 87 when RegisterQueryHandlerClient fails create a vulnerability where malicious clients can crash all validators by sending malformed gRPC gateway registration requests? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c824de6-a3bb-4cac-a6c7-fa92434f5adc?mode=deep",
+    "timestamp": "2026-01-10 05:02:31.489495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Query server exposure] Does the QueryServer registration at line 121 properly validate query permissions, or can unauthorized users query sensitive factory state information that could be used to plan attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cd4ae28-33d7-4810-b487-e93f453a5b66?mode=deep",
+    "timestamp": "2026-01-10 05:02:55.652368",
+    "report_generated": false
   }
 ]
