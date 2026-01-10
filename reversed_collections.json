@@ -17548,5 +17548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cd4ae28-33d7-4810-b487-e93f453a5b66?mode=deep",
     "timestamp": "2026-01-10 05:02:55.652368",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Server initialization] Can an attacker exploit the MsgServer initialization at line 120 to inject a malicious keeper implementation that bypasses access controls on token minting and burning operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8521d897-c63c-48cd-8284-af7ef87bd5a0?mode=deep",
+    "timestamp": "2026-01-10 05:04:16.018543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterInvariants()] [Invariant race condition] Can an attacker exploit race conditions between invariant checks and state mutations, allowing brief windows where invalid states (supply > minting cap) exist and can be exploited before invariants detect them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_357ece78-c1ca-4bc8-b57e-80fc8c28936d?mode=deep",
+    "timestamp": "2026-01-10 05:04:28.470949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterInvariants()] [DoS via invariants] Can an attacker cause the registered invariants to consume excessive gas during execution, creating a denial-of-service where block production is slowed or halted due to invariant checking overhead? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f9845e9-89aa-43d3-90cf-d4a77260158f?mode=deep",
+    "timestamp": "2026-01-10 05:04:41.343182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterInvariants()] [Invariant bypass] Can an attacker exploit the invariant registration at line 131 to register malicious invariants that always return false, preventing the chain from detecting and halting on critical state violations like supply exceeding minting caps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28c3506d-c839-44a9-9089-8ce79c71a1f2?mode=deep",
+    "timestamp": "2026-01-10 05:04:54.739577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Double migration] Can an attacker trigger the V2Migration multiple times by manipulating consensus version or migration state, causing duplicate token creation or minting cap resets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe7b556d-ac62-4c0d-abe0-9177d1a34132?mode=deep",
+    "timestamp": "2026-01-10 05:05:07.800130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Migration atomicity] Does the V2Migration called through the Migrator at line 122 handle rollback properly if migration fails partway through, or can it leave the chain in a partially migrated state with corrupted token data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2502e334-ed73-449a-bf72-b17b44df320f?mode=deep",
+    "timestamp": "2026-01-10 05:05:23.057464",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Migration ordering] Can an attacker exploit the migration registration order to trigger V2Migration at an inappropriate time, causing state inconsistencies between legacy and new denom structures and enabling token duplication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7b8f05a-23df-4e57-ab39-19b4c15887d8?mode=deep",
+    "timestamp": "2026-01-10 05:05:39.055710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Panic vulnerability] Does the panic at line 125 when RegisterMigration fails create a denial-of-service vector where all validators crash if migration registration encounters any error, halting the entire chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_191eef3f-5540-47ea-bea4-e8fffe7f6b5e?mode=deep",
+    "timestamp": "2026-01-10 05:05:56.859248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Migration safety] Does the V2Migration registration at line 123 properly validate the migration path, or can an attacker trigger migration from an unexpected state version causing data corruption or token supply inconsistencies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b7c3d05-b1b9-4688-9252-1d50e5eb25c1?mode=deep",
+    "timestamp": "2026-01-10 05:06:15.699918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Module address collision] Can an attacker craft a Bech32 address that collides with the governance module address to gain unauthorized authority over the factory module and bypass all access controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4365f8ee-a50f-433b-a5b9-41d6074a17db?mode=deep",
+    "timestamp": "2026-01-10 05:06:34.688623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Authority validation] Can an attacker provide an empty or malformed Config.Authority string at line 205 that causes NewModuleAddressOrBech32Address to fail silently and initialize the keeper with an invalid authority address, breaking all admin operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2eb9d3b7-fd23-4215-b895-2c734b693e12?mode=deep",
+    "timestamp": "2026-01-10 05:06:55.255386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Privilege escalation] Does the fallback to governance module address at line 204 create a privilege escalation vector if the governance module itself is compromised or has weak security, allowing attackers to gain full control over factory operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f05331d9-7549-464d-8346-43d542754332?mode=deep",
+    "timestamp": "2026-01-10 05:07:15.200187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Access control] Can an attacker exploit the authority configuration logic at lines 203-207 to set an attacker-controlled address as the module authority by providing a malicious Config.Authority string that bypasses NewModuleAddressOrBech32Address validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1552523a-598c-4404-87ad-782936824c81?mode=deep",
+    "timestamp": "2026-01-10 05:07:37.447614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ValidateGenesis()] [Input validation] Does the JSON unmarshaling at line 78 properly handle extremely large genesis files or deeply nested JSON structures that could cause memory exhaustion and crash all validators during genesis validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d3224ab-7aa5-4c15-afd1-2bb32891bfd0?mode=deep",
+    "timestamp": "2026-01-10 05:08:00.849752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Replay attack] Can an attacker replay a previously exported genesis state with outdated minting caps to reset token supply limits and bypass current minting restrictions, allowing unlimited token creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49f0bab9-9ffd-43fc-a9af-7799b60366a0?mode=deep",
+    "timestamp": "2026-01-10 05:08:24.884641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [State consistency] Can an attacker exploit race conditions during ExportGenesis() at lines 144-147 where concurrent transactions modify denom state while genesis is being exported, causing exported state to be inconsistent with the actual chain state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ce06356-8329-4535-9263-7805ade855dc?mode=deep",
+    "timestamp": "2026-01-10 05:08:49.889028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Panic vulnerability] Does the panic at line 29 in InitGenesis() when SetParams fails create a denial-of-service vector where malicious genesis parameters cause all validators to crash during chain initialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4240605-5d47-4536-8bdb-b3d95892af32?mode=deep",
+    "timestamp": "2026-01-10 05:09:15.463732",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [State corruption] Can an attacker exploit the lack of atomic transaction handling in InitGenesis() at lines 135-141 to cause partial state initialization where some denoms are set but corresponding denomAuth entries fail, leading to orphaned tokens without admin controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28b1e4b1-bd27-4fcf-902c-1250b7ada0a5?mode=deep",
+    "timestamp": "2026-01-10 05:09:40.666980",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ValidateGenesis()] [Error handling] Does the error wrapping in ValidateGenesis() at line 79 properly propagate all validation failures, or can certain malformed genesis states bypass validation and lead to consensus failures during chain initialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b2c950a-ff23-4ef6-a949-2c8f47ff6407?mode=deep",
+    "timestamp": "2026-01-10 05:10:07.368664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ValidateGenesis()] [State validation] Can an attacker craft a malformed GenesisState JSON that passes unmarshal validation but contains inconsistent denom/denomAuth relationships, causing the chain to initialize with corrupted factory state where tokens exist without proper admin controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ac91d65-4e91-4584-a4c7-211d05f28949?mode=deep",
+    "timestamp": "2026-01-10 05:10:34.907423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Server initialization] Can an attacker exploit the MsgServer initialization at line 120 to inject a malicious keeper implementation that bypasses access controls on token minting and burning operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe3dea00-c7ac-41a1-81f8-90fb2f4a6a47?mode=deep",
+    "timestamp": "2026-01-10 05:11:02.894380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterInvariants()] [Invariant race condition] Can an attacker exploit race conditions between invariant checks and state mutations, allowing brief windows where invalid states (supply > minting cap) exist and can be exploited before invariants detect them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96ba9c13-8a7c-487a-bdc2-e98e5c40b886?mode=deep",
+    "timestamp": "2026-01-10 05:11:29.149937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterInvariants()] [DoS via invariants] Can an attacker cause the registered invariants to consume excessive gas during execution, creating a denial-of-service where block production is slowed or halted due to invariant checking overhead? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40f0b766-d3dd-4485-ac4c-cdca2c2c2a24?mode=deep",
+    "timestamp": "2026-01-10 05:11:54.862940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterInvariants()] [Invariant bypass] Can an attacker exploit the invariant registration at line 131 to register malicious invariants that always return false, preventing the chain from detecting and halting on critical state violations like supply exceeding minting caps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fac457fd-4a7a-4ca0-90fb-95aa40dc838f?mode=deep",
+    "timestamp": "2026-01-10 05:12:20.140710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Double migration] Can an attacker trigger the V2Migration multiple times by manipulating consensus version or migration state, causing duplicate token creation or minting cap resets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_586aedb4-4af1-4ebb-9100-e960b41954c1?mode=deep",
+    "timestamp": "2026-01-10 05:12:43.499311",
+    "report_generated": false
   }
 ]
