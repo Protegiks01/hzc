@@ -30148,5 +30148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11b60d84-3448-48f1-a5da-4a3198a30a32?mode=deep",
     "timestamp": "2026-01-10 19:09:09.272014",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: RegisterInvariants()] [Route collision] At lines 13-22, can an attacker register malicious invariants with similar route names that override these critical invariants, preventing proper validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04d15f1e-61c8-437c-b113-460d55a5e570?mode=deep",
+    "timestamp": "2026-01-10 19:10:41.148260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Stale iterator data] Can the GetAllDenom() call at line 30 return stale data from a previous block if the iterator isn't properly refreshed, causing invariant checks to validate outdated state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2183b219-03e3-447a-8b47-087fa3658085?mode=deep",
+    "timestamp": "2026-01-10 19:10:53.592179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Unmarshaling failures] If GetAllDenom() encounters denoms that fail to unmarshal correctly, does it skip them silently or panic, and can this be exploited to bypass invariant checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fdcb127-1048-4c4b-9397-5af88eb52b90?mode=deep",
+    "timestamp": "2026-01-10 19:11:06.350396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Duplicate denom entries] If GetAllDenom() returns duplicate entries due to store corruption, will both invariants check the same denom multiple times, wasting gas and potentially missing other denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69fb4758-5e15-426d-b304-259243f3c973?mode=deep",
+    "timestamp": "2026-01-10 19:11:20.456994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Iterator ordering attack] Can an attacker exploit the iteration order of GetAllDenom() to ensure problematic denoms are checked last, potentially timing out invariant checks before violations are detected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b5e886e0-55f9-4de9-a965-462e5443905d?mode=deep",
+    "timestamp": "2026-01-10 19:11:34.164149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Corrupted iterator state] If the KVStore iterator used by GetAllDenom() encounters corrupted keys, will it return partial results that cause some denoms to never be checked by this invariant? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a1349cd-6a86-4eeb-9a3c-7b18d409d970?mode=deep",
+    "timestamp": "2026-01-10 19:11:49.309169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Store iterator exhaustion] Can an attacker create enough denoms that GetAllDenom() at line 30 exhausts available memory when building the slice, causing node crashes during invariant checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69304be5-e8ca-43d6-b6b3-c4c45a2b2b6b?mode=deep",
+    "timestamp": "2026-01-10 19:12:05.298459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Supply inflation vector] If factory supply legitimately exceeds bank supply due to IBC escrow, can an attacker continuously transfer tokens via IBC to inflate the acceptable discrepancy, hiding minting cap violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1c659e3-1c65-479b-be38-fcd935375360?mode=deep",
+    "timestamp": "2026-01-10 19:12:22.600985",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Multi-denom attack] Can an attacker create multiple denoms with identical base denoms but different paths/traces to confuse bank supply accounting while this invariant only checks against a single supply value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30bea61e-9cfe-420d-8875-c38e0e1e72b0?mode=deep",
+    "timestamp": "2026-01-10 19:12:41.130175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Timeout packet exploit] When IBC transfer packets timeout, tokens should be refunded, but if denom.Minted isn't updated, can this cause permanent supply discrepancies that this invariant considers valid? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61983be2-7066-4634-a7f7-4f4f1728b1b2?mode=deep",
+    "timestamp": "2026-01-10 19:13:00.231109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Cross-module state corruption] Can an attacker corrupt the bank module's state to show lower supply than actually exists, causing this invariant to incorrectly pass when factory has minted more tokens than should exist? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1aa72a9b-39de-4a92-b503-114c267ece02?mode=deep",
+    "timestamp": "2026-01-10 19:13:20.859868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Error propagation] If bankKeeper.GetSupply() at line 67 returns an error or nil coin, does the conversion to Amount at line 72 handle this safely, or can it cause panics or incorrect comparisons? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94cb20b9-aa0c-4988-9cd9-d30c6c1ee0f8?mode=deep",
+    "timestamp": "2026-01-10 19:13:42.163669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Zero supply edge case] If both factory and bank supply are zero, the GTE check passes, but can an attacker exploit this to reset token accounting and re-mint tokens beyond the original minting cap? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd0e4046-c4e8-4783-8872-1240a4dbd611?mode=deep",
+    "timestamp": "2026-01-10 19:14:04.395271",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Missing burned tokens] Does this invariant account for tokens that are burned via the bank keeper but not decremented from denom.Minted, potentially causing factory supply to exceed bank supply legitimately but hiding burn accounting bugs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d756ff35-d133-4856-9e4d-96fadfb57c83?mode=deep",
+    "timestamp": "2026-01-10 19:14:27.299280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Denom name collision] If multiple denoms have similar names that could collide in the bank keeper's storage, can GetSupply() at line 67 return supply for the wrong denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e01ebc0-a17a-43ca-b003-eab1c11f878b?mode=deep",
+    "timestamp": "2026-01-10 19:14:51.207055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Concurrent modification] Can concurrent bank module operations (mints, burns, transfers) during GetSupply() at line 67 cause race conditions that result in inconsistent supply readings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e73521e4-88cf-4bb5-b9ab-1846488073cd?mode=deep",
+    "timestamp": "2026-01-10 19:15:15.779909",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Decimal precision loss] When comparing factory supply (stored as Uint) with bank supply (potentially different precision), can precision differences cause this check to incorrectly validate mismatched supplies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f923c0d-0c16-48f4-844a-c2b9bf0da992?mode=deep",
+    "timestamp": "2026-01-10 19:15:41.099921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Module escrow exploit] Can tokens escrowed in IBC module accounts cause factory supply to be greater than bank supply indefinitely, and can an attacker exploit this to hide over-minted tokens in escrow accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5a14244-1474-4824-85a9-28c70526554b?mode=deep",
+    "timestamp": "2026-01-10 19:16:05.796380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [IBC burn/mint exploit] The comment at lines 70-71 states IBC transfers cause supply discrepancies - can an attacker exploit IBC transfer acknowledgment failures to create permanent supply mismatches that this invariant incorrectly considers valid? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_512821b4-e370-4dd7-8d59-8917c7d8e68d?mode=deep",
+    "timestamp": "2026-01-10 19:16:31.889870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Integer conversion vulnerability] At line 72, cosmosmath.Uint(bankSupply.Amount) converts sdk.Int to Uint - can negative bank supply values cause integer underflow that makes the GTE() check pass incorrectly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32e164c3-1039-4c7f-a4e4-bf46ce382ce4?mode=deep",
+    "timestamp": "2026-01-10 19:16:58.602677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Bank keeper manipulation] Can an attacker manipulate k.bankKeeper.GetSupply() at line 67 to return incorrect supply values, causing this invariant to incorrectly validate inconsistent state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a254b38-4a0a-4c58-9f39-a4608786c4d1?mode=deep",
+    "timestamp": "2026-01-10 19:17:25.704754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Supply inconsistency] At line 72, the check uses GTE() (greater than or equal) rather than Equal() - can an attacker exploit scenarios where factory supply exceeds bank supply to hide minted tokens that exist in state but not in circulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e00a910c-8e2d-4606-aec9-1b988acf1703?mode=deep",
+    "timestamp": "2026-01-10 19:17:53.429784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Migration vulnerability] During the V2Migration process that converts LegacyDenom to Denom, can an attacker exploit timing to mint tokens under the old structure that aren't subject to this invariant check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9344182d-d2ba-4585-b8d8-91e946e9f2ee?mode=deep",
+    "timestamp": "2026-01-10 19:18:21.484167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Store corruption] If the KVStore becomes corrupted and returns incorrect values for denom.Minted or denom.MintingCap, will this invariant detect the corruption or incorrectly validate corrupt state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cff745bd-2bb1-4c1a-83d6-e59e97ba3207?mode=deep",
+    "timestamp": "2026-01-10 19:18:49.272701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Byzantine validator exploit] Can Byzantine validators (up to 1/3) selectively skip running this invariant check on their nodes, allowing over-minting to occur without detection if honest nodes are in the minority? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4c5f8e3-ae7b-42eb-981f-159f0302c37a?mode=deep",
+    "timestamp": "2026-01-10 19:19:15.591370",
+    "report_generated": false
   }
 ]
