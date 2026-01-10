@@ -17698,5 +17698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_586aedb4-4af1-4ebb-9100-e960b41954c1?mode=deep",
     "timestamp": "2026-01-10 05:12:43.499311",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Economic Incentive Manipulation] Can a large token holder use governance to update factory params in ways that benefit their holdings (e.g., increasing fees after they've created their tokens), creating unfair economic conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29fd1bde-3e3e-4445-b836-d7b8d4dd1067?mode=deep",
+    "timestamp": "2026-01-10 05:13:51.859534",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Byzantine Validator Exploitation] Can a Byzantine validator (up to 1/3 of stake) include MsgUpdateParams transactions with invalid parameters that pass ValidateBasic but cause state divergence when other validators try to execute them? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d872848a-9357-4169-97ce-d76ab4172d0a?mode=deep",
+    "timestamp": "2026-01-10 05:14:04.376600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Upgrade Attack] During a chain upgrade, can an attacker exploit the window where ValidateBasic uses the old validation logic but the keeper uses new logic, causing parameter updates to behave unexpectedly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d20fbc4-ef99-4fd7-a8b3-51a96baefad4?mode=deep",
+    "timestamp": "2026-01-10 05:14:17.287495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Cross-Chain Attack] If ZigChain's factory params are updated to use an IBC token as CreateFeeDenom, can an attacker on the source chain manipulate that token's supply or metadata to affect ZigChain's factory operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7fe1a21a-7e07-48ef-80b8-7e9b436e5358?mode=deep",
+    "timestamp": "2026-01-10 05:14:30.447277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [MEV Exploitation] Can a sophisticated attacker use MsgUpdateParams in combination with factory token creation transactions to extract MEV by predicting and exploiting parameter changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce0555fc-77a7-42b9-8c3e-489f22be5d6d?mode=deep",
+    "timestamp": "2026-01-10 05:14:44.443730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Gas Metering] Does ValidateBasic properly meter gas consumption for all validation operations, or could expensive operations like Bech32 decoding and regex matching be exploited for gas-less DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11fe74e4-0845-4544-a1eb-431ce0674b93?mode=deep",
+    "timestamp": "2026-01-10 05:14:59.782656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Deterministic Validation] Is the validation logic in ValidateBasic completely deterministic across all validators, or could differences in locale, timezone, or SDK version cause validation inconsistencies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_092e7792-7fd6-48aa-b04c-37da21ff13d4?mode=deep",
+    "timestamp": "2026-01-10 05:15:16.074719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Error Handling Consistency] Are all possible error conditions in ValidateBasic properly wrapped with descriptive error messages, or could some errors be swallowed or misreported? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27de34ae-61ec-49c7-8464-95bedb0e1b61?mode=deep",
+    "timestamp": "2026-01-10 05:15:34.193257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Validation Completeness] Does ValidateBasic validate ALL security-critical fields, or are there fields in the Params struct that are only validated in the keeper, creating a security gap? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca8481a3-9a25-4f13-abe3-8ee666bc9a90?mode=deep",
+    "timestamp": "2026-01-10 05:15:52.618153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Input Sanitization] Does ValidateBasic perform sufficient input sanitization on the Authority and Params fields, or can attackers inject malicious data that passes validation but causes issues downstream? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e6a33ff-7c26-49d6-8e39-7d1deedbca01?mode=deep",
+    "timestamp": "2026-01-10 05:16:12.805634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Parameter Propagation Delay] After params are updated in the keeper, is there any delay before other modules observe the new params, creating a window for exploitation of stale parameter values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ef7ff42-9d1d-4b07-aabb-73a8facc8ca8?mode=deep",
+    "timestamp": "2026-01-10 05:16:33.309726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [SetParams Failure] If the keeper's SetParams call (line 31) fails due to storage errors or state corruption, does this cause the transaction to revert cleanly, or can it leave partial state changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11afaf27-b3ab-46ed-9a6a-ad3b8c2d8f25?mode=deep",
+    "timestamp": "2026-01-10 05:16:55.883136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Supply Check Race] Can an attacker drain the supply of CreateFeeDenom to zero after ValidateBasic but before the keeper's HasSupply check (line 22), causing the parameter update to fail unexpectedly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f68cb35-07c5-449f-9f60-96a20dddd97d?mode=deep",
+    "timestamp": "2026-01-10 05:17:18.657485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Denom Existence Window] Between ValidateBasic execution and keeper's GetDenom check (line 20 in keeper), can a denom be deleted causing the transaction to fail after passing initial validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_748718f2-3551-45a9-9097-5a0e33793628?mode=deep",
+    "timestamp": "2026-01-10 05:17:42.363108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Keeper Authorization Mismatch] Can the authority check in ValidateBasic (line 12-14) pass but then fail in the keeper's GetAuthority comparison (line 13 in keeper), wasting gas and causing user confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a9ef585-823b-4a75-85de-cf3353335e87?mode=deep",
+    "timestamp": "2026-01-10 05:18:06.754724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Governance Spam] Can an attacker submit numerous governance proposals containing MsgUpdateParams to spam the governance system, even if the proposals will fail in ValidateBasic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_492349b4-6516-4bad-a099-234c66c07a19?mode=deep",
+    "timestamp": "2026-01-10 05:18:32.479210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Authority Delegation] If the governance module delegates authority to a different address, does ValidateBasic check the delegation chain, or can this cause authority mismatch errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f69bcf3e-a8c5-4ec7-bc75-b448a8313b30?mode=deep",
+    "timestamp": "2026-01-10 05:18:59.876440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Proposal Timing Attack] Can an attacker observe pending governance proposals for parameter updates and front-run them with factory token creation to exploit the soon-to-change fee structure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c185e425-9377-4a4f-9b26-b7aeafc0c832?mode=deep",
+    "timestamp": "2026-01-10 05:19:27.448032",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Multi-Sig Manipulation] If the Authority is a multi-sig account, can an attacker exploit the validation to approve parameter changes with only partial signatures by submitting the message at a specific timing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_738cf7de-2104-4cac-813d-b80bc516f4b6?mode=deep",
+    "timestamp": "2026-01-10 05:19:55.068862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Governance Bypass] Can an attacker submit a MsgUpdateParams directly to the mempool instead of through governance, and if ValidateBasic doesn't check the message context, could this bypass governance voting requirements? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7a89e26-7d9a-400c-8ecb-f725f05b0c52?mode=deep",
+    "timestamp": "2026-01-10 05:20:23.452729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Parameter Migration] If the Params schema changes in a future upgrade, can old MsgUpdateParams messages in the mempool pass ValidateBasic with the old schema but fail in the keeper with the new schema, breaking upgrade atomicity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acf36180-63a5-4f86-b210-9d0cfbff6c84?mode=deep",
+    "timestamp": "2026-01-10 05:20:49.460924",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Rollback Incomplete] If a transaction containing MsgUpdateParams is included in a block but the block is rolled back due to consensus failure, are the parameter validations re-executed correctly, or can cached validation results cause issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed333e5f-0858-48b6-ad5a-e7cbfa6958c3?mode=deep",
+    "timestamp": "2026-01-10 05:21:15.948088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Query Inconsistency] Between the time ValidateBasic executes and the keeper commits the new params, can queries to the params endpoint return inconsistent values that differ from what will be committed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f0b462e-a944-46e3-8f66-bfb2e8c50c12?mode=deep",
+    "timestamp": "2026-01-10 05:21:42.452765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Event Emission Race] If parameter update events are emitted before the params are fully committed to state, can block explorers or listeners act on stale parameter values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b1a85d8-fd58-4a15-b434-baa94e4a0878?mode=deep",
+    "timestamp": "2026-01-10 05:22:07.257015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Partial Parameter Updates] If the keeper's SetParams call (line 31 in keeper) fails after some params are set, does this leave the module in an inconsistent state with partially updated parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_042192ac-89f3-4dbc-909d-b7f67245d8cb?mode=deep",
+    "timestamp": "2026-01-10 05:22:32.504118",
+    "report_generated": false
   }
 ]
