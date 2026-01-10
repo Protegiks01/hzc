@@ -27748,5 +27748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_313cdecc-784a-4e08-9b95-1f06e881cae9?mode=deep",
     "timestamp": "2026-01-10 16:32:43.162798",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Concurrent denom creation] If two transactions call CreateDenom with the same fullDenom concurrently, both can pass GetDenom check at line 49 and GetDenomMetaData check at line 78. Can both successfully execute SetDenom at line 132, causing last-write-wins and unpredictable denom ownership? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1064cb4d-aad6-4603-bd53-f18ffd5e3889?mode=deep",
+    "timestamp": "2026-01-10 16:34:15.811716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Multiple state stores] The function writes to three separate stores: bank metadata store (line 111), DenomAuth store (line 118), and Denom store (line 132). Are these writes atomic across stores? Can validator crash between writes cause partial state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9aee9ef6-8a6f-44c4-b093-1fd65c7c1c7f?mode=deep",
+    "timestamp": "2026-01-10 16:34:28.428800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Context propagation] The function receives goCtx and unwraps to ctx at line 24. If ctx contains stale state from prior transactions in the same block, can this cause TOCTOU vulnerabilities in state reads throughout the function? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bc7090b-2628-46bd-9f90-f175d6ed8412?mode=deep",
+    "timestamp": "2026-01-10 16:34:41.513010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Module account security] SendCoinsFromAccountToModule at line 74 sends to types.ModuleName module account. If types.ModuleName is",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e1a6761-8440-4ae7-b09f-d6a0b0d0b27a?mode=deep",
+    "timestamp": "2026-01-10 16:34:54.989270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [GetParams dependency] GetParams at line 27 reads from params store. If params store is corrupted or maliciously modified mid-transaction, can this cause inconsistent fee amounts or denominations that break denom creation logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_648c535f-b059-43cc-b013-118b855bb6e3?mode=deep",
+    "timestamp": "2026-01-10 16:35:08.936692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Bank keeper dependency] The function calls bankKeeper.HasSupply (line 35), bankKeeper.HasBalance (line 65), bankKeeper.SendCoinsFromAccountToModule (line 74), bankKeeper.GetDenomMetaData (line 78), and bankKeeper.SetDenomMetaData (line 111). Can a malicious or buggy bank keeper implementation be exploited to bypass security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c700b82-1606-432c-91d8-70fa6b3befa3?mode=deep",
+    "timestamp": "2026-01-10 16:35:24.258838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Response metadata mismatch] The response returns denomMetaData.URI and denomMetaData.URIHash (set at lines 102-103) but doesn't re-read from bank keeper after SetDenomMetaData at line 111. If SetDenomMetaData modifies values, can response be incorrect? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dad81e41-aaa8-4732-acda-70e98c6c5f8e?mode=deep",
+    "timestamp": "2026-01-10 16:35:40.090045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Response struct mismatch] The response uses denomAuth.BankAdmin and denomAuth.MetadataAdmin (set at lines 115-116) but doesn't re-read from KVStore after SetDenomAuth at line 118. If SetDenomAuth modifies values, can the response contain incorrect admin addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30b65c9f-a4a1-4015-851c-3ccb6d3bd28c?mode=deep",
+    "timestamp": "2026-01-10 16:35:58.209597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Response data leak] The response at lines 136-144 returns BankAdmin, MetadataAdmin, MintingCap, CanChangeMintingCap, URI, URIHash. Can this information be used to front-run subsequent operations like admin transfers or minting by monitoring transaction responses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7196e1a-98bd-4903-987e-5bc00d95150e?mode=deep",
+    "timestamp": "2026-01-10 16:36:16.873919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Fee amount in events] Events include feeAmount, which should match params.CreateFeeAmount. Can an attacker exploit event parsing to claim they paid a different fee than actually collected, if events are trusted without verifying against transaction data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4829190f-6631-490f-899f-fe3abd618e5f?mode=deep",
+    "timestamp": "2026-01-10 16:36:36.813524",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Event data integrity] EmitDenomCreated receives &denom and feeAmount. If the denom struct is modified after SetDenom at line 132 but before event emission (concurrent goroutine), can events contain incorrect data that doesn't match actual stored denom? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10150687-1d18-4862-a585-1b0d34b60d84?mode=deep",
+    "timestamp": "2026-01-10 16:36:57.460345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Event emission failure] EmitDenomCreated at line 134 emits events after all state changes. If event emission fails (event manager error), does this fail the entire transaction, or can denoms be created without events, breaking external indexers and causing loss of audit trail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e341d1b-da33-463c-9f00-f56b61a9b9db?mode=deep",
+    "timestamp": "2026-01-10 16:37:19.131578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [State transition atomicity] Between SetDenomMetaData (line 111), SetDenomAuth (line 118), AddDenomToAdminDenomAuthList (line 121), and SetDenom (line 132), if any operation fails, are previous operations rolled back? Can partial state cause orphaned metadata, admin records without denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91e15005-285e-49b8-9746-f4cc61d5f582?mode=deep",
+    "timestamp": "2026-01-10 16:37:41.755260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Denom struct validation] The Denom struct fields at lines 124-130 are not validated before SetDenom. Can malformed values in Creator, Denom, MintingCap cause corruption in KVStore serialization or deserialization in GetDenom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_367888b6-57c8-49e5-8165-304813ca8ded?mode=deep",
+    "timestamp": "2026-01-10 16:38:05.104819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [SetDenom failure handling] SetDenom at line 132 writes the Denom struct to KVStore. If this operation fails (storage corruption, disk full), does the function return an error, or does it silently succeed, causing metadata and DenomAuth to exist without the actual Denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05741983-2bfa-4a14-8dbe-7e4f163743d2?mode=deep",
+    "timestamp": "2026-01-10 16:38:29.942018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Creator mismatch] The Denom struct at line 124-130 stores Creator as msg.Creator string. If msg.Creator differs from the actual tx signer (ValidateBasic should catch this), can there be edge cases where denom creator doesn't match the admin? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46320eb8-5b91-46de-857d-a9ab02b8eeab?mode=deep",
+    "timestamp": "2026-01-10 16:38:53.341828",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [CanChangeMintingCap exploit] At line 129, CanChangeMintingCap is set to msg.CanChangeMintingCap. If set to false at creation, can this permanently lock the minting cap, preventing legitimate cap increases even if supply demand grows? If true, can admins abuse unlimited cap changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b03496cf-dd11-4da7-9d40-80104f394ad1?mode=deep",
+    "timestamp": "2026-01-10 16:39:17.211239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [MintingCap overflow] msg.MintingCap is cosmosmath.Uint (unlimited precision). Can an attacker set MintingCap to a value larger than uint256 max, causing overflow in comparison operations with Minted in msg_server_mint_and_send.go? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5eae76c9-1bea-4a69-821d-a660b169de7d?mode=deep",
+    "timestamp": "2026-01-10 16:39:41.402201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [MintingCap validation] At line 128, msg.MintingCap is set directly without revalidation. If ValidateBasic at line 54-60 in msg_create_denom.go is bypassed, can an attacker set MintingCap to zero or MaxUint, allowing unlimited minting or preventing any minting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d14feed4-68da-400a-955d-9f57fe23cb42?mode=deep",
+    "timestamp": "2026-01-10 16:40:07.009218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Minted initialization] At line 127, Minted is initialized to cosmosmath.ZeroUint(). If cosmosmath.ZeroUint() returns nil or invalid value due to library bug, can this cause panics in subsequent mint operations when comparing Minted to MintingCap? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e558c5c3-bf81-42e7-9afb-9b67cb7a87e7?mode=deep",
+    "timestamp": "2026-01-10 16:40:32.860792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [DenomAuth missing validation] The DenomAuth struct at lines 113-118 is created without validating that denomAuth.Denom matches fullDenom or that admins are valid addresses. Can struct field confusion lead to mismatched admin records? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbe63997-1363-4487-b828-5b4888596712?mode=deep",
+    "timestamp": "2026-01-10 16:40:58.111887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Creator address reuse] If msg.Creator is reused across multiple denom creations, AddDenomToAdminDenomAuthList at line 121 adds to the same admin's index. Can this cause unbounded growth of the admin's denom list, leading to storage exhaustion or query timeouts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_176bb12d-4b57-41e2-8834-9dc018372340?mode=deep",
+    "timestamp": "2026-01-10 16:41:19.688192",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Index inconsistency] Line 121 only adds to BankAdmin's list (denomAuth.BankAdmin), not MetadataAdmin's list. Can this cause query_denom_by_admin to not return denoms where user is only MetadataAdmin, breaking admin denom discovery? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c50225da-6b79-4471-ab4a-80afd0aee290?mode=deep",
+    "timestamp": "2026-01-10 16:41:41.635285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Admin list corruption] AddDenomToAdminDenomAuthList at line 121 adds fullDenom to creator's admin index. If this operation fails but SetDenomAuth at line 118 succeeded, can the denom have admin rights without being in the admin's index, breaking admin queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38da448b-94ae-4ebb-a218-f7ecd4854388?mode=deep",
+    "timestamp": "2026-01-10 16:42:04.578125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [DenomAuth overwrite] SetDenomAuth at line 118 uses denomAuth.Denom as key. If DenomAuth was previously set (from failed transaction), can this overwrite existing admin data without proper access control checks, allowing admin takeover? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cf89c84-1e26-4a5e-b4f2-bb4b5b045345?mode=deep",
+    "timestamp": "2026-01-10 16:42:27.152193",
+    "report_generated": false
   }
 ]
