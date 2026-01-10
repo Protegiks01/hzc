@@ -21598,5 +21598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1008264a-3db8-40a1-876f-ef946dc01cd3?mode=deep",
     "timestamp": "2026-01-10 09:38:08.667320",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: AccountKeeper.SetModuleAccount()] [Access control bypass] Can an attacker exploit the SetModuleAccount method to overwrite or replace legitimate module accounts by crafting a malicious sdk.ModuleAccountI, potentially redirecting factory module funds to attacker-controlled addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f322487-d68a-48ba-9cef-62df0e3ef628?mode=deep",
+    "timestamp": "2026-01-10 09:39:50.530273",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: AccountKeeper.GetModuleAddress()] [Address spoofing] Does the GetModuleAddress method implementation validate that the requested module name corresponds to an actual registered module, or can an attacker request arbitrary module names to obtain predictable addresses for front-running token creation or minting operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_889055a1-c7bd-4354-b928-eb1e7ea00bdc?mode=deep",
+    "timestamp": "2026-01-10 09:40:02.906146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: AccountKeeper.GetAccount()] [Nil pointer dereference] Can a malicious factory module caller exploit the GetAccount method by passing a nil or invalid sdk.AccAddress, potentially causing the implementation to return nil without proper validation, leading to nil pointer dereferences in subsequent token operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7a7ff1e-e1d3-443e-b65a-5cd8a4cfc58c?mode=deep",
+    "timestamp": "2026-01-10 09:40:15.988651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [IBC Integration] [Timeout Handling] If an IBC transfer times out while a factory operation that could return errors is in progress, does timeout handling properly revert factory state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc184220-982e-445d-8fa9-e8b1fe52ebb3?mode=deep",
+    "timestamp": "2026-01-10 09:40:29.113887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [IBC Integration] [Denom Reconstruction] When IBC-wrapped factory denoms are unwrapped, can errors in denom reconstruction cause factory errors to be thrown for valid denoms, enabling IBC DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcdbabce-67c2-4cb7-90f8-8d82ac76bf0b?mode=deep",
+    "timestamp": "2026-01-10 09:40:42.764881",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [IBC Integration] [Cross-Chain Error Propagation] When factory denoms are transferred via IBC and errors occur on the receiving chain, do factory errors like ErrInvalidDenom properly propagate back through IBC acknowledgements, or can tokens get stuck? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e846bf4d-4d18-419d-951f-6e488112c0be?mode=deep",
+    "timestamp": "2026-01-10 09:40:57.602927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [State Consistency] [Event Emission] When errors occur after event emission (e.g., EmitDenomCreated at line 134), can these events mislead external systems about state changes that were rolled back? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10faaa34-22a3-43f8-83b3-c9d2ded702ce?mode=deep",
+    "timestamp": "2026-01-10 09:41:14.145319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [State Consistency] [Admin List Corruption] When ClaimDenomAdmin() updates admin lists at line 70-75 but fails validation returning ErrUnauthorizedAdminClaim, are the list updates properly rolled back, or can they corrupt admin denom mappings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87898ef3-22ee-41a1-9d37-0a3b627ff737?mode=deep",
+    "timestamp": "2026-01-10 09:41:31.180531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [State Consistency] [Partial Writes] When CreateDenom() encounters errors like ErrDenomExists after writing bank metadata at line 111, is the metadata properly rolled back, or does it persist causing state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a83bf177-af29-47d7-9b2a-8eeb5ebc5483?mode=deep",
+    "timestamp": "2026-01-10 09:41:49.443583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error Handling] [Panic on Error] Are there any code paths where factory errors could cause panics instead of proper error returns, and could attackers trigger these to crash validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1327c472-1194-4e81-9bb4-f1718b26b038?mode=deep",
+    "timestamp": "2026-01-10 09:42:08.695595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error Handling] [Storage DoS] Can an attacker trigger error conditions that write error messages to state or events excessively, causing storage bloat DoS via errors like ErrInsufficientFunds that include balance details? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_994410ca-1f96-41b9-949d-75ae6c1adf6e?mode=deep",
+    "timestamp": "2026-01-10 09:42:28.644706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error Handling] [Gas Exhaustion] When errors like ErrInvalidDenom are returned during complex validation in GetTokenDenom(), does the error handling consume excessive gas, and can attackers craft inputs that cause gas exhaustion DoS without triggering the error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98f015bc-36a6-4c05-9f48-d5173c48398e?mode=deep",
+    "timestamp": "2026-01-10 09:42:49.529842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Missing Error] [Subdenom Collision] Is there a missing error to prevent subdenom collisions across different creators (coin.alice.token vs coin.bob.token having same hash), and could hash collisions enable denom spoofing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb8bd5d2-6099-48c1-ae97-05584097d9b4?mode=deep",
+    "timestamp": "2026-01-10 09:43:10.797478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Missing Error] [Module Fee Accumulation] Is there a missing error for when module account accumulates excessive fees from denom creation, and could this locked value create economic issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90f71cbe-319b-42a1-94ab-4b947bf88837?mode=deep",
+    "timestamp": "2026-01-10 09:43:32.421723",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Missing Error] [Denom Burn Tracking] Is there a missing error for when tokens are burned but Denom.Minted is not decremented, causing supply accounting errors that could enable minting beyond cap? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d98939f9-c936-452e-a1d9-fd24cf00ee0c?mode=deep",
+    "timestamp": "2026-01-10 09:43:55.628955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Missing Error] [Max Denoms Per Creator] Is there a missing error to limit the number of denoms a single creator can create, and could attackers spam denom creation to cause storage DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8eaaa166-3bad-4cc0-ae61-d7b3a141fb61?mode=deep",
+    "timestamp": "2026-01-10 09:44:19.949907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Missing Error] [Circular Admin] Is there a missing error to prevent circular admin relationships (A proposes B, B proposes A), and could this be exploited to lock both denoms indefinitely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67f83b7b-977f-4755-83e4-6e849b29ee6c?mode=deep",
+    "timestamp": "2026-01-10 09:44:45.641646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Missing Error] [IBC Denom Validation] Is there a missing error for validating IBC-wrapped factory denoms (ibc/{hash}/coin.creator.subdenom), and could attackers create invalid IBC denoms that bypass factory module checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daa477da-2a56-41f3-82b2-abfea3e54998?mode=deep",
+    "timestamp": "2026-01-10 09:45:09.545619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Missing Error] [Supply Tracking] Is there a missing error for when Denom.Minted doesn't match actual bank module supply for a denom, and could this discrepancy be exploited to mint more tokens than the cap allows? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31edbe04-c2fc-4f1c-b59e-8f47c0ee0a76?mode=deep",
+    "timestamp": "2026-01-10 09:45:34.749037",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Module Registration] [Error Code Space] Is the ModuleName used for sdkerrors.Register() unique across all modules, and could error code collisions occur if another module uses the same name, causing ErrInvalidSignerAccount to be confused with a different error? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b99efaf0-c32a-4724-8d2e-7bf133d5294e?mode=deep",
+    "timestamp": "2026-01-10 09:46:00.634160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Multiple Errors] [Transaction Atomicity] If a transaction triggers multiple operations that could return different factory errors, does error handling ensure complete rollback of all state changes, or can partial state changes persist? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_58830226-22ab-49cd-a3f0-c23645b26eee?mode=deep",
+    "timestamp": "2026-01-10 09:46:27.310821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Multiple Errors] [Error Wrapping] When errors are wrapped with errorsmod.Wrapf(), does this preserve the original error code for proper handling by clients, or can error wrapping cause security-critical errors to be misinterpreted as generic errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b917ef96-e35f-4c72-abe7-8981e4b950c9?mode=deep",
+    "timestamp": "2026-01-10 09:46:51.934340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Multiple Errors] [Error Priority] When multiple error conditions exist simultaneously (e.g., ErrDenomDoesNotExist and ErrInsufficientFunds), which error is returned first, and can attackers exploit error handling order to bypass critical security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e7f4133-d44b-4e6f-8b00-8dff17389ac2?mode=deep",
+    "timestamp": "2026-01-10 09:47:17.934308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrUnauthorizedAdminClaim] [Front-Running Claim] Can an attacker monitor the mempool for ProposeDenomAdmin() transactions and front-run with ClaimDenomAdmin() before the proposal is finalized, bypassing ErrUnauthorizedAdminClaim checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f0fe020-59ee-4023-9afe-b951abf271f4?mode=deep",
+    "timestamp": "2026-01-10 09:47:44.226735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrUnauthorizedAdminClaim] [Delegated Authority] Does ErrUnauthorizedAdminClaim account for delegated signing authority (like authz module grants), and can attackers use delegations to claim admin rights without being the proposed admin? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f50bd9e-b60b-4633-8f24-966628528859?mode=deep",
+    "timestamp": "2026-01-10 09:48:10.412337",
+    "report_generated": false
   }
 ]
