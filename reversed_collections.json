@@ -22048,5 +22048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_601c40ad-196e-4b52-be2c-9494de965080?mode=deep",
     "timestamp": "2026-01-10 10:07:28.025617",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [SQL Injection Analog] Can an attacker inject delimiter characters (dots) into subdenom strings that pass ErrInvalidDenom validation but break KVStore key construction, causing state corruption or unauthorized access to other denoms' data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1914a645-7bf1-458d-a69f-3b247ecf8494?mode=deep",
+    "timestamp": "2026-01-10 10:08:42.213936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [IBC Denom Handling] When factory denoms are transferred via IBC and wrapped with ibc/ prefix, does ErrInvalidDenom properly validate the reconstructed denom on the receiving chain, or can attackers exploit denom reconstruction to create invalid denoms that bypass factory module checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_020b310c-59ac-47e7-b48a-41d3a3b9a75c?mode=deep",
+    "timestamp": "2026-01-10 10:08:54.649994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [DeconstructDenom Bypass] In DeconstructDenom() validation that returns ErrInvalidDenom, can an attacker craft a denom string with exactly 3 parts separated by dots that passes validation but contains malicious payload in the creator or subdenom fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f8c8d58-582f-4c74-9387-84c9c8897e65?mode=deep",
+    "timestamp": "2026-01-10 10:09:07.234666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [Denom Length Bypass] When ErrInvalidDenom validation checks subdenom length against MaxSubdenomLength (44 bytes), can an attacker use multi-byte UTF-8 characters to bypass length restrictions while staying within the visual character limit, causing buffer overflows in downstream operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0909653-7ba4-4846-850b-d1a0d77d2eda?mode=deep",
+    "timestamp": "2026-01-10 10:09:20.345023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [Native Denom Collision] Does the ErrInvalidDenom error at line 14 prevent all possible collisions with native denoms (uzig, stables), or can an attacker create a factory denom with the same name as a native denom by exploiting case sensitivity or Unicode normalization issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2ad3906-f66e-44e6-bb23-5df93238d548?mode=deep",
+    "timestamp": "2026-01-10 10:09:34.161156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [Denom Format Injection] Can an attacker exploit insufficient validation in ErrInvalidDenom checks to inject malicious characters into subdenom strings that break the 'coin.creator.subdenom' format, causing IBC transfer failures or token duplication across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95861340-5911-45ee-9f99-d62b5482f842?mode=deep",
+    "timestamp": "2026-01-10 10:09:48.354879",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [Error Code Collision] Is error code 1100 unique across all ZigChain modules, or could a collision with another module's error code cause ErrInvalidSignerAccount to be misinterpreted, bypassing access control checks in cross-module operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01e3657f-44f2-4f6b-906b-07a631d40d6f?mode=deep",
+    "timestamp": "2026-01-10 10:10:03.425261",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [Cross-Module Interaction] When ErrInvalidSignerAccount is thrown during MintAndSendTokens(), does the error properly propagate to prevent bank module state changes, or can race conditions allow coins to be minted before the error is caught, leading to unauthorized token creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd6ef2f1-3ca7-4aef-8c02-37ae04d191e2?mode=deep",
+    "timestamp": "2026-01-10 10:10:20.919068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [State Inconsistency] If ErrInvalidSignerAccount is returned after partial state changes in CreateDenom(), can this lead to orphaned DenomAuth entries where the denom metadata exists but the authorization records are incomplete, causing permanent locked denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54e28ed1-4cf9-400b-b59f-7c6211d4c61b?mode=deep",
+    "timestamp": "2026-01-10 10:10:39.193766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [Address Validation] Does the ErrInvalidSignerAccount error definition at line 13 properly handle all edge cases of Bech32 address formats, or can an attacker use a malformed address that passes sdk.AccAddressFromBech32() validation but causes downstream issues in denom operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94a1abdc-d53c-42fa-95b4-7ce3a2d7e6c8?mode=deep",
+    "timestamp": "2026-01-10 10:10:58.818210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [Access Control Bypass] Can an attacker craft a malicious signer account address that passes initial validation in GetTokenDenom() but bypasses the ErrInvalidSignerAccount check by exploiting special character handling in the creator validation at line 38-40, allowing unauthorized denom creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_894e5131-c803-4b30-9f4b-2e77a4ce558f?mode=deep",
+    "timestamp": "2026-01-10 10:11:18.431876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [SQL Injection Analog] Can an attacker inject delimiter characters (dots) into subdenom strings that pass ErrInvalidDenom validation but break KVStore key construction, causing state corruption or unauthorized access to other denoms' data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3ab7dc3-5e7a-4570-a379-409a31b18183?mode=deep",
+    "timestamp": "2026-01-10 10:11:39.239460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [IBC Denom Handling] When factory denoms are transferred via IBC and wrapped with ibc/ prefix, does ErrInvalidDenom properly validate the reconstructed denom on the receiving chain, or can attackers exploit denom reconstruction to create invalid denoms that bypass factory module checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1529b68c-a89d-4f09-a559-8849588a804d?mode=deep",
+    "timestamp": "2026-01-10 10:12:01.242760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [DeconstructDenom Bypass] In DeconstructDenom() validation that returns ErrInvalidDenom, can an attacker craft a denom string with exactly 3 parts separated by dots that passes validation but contains malicious payload in the creator or subdenom fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c43ba960-2224-4201-b32f-bf5975494bc4?mode=deep",
+    "timestamp": "2026-01-10 10:12:24.131047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [Denom Length Bypass] When ErrInvalidDenom validation checks subdenom length against MaxSubdenomLength (44 bytes), can an attacker use multi-byte UTF-8 characters to bypass length restrictions while staying within the visual character limit, causing buffer overflows in downstream operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81f36a1f-4d87-4e72-939c-d36c017f029a?mode=deep",
+    "timestamp": "2026-01-10 10:12:48.045501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [Native Denom Collision] Does the ErrInvalidDenom error at line 14 prevent all possible collisions with native denoms (uzig, stables), or can an attacker create a factory denom with the same name as a native denom by exploiting case sensitivity or Unicode normalization issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7f874c8-592a-4580-9bd0-554cf753e09b?mode=deep",
+    "timestamp": "2026-01-10 10:13:12.674786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidDenom] [Denom Format Injection] Can an attacker exploit insufficient validation in ErrInvalidDenom checks to inject malicious characters into subdenom strings that break the 'coin.creator.subdenom' format, causing IBC transfer failures or token duplication across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a9a56e0-8b4e-458c-97cc-39f6d2329446?mode=deep",
+    "timestamp": "2026-01-10 10:13:37.399023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [Error Code Collision] Is error code 1100 unique across all ZigChain modules, or could a collision with another module's error code cause ErrInvalidSignerAccount to be misinterpreted, bypassing access control checks in cross-module operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8616247-a382-4a51-af64-9be7dcbbd98f?mode=deep",
+    "timestamp": "2026-01-10 10:14:02.777921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [Cross-Module Interaction] When ErrInvalidSignerAccount is thrown during MintAndSendTokens(), does the error properly propagate to prevent bank module state changes, or can race conditions allow coins to be minted before the error is caught, leading to unauthorized token creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_886e8cd5-74c7-4cb8-8d7b-368b056c98a7?mode=deep",
+    "timestamp": "2026-01-10 10:14:28.729810",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [State Inconsistency] If ErrInvalidSignerAccount is returned after partial state changes in CreateDenom(), can this lead to orphaned DenomAuth entries where the denom metadata exists but the authorization records are incomplete, causing permanent locked denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ea473eb-e2aa-44ce-a952-067132883e55?mode=deep",
+    "timestamp": "2026-01-10 10:14:55.803537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [Address Validation] Does the ErrInvalidSignerAccount error definition at line 13 properly handle all edge cases of Bech32 address formats, or can an attacker use a malformed address that passes sdk.AccAddressFromBech32() validation but causes downstream issues in denom operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2fe6440b-c4a8-42eb-9ed9-14c37b1bab99?mode=deep",
+    "timestamp": "2026-01-10 10:15:21.651899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidSignerAccount] [Access Control Bypass] Can an attacker craft a malicious signer account address that passes initial validation in GetTokenDenom() but bypasses the ErrInvalidSignerAccount check by exploiting special character handling in the creator validation at line 38-40, allowing unauthorized denom creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04f0f381-b3b6-4036-b1b3-b9b7384dfacd?mode=deep",
+    "timestamp": "2026-01-10 10:15:48.331522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Missing Event: Failed Operations] Are there event constants for failed operations (failed mints due to cap, failed burns due to insufficient balance), enabling failure monitoring? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f672f6d-5493-487d-931e-dbb3d5598286?mode=deep",
+    "timestamp": "2026-01-10 10:16:15.124104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Missing Event: Batch Operations] For batch minting or burning operations, are there dedicated batch event constants, or must batch operations be tracked through individual events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57b37ed2-8623-4507-8d45-16def4142722?mode=deep",
+    "timestamp": "2026-01-10 10:16:42.717968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Missing Event: Auth Revocation] Is there an event for emergency admin revocation (separate from disable), allowing tracking of forced admin removals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc35e722-eccd-41ed-af19-6fdc41eda441?mode=deep",
+    "timestamp": "2026-01-10 10:17:09.742165",
+    "report_generated": false
   }
 ]
