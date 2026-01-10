@@ -22948,5 +22948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40a31565-63c5-4a7f-94ee-e9cadcfdf615?mode=deep",
     "timestamp": "2026-01-10 11:05:05.692456",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Fee calculation overflow] When params.CreateFeeAmount is converted to int64 in msg_server_create_denom.go via cosmosmath.NewInt(int64(params.CreateFeeAmount)), can uint32 values >= 2^31 cause overflow when cast to signed int64? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e8c1494-bc47-4c3e-8ca5-08fd2b4be646?mode=deep",
+    "timestamp": "2026-01-10 11:06:29.714222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Denom availability] When params.CreateFeeDenom is used as fee denomination but the denom doesn't exist or has no supply, can this cause all CreateDenom transactions to fail with insufficient balance errors, effectively DoS-ing the factory module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98070b6f-aa58-4874-914e-0e6c477d049a?mode=deep",
+    "timestamp": "2026-01-10 11:06:42.235147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Fee collection] When params.CreateFeeAmount is used in msg_server_create_denom.go to construct fee coin, if CreateFeeAmount is 0 due to missing validation, can this bypass fee collection entirely allowing unlimited free denom creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96169e47-0441-49c0-8b95-5b8a801a07a5?mode=deep",
+    "timestamp": "2026-01-10 11:06:55.483778",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Integer encoding] When CreateFeeAmount (uint32) is encoded/decoded in protobuf, can varint encoding issues cause value corruption, especially at boundary values (0, MaxUint32), leading to incorrect fee calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6067d78-17cc-47dd-a7f0-a000ce782833?mode=deep",
+    "timestamp": "2026-01-10 11:07:08.670562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Protobuf field injection] Can an attacker exploit protobuf unmarshaling to inject unexpected fields or modify field values (CreateFeeAmount, CreateFeeDenom, Beneficiary) that bypass Validate() checks if validation occurs before unmarshaling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af7ae589-c8a7-4412-99b9-92dd1e2e0aca?mode=deep",
+    "timestamp": "2026-01-10 11:07:22.820664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Protobuf serialization] When Params struct is marshaled/unmarshaled via protobuf (params.pb.go), can an attacker craft malicious protobuf messages with extremely long strings for CreateFeeDenom or Beneficiary that consume excessive memory during deserialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca20d85c-7ffd-4730-93f7-1ae32b581424?mode=deep",
+    "timestamp": "2026-01-10 11:07:38.115255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: NewParams() + Validate()] [Initialization bypass] If NewParams() is used to set initial parameters without calling Validate(), can the system start with invalid parameters that cause immediate failures when first CreateDenom transaction is attempted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_178681a9-054f-4f45-a550-e5cd55fe1a9c?mode=deep",
+    "timestamp": "2026-01-10 11:07:54.576609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: Validate() + validateCreateFeeDenom()] [Denom change attack] When validateCreateFeeDenom() allows changing CreateFeeDenom through governance, can users who already paid fees in old denom demand refunds, or can pending transactions fail causing user funds loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6dbba4dc-9f0e-4a60-aa1e-c7d393488b14?mode=deep",
+    "timestamp": "2026-01-10 11:08:12.654871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: Validate() + validateCreateFeeAmount()] [Race condition] Can an attacker exploit a race condition between Validate() checking parameters and validateCreateFeeAmount() accepting 0, submitting transactions using 0 fee before governance updates parameters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6bdcf767-eb55-4a05-81ef-2a2774896ef5?mode=deep",
+    "timestamp": "2026-01-10 11:08:31.724139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: ParamSetPairs()] [Migration issue] Does the empty ParamSetPairs() indicate incomplete migration from legacy params to new param handling, potentially causing parameter update failures or state inconsistencies during upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17635708-2b6b-45df-a4d7-7963bfc4a101?mode=deep",
+    "timestamp": "2026-01-10 11:08:51.559017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: ParamSetPairs()] [Governance bypass] With ParamSetPairs() returning empty set, can this prevent the legacy params module from properly tracking parameter changes, allowing direct state modifications that bypass Validate() checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34031bfe-bbb3-4856-8e41-599cce959044?mode=deep",
+    "timestamp": "2026-01-10 11:09:12.312788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: ParamSetPairs()] [Empty param set] ParamSetPairs() returns an empty paramtypes.ParamSetPairs{} - does this mean parameters are not properly registered for governance updates, potentially preventing parameter changes or causing validation bypass? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e092085-abac-45e3-8569-acd6e5988590?mode=deep",
+    "timestamp": "2026-01-10 11:09:34.019226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: DefaultParams()] [Genesis state attack] If DefaultParams() is used during genesis initialization without subsequent governance override, can the default empty beneficiary cause permanent fee lock since early denoms created before beneficiary is set have fees trapped? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ec73de0-6ca3-4115-9acd-a6311d70ae01?mode=deep",
+    "timestamp": "2026-01-10 11:09:56.430593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: DefaultParams()] [Default fee amount] DefaultParams() sets DefaultCreateFeeAmount to 1000 - is this value appropriate for the DefaultCreateFeeDenom ('uzig' with 6 decimals), or can this be economically exploited (too low allows spam, too high prevents legitimate use)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6856d78-cbd3-4e83-a886-1e2c8517c8af?mode=deep",
+    "timestamp": "2026-01-10 11:10:20.041755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: DefaultParams()] [Default beneficiary security] DefaultParams() sets beneficiary to empty string ('') - does this mean the factory module starts with no beneficiary, allowing early fee accumulation with no withdrawal mechanism until governance sets beneficiary? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c79218d-77ff-4758-aaae-cc3028a54a74?mode=deep",
+    "timestamp": "2026-01-10 11:10:43.365784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: NewParams()] [Type confusion] Can NewParams() accepting uint32 for createFeeAmount cause issues when this value is used in contexts expecting different integer types (int64, sdk.Int), potentially causing overflows or underflows? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cebcca5-e98e-4c92-8942-7b39bf4156f0?mode=deep",
+    "timestamp": "2026-01-10 11:11:07.901709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: NewParams()] [Default value bypass] Since NewParams() accepts any input without validation, can an attacker exploit code paths that call NewParams() directly instead of going through governance validation, setting dangerous parameter values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b1a6934-ec5e-4b43-9aaf-8861e524cc5a?mode=deep",
+    "timestamp": "2026-01-10 11:11:34.100541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: NewParams()] [No validation] The NewParams() function creates Params without validation - can an attacker directly construct invalid Params with malicious values (0 fee, invalid beneficiary, non-existent denom) that bypass Validate() if used in code paths that don't call Validate()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b885e472-098c-40b5-9c3d-28037c3846e3?mode=deep",
+    "timestamp": "2026-01-10 11:12:00.906444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeDenom()] [Special character exploit] Does validateCreateFeeDenom() properly validate against denoms containing special characters like '../', './', or null bytes that could exploit path traversal or string parsing vulnerabilities in downstream code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf84ab7f-328b-4526-aab2-e0d36f3d05b2?mode=deep",
+    "timestamp": "2026-01-10 11:12:25.848071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeDenom()] [Length validation bypass] The validateCreateFeeDenom() function relies on validators.CheckDenomString() which validates length against constants.MaxDenomLength (127) - can an attacker set CreateFeeDenom to maximum length string, causing issues when constructing full denom paths (factory/creator/subdenom) that exceed Cosmos SDK limits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ea78a8d-a8c7-485d-8fb9-8e170dc4bbe9?mode=deep",
+    "timestamp": "2026-01-10 11:12:51.380884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeDenom()] [Factory denom recursion] Can validateCreateFeeDenom() accept a factory-created denom (factory/address/subdenom) as CreateFeeDenom, and if so, can this create circular dependencies where creating denoms requires fees in factory denoms, potentially causing economic instability? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_219cb0db-31cc-44bd-a90f-2cd09fc5cd30?mode=deep",
+    "timestamp": "2026-01-10 11:13:17.446785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeDenom()] [IBC denom attack] The validateCreateFeeDenom() function accepts any valid denom string including IBC denoms (ibc/HASH) - can an attacker set CreateFeeDenom to an IBC voucher denom that gets disconnected or rate-limited, causing factory module to become unusable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_467cc0c8-052e-4039-9ecc-7434729a25c0?mode=deep",
+    "timestamp": "2026-01-10 11:13:42.616468",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeDenom()] [Supply check bypass] While validateCreateFeeDenom() validates denom format, it doesn't check if the denom has supply - can an attacker set CreateFeeDenom to a factory-created token with zero supply, making denom creation impossible since users cannot acquire fee tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_786096aa-8e72-4e46-a98b-18975fa83845?mode=deep",
+    "timestamp": "2026-01-10 11:14:07.486269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeDenom()] [Denom existence check] The validateCreateFeeDenom() function only validates denom string format via CheckDenomString() but doesn't verify the denom exists - can an attacker set CreateFeeDenom to a non-existent denom through governance, causing all CreateDenom transactions to fail when users try to pay creation fees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6317a63-09d2-4019-820e-3a5a2f07d2ba?mode=deep",
+    "timestamp": "2026-01-10 11:14:31.985509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: Validate()] [Blacklist bypass] Does Validate() check if beneficiary is a blacklisted or sanctioned address? Can an attacker use governance to set beneficiary to a compromised validator address or known malicious actor, allowing them to drain all accumulated fees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7cce3e9-865e-4b29-8354-017e9c5b5a92?mode=deep",
+    "timestamp": "2026-01-10 11:14:57.090829",
+    "report_generated": false
   }
 ]
