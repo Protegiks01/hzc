@@ -26998,5 +26998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7be803cd-45ce-4b6e-b96c-9543e804e575?mode=deep",
     "timestamp": "2026-01-10 15:43:39.632428",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Optimistic locking] Does the system implement optimistic locking for denom state updates, and could the lack thereof allow lost updates where one transaction's minting is overwritten by another? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9456b5a-0f45-481a-90ee-ead65246bc37?mode=deep",
+    "timestamp": "2026-01-10 15:45:00.969951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Read-write conflicts] Could read-write conflicts between GetDenom and SetDenom in concurrent transactions cause deadlocks or transaction rejections that affect network performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c496737d-4125-49ac-87bf-6334b23d98be?mode=deep",
+    "timestamp": "2026-01-10 15:45:13.650336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Block parallelization] If Cosmos SDK implements parallel transaction execution in the future, could concurrent MintAndSendTokens calls for the same denom violate atomicity or cause double-minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_895bd946-f3dd-43b8-a588-b487432a3be2?mode=deep",
+    "timestamp": "2026-01-10 15:45:27.027767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Nil response fields] Could any of the response fields (TokenMinted, TotalMinted, TotalSupply) be nil in edge cases, causing client parsing errors or incorrect data interpretation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64e9e561-e9ce-4113-9e00-c48dee4ee576?mode=deep",
+    "timestamp": "2026-01-10 15:45:40.366156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Response size] Could very large minted amounts or long denom names cause the response proto to exceed size limits, causing the transaction to fail after minting has already occurred? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1016513-84ae-4e47-9497-19d3bd103e8d?mode=deep",
+    "timestamp": "2026-01-10 15:45:54.520683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Pointer aliasing] Since the response (lines 93-98) contains pointers to msg.Token and other objects, could modifications to these objects after the function returns affect the response data sent to clients? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ede3aa63-0a35-4698-8a88-bf6780c4e5b1?mode=deep",
+    "timestamp": "2026-01-10 15:46:10.188560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Special characters] Could special characters in denom names (dots, slashes) that are allowed by validation cause parsing errors or store key collisions in the SetDenom operation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ab382b8-39a0-4cab-a3dc-e8695776c813?mode=deep",
+    "timestamp": "2026-01-10 15:46:26.962074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Recipient length] Could recipient addresses of maximum allowed length cause issues with event emission or response construction that consume excessive gas or fail unexpectedly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c042f67e-9656-45ae-939f-06459313ed0b?mode=deep",
+    "timestamp": "2026-01-10 15:46:45.171675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Denom length limits] Could an attacker provide extremely long denom names in msg.Token that pass validation but cause buffer overflows or excessive gas consumption during string operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ab3917b-88a6-450b-a941-e219a2936c77?mode=deep",
+    "timestamp": "2026-01-10 15:47:03.967531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [State export/import] During chain state export and import for upgrades, could the Minted field be incorrectly serialized or deserialized, causing minting cap violations after import? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37c38949-3199-424c-9a1e-4fadc0610898?mode=deep",
+    "timestamp": "2026-01-10 15:47:23.976800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Fork scenarios] In a chain fork scenario, could minting operations on different forks lead to double-minting when forks are reconciled, violating the minting cap across the canonical chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d4277e3-f311-42b9-877f-2599e7a86161?mode=deep",
+    "timestamp": "2026-01-10 15:47:44.790700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Upgrade safety] During a chain upgrade that modifies the MintAndSendTokens logic, could in-flight transactions be processed with mixed old/new logic, causing consensus failures or state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd56ba81-6bc7-4044-b001-163af4a94244?mode=deep",
+    "timestamp": "2026-01-10 15:48:06.168928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Cap exhaustion] Could coordinated attackers exhaust the minting cap of popular denoms to prevent legitimate users from minting, effectively griefing the token ecosystem? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ce6e608-8b6a-44a7-a850-b1dff05ef9d4?mode=deep",
+    "timestamp": "2026-01-10 15:48:29.900454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Slow mint attack] Could an admin slowly mint tokens approaching the cap over time, keeping other potential minters from accessing the remaining cap and centralizing supply distribution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7843fb13-6d21-424a-8ef0-44038f94f15f?mode=deep",
+    "timestamp": "2026-01-10 15:48:53.394125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Minting to dump] Could an admin mint the maximum cap amount and immediately dump tokens on the market, causing economic damage to token holders through artificial supply inflation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86a17b8c-fc98-4059-9396-93edf11a2bb2?mode=deep",
+    "timestamp": "2026-01-10 15:49:18.068308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Transaction spam] Could an attacker spam minting transactions that fail the cap check (line 40) to fill blocks with failed transactions, preventing legitimate transactions from being processed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2e765a4-a86d-498d-b3a8-0edc888274b0?mode=deep",
+    "timestamp": "2026-01-10 15:49:43.207049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Store bloat] Could repeated minting operations cause the denom store to grow unboundedly, eventually exhausting validator storage and causing network degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3a7038a-5c8a-475f-b66f-b8ba61b8e728?mode=deep",
+    "timestamp": "2026-01-10 15:50:06.422413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Gas exhaustion attack] Could an attacker submit multiple minting transactions with amounts just below the minting cap to force validators to perform expensive cap checks and state updates, causing network DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56004064-d381-4469-82ab-eab130e4bfe5?mode=deep",
+    "timestamp": "2026-01-10 15:50:31.631008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Cross-module calls] Could any cross-module calls in the call chain (Auth, MintCoins, SendCoins) trigger unexpected state changes in other modules that affect the minting operation's correctness? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2039325a-41a2-43f6-9a93-6304ed6b8598?mode=deep",
+    "timestamp": "2026-01-10 15:50:55.513683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [DEX integration] If minted tokens are immediately added to a DEX pool, could price manipulation occur during the brief window between minting and pool addition, allowing frontrunning attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9c360ac-450f-4a3a-a3f9-08d04a9e2e52?mode=deep",
+    "timestamp": "2026-01-10 15:51:19.731966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [IBC integration] If minted tokens are immediately transferred via IBC after minting, could there be race conditions between the minting operation completing and the IBC transfer starting that cause double-spending? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8442d43-0639-475a-aaa6-c57704b1ba6c?mode=deep",
+    "timestamp": "2026-01-10 15:51:43.913595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Missing events] If event emission fails silently, would the transaction still succeed, causing missing audit trails that make it impossible to track all minting operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c9ef963-a065-4f16-870a-c704e9b9c1e9?mode=deep",
+    "timestamp": "2026-01-10 15:52:09.175490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Event data accuracy] If the event data (lines 84-91) becomes stale between collection and emission due to concurrent state changes, could indexers receive incorrect information about the actual minted amounts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3221a2ca-a4de-4bc1-bf5d-ff48689d9cd2?mode=deep",
+    "timestamp": "2026-01-10 15:52:35.317362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Event ordering] Could the event emission order (line 84) cause issues where events are processed out of order by indexers, leading to incorrect historical data about minting operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_942142b9-f397-4693-9a84-5eedff67f495?mode=deep",
+    "timestamp": "2026-01-10 15:53:02.519468",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Multi-denom accounting] If the same account mints multiple different denoms concurrently, could there be accounting issues where the total minted amounts for different denoms interfere with each other in the store? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f5d090e-36ec-4062-bc2c-c5330b8d8798?mode=deep",
+    "timestamp": "2026-01-10 15:53:29.901377",
+    "report_generated": false
   }
 ]
