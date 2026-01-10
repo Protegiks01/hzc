@@ -28048,5 +28048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80054aa8-638c-46f8-8202-7479fb48b53d?mode=deep",
     "timestamp": "2026-01-10 16:52:07.927747",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Address validation gap] The code converts msg.Creator to sender at line 59 after already using msg.Creator in GetTokenDenom at line 44. If AccAddressFromBech32 fails, the denom was already constructed with potentially invalid address. Can this cause inconsistencies in denom naming vs ownership? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b67bcf8-2944-4336-a16b-b0fde8187704?mode=deep",
+    "timestamp": "2026-01-10 16:53:33.366641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Address conversion] At line 59, AccAddressFromBech32 converts msg.Creator string to sdk.AccAddress. Can an attacker exploit differences between string and address representation to create denoms with ambiguous ownership (e.g., different string addresses converting to same AccAddress)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8a24677-9031-4b53-9f87-99190398d67e?mode=deep",
+    "timestamp": "2026-01-10 16:53:46.757061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Error message leak] The error messages at lines 51-55 and 81-85 reveal the exact fullDenom. Can this information leakage be used in timing attacks to enumerate existing denoms or reverse-engineer creator addresses from denom structure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e2d1612-dc8e-4d79-a0f5-13f4a5fb38ae?mode=deep",
+    "timestamp": "2026-01-10 16:53:59.740878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [TOCTOU vulnerability] Between the GetDenom check at line 49 and SetDenom at line 132, another transaction could create the same denom. Does the code have atomic guarantees to prevent concurrent denom creation with identical names? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_950a94e7-0e8a-42df-996c-69bb1929408a?mode=deep",
+    "timestamp": "2026-01-10 16:54:12.777733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [State inconsistency] If GetDenom returns not found at line 49 but GetDenomMetaData returns exists at line 78, this indicates metadata exists without Denom struct. Can this orphaned metadata state be exploited to create confusion about denom ownership or admin rights? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06351c12-4e56-4537-9812-a32a2686dd23?mode=deep",
+    "timestamp": "2026-01-10 16:54:26.669378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Double validation] The code checks denom existence twice: GetDenom at line 49 and GetDenomMetaData at line 78. Can there be a race condition where a denom passes both checks but is created by a concurrent transaction between lines 56 and 78, causing the second check to fail unnecessarily? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc4e4d28-ee13-45f2-acba-fa131f47e468?mode=deep",
+    "timestamp": "2026-01-10 16:54:41.571370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Address validation bypass] At line 44, GetTokenDenom receives msg.Creator directly. If ValidateBasic in msg_create_denom.go is bypassed or has bugs, can an attacker pass an invalid creator address that GetTokenDenom doesn't properly validate, creating denoms with malformed addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b614b74-1dd4-4e60-89d6-17d234c6ef16?mode=deep",
+    "timestamp": "2026-01-10 16:54:57.342798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Delimiter injection] Can an attacker inject the FactoryDenomDelimiterChar ('.') in msg.SubDenom to create a denom like 'coin.{addr}.sub.extra', which when parsed by DeconstructDenom expects exactly 3 parts, causing parsing failures and breaking denom admin lookups? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5619d696-18e8-40c4-9f80-aee47770a183?mode=deep",
+    "timestamp": "2026-01-10 16:55:15.642474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Length validation] GetTokenDenom at line 44 validates creator length (MaxCreatorLength=75) and subdenom length (MaxSubdenomLength=44), but does the resulting full denom respect SDK's max denom length of 128 characters? Can an attacker create maximally long denoms that break bank module operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_279f6380-912d-4f16-964a-5a3602f97054?mode=deep",
+    "timestamp": "2026-01-10 16:55:34.258623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Error handling] If GetTokenDenom returns an error at line 45-46, the function returns early without reverting the params read at line 27. Can this cause state inconsistencies in a multi-message transaction where subsequent messages rely on params consistency? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_848267a3-a0e3-480e-a334-028ebf244847?mode=deep",
+    "timestamp": "2026-01-10 16:55:53.753876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Denom construction] At line 44, GetTokenDenom constructs the full denom as 'coin.{creator}.{subdenom}'. Can an attacker manipulate msg.Creator or msg.SubDenom with special characters (dots, slashes) that pass ValidateBasic but create denoms that break denom parsing in DeconstructDenom or other modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b418c87-a537-49ba-bdc3-f7e2b3fc37e1?mode=deep",
+    "timestamp": "2026-01-10 16:56:14.245266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Case sensitivity] Does the HasSupply check at line 35 properly handle case sensitivity? Can an attacker use 'UZIG' or 'UzIg' as SubDenom to bypass the check if HasSupply is case-sensitive but later operations are case-insensitive, creating denoms that collide with native tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd329f6a-4c96-43ce-89a2-f13d92cd4a16?mode=deep",
+    "timestamp": "2026-01-10 16:56:35.926440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Race condition] Between the HasSupply check at line 35 and GetTokenDenom call at line 44, can a concurrent transaction create native supply for msg.SubDenom, causing the protection check to be ineffective and allowing subdenom collision with newly created native denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_384cb2c4-fd1f-444a-84f9-ccf8306e86dd?mode=deep",
+    "timestamp": "2026-01-10 16:56:58.414926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Validation bypass] The HasSupply check at line 35 uses msg.SubDenom directly before GetTokenDenom constructs the full denom. Can an attacker create a SubDenom like 'uzig' that passes HasSupply check but when prefixed with 'coin.{address}.' creates a denom that shadows or conflicts with critical system denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2af25fcf-c9ae-4601-a901-75c2ec1a1350?mode=deep",
+    "timestamp": "2026-01-10 16:57:21.650453",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Denom collision] At line 35, the HasSupply check only validates msg.SubDenom against native denoms, but not the full constructed denom. Can an attacker craft a SubDenom that, when combined with their address in GetTokenDenom(), produces a full denom that collides with a native denom, bypassing the collision check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d1c0c0a-edfe-4533-96e2-e26ff8de3e54?mode=deep",
+    "timestamp": "2026-01-10 16:57:45.913373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Fee calculation] Does the cosmosmath.NewInt(int64(params.CreateFeeAmount)) conversion at line 31 properly handle edge cases where CreateFeeAmount is 0, potentially allowing free denom creation if params are misconfigured? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fdaf0495-6371-4563-b659-4f22a405302c?mode=deep",
+    "timestamp": "2026-01-10 16:58:10.390244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [State consistency] Between reading params at line 27 and using them at lines 29-32, can governance update params mid-transaction in a concurrent blockchain state, causing a TOCTOU (Time-Of-Check-Time-Of-Use) vulnerability where the fee amount changes between validation and collection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2977711c-48e5-45c1-934f-43c0a84a6152?mode=deep",
+    "timestamp": "2026-01-10 16:58:35.425067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Fee bypass] If params.CreateFeeDenom is set to an empty string or invalid denom through malicious governance, can an attacker create the feeAmount coin at lines 29-32 with an invalid denom, bypassing HasBalance and SendCoinsFromAccountToModule checks to create denoms for free? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_373ff98c-52a1-4d65-85b2-76fd556737bd?mode=deep",
+    "timestamp": "2026-01-10 16:59:02.950083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Parameter manipulation] Can a malicious governance proposal set params.CreateFeeAmount to MaxUint32 (4,294,967,295), causing the int64 cast at line 31 to create an invalid or excessively large fee that breaks the fee collection mechanism or causes numeric overflow in cosmosmath.NewInt()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_926a98c9-89fb-4b5d-b7ad-afdc694b19e5?mode=deep",
+    "timestamp": "2026-01-10 16:59:28.135178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Integer overflow] Can an attacker exploit the int64 conversion at line 31 where CreateFeeAmount (uint32) is cast to int64, potentially causing integer overflow if params.CreateFeeAmount is manipulated through governance to exceed MaxInt64, resulting in negative fee amounts and free denom creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35d20b27-457a-4721-b2c6-ab6214b5f6b7?mode=deep",
+    "timestamp": "2026-01-10 16:59:53.954169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store service] Does the storeService.OpenKVStore() call guarantee that the returned store is isolated per-query, or could concurrent queries interfere with each other's store state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b281378-e0e8-4d7c-acf3-66ff118d7987?mode=deep",
+    "timestamp": "2026-01-10 17:00:20.006170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store service] If k.storeService is misconfigured to point to the wrong store, could this query return denoms from an entirely different module's namespace? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24c673b5-e0f2-4905-8d56-608cde278636?mode=deep",
+    "timestamp": "2026-01-10 17:00:45.857663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [gRPC] Can the gRPC connection be terminated mid-response if the denom list is very large, leaving the client with partial data and no indication that the query was incomplete? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d10dda5-3337-4bb3-a511-7fcdd9404edb?mode=deep",
+    "timestamp": "2026-01-10 17:01:12.080100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Protobuf] Does the protobuf encoding of the response handle very long denom lists efficiently, or could returning thousands of denoms cause excessive memory allocation during marshaling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e96789b-0d8b-46c8-8621-7e1470e9894a?mode=deep",
+    "timestamp": "2026-01-10 17:01:36.485629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Admin operations] Can this query be used to verify the success of admin transfer operations (ProposeChangeDenomAuth/ClaimDenomAuth), or could transaction processing delays cause the query to show stale admin associations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0bb50294-ab3a-4f4e-aafd-86ec97456397?mode=deep",
+    "timestamp": "2026-01-10 17:02:02.364620",
+    "report_generated": false
   }
 ]
