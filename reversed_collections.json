@@ -21898,5 +21898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89d56667-372d-4faf-8753-f947b7385e38?mode=deep",
     "timestamp": "2026-01-10 09:57:51.646713",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomLocked] [Permanent Lock Bypass] When Auth() checks if BankAdmin is empty string and returns ErrDenomLocked at line 30-35, can an attacker exploit string comparison issues or null byte injection to bypass the lock check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daf1d1b8-8de7-440f-84a3-4a0344965fb1?mode=deep",
+    "timestamp": "2026-01-10 09:58:59.736744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomAuthNotFound] [State Desynchronization] If DenomAuth records are not atomically created with Denom records during CreateDenom(), can partial failures lead to denoms that return ErrDenomAuthNotFound, making them permanently locked and unmanageable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e5f091b-d8e2-48c8-8a7c-d5cdafdf7651?mode=deep",
+    "timestamp": "2026-01-10 09:59:12.145094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomAuthNotFound] [Admin Claim Race] When ClaimDenomAdmin() checks for existing DenomAuth at line 18-28 and returns ErrDenomAuthNotFound, can an attacker exploit race conditions during admin transfer to claim ownership of denoms without proper authorization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8afa34f-9b1b-4f32-991d-8c42d507f257?mode=deep",
+    "timestamp": "2026-01-10 09:59:24.765341",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomAuthNotFound] [Orphaned Denom Attack] Can an attacker create a situation where a Denom record exists but DenomAuth is missing, causing Auth() function at line 18-24 to return ErrDenomAuthNotFound while the denom remains usable for some operations, bypassing access control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52298910-441b-466a-8161-fd302a35f6da?mode=deep",
+    "timestamp": "2026-01-10 09:59:38.902258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomNotFound] [Error Code Ambiguity] Are ErrDenomNotFound (1107) and ErrDenomDoesNotExist (1105) used consistently across the codebase, or can their interchangeable use create security vulnerabilities where proper validation is assumed but not performed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a87558f-112b-4540-a395-cbb8a191b4c7?mode=deep",
+    "timestamp": "2026-01-10 09:59:53.357376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomNotFound] [Query vs State Mismatch] When query operations return ErrDenomNotFound but state-changing operations use ErrDenomDoesNotExist, can this inconsistency be exploited to create confusion in relayer logic or frontend applications, enabling DoS attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ecc4ae5-6e6e-4c1d-b287-c4be8a038c29?mode=deep",
+    "timestamp": "2026-01-10 10:00:08.257179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomExists] [Soft Delete Bypass] If a denom was previously disabled/locked but not fully deleted, can an attacker recreate it by exploiting incomplete ErrDenomExists validation that only checks active denoms, leading to admin authorization conflicts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a69bfc7-daf0-42be-a140-fe3aec3dd8c4?mode=deep",
+    "timestamp": "2026-01-10 10:00:24.538266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomExists] [Native Denom Protection] Does the ErrDenomExists error properly prevent creation of subdenoms that match native denom names via the HasSupply() check at line 35-42, or can attackers bypass this by using IBC-wrapped versions of native denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54b23ba4-3cdf-471c-a3eb-57950d1e357a?mode=deep",
+    "timestamp": "2026-01-10 10:00:41.783297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomExists] [Bank Metadata Check Gap] The ErrDenomExists check at line 51-56 in CreateDenom() validates both GetDenom() and GetDenomMetaData(), but can an attacker exploit the gap between these checks to inject a denom that exists in one store but not the other? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e0a1efb-92b4-4986-b8e0-14094758126c?mode=deep",
+    "timestamp": "2026-01-10 10:00:59.449033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomExists] [Double Creation Bypass] When CreateDenom() checks for existing denoms and returns ErrDenomExists at line 19, can an attacker exploit race conditions to create the same denom twice in parallel transactions, leading to duplicate DenomAuth records? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59be03c7-2c0b-4ba3-a686-5c6a2eee1757?mode=deep",
+    "timestamp": "2026-01-10 10:01:18.381408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomDoesNotExist] [Ghost Denom Exploitation] Can an attacker create a situation where a denom exists in bank module but not in factory module, bypassing ErrDenomDoesNotExist checks in factory operations while still being usable for transfers, enabling minting cap bypass? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_316864cc-844a-4cd0-a27b-da2a2ee60298?mode=deep",
+    "timestamp": "2026-01-10 10:01:37.696793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomDoesNotExist] [Partial Denom Creation] If CreateDenom() fails after bank metadata is set but before factory Denom record is created, can subsequent operations fail with ErrDenomDoesNotExist while the denom still exists in bank module, causing state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4939d49-c098-453f-ba14-a3c866daafc2?mode=deep",
+    "timestamp": "2026-01-10 10:01:58.076279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrDenomDoesNotExist] [Race Condition] Can an attacker exploit time-of-check to time-of-use (TOCTOU) race conditions between the GetDenom() call that returns ErrDenomDoesNotExist and subsequent operations, allowing operations on denoms that were deleted or haven't been fully initialized? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e4aed4a-3445-4f1d-afe4-2b181b52dfa0?mode=deep",
+    "timestamp": "2026-01-10 10:02:19.659255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrCreatorTooLong] [Unicode Encoding Bypass] Does ErrCreatorTooLong check byte length or character length, and can an attacker use multi-byte UTF-8 characters in the creator field to bypass length restrictions while appearing shorter visually? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b776dc22-6edb-4823-bf5f-8832a3ff8a15?mode=deep",
+    "timestamp": "2026-01-10 10:02:42.240719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrCreatorTooLong] [HRP Length Attack] Can an attacker exploit the MaxHrpLength calculation in ErrCreatorTooLong validation by using a custom HRP (human-readable part) in bech32 addresses that exceeds 16 bytes, causing the total denom length to exceed SDK limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc9ada9d-6b99-4ddd-9cfe-04be57ea3034?mode=deep",
+    "timestamp": "2026-01-10 10:03:05.965396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrCreatorTooLong] [Buffer Overflow] When ErrCreatorTooLong check at line 17 validates creator length against MaxCreatorLength (59 + MaxHrpLength), can an attacker craft a creator address that passes length validation but causes buffer overflow when concatenated with subdenom in GetTokenDenom()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7368f6d-88c9-4147-b25a-d74d325bca33?mode=deep",
+    "timestamp": "2026-01-10 10:03:30.387706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMetadata] [Display Name Collision] Can an attacker set metadata Display field to match another token's display name, bypassing ErrInvalidMetadata checks and causing user confusion or wallet display errors that enable phishing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c7b0d9b-6233-44f8-bdc3-00a539b4139f?mode=deep",
+    "timestamp": "2026-01-10 10:03:55.899330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMetadata] [DenomUnit Manipulation] Does ErrInvalidMetadata at line 16 properly validate the DenomUnits array structure, or can an attacker create metadata with inconsistent exponents or missing base denom that causes decimal conversion errors in token operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_58534439-b9be-4172-8395-90dec22672e9?mode=deep",
+    "timestamp": "2026-01-10 10:04:22.073510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMetadata] [URI Exploit] When SetDenomMetadata() validates URI and URIHash fields, can an attacker provide a valid URI but malicious URIHash that passes ErrInvalidMetadata checks but points to different content, enabling metadata spoofing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fada6447-233e-41f1-8660-a9f6ea2c3570?mode=deep",
+    "timestamp": "2026-01-10 10:04:49.134401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMetadata] [Metadata Injection] Can an attacker inject malicious data into denom metadata fields that bypass ErrInvalidMetadata validation but cause issues when the metadata is parsed by other modules, wallets, or IBC relayers, leading to DoS or state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e140a3a9-8479-476b-8a2c-7f8935c0eadb?mode=deep",
+    "timestamp": "2026-01-10 10:05:15.550775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMintingCap] [Cross-Chain Cap Inconsistency] When factory denoms are bridged via IBC, does ErrInvalidMintingCap enforcement remain consistent across chains, or can an attacker mint tokens on one chain up to the cap, bridge them, and mint more on another chain, exceeding the total intended supply? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd3661d8-f42c-4d0d-bf5d-f2cc8712228c?mode=deep",
+    "timestamp": "2026-01-10 10:05:41.724667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMintingCap] [Negative Cap Handling] Can an attacker exploit unsigned integer wrapping by setting a very large minting cap that wraps around to appear as a small value, bypassing ErrInvalidMintingCap validation and then minting unlimited tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_315c71da-ddff-437f-acd0-89ce4111a180?mode=deep",
+    "timestamp": "2026-01-10 10:06:07.716928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMintingCap] [Zero Cap Exploitation] Does ErrInvalidMintingCap at line 15 properly handle minting cap of zero, or can an attacker create a denom with zero cap and then update it to bypass the 'cannot decrease below current supply' check, enabling arbitrary minting cap manipulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76c7b286-6671-4132-82f1-c667da9d47da?mode=deep",
+    "timestamp": "2026-01-10 10:06:34.595018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMintingCap] [Minting Cap Bypass] When UpdateDenomMintingCap() checks if currentDenom.Minted.GT(msg.MintingCap) and returns ErrInvalidMintingCap, can an attacker exploit race conditions to mint additional tokens between the validation check and state update, exceeding the new cap? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_848ba9c8-a261-4dd0-9f92-dbbc169f9438?mode=deep",
+    "timestamp": "2026-01-10 10:07:01.766207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/errors.go] [Error: ErrInvalidMintingCap] [Integer Overflow] Can an attacker set a minting cap value that causes integer overflow when compared with the Minted field during MintAndSendTokens(), bypassing ErrInvalidMintingCap checks and enabling unlimited token minting beyond the intended cap? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_601c40ad-196e-4b52-be2c-9494de965080?mode=deep",
+    "timestamp": "2026-01-10 10:07:28.025617",
+    "report_generated": false
   }
 ]
