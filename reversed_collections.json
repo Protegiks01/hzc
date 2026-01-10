@@ -29248,5 +29248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba8c208d-fea2-4af4-a16c-4c0fac2b5b3a?mode=deep",
     "timestamp": "2026-01-10 18:10:15.876111",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Deserialization attack] At line 28, if k.cdc.Unmarshal() encounters corrupted DenomAuth data, does it fail gracefully or could it panic/return partial results that expose admin addresses incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a063dd52-d9e9-4f36-9c20-0ff8e52543ba?mode=deep",
+    "timestamp": "2026-01-10 18:11:29.140834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Input validation] Similar to DenomAll(), can an attacker provide a malicious Pagination object to bypass resource limits and force the query to return all DenomAuth entries, exhausting memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_504a891b-aca6-4938-98f9-2cc023228771?mode=deep",
+    "timestamp": "2026-01-10 18:11:41.582149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Gas exhaustion] Does the DenomAll() query have proper gas metering for the calculateDenomStats() calls in the loop, or can an attacker exploit this to consume excessive gas and DoS the query? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2adbc363-e02f-4521-94b4-89adbf3460c3?mode=deep",
+    "timestamp": "2026-01-10 18:11:54.447798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Race condition] Can concurrent writes to the denom store during query execution cause the pagination to skip denoms or return duplicates, leading to inconsistent query results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_424d346d-478c-47c6-bad9-6cb365a8c795?mode=deep",
+    "timestamp": "2026-01-10 18:12:07.643620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Store corruption] If the prefix store is corrupted and contains keys that don't correspond to valid Denom objects, will the unmarshal at line 52 fail gracefully or corrupt the results array? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b875abec-679e-4090-bc7c-cc238f97c4c1?mode=deep",
+    "timestamp": "2026-01-10 18:12:21.620978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Information disclosure] Does DenomAll() expose all denoms including potentially private/test denoms that should be hidden, allowing attackers to discover and exploit denoms not meant for public use? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a7f0b9c-5abd-4265-9728-8fb402d76512?mode=deep",
+    "timestamp": "2026-01-10 18:12:36.934368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Calculation cost] For each denom in the paginated results, calculateDenomStats() is called which queries the bank keeper - can this amplify the cost linearly with result count, making large queries extremely expensive? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79af1a33-af5c-4ecb-be44-55b391579ad6?mode=deep",
+    "timestamp": "2026-01-10 18:12:53.285849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Memory exhaustion] The denoms slice at line 45 and denomsResponse slice at line 64 grow unbounded within pagination limits - can an attacker exploit this by requesting max pagination to cause memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e63472a5-e1c4-4d42-a712-14c006f3ac3a?mode=deep",
+    "timestamp": "2026-01-10 18:13:10.829882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [State iteration] The query.Paginate function iterates over the denomStore - can an attacker create millions of tiny denoms to make this iteration extremely expensive, effectively DoSing the query endpoint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fda86acd-0423-430a-a53a-826e6e0c5f4a?mode=deep",
+    "timestamp": "2026-01-10 18:13:29.527083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Deserialization attack] At line 52, if k.cdc.Unmarshal() encounters malformed data in the KVStore, does it return an error or could it panic, potentially allowing an attacker who corrupted state to DoS queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb90fa9a-0774-4cbd-b066-9618b5a602b4?mode=deep",
+    "timestamp": "2026-01-10 18:13:48.818598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Resource exhaustion] Can an attacker set req.Pagination to extremely large values (e.g., Limit=MaxUint64) to force the query to load all denoms into memory, causing OOM errors and crashing validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68cb0f6d-5bd4-48fa-9582-80942e8b6c83?mode=deep",
+    "timestamp": "2026-01-10 18:14:10.284071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Input validation] If req is nil, the function returns InvalidArgument error - but can an attacker bypass this by providing a non-nil request with a malicious Pagination object that causes query.Paginate to misbehave? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_943d791c-fb2d-431c-8c7d-6e34aa4b14e6?mode=deep",
+    "timestamp": "2026-01-10 18:14:31.381014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Integer overflow] Can the calculation at line 24-25 (denom.Minted.Sub()) overflow if denom.Minted is corrupted to an extremely large value, causing calculateDenomStats to panic and DoS query operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_edc4da3c-c505-4c26-a2b3-af74b1e80951?mode=deep",
+    "timestamp": "2026-01-10 18:14:53.683912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [External dependency] Does bankKeeper.GetSupply() always return accurate real-time supply, or can there be delays/caching that cause calculateDenomStats to return incorrect values during high transaction volumes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d28f1ba-2ca1-4a8c-9045-a32b6bba63cb?mode=deep",
+    "timestamp": "2026-01-10 18:15:17.242996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Calculation accuracy] When maxSupply becomes ZeroUint due to totalBurned >= MintingCap, does this correctly represent that no more tokens can be minted, or could this be exploited to bypass minting cap checks in other modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22fa1fc5-7042-4a76-bc0f-69bea41a8d47?mode=deep",
+    "timestamp": "2026-01-10 18:15:41.928645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Type safety] The conversion from sdk.Coin.Amount (sdkmath.Int) to cosmosmath.Uint at line 24 - can this fail for negative amounts, and if so, does the safety check at line 24 prevent this scenario? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be8e4962-6a9b-4438-8ad9-c12ad64b9ea3?mode=deep",
+    "timestamp": "2026-01-10 18:16:07.013488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Logic error] If denom.Minted is less than or equal to totalSupply.Amount, totalBurned is set to ZeroUint - but is this correct if tokens were legitimately burned? Could this hide actual burn events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_937f5db1-4347-4b42-b1d8-2bd0bb38156a?mode=deep",
+    "timestamp": "2026-01-10 18:16:32.212749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [State inconsistency] Can an attacker exploit a scenario where bankKeeper.GetSupply() returns stale data while denom.Minted is updated, causing calculateDenomStats to report inflated totalBurned values that don't match reality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b97fcf28-67da-4b63-9951-191f1db3b46c?mode=deep",
+    "timestamp": "2026-01-10 18:16:58.651896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Integer arithmetic] At line 31, when calculating maxSupply = denom.MintingCap.Sub(totalBurned), if totalBurned exceeds MintingCap due to a bug, does the GT check at line 31 prevent underflow or will it return ZeroUint when it should indicate an error? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6145d178-9a37-4dda-8836-cd27d085222d?mode=deep",
+    "timestamp": "2026-01-10 18:17:25.759416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Integer arithmetic] At line 24, when calculating totalBurned = denom.Minted.Sub(totalSupply.Amount), if denom.Minted is somehow less than totalSupply.Amount due to state corruption, does the GT check prevent underflow or can this cause a panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b62e929b-4ae9-425e-a0dc-1ea9692e4217?mode=deep",
+    "timestamp": "2026-01-10 18:17:53.413785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Access control] Does the Denom() query function have any rate limiting or gas cost controls to prevent an attacker from repeatedly querying expensive calculateDenomStats() operations to DoS the chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7126791f-1898-4248-8c04-f3c1e1bb0316?mode=deep",
+    "timestamp": "2026-01-10 18:18:19.565661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [State consistency] If calculateDenomStats() is called during an active minting/burning transaction, can the returned values be inconsistent with the actual chain state, potentially causing external systems to make incorrect decisions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7bfea38-91ba-4275-b25b-d57e89782c3b?mode=deep",
+    "timestamp": "2026-01-10 18:18:43.574958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Type conversion] At line 71, the conversion of totalSupply.Amount to cosmosmath.Uint may lose precision or fail for extreme values - can this cause incorrect supply reporting that could be exploited in cross-module operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65418f27-9998-46d1-96d0-f67ab9e9d355?mode=deep",
+    "timestamp": "2026-01-10 18:19:09.140113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Calculation integrity] Can an attacker exploit the calculateDenomStats() function to manipulate the returned TotalBurned, MaxSupply, or TotalSupply values by causing integer overflow/underflow in the calculation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a2131d4-e201-4cc6-8953-fef439f070d0?mode=deep",
+    "timestamp": "2026-01-10 18:19:35.987865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Information disclosure] Does the function leak sensitive information by returning different error codes (InvalidArgument vs NotFound) that allow an attacker to enumerate valid denom names through timing attacks or error message analysis? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9364b758-4c48-401a-b980-e923def2ee09?mode=deep",
+    "timestamp": "2026-01-10 18:20:01.911830",
+    "report_generated": false
   }
 ]
