@@ -10948,5 +10948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cef275ba-b5de-4c44-a127-dd71ec8ebc62?mode=deep",
     "timestamp": "2026-01-10 05:26:04.590842",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool pausing] Is there a pause mechanism that should prevent RemoveLiquidity during emergency situations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7dc9af3e-e193-4971-8449-51f45310636a?mode=deep",
+    "timestamp": "2026-01-10 05:27:23.579030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool ownership] Does the code check if the pool creator at line 34 has special permissions that should restrict liquidity removal? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c5c9191-7f2c-46e9-aea1-e054616440fb?mode=deep",
+    "timestamp": "2026-01-10 05:27:36.035351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Fee handling] Does liquidity removal at lines 110-112 account for any accumulated fees that should be distributed to LP token holders? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_662eb316-986d-4bcb-808f-ec2945379c90?mode=deep",
+    "timestamp": "2026-01-10 05:27:48.749612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Slippage] Is there any minimum output validation or slippage protection for the coinsOut amounts calculated at line 71? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06972cf8-b53d-4b5a-867b-7527cf9dfa4c?mode=deep",
+    "timestamp": "2026-01-10 05:28:02.077816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Fair share] Does the proportional calculation at lines 147-148 ensure LP token holders receive exactly their fair share without favoring early or late withdrawers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d60de9d5-4f20-4d2a-8d8b-cd402352d74f?mode=deep",
+    "timestamp": "2026-01-10 05:28:16.096335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Multi-asset] The comment at line 32 mentions allowing more than two coins in future - does current implementation break if pool.Coins has length != 2? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bcc98eba-0106-4184-a3f4-935352559154?mode=deep",
+    "timestamp": "2026-01-10 05:28:31.218429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Array hardcoding] At lines 147-148, 152-153, the code assumes exactly 2 coins - can this cause panics if future pools have different structures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6d74481-bd22-4b0b-a2b0-53edc1f74121?mode=deep",
+    "timestamp": "2026-01-10 05:28:47.475617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Forward compatibility] Are the array accesses at lines 95-96, 110-111, 119 safe for future pool types with more than 2 assets? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc893930-bf7a-4121-8df7-2d621c68972d?mode=deep",
+    "timestamp": "2026-01-10 05:29:04.817604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Context handling] At line 18, does UnwrapSDKContext properly handle all context types or can malformed contexts cause panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2575aa93-2aee-45b6-a7ae-98b1f20671d5?mode=deep",
+    "timestamp": "2026-01-10 05:29:23.774536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Transaction isolation] Are the operations between lines 60-114 properly isolated from other concurrent transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac86baf5-4ae1-4011-ab74-93207c373b8c?mode=deep",
+    "timestamp": "2026-01-10 05:29:43.833913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Block execution] Can RemoveLiquidity be called in BeginBlock or EndBlock contexts where state updates might behave differently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cbe3dc24-f946-4f3c-b11e-1beb70e0ecf8?mode=deep",
+    "timestamp": "2026-01-10 05:30:04.412600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Address derivation] Does SendFromPoolToAddress at line 86 derive the pool address consistently with pool creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62f1cfe2-9ee4-4c93-9678-c81cd681639c?mode=deep",
+    "timestamp": "2026-01-10 05:30:25.927874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Address collision] Can\n\n### Citations\n\n**File:** x/dex/keeper/msg_server_remove_liquidity.go (L1-157)\n```go\npackage keeper\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7159dfd-c1b6-4490-b4a4-358f4ddfaf92?mode=deep",
+    "timestamp": "2026-01-10 05:30:47.842992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Input Validation] Can an attacker bypass the incoming amount positivity check by exploiting potential integer overflow when msg.Incoming.Amount is at math.MaxInt boundary, allowing zero or negative value swaps that corrupt pool state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12718ea2-7e94-479a-9db8-c193a1098161?mode=deep",
+    "timestamp": "2026-01-10 05:31:11.023473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Address Validation] Can an attacker craft a malformed Bech32 address that passes AccAddressFromBech32() validation but causes state corruption when used in subsequent bank operations, potentially locking funds in the pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a32c0b8e-a348-41a0-83c1-1a280e7a5f45?mode=deep",
+    "timestamp": "2026-01-10 05:31:34.581159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Receiver Logic] When msg.Receiver is an empty string, can an attacker exploit the fallback to sender address to bypass access controls or trigger unexpected behavior in downstream modules that expect distinct sender/receiver addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50ed4609-4b30-451f-b11a-db2076673816?mode=deep",
+    "timestamp": "2026-01-10 05:31:58.614436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Balance Check] Can an attacker exploit a race condition between the HasBalance check and the actual SendFromAddressToPool operation, allowing them to execute swaps without sufficient funds by front-running with a withdrawal transaction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae6ff30e-5bdc-40fd-bb46-40e8a94a0ab2?mode=deep",
+    "timestamp": "2026-01-10 05:32:21.746070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Pool Retrieval] Can an attacker exploit a time-of-check-time-of-use (TOCTOU) vulnerability where a pool is deleted or modified between the GetPool check and the actual swap execution, causing state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2122a2dd-fe48-4c40-822a-aa9e7bd30ea1?mode=deep",
+    "timestamp": "2026-01-10 05:32:45.589397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Pool Validation] Can an attacker create or manipulate a pool to have zero balances that pass the sanity check momentarily, then exploit timing to drain liquidity before the positivity validation fails? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57c29d0f-1fdf-4efa-a925-bfde12c32e2c?mode=deep",
+    "timestamp": "2026-01-10 05:33:10.675902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Coin Indexing] Can an attacker exploit the fromCoin/toCoin index assignment logic by providing a pool with more than 2 coins (since pool.Coins is a slice), causing array out-of-bounds access and potential panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c35ab830-fc1e-40b0-b778-87e65c7c9c60?mode=deep",
+    "timestamp": "2026-01-10 05:33:35.213048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Denom Matching] Can an attacker exploit case-sensitivity or Unicode normalization differences in denom string comparison to bypass the incoming coin validation and swap unsupported tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c4c71d6-e80a-4b5f-8343-cabb2fae207b?mode=deep",
+    "timestamp": "2026-01-10 05:34:01.021757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Swap Calculation] Can an attacker manipulate the CalculateSwapAmount function inputs to cause integer overflow in the constant product formula calculation, resulting in incorrect swap amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0d243fc-751e-4bd1-95c2-d89acadc1544?mode=deep",
+    "timestamp": "2026-01-10 05:34:27.698212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Slippage Protection] Can an attacker exploit the optional OutgoingMin parameter by setting it to nil to bypass slippage protection entirely and execute swaps during unfavorable price conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ff46e71-3133-4d5a-a0a3-2a87c0173e29?mode=deep",
+    "timestamp": "2026-01-10 05:34:54.831204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Slippage Validation] Can an attacker provide a negative OutgoingMin amount that bypasses the IsPositive check due to integer underflow, allowing swaps that violate slippage constraints? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c16d253f-4854-4888-bdfd-870fe71fadea?mode=deep",
+    "timestamp": "2026-01-10 05:35:20.714768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Denom Mismatch] Can an attacker exploit the OutgoingMin denom validation by providing a denom that is a substring or prefix of the actual outgoing denom, bypassing the equality check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fee93dbe-2489-4e22-b571-1eb6ef670b76?mode=deep",
+    "timestamp": "2026-01-10 05:35:47.485402",
+    "report_generated": false
   }
 ]
