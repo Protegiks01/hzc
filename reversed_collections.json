@@ -16948,5 +16948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1deba5da-b2a2-4126-a5e5-8c837a396198?mode=deep",
     "timestamp": "2026-01-10 04:24:23.370642",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Panic recovery] If V2Migration() panics during execution, does the Cosmos SDK migration framework properly recover, or will the Migrator struct design prevent chain restart? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f64f139c-e73c-4b42-bf64-81db916430fd?mode=deep",
+    "timestamp": "2026-01-10 04:25:45.523873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Consensus version] Since ConsensusVersion() returns 2 in module.go, can mismatch between this and migration registration cause V2Migration to never execute, leaving legacy denoms unmigrated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd0c33a7-2917-400c-850d-6f7f26ed53e1?mode=deep",
+    "timestamp": "2026-01-10 04:25:58.018172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Version enforcement] Does the Migrator enforce that V2Migration can only execute once, or can repeated calls via cfg.RegisterMigration lead to duplicate migration execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e6b30da-18d7-4306-9288-9b401618c59e?mode=deep",
+    "timestamp": "2026-01-10 04:26:11.211616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Registration timing] When module.go calls NewMigrator() and then RegisterMigration(), can race conditions between initialization and registration cause migration version confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea42ae3f-bde3-42cd-88be-05c60f349284?mode=deep",
+    "timestamp": "2026-01-10 04:26:24.377374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Codec validation] Does the Migrator verify that keeper.cdc can properly marshal/unmarshal both LegacyDenom and Denom types, or can proto version mismatches cause silent corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfafa011-1706-422f-aeca-aa1f6180d8dd?mode=deep",
+    "timestamp": "2026-01-10 04:26:38.291069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Store consistency] Can an attacker create a Migrator with a keeper pointing to a different KVStoreService than registered in the module, causing migrations to write to wrong store partition? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11ae6da4-8141-4c0a-b6be-c77306f5eda6?mode=deep",
+    "timestamp": "2026-01-10 04:26:53.142538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Keeper lifecycle] Does NewMigrator() validate that the keeper is in a valid lifecycle state for migration, or can a partially shut-down keeper cause data loss during upgrade? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72a86523-861e-4849-b67b-fedac531a70d?mode=deep",
+    "timestamp": "2026-01-10 04:27:08.727533",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Field visibility] Since the keeper field is exported (lowercase would make it private), can external packages create Migrator instances with malicious keeper implementations to corrupt migration state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41063bd5-5b04-44b8-bbef-91c4d123b4e4?mode=deep",
+    "timestamp": "2026-01-10 04:27:25.891875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Migration ordering] Can the Migrator be registered at the wrong consensus version, causing V2Migration to execute on already-migrated state leading to denom duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e75e7c25-fb78-4c55-8d38-e5a6ca4a82e1?mode=deep",
+    "timestamp": "2026-01-10 04:27:44.363543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [State rollback] If V2Migration() partially completes then panics, does the Migrator struct design allow proper state rollback, or will legacy denoms be permanently corrupted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a40d1ae8-0284-424d-b951-322be12c3aca?mode=deep",
+    "timestamp": "2026-01-10 04:28:03.946587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Context handling] Does the Migrator ensure that the sdk.Context passed to V2Migration() has proper gas metering, or can unbounded iteration over GetAllLegacyDenom() cause out-of-gas panics during upgrade? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f4bd798-b38a-4d43-b13e-cdec0af557d3?mode=deep",
+    "timestamp": "2026-01-10 04:28:25.163106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Error propagation] If keeper.V2Migration() returns an error, does the Migrator properly propagate it to the migration framework, or can error swallowing cause partial migrations to be committed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55688b0a-7425-4d65-aca9-d648a206913b?mode=deep",
+    "timestamp": "2026-01-10 04:28:46.558079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Delegation safety] Since Migrator.V2Migration() delegates to keeper.V2Migration(), can an attacker exploit the delegation layer to bypass migration framework's atomic transaction guarantees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03cd933a-d79f-4950-804a-a5ea2bff99c8?mode=deep",
+    "timestamp": "2026-01-10 04:29:08.547481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Dependency injection] Does the Migrator validate that the injected keeper's codec is compatible with both LegacyDenom and Denom proto structures, or can codec mismatches cause silent data corruption during migration? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e68cccbd-eb73-4e30-84f5-69fe5d4de708?mode=deep",
+    "timestamp": "2026-01-10 04:29:32.274960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Keeper mutation] Can external code mutate the keeper within the Migrator struct after creation but before migration execution, allowing state manipulation during the v1→v2 upgrade? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5ca9e37-20b9-4ded-8017-74a2c64964b3?mode=deep",
+    "timestamp": "2026-01-10 04:29:56.637050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Authority validation] If the keeper's authority is set to an invalid or compromised address during Migrator creation, can this allow unauthorized parties to execute V2Migration and manipulate denom state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a1489bf-3d5b-4088-b734-139373b2c2a6?mode=deep",
+    "timestamp": "2026-01-10 04:30:20.394661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [State isolation] Does the Migrator properly isolate state between different migration runs, or can residual state from failed migrations corrupt subsequent migration attempts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29940ed7-1432-4b89-8882-cb527bf1f505?mode=deep",
+    "timestamp": "2026-01-10 04:30:45.786305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Framework integration] When RegisterMigration() in module.go uses the Migrator, can an attacker exploit timing issues between Migrator creation and migration registration to inject malicious migration logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_095d12b9-01e1-4e97-ad5f-052402f2c916?mode=deep",
+    "timestamp": "2026-01-10 04:31:10.730858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Keeper validation] Does NewMigrator() verify that the keeper has all required dependencies (accountKeeper, bankKeeper) initialized, or can missing dependencies cause panic during migration leading to chain halt? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b72387cd-5357-4f6a-8d08-e046e9f78823?mode=deep",
+    "timestamp": "2026-01-10 04:31:35.843525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Concurrent execution] Can multiple validators executing NewMigrator() concurrently during chain upgrade create race conditions in keeper initialization, causing non-deterministic migration outcomes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2163c2f6-3d50-4c15-8517-3a6f8dd14f57?mode=deep",
+    "timestamp": "2026-01-10 04:32:02.452227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Upgrade safety] Does the Migrator creation process validate that the keeper's storeService is properly initialized, or can a partially initialized keeper cause data loss during V2Migration execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e25a8363-1832-45c3-95d2-7a24393bd3cc?mode=deep",
+    "timestamp": "2026-01-10 04:32:29.628672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Version control] If NewMigrator() is called multiple times with different keeper versions during app initialization, can this cause migration version confusion leading to skipped or repeated migrations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_948c644a-d7b1-4409-b5e6-58c90556f8d6?mode=deep",
+    "timestamp": "2026-01-10 04:32:56.753679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Registration] Can an attacker exploit the module registration process to create a Migrator with a keeper that points to a different module's KVStore, causing cross-module state corruption during migration? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb8c47e0-37ce-4021-8d3d-2e7749378ee7?mode=deep",
+    "timestamp": "2026-01-10 04:33:22.967710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Access control] Does the exported Migrator struct allow external packages to directly access and manipulate the keeper field, bypassing migration framework protections? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_853cef70-7a68-4a5e-b421-b5f351ce0bad?mode=deep",
+    "timestamp": "2026-01-10 04:33:49.556515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Memory safety] Is the Migrator struct properly copied or does it share references to the keeper, allowing concurrent migration calls to corrupt keeper state during chain upgrade? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c309488-c623-4734-aca2-002ed3de2845?mode=deep",
+    "timestamp": "2026-01-10 04:34:16.427983",
+    "report_generated": false
   }
 ]
