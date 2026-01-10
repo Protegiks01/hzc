@@ -29398,5 +29398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9364b758-4c48-401a-b980-e923def2ee09?mode=deep",
     "timestamp": "2026-01-10 18:20:01.911830",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Logic error] In the mismatch check at line 57-64, if denom.Denom != denomAuth.Denom, the error message says 'denom not found' instead of indicating state corruption - can this misleading error hide critical database inconsistencies from monitoring systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f422da3-097d-4b09-be48-208ce203aaf2?mode=deep",
+    "timestamp": "2026-01-10 18:21:12.034212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [State inconsistency] What happens if GetDenom() returns found=true but GetDenomAuth() returns found=false - does this indicate a critical state corruption where denom and denomAuth are out of sync, potentially allowing unauthorized token operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4cb3466e-0b16-471b-b725-df895d510de6?mode=deep",
+    "timestamp": "2026-01-10 18:21:24.715968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [State inconsistency] Can an attacker exploit the race condition between GetDenom() and GetDenomAuth() calls where a denom exists but its corresponding DenomAuth is deleted between the two operations, causing the function to return NotFound for a valid denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_60d9c662-a934-4010-a1c4-dfc7dec30be0?mode=deep",
+    "timestamp": "2026-01-10 18:21:37.597263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Input validation] Does the CheckDenomString validator properly sanitize Unicode normalization attacks where an attacker provides visually identical but byte-different denom strings (e.g., using combining characters) to query hidden or protected denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6498face-4a99-48e5-8e60-a574cb9d13d1?mode=deep",
+    "timestamp": "2026-01-10 18:21:50.699085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Input validation] Can an attacker bypass the CheckDenomString validation by providing a nil request pointer, causing a panic before validation occurs when the function attempts to access req.Denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9f33fa6-20c1-43fd-bccb-91fad24d5362?mode=deep",
+    "timestamp": "2026-01-10 18:22:04.512519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Logic error] In the mismatch check at line 57-64, if denom.Denom != denomAuth.Denom, the error message says 'denom not found' instead of indicating state corruption - can this misleading error hide critical database inconsistencies from monitoring systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c30a1a86-7ba3-46f1-8ac5-d4499b97d099?mode=deep",
+    "timestamp": "2026-01-10 18:22:19.370072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [State inconsistency] What happens if GetDenom() returns found=true but GetDenomAuth() returns found=false - does this indicate a critical state corruption where denom and denomAuth are out of sync, potentially allowing unauthorized token operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15ddd0a0-bf2d-4ad0-b374-704a0716905d?mode=deep",
+    "timestamp": "2026-01-10 18:22:35.875961",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [State inconsistency] Can an attacker exploit the race condition between GetDenom() and GetDenomAuth() calls where a denom exists but its corresponding DenomAuth is deleted between the two operations, causing the function to return NotFound for a valid denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bbfa8079-6529-4b71-86d1-c20cd9268abb?mode=deep",
+    "timestamp": "2026-01-10 18:22:52.751846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Input validation] Does the CheckDenomString validator properly sanitize Unicode normalization attacks where an attacker provides visually identical but byte-different denom strings (e.g., using combining characters) to query hidden or protected denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86c7a1bb-8c26-4749-b993-3662afe2dcc7?mode=deep",
+    "timestamp": "2026-01-10 18:23:12.463412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Input validation] Can an attacker bypass the CheckDenomString validation by providing a nil request pointer, causing a panic before validation occurs when the function attempts to access req.Denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78c522f3-909a-48b4-8c02-6c1f523d73f6?mode=deep",
+    "timestamp": "2026-01-10 18:23:32.393013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Query ordering] If multiple clients query Params() concurrently during a parameter update, can the query ordering cause some clients to see old parameters while others see new ones, leading to unfair advantage in denom name squatting? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e38a62f-abc1-4247-a350-603d47e48e4a?mode=deep",
+    "timestamp": "2026-01-10 18:23:53.108800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Block boundary timing] Can an attacker query Params() at precisely the block boundary when parameters are being updated, exploiting the timing window to observe intermediate parameter states that violate invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84d585f9-8937-4c45-9f77-dc2d88cd4e37?mode=deep",
+    "timestamp": "2026-01-10 18:24:14.671601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Context cancellation] If the goCtx passed to Params() at line 13 is cancelled during query processing, does the function properly clean up and return, or can cancelled contexts cause resource leaks or partial state reads from GetParams()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66cf24c5-d77a-4915-bc8b-94f3312479b1?mode=deep",
+    "timestamp": "2026-01-10 18:24:37.425283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Maximum parameter values] Can an attacker exploit extreme parameter values (e.g., CreateFeeAmount = MaxUint32) returned by Params() to cause integer overflow in clients calculating total costs for multiple denom creations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e3845f7-b638-428e-bdbc-04616f9e1bd9?mode=deep",
+    "timestamp": "2026-01-10 18:25:00.994355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Empty parameters] If GetParams() at line 19 returns default/empty parameters (e.g., during genesis or after state corruption), does Params() properly handle this case, or will it return a response with zero-value fields that clients misinterpret as valid parameters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f8d18ce-4d2d-497e-8719-80cf75af4f66?mode=deep",
+    "timestamp": "2026-01-10 18:25:25.321142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [CreateFeeDenom validation] Can the Params() query return a CreateFeeDenom value that references a non-existent or blacklisted token, causing CreateDenom operations to fail unexpectedly after users query parameters and attempt denom creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82dea7e6-0227-4914-b9fe-ca102b984ec9?mode=deep",
+    "timestamp": "2026-01-10 18:25:48.903304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Beneficiary validation] When Params() returns parameters containing the Beneficiary address at line 19, does it validate that the address is properly formatted, or can corrupted state cause invalid addresses to be returned, potentially causing crashes in clients that parse the response? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3894357a-54ea-4e99-9cbb-d72663693d4b?mode=deep",
+    "timestamp": "2026-01-10 18:26:12.970073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Cache poisoning] If the keeper or store service uses caching, can an attacker poison the cache through carefully timed Params() queries, causing subsequent queries to return stale or incorrect parameter values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c453429-19e4-4bf4-8b73-84d65005bb1e?mode=deep",
+    "timestamp": "2026-01-10 18:26:36.935788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Store lock contention] Can an attacker intentionally cause Params() queries to contend with parameter update transactions for store locks, creating a denial-of-service condition where either queries or updates are starved? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_136d2d51-3e90-4798-a0c3-9681fc63032b?mode=deep",
+    "timestamp": "2026-01-10 18:27:01.549043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Goroutine leak] If many Params() queries are issued concurrently and GetParams() blocks on store access, can this cause goroutine accumulation that exhausts validator memory and CPU resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21930827-8f83-4211-ae34-2582ed9d8274?mode=deep",
+    "timestamp": "2026-01-10 18:27:23.904828",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Light client deception] Can an attacker provide fake proofs to light clients for Params() query results, claiming different CreateFeeAmount values than actually stored on-chain, causing light clients to display incorrect fee information to users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1f7c692-1459-4c3a-84ab-019428d1ef21?mode=deep",
+    "timestamp": "2026-01-10 18:27:48.226802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [IBC query exploitation] Can IBC relayers exploit Params() queries to extract parameter information from ZigChain and use it to craft cross-chain attacks, such as predicting when CreateFeeDenom changes will affect token creation costs on bridged chains? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85d6d0ad-b8c2-4246-ad34-06b266e7e377?mode=deep",
+    "timestamp": "2026-01-10 18:28:10.865182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [State replay] Can an attacker exploit historical query functionality to query Params() at past block heights, then identify parameter values that enabled past vulnerabilities, using this information to predict future parameter exploits during governance updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa15ef33-e0e1-4ef7-9e56-1e68bf46cbee?mode=deep",
+    "timestamp": "2026-01-10 18:28:33.584864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Non-determinism] Does the Params() function exhibit any non-deterministic behavior based on system time, random values, or external state that could cause different validators to return different query results for the same block height, undermining light client security assumptions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_930c1c21-c52b-4ad3-a5b4-1227b338f7af?mode=deep",
+    "timestamp": "2026-01-10 18:28:56.246928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Eclipse attack] Can an attacker combine network-level eclipse attacks with Byzantine validator control to ensure victims only query Params() from malicious validators, receiving fake parameter values that enable theft of denom creation fees or manipulation of factory operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_558272f7-dca4-4520-860d-40f4b36b11d5?mode=deep",
+    "timestamp": "2026-01-10 18:29:20.348343",
+    "report_generated": false
   }
 ]
