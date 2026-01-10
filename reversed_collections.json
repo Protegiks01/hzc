@@ -28648,5 +28648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6aca14a4-b4e7-4304-8c88-b3d581b34175?mode=deep",
     "timestamp": "2026-01-10 17:30:56.196112",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store corruption] Can an attacker supply req.Admin with null bytes that terminate the string early in []byte conversion, causing the prefix store query to match a shorter prefix and return unintended denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f5c80ce-d951-46f7-8d98-ab41b55065b7?mode=deep",
+    "timestamp": "2026-01-10 17:32:20.744612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Prefix collision] If two admin addresses hash to the same prefix bytes (e.g., through Unicode normalization or homograph attacks), can this cause the query to return denominations from multiple admins, violating access control assumptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35e6d1d5-86cb-45c9-be4a-4a5f79455007?mode=deep",
+    "timestamp": "2026-01-10 17:32:33.114012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store key injection] Does AdminDenomAuthListKey(req.Admin) properly escape or validate the admin string to prevent store key traversal, where an attacker supplies '../' or similar sequences to access adjacent key namespaces? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ae760cf-1d9d-457f-8107-20e4894ba2cf?mode=deep",
+    "timestamp": "2026-01-10 17:32:46.620040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store key injection] Can an attacker craft req.Admin to include the AdminDenomAuthKeyPrefix value itself, causing the prefix store to return denoms from multiple admins due to key namespace collision? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2f49222-6ce9-47ec-b750-afd0b6775072?mode=deep",
+    "timestamp": "2026-01-10 17:32:59.795591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] Does the function check if req.Admin contains the delimiter character used in AdminDenomAuthKeyPrefix (e.g., '/'), which could allow prefix injection attacks to query denominations belonging to other admins? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4316126f-7de4-4d42-85b6-656db4b7eb42?mode=deep",
+    "timestamp": "2026-01-10 17:33:13.593368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] Can an attacker supply unicode characters, emoji, or multi-byte UTF-8 sequences in req.Admin that, when converted to []byte in AdminDenomAuthListKey(), create unexpected prefix collisions with other admin addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a422bde6-b52b-4bd7-aaec-94f9f09abeb7?mode=deep",
+    "timestamp": "2026-01-10 17:33:28.613732",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] Does the function validate the length of req.Admin to prevent extremely long address strings that could cause memory exhaustion when constructing the AdminDenomAuthListKey prefix, leading to node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47c77185-245c-4ca2-b0ad-e1f46dcb9333?mode=deep",
+    "timestamp": "2026-01-10 17:33:44.237966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] Can an attacker supply an empty string for req.Admin to query all denominations across all admins by exploiting how prefix.NewStore() handles empty prefix keys, potentially causing information disclosure of all factory denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_273253a9-4640-4841-a7b5-e32f160c33af?mode=deep",
+    "timestamp": "2026-01-10 17:34:02.153150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] Does the function validate that req.Admin is a valid bech32 address format before using it to construct the store key, or can an attacker supply malformed addresses containing special characters (e.g., null bytes, path traversal sequences) to corrupt the prefix store key construction in AdminDenomAuthListKey()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7add3fb6-b1ea-40fa-9705-f73671dc5ef6?mode=deep",
+    "timestamp": "2026-01-10 17:34:21.112672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [HIGH] Can key collisions in AdminDenomAuthListKey() allow one admin to see/control another admin's denoms, breaking the security isolation between different token creators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b81e8934-aa28-4e66-b296-bc96c4dcccf7?mode=deep",
+    "timestamp": "2026-01-10 17:34:40.913291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [HIGH] If bankKeeper.GetSupply() in calculateDenomStats() returns manipulated values during a cross-module attack, can this cause Denom() to report incorrect supply figures that affect DEX pricing or other critical operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e82f3ca4-3eba-42d0-84f7-d972f69dce9b?mode=deep",
+    "timestamp": "2026-01-10 17:35:02.054332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [HIGH] Can an attacker who creates max number of denoms and repeatedly queries DenomAll() with max pagination values cause sustained DoS by exhausting validator resources during calculateDenomStats() calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0259f99f-32e4-4c6c-831e-aa61e4c2ea0b?mode=deep",
+    "timestamp": "2026-01-10 17:35:23.533486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [CRITICAL] If AdminDenomAuthListKey(req.Admin) can be manipulated through specially crafted admin addresses, can an attacker query or modify denoms belonging to other admins, breaking access control entirely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65da7a5b-e2ae-4331-960f-e275b4f29251?mode=deep",
+    "timestamp": "2026-01-10 17:35:45.966129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [CRITICAL] If GetDenom() and GetDenomAuth() return mismatched data due to race conditions, can this be exploited in transaction flows that rely on query results for validation, causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6446694e-70fb-4b7a-b422-b8eebdf61e5a?mode=deep",
+    "timestamp": "2026-01-10 17:36:09.111311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [CRITICAL] Can an attacker exploit calculateDenomStats() to report false totalBurned/maxSupply values that are then used by minting functions to bypass minting caps, allowing unlimited token creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03ff0e9c-41c7-4748-bd66-e0dbff060f8a?mode=deep",
+    "timestamp": "2026-01-10 17:36:34.000085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Index maintenance] If the AdminDenomAuthListKey index is not updated when admins are disabled via DisableDenomAuth(), will DenomsByAdmin() return denoms with no active admin? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f3d9620-d574-4dfe-84fb-39d5d7a6b28f?mode=deep",
+    "timestamp": "2026-01-10 17:36:58.972715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Query completeness] Does ListDenomAuth() include proposed (pending) DenomAuth entries, or only confirmed ones - can this hide pending admin changes from queries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_829ca858-56e3-41b4-a9e9-d518ca96fdd3?mode=deep",
+    "timestamp": "2026-01-10 17:37:25.773819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Memory safety] The append operations at line 56 and line 69 - can these cause memory reallocation storms if pagination limit is very high, degrading performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51314a8a-ef01-4308-83f7-64e2501cf0b6?mode=deep",
+    "timestamp": "2026-01-10 17:37:52.401255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Atomic operations] Are the operations GetDenom(), GetDenomAuth(), and calculateDenomStats() performed atomically, or can state changes between them cause inconsistent results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa685757-95cc-4b9b-8b10-e23832389df4?mode=deep",
+    "timestamp": "2026-01-10 17:38:18.746470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [State machine] If calculateDenomStats() returns maxSupply=0 but CanChangeMintingCap=true, is this a valid state or should this indicate that minting cap needs adjustment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3907645f-3a2e-4c21-9855-d01d0d313725?mode=deep",
+    "timestamp": "2026-01-10 17:38:44.191857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [State machine] The check at line 57 for denom.Denom != denomAuth.Denom - if this condition is true, it indicates state corruption, but the error message doesn't reflect this - should this trigger an invariant violation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbc25e44-9b2c-47c7-bd83-94c827fb35a1?mode=deep",
+    "timestamp": "2026-01-10 17:39:09.834478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Missing validation] DenomsByAdmin() doesn't validate the admin address format - should it use validators.CheckAddressString() to prevent invalid lookups? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6ee4733-5528-49aa-ad3b-e373f3858000?mode=deep",
+    "timestamp": "2026-01-10 17:39:35.384219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go, query_denom_auth.go] [Validation consistency] Both functions validate with CheckDenomString() but at different points - can timing differences allow TOCTOU attacks where validation passes but store lookup uses different key? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf796f01-5434-44c5-914b-9adcd4ef7c0f?mode=deep",
+    "timestamp": "2026-01-10 17:40:02.252142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Response construction] At line 27, keys are converted to strings directly - if keys contain binary data, can this cause encoding issues in JSON/gRPC responses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4fae43d8-b708-429a-9f14-25a54b9166d6?mode=deep",
+    "timestamp": "2026-01-10 17:40:30.635116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Response construction] At line 67, the entire DenomAuth object is returned - does this expose internal fields that should be hidden from query responses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c1d40ad-758c-4350-aa10-be60171c1ce5?mode=deep",
+    "timestamp": "2026-01-10 17:40:57.399518",
+    "report_generated": false
   }
 ]
