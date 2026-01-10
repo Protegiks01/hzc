@@ -22498,5 +22498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6e04d5c-59c4-46bb-8ec1-57e9d08b8354?mode=deep",
     "timestamp": "2026-01-10 10:36:20.596881",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyFee] [Fee amount verification] Does the 'fee' attribute accurately reflect the actual fee deducted, or can discrepancies between event-reported fees and actual deductions hide fee theft? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49bc2e94-e5aa-4b9d-8cec-51500dd577e7?mode=deep",
+    "timestamp": "2026-01-10 10:37:31.474618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyReceiver] [Fee receiver validation] Can the 'receiver' attribute in fee withdrawal events be set to attacker-controlled addresses without validation, enabling unauthorized fee extraction? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f905bf23-8020-45c3-9ef6-42b60573e1d6?mode=deep",
+    "timestamp": "2026-01-10 10:37:43.998661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyModule] [Module attribution] Does the 'module' attribute always correctly identify the originating module, or can cross-module calls cause misattribution of events to wrong modules? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f65b4c44-e59c-4c6a-af7e-da61abd4ceab?mode=deep",
+    "timestamp": "2026-01-10 10:37:56.608189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyMetadataAdmin] [Dual admin confusion] Can the separation of 'metadata_admin' and 'bank_admin' attributes cause confusion in governance systems that assume single-admin models, leading to incorrect access control assumptions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d7eb655-ad99-4486-9ee9-9791f8ff2459?mode=deep",
+    "timestamp": "2026-01-10 10:38:10.271143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyBankAdmin] [Admin tracking gap] Does the 'bank_admin' attribute lack emission in critical admin change scenarios (emergency pauses, forced transfers), creating audit gaps in admin action tracking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cce0abcd-09d1-4856-b74d-959ff4fe8089?mode=deep",
+    "timestamp": "2026-01-10 10:38:24.211307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyAmount] [Integer overflow in events] Can the 'amount' attribute handle amounts exceeding uint256 limits when converted to strings, potentially causing integer overflow when event consumers parse these values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_caf72141-3671-46bf-8863-f6a9bc9ddb87?mode=deep",
+    "timestamp": "2026-01-10 10:38:38.909557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyDenomURIHash] [Hash verification bypass] Can the 'denom_uri_hash' attribute be set to an incorrect hash without validation, allowing URI content to be changed without detection by systems verifying content integrity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb5be1a9-c023-4861-a1a8-bc2632475ac7?mode=deep",
+    "timestamp": "2026-01-10 10:38:55.338092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyDenomURI] [URI validation gap] Does the 'denom_uri' attribute lack protocol validation (allowing javascript:, data:, file: schemes), enabling attackers to inject malicious URIs that get executed in wallets displaying token metadata? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_154e3880-079d-49c0-b0d7-661bba6fd8d7?mode=deep",
+    "timestamp": "2026-01-10 10:39:13.258977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyDenomMetadata] [Metadata injection] Can the 'denom_metadata' attribute contain arbitrarily large or malicious data (XSS payloads, SQL injection strings) that exploit vulnerabilities in downstream event consumers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9479982-c494-43ca-9bf4-cb3afa7af493?mode=deep",
+    "timestamp": "2026-01-10 10:39:31.672349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyTotalSupply] [Cross-module consistency] Does the 'total_supply' attribute from bank keeper match the Factory module's internal minted tracking, or can discrepancies between these values hide unauthorized minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b04314b-8c17-4373-86f3-90b11510ca1e?mode=deep",
+    "timestamp": "2026-01-10 10:39:51.690100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyTotalMinted] [Supply tracking mismatch] Can the 'total_minted' attribute become desynchronized from actual on-chain supply due to failed transactions that emit events before state commitment, causing supply accounting errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a64e2840-c22e-444c-9e25-a45a8c90acb7?mode=deep",
+    "timestamp": "2026-01-10 10:40:12.947312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyRecipient] [Recipient validation] Does the 'recipient' attribute allow zero addresses or module accounts to be recorded without validation, enabling tracking of suspicious token distributions to black hole addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9119641d-c173-4c3a-9d4c-a0447945cb61?mode=deep",
+    "timestamp": "2026-01-10 10:40:34.844506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyDenomMintedAndSent] [Minting verification gap] Can events using 'denom_minted_and_sent' attribute be emitted before bank module confirms successful minting, creating phantom mint records if the transaction later fails? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc55a7bd-e212-493a-9dfd-da9d3e6ea617?mode=deep",
+    "timestamp": "2026-01-10 10:40:57.353244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyCreator] [Creator address validation] Does the 'creator' attribute key allow invalid or malformed addresses to be emitted in events, potentially breaking indexers that assume valid Bech32 format? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d74cd440-bc90-4c3d-83ac-06758979efa5?mode=deep",
+    "timestamp": "2026-01-10 10:41:20.457476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyCanChangeMintingCap] [Boolean ambiguity] Can the 'can_change_minting_cap' boolean attribute be set to contradictory values across multiple events for the same denom, causing state confusion in systems that aggregate event data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_984e50cb-792c-41a1-a4fc-5f030986bc2b?mode=deep",
+    "timestamp": "2026-01-10 10:41:43.456480",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyMintingCap] [Cap manipulation detection] Does the 'minting_cap' attribute lack inclusion of the previous cap value, preventing detection of suspicious cap increases that could indicate unauthorized minting preparation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2e757de-11f5-4ef7-9647-4e7af6907e10?mode=deep",
+    "timestamp": "2026-01-10 10:42:07.163101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeyDenom] [Denom spoofing] Can an attacker craft events with 'denom' attributes that contain malicious formatting (Unicode lookalikes, zero-width characters) to spoof legitimate token denoms in event-based UIs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eba8ea3e-c752-4fdb-ab6a-0867be0d4889?mode=deep",
+    "timestamp": "2026-01-10 10:42:31.508753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeKeySigner] [Signer validation bypass] Does the 'signer' attribute key lack corresponding validation logic that verifies the signer actually authorized the operation, allowing unsigned events to be emitted by module accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce6a7d78-c808-4b03-bd29-d8ad29cb36f0?mode=deep",
+    "timestamp": "2026-01-10 10:42:56.563741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: AttributeValueCategory] [Module impersonation] Can malicious modules use the same 'ModuleName' value in AttributeValueCategory to impersonate Factory module events, injecting false token creation/minting events into the blockchain event stream? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62f6d3a5-6836-464b-84fe-fb5e6a1fc412?mode=deep",
+    "timestamp": "2026-01-10 10:43:22.864402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventTypeWithdrawModuleFees] [Fee tracking bypass] Can an attacker exploit missing validation around 'withdraw_module_fees' event emission to create fake withdrawal events, manipulating fee revenue reports used in governance decisions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00260007-0125-4324-a925-61c57d1e36ba?mode=deep",
+    "timestamp": "2026-01-10 10:43:50.284736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomAuthDisabled] [Irreversibility gap] Does the 'denom_auth_disabled' event lack a corresponding 're-enable' event, causing permanent auditability loss when admin rights are disabled and later re-enabled through alternative mechanisms? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a93f42c4-3bdf-4a28-96c2-d384f5053ab3?mode=deep",
+    "timestamp": "2026-01-10 10:44:18.744906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomAuthClaimed] [Claim frontrunning] Can validators observe 'denom_auth_claimed' events in the mempool and frontrun legitimate claims, potentially stealing admin rights by claiming proposed admin transfers before the intended recipient? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6164ea2-615a-48f1-9e22-89ed729316c8?mode=deep",
+    "timestamp": "2026-01-10 10:44:46.629215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomAuthProposed] [Proposal spam] Can an attacker flood the chain with 'denom_auth_proposed' events for non-existent denoms, causing DoS in indexing systems and obscuring legitimate admin proposal events in monitoring dashboards? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ead8771d-1028-40ce-adff-3a0e8abe5908?mode=deep",
+    "timestamp": "2026-01-10 10:45:12.451184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomAuthUpdated] [Admin change tracking] Can the 'denom_auth_updated' event be emitted without corresponding state changes, allowing an attacker to create fake admin transfer records that confuse governance systems monitoring admin changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_173d9a00-f1a6-49df-a974-9796e457a804?mode=deep",
+    "timestamp": "2026-01-10 10:45:37.668778",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomMetadataUpdated] [Privacy leak] Does the 'denom_metadata_updated' event expose sensitive information (internal admin addresses, business logic) that could be used to map organizational structures and identify high-value attack targets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c4ad274-a326-4383-9bfe-d49405e78463?mode=deep",
+    "timestamp": "2026-01-10 10:46:03.789922",
+    "report_generated": false
   }
 ]
