@@ -27598,5 +27598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce08fb7e-5162-4dab-a535-edae0c0c2c21?mode=deep",
     "timestamp": "2026-01-10 16:23:08.784573",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Denom squatting] Can an attacker create denoms with names similar to popular tokens (e.g., 'coin.{addr}.usdc') to confuse users and steal funds when users send to wrong denom in DEX or IBC transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b402b8b6-dc55-41c5-9244-65aa61f031b8?mode=deep",
+    "timestamp": "2026-01-10 16:24:29.552717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Front-running denom creation] Can an attacker monitor mempool for CreateDenom transactions and front-run with identical fullDenom creation to steal desired denom names, then ransom them back to original creator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e31ff564-5133-497c-bc71-9519d3d995d4?mode=deep",
+    "timestamp": "2026-01-10 16:24:41.986386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Fee market manipulation] If CreateFeeDenom is 'uzig' and attacker controls large uzig supply, can they manipulate uzig price to make denom creation fees artificially cheap or expensive, affecting denom creation rate? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a2489ec-2ae1-4db8-9bd5-a6044d6b35f1?mode=deep",
+    "timestamp": "2026-01-10 16:24:55.120567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [No admin transfer restriction] After creation, BankAdmin can be transferred via propose/claim mechanism. Can the creator create a denom, immediately transfer admin to a victim address without their consent, then blame them for any issues with the denom? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9493aae-c4a7-46c3-91b8-5b78ffbb494a?mode=deep",
+    "timestamp": "2026-01-10 16:25:08.204975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Admin self-assignment] Creator automatically becomes BankAdmin and MetadataAdmin at lines 115-116. Can a malicious creator exploit this immediate admin power to front-run their denom creation with a minting operation in the same block? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e528f45-da1e-444b-beec-2f821b576d50?mode=deep",
+    "timestamp": "2026-01-10 16:25:22.078444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Fee as rate limit] The CreateFeeAmount at line 31 is the only rate limit for denom creation. If fees are set too low or attacker has large balance, can they spam create denoms to DoS validators with state bloat or query overload? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15bd4263-d8bf-4429-a37c-ee245385abc3?mode=deep",
+    "timestamp": "2026-01-10 16:25:37.214849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Permissionless creation] Any user with sufficient fees can create denoms. Can an attacker create thousands of spam denoms with offensive names or symbols to pollute the denom namespace and harm ZigChain's reputation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a12172b-3f88-43d2-bac1-790857127fa7?mode=deep",
+    "timestamp": "2026-01-10 16:25:53.182002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [MintingCap validation] ValidateBasic checks MintingCap > 0 at line 54 in msg_create_denom.go. But can MintingCap be set to MaxUint (unlimited), effectively bypassing cap enforcement in minting operations? Should there be an upper bound check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fac2784d-9e4e-415d-ba5b-094288b357f2?mode=deep",
+    "timestamp": "2026-01-10 16:26:11.278898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [URIHash format bypass] ValidateBasic checks URIHash is SHA256 format at line 79 in msg_create_denom.go, but doesn't verify it matches hash(URI). Can an attacker provide valid-format but incorrect hash, then claim metadata was tampered with to discredit legitimate denoms? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db783b5c-3d7b-491d-8752-1f920aeb6275?mode=deep",
+    "timestamp": "2026-01-10 16:26:29.557456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [URI validation inconsistency] ValidateBasic checks URI length (15-MaxURILength) and format at lines 62-76 in msg_create_denom.go, but CreateDenom at line 102 sets URI without revalidation. Can a malicious ValidateBasic bypass allow invalid URIs to be stored in metadata? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4cf95603-d134-46ec-9827-19fadb5edb34?mode=deep",
+    "timestamp": "2026-01-10 16:26:49.275582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Creator validation bypass] AccAddressFromBech32 at line 59 validates msg.Creator format, but this happens after GetTokenDenom at line 44 already used msg.Creator. Can a malformed creator pass GetTokenDenom but fail AccAddressFromBech32, creating denoms with invalid creators in metadata? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae1c905a-efbb-4775-97a1-e4a6b2b423db?mode=deep",
+    "timestamp": "2026-01-10 16:27:09.256326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [SubDenom validation bypass] The code assumes ValidateBasic properly validates msg.SubDenom, but only checks HasSupply at line 35 within CreateDenom. Can an attacker find edge cases in CheckSubDenomString that pass validation but cause issues in GetTokenDenom or denom parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_740b2934-d9b5-464a-96de-bd744541db51?mode=deep",
+    "timestamp": "2026-01-10 16:27:30.169051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Event size] EmitDenomCreated at line 134 includes fullDenom, MintingCap string, and other data. Can extremely long denom names or massive MintingCap values create oversized events that bloat block size or break event indexers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47dd1374-7615-43ad-b843-ed549196d76c?mode=deep",
+    "timestamp": "2026-01-10 16:27:52.148850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Metadata size] The denomMetaData struct at lines 92-104 includes user-controlled URI (up to MaxURILength from constants.go). Can an attacker create maximum-length URIs in thousands of denoms to bloat the bank metadata store? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd4a24dc-d11f-40ff-ade2-56b6cdc64774?mode=deep",
+    "timestamp": "2026-01-10 16:28:15.026773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Admin index growth] AddDenomToAdminDenomAuthList at line 121 appends to admin's denom list without bound. Can an attacker create thousands of denoms to make their admin index query (query_denom_by_admin) take excessive time and cause validator timeout? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce8d865c-ec9f-4a73-8dbb-b9bdc0fee214?mode=deep",
+    "timestamp": "2026-01-10 16:28:38.558660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [State bloat] Each CreateDenom call adds entries to multiple stores (metadata, denomAuth, denom, admin index). Can an attacker spam denom creation to cause unbounded state growth, filling up validator storage and causing consensus delays? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35264603-24e1-446a-a1e3-08206774983d?mode=deep",
+    "timestamp": "2026-01-10 16:29:02.394684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Unbounded gas consumption] The function performs multiple state reads (GetParams, HasSupply, GetDenom, HasBalance, GetDenomMetaData) and writes (SendCoins, SetDenomMetaData, SetDenomAuth, AddDenomToAdminDenomAuthList, SetDenom). Can an attacker craft inputs that maximize state access costs to DoS the chain with high gas consumption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c4cbb20-19e1-4bb4-9527-fc6424b50146?mode=deep",
+    "timestamp": "2026-01-10 16:29:26.302687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Nil pointer dereference] If msg is nil when CreateDenom is called (should be impossible via proper gRPC), accessing msg.SubDenom, msg.Creator, msg.MintingCap, etc. throughout the function causes nil pointer panics. Are there nil checks at function entry? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7046325a-df51-4088-819b-62778852bfb3?mode=deep",
+    "timestamp": "2026-01-10 16:29:50.255947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Error wrapping depth] Multiple error wraps are used (lines 37-41, 51-55, 66-70, 75, 81-85). Can deep error wrapping cause stack overflow or error message truncation in logging systems, hiding critical security information from audits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3403cbeb-65c9-44a9-8ea4-b43af20fb286?mode=deep",
+    "timestamp": "2026-01-10 16:30:15.330236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [MustUnmarshal in checks] GetDenom and GetDenomMetaData use MustUnmarshal internally. If KVStore contains corrupted data from prior bug or attack, can MustUnmarshal panic during the existence checks at lines 49 and 78, causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d76e714e-7991-4f33-81c5-96cdedb9bc8d?mode=deep",
+    "timestamp": "2026-01-10 16:30:42.393155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [MustMarshal panic] SetDenomAuth and SetDenom use k.cdc.MustMarshal internally (from denom_auth.go line 18 and k_set_denom.go line 20). Can malformed denom or denomAuth structs cause MustMarshal to panic, crashing validators when users create specially crafted denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_138659b0-70d4-47e9-b86d-dc0af49af735?mode=deep",
+    "timestamp": "2026-01-10 16:31:08.512085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Panic in helpers] If GetTokenDenom at line 44 panics due to malformed input (despite ValidateBasic), does the panic propagate and crash the validator, or is it caught and converted to an error? Can an attacker DoS validators by crafting panic-inducing inputs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7be3836f-607f-4fc8-ba10-40d95367dffe?mode=deep",
+    "timestamp": "2026-01-10 16:31:32.463930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Metadata race] Between GetDenomMetaData at line 78 and SetDenomMetaData at line 111, can another module or transaction set metadata for fullDenom, causing the SetDenomMetaData to overwrite it without detection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b02ba45-b605-4bfc-8585-1f16a7a7b8ef?mode=deep",
+    "timestamp": "2026-01-10 16:31:54.646345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Admin index race] If AddDenomToAdminDenomAuthList at line 121 is called concurrently for the same admin with different denoms, can this cause index corruption or lost entries due to non-atomic read-modify-write on the admin's denom list? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01c968a8-8593-4566-97fe-e13bcf5df266?mode=deep",
+    "timestamp": "2026-01-10 16:32:18.721492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Fee race condition] If sender balance equals exactly feeAmount, and two CreateDenom transactions execute concurrently, both can pass HasBalance at line 65 but only one succeeds at SendCoinsFromAccountToModule at line 74. Does the failed transaction properly revert its state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_313cdecc-784a-4e08-9b95-1f06e881cae9?mode=deep",
+    "timestamp": "2026-01-10 16:32:43.162798",
+    "report_generated": false
   }
 ]
