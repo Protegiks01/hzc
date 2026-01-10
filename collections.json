@@ -20398,5 +20398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53de86b6-e8b4-4976-94d7-07be8a09988c?mode=deep",
     "timestamp": "2026-01-10 19:37:43.758405",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query.go] [Interface] [Type Safety] The query.go file declares Keeper implements QueryServer. Can an attacker exploit type confusion if Keeper implements the interface incorrectly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a05892d-0e4e-4703-be0a-9344051f9d0b?mode=deep",
+    "timestamp": "2026-01-10 19:39:10.160567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Store Integration] [KVStore Corruption] If the KVStore contains corrupted denom entries, can DenomAll's unmarshal at line 52 cause validator crashes that prevent query processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1c89c3a-a546-4c4a-8c05-6af65d07e879?mode=deep",
+    "timestamp": "2026-01-10 19:39:22.568324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Store Integration] [Atomic Reads] Can non-atomic reads between GetDenom and GetDenomAuth cause race conditions where concurrent writes result in inconsistent query responses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d8d8590-1202-4258-b326-5b9b7c6f3e78?mode=deep",
+    "timestamp": "2026-01-10 19:39:35.467234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Store Integration] [Prefix Isolation] Are DenomAuth entries properly isolated by prefix, or can an attacker craft keys that read across module boundaries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50085d02-a362-48e2-923f-feb9424baddf?mode=deep",
+    "timestamp": "2026-01-10 19:39:48.672391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Store Integration] [Index Corruption] If the admin index becomes corrupted, can DenomsByAdmin return denoms that don't actually belong to the queried admin? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_962ef064-9b4b-45aa-a692-1f5691462dc6?mode=deep",
+    "timestamp": "2026-01-10 19:40:02.705563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Store Integration] [Params Corruption] Can an attacker exploit governance to set invalid params that cause Params() queries to panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa8fc977-c0a1-42fc-8b65-3c0314688ecc?mode=deep",
+    "timestamp": "2026-01-10 19:40:17.924005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [BankKeeper] [Supply Query] In calculateDenomStats at line 21, k.bankKeeper.GetSupply is called. Can a malicious denom with trillions of units cause this query to timeout or return incorrect values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a80a24c5-25bf-4e14-8d19-5cbe93e040aa?mode=deep",
+    "timestamp": "2026-01-10 19:40:33.939249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [BankKeeper] [Cross-Module Race] Can concurrent bank module operations during GetSupply cause the returned supply to be stale, leading to incorrect totalBurned calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_040548e1-ed9c-4931-8030-19c2821375bf?mode=deep",
+    "timestamp": "2026-01-10 19:40:50.979685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [BankKeeper] [Supply Manipulation] In the Denom query, can an attacker manipulate bank supply through rapid transfers to cause calculateDenomStats to return inconsistent values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d98ab471-44ec-42d5-be5f-a0c2a7e2321d?mode=deep",
+    "timestamp": "2026-01-10 19:41:09.600136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [BankKeeper] [Module Account] If the bank module has special handling for module accounts, can this cause GetSupply to return incorrect values for factory-created denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3371013f-ee8a-454d-85b1-66344f7fbdd0?mode=deep",
+    "timestamp": "2026-01-10 19:41:28.551960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Pagination] [Offset Manipulation] Can an attacker use pagination offset to skip over certain denoms, then query them individually to build a complete picture while avoiding rate limits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0672320c-6a29-419c-84de-de417ff5c7af?mode=deep",
+    "timestamp": "2026-01-10 19:41:48.668526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Pagination] [Limit Bypass] If req.Pagination.Limit is set to MaxUint64, can this bypass pagination and return all DenomAuth entries in one query? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8f1e492-3227-4055-83e8-fa0b32baf388?mode=deep",
+    "timestamp": "2026-01-10 19:42:09.500061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Pagination] [Admin Enumeration] Can an attacker use pagination to efficiently enumerate all admins by querying with different admin addresses and tracking which return non-empty results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1559c76d-8575-4eca-b8df-0e3da86bb162?mode=deep",
+    "timestamp": "2026-01-10 19:42:31.711921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Pagination] [NextKey Manipulation] Can an attacker tamper with pagination NextKey values to cause queries to skip entries or return duplicates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a125299b-6124-4f3d-af26-c9d91d5dc45e?mode=deep",
+    "timestamp": "2026-01-10 19:42:54.738429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Pagination] [Count Accuracy] Does pageRes.Total accurately reflect the total count of DenomAuth entries, or can it be manipulated to mislead clients about dataset size? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11b5ed07-41f8-4431-8861-43d3fd8c2627?mode=deep",
+    "timestamp": "2026-01-10 19:43:17.316167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Protobuf] [Version Incompatibility] At line 52, if stored denoms use an older protobuf schema, can unmarshaling succeed but populate fields with default values, causing silent data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6348dc23-d07b-4ea7-8057-9c8cf7139100?mode=deep",
+    "timestamp": "2026-01-10 19:43:40.839321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Protobuf] [Field Truncation] At line 28, if DenomAuth contains unknown fields from a future version, are they preserved or lost during unmarshal? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17ed19dc-6a80-4ca8-971b-ee1105569a61?mode=deep",
+    "timestamp": "2026-01-10 19:44:05.951087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Protobuf] [Type Mismatch] Can an attacker inject protobuf data with incorrect field types that unmarshal successfully but cause type confusion in response building? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7bf8786-00b7-427c-afdc-39fa877bc6bc?mode=deep",
+    "timestamp": "2026-01-10 19:44:31.606301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Protobuf] [Buffer Overflow] Can extremely large protobuf messages (e.g., with gigabyte-sized string fields) cause memory exhaustion during unmarshal at line 52? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d9463b6-33d6-46a1-8033-5f2f8abb6db8?mode=deep",
+    "timestamp": "2026-01-10 19:44:57.148747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Protobuf] [Malformed Data] Can an attacker inject malformed protobuf data that triggers subtle bugs in the unmarshal code path, causing incorrect but valid-looking query results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5dee68ce-02e7-49af-b4e8-650736a919d4?mode=deep",
+    "timestamp": "2026-01-10 19:45:24.317766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Error Handling] [Partial Results] If calculateDenomStats fails for some denoms but succeeds for others, does DenomAll return partial results or fail completely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf325031-d63a-44aa-b755-cf0b59b64c68?mode=deep",
+    "timestamp": "2026-01-10 19:45:51.636800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Error Handling] [Mismatch Recovery] At line 57, if denom.Denom != denomAuth.Denom is detected, is there a repair mechanism, or does the system remain in an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5f42e9e-0016-4278-82da-a51085d02c69?mode=deep",
+    "timestamp": "2026-01-10 19:46:19.104113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Error Handling] [Unmarshal Failure] At line 28, if unmarshal fails, is the error propagated correctly, or can it be swallowed leading to incorrect results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf8ae164-cd4d-4769-b261-044478a0dc6d?mode=deep",
+    "timestamp": "2026-01-10 19:46:46.355230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Error Handling] [Empty String Keys] At line 27, if key is an empty byte array, does string(key) create issues, or is it handled gracefully? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3349b9c-a782-450a-8e6b-e7ecc8793378?mode=deep",
+    "timestamp": "2026-01-10 19:47:12.550469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Error Handling] [Nil Params] If GetParams returns nil params, does the function panic or handle this gracefully? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c9f2aca-d997-4e67-908a-1b3f81629de3?mode=deep",
+    "timestamp": "2026-01-10 19:47:38.028377",
+    "report_generated": false
   }
 ]
