@@ -20098,5 +20098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4155859-cc59-4a3f-9db6-d119ca756842?mode=deep",
     "timestamp": "2026-01-10 19:18:18.970586",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Inconsistent Error Messages] The function returns different error messages for missing Denom (line 39) versus missing DenomAuth (line 52). Can an attacker use error message analysis to determine the internal state of the system and identify partial denom creations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7f704dd-528b-4b53-b1f6-c130a3a7ce7a?mode=deep",
+    "timestamp": "2026-01-10 19:19:43.348172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Cross-Module Dependency] At line 66, the function calls calculateDenomStats which depends on bankKeeper. If the bank module is in an inconsistent state, can this cause incorrect query results or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd898ff9-4725-41ed-bee4-72680041fcdc?mode=deep",
+    "timestamp": "2026-01-10 19:19:55.964557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Response Data Integrity] At lines 68-79, the function builds a QueryDenomResponse combining data from multiple sources (denom, denomAuth, calculateDenomStats). Can an attacker exploit timing to cause these values to be inconsistent with each other within the same response? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_873f7961-25e5-452c-9e4e-4470ef3c1f0d?mode=deep",
+    "timestamp": "2026-01-10 19:20:08.562092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Nil Pointer Dereference] If GetDenom at line 31 returns a Denom struct with nil fields, can accessing these fields at lines 69-76 cause a panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d16b75f8-2140-4f97-987c-dff4a2a7125c?mode=deep",
+    "timestamp": "2026-01-10 19:20:21.684629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Validator Divergence] The function at line 16 is called from multiple validators. If calculateDenomStats produces non-deterministic results (due to bankKeeper), can this cause validators to return different query results for the same denom at the same block height? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2fa34a03-706f-48de-8f8b-9fadf6bb3e40?mode=deep",
+    "timestamp": "2026-01-10 19:20:36.537756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Error Code Confusion] At lines 37, 50, and 59, the function returns codes.NotFound for different failure scenarios. Can client applications distinguish between 'denom doesn't exist', 'denomAuth doesn't exist', and 'denom mismatch' conditions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9df2f8c1-e66a-42bc-93e4-18af85d3d8e8?mode=deep",
+    "timestamp": "2026-01-10 19:20:51.886753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Access Control Leak] At line 77, the function returns BankAdmin address. At line 78, it returns MetadataAdmin. Can an attacker use this query to enumerate admin addresses for all denoms, potentially enabling targeted attacks against administrators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcc8bb3f-1325-42ea-aa5f-3a76dddc5ebf?mode=deep",
+    "timestamp": "2026-01-10 19:21:07.862808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [String Injection] At line 21, validators.CheckDenomString validates the denom string. Can an attacker craft a denom containing control characters or Unicode that passes validation but causes issues in logging, monitoring systems, or client displays? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ffe4203b-7c4e-4810-8bd0-904869530d29?mode=deep",
+    "timestamp": "2026-01-10 19:21:25.309146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Context Manipulation] The function receives a context parameter at line 15. Can an attacker exploit context manipulation to query denom state from a different block height than intended, causing historical data exposure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6efe3476-e33b-47c1-8ad6-9e2bd7d7feef?mode=deep",
+    "timestamp": "2026-01-10 19:21:44.032126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Mismatch Detection Logic] At line 57, the code checks denom.Denom != denomAuth.Denom. Is this check case-sensitive? Can an attacker create denoms with case variations that bypass this check? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f1d6954-fe58-44ec-9654-a6ab95bcd1c1?mode=deep",
+    "timestamp": "2026-01-10 19:22:02.970289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Input Validation] At line 17, the function only validates req == nil but doesn't validate Pagination parameters. Can an attacker provide negative offsets, zero limits, or extremely large limits to bypass pagination or cause integer overflows? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4d954f2-8027-4748-9ec4-9ec9c1fd4327?mode=deep",
+    "timestamp": "2026-01-10 19:22:23.364663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Deserialization Vulnerability] At line 28, k.cdc.Unmarshal is called without checking the unmarshaling result for malformed data. Can an attacker inject corrupted protobuf data into the store that causes panics when ListDenomAuth is called? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ca85da8-b95d-41b7-8e28-b330c1d890b3?mode=deep",
+    "timestamp": "2026-01-10 19:22:44.668477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Memory Exhaustion] At line 32, denomAuths are appended to a slice without bounds checking before pagination completes. If query.Paginate processes thousands of items, can this cause memory exhaustion before the pagination limit is applied? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a62b877-f438-4b65-84f0-ae9865392338?mode=deep",
+    "timestamp": "2026-01-10 19:23:07.218066",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Iterator Leak] At line 26, query.Paginate creates an iterator over denomAuthStore. If an error occurs during unmarshaling at line 28, does the iterator get properly closed, or can repeated errors cause iterator leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_133f64b1-a689-4169-9489-4a611bfd2051?mode=deep",
+    "timestamp": "2026-01-10 19:23:30.153337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Prefix Boundary Attack] At line 24, the function creates a prefix store with types.KeyPrefix(types.DenomAuthKeyPrefix). Can an attacker craft keys that cross prefix boundaries to read DenomAuth entries from other prefixes or modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61bdacd6-dcf0-4171-a164-fec166678f7e?mode=deep",
+    "timestamp": "2026-01-10 19:23:53.605272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Error Information Leak] At line 37, errors are wrapped with status.Error(codes.Internal, err.Error()). Can an attacker trigger specific error conditions to leak internal system information through error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dce26509-2b62-43ec-9ae6-05f731750066?mode=deep",
+    "timestamp": "2026-01-10 19:24:18.407204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Response Size Attack] The function returns all paginated DenomAuth entries in a single response at line 40. Can an attacker request maximum page size to create oversized responses that exceed gRPC limits or cause network congestion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c957764-0837-42da-8eb3-042985637ccd?mode=deep",
+    "timestamp": "2026-01-10 19:24:43.162664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Determinism Violation] If the KVStore iterator order is non-deterministic across validators, can different validators return DenomAuth entries in different orders, breaking query result consistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_049d9488-64e2-4673-8971-b63101e86f9d?mode=deep",
+    "timestamp": "2026-01-10 19:25:10.117724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Empty Admin Fields] The DenomAuth struct contains BankAdmin and MetadataAdmin fields. If these are empty strings, can client applications handle this correctly, or can attackers exploit confusion between 'no admin' and 'admin disabled'? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_964e3cef-b2f3-4426-8fbd-11da836dae29?mode=deep",
+    "timestamp": "2026-01-10 19:25:34.440302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Pagination State Manipulation] Can an attacker manipulate the pagination state returned in pageRes to cause clients to miss entries or retrieve duplicate entries across multiple paginated queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e7750d1-0910-4027-a7df-1c4363e1ae79?mode=deep",
+    "timestamp": "2026-01-10 19:25:59.577294",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Input Validation Bypass] At line 49, validators.CheckDenomString is called. Can an attacker craft a denom string that passes regex validation but contains path traversal characters (../) or null bytes that could exploit the KVStore lookup at line 59? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3be2232b-4263-4ee6-bcd5-6c413336abdc?mode=deep",
+    "timestamp": "2026-01-10 19:26:25.489773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Error Message Analysis] At lines 50-56, the error message includes the invalid denom string. Can an attacker use this to probe for valid denom patterns by analyzing which strings cause which error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac3c2697-c318-42ef-a3bd-a9b918c807fb?mode=deep",
+    "timestamp": "2026-01-10 19:26:52.577135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Not Found vs Not Authorized] At line 64, the function returns codes.NotFound when DenomAuth doesn't exist. Can an attacker exploit this to determine which denoms exist but lack authorization versus which denoms don't exist at all? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1888c26-9931-4984-9696-d38f59f19738?mode=deep",
+    "timestamp": "2026-01-10 19:27:19.173773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [GetDenomAuth Safety] At line 59, GetDenomAuth is called which internally checks if val.Denom ==",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c721d771-68c2-4ec6-9f3d-3199fc8755f1?mode=deep",
+    "timestamp": "2026-01-10 19:27:44.835002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Admin Address Exposure] At line 67, the function returns the full DenomAuth object including BankAdmin and MetadataAdmin addresses. Can an attacker use this to map out all administrative relationships and identify high-value targets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0fbcd9d1-07e5-4adf-8922-edf2fdedd925?mode=deep",
+    "timestamp": "2026-01-10 19:28:09.483015",
+    "report_generated": false
   }
 ]
