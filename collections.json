@@ -10648,5 +10648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_638f503b-e361-4d01-8c45-e992c02f4599?mode=deep",
     "timestamp": "2026-01-10 05:06:23.081696",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Event integrity] Can EmitRemoveLiquidityEvent at line 116 fail silently without reverting the transaction, causing event log inconsistencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3a372c5-5024-4eab-bfa0-49973079ff91?mode=deep",
+    "timestamp": "2026-01-10 05:07:40.510948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Event data] Are the pool, lptoken, and coinsOut pointers passed to EmitRemoveLiquidityEvent at line 116 guaranteed to be non-nil and valid? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_771d6c04-7192-48c4-932b-82e3fbbff626?mode=deep",
+    "timestamp": "2026-01-10 05:07:53.030011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Response validation] At lines 118-121, can the MsgRemoveLiquidityResponse contain invalid coin data if coinsOut calculation had errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81401ac2-0067-4757-9e82-f4cb221981ec?mode=deep",
+    "timestamp": "2026-01-10 05:08:05.912874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Response consistency] Does the response at lines 118-121 accurately reflect the actual tokens transferred to receiver, or can it misreport amounts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ba2f6be-dd6a-4a50-9a40-2eeaf6ecfe42?mode=deep",
+    "timestamp": "2026-01-10 05:08:19.270859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Reentrancy] Can SendFromPoolToAddress at line 86 trigger a callback to a contract that re-enters RemoveLiquidity before state updates at lines 110-114? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6590182-3c93-4b33-a6f8-2122508ed92b?mode=deep",
+    "timestamp": "2026-01-10 05:08:33.248042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Reentrancy] If receiver at line 84 is a CosmWasm contract with hooks, can it execute arbitrary code before BurnCoins at line 101, enabling liquidity drainage attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fcbb9c03-01fc-4a6e-a748-4ca65b89886a?mode=deep",
+    "timestamp": "2026-01-10 05:08:49.020204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Concurrency] Can two RemoveLiquidity transactions execute concurrently for the same pool, causing race conditions in pool state updates at lines 110-114? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4aa46ac7-958b-430d-9a49-7ca9f13acc4c?mode=deep",
+    "timestamp": "2026-01-10 05:09:05.466064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Concurrency] Is there a mutex or lock protecting pool state between GetPool at line 32 and SetPool at line 114 to prevent lost updates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d08f5642-7cc1-457a-bd03-b35d9e2b2f0c?mode=deep",
+    "timestamp": "2026-01-10 05:09:23.412468",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Edge case] Can an attacker remove liquidity when pool reserves are at minimum levels, potentially causing the pool to become dysfunctional? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13ec389b-72ba-4914-8ba9-2b3710b8105f?mode=deep",
+    "timestamp": "2026-01-10 05:09:42.135929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Edge case] If pool.LpToken.Amount becomes very small after subtraction at line 112, can subsequent AddLiquidity operations fail due to precision issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82ccaab9-3eff-48dd-bd89-745583996bab?mode=deep",
+    "timestamp": "2026-01-10 05:10:02.356551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Edge case] Can the last liquidity provider completely drain the pool at lines 110-112, and does this properly handle pool closure/deletion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e72a5508-109d-4619-8f66-c5fe4315322f?mode=deep",
+    "timestamp": "2026-01-10 05:10:23.339487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Edge case] What happens if pool.Coins[0].Amount or pool.Coins[1].Amount is zero at lines 147-148 but pool.LpToken.Amount is non-zero? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c4c8395-4d10-4e8d-8284-e3636925ca4a?mode=deep",
+    "timestamp": "2026-01-10 05:10:45.456504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Edge case] Can denom1 or denom2 at lines 147-148 be zero while the other is non-zero, allowing single-sided liquidity removal that violates AMM principles? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9694f7e7-93d0-4edb-ab40-eb060a5ddaa2?mode=deep",
+    "timestamp": "2026-01-10 05:11:08.556360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [DoS] Can an attacker spam RemoveLiquidity transactions with minimal LP tokens to exhaust gas and DoS the pool? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55161c9d-660b-49a9-beec-79296fe2cc3e?mode=deep",
+    "timestamp": "2026-01-10 05:11:32.265479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Gas] Do the operations at lines 60, 86, 101, and 114 have gas metering to prevent unlimited state access? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c1629b1-7ca8-4c79-a1ed-233d862a9b78?mode=deep",
+    "timestamp": "2026-01-10 05:11:56.953942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Computation] Can the Mul and Quo operations at lines 147-148 consume excessive gas for very large token amounts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6558563-51b0-4499-bf09-1894757df055?mode=deep",
+    "timestamp": "2026-01-10 05:12:21.407867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Error handling] If any operation fails between lines 60-114, are all state changes properly reverted, or can partial execution leave inconsistent state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0ab73ce-67e5-4516-a3a5-9b7f205687b5?mode=deep",
+    "timestamp": "2026-01-10 05:12:46.807465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Error handling] Does the error at lines 72-74 from CoinsToRemove properly revert the SendCoinsFromAccountToModule at line 60? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d5f89cd-9f38-48e3-9026-f59236b08f7e?mode=deep",
+    "timestamp": "2026-01-10 05:13:12.776396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Error handling] If SendFromPoolToAddress fails at lines 92-97, are the LP tokens already sent to module at line 60 recoverable? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd3c5eb4-1355-448a-8bd3-a66f8cd103ad?mode=deep",
+    "timestamp": "2026-01-10 05:13:38.480260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Panic handling] Can any of the operations panic (e.g., array access, arithmetic operations) without proper recovery, leaving the chain in inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9b0357a-45b6-4bff-ab4d-daae5510c708?mode=deep",
+    "timestamp": "2026-01-10 05:14:04.553919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Error propagation] Do the errors returned at lines 129-134 and 138-143 contain sufficient information for diagnosis without leaking sensitive pool data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be60199b-4b23-4b62-888b-70e87261082f?mode=deep",
+    "timestamp": "2026-01-10 05:14:31.127603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [AMM invariant] After pool state updates at lines 110-112, is the constant product formula x*y=k still satisfied for the remaining reserves? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c5e1eba-edc7-40d1-9499-8a307a42eb14?mode=deep",
+    "timestamp": "2026-01-10 05:14:58.393493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [AMM invariant] Can rounding errors in CoinsToRemove at lines 147-148 accumulate over multiple withdrawals to significantly skew the pool's price ratio? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2778776f-91bf-4582-8c79-948107282fcd?mode=deep",
+    "timestamp": "2026-01-10 05:15:24.323984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Price manipulation] Can an attacker manipulate the proportional calculation at lines 147-148 by front-running with swaps to extract more value than their fair share? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_70d06393-ef7b-44e2-963f-d1ca8adf102a?mode=deep",
+    "timestamp": "2026-01-10 05:15:50.875828",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [LP token ratio] After burning LP tokens at line 101 and updating pool at lines 110-112, does the ratio of remaining LP tokens to pool reserves stay consistent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f27cd5c-924c-471e-bd8a-19209574be84?mode=deep",
+    "timestamp": "2026-01-10 05:16:19.096974",
+    "report_generated": false
   }
 ]
