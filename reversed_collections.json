@@ -13048,5 +13048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6b27cda-b18e-40b5-83cc-4c17f8ceecd8?mode=deep",
     "timestamp": "2026-01-10 00:15:13.105141",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All keys] [Direct KVStore manipulation] Can a malicious module with KVStore access directly overwrite values at ParamsKey, OperatorAddressKey, or DecimalDifferenceKey to bypass all keeper-level validations and gain unauthorized control over the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1be6c907-960b-4075-8ddf-72cea3cd4fc2?mode=deep",
+    "timestamp": "2026-01-10 00:16:31.786766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DecimalDifferenceKey] [Race condition] Can multiple simultaneous decimal conversion operations cause concurrent writes to DecimalDifferenceKey, resulting in inconsistent scaling factors that cause precision loss or token duplication during wrap/unwrap? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08bdae4a-1fa7-44e4-b7a3-22fb4298c89c?mode=deep",
+    "timestamp": "2026-01-10 00:16:44.443767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: OperatorAddressKey, ProposedOperatorAddressKey] [TOCTOU attack] Can an attacker exploit a time-of-check-time-of-use vulnerability between reading ProposedOperatorAddressKey and writing OperatorAddressKey to inject a malicious operator address during the acceptance window? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4857128e-dc22-4e99-8210-4e3637fd8b5e?mode=deep",
+    "timestamp": "2026-01-10 00:16:57.102230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey, TotalTransferredOutKey] [Atomicity violation] Can concurrent IBC packet processing threads cause non-atomic updates to TotalTransferredInKey and TotalTransferredOutKey, resulting in double-counting or missed transfers that violate token conservation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2df3b426-aba4-4bc4-8361-6a77b1d9c4aa?mode=deep",
+    "timestamp": "2026-01-10 00:17:10.724763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: EnabledKey, PauserAddressesKey] [Race condition] Can multiple Byzantine validators simultaneously write to EnabledKey and PauserAddressesKey during the same block, causing a race condition where the bridge is paused but pauser addresses are cleared, creating an unrecoverable denial-of-service? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3ec318f-1473-4d73-818f-9ee7179677a3?mode=deep",
+    "timestamp": "2026-01-10 00:17:24.424613",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DenomKey] [Denom manipulation] Can an attacker exploit insufficient validation of the DenomKey byte prefix to store malicious denomination data that overrides the native token denom, causing the bridge to mint incorrect tokens during unwrap operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52a04360-514e-485b-aadc-bfcf3fb6530b?mode=deep",
+    "timestamp": "2026-01-10 00:17:39.136685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: NativeChannelKey, CounterpartyChannelKey] [IBC channel confusion] Can an attacker exploit byte sequence similarities between NativeChannelKey and CounterpartyChannelKey to cause channel ID confusion, routing IBC packets to incorrect channels and enabling cross-chain token theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_650c7dec-8ffe-4d3c-ade1-30a16d548b4e?mode=deep",
+    "timestamp": "2026-01-10 00:17:55.108024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: OperatorAddressKey, ProposedOperatorAddressKey] [Access control bypass] Can an attacker craft a specially formatted address that when stored under OperatorAddressKey collides with ProposedOperatorAddressKey, allowing immediate operator privilege escalation without the proposal/acceptance flow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1ad8dd8-57c5-4c3d-8157-b79f394013d3?mode=deep",
+    "timestamp": "2026-01-10 00:18:11.980553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey, TotalTransferredOutKey] [State inconsistency] Can a malicious validator manipulate the byte prefixes of TotalTransferredInKey and TotalTransferredOutKey to cause key collisions during concurrent IBC transfers, resulting in incorrect transfer accounting that breaks token conservation invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92e16109-c489-4266-8623-5841bae5331e?mode=deep",
+    "timestamp": "2026-01-10 00:18:30.141377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: Lines 18-38] [Key collision] Can an attacker exploit potential byte sequence collisions between ParamsKey and other store keys to overwrite critical module parameters, causing state corruption that breaks decimal conversion logic and enables cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb3340e8-f53f-473c-bf0a-ea1e319962bb?mode=deep",
+    "timestamp": "2026-01-10 00:18:49.931781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All keys] [Direct KVStore manipulation] Can a malicious module with KVStore access directly overwrite values at ParamsKey, OperatorAddressKey, or DecimalDifferenceKey to bypass all keeper-level validations and gain unauthorized control over the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f728c0f5-c303-4cf6-90a6-a3e2f4db0db2?mode=deep",
+    "timestamp": "2026-01-10 00:19:09.880215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DecimalDifferenceKey] [Race condition] Can multiple simultaneous decimal conversion operations cause concurrent writes to DecimalDifferenceKey, resulting in inconsistent scaling factors that cause precision loss or token duplication during wrap/unwrap? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c36c24f-63a3-4bb2-98da-5f6ff5c1ce8d?mode=deep",
+    "timestamp": "2026-01-10 00:19:30.736254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: OperatorAddressKey, ProposedOperatorAddressKey] [TOCTOU attack] Can an attacker exploit a time-of-check-time-of-use vulnerability between reading ProposedOperatorAddressKey and writing OperatorAddressKey to inject a malicious operator address during the acceptance window? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0149de54-b0ea-4780-a8fe-d6aaa010ce47?mode=deep",
+    "timestamp": "2026-01-10 00:19:52.635999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey, TotalTransferredOutKey] [Atomicity violation] Can concurrent IBC packet processing threads cause non-atomic updates to TotalTransferredInKey and TotalTransferredOutKey, resulting in double-counting or missed transfers that violate token conservation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e9144ed-8f3b-4286-9e01-6b93cc80ca63?mode=deep",
+    "timestamp": "2026-01-10 00:20:15.039129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: EnabledKey, PauserAddressesKey] [Race condition] Can multiple Byzantine validators simultaneously write to EnabledKey and PauserAddressesKey during the same block, causing a race condition where the bridge is paused but pauser addresses are cleared, creating an unrecoverable denial-of-service? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ba5d994-14cf-475d-b84c-e29ab2b0ef00?mode=deep",
+    "timestamp": "2026-01-10 00:20:38.112622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DenomKey] [Denom manipulation] Can an attacker exploit insufficient validation of the DenomKey byte prefix to store malicious denomination data that overrides the native token denom, causing the bridge to mint incorrect tokens during unwrap operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a55ad8b-7db3-467c-a971-025591c93d82?mode=deep",
+    "timestamp": "2026-01-10 00:21:02.035673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: NativeChannelKey, CounterpartyChannelKey] [IBC channel confusion] Can an attacker exploit byte sequence similarities between NativeChannelKey and CounterpartyChannelKey to cause channel ID confusion, routing IBC packets to incorrect channels and enabling cross-chain token theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c4f91df-2faa-4d1e-aeeb-bf3c9f8578d6?mode=deep",
+    "timestamp": "2026-01-10 00:21:25.368588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: OperatorAddressKey, ProposedOperatorAddressKey] [Access control bypass] Can an attacker craft a specially formatted address that when stored under OperatorAddressKey collides with ProposedOperatorAddressKey, allowing immediate operator privilege escalation without the proposal/acceptance flow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d06cf658-f7d5-4935-89cb-24071317d8ee?mode=deep",
+    "timestamp": "2026-01-10 00:21:49.014809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey, TotalTransferredOutKey] [State inconsistency] Can a malicious validator manipulate the byte prefixes of TotalTransferredInKey and TotalTransferredOutKey to cause key collisions during concurrent IBC transfers, resulting in incorrect transfer accounting that breaks token conservation invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_edde0c21-7bf8-4cb2-a60d-033973b1a85b?mode=deep",
+    "timestamp": "2026-01-10 00:22:11.092404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: Lines 18-38] [Key collision] Can an attacker exploit potential byte sequence collisions between ParamsKey and other store keys to overwrite critical module parameters, causing state corruption that breaks decimal conversion logic and enables cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9d6993c-b387-484c-8a68-34353576ec97?mode=deep",
+    "timestamp": "2026-01-10 00:22:33.153212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings\n\n### Citations\n\n**File:** x/tokenwrapper/keeper/msg_server_update_ibc_settings.go (L1-59)\n```go\npackage keeper\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c62a803-e7ba-4d58-8249-6192c65f330b?mode=deep",
+    "timestamp": "2026-01-10 00:22:55.406377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Parameter validation] Can an attacker pass extremely long strings for NativeClientId, CounterpartyClientId, etc. to cause excessive gas consumption or storage exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de7fcd34-da1a-4f4f-9d15-8c818655a920?mode=deep",
+    "timestamp": "2026-01-10 00:23:18.359705",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Client validation] If the client IDs don't form a valid counterparty pair (i.e., client A doesn't connect to client B), can this be exploited to cause packet routing failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4469376-4bb4-4176-8177-896d2dcf9673?mode=deep",
+    "timestamp": "2026-01-10 00:23:42.345505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Client validation] Can client IDs be set to clients that have been frozen due to misbehavior detection, allowing Byzantine validators to bypass security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_186606e0-1924-4f76-aaff-530cd120a423?mode=deep",
+    "timestamp": "2026-01-10 00:24:06.746666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Client validation] Does the function validate that the client IDs correspond to the correct client type (e.g., 07-tendermint), or can incompatible client types be set? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e185921-31ec-4170-95d3-e831ba30d0ad?mode=deep",
+    "timestamp": "2026-01-10 00:24:31.114286",
+    "report_generated": false
   }
 ]
