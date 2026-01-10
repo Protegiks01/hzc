@@ -30448,5 +30448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cdabfc6-1e13-4c41-b893-d1708981c841?mode=deep",
     "timestamp": "2026-01-10 19:29:37.477569",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Store adapter overhead] Does runtime.KVStoreAdapter() introduce additional overhead or caching behavior that could be exploited for gas griefing attacks where actual cost exceeds charged gas? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ba00b81-795c-4bdf-9a1b-0eda63c61771?mode=deep",
+    "timestamp": "2026-01-10 19:31:09.317366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Unmarshal gas] Does MustUnmarshal() charge gas proportional to the size of the protobuf data? Can an attacker store a huge Denom struct (via SetDenom) that causes GetDenom() to consume excessive gas during deserialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f68ef281-e206-4280-bd50-e983b45d47d4?mode=deep",
+    "timestamp": "2026-01-10 19:31:21.855800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Gas metering] Does the store.Get() operation on line 22 properly charge gas for disk I/O? Can an attacker query GetDenom() for a denom with extremely long name, causing excessive gas consumption that's not properly metered? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_736550f3-bfc3-4916-8a66-6e88650649bf?mode=deep",
+    "timestamp": "2026-01-10 19:31:34.504850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Codec changes] If the binary codec (k.cdc) is replaced with a different encoding scheme (e.g., switching from protobuf to amino), will GetDenom()'s MustUnmarshal() panic on existing data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e62515f7-1843-48ad-8059-d05e43d009fd?mode=deep",
+    "timestamp": "2026-01-10 19:31:47.983173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Migration race] During V2Migration() in k_set_denom.go, if GetDenom() is called before migration completes, can this return found=false for legacy denoms, causing the migration logic to skip them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e27412fc-d458-40f9-8d93-ed028c99b429?mode=deep",
+    "timestamp": "2026-01-10 19:32:02.872527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Backward compatibility] If a chain upgrade changes the DenomKeyPrefix from 'Denom/value/' to a different prefix, will GetDenom() still be able to read old denoms, or will all existing tokens become inaccessible? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daea4e6e-4625-4270-9ea2-15136045f845?mode=deep",
+    "timestamp": "2026-01-10 19:32:17.943794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Schema evolution] If the Denom protobuf schema adds required fields in a future version, will GetDenom()'s MustUnmarshal() fail when reading old data that lacks these fields, causing chain halt during upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b938c1f0-01b4-46a9-b08e-5be2e3540f71?mode=deep",
+    "timestamp": "2026-01-10 19:32:34.064395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Memory store] If k.storeService returns a transient or memory store instead of persistent store (due to configuration error), can GetDenom() return found=false for denoms that exist in persistent state, causing state divergence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17912c18-6d15-48c2-8a2a-a2dc6d0dabfe?mode=deep",
+    "timestamp": "2026-01-10 19:32:51.136884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Store isolation] Does the prefix store created on line 20 properly isolate reads from other modules? Can a concurrent write from another module's keeper corrupt the prefix store's iterator state during GetDenom() execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6369fed6-5dc6-4f72-81c5-cc445a2d8d0f?mode=deep",
+    "timestamp": "2026-01-10 19:33:09.751258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Prefix iteration] If an attacker creates denoms with names that start with 'Denom/value/', can this cause GetDenom() to accidentally iterate into nested prefixes, returning wrong denom data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8e8a321-7ae7-4ab4-92c4-fb349286ed82?mode=deep",
+    "timestamp": "2026-01-10 19:33:29.136309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Prefix boundary] Does prefix.NewStore() properly enforce that all accessed keys start with 'Denom/value/', or can DenomKey() generate a key that starts with 'Denom/valu' (missing 'e/') and access a different namespace? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35f7f7fd-3990-4647-9a0a-36c739f70185?mode=deep",
+    "timestamp": "2026-01-10 19:33:49.436217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Staking integration] If factory tokens are used as staking tokens (via governance proposal) and GetDenom() is used to validate delegation amounts, can an attacker exploit minting cap changes during unbonding period to dilute delegator stakes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4dbb83d-bf06-4438-adb3-dbba0cc4965d?mode=deep",
+    "timestamp": "2026-01-10 19:34:11.082499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [CosmWasm query] If a CosmWasm contract queries GetDenom() via custom query plugin, can the contract use outdated denom data due to query gas limits causing incomplete reads, then execute based on incorrect state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_625247da-4848-406a-9721-4ec45ffbadd7?mode=deep",
+    "timestamp": "2026-01-10 19:34:33.775389",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [TokenWrapper interaction] If TokenWrapper module wraps/unwraps factory tokens and calls GetDenom() for validation, can an attacker exploit decimal conversion differences between the wrapped and factory token, causing loss of precision that accumulates to significant value theft? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_500193d2-e889-4472-b29f-7b476059d8c4?mode=deep",
+    "timestamp": "2026-01-10 19:34:56.805625",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [DEX integration] If the DEX module calls GetDenom() to validate factory tokens in liquidity pools, but doesn't check the CanChangeMintingCap flag, can an attacker create a pool with a denom whose cap can be changed, then inflate supply mid-pool to drain liquidity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_355b3a94-2204-4663-a843-fafb57154fed?mode=deep",
+    "timestamp": "2026-01-10 19:35:20.455702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Bank module sync] If GetDenom() returns a denom but the bank module doesn't have corresponding metadata (due to race condition or bug), can this cause MintAndSendTokens() to mint bank coins without proper metadata, creating 'ghost tokens'? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b876826e-3606-4a14-8fa6-897030cebba7?mode=deep",
+    "timestamp": "2026-01-10 19:35:46.160469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Boolean return] The 'found bool' return value is easy to ignore in Go - if calling code forgets to check 'found' and uses the returned Denom unconditionally, can this lead to operations on non-existent denoms that corrupt state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_207ff5ea-724b-48ee-a479-3743f35d3d84?mode=deep",
+    "timestamp": "2026-01-10 19:36:13.255624",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Zero value confusion] If GetDenom() returns found=false, the returned Denom is zero-initialized - can calling code accidentally use this zero-value Denom (with Creator='', Minted=0, MintingCap=0) as if it were valid, leading to division by zero or other arithmetic errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_038ec203-f7fa-45e3-80fe-46826220f612?mode=deep",
+    "timestamp": "2026-01-10 19:36:39.298503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Error propagation] Since GetDenom() returns (Denom, bool) without an error parameter, how do callers distinguish between 'denom not found' and 'storage error occurred'? Can attackers exploit this ambiguity to cause improper error handling in calling code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2d6041f-c829-40a8-9a22-1b3b98dcebe3?mode=deep",
+    "timestamp": "2026-01-10 19:37:04.580004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Partial read] If store.Get() returns incomplete bytes due to corruption (e.g., only first half of protobuf message), will MustUnmarshal() panic or silently create a partially initialized Denom struct with zero values for missing fields? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf1111f6-5dd9-40ac-af54-c04d7a9b7bb5?mode=deep",
+    "timestamp": "2026-01-10 19:37:28.856321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Silent failure] If store.Get() encounters a disk I/O error but returns nil without indicating error, GetDenom() will return found=false - can an attacker exploit this to create duplicate denoms during disk failure events? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cc41a495-370b-48e2-9c7c-6619969f4e33?mode=deep",
+    "timestamp": "2026-01-10 19:37:53.448530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [GRPC reflection] Can an attacker use gRPC reflection to call GetDenom() with specially crafted contexts or parameters that bypass normal validation in query_denom_get.go, accessing denoms they shouldn't be able to query? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7ed98ea-7d6a-460f-9dc6-122eb14aa072?mode=deep",
+    "timestamp": "2026-01-10 19:38:18.551803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Query caching] If RPC nodes cache GetDenom() results for performance, can an attacker exploit stale cache data to observe denom state that no longer exists, using this to craft transactions that will fail but appear valid in simulation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_693f2e69-ec91-4cf5-85d1-710c0320c370?mode=deep",
+    "timestamp": "2026-01-10 19:38:43.658480",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Information disclosure] Since GetDenom() returns the full Denom struct including Creator address and minting information, can an attacker use this to enumerate all token creators and their minting patterns, enabling targeted social engineering or front-running attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a73eefb2-f214-4970-be30-e58e7ebcad64?mode=deep",
+    "timestamp": "2026-01-10 19:39:07.518365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Query DoS] Can an attacker spam the RPC endpoint that calls GetDenom() (via query_denom_get.go) with thousands of requests for non-existent denoms, causing store.Get() to repeatedly search the entire keyspace and consuming excessive I/O resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25b87026-6848-43e3-8cb1-d6cad50bd692?mode=deep",
+    "timestamp": "2026-01-10 19:39:32.559710",
+    "report_generated": false
   }
 ]
