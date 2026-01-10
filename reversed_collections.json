@@ -13798,5 +13798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0786abdb-590f-4425-8ccc-bede48eff04c?mode=deep",
     "timestamp": "2026-01-10 01:03:05.434187",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Signature verification] Is msg.Signer properly verified against the transaction signature, or can an attacker forge signer fields in the message body? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56a8e6b4-096a-481b-aac3-c9663875d70f?mode=deep",
+    "timestamp": "2026-01-10 01:04:31.506439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Address format] Does the function validate msg.Signer is a valid Bech32 address before comparison, or can malformed addresses bypass checks through string comparison? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30cb30a4-0e1e-455a-ac65-f97cb42c9f6a?mode=deep",
+    "timestamp": "2026-01-10 01:04:44.116632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Max height] At maximum block height (near uint64 overflow), can EnableTokenWrapper() cause integer overflow issues in event indexing or state storage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_208757e9-afd6-4d16-af83-ee6dfdaa7054?mode=deep",
+    "timestamp": "2026-01-10 01:04:56.857498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [State default] What is the default enabled state if SetEnabled() has never been called, and can this default be exploited during initial deployment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7362e093-b58f-4e8e-821f-2594810baf4e?mode=deep",
+    "timestamp": "2026-01-10 01:05:09.988033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Repeated calls] If EnableTokenWrapper() is called 1000 times in a single block by the operator, does each call properly validate authorization and state, or are there shortcuts that create vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c61fff1-b979-428e-9dc2-9c027fdefdde?mode=deep",
+    "timestamp": "2026-01-10 01:05:24.008616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [State rollback] During emergency chain rollback to a previous height, if EnableTokenWrapper() was called after that height, can its effects persist causing state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38c13c4b-ed09-4de4-aebe-01d85b36e46f?mode=deep",
+    "timestamp": "2026-01-10 01:05:38.913734",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Transaction rollback] If the transaction containing EnableTokenWrapper() is rolled back due to subsequent transaction failures in the same block, is the enabled state properly reverted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9143bd1-e087-49a6-a1cf-05e6b9457688?mode=deep",
+    "timestamp": "2026-01-10 01:05:54.926085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Multi-chain bridge] If ZigChain bridges to multiple chains, does enabling apply to all bridges uniformly, or can it create chain-specific enabled states causing confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca2ae05c-0db4-441a-b327-9072ec144d1d?mode=deep",
+    "timestamp": "2026-01-10 01:06:12.405971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Axelar integration] Can enabling the wrapper while Axelar chain is unreachable cause IBC timeouts that permanently lock tokens in the module wallet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3dc0b00-03fe-4f85-a6a6-008242ae9e30?mode=deep",
+    "timestamp": "2026-01-10 01:06:30.357598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Monitoring alerts] If multiple EnableTokenWrapper() calls occur rapidly, does this indicate a potential security incident (operator key compromise), and should it trigger alerts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e66e50c1-ad0d-4386-8c29-287fe1f67f70?mode=deep",
+    "timestamp": "2026-01-10 01:06:50.539425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Off-chain indexing] Can the tokenwrapper_enabled event be emitted without actually enabling the module (through store write failures), causing off-chain systems to incorrectly route transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45521efa-8f83-4d65-af20-4f86f95d75cc?mode=deep",
+    "timestamp": "2026-01-10 01:07:11.143907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Store writes] Does SetEnabled() perform redundant writes when the module is already enabled, and can this be exploited for state bloat attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38c239a1-b4e0-43e0-8e30-fd628fb907ab?mode=deep",
+    "timestamp": "2026-01-10 01:07:32.175150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Gas cost] What is the gas cost of EnableTokenWrapper(), and can an attacker spam it (even though unauthorized) to consume validator resources processing authorization failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_969cfb14-4c92-4120-9f37-4156395ad3be?mode=deep",
+    "timestamp": "2026-01-10 01:07:53.398485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [State migration] If the enabled state format changes during an upgrade (e.g., from []byte{0/1} to bool), can old EnableTokenWrapper() calls corrupt the new format? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a40b4a9e-bc34-4e3c-8f18-f2192c190c18?mode=deep",
+    "timestamp": "2026-01-10 01:08:16.603470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Chain upgrade] During a chain upgrade, if EnableTokenWrapper() is called before state migration completes, can it corrupt the new state schema? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54c0a6d8-273c-43e0-865e-fdfa12fb1e6d?mode=deep",
+    "timestamp": "2026-01-10 01:08:40.605006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [IBC transfer module] Does enabling synchronize with the IBC transfer module state, or can they have conflicting enabled/disabled states causing transfer failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55c862bd-ebc5-44c8-bfd3-ae85f8724129?mode=deep",
+    "timestamp": "2026-01-10 01:09:05.076505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Bank module dependency] Can enabling the wrapper while the bank module is malfunctioning cause cascading failures in token locking/unlocking operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e1344a1-4c6a-4c20-a5af-1f668d53f3c0?mode=deep",
+    "timestamp": "2026-01-10 01:09:30.523324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [First enable] On the first call to EnableTokenWrapper(), are all prerequisites (IBC settings, operator address, decimal_difference) properly validated before allowing enablement? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87309409-a5f7-4230-b700-952506ab83f2?mode=deep",
+    "timestamp": "2026-01-10 01:09:55.953219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Genesis state] If the module is enabled during genesis initialization before operator address is set, can anyone disable it since GetOperatorAddress() returns empty string? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f73c5e12-c06c-4fa1-b37b-cccb396c6714?mode=deep",
+    "timestamp": "2026-01-10 01:10:22.043962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Balance validation] Can an attacker enable the wrapper knowing the module wallet is about to be drained, creating a time-window where enabled state is true but operations fail due to insufficient funds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65a516f4-ce14-4339-aca3-6398a4ea2323?mode=deep",
+    "timestamp": "2026-01-10 01:10:49.574448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Module wallet] Does EnableTokenWrapper() verify that the module wallet has sufficient native ZIG tokens before enabling, or can it enable with empty balances causing all wrap operations to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5577c3e1-2a11-4ab4-8d71-72538250481d?mode=deep",
+    "timestamp": "2026-01-10 01:11:15.475787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Conversion factor] If GetDecimalConversionFactor() returns zero or an invalid value, can enabling the module cause division-by-zero panics in subsequent token operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_93a9877a-094a-4846-8177-7e757b99fb18?mode=deep",
+    "timestamp": "2026-01-10 01:11:40.060077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [IBC channel state] Can enabling the wrapper while IBC channels are in CLOSED or INIT state cause packet processing failures that trap tokens permanently in the module wallet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43c63bcb-cbd1-44d9-85a8-f1984884c33b?mode=deep",
+    "timestamp": "2026-01-10 01:12:04.215491",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Decimal conversion initialization] When enabling the module, are decimal conversion parameters (decimal_difference) validated, or can enabling with misconfigured decimals cause immediate token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8f1b470-dce9-462d-aed5-70b7f013eaec?mode=deep",
+    "timestamp": "2026-01-10 01:12:26.814615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Response validation] Does the response correctly reflect the actual enabled state from storage, or does it hardcode Enabled: true, potentially misrepresenting failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21b3ec99-560e-4093-a309-fb8848a8e522?mode=deep",
+    "timestamp": "2026-01-10 01:12:50.406811",
+    "report_generated": false
   }
 ]
