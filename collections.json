@@ -11398,5 +11398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d2af576-230c-418a-aa45-64ce8fd8eccd?mode=deep",
     "timestamp": "2026-01-10 05:55:03.567824",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Response Data] Can an attacker exploit the response construction to inject malicious data that causes issues in client applications parsing the response? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03d3eb91-2dfc-47bf-84d2-61708305c5ae?mode=deep",
+    "timestamp": "2026-01-10 05:56:21.946609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Gas Manipulation] Can an attacker craft swap parameters that cause excessive computation in CalculateSwapExactOutAmount, enabling gas-based denial-of-service attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6e9808c-50a5-4413-b56b-8f2bb7f2dd64?mode=deep",
+    "timestamp": "2026-01-10 05:56:34.259967",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Denom Resolution] Can an attacker exploit the baseCoin/quoteCoin index assignment to cause incorrect calculations when pool denoms are ambiguous or reordered? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd2ef6c0-aae3-4e82-9be5-efc52d60d002?mode=deep",
+    "timestamp": "2026-01-10 05:56:47.288587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Constant Product] Can an attacker exploit the K = pool.Coins[baseCoin].Amount.Mul(pool.Coins[quoteCoin].Amount) multiplication to cause overflow when both reserves are at maximum? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c12770ad-31d7-4720-bc9b-a8448af3025d?mode=deep",
+    "timestamp": "2026-01-10 05:57:00.505842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Fee Parameter] Can an attacker exploit the uint32 to int64 conversion of pool.Fee to cause unexpected behavior with very large fee values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d96a916-58a4-4bd7-8669-99709ba03176?mode=deep",
+    "timestamp": "2026-01-10 05:57:14.122853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Scaling Factor] Can an attacker exploit the PoolFeeScalingFactor constant to manipulate fee calculations if the value is misconfigured in deployment? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7eb05466-c801-47b2-84c6-5e1192fb3779?mode=deep",
+    "timestamp": "2026-01-10 05:57:29.070674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Reserve Comparison] Can an attacker exploit the outgoingQuote.Amount.GTE(pool.Coins[quoteCoin].Amount) check to drain the pool by requesting an outgoing amount exactly equal to reserves? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6917638-5cf9-4371-b5fd-491dfa484608?mode=deep",
+    "timestamp": "2026-01-10 05:57:44.462435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Reserve Deduction] Can an attacker exploit the newQuoteTokenBalance = pool.Coins[quoteCoin].Amount.Sub(outgoingQuote.Amount) to cause precision loss when amounts are very close? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b689406-c579-4983-b479-2b0b27ded5c5?mode=deep",
+    "timestamp": "2026-01-10 05:58:01.061835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Positivity Validation] Can an attacker bypass the newQuoteTokenBalance.IsPositive() check by exploiting overflow that wraps to positive values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b642325-fdab-405d-a58c-394c76b59408?mode=deep",
+    "timestamp": "2026-01-10 05:58:18.879473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Division Operation] Can an attacker exploit the newBaseTokenBalance = K.Quo(newQuoteTokenBalance) division to cause panic or incorrect results when newQuoteTokenBalance is near zero? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8267e35-93ac-4aaf-94eb-d7175583282d?mode=deep",
+    "timestamp": "2026-01-10 05:58:37.980241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [After-Fee Calculation] Can an attacker exploit the incomingAfterFee = newBaseTokenBalance.Sub(pool.Coins[baseCoin].Amount) to cause underflow if newBaseTokenBalance is less than current reserves? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f155431-edca-4d28-a093-8df65ba435d0?mode=deep",
+    "timestamp": "2026-01-10 05:58:57.736462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Fee Formula] Can an attacker exploit the reverse fee calculation incomingBase = incomingAfterFee * scale / (scale - fee) to cause overflow or precision loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3225b7e-df82-46e6-81d3-dc86b97b645f?mode=deep",
+    "timestamp": "2026-01-10 05:59:18.485761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Denominator Safety] Can an attacker exploit the denominator = scalingFactor.Sub(feeRatePerHundredThousand) to cause division by zero when fee equals scaling factor? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dde50059-4697-480f-bbf1-a1c374d9a62b?mode=deep",
+    "timestamp": "2026-01-10 05:59:40.574565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Fee Multiplication] Can an attacker exploit the incomingBase = incomingAfterFee.Mul(scalingFactor).Quo(denominator) to cause integer overflow in multiplication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26a11af6-d2a7-425e-bf92-e5a370f041b3?mode=deep",
+    "timestamp": "2026-01-10 06:00:03.154030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Fee Recalculation] Can an attacker exploit the feeAmount = incomingBase.Mul(feeRatePerHundredThousand).Quo(scalingFactor) to introduce rounding errors that benefit the attacker? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e29e846-1f95-4f2f-9adf-2b960c784fc2?mode=deep",
+    "timestamp": "2026-01-10 06:00:27.217597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Minimum Fee] Can an attacker exploit the minimum fee enforcement to execute swaps where calculated fees are less than MinSwapFee but incoming amount is also below minimum? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_500555b9-c706-486b-bdb7-d61dd8581ced?mode=deep",
+    "timestamp": "2026-01-10 06:00:51.762975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Fee Adjustment] Can an attacker exploit the fee adjustment logic to execute multiple small swaps that avoid minimum fee requirements through batching? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dff7035e-bafb-431f-987e-b3790d591538?mode=deep",
+    "timestamp": "2026-01-10 06:01:16.850979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Coin Construction] Can an attacker exploit the feeBaseCoin and incomingBaseCoin construction to inject invalid denoms or amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4bf04eca-3ff3-4d69-8101-8fff57d69121?mode=deep",
+    "timestamp": "2026-01-10 06:01:43.074978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Zero Amount] Can an attacker exploit the incomingBaseCoin.IsZero() check to execute swaps requiring zero input but still receiving output tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66508328-9192-4af1-ab14-a80896513386?mode=deep",
+    "timestamp": "2026-01-10 06:02:10.545825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Negative Amount] Can an attacker craft parameters that result in negative incomingBaseCoin amounts that bypass validation checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7341e41a-785d-49b5-af3c-c689d12a6726?mode=deep",
+    "timestamp": "2026-01-10 06:02:39.103836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Return Error] Can an attacker exploit improper error handling where the function returns partial results before encountering errors, leading to inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f42a273-4e17-49e8-a184-fac38dfc65ed?mode=deep",
+    "timestamp": "2026-01-10 06:03:06.398582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Integration] Can an attacker alternate between SwapExactIn and SwapExactOut calls to exploit different rounding behaviors and accumulate small profits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1ffe287-0573-4706-99ce-498b88037c11?mode=deep",
+    "timestamp": "2026-01-10 06:03:33.902575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [AMM Invariant] Can an attacker execute a sequence of swaps that violates the constant product formula x*y=k due to accumulated rounding errors? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0659aef4-e9c8-409e-b092-dc920c9b64c4?mode=deep",
+    "timestamp": "2026-01-10 06:03:59.624772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Pool Manipulation] Can an attacker manipulate pool reserves by executing large swaps followed by liquidity additions/removals to create arbitrage opportunities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e91760e-3e4a-45b0-b867-26daf0d048e9?mode=deep",
+    "timestamp": "2026-01-10 06:04:25.135149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Fee Inconsistency] Can an attacker exploit differences in fee calculation between exact-in and exact-out swaps to minimize fees paid? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20af9cf4-9d48-4fb4-b8bf-1a490eaaade2?mode=deep",
+    "timestamp": "2026-01-10 06:04:52.092981",
+    "report_generated": false
   }
 ]
