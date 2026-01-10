@@ -20698,5 +20698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27a038cc-9f74-409c-924b-aa6ef9c49081?mode=deep",
     "timestamp": "2026-01-10 19:57:35.631046",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Empty proposal] Can an attacker propose empty strings for BankAdmin and MetadataAdmin to effectively disable admin functionality when claimed, locking the denom permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7005948b-2725-49f0-978b-8bc5d85336b9?mode=deep",
+    "timestamp": "2026-01-10 19:58:57.837974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Prefix collision] Does ProposedDenomAuthKeyPrefix at line 48 adequately separate proposed entries from regular DenomAuth entries, or can key overlap cause proposals to overwrite active authorizations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4e49cf7-ddeb-4b86-9eb8-3af41402570c?mode=deep",
+    "timestamp": "2026-01-10 19:59:10.111058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Serialization reordering] Can differences in protobuf serialization order between SetProposedDenomAuth and GetProposedDenomAuth cause data corruption where proposals become unreadable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_323f4870-53d4-4995-9bc4-d04bae987f05?mode=deep",
+    "timestamp": "2026-01-10 19:59:22.743061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Admin index missing] SetProposedDenomAuth doesn't update the admin index (AddDenomToAdminDenomAuthList). Can this cause the proposed admin to be invisible in admin queries, breaking the proposal workflow? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e69e8c4-7920-47e2-8ab8-2f9b9bdc91b3?mode=deep",
+    "timestamp": "2026-01-10 19:59:36.181257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Gas exhaustion] Can an attacker propose admin changes for thousands of denoms in a single transaction to exhaust block gas limits and prevent other legitimate transactions from executing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d597be3-5b7a-409c-a403-a2b9c2c100a9?mode=deep",
+    "timestamp": "2026-01-10 19:59:49.816801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Duplicate proposals] Can multiple proposals exist for the same denom simultaneously if SetProposedDenomAuth is called from different transactions in the same block, creating claim ambiguity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e474a9dd-aa10-4e2d-84f7-9ed29abf37e5?mode=deep",
+    "timestamp": "2026-01-10 20:00:04.901125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Marshal determinism] Is the MustMarshal operation deterministic? If two validators serialize the same DenomAuth differently, could this cause consensus failures when comparing state roots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_572593c6-db1c-4236-a153-7f21f4f17670?mode=deep",
+    "timestamp": "2026-01-10 20:00:20.505933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Missing authorization] Does DeleteProposedDenomAuth verify that the caller is authorized to delete the proposal, or can any address cancel any proposal, enabling griefing attacks on admin transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c567c961-348f-4afd-b412-b7b75f9f7f88?mode=deep",
+    "timestamp": "2026-01-10 20:00:37.854637",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Race condition] Can an attacker front-run a legitimate ClaimDenomAdmin transaction with a DeleteProposedDenomAuth call to cancel the claim and maintain control as the current admin? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb569d7b-5c7a-4e1f-819e-09c588f4fdfa?mode=deep",
+    "timestamp": "2026-01-10 20:00:56.046718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Silent failure] If DeleteProposedDenomAuth is called for a non-existent proposal, does it fail silently, potentially masking errors in the admin transfer workflow? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f9b768c9-6f11-48ce-94ac-669a9773003a?mode=deep",
+    "timestamp": "2026-01-10 20:01:15.595673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Key mismatch] Can an attacker exploit key generation differences between SetProposedDenomAuth and DeleteProposedDenomAuth to create undeletable proposals that lock the admin transfer process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf7b9d0d-7f6a-4aca-b688-903d52be7936?mode=deep",
+    "timestamp": "2026-01-10 20:01:35.437699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Store corruption] If the store.Delete operation fails partially (e.g., due to disk issues), can this leave the store in an inconsistent state where the proposal is partially deleted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_050599d0-967c-42a0-98b8-42e637370405?mode=deep",
+    "timestamp": "2026-01-10 20:01:56.001527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Admin index cleanup] DeleteProposedDenomAuth doesn't remove the proposed admin from the admin index. Can this cause stale entries in admin queries, showing admins who never actually claimed their roles? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30f38518-b379-46d1-a4ff-4424fcdffede?mode=deep",
+    "timestamp": "2026-01-10 20:02:18.550159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Replay attack] After a proposal is deleted, can an attacker replay the original SetProposedDenomAuth transaction to recreate the proposal with the same parameters, bypassing time-based restrictions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4156546-9457-43c3-b693-e4f32f245107?mode=deep",
+    "timestamp": "2026-01-10 20:02:41.805337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Multiple deletes] If DeleteProposedDenomAuth is called multiple times for the same denom in quick succession, can this cause unexpected behavior or resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b60fe9a9-b86c-40c8-a55d-b7a8950febb0?mode=deep",
+    "timestamp": "2026-01-10 20:03:05.188465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Transaction ordering] Can the order of DeleteProposedDenomAuth and ClaimDenomAdmin transactions within the same block create race conditions where claims succeed despite deletion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8362a8b9-6068-4973-8763-ce25785a789b?mode=deep",
+    "timestamp": "2026-01-10 20:03:29.685503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DeleteProposedDenomAuth()] [Prefix isolation] Does the prefix.NewStore properly isolate ProposedDenomAuth deletions, or can a maliciously crafted denom name cause deletion of entries from other stores? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd623a0c-c9ba-48ed-a35b-c35df27bdec2?mode=deep",
+    "timestamp": "2026-01-10 20:03:55.222849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Empty denom check] Similar to GetDenomAuth, at line 79, if val.Denom is empty, found=false is returned. Can an attacker exploit this to claim authorization for empty-denom tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_401bd0de-22fc-4d1f-937b-155539ff2c4e?mode=deep",
+    "timestamp": "2026-01-10 20:04:21.820444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Deserialization timing] Can differences in MustUnmarshal timing between corrupted and valid data be used as a timing oracle to determine if specific proposals exist, leaking information about pending admin transfers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e43f2a44-3b7c-4637-971a-7c30efd904b4?mode=deep",
+    "timestamp": "2026-01-10 20:04:50.074092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Nil check missing] At line 73, if store.Get returns nil, found=false is returned. Is there proper distinction between 'no proposal' and 'proposal exists but corrupted' in error handling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29ff5cde-e31f-43af-9d1a-0b481f8d03e7?mode=deep",
+    "timestamp": "2026-01-10 20:05:18.126948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Store prefix confusion] Can GetProposedDenomAuth accidentally read from the main DenomAuth store if ProposedDenomAuthKeyPrefix is not properly isolated, returning current admin instead of proposed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e029d2b6-9fff-47b4-a5bc-0d9856cb0c1a?mode=deep",
+    "timestamp": "2026-01-10 20:05:42.426443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Unicode exploitation] Can an attacker use Unicode tricks (zero-width characters, look-alike characters) in denom names to create proposals that appear legitimate but map to different keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7aa7a17-b8c4-41e8-953f-a173737cf98d?mode=deep",
+    "timestamp": "2026-01-10 20:06:05.670577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Protobuf backwards compatibility] If the DenomAuth protobuf definition is upgraded with new fields, can old proposals become unreadable, permanently locking admin transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ec6dbcb-cfe7-4ab5-b364-5d5610d904f3?mode=deep",
+    "timestamp": "2026-01-10 20:06:29.637439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Cache inconsistency] If KVStore caching is enabled, can stale cached proposals be returned after DeleteProposedDenomAuth is called, causing double-claims? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08da3275-6278-44c1-b47f-b72c8476080a?mode=deep",
+    "timestamp": "2026-01-10 20:06:53.105149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Validator divergence] If different validators have different proposals stored due to Byzantine behavior, can this cause consensus failures when validating claim transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1697f018-f394-431b-a081-b0d8442a26a4?mode=deep",
+    "timestamp": "2026-01-10 20:07:15.920033",
+    "report_generated": false
   }
 ]
