@@ -23248,5 +23248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb199220-ede5-4e7f-9e76-f7bce5379205?mode=deep",
     "timestamp": "2026-01-10 11:25:03.294824",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [String interning] Can attackers exploit Go's string interning to create denoms that appear different in memory but compare as equal, bypassing duplicate detection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_062d0cdf-db79-4e6b-abfe-c0b87741e2c6?mode=deep",
+    "timestamp": "2026-01-10 11:26:16.371201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Slice bounds] Can any of the slice operations on DenomList or DenomAuthList cause out-of-bounds panics if the slices are modified during validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1aa05cd0-c5a0-4a8e-9773-a4fca173c9f4?mode=deep",
+    "timestamp": "2026-01-10 11:26:28.672159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Map reference] Can the maps denomIndexMap and denomAuthIndexMap be accessed concurrently during validation, causing data races? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89c9a334-8b50-4f87-9419-6cfb53bdaa92?mode=deep",
+    "timestamp": "2026-01-10 11:26:41.309963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Locale sensitivity] Are any string comparisons or validations locale-sensitive, allowing attackers to exploit different validator locales to cause consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ead01940-e8e2-4e50-b0c3-108f0cd93be1?mode=deep",
+    "timestamp": "2026-01-10 11:26:54.464237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Special characters] Can admin addresses contain special characters that pass Bech32 validation but break when used in state keys or error messages? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56fb5d0f-8cb4-4bf3-9116-aa9745ed9e01?mode=deep",
+    "timestamp": "2026-01-10 11:27:08.767724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Maximum values] Can an attacker set MintingCap to math.MaxUint and Minted to math.MaxUint-1 to pass validation but cause overflow in subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57aba976-3f91-44d0-869f-368979bdfc85?mode=deep",
+    "timestamp": "2026-01-10 11:27:23.291066",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Maximum list size] Is there any limit on the size of DenomList or DenomAuthList, or can an attacker propose a genesis state with billions of entries to exhaust memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_207628fe-0ec9-4e5d-a288-ae29714f0738?mode=deep",
+    "timestamp": "2026-01-10 11:27:38.874521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Empty lists] Can an attacker propose a genesis state with both DenomList and DenomAuthList empty, and does this create any security issues or break module initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38798d0b-384b-45e8-8894-7c854ee0bc81?mode=deep",
+    "timestamp": "2026-01-10 11:27:55.775131",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Import-export symmetry] If a valid genesis state is exported and then re-imported, is it guaranteed to pass validation, or can the export/import process introduce inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_799e1819-c8bb-4455-ab6d-444da68faeaa?mode=deep",
+    "timestamp": "2026-01-10 11:28:14.085717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [KVStore consistency] Does the validation ensure that the genesis state can be correctly written to the KVStore without key collisions or corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b99d6759-f53d-44ae-a7a1-24cbac653e04?mode=deep",
+    "timestamp": "2026-01-10 11:28:33.573947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [State migration] During chain upgrades, can an attacker craft a genesis state that appears valid but breaks when migrated from previous versions, causing all validators to halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_600fd824-d009-47be-aef4-a87a93746722?mode=deep",
+    "timestamp": "2026-01-10 11:28:53.861749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Cross-module attack] Can a malicious genesis state in the factory module interact with other modules (bank, IBC) to create inconsistent total supply or enable unauthorized minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_32dba8fa-c15d-422f-bc5e-1287e2bb0376?mode=deep",
+    "timestamp": "2026-01-10 11:29:15.432238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Module initialization order] Can an attacker exploit the order in which Cosmos SDK modules are initialized to bypass factory genesis validation by manipulating dependencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2505480-b422-49b8-840f-089b3a48f3a9?mode=deep",
+    "timestamp": "2026-01-10 11:29:37.669793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Type safety] Can an attacker exploit protobuf deserialization to create Denom or DenomAuth objects with fields that don't match their expected types, bypassing validation checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1b733e3-2a48-426f-a50c-a293a6f02133?mode=deep",
+    "timestamp": "2026-01-10 11:29:59.614619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Panic recovery] Are there any code paths in the validation functions that can panic instead of returning errors, causing validator crashes during genesis processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_420821d3-ae6c-42a5-8e7c-53f917709d05?mode=deep",
+    "timestamp": "2026-01-10 11:30:21.101978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Error injection] Can an attacker inject malicious error messages through the various error wrapping calls that get logged, potentially enabling log injection attacks or leaking sensitive information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fee68f2-1bbf-4dbc-bd8b-f4f697c14de7?mode=deep",
+    "timestamp": "2026-01-10 11:30:43.347469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Gas exhaustion] Can the validation loops at lines 31-41 and 46-56 be exploited with extremely large genesis states to cause validators to run out of gas during genesis import? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d195d4dd-f501-4348-a94b-88576c637b79?mode=deep",
+    "timestamp": "2026-01-10 11:31:05.916584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Determinism] Are all validation checks in the file deterministic across different validator implementations, or can subtle differences in Go runtime behavior cause consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5114041c-5dff-486c-9023-633fe25387ef?mode=deep",
+    "timestamp": "2026-01-10 11:31:30.793782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Memory corruption] Can an attacker craft a genesis state that causes memory corruption when the same Denom or DenomAuth is validated multiple times due to aliasing in the lists? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3168271-d2fe-4efe-812f-de1e58751e62?mode=deep",
+    "timestamp": "2026-01-10 11:31:55.901853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Race condition] Can concurrent calls to GenesisState.Validate() on the same genesis state from different goroutines cause race conditions in the map construction at lines 29 and 44? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cc25eef-9fbe-46db-a1be-14a251dcd594?mode=deep",
+    "timestamp": "2026-01-10 11:32:20.697368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Return value] Does DenomAuth.Validate() returning nil at line 175 guarantee that all admin addresses are valid, or can there be cases where validation passes but admins are unusable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98a574a4-c4f5-494f-90ae-b47ece1a45e8?mode=deep",
+    "timestamp": "2026-01-10 11:32:46.448776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [No admin scenario] Can both BankAdmin and MetadataAdmin be empty strings simultaneously, creating a denom with no administrative control, and is this intended behavior or a security issue? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f62ee558-d940-4ec6-a932-0e511ccfa6aa?mode=deep",
+    "timestamp": "2026-01-10 11:33:12.798463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Validation consistency] Are the validation requirements for MetadataAdmin at line 165 identical to BankAdmin at line 154, or can subtle differences be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ab61782-e446-43e5-8682-2b0d47ebc413?mode=deep",
+    "timestamp": "2026-01-10 11:33:38.661205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Empty string bypass] Can an attacker set d.MetadataAdmin to a whitespace-only string that bypasses the empty check at line 164 but passes AddressCheck validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df01f4c4-1492-4bd6-aac7-1d59a9659af4?mode=deep",
+    "timestamp": "2026-01-10 11:34:04.442044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Admin privilege escalation] Can an attacker set both BankAdmin and MetadataAdmin to the same address, and does this create any privilege escalation opportunities or unexpected behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2de1bd9-3079-4ee0-8605-ade638659d29?mode=deep",
+    "timestamp": "2026-01-10 11:34:30.252137",
+    "report_generated": false
   }
 ]
