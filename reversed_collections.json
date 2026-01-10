@@ -25798,5 +25798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_954c3b2c-a91b-4e66-b254-023ef1786fe3?mode=deep",
     "timestamp": "2026-01-10 14:07:58.450470",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [State corruption] The function calls AddDenomToAdminDenomAuthList for BankAdmin at line 66 regardless of whether BankAdmin changed - if BankAdmin is already in the admin list, does this create duplicate entries in the AdminDenomAuthList index, causing state corruption and potential DoS when iterating over admin denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bb20b14-b517-409e-92db-e52915ecc64b?mode=deep",
+    "timestamp": "2026-01-10 14:09:19.941681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Atomicity violation] If the RemoveDenomFromAdminDenomAuthList call at line 60 succeeds but AddDenomToAdminDenomAuthList at line 63 fails (e.g., due to store write errors), can this result in the denom being removed from the old admin's index but not added to the new admin's index, making it inaccessible via query_denom_by_admin queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71dc8270-3da1-4458-a963-42441a62a0a2?mode=deep",
+    "timestamp": "2026-01-10 14:09:32.303819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [State inconsistency] The function performs multiple state operations (SetDenomAuth at line 57, RemoveDenomFromAdminDenomAuthList at line 60, AddDenomToAdminDenomAuthList at lines 63 and 66) - if any operation fails mid-execution, can this cause partial state updates where DenomAuth is updated but admin index lists are not, leading to orphaned or inconsistent index entries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52383a31-1085-4c39-9cc9-aa9e21d5875b?mode=deep",
+    "timestamp": "2026-01-10 14:09:44.989313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Access control bypass] If msg.MetadataAdmin is set to the same value as currentDenomAuth.BankAdmin at line 54, can this create a state where a single address controls both admin roles, and does this violate any separation-of-duties invariants that could lead to centralization risks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_36face3c-1a82-4b7f-92c7-9be4b045ba2c?mode=deep",
+    "timestamp": "2026-01-10 14:09:58.386737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Authorization logic] Can an attacker exploit the OR condition at line 33 (checking both MetadataAdmin AND BankAdmin) to update metadata admin by compromising only one of the two admin accounts, potentially allowing privilege escalation if one admin account has weaker security than intended? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a79caf8c-4b8b-4e73-8610-12d536f6bcc7?mode=deep",
+    "timestamp": "2026-01-10 14:10:12.286476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Access control] Does the function properly validate that msg.MetadataAdmin is not the zero address or empty string at lines 51-55, or can an attacker set MetadataAdmin to empty/invalid address to effectively lock the metadata admin role and prevent future updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc7fc482-ba20-47fc-83df-c081681d5917?mode=deep",
+    "timestamp": "2026-01-10 14:10:26.129741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Authorization bypass] The conditional at line 34 checks if BankAdmin is empty string to determine the error message format - can an attacker exploit the timing between DisableDenomAdmin being called and this check to cause inconsistent authorization behavior where disabled denoms accept unauthorized updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e55a835-bc61-4ed7-9160-5d6468c6a110?mode=deep",
+    "timestamp": "2026-01-10 14:10:41.769823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Privilege escalation] Can an attacker who is neither BankAdmin nor MetadataAdmin craft a message where msg.Signer is manipulated to match currentDenomAuth.BankAdmin through address format exploitation (e.g., different bech32 prefixes but same underlying address) to bypass the authorization check at line 33? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3feea811-2ff1-42ec-8a3a-e3cd4be16888?mode=deep",
+    "timestamp": "2026-01-10 14:10:59.444844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Access control] Does the authorization check at line 33 properly handle the case where both currentDenomAuth.MetadataAdmin and currentDenomAuth.BankAdmin are empty strings, potentially allowing any signer to update the metadata admin and take control of the denom? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f67ee17-1499-46bf-bd3a-5ba59aaa8841?mode=deep",
+    "timestamp": "2026-01-10 14:11:17.635370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Authorization logic flaw] In the conditional check at line 33, if msg.Signer equals currentDenomAuth.BankAdmin and BankAdmin is later set to empty string, can an attacker exploit a race condition between checking authorization and state update to bypass metadata admin restrictions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb0f523c-0983-4fd2-a8ac-1ab4e3c03e3e?mode=deep",
+    "timestamp": "2026-01-10 14:11:37.355686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Access control bypass] Can an attacker exploit the authorization check logic at lines 33-49 where if BankAdmin is empty string (''), only MetadataAdmin is checked - could this allow unauthorized metadata admin updates if an attacker controls the BankAdmin emptying process through DisableDenomAdmin? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55c5a24e-b1a4-4d6d-94ae-558b4f8d720d?mode=deep",
+    "timestamp": "2026-01-10 14:11:58.272295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [State corruption] The function calls AddDenomToAdminDenomAuthList for BankAdmin at line 66 regardless of whether BankAdmin changed - if BankAdmin is already in the admin list, does this create duplicate entries in the AdminDenomAuthList index, causing state corruption and potential DoS when iterating over admin denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_100bd8c8-2773-4bc8-a4fd-b3deccad281b?mode=deep",
+    "timestamp": "2026-01-10 14:12:18.781484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Atomicity violation] If the RemoveDenomFromAdminDenomAuthList call at line 60 succeeds but AddDenomToAdminDenomAuthList at line 63 fails (e.g., due to store write errors), can this result in the denom being removed from the old admin's index but not added to the new admin's index, making it inaccessible via query_denom_by_admin queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_270e28c3-0645-49d2-8e79-b6c2c36e5506?mode=deep",
+    "timestamp": "2026-01-10 14:12:42.033008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [State inconsistency] The function performs multiple state operations (SetDenomAuth at line 57, RemoveDenomFromAdminDenomAuthList at line 60, AddDenomToAdminDenomAuthList at lines 63 and 66) - if any operation fails mid-execution, can this cause partial state updates where DenomAuth is updated but admin index lists are not, leading to orphaned or inconsistent index entries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0eec3c74-cb5b-4093-a4b1-0e556f5b98fd?mode=deep",
+    "timestamp": "2026-01-10 14:13:04.797951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Access control bypass] If msg.MetadataAdmin is set to the same value as currentDenomAuth.BankAdmin at line 54, can this create a state where a single address controls both admin roles, and does this violate any separation-of-duties invariants that could lead to centralization risks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2e63dbb-5adb-40d4-86cc-7d579aeffd71?mode=deep",
+    "timestamp": "2026-01-10 14:13:28.186813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Authorization logic] Can an attacker exploit the OR condition at line 33 (checking both MetadataAdmin AND BankAdmin) to update metadata admin by compromising only one of the two admin accounts, potentially allowing privilege escalation if one admin account has weaker security than intended? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8798004-9d13-463a-b875-352b90bd553d?mode=deep",
+    "timestamp": "2026-01-10 14:13:51.602253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Access control] Does the function properly validate that msg.MetadataAdmin is not the zero address or empty string at lines 51-55, or can an attacker set MetadataAdmin to empty/invalid address to effectively lock the metadata admin role and prevent future updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f9caa44f-3391-4522-bcc0-3491dfd7a42a?mode=deep",
+    "timestamp": "2026-01-10 14:14:15.837482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Authorization bypass] The conditional at line 34 checks if BankAdmin is empty string to determine the error message format - can an attacker exploit the timing between DisableDenomAdmin being called and this check to cause inconsistent authorization behavior where disabled denoms accept unauthorized updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d394666-0382-427b-96dc-8958f7962575?mode=deep",
+    "timestamp": "2026-01-10 14:14:40.585129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Privilege escalation] Can an attacker who is neither BankAdmin nor MetadataAdmin craft a message where msg.Signer is manipulated to match currentDenomAuth.BankAdmin through address format exploitation (e.g., different bech32 prefixes but same underlying address) to bypass the authorization check at line 33? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_745aad77-e7ea-4a2d-9fa0-85d953a5c100?mode=deep",
+    "timestamp": "2026-01-10 14:15:05.723811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Access control] Does the authorization check at line 33 properly handle the case where both currentDenomAuth.MetadataAdmin and currentDenomAuth.BankAdmin are empty strings, potentially allowing any signer to update the metadata admin and take control of the denom? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d9957ba-275f-48cb-a87e-33e7edcb4b98?mode=deep",
+    "timestamp": "2026-01-10 14:15:31.547708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Authorization logic flaw] In the conditional check at line 33, if msg.Signer equals currentDenomAuth.BankAdmin and BankAdmin is later set to empty string, can an attacker exploit a race condition between checking authorization and state update to bypass metadata admin restrictions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d196fdfe-54be-4cf2-95cd-75e34b529572?mode=deep",
+    "timestamp": "2026-01-10 14:15:56.435083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Access control bypass] Can an attacker exploit the authorization check logic at lines 33-49 where if BankAdmin is empty string (''), only MetadataAdmin is checked - could this allow unauthorized metadata admin updates if an attacker controls the BankAdmin emptying process through DisableDenomAdmin? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_718ea6e4-1507-44c0-a0b4-d26f93c9d86b?mode=deep",
+    "timestamp": "2026-01-10 14:16:22.347646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin(\n\n### Citations\n\n**File:** x/factory/keeper/msg_server_claim_denom_admin.go (L14-83)\n```go\nfunc (k msgServer) ClaimDenomAdmin(goCtx context.Context, msg *types.MsgClaimDenomAdmin) (*types.MsgClaimDenomAdminResponse, error) {\n\tctx := sdk.UnwrapSDKContext(goCtx)\n\n\t// Check if the value exists\n\tcurrentDenomAuth, isFound := k.GetDenomAuth(\n\t\tctx,\n\t\tmsg.Denom,\n\t)\n\tif !isFound {\n\t\treturn nil, errorsmod.Wrapf(\n\t\t\ttypes.ErrDenomAuthNotFound,",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31b8bca8-02d6-4bda-8e4d-d8c7e5ce11d3?mode=deep",
+    "timestamp": "2026-01-10 14:16:47.952472",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Logger injection] If events.EmitDenomAuthClaimed at line 78 includes logger output, can an attacker inject malicious log messages that crash log parsers or monitoring systems watching for admin changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef0d10b7-9d74-471b-bf52-d997fb3422e2?mode=deep",
+    "timestamp": "2026-01-10 14:17:11.948248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Context cancellation] If goCtx at line 14 is cancelled during execution, does the function properly handle cancellation after line 64 writes state but before line 78 emits events, or can this cause partial updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11fc6f99-9169-4b39-8c1f-fa16d2356940?mode=deep",
+    "timestamp": "2026-01-10 14:17:34.764534",
+    "report_generated": false
   }
 ]
