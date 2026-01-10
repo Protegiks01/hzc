@@ -10798,5 +10798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f27cd5c-924c-471e-bd8a-19209574be84?mode=deep",
     "timestamp": "2026-01-10 05:16:19.096974",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Bank keeper] Does SendCoinsFromAccountToModule at line 60 properly handle tokens with transfer restrictions or hooks registered in the bank module? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a9ded3f-4ad1-4ee6-9420-7791e6acf3f3?mode=deep",
+    "timestamp": "2026-01-10 05:17:36.946927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Bank keeper] Can BurnCoins at line 101 fail if the bank module has restrictions on burning certain token denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35e4499f-eb95-41f3-b649-0a2a62c6474b?mode=deep",
+    "timestamp": "2026-01-10 05:17:49.213281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Module interaction] If the pool account at line 86 is also used by other modules (wasm, staking), can SendFromPoolToAddress cause conflicts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f98db94c-2c49-46e0-9a21-056d883f7e89?mode=deep",
+    "timestamp": "2026-01-10 05:18:01.922804",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool structure] Does the code validate that pool.Coins at lines 110-111 is exactly length 2, or can malformed pools with different lengths cause issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f9c466ba-c4fb-42d9-94be-1109a9565ecc?mode=deep",
+    "timestamp": "2026-01-10 05:18:15.779280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool structure] At line 42, the sanity check compares denoms but not amounts - can pool.LpToken.Amount be inconsistent with actual supply? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0850e29e-736f-4246-a5de-9c0bab2f626e?mode=deep",
+    "timestamp": "2026-01-10 05:18:29.530157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Pool structure] Does the function validate that pool.Coins[0] and pool.Coins[1] have different denoms, or can same-denom pools cause calculation errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5dddcc64-8ac7-4667-bfd9-9c88ff296d0d?mode=deep",
+    "timestamp": "2026-01-10 05:18:44.385317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool metadata] Are pool.Fee, pool.Formula, and pool.Creator fields validated or can they be malicious values affecting liquidity removal? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84551ace-5080-48ca-86ba-00bb9b868f9a?mode=deep",
+    "timestamp": "2026-01-10 05:19:00.484582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Precision] Do the integer division operations at lines 147-148 handle tokens with different decimal precisions correctly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a2d4b33-91e4-4456-ab0e-57a2850e01d1?mode=deep",
+    "timestamp": "2026-01-10 05:19:17.371973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Precision] Can tokens with 18 decimals vs 6 decimals cause precision loss in the Mul().Quo() operations at lines 147-148? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a693b62-a635-4811-8dc8-7519f52cd261?mode=deep",
+    "timestamp": "2026-01-10 05:19:35.973095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Decimal handling] If msg.Lptoken.Amount has different decimal precision than pool.LpToken, can this cause incorrect proportional calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a0fd0d2-10cc-4b2c-a6b4-8aa95507fad1?mode=deep",
+    "timestamp": "2026-01-10 05:19:55.220284",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State transition] Is there validation that the pool state before line 32 and after line 114 maintains consistency with global DEX invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64f33a99-fafe-4487-a2dc-3754fd008e69?mode=deep",
+    "timestamp": "2026-01-10 05:20:15.100210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State transition] Can the state updates at lines 110-112 violate any keeper-level or module-level invariants that should be checked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4a4ec53-e85f-4d94-afe3-b6f768a7b15c?mode=deep",
+    "timestamp": "2026-01-10 05:20:36.309132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Checkpoint] Are there any intermediate checkpoints or assertions between lines 60-114 to ensure state consistency if operations fail? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45f98d2c-2ebc-4db4-85bf-1c9f5104fc33?mode=deep",
+    "timestamp": "2026-01-10 05:20:58.470072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [DoS] Can an attacker create pools with extremely large LP token supplies to cause integer overflow in calculations at lines 147-148? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39258d7c-d3cd-4e47-a751-2c9befed4aab?mode=deep",
+    "timestamp": "2026-01-10 05:21:21.351741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [DoS] Can setting msg.Receiver to a blocked address at line 78 cause SendFromPoolToAddress to fail repeatedly, locking the pool? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4254930-a819-4217-8dea-183b5134a671?mode=deep",
+    "timestamp": "2026-01-10 05:21:44.893431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [DoS] Can an attacker provide lptoken.Amount that causes the Mul operations at lines 147-148 to consume excessive computation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1811bb99-05c9-40af-bd90-80081b4214e9?mode=deep",
+    "timestamp": "2026-01-10 05:22:10.420441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [LP token validation] Does the code validate that msg.Lptoken.Denom at line 30 follows the expected LP token naming convention (e.g., starts with pool prefix)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_813d3c52-de81-47fc-881e-fad1650d77e2?mode=deep",
+    "timestamp": "2026-01-10 05:22:35.143939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [LP token validation] Can an attacker provide an LP token denom that matches a regular token denom, bypassing pool-specific logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_939dea22-6859-4035-84e2-1321a1b92505?mode=deep",
+    "timestamp": "2026-01-10 05:23:02.161430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [LP token uniqueness] Is there validation that the LP token denom is unique to this pool and not shared across multiple pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33bd185b-3dc7-4577-af12-60f89e93825a?mode=deep",
+    "timestamp": "2026-01-10 05:23:29.944719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Module account] Can the types.ModuleName module account at line 60 be manipulated or drained by other module operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7794869e-45a1-40b1-8f77-fdb5fd4d16d6?mode=deep",
+    "timestamp": "2026-01-10 05:23:57.775525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Module account] Does the module account have proper permissions to burn LP tokens at line 101, or can this operation be blocked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9580f75d-4367-4ff7-bde0-d13f2556a220?mode=deep",
+    "timestamp": "2026-01-10 05:24:24.187856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Module account balance] After BurnCoins at line 101, does the module account balance properly reflect the burned amount? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf15cfaf-cb02-4f95-8625-ffee640ddde5?mode=deep",
+    "timestamp": "2026-01-10 05:24:48.350811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Replay protection] Can an attacker replay a RemoveLiquidity transaction in a different context to exploit pool state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8884c417-df70-4620-84c3-5cca059ee1ee?mode=deep",
+    "timestamp": "2026-01-10 05:25:13.344794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Nonce/sequence] Does the transaction have proper sequence number checking to prevent double-execution of the same RemoveLiquidity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c9d066e-b1d6-45c5-942a-8ad96d166ca9?mode=deep",
+    "timestamp": "2026-01-10 05:25:39.043619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool lifecycle] Can RemoveLiquidity be called on a pool that's being created, deleted, or migrated, causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cef275ba-b5de-4c44-a127-dd71ec8ebc62?mode=deep",
+    "timestamp": "2026-01-10 05:26:04.590842",
+    "report_generated": false
   }
 ]
