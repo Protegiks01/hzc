@@ -19648,5 +19648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de81eb80-0375-4601-896a-f5bee4d4e38b?mode=deep",
     "timestamp": "2026-01-10 07:20:10.517309",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()]\n\n### Citations\n\n**File:** x/factory/types/message_propose_denom_admin.go (L1-59)\n```go\npackage types\n\nimport (\n\terrorsmod",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a5a078f-9eef-44c8-a0ce-eb323ba819a5?mode=deep",
+    "timestamp": "2026-01-10 07:21:33.485791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Test coverage gaps] The test file message_propose_denom_admin_test.go at lines 56-170 tests invalid addresses and denoms, but does it cover race conditions, concurrent proposals, or state transition edge cases in ValidateBasic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba0862ac-8f56-46a7-be99-53923b7c1f3c?mode=deep",
+    "timestamp": "2026-01-10 07:21:45.939489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Chain fork handling] If a chain forks, can the same MsgProposeDenomAdmin be replayed on both forks, causing admin state divergence between chains? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99710e7e-c394-4a99-88f8-f52851bd21b2?mode=deep",
+    "timestamp": "2026-01-10 07:21:58.809797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Genesis state import] When importing genesis state with pending proposals, does ValidateBasic get called for each proposal, or can invalid proposals be imported directly into state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c8cecf1-f5bf-4335-a319-a14f0398b869?mode=deep",
+    "timestamp": "2026-01-10 07:22:11.978318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Module migration] During module upgrades, can changes to validation logic in validators.AddressCheck at line 41 cause previously valid proposals to become invalid, requiring manual intervention? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7bb30794-9940-4d96-bac8-c72c385f4c60?mode=deep",
+    "timestamp": "2026-01-10 07:22:27.163840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Governance proposal bypass] Can an attacker submit MsgProposeDenomAdmin through governance proposals instead of normal transactions, bypassing ValidateBasic checks or exploiting different execution contexts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5bf9192-74da-4e95-b9cd-1c10d6122e3a?mode=deep",
+    "timestamp": "2026-01-10 07:22:42.512415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [State pruning attack] Can an attacker exploit state pruning configurations to cause ProposedDenomAuth entries to be pruned before they can be claimed, causing legitimate proposals to disappear? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2d15359-c494-4d44-b69d-8237088aa794?mode=deep",
+    "timestamp": "2026-01-10 07:22:59.253043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [AdminDenomAuthList index corruption] When RemoveDenomFromAdminDenomAuthList at line 70 of msg_server_claim_denom_admin.go is called, can concurrent proposals corrupt the admin index, causing denoms to remain in old admin's list permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa075e22-3aee-4bef-b7f4-448aef2c25fb?mode=deep",
+    "timestamp": "2026-01-10 07:23:17.346825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Proposal storage leak] If proposals are created but never claimed or deleted, can storage grow unbounded in ProposedDenomAuthKeyPrefix, eventually causing disk exhaustion on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_967159b6-2d48-458e-890b-e997fca8a296?mode=deep",
+    "timestamp": "2026-01-10 07:23:36.598751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [KVStore key collision] When the keeper stores ProposedDenomAuth at line 58 of msg_server_propose_denom_admin.go using types.DenomAuthKey, can an attacker craft denom strings that hash to identical store keys, causing proposal overwrites? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3da6f908-e5f5-4a67-9339-ee673980b974?mode=deep",
+    "timestamp": "2026-01-10 07:23:56.775038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Block time manipulation] Can validators manipulate block timestamps to cause time-based validation differences between ValidateBasic (executed at submission) and keeper execution (at block creation)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7069f8b-a555-4e1e-b665-39f7835f4cfa?mode=deep",
+    "timestamp": "2026-01-10 07:24:17.527859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [CometBFT transaction ordering] Can an attacker exploit CometBFT's transaction ordering to ensure their MsgProposeDenomAdmin is processed before legitimate proposals in the same block, even if submitted later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_257923ed-e9dd-4b13-8713-1c6c1f4fc7e2?mode=deep",
+    "timestamp": "2026-01-10 07:24:39.651153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [IBC packet wrapping] If MsgProposeDenomAdmin is wrapped in an IBC packet for cross-chain admin proposals, can an attacker exploit ValidateBasic not checking IBC-specific fields, causing packet failures after validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0694998-0494-417c-8abf-37fa2e84853b?mode=deep",
+    "timestamp": "2026-01-10 07:25:00.619373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Public key recovery] For proposed admin addresses, can an attacker recover the public key from on-chain signatures and exploit weak key generation to predict private keys, allowing unauthorized admin claiming? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea80896a-adf3-48cf-b8f8-f83bee442b0a?mode=deep",
+    "timestamp": "2026-01-10 07:25:23.226509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Bech32 checksum weakness] Can an attacker exploit known weaknesses in Bech32 checksum algorithm to craft addresses with modified checksums that pass sdk.AccAddressFromBech32 validation at line 77 of address.go but decode to different byte arrays? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d887d51-eeb2-4841-a20f-ed7c9b2fa3eb?mode=deep",
+    "timestamp": "2026-01-10 07:25:47.594556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Address generation collision] Can an attacker generate two different private keys that produce the same Bech32 address (collision attack on RIPEMD160 hash in address derivation), allowing them to propose themselves as admin then claim using a different key? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5210718b-3a9f-4abb-8b6a-f25dba608b21?mode=deep",
+    "timestamp": "2026-01-10 07:26:12.297433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Right-to-left override] Can an attacker use Unicode bidirectional override characters (U+202E) in addresses to manipulate display order, causing users to misread admin addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f403650-3bd5-4d6c-a225-b1eb59ab8088?mode=deep",
+    "timestamp": "2026-01-10 07:26:38.230322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Zero-width characters] Can an attacker inject zero-width spaces (U+200B) or joiners in address strings that pass validation but cause display issues or comparison failures in UI/explorers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b604171-ae2f-41f6-b4b4-1f170c4e21c1?mode=deep",
+    "timestamp": "2026-01-10 07:27:05.745047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Homoglyph attack] Can an attacker use Unicode homoglyphs (e.g., Cyrillic 'а' vs Latin 'a') in addresses that pass Bech32 validation but cause users to send funds to wrong addresses when copying from explorers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_580cab2b-be82-44b9-8603-30a575358699?mode=deep",
+    "timestamp": "2026-01-10 07:27:34.010654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Unicode normalization] Can an attacker submit denom or address strings with different Unicode normalizations (NFC vs NFD) that appear identical but hash to different values, causing duplicate denom creation or admin confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b669abeb-8ecc-4409-843b-031eaf71c0c8?mode=deep",
+    "timestamp": "2026-01-10 07:28:01.324763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Address prefix boundary] Can an attacker provide addresses where the prefix length exactly matches constants.AddressPrefix length, causing off-by-one errors in prefix validation at line 44 of address.go? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86d8b64c-9eac-41a6-a85e-223ac8c5e9a3?mode=deep",
+    "timestamp": "2026-01-10 07:28:26.956769",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Denom parts edge case] The DeconstructDenom at line 31 splits denom by '.' and checks for exactly 3 parts at lines 60-67 of denoms.go. Can an attacker craft a denom with parts exactly at the boundary (e.g., 'coin.a.b' with minimal lengths) that passes validation but causes issues in keeper? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44c652fe-2a3e-45c1-ab10-dd45dc9c1961?mode=deep",
+    "timestamp": "2026-01-10 07:28:52.629109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Creator address boundary] Can an attacker create a denom with creator address at exactly MaxCreatorLength (75 chars) at line 19 of denoms.go that passes validation but causes overflow when used in GetTokenDenom at line 27 of denoms.go? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2cc2497-a5b2-4230-953e-5476f5daecde?mode=deep",
+    "timestamp": "2026-01-10 07:29:18.556229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Subdenom boundary case] Can an attacker create a denom with subdenom at exactly MaxSubdenomLength (44 chars) at line 17 of denoms.go that passes DeconstructDenom at line 31 but causes issues when concatenated with creator address in keeper operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d952a8d-fe9a-418d-b0a5-26996f26100e?mode=deep",
+    "timestamp": "2026-01-10 07:29:44.954283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Maximum field length] Can an attacker craft Signer, BankAdmin, or MetadataAdmin addresses at exactly the maximum Bech32 address length (90 chars) that pass validation but cause buffer overflow in downstream processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b27b3bb0-3424-412a-88cd-6399aaf62dec?mode=deep",
+    "timestamp": "2026-01-10 07:30:11.725167",
+    "report_generated": false
   }
 ]
