@@ -22198,5 +22198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc35e722-eccd-41ed-af19-6fdc41eda441?mode=deep",
     "timestamp": "2026-01-10 10:17:09.742165",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Missing Event: Param Update] Are Factory parameter updates (create fee, module admin) tracked with dedicated event constants, or must param changes be inferred from other events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c64e700c-df4b-486c-b5ea-db3187ef1a1a?mode=deep",
+    "timestamp": "2026-01-10 10:18:25.185952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Missing Event: Module Pause] Are there event constants for Factory module pause/unpause operations, or can module state changes occur without event visibility? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfb38b28-69c7-447d-a63c-3b1f0c9c1c35?mode=deep",
+    "timestamp": "2026-01-10 10:18:37.722793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Missing Event: Denom Freeze] Are there event constants for freezing/unfreezing denoms in emergency scenarios, or would such operations be invisible in the event stream? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_849e2341-376e-46c8-9c09-fdb16f56328c?mode=deep",
+    "timestamp": "2026-01-10 10:18:50.498082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Version Compatibility] [Event deprecation] Is there a deprecation strategy for old event types, or can removing events break long-running monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46b1789e-d26f-40c1-bf48-22c1d95c4a19?mode=deep",
+    "timestamp": "2026-01-10 10:19:03.709189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Version Compatibility] [Attribute addition] Can new attributes be safely added to existing events without breaking consumers that expect fixed attribute sets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73838176-94c1-4c6a-8950-d209d52d1f52?mode=deep",
+    "timestamp": "2026-01-10 10:19:17.596605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Version Compatibility] [Event schema changes] If event constants or attributes are added/removed in future upgrades, can older indexers and monitors continue functioning without breaking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9bb6c909-f705-4102-bb89-bc802f5a3ea0?mode=deep",
+    "timestamp": "2026-01-10 10:19:32.340778",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [External Dependency: Explorers] [Explorer parsing errors] Can events with unexpected attribute formats cause block explorers to crash or display corrupted data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c7ad1af-aa39-486c-88b0-4d2c021fa30b?mode=deep",
+    "timestamp": "2026-01-10 10:19:49.267403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [External Dependency: Wallets] [Wallet UI confusion] Can events with misleading attribute values cause wallets to display incorrect token information, enabling social engineering attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac072823-cf7d-497b-917b-a41e18a9baf0?mode=deep",
+    "timestamp": "2026-01-10 10:20:06.432152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [External Dependency: Bridges] [Bridge event monitoring] Can IBC or external bridges be deceived by malformed events, causing incorrect cross-chain state synchronization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ae332bd-a38d-4a95-91ff-a07a8937583a?mode=deep",
+    "timestamp": "2026-01-10 10:20:25.200306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [External Dependency: Oracles] [Oracle event reliance] Do external oracles rely on these event constants for triggering price feeds or other critical operations, creating oracle manipulation vectors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43c83840-7f8b-472d-97fc-0e0330e0fa99?mode=deep",
+    "timestamp": "2026-01-10 10:20:44.276913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Resource Limit: Attribute Size] [Oversized attributes] Can individual attribute values exceed size limits (e.g., very long URIs or metadata), causing event emission failures or blockchain bloat? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d909cf37-0577-47b5-a790-7cd99e535ca6?mode=deep",
+    "timestamp": "2026-01-10 10:21:04.982800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Resource Limit: Attribute Count] [Attribute limit bypass] Can events exceed maximum attribute count limits in Cosmos SDK by adding custom attributes beyond those defined in this file? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7878cccc-76e5-4fe6-a3b8-fe317ebc2024?mode=deep",
+    "timestamp": "2026-01-10 10:21:26.713139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Gas Cost: Event Spam] [Event flooding] Can an attacker spam cheap operations (auth proposals) to emit massive numbers of events, causing node storage bloat and degraded indexer performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a3fe38f-473b-46a6-a6d1-a14542a8bbbe?mode=deep",
+    "timestamp": "2026-01-10 10:21:48.962255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Gas Cost: Large Events] [Event size attack] Can an attacker create denoms with extremely long names or metadata causing events with oversized attributes that consume excessive gas? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6da0eba0-677d-40a5-b90d-a14c6f7104fb?mode=deep",
+    "timestamp": "2026-01-10 10:22:11.419416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Sequence] [Block height tracking] Can events be emitted without block height context, preventing proper time-ordering of events in historical analysis? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6602d9f4-63fa-4b4f-ba66-346f7e0f19d5?mode=deep",
+    "timestamp": "2026-01-10 10:22:35.543409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Deduplication] [Transaction hash tracking] Do events include transaction hash attributes to enable deduplication, or must event consumers implement custom dedup logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e3678b5-7a1c-4d5e-8a5a-9703d55e3683?mode=deep",
+    "timestamp": "2026-01-10 10:22:59.544119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Replay] [Historical replay] Can old events be replayed in new blocks due to transaction replay attacks, causing event consumers to process stale events as current? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b3e2cc2-4a37-4ec6-a5eb-454a77c464cb?mode=deep",
+    "timestamp": "2026-01-10 10:23:25.191694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Uniqueness] [Duplicate event detection] Can identical events (same type and attributes) be emitted multiple times for the same operation, causing double-processing in event-driven systems? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9cc0ef78-0349-4d50-9471-66153fe595b2?mode=deep",
+    "timestamp": "2026-01-10 10:23:50.119551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Attribute Validation: Hash Format] [Invalid hash format] Can 'denom_uri_hash' be emitted as non-hex strings or incorrect lengths, breaking content verification systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71a8b8b3-af28-4999-b341-b9503b5fd082?mode=deep",
+    "timestamp": "2026-01-10 10:24:15.025482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Attribute Validation: URI Format] [Malformed URIs] Can 'denom_uri' contain malformed URIs (missing schemes, invalid characters) that cause crashes in metadata fetchers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d30aea6-14de-4f7a-ab0b-c402c844b6b1?mode=deep",
+    "timestamp": "2026-01-10 10:24:37.826812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Attribute Validation: Boolean Values] [Boolean string confusion] Can 'can_change_minting_cap' boolean be emitted as 'true'/'false', '1'/'0', 'TRUE'/'FALSE' inconsistently, causing parsing errors in event consumers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec4b416a-dfdf-487f-ba42-d1ab2a04a267?mode=deep",
+    "timestamp": "2026-01-10 10:25:01.567694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Attribute Validation: Denom Format] [Invalid denom strings] Can denoms violating IBC denom format (ibc/HASH) or Factory format (factory/address/subdenom) be emitted in events, causing validation failures in relayers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83ac4ad6-480d-4976-b896-081a3eac7101?mode=deep",
+    "timestamp": "2026-01-10 10:25:25.098523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Attribute Validation: Address Format] [Invalid address formats] Can malformed Bech32 addresses be emitted in 'creator', 'signer', or 'recipient' attributes, breaking downstream address parsers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_394b2fb9-cc43-49c3-869e-b8b47b68438f?mode=deep",
+    "timestamp": "2026-01-10 10:25:49.559684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Attribute Validation: Numeric Values] [Negative amounts] Can negative values be emitted in 'amount' or 'total_supply' attributes, causing integer underflow in event consumers that assume positive values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_008bc378-f4c9-453e-8faa-972323da3e9d?mode=deep",
+    "timestamp": "2026-01-10 10:26:14.884035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Security Assumption: Event Authenticity] [Event source verification] Can events using these constants be forged by external contracts or modules, or is event emission restricted to Factory keeper only? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d4415a8-4728-4243-8f95-169c085eeb62?mode=deep",
+    "timestamp": "2026-01-10 10:26:40.883844",
+    "report_generated": false
   }
 ]
