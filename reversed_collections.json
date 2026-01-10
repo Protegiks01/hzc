@@ -27148,5 +27148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f5d090e-36ec-4062-bc2c-c5330b8d8798?mode=deep",
     "timestamp": "2026-01-10 15:53:29.901377",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Burn interaction] If tokens are burned while a minting operation is in progress, could the concurrent burn operation cause the total supply calculation to be incorrect, leading to accounting inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fe06587-72c7-4caa-aaa5-7c3c84c2a461?mode=deep",
+    "timestamp": "2026-01-10 15:54:53.400524",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Supply invariant] Does the system maintain the invariant that totalSupply (line 82) equals sum of all Minted amounts across all denoms, and could minting operations break this invariant through race conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a64be09-bb89-4863-bbaf-2b44330b3624?mode=deep",
+    "timestamp": "2026-01-10 15:55:05.884266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [MintingCap modification] Could an attacker exploit the CanChangeMintingCap flag (line 72) to increase the minting cap during the minting operation, bypassing the initial cap check at line 40? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bedb6a2a-9aca-48a9-b321-c96acf578738?mode=deep",
+    "timestamp": "2026-01-10 15:55:18.688952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Creator field integrity] Is the Creator field (line 68) properly validated and preserved, and could an attacker modify this field to claim ownership of tokens they didn't create? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c59c7b3-ae4c-41a1-8d3b-c3ee4807efc6?mode=deep",
+    "timestamp": "2026-01-10 15:55:32.057797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Denom metadata mismatch] Could there be a mismatch between the denom metadata in the bank keeper and the denom state in the factory keeper, causing confusion about which tokens can be minted and violating user expectations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6521274-7200-4dcf-b40e-f4bee2cd6aa5?mode=deep",
+    "timestamp": "2026-01-10 15:55:45.874945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Denom deletion] If a denom is deleted from the store between GetDenom and SetDenom calls, what happens when SetDenom tries to update a non-existent denom, and could this create orphaned state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4297c62-7103-4b7a-bd98-3ae112cd0176?mode=deep",
+    "timestamp": "2026-01-10 15:56:00.933605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Module permissions] Does the factory module account have proper permissions configured in the bank keeper to mint tokens, and could permission changes during runtime affect the ability to mint? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bcced5a6-d3e7-4d72-9ce3-5f2f1b9ffd3d?mode=deep",
+    "timestamp": "2026-01-10 15:56:16.736077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Module balance tracking] If multiple minting operations occur concurrently, could the module account balance become inconsistent with the sum of all in-flight minting operations, causing balance accounting errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a95a194-fb72-4536-bd11-0833641b7dbe?mode=deep",
+    "timestamp": "2026-01-10 15:56:35.303207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Module account access] The tokens are minted to types.ModuleName account (line 59) - could an attacker gain unauthorized access to this module account through other vectors and steal minted tokens before they're transferred? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8ea9957-518d-4d55-9811-19f72ef156f1?mode=deep",
+    "timestamp": "2026-01-10 15:56:53.452730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Error propagation chain] Are all errors properly wrapped with context using errorsmod.Wrap, or could critical errors be lost in the propagation chain, making debugging impossible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_889eb239-7766-4454-a372-7ecccc281bed?mode=deep",
+    "timestamp": "2026-01-10 15:57:13.373172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Partial failure recovery] If the transaction fails after SendCoinsFromModuleToAccount but before SetDenom, how does the system recover, and could this lead to situations where tokens are transferred but Minted is not updated? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c4b64ff-e2c3-4546-86bd-47426bd4cff8?mode=deep",
+    "timestamp": "2026-01-10 15:57:33.771525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Error message information leakage] Do error messages at lines 27-30 and 42-48 leak sensitive information about the system state that could help an attacker craft more sophisticated attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a241ac9-6b20-4804-9f52-08bea36f4c44?mode=deep",
+    "timestamp": "2026-01-10 15:57:54.850577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Panic recovery] If any of the keeper functions panic (GetDenom, Auth, MintCoins, SendCoins, SetDenom), is there proper panic recovery that rolls back state, or could a panic leave the chain in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cad1a51d-1001-4d06-8c10-46202789ac4f?mode=deep",
+    "timestamp": "2026-01-10 15:58:17.856800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Admin privilege escalation] Could an attacker exploit the Auth function to perform privilege escalation, gaining bank admin rights through metadata admin privileges or other indirect authorization paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_230a7606-fcad-456d-ab34-01b8239ed38f?mode=deep",
+    "timestamp": "2026-01-10 15:58:41.513661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Multi-sig admin] If the bank admin is a multi-sig account, could signature verification race conditions or replay attacks allow unauthorized minting by reusing old signatures after the multi-sig composition changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_662d5638-4ad8-4685-a9cd-7eb7d1db312c?mode=deep",
+    "timestamp": "2026-01-10 15:59:05.991396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Disabled admin] If the bank admin is disabled through DisableDenomAdmin between the Auth check and minting, could tokens still be minted even though the admin is disabled, violating the denom lock invariant? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d1b4974-1597-42e5-b155-bd6c48162705?mode=deep",
+    "timestamp": "2026-01-10 15:59:30.867991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Admin transfer race] If a bank admin proposes to transfer admin rights (via ProposeDenomAdmin) and the transfer is claimed after the Auth check (line 34) but before minting completes, could the old admin mint tokens they should no longer have access to? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_177dbcac-828e-4faa-90af-f0f697e2677e?mode=deep",
+    "timestamp": "2026-01-10 15:59:55.295145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [State migration] If a chain upgrade changes the Denom struct format between GetDenom and SetDenom calls during migration, could this cause data corruption or loss of the Minted tracking field? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09ab0f42-7be2-4335-9c6b-e1b01125e445?mode=deep",
+    "timestamp": "2026-01-10 16:00:20.729231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Store prefix collision] Could there be a prefix collision in the KVStore where denom keys overlap with other module keys, allowing an attacker to overwrite critical state by minting tokens with specially crafted denom names? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3639171-47ff-49c0-92ba-b2a749446e62?mode=deep",
+    "timestamp": "2026-01-10 16:00:46.825108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Concurrent updates] Could two validators process the same MintAndSendTokens transaction slightly differently due to timing or state differences, leading to consensus failures when comparing state roots? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce7f1b87-5551-4f6b-a296-530455830e73?mode=deep",
+    "timestamp": "2026-01-10 16:01:12.952252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Store corruption] If the KVStore becomes corrupted between GetDenom (line 21) and SetDenom (line 75), could the function write invalid data that permanently corrupts the denom state and prevents future minting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e5e05f0-5933-489f-8a2d-191f84f58ed8?mode=deep",
+    "timestamp": "2026-01-10 16:01:38.437870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Maximum value] If msg.Token.Amount equals the maximum Int value, could the Uint conversion at line 39 wrap around, overflow, or produce unexpected results when added to currentDenom.Minted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cdf6d0a6-6755-451f-8fc1-9948099cd7d2?mode=deep",
+    "timestamp": "2026-01-10 16:02:05.093029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Zero amount minting] If msg.Token.Amount is zero (which passes ValidateBasic with zeroOK), could this be exploited to bypass minting cap checks, manipulate state without actually minting, or cause division-by-zero errors in downstream calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe592938-c77f-49d1-990d-3333cf519aa5?mode=deep",
+    "timestamp": "2026-01-10 16:02:31.837068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Amount type mismatch] msg.Token.Amount is of type Int, but it's converted to Uint at lines 39 and 71 - could negative amounts bypass the conversion checks and cause unexpected behavior or underflows in the minting logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51378c40-0e7d-4d82-bbc8-35763afab0c7?mode=deep",
+    "timestamp": "2026-01-10 16:02:59.462399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Uint arithmetic] The math.Uint type used for Minted (line 39, 71) - could there be edge cases with maximum Uint values where Add operations behave unexpectedly or where the GT comparison (line 40) gives incorrect results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98757b92-5b5f-4ac6-859a-de55579e2dda?mode=deep",
+    "timestamp": "2026-01-10 16:03:26.067463",
+    "report_generated": false
   }
 ]
