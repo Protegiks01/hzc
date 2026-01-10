@@ -23548,5 +23548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_800c8fd8-c7fa-4dae-84a7-8322501c3540?mode=deep",
     "timestamp": "2026-01-10 11:44:02.946072",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [String comparison] Does the string comparison at line 100 properly handle Unicode normalization, or can visually identical but technically different creator strings bypass the validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0974de7-e99b-4e46-b4e6-3580ab2a5768?mode=deep",
+    "timestamp": "2026-01-10 11:45:28.587773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Creator mismatch] Can an attacker craft a genesis state where the embedded creator in the denom string differs from d.Creator, passing through line 100 due to case sensitivity or encoding issues? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d64d387-d1eb-41c2-b311-c7b9127e153e?mode=deep",
+    "timestamp": "2026-01-10 11:45:41.112513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Format injection] Can an attacker inject the FactoryDenomDelimiterChar into the creator or subdenom fields to manipulate the denom structure and bypass deconstruction validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7af6c441-0251-49ed-a6e2-c49c2cb406ff?mode=deep",
+    "timestamp": "2026-01-10 11:45:53.945574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Nil return] Can DeconstructDenom return a nil creator string even when err is nil, causing the comparison at line 100 to incorrectly pass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b5b795c-6298-4111-b872-db11cc6df69b?mode=deep",
+    "timestamp": "2026-01-10 11:46:07.080637",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Parsing error] If DeconstructDenom returns an error at line 90, does this error properly describe the issue, or can an attacker exploit ambiguous error messages to probe the validation logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3a4c4a8-83e6-4ac6-a60c-66cf00d867ad?mode=deep",
+    "timestamp": "2026-01-10 11:46:21.080912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Deconstruction bypass] Can an attacker craft a denom string that passes DeconstructDenom at line 90 but has a creator that doesn't match d.Creator, bypassing the comparison at line 100? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_439f1f39-bddd-4ae0-a2f6-5dd89d827805?mode=deep",
+    "timestamp": "2026-01-10 11:46:36.119761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Address format] Does validators.AddressCheck properly validate all possible Bech32 address variants, or can an attacker use deprecated address formats to bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9fd91aad-414b-4f81-9ec8-fff3d6c24a85?mode=deep",
+    "timestamp": "2026-01-10 11:46:52.437095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Empty address] Can an attacker pass an empty string as d.Creator that bypasses the AddressCheck validation, allowing denoms with no creator to be created? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa77a4dc-5e56-48dc-8b59-e4a37b91cdbc?mode=deep",
+    "timestamp": "2026-01-10 11:47:10.330132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Error wrapping] Does the error wrapping at lines 82-87 properly preserve the original error context, or can error information be lost during the wrapping, making debugging impossible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_764378b4-bfba-4b2b-9170-c8640dc3de0c?mode=deep",
+    "timestamp": "2026-01-10 11:47:29.184897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Address validation] Can an attacker craft a creator address that passes validators.AddressCheck at line 81 but contains special characters that cause state corruption when used as part of the denom string? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d26d275d-df9d-4e8c-933e-aa9c3c96394b?mode=deep",
+    "timestamp": "2026-01-10 11:47:49.578924",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Error masking] If both denom validation and params validation fail, does the function return only the first error, potentially masking critical params issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0de25cb8-deb9-4191-997c-bfe552f06178?mode=deep",
+    "timestamp": "2026-01-10 11:48:10.093390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Validation order] Does the params validation happen after all denom validations, and can this ordering be exploited to pass invalid params if a denom validation error occurs first? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5cd13900-286e-4529-b0e6-5ed0a3e77dd6?mode=deep",
+    "timestamp": "2026-01-10 11:48:32.069008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Params bypass] Can an attacker craft malicious Params that pass gs.Params.Validate() at line 74 but contain extreme values that break factory module operations (e.g., zero create fees allowing spam token creation)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a22b8000-cd59-4cc7-b86c-410178d1ce80?mode=deep",
+    "timestamp": "2026-01-10 11:48:56.229364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [State symmetry] If the bidirectional checks (lines 59-70) pass, does this guarantee perfect symmetry between DenomList and DenomAuthList, or can subtle bugs allow asymmetric state during runtime operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84eef652-ea46-4bf3-947f-2d000b49ab80?mode=deep",
+    "timestamp": "2026-01-10 11:49:19.452121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Denial of service] Can an attacker create a genesis state with DenomAuth entries pointing to extremely long denom strings, causing the map lookup at line 67 to consume excessive CPU time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf73b0f4-5326-4043-80c3-ce7ea1d45b2f?mode=deep",
+    "timestamp": "2026-01-10 11:49:43.750933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Key generation mismatch] Does the DenomKey call at line 67 use the same subdenom parsing logic as the DenomAuthKey, or can discrepancies in key generation allow DenomAuth entries to exist without corresponding Denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_946037fc-0e02-468e-bf62-497766b6895a?mode=deep",
+    "timestamp": "2026-01-10 11:50:07.611063",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Orphaned admin] Can an attacker craft a genesis state with DenomAuth entries for non-existent denoms to bypass the check at line 67, creating orphaned admin entries that could be exploited if those denoms are later created? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cda2047d-fc91-4fd0-9cdf-c1efeefd2ecd?mode=deep",
+    "timestamp": "2026-01-10 11:50:30.991458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Error message] Does the error at line 61 properly sanitize the denom string before including it in the error message, or can an attacker inject format string exploits or log injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01f63d88-1833-4f64-9484-f32fae936738?mode=deep",
+    "timestamp": "2026-01-10 11:50:53.104799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [State inconsistency] Can an attacker exploit timing between the map construction (line 44-56) and the consistency check (line 59-63) to inject denoms without corresponding DenomAuth entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a07bce12-9c64-4cb7-8a37-b2f5e9c6d0e4?mode=deep",
+    "timestamp": "2026-01-10 11:51:16.229876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Key mismatch] Does the consistency check at line 60 use the exact same key generation logic as the duplicate check, or can subtle differences in DenomAuthKey calls create a TOCTOU vulnerability where validation passes but state is inconsistent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c926841-ef01-4719-b433-1ccebc5ebfe9?mode=deep",
+    "timestamp": "2026-01-10 11:51:40.021870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Consistency violation] Can an attacker craft a genesis state where a Denom exists but its corresponding DenomAuth is missing from denomAuthIndexMap at line 60, allowing token creation without admin controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd54698c-6ed2-4cdc-9444-3d13a84d2115?mode=deep",
+    "timestamp": "2026-01-10 11:52:05.542657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Error propagation] If denomAuth.Validate() returns an error at line 53, does the error message leak sensitive information about the genesis state structure that could aid further attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e27a02d-35aa-4dee-811d-7c1593f63d1f?mode=deep",
+    "timestamp": "2026-01-10 11:52:30.928960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Validation bypass] Can an attacker craft a DenomAuth entry that causes denomAuth.Validate() at line 53 to enter an infinite loop, causing the genesis validation to hang indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbf425f6-2ee7-4d7a-8cd6-090c1c782b22?mode=deep",
+    "timestamp": "2026-01-10 11:52:55.005820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Type safety] Can an attacker exploit the string(DenomAuthKey(denomAuth.Denom)) conversion at line 47 to inject control characters that cause different validators to compute different keys, leading to consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8d992ec-4605-4d69-89bb-b7dd52de7162?mode=deep",
+    "timestamp": "2026-01-10 11:53:19.915730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [State corruption] If the DenomAuthList contains duplicate keys that somehow pass the check at line 48, can this lead to non-deterministic state loading where different validators load different DenomAuth entries for the same denom? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf9e645a-1a96-4987-8c67-dced57867369?mode=deep",
+    "timestamp": "2026-01-10 11:53:45.539239",
+    "report_generated": false
   }
 ]
