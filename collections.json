@@ -13948,5 +13948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24040d44-c81e-4fed-9855-7ad2c980feb5?mode=deep",
     "timestamp": "2026-01-10 09:00:02.731208",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: Validate()] [Beneficiary address race condition] At line 80, the validators.AddressCheck is called for beneficiary, but if this validation occurs during a governance proposal while beneficiary address is being used in concurrent pool creation transactions, can a race condition allow invalid beneficiary addresses to collect fees before validation completes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43833c9e-98ff-4d0f-b406-96c60a17bbe3?mode=deep",
+    "timestamp": "2026-01-10 09:01:22.411104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: Validate()] [Error wrapping information leak] At line 81-86, the error wrapping includes the full beneficiary address in error messages - can this leak sensitive information about beneficiary addresses in public error logs, allowing attackers to identify high-value governance-controlled fee collection addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ffa8878-5869-46d8-82e5-763ea3147b43?mode=deep",
+    "timestamp": "2026-01-10 09:01:34.944400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: Validate()] [Validation skip on update] The Validate() function is called on Params struct, but if parameter updates use direct field modification bypassing Validate(), can attackers exploit admin functions to set invalid parameters that would normally fail validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c39c4c2b-021b-4de6-a20c-bd4159347ec0?mode=deep",
+    "timestamp": "2026-01-10 09:01:47.795911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: Validate()] [Partial validation failure] If one validation fails (e.g., NewPoolFeePct is invalid), Validate() returns early at line 72 without checking other parameters - can this hide multiple parameter issues in governance proposals, where only the first issue is reported but others remain unchecked? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff2d3b65-a5bf-445e-8f21-570eff18ac87?mode=deep",
+    "timestamp": "2026-01-10 09:02:00.934325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: NewParams()] [Unvalidated parameter injection] The NewParams() function at line 45 creates a Params struct without calling Validate() - if this function is called directly by keeper code instead of through governance, can attackers inject invalid parameters (e.g., NewPoolFeePct = MaxUint32) that bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cf15050-eea2-406c-9ce9-1094866c1437?mode=deep",
+    "timestamp": "2026-01-10 09:02:15.719986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: NewParams()] [Missing MaxSlippage field] NewParams() at line 51-56 only sets NewPoolFeePct, CreationFee, Beneficiary, and MinimalLiquidityLock, but Validate() at line 94 checks MaxSlippage - if MaxSlippage field is not initialized in NewParams(), does it default to 0 causing all swaps to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3a120a0-fe36-4c54-9bde-6af23d743cf5?mode=deep",
+    "timestamp": "2026-01-10 09:02:30.836599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: DefaultParams()] [Default beneficiary empty] DefaultBeneficiary is empty string ('') at line 25, and DefaultParams() at line 64 uses this value - if pool creation fees should be collected but beneficiary is empty, can fees be permanently lost/burned, reducing protocol revenue and incentivizing fee manipulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96c0c279-315b-4e54-a3fd-df911192d316?mode=deep",
+    "timestamp": "2026-01-10 09:02:46.589430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: DefaultParams()] [Default value safety] DefaultParams() at line 60 calls NewParams with hardcoded defaults, but if these defaults change (e.g., constants are modified), does the function reflect the new defaults or use stale values, potentially initializing the chain with insecure parameters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_837f24fd-215d-429b-bc11-5af2d9b4c937?mode=deep",
+    "timestamp": "2026-01-10 09:03:04.195639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: NewParams()] [Parameter type mismatch] NewParams() at line 45 accepts uint32 for all fee parameters, but if calling code passes uint64 values, does Go's type system prevent this, or can truncation occur where large uint64 values wrap to small uint32 values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c2681c6-ddd5-4a32-961d-80451ea41559?mode=deep",
+    "timestamp": "2026-01-10 09:03:22.852128",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: DefaultParams()] [Hardcoded constant risks] DefaultCreationFee at line 22 is calculated as '100 * 1_000_000' assuming uzig denomination, but if the bond denom changes or decimals change, do DefaultParams() at line 63 and the hardcoded value become mismatched with actual denomination economics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57b80a01-0b73-49af-baa8-d3931ee034e0?mode=deep",
+    "timestamp": "2026-01-10 09:03:41.980533",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Constants] [BasisPoints overflow] BasisPoints constant is 10,000 at line 41, but if used in calculations like '(amount * fee * BasisPoints)', can the multiplication chain overflow uint64 when processing swaps with 18-decimal IBC tokens (amounts up to 10^18)? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3ec9ed2-1e00-4905-8d2a-7a81634277f4?mode=deep",
+    "timestamp": "2026-01-10 09:04:02.204596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Constants] [MinSwapFee bypass] MinSwapFee is defined as 1 at line 38, but there's no validation function enforcing this minimum - can attackers create pools with zero fees by exploiting the lack of enforcement, enabling sandwich attacks without cost? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3daaac61-d642-4d20-b201-670960ce9c5a?mode=deep",
+    "timestamp": "2026-01-10 09:04:22.976355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Constants] [DefaultMaxSlippage too low] DefaultMaxSlippage is 100 basis points (1%) at line 28, which may be insufficient for low-liquidity pools - can this cause legitimate swaps to fail, or force users to increase slippage tolerance to dangerous levels enabling MEV extraction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5352906d-07bc-483a-8210-49138699f1e4?mode=deep",
+    "timestamp": "2026-01-10 09:04:45.410404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Constants] [MaximumMaxSlippage allows 100%] MaximumMaxSlippage of 10,000 (100%) at line 31 allows users to accept unlimited slippage - can validators or sophisticated MEV bots exploit this by monitoring mempool for 100% slippage transactions and executing them at worst possible prices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae2c9324-7e63-47b1-8884-960a5b7423d1?mode=deep",
+    "timestamp": "2026-01-10 09:05:07.959714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Constants] [DefaultNewPoolFeePct scaling] DefaultNewPoolFeePct is 500 at line 18, but the comment doesn't specify what scaling factor applies - if this represents 0.5% using a different scaling than PoolFeeScalingFactor (100,000), can misinterpreted scaling cause 500x higher fees than intended? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f3cd4f1-637e-43e0-a5a1-414cd8d3c9ba?mode=deep",
+    "timestamp": "2026-01-10 09:05:30.655094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Constants] [DefaultCreationFee denomination assumption] DefaultCreationFee of 100_000_000 at line 22 assumes 'uzig' denomination with 6 decimals - but if pool creation accepts payment in IBC tokens with 18 decimals, can the fixed CreationFee value become economically irrelevant (0.0000001 tokens) or prohibitive depending on exchange rates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09a84132-c2f9-4f7c-8e2c-06b180e85d95?mode=deep",
+    "timestamp": "2026-01-10 09:05:53.475407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Constants] [DefaultMinimalLiquidityLock insufficient] DefaultMinimalLiquidityLock is 1000 at line 35, intended to prevent share inflation - but for tokens with 18 decimals, 1000 wei is economically negligible - can attackers still perform share inflation attacks on high-decimal-token pools despite this default? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2a37e6e-6aa3-4430-9c24-adef390f956c?mode=deep",
+    "timestamp": "2026-01-10 09:06:17.781436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Constants] [MinSwapFee denomination agnostic] MinSwapFee = 1 at line 38 doesn't specify denomination - is this 1 wei (for 18-decimal tokens) or 1 utoken (for 6-decimal tokens)? Can this ambiguity cause pools to charge insufficient fees for high-value tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b4d27a3-5705-4e5f-9a8c-06c2ef7cefac?mode=deep",
+    "timestamp": "2026-01-10 09:06:42.313126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Type safety] [uint32 to int64 conversion] Multiple functions convert uint32 parameters to int64 for math operations - can the implicit type promotion cause issues where uint32 max value (4,294,967,295) is less than calculations require, limiting parameter space unexpectedly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd61ffd4-ebe4-4dba-9789-fb98ad5f45ca?mode=deep",
+    "timestamp": "2026-01-10 09:07:07.394748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Type safety] [int64 to uint32 conversion] ConvertFromDecimalToBasisPoints() at line 151 converts int64 to uint32 with explicit nosec comment - if negative int64 values reach this conversion (e.g., from buggy upstream calculations), can underflow create MaxUint32 values bypassing all validations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3da7637-c5b3-4ce0-8a1f-5491bb044e40?mode=deep",
+    "timestamp": "2026-01-10 09:07:32.482743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Race conditions] [Concurrent parameter reads] If Validate() at line 70 is called concurrently with parameter updates during governance execution, can race conditions cause TOCTOU (time-of-check-time-of-use) bugs where validated parameters change before being committed to state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f158cb5-3b98-4eea-9ff7-69b2b6a4f68d?mode=deep",
+    "timestamp": "2026-01-10 09:07:55.912658",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Nil pointer] [Params struct pointer] If calling code passes nil pointer to Validate() method at line 70, does Go panic on 'p.NewPoolFeePct' access at line 71, causing validator crash and chain halt? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53937cde-4d12-4d39-b0cd-65aa5dc54558?mode=deep",
+    "timestamp": "2026-01-10 09:08:20.864656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Error handling] [Validation error leakage] Multiple validation functions wrap errors with detailed context (lines 81-86, 106-111, 121, 136-139) - can error messages leak sensitive parameter values or internal state information to attackers monitoring RPC responses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7fb0a2d8-cc64-43ec-9be0-e7a1e05facfa?mode=deep",
+    "timestamp": "2026-01-10 09:08:45.577146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Memory safety] [String allocation] The beneficiary string at line 48 and 79 is directly assigned without copying - if this string is from untrusted input, can excessively long strings cause memory exhaustion DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfc70b84-9bd7-46ed-bc47-10229f20ae87?mode=deep",
+    "timestamp": "2026-01-10 09:09:10.890083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Governance] [Atomic parameter changes] If Validate() at line 70 checks parameters individually, but governance proposals change multiple parameters atomically, can attackers create proposals where individual parameters pass validation but their combination creates exploitable states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9072f6d5-6611-40e7-9f48-5b3c673a0183?mode=deep",
+    "timestamp": "2026-01-10 09:09:33.810009",
+    "report_generated": false
   }
 ]
