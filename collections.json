@@ -19648,5 +19648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e0b1aea-9b9e-459b-bc7c-06bc3730feb4?mode=deep",
     "timestamp": "2026-01-10 18:49:34.450169",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Logger initialization] The logger parameter at line 34 is used directly without validation - can a nil logger cause panics when Logger() method is called at line 62, or can a malicious logger implementation leak sensitive factory data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41322461-760e-4fc5-b009-d747c66e8d19?mode=deep",
+    "timestamp": "2026-01-10 18:50:55.966996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [Store service isolation] The storeService at line 17 provides access to the KVStore - can operations on this store service interfere with concurrent operations from other modules (tokenwrapper, dex), causing state corruption or consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_425c061a-bfee-4ad6-b99d-526544886656?mode=deep",
+    "timestamp": "2026-01-10 18:51:08.462212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: GetAuthority()] [Authority caching] GetAuthority() returns the authority field directly at line 57 - can repeated calls to this function during high transaction volume cause performance issues, or should authority be cached in transaction context? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cfaa561-1e76-43c9-b526-14adc9e4c3e1?mode=deep",
+    "timestamp": "2026-01-10 18:51:21.840803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Dependency injection] NewKeeper() accepts pre-initialized keepers as parameters at lines 37-38 - can an attacker exploit the lack of keeper validation to inject malicious keeper implementations that bypass factory security constraints? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3c5f91a-2ad8-4047-844a-b4cdaa794203?mode=deep",
+    "timestamp": "2026-01-10 18:51:34.987929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [Keeper composability] The Keeper struct at lines 15-28 composes multiple keeper interfaces - can the interaction between accountKeeper and bankKeeper be exploited to create race conditions where module account balances are manipulated during denom operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f722f550-c126-43ce-920f-66b828c93710?mode=deep",
+    "timestamp": "2026-01-10 18:51:48.953185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: Logger()] [Module identification] The Logger() uses types.ModuleName constant at line 62 - can conflicts with other module names in the chain cause log correlation issues or allow log spoofing attacks that hide factory exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6da0bf6a-2fc4-4342-b330-663922dba815?mode=deep",
+    "timestamp": "2026-01-10 18:52:04.531545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Authority format specificity] The Bech32 validation at line 40 doesn't check the address prefix - can an attacker pass a valid Bech32 address with the wrong prefix (e.g., validator address instead of account address) that bypasses authorization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_400b77c0-9f03-4b22-abd4-97e837103c0a?mode=deep",
+    "timestamp": "2026-01-10 18:52:20.968371",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [Codec determinism] The cdc field at line 16 must provide deterministic marshaling - can non-deterministic codec implementations cause consensus failures when different validators serialize the same denom state differently? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1776feb-a17b-461a-b710-4807ade8a089?mode=deep",
+    "timestamp": "2026-01-10 18:52:38.395929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Store service concurrency] The storeService at line 46 may be accessed concurrently by multiple keeper methods - are there any synchronization mechanisms to prevent race conditions when reading and writing denom state simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db6487ae-10f9-4a54-b0b0-31b91befbf01?mode=deep",
+    "timestamp": "2026-01-10 18:52:57.210424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: GetAuthority()] [Return value safety] GetAuthority() returns the authority string directly - can this string be modified by the caller if Go string interning is exploited, affecting subsequent authorization checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef471aff-93df-470c-8b61-7495e72cc91c?mode=deep",
+    "timestamp": "2026-01-10 18:53:16.020929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [StakingKeeper future use] The stakingKeeper field at line 27 is commented as future use - if activated without proper getter/setter methods, can direct access to this field bypass validation and allow unauthorized bond denom modifications? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6782ee6-1938-46cd-b16a-536677c402fc?mode=deep",
+    "timestamp": "2026-01-10 18:53:35.944194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: Logger()] [Logger hierarchy] The Logger() method at line 62 uses logger.With() to add module context - can this create deeply nested logger contexts that cause performance degradation or stack overflow during intensive factory operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d6a261e-3b3a-4905-bcb9-cadbaed5eeab?mode=deep",
+    "timestamp": "2026-01-10 18:53:57.181368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Authority validation timing] Authority validation occurs during keeper initialization at line 40 - can changes to the authority address after initialization (through store corruption) bypass this one-time validation check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f8c4a4a-4ac8-4214-b892-01151efa1078?mode=deep",
+    "timestamp": "2026-01-10 18:54:18.615601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [BankKeeper balance checks] The bankKeeper at line 25 provides HasBalance and GetBalance methods - can factory operations trust these balance checks, or can time-of-check-time-of-use (TOCTOU) vulnerabilities allow balance manipulation between check and mint operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ad49659-8be7-4f66-a91e-718acc0a690f?mode=deep",
+    "timestamp": "2026-01-10 18:54:41.109998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Parameter passing] NewKeeper() accepts multiple parameters at lines 32-38 - can incorrect parameter ordering during module initialization cause parameters to be assigned to wrong keeper fields, leading to confused deputy attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1075bee1-bd35-4b43-abde-c08258c336d2?mode=deep",
+    "timestamp": "2026-01-10 18:55:04.358143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: GetAuthority()] [Method visibility] GetAuthority() is exported (uppercase) at line 56 - should this method be unexported to prevent external modules from relying on authority address for security decisions, avoiding centralization risks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11cb1c82-eb95-4a3b-bdcd-b84ba72c9241?mode=deep",
+    "timestamp": "2026-01-10 18:55:28.122468",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [AccountKeeper module address] The accountKeeper at line 24 provides GetModuleAddress() method - can factory operations verify that the returned module address is actually registered and not a spoofed address controlled by an attacker? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcf4b7c9-442d-4382-8c8b-fceea8892eb3?mode=deep",
+    "timestamp": "2026-01-10 18:55:53.703259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: Logger()] [Log level control] The Logger() function doesn't specify log level at line 62 - can verbose logging during high transaction volume cause disk space exhaustion or validator performance degradation, leading to chain-wide DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41e370e6-f3e1-4fa5-88ea-a22850958e84?mode=deep",
+    "timestamp": "2026-01-10 18:56:18.648814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Initialization atomicity] NewKeeper() initializes multiple keeper fields sequentially at lines 45-51 - can a crash during initialization leave the keeper in a partially initialized state that causes undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16ace2de-bdef-4a8d-968a-e92abfb9afc1?mode=deep",
+    "timestamp": "2026-01-10 18:56:42.057194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [Store key isolation] The storeService at line 17 uses a specific store key - can key collisions with other modules allow unauthorized cross-module state access or manipulation of factory denom data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b7396a8-b93c-4f77-be61-b266801713bd?mode=deep",
+    "timestamp": "2026-01-10 18:57:04.383160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Error propagation] The panic at line 41 doesn't return an error for recovery - can this prevent graceful degradation during chain initialization, forcing hard forks when keeper initialization fails? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daa2afc6-3620-4d57-b79e-395816ca832c?mode=deep",
+    "timestamp": "2026-01-10 18:57:26.905767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: GetAuthority()] [Immutability guarantee] GetAuthority() assumes the authority field is immutable after initialization - can reflection or unsafe pointer manipulation be used to modify the authority field at runtime, bypassing all access control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_495815d4-fba8-42da-9a1b-260f1ba50a8c?mode=deep",
+    "timestamp": "2026-01-10 18:57:49.527123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [Codec version compatibility] The cdc field at line 16 uses a specific protobuf version - can version mismatches during chain upgrades cause marshaling failures that corrupt denom state or prevent factory operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f162cf5d-bf1c-4bb7-959c-571b77ffd631?mode=deep",
+    "timestamp": "2026-01-10 18:58:11.613572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: Logger()] [Module name uniqueness] The module name added to logger at line 62 should be unique - can module name collisions cause log entries from different modules to be indistinguishable, hiding factory-specific security events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cde1f82-f528-475a-90e5-035526c602ef?mode=deep",
+    "timestamp": "2026-01-10 18:58:33.193424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Authority address type] The authority validation at line 40 checks Bech32 format but not address type - can a contract address or validator operator address be used as authority, leading to unexpected behavior in governance operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b510c527-9a57-49a3-9e5d-d41791510107?mode=deep",
+    "timestamp": "2026-01-10 18:58:55.680120",
+    "report_generated": false
   }
 ]
