@@ -17848,5 +17848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_042192ac-89f3-4dbc-909d-b7f67245d8cb?mode=deep",
     "timestamp": "2026-01-10 05:22:32.504118",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Error Allocation DoS] Can repeated validation failures allocating error messages cause memory pressure on validator nodes, especially if error wrapping creates long error chains? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ea4459b-2301-4f60-8a5d-e6e03aa3f728?mode=deep",
+    "timestamp": "2026-01-10 05:23:51.925685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Params Memory Explosion] Can an attacker submit MsgUpdateParams with a Params struct that, while valid, causes excessive memory allocation during validation due to deep nesting or large string fields? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a85a604-4ce0-4735-8b35-16e984fb0d2b?mode=deep",
+    "timestamp": "2026-01-10 05:24:04.322466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Bech32 Decoding DoS] Can an attacker craft an Authority address with valid Bech32 format but pathological decoding characteristics that cause sdk.AccAddressFromBech32 to consume excessive CPU time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06200cd8-8821-4386-b77e-0dae5577e3af?mode=deep",
+    "timestamp": "2026-01-10 05:24:17.031223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Gas Exhaustion] Does ValidateBasic consume excessive gas when validating maximum-length Authority addresses (255 bytes) and CreateFeeDenom strings (127 chars), potentially allowing attackers to create DoS conditions through gas consumption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1eed214a-0eb9-43bd-8410-577cb0cd70e3?mode=deep",
+    "timestamp": "2026-01-10 05:24:30.836738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Validation DoS] Can an attacker spam the mempool with thousands of MsgUpdateParams messages that pass ValidateBasic but fail in the keeper, forcing validators to waste resources on repeated validation and execution attempts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf99289d-d021-4b16-8305-edf3bb342a98?mode=deep",
+    "timestamp": "2026-01-10 05:24:44.630731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Governance Module State] Can an attacker exploit the lack of synchronization between the factory params and governance module state to submit parameter updates that conflict with pending governance proposals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_470b75cd-a476-4e48-9951-3bc465251548?mode=deep",
+    "timestamp": "2026-01-10 05:24:59.594637",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Module Account Fees] If Beneficiary is set to a module account address, can this cause issues with module account withdrawal restrictions, effectively locking fees that should be accessible to governance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cb1a864-4e3b-48e4-96c2-faa087bdf29b?mode=deep",
+    "timestamp": "2026-01-10 05:25:15.815524",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Factory Denom Dependency] Can an attacker set CreateFeeDenom to a factory-created denom (format: 'factory/{creator}/{subdenom}') creating a circular dependency where factory fees must be paid in factory tokens, potentially breaking the bootstrap process? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7205fdb6-9529-4e87-99d7-2a8def44f568?mode=deep",
+    "timestamp": "2026-01-10 05:25:33.208748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [IBC Denom Confusion] Can an attacker set CreateFeeDenom to an IBC denom (format: 'ibc/{hash}') that passes validation but causes confusion in fee collection when the IBC channel is closed or the token is no longer transferable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c3edd84-a0ea-4175-bbcd-27ecbb28e1fc?mode=deep",
+    "timestamp": "2026-01-10 05:25:51.459252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Bank Module Interaction] Can an attacker set CreateFeeDenom to a denom that exists in the bank module but has zero total supply, passing the HasSupply check (line 22 in keeper) but causing fee collection to fail when users try to create tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67a82355-b565-4063-8a46-d42ecc4efe82?mode=deep",
+    "timestamp": "2026-01-10 05:26:10.827202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Case Sensitivity] Is the CreateFeeDenom validation case-sensitive, or can an attacker submit denoms that differ only in case to create confusion with existing denoms and bypass uniqueness checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c0191bf5-ec40-429e-a3f8-14be87b950ac?mode=deep",
+    "timestamp": "2026-01-10 05:26:30.473670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Special Character Injection] Can an attacker include dots, forward slashes, or hyphens in strategic positions within CreateFeeDenom to bypass validation but cause parsing errors in the bank module or storage layer? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed8eb81a-bca5-4edd-8f52-dda9c2443ff6?mode=deep",
+    "timestamp": "2026-01-10 05:26:52.108733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Denom Length Boundary] Can an attacker submit a CreateFeeDenom with length exactly at the boundary (3 or 127 characters) to exploit off-by-one errors in the length validation (lines 118-136 in coins.go), potentially bypassing length checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8409f53-31a1-4140-9431-f4eb7af0ac86?mode=deep",
+    "timestamp": "2026-01-10 05:27:14.580234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Regex DoS] Can an attacker craft a CreateFeeDenom that causes the regex validation in CheckDenomString (line 140 in coins.go) to enter catastrophic backtracking, causing ValidateBasic to hang and DoS validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e4c842b-e46f-4621-b567-501fb9132a32?mode=deep",
+    "timestamp": "2026-01-10 05:27:37.214543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Error Message Leakage] Do the error messages returned from ValidateBasic (lines 13, 17) leak sensitive information about the internal validation logic that could help an attacker craft more sophisticated bypass attempts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ad42858-bf75-4b32-9092-2008d7262e37?mode=deep",
+    "timestamp": "2026-01-10 05:28:00.729160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Params Validation Short-Circuit] If m.Params.Validate() returns an error early (e.g., invalid CreateFeeDenom), does this prevent checking other invalid fields like Beneficiary, potentially hiding multiple validation issues and requiring multiple fix attempts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d2ef3fb-0802-4a8b-b9a9-d77b4581c20e?mode=deep",
+    "timestamp": "2026-01-10 05:28:24.701805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Empty Authority] Does ValidateBasic properly handle the case where Authority is an empty string before calling sdk.AccAddressFromBech32, or will this cause a decoding error that might not be properly wrapped, leading to unclear error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cd673c9-d5e0-409b-b3ef-cc5a0514e3db?mode=deep",
+    "timestamp": "2026-01-10 05:28:49.701598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Nil Params] Can an attacker submit a MsgUpdateParams where the Params field is nil or zero-initialized, causing ValidateBasic to call Validate() on a nil pointer and panic, potentially crashing validator nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa122c53-510a-41f2-a670-b823dc7df727?mode=deep",
+    "timestamp": "2026-01-10 05:29:15.785578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Economic Denial of Service] Can an attacker submit multiple failed MsgUpdateParams transactions (that pass ValidateBasic but fail in keeper) to waste validator resources and block space, effectively DoSing the chain through economic spam? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc6aa37d-1429-41da-bb85-f6be42c31f54?mode=deep",
+    "timestamp": "2026-01-10 05:29:40.774952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Parameter Instability] Can rapid parameter updates through governance create instability in the factory module, where users have different expectations about creation fees, leading to failed transactions and poor user experience? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4fddd347-2308-4649-be37-1efbe7ba1729?mode=deep",
+    "timestamp": "2026-01-10 05:30:07.404551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Beneficiary Front-Running] Can an attacker who knows a governance parameter update is pending front-run the update by creating tokens just before the fee increase takes effect, exploiting the transition period to avoid higher fees? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19090f2c-02fa-4d55-954e-df8d04fc5d40?mode=deep",
+    "timestamp": "2026-01-10 05:30:33.825247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Fee Denomination Attack] Can an attacker use governance to change CreateFeeDenom to a token they control, allowing them to collect all factory creation fees and potentially manipulate the token creation economics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d68eb261-7fed-4d36-9811-854e54a9b6f7?mode=deep",
+    "timestamp": "2026-01-10 05:30:59.169378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Fee Griefing] Can a malicious governance proposal use MsgUpdateParams to set CreateFeeAmount to an extremely high value (near uint32 max), making token creation prohibitively expensive and effectively shutting down the factory module's permissionless creation feature? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c325795c-2b9f-41aa-8710-bc2d986e15a0?mode=deep",
+    "timestamp": "2026-01-10 05:31:24.323097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Field Mutation] Does the MsgUpdateParams struct properly prevent field mutation after ValidateBasic execution, or can an attacker modify the Params field between validation and keeper execution through pointer manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2424b127-1283-4c15-9bd4-6b76eacc91c5?mode=deep",
+    "timestamp": "2026-01-10 05:31:50.561927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Protobuf Size Attack] Can an attacker submit a MsgUpdateParams with extremely long Authority or CreateFeeDenom strings (up to protobuf's 2GB limit) that pass validation but cause memory exhaustion or DoS when processed by ValidateBasic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88ff4ec3-5744-43ad-8b83-1eb079b5cea3?mode=deep",
+    "timestamp": "2026-01-10 05:32:15.911912",
+    "report_generated": false
   }
 ]
