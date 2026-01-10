@@ -30298,5 +30298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4c5f8e3-ae7b-42eb-981f-159f0302c37a?mode=deep",
     "timestamp": "2026-01-10 19:19:15.591370",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Time-of-check-time-of-use] Between when this invariant checks at some block height N and when enforcement actions occur, can an attacker continue minting tokens, exploiting the delay between detection and enforcement? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d70b5d68-1d1e-484b-8bc3-a60f5fe7bb81?mode=deep",
+    "timestamp": "2026-01-10 19:20:54.814768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Governance attack] Can a malicious governance proposal modify MintingCap values in state after tokens are minted, causing this invariant to falsely trigger and halt the chain even though no actual over-minting occurred? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ee38148-cb8f-4c9e-98e3-59733fb01052?mode=deep",
+    "timestamp": "2026-01-10 19:21:07.268887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Module account manipulation] Can an attacker manipulate the factory module account to hold excess tokens that aren't reflected in denom.Minted, allowing minting beyond the cap when those tokens are released? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27ef3d8e-6502-4977-893b-6f3956319e4f?mode=deep",
+    "timestamp": "2026-01-10 19:21:20.018868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [IBC transfer bypass] The comment at line 70-71 mentions IBC transfers cause differences between factory and bank supply - can an attacker exploit IBC transfers to mint tokens without updating denom.Minted, bypassing minting cap checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3b99e57-164f-450f-b4e3-b32c37633fe6?mode=deep",
+    "timestamp": "2026-01-10 19:21:33.705586",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Error string injection] At line 43, the error message uses fmt.Sprintf with denom.Denom - can an attacker create a denom with malicious formatting strings that exploit string processing vulnerabilities in logging systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6efd3cf-0535-43fb-9e15-25bc72a70089?mode=deep",
+    "timestamp": "2026-01-10 19:21:47.485043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Partial check vulnerability] The invariant only checks denom.Minted vs denom.MintingCap, but doesn't verify if bank supply equals Minted - can this discrepancy be exploited to mint tokens without updating the Minted field? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7b7618d-3ec9-4346-89e3-fe145667460b?mode=deep",
+    "timestamp": "2026-01-10 19:22:02.418413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Negative value exploit] Although cosmosmath.Uint should be unsigned, can an attacker manipulate state to store negative values that bypass the GT() comparison at line 39 when unmarshaled? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7f28534-e746-4356-852b-24d028b38755?mode=deep",
+    "timestamp": "2026-01-10 19:22:18.402317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Zero minting cap bypass] If a denom is created with MintingCap set to zero, does the GT() check at line 39 correctly prevent any minting, or can an attacker mint tokens when Minted=0 and MintingCap=0? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bc27b3d-0801-4d64-8284-4c1599af9f1a?mode=deep",
+    "timestamp": "2026-01-10 19:22:36.594080",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Type confusion] Can an attacker exploit the cosmosmath.Uint type handling in the GT() comparison at line 39 by causing type conversion errors or precision loss that makes the comparison return incorrect results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbe86653-f66a-4474-b281-f21fea2cf74e?mode=deep",
+    "timestamp": "2026-01-10 19:22:54.904738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Index out of bounds] At lines 33-36, the iteration pattern 'for idx := range all' followed by 'denom := all[idx]' is safe, but could concurrent state modifications during iteration cause slice bounds issues if the underlying all slice is mutated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_303116c8-7581-4343-91a1-b7fbaecbc80d?mode=deep",
+    "timestamp": "2026-01-10 19:23:14.804230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Panic vulnerability] If k.GetAllDenom() at line 30 encounters corrupted state data during unmarshaling, can this cause a panic that crashes the chain since there's no panic recovery in this function? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d5d3313-5887-4298-9725-2b943efc1f52?mode=deep",
+    "timestamp": "2026-01-10 19:23:34.958417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Denial of Service] Can an attacker create thousands of denoms to cause GetAllDenom() at line 30 to consume excessive gas during invariant checking, causing validators to skip invariant checks or crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_211839bf-8bf6-4d86-8380-17886e930c6a?mode=deep",
+    "timestamp": "2026-01-10 19:23:55.931217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Iterator manipulation] Can an attacker cause the GetAllDenom() call at line 30 to return an incomplete or manipulated list of denoms by exploiting store iterator issues, allowing some denoms to bypass minting cap checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89932fbb-2808-4328-9c3c-18d27e974150?mode=deep",
+    "timestamp": "2026-01-10 19:24:17.397565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Early termination] At line 43, when an invariant violation is detected, the function returns with 'true' for broken invariant, but does this immediately halt chain processing or just log an error, potentially allowing continued minting past the cap? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe5d3873-3e75-4f03-8452-1cf2cb7a8208?mode=deep",
+    "timestamp": "2026-01-10 19:24:40.674129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Race condition] Can an attacker exploit a race condition by submitting multiple concurrent MintAndSendTokens transactions that individually pass the minting cap check but collectively exceed it before this invariant runs, resulting in over-minting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3170881-fd95-4f1d-b35c-f282c34e175c?mode=deep",
+    "timestamp": "2026-01-10 19:25:04.718920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [State manipulation] Can an attacker directly manipulate the Denom.Minted field in state storage between transactions to exceed MintingCap, bypassing this invariant check since it only runs periodically rather than on every mint operation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_086be359-1406-458d-8e72-d5a870a89aa6?mode=deep",
+    "timestamp": "2026-01-10 19:25:29.631295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Integer overflow] Can an attacker exploit integer overflow in the GT() comparison at line 39 by creating a denom with Minted value near cosmosmath.Uint max value, causing the invariant check to incorrectly pass when Minted actually exceeds MintingCap? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62ae6933-5986-4411-98d8-9713792636d6?mode=deep",
+    "timestamp": "2026-01-10 19:25:55.298979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Consensus attack] Can a Byzantine proposer include a transaction that calls GetDenom() for a denom that only exists in their local state (not yet committed to consensus), causing honest validators to get found=false and reject the block? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c169e5c-a8b6-458d-ae28-5590d23a8d69?mode=deep",
+    "timestamp": "2026-01-10 19:26:22.006611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Transaction rollback] If GetDenom() is called, then the transaction aborts and rolls back, can any cached data from the GetDenom() call leak into subsequent transactions, violating isolation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e24bd88-5825-48b5-b9a7-2f9450ad58ba?mode=deep",
+    "timestamp": "2026-01-10 19:26:49.405592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Concurrent modification] If SetDenom() is called in a goroutine while GetDenom() is executing (e.g., in ante handler vs. message handler), can this create data races where GetDenom() reads partially written data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ca8ce8e-b5e0-45af-bcc9-c853dca10b17?mode=deep",
+    "timestamp": "2026-01-10 19:27:16.740288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Boolean field] Can the CanChangeMintingCap boolean field be in an undefined state after unmarshaling corrupted data, causing non-deterministic behavior in cap update operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c82d410-dd02-4af3-b955-a756d54cd68a?mode=deep",
+    "timestamp": "2026-01-10 19:27:45.194073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Math type safety] The Denom struct uses cosmossdk_io_math.Uint for numeric fields - does GetDenom() validate that these values are properly initialized and not in an invalid state after unmarshaling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc9b2bca-f244-48b3-9db3-5051bf8b3cfd?mode=deep",
+    "timestamp": "2026-01-10 19:28:13.215299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Denom format] Does GetDenom() validate that the returned Denom.Denom field matches the requested denom parameter? Can store corruption cause mismatched data where querying 'tokenA' returns denom data for 'tokenB'? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ace43981-611a-4555-96a3-56d38576fbaf?mode=deep",
+    "timestamp": "2026-01-10 19:28:41.734968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Creator validation] GetDenom() returns the Creator field from storage without validation - if the Creator address format has changed or becomes invalid due to chain upgrade, can this cause downstream operations to panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_698b7dae-cac1-4e2e-a44e-74f2226cf28c?mode=deep",
+    "timestamp": "2026-01-10 19:29:10.149421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Iteration DoS] If the store.Get() implementation needs to iterate through multiple keys to find the exact match (due to index structure), can an attacker create many denoms with similar prefixes to slow down GetDenom() lookups exponentially? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cdabfc6-1e13-4c41-b893-d1708981c841?mode=deep",
+    "timestamp": "2026-01-10 19:29:37.477569",
+    "report_generated": false
   }
 ]
