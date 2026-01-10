@@ -19198,5 +19198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07923862-4081-4fb1-beff-a47dc10f7a4e?mode=deep",
     "timestamp": "2026-01-10 06:50:16.579038",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Query performance DoS] Can an attacker exploit ValidateBasic at line 22 to claim admin for denoms with extremely long names that degrade query performance when iterating admin lists? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c96db50f-4bb2-4e02-b2e9-a624dc0eda1c?mode=deep",
+    "timestamp": "2026-01-10 06:51:52.186144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Index corruption] If ValidateBasic at line 22 allows claims for denoms with special characters, can these corrupt the admin list indices maintained by AddDenomToAdminDenomAuthList? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6165ef30-e86b-48e3-bdc8-2d11809fcde5?mode=deep",
+    "timestamp": "2026-01-10 06:52:04.620470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [KVStore key collision] Can an attacker craft a denom that passes DeconstructDenom at line 27 but causes key collisions in the keeper's KVStore, corrupting admin mappings for other denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e085d0e-46ec-446f-bd26-bba8bb3cae74?mode=deep",
+    "timestamp": "2026-01-10 06:52:17.820866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Metadata admin separation violation] Can an attacker exploit ValidateBasic at line 22 to claim both BankAdmin and MetadataAdmin roles in a way that violates the separation of duties invariant? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eff2d376-62b6-417a-a901-bcac11e41879?mode=deep",
+    "timestamp": "2026-01-10 06:52:31.259740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Bank admin locking bypass] If a denom's BankAdmin is set to empty string (permanently locked), can an attacker exploit ValidateBasic at line 22 to claim admin anyway, violating the permanent lock guarantee? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df51414f-ae54-4d8a-99ff-ebe6d6fca5e7?mode=deep",
+    "timestamp": "2026-01-10 06:52:45.326166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Circular admin assignment] Can an attacker exploit ValidateBasic at line 22 to create circular admin dependencies (A proposes B, B proposes A) that deadlock the admin transfer system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_992b2d68-5dff-4f3c-b1da-9acc84831b7e?mode=deep",
+    "timestamp": "2026-01-10 06:53:00.347304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Admin uniqueness violation] Can an attacker exploit ValidateBasic at line 22 to claim admin for multiple denoms simultaneously, violating the invariant that each denom has only one active admin transfer at a time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb9a6399-384e-4251-a982-086b6c2206eb?mode=deep",
+    "timestamp": "2026-01-10 06:53:16.460011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Governance attack] Can an attacker exploit ValidateBasic at line 22 by coordinating with governance proposals to change admin addresses immediately after claim validation but before execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a83f72d0-08df-469d-ba90-09a0093c07e5?mode=deep",
+    "timestamp": "2026-01-10 06:53:33.834606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [MEV extraction] Can validators or searchers exploit ValidateBasic at line 22 to identify high-value admin claims in the mempool and extract MEV by reordering or censoring transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1eacce3d-c3e0-4a58-8f30-8d0baba0ea52?mode=deep",
+    "timestamp": "2026-01-10 06:53:52.240218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Fee market manipulation] Can an attacker spam MsgClaimDenomAdmin messages that pass ValidateBasic at line 22 but fail in keeper to manipulate gas prices and fee markets, making legitimate claims economically infeasible? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16e98b8e-8f14-4b3f-ad8a-33e90e8eed90?mode=deep",
+    "timestamp": "2026-01-10 06:54:11.804227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [SDK version incompatibility] If the sdk.ValidateDenom check within DeconstructDenom (called at line 27) changes behavior across Cosmos SDK versions, can an attacker exploit version-specific validation differences during upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82049849-7dec-4495-82a8-6f3b2a84c37b?mode=deep",
+    "timestamp": "2026-01-10 06:54:32.912155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [errorsmod.Wrapf injection] Can an attacker exploit format string vulnerabilities in errorsmod.Wrapf at lines 29-34 by injecting format specifiers in the denom string? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_696a7460-2bc3-4f24-b61d-a589145ff211?mode=deep",
+    "timestamp": "2026-01-10 06:54:54.022569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [DeconstructDenom panic] If DeconstructDenom at line 27 panics on specific inputs (e.g., malformed UTF-8, extremely long strings), can an attacker cause validator crashes by submitting such messages? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03440f5d-76cb-4736-8eb9-9fbd92eefd9f?mode=deep",
+    "timestamp": "2026-01-10 06:55:15.975694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [validators.SignerCheck vulnerability] If the SignerCheck function at line 23 has vulnerabilities in address parsing (e.g., buffer overflows, integer overflows in length checks), can an attacker exploit these to bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72960ac1-00ba-4893-900b-512a115656c5?mode=deep",
+    "timestamp": "2026-01-10 06:55:39.087011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [No proposal existence check] Since ValidateBasic at line 22 doesn't verify ProposedDenomAuth existence, can an attacker claim admin for denoms with expired or deleted proposals, bypassing the proposal requirement entirely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_699005f9-11b9-4041-a163-36296347dda8?mode=deep",
+    "timestamp": "2026-01-10 06:56:03.278510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Missing authorization check] ValidateBasic at line 22 doesn't verify if msg.Signer matches the proposed admin, can an attacker submit claims on behalf of others and exploit timing windows in the keeper handler? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9476677f-4f3a-43cf-8705-859ea78e38d3?mode=deep",
+    "timestamp": "2026-01-10 06:56:28.093918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Denom normalization bypass] If different parts of the system normalize denoms differently (e.g., case folding, Unicode normalization), can an attacker exploit ValidateBasic at line 22 to claim admin for denom variants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c064aeff-5b6d-404c-9e65-c850e36d1162?mode=deep",
+    "timestamp": "2026-01-10 06:56:53.283601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Signer field mutability] Can an attacker exploit the fact that ValidateBasic at line 22 doesn't verify signer immutability, allowing message field mutation between validation and execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c792d11-cd26-467e-8dc4-4f837be7abc1?mode=deep",
+    "timestamp": "2026-01-10 06:57:19.256137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Router dispatch error] If the message router dispatches MsgClaimDenomAdmin to wrong keeper due to type confusion, can ValidateBasic at line 22 still pass but cause cross-module state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_019cb18b-f85a-4040-9e29-ee0797f09dfc?mode=deep",
+    "timestamp": "2026-01-10 06:57:45.703770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Ante handler bypass] Can an attacker craft MsgClaimDenomAdmin that passes ValidateBasic at line 22 but fails ante handler checks in a way that leaks information about other users' proposed admin addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_156912fd-9a20-4124-b3bf-e98f3b434c66?mode=deep",
+    "timestamp": "2026-01-10 06:58:13.236364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Multi-message transaction exploit] In a transaction containing multiple message types, can an attacker position MsgClaimDenomAdmin after messages that modify state, exploiting ValidateBasic's limited context awareness at line 22? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86b9ed6f-0740-47d3-bdd8-ca743c1b82ba?mode=deep",
+    "timestamp": "2026-01-10 06:58:40.976914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Error silencing] Can an attacker exploit the error wrapping at lines 29-34 to cause errors from DeconstructDenom to be logged but not propagated, allowing invalid messages to reach the keeper? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1bc93031-f38a-4f39-8289-24b4bc57666a?mode=deep",
+    "timestamp": "2026-01-10 06:59:08.619201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Supply manipulation exploit] After claiming admin via ValidateBasic at line 22, can an attacker exploit the BankAdmin role to manipulate token supply in ways that violate minting cap invariants or drain DEX pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98c2159e-b6b0-42ac-b1c1-755c653cae8a?mode=deep",
+    "timestamp": "2026-01-10 06:59:36.025989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Metadata manipulation chain] Can an attacker claim admin for multiple denoms in sequence and exploit the metadata admin permissions to create circular dependencies that brick the factory module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc0f0fc2-e2ef-4b3c-b685-b2d2a42feeed?mode=deep",
+    "timestamp": "2026-01-10 07:00:02.966024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Griefing attack] Can an attacker repeatedly propose and claim admin for their own denoms to exhaust the admin list storage, causing state bloat that degrades query performance for all users? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6789751e-e19f-4443-9de0-90afb790412b?mode=deep",
+    "timestamp": "2026-01-10 07:00:27.782316",
+    "report_generated": false
   }
 ]
