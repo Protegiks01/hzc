@@ -14398,5 +14398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98b3447a-1c57-4e82-ab65-cb1c51d4f6c6?mode=deep",
     "timestamp": "2026-01-10 01:41:46.759068",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Operator compromise] If the operator address is the same as a pauser address, can the operator remove themselves from the pauser list and then exploit the system without any ability to pause operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21155507-aeda-4e23-87e1-8ea9b252fe68?mode=deep",
+    "timestamp": "2026-01-10 01:43:43.211223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [KVStore limits] If the pauser list is at maximum size, can removing an address fail due to storage constraints during the re-marshaling process, causing the operation to fail silently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21fc8ed4-c92d-4847-b8ec-53120ee12803?mode=deep",
+    "timestamp": "2026-01-10 01:43:55.495845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Data integrity] Can an attacker exploit differences in how addresses are stored (via keeper method on line 28) versus retrieved (on line 35) to cause permanent inconsistency where removed addresses still appear in queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4dc7229-11bd-4eeb-ae3f-080a5a8ffe52?mode=deep",
+    "timestamp": "2026-01-10 01:44:08.200212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Storage consistency] If the keeper's RemovePauserAddress uses SetPauserAddresses which marshals the modified list, can a failure during marshaling leave the storage in an inconsistent state with partially written data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_487d7daa-9bcf-49f7-aa32-5cd33ea77b7a?mode=deep",
+    "timestamp": "2026-01-10 01:44:21.236479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Storage corruption] Can calling RemovePauserAddress while the keeper is marshaling/unmarshaling the pauser list for another operation cause a race condition that corrupts the protobuf-encoded data in the KVStore? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e397c79c-839c-4dea-9c5c-c180d6ec2e76?mode=deep",
+    "timestamp": "2026-01-10 01:44:35.459506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Keeper interaction] Does the keeper's RemovePauserAddress method on line 28 perform any additional validation or checks that could be bypassed by calling this message handler directly versus other keeper methods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_762e0784-1fee-4038-80de-d418e8c3ec45?mode=deep",
+    "timestamp": "2026-01-10 01:44:50.146792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Cross-module security] Can removing the last pauser address while IBC transfers are in flight create a vulnerability where stuck tokens cannot be recovered because no one can pause the system to fix issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0676ce3d-81c6-44f7-83c2-64670d911b52?mode=deep",
+    "timestamp": "2026-01-10 01:45:05.506065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [State dependency] If other modules or contracts depend on the pauser list being immutable during a transaction, can calling RemovePauserAddress mid-block violate these assumptions and cause state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_014330fc-9b93-445b-b7bd-5fa4e0231f1c?mode=deep",
+    "timestamp": "2026-01-10 01:45:22.586518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Module interaction] Can an attacker exploit the fact that RemovePauserAddress doesn't check if the module is currently paused, allowing removal of all pausers while the system is in emergency mode and preventing re-enabling? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fff65cc-b539-413e-bfcd-c08baf5331f2?mode=deep",
+    "timestamp": "2026-01-10 01:45:40.866050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Chain halt] Can coordinated removals of all pauser addresses combined with disabling the operator address cause a permanent loss of emergency pause capability, leaving the protocol vulnerable to exploits that cannot be stopped? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47443875-44f7-40c0-9226-546d082dc2bf?mode=deep",
+    "timestamp": "2026-01-10 01:46:00.018053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Gas exhaustion] Can an attacker exploit the cost of retrieving and unmarshaling the pauser list on line 35 by ensuring many pausers exist, causing legitimate removal transactions to run out of gas? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d1ee170-b626-4996-b40f-c5959eb188b3?mode=deep",
+    "timestamp": "2026-01-10 01:46:20.050470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Resource exhaustion] If GetPauserAddresses on line 35 returns an extremely large list (thousands of addresses), can this cause the response serialization to exceed block size limits or memory constraints? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2fb1a91-088f-4719-b8cf-7620052a839f?mode=deep",
+    "timestamp": "2026-01-10 01:46:40.693375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [DoS attack] Can an attacker spam RemovePauserAddress transactions with non-existent addresses to consume excessive gas and validator resources, since the validation and removal logic must execute even for non-existent pausers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d45ac5b9-698c-4f57-bc4f-6240baf42a4e?mode=deep",
+    "timestamp": "2026-01-10 01:47:02.052238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [State rollback] If the function fails after calling RemovePauserAddress on line 28 but before completing (e.g., at event emission), is the pauser removal properly rolled back, or does partial state change persist? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4086b357-7323-49de-87a6-900c0a2bf76f?mode=deep",
+    "timestamp": "2026-01-10 01:47:25.063085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Error handling] If AccAddressFromBech32 returns an error on line 22, is the error message sufficiently sanitized to prevent information leakage about internal address formats or validation logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4d42f0d-7d6b-40b4-a61c-143e8720bf00?mode=deep",
+    "timestamp": "2026-01-10 01:47:48.931100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Silent failure] Can the keeper's RemovePauserAddress call on line 28 fail silently without returning an error, causing the function to return success while the pauser was not actually removed from storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a13f42c1-7bbb-4b0a-8c1d-f1ea120ed666?mode=deep",
+    "timestamp": "2026-01-10 01:48:13.941328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Error propagation] If the keeper's RemovePauserAddress method panics during slice manipulation on line 28, is the panic properly recovered and converted to an error, or does it crash the entire validator node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e862c77-62e2-47de-9d30-b7201129bb7a?mode=deep",
+    "timestamp": "2026-01-10 01:48:39.412855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Data consistency] Can the response on lines 33-36 be manipulated to return a success status even if the keeper's RemovePauserAddress call on line 28 silently fails (e.g., pauser didn't exist), misleading clients about the operation result? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55bd567c-60a9-4779-a5a2-c0748a55df45?mode=deep",
+    "timestamp": "2026-01-10 01:49:05.086789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Response manipulation] If GetPauserAddresses on line 35 returns a slice that is subsequently modified by another transaction in the same block, does the response contain stale or incorrect pauser list data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d345d7c2-f60d-4b22-a76a-98d662cb0fdd?mode=deep",
+    "timestamp": "2026-01-10 01:49:31.713220",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Information leak] Can an attacker repeatedly call RemovePauserAddress with invalid addresses to enumerate the current pauser list via the PauserAddresses field in the response on line 35, exposing sensitive security configuration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b12404a3-74be-4595-9289-be3723860bf6?mode=deep",
+    "timestamp": "2026-01-10 01:49:57.491826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Event data integrity] Does the event emitted on line 31 use msg.Pauser directly without verifying it matches the address actually removed by the keeper, allowing event data to diverge from actual state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23064a1e-ec3c-4847-b653-c7ee4a095b5e?mode=deep",
+    "timestamp": "2026-01-10 01:50:22.564671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Event forgery] Can an attacker remove a non-existent pauser address to emit false removal events that confuse off-chain monitoring systems and audit logs, potentially covering up other malicious activities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10fad9c1-ad16-4ac5-8d6a-bae341d6b46a?mode=deep",
+    "timestamp": "2026-01-10 01:50:46.441178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Event emission failure] If the EventManager is nil when EmitPauserAddressRemovedEvent is called on line 31, the event is silently dropped - can this cause off-chain monitoring to miss critical pauser removals, enabling undetected privilege escalation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c092eb17-80fa-4bfc-860e-edf25ad6c5d4?mode=deep",
+    "timestamp": "2026-01-10 01:51:09.155449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Event manipulation] Can an attacker exploit the fact that EmitPauserAddressRemovedEvent on line 31 is called before GetPauserAddresses on line 35, causing off-chain monitoring systems to see an incorrect state where the event shows removal but the list hasn't been updated yet? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b3111bc-7448-4786-bdcf-680275e7e1c0?mode=deep",
+    "timestamp": "2026-01-10 01:51:32.931183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Transaction ordering] Can an attacker submit multiple RemovePauserAddress transactions in the same block, exploiting the FIFO execution order to remove all pausers before a DisableTokenWrapper transaction from a legitimate pauser can be processed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0913b353-701c-4b7a-9de5-c188aa9e6f3e?mode=deep",
+    "timestamp": "2026-01-10 01:51:54.607335",
+    "report_generated": false
   }
 ]
