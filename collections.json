@@ -14098,5 +14098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9072f6d5-6611-40e7-9f48-5b3c673a0183?mode=deep",
     "timestamp": "2026-01-10 09:09:33.810009",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Governance] [Parameter change timing] If parameter changes take effect immediately after governance passes, can attackers front-run parameter changes by submitting transactions in the same block, exploiting the old parameters before new constraints apply? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e4153d2-bf1d-4658-90d5-ff49811f7d24?mode=deep",
+    "timestamp": "2026-01-10 09:10:44.706369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Governance] [Retroactive parameter effects] If NewPoolFeePct or MaxSlippage are changed via governance, do these apply to existing pools retroactively? Can this cause existing liquidity providers to be subjected to higher fees or different slippage rules than they agreed to? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a60e7da4-8eed-41a3-9db2-d3754de44b8c?mode=deep",
+    "timestamp": "2026-01-10 09:10:57.011934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Governance] [Beneficiary takeover] If beneficiary address at line 48/79 can be changed by governance, can a malicious validator coalition capture 51% voting power and redirect all pool creation fees to their address, stealing protocol revenue? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ea0b17e-2bd7-4735-a954-3a0661be654f?mode=deep",
+    "timestamp": "2026-01-10 09:11:09.947023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Governance] [Validation bypass through upgrade] If a chain upgrade changes the Validate() function logic at line 70 but existing parameters in state don't get re-validated, can previously valid parameters become invalid post-upgrade, causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5cbbcc5-62f6-49b8-af73-ac0950f6117a?mode=deep",
+    "timestamp": "2026-01-10 09:11:23.834021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Governance] [MinimalLiquidityLock reduction] If MinimalLiquidityLock is reduced from DefaultMinimalLiquidityLock (1000) to 1 via governance, does this affect only new pools or also existing pools? Can attackers exploit newly vulnerable existing pools for share inflation attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c538e28-c286-481c-8677-8bf1301e9067?mode=deep",
+    "timestamp": "2026-01-10 09:11:37.839221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Governance] [CreationFee DOS] Since validateCreationFee() at line 127 accepts any uint32 value, can a governance attack set CreationFee to MaxUint32 effectively disabling pool creation, permanently freezing DEX functionality? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1b0c3c4-52f0-4aa5-bffe-f36c431ea986?mode=deep",
+    "timestamp": "2026-01-10 09:11:52.470338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Cross-module] [Factory fee coordination] If DEX CreationFee at line 22 is charged in different denominations than Factory module's token creation fees, can attackers exploit exchange rate fluctuations to create pools at reduced cost, or can fee arbitrage occur between modules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7740e322-5c39-4af0-a882-8bb41786fcc7?mode=deep",
+    "timestamp": "2026-01-10 09:12:07.960723",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Cross-module] [TokenWrapper decimal mismatch] If DEX parameters assume 6-decimal native tokens but TokenWrapper bridges 18-decimal IBC tokens, can the difference cause precision loss in fee calculations when MinSwapFee (1) is applied to 18-decimal tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4031b02-6b92-4eca-8cae-05f207dacc36?mode=deep",
+    "timestamp": "2026-01-10 09:12:24.627452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Cross-module] [IBC packet fees] If NewPoolFeePct at line 18 is used to calculate fees for IBC-routed swaps, and IBC packets have timeout/acknowledgment fee logic, can attackers exploit fee calculation timing to avoid paying swap fees by triggering IBC packet failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d886c882-542a-4992-93bf-ed2df1b7c676?mode=deep",
+    "timestamp": "2026-01-10 09:12:42.353767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Cross-module] [Beneficiary module account] If beneficiary address validated at line 80 is a module account (e.g., TokenWrapper module), can circular fee flows occur where DEX fees fund TokenWrapper which funds DEX, creating accounting inconsistencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d45286f8-f7d9-4a9a-b78f-01b4054cc0b1?mode=deep",
+    "timestamp": "2026-01-10 09:13:00.406545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Cross-module] [Governance parameter conflicts] If DEX parameters validated in this file conflict with governance parameters in other modules (e.g., different MaxSlippage in TokenWrapper), which takes precedence, and can attackers exploit the ambiguity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_985388d4-da47-4a74-8c41-7c2961233baf?mode=deep",
+    "timestamp": "2026-01-10 09:13:19.465736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Economic] [Fee extraction maximization] With NewPoolFeePct allowed up to PoolFeeScalingFactor-1 (99,999/100,000 = 99.999%), can attackers create pools with maximum fees, trap liquidity providers who add liquidity without checking fee rates, then extract 99.999% of swap value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf65f51f-5d22-419f-83b5-4ce436d3af4e?mode=deep",
+    "timestamp": "2026-01-10 09:13:39.681340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Economic] [Slippage-based theft] If MaxSlippage can be set to MaximumMaxSlippage (10,000 = 100%), can attackers create pools where swaps always execute at maximum slippage, with attackers front-running to capture the 100% slippage tolerance as profit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94289279-a765-4cb6-a803-b007ed2aa5d3?mode=deep",
+    "timestamp": "2026-01-10 09:14:02.243060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Economic] [Liquidity lock economics] If MinimalLiquidityLock represents permanently locked value, can attackers exploit low MinimalLiquidityLock values to create many pools with minimal capital at risk, fragmenting liquidity across thousands of pools to DoS price discovery? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e76ba0b4-50e2-40e5-bd5f-b4d41fc8ac67?mode=deep",
+    "timestamp": "2026-01-10 09:14:23.975474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Economic] [Creation fee deflation] If CreationFee at line 22 is fixed at 100 ZIG but ZIG token appreciates 1000x, does the fee become prohibitively expensive for legitimate users while remaining profitable for attackers to create griefing pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_707473d3-6f95-40f5-8398-22b9cf497960?mode=deep",
+    "timestamp": "2026-01-10 09:14:46.958343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Economic] [Fee compounding] If NewPoolFeePct is applied per swap and users perform multi-hop swaps across multiple pools, can compounding fees (e.g., 3 swaps with 10% fee each = 27.1% total) exceed MaxSlippage tolerance causing legitimate trades to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b903c4f-09ad-4c75-9cd9-f9863f1470de?mode=deep",
+    "timestamp": "2026-01-10 09:15:10.154699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Economic] [Zero-fee pool flooding] Since validateNewPoolFeePct() at line 102 allows poolFee = 0, can attackers create unlimited zero-fee pools to fragment liquidity, then profit by creating a single high-fee pool that captures trades when zero-fee pools have insufficient liquidity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e94f818c-b8b4-4f51-81c6-8826712f135d?mode=deep",
+    "timestamp": "2026-01-10 09:15:34.830944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Economic] [Beneficiary fee diversion] If beneficiary at line 48 receives pool creation fees, can an attacker repeatedly create and destroy pools (if pool destruction is possible) to drain funds from users to beneficiary in a fee extraction loop? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2a6072b-0159-4776-8224-be0aa3ead677?mode=deep",
+    "timestamp": "2026-01-10 09:16:00.608765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Input validation] Can an attacker pass a specially crafted formula string with null bytes, Unicode normalization issues, or homoglyphs to bypass the IsValidFormula check and create pools with invalid formulas that break AMM calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_219754e9-7e38-421c-9c29-26c40117894c?mode=deep",
+    "timestamp": "2026-01-10 09:16:25.217598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [String comparison] Does the map lookup in IsValidFormula perform case-sensitive comparison, allowing an attacker to create pools with 'Constant_Product' or 'CONSTANT_PRODUCT' that bypass validation but are later used in calculations assuming lowercase? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59cacd29-3880-470c-b28d-f2f32c2b4808?mode=deep",
+    "timestamp": "2026-01-10 09:16:52.370114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Empty string handling] Can an attacker pass an empty string to IsValidFormula, which would return false but might not be properly handled in calling functions, causing state inconsistencies or panics during pool operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f36675d4-98e6-4eae-b1f2-657f280611b6?mode=deep",
+    "timestamp": "2026-01-10 09:17:20.183088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Concurrent modification] Is the global AllowedFormulas map protected against concurrent read/write access in a multi-threaded validator environment, or can race conditions lead to map corruption causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9292103-5236-497b-8cf7-ce6a89087291?mode=deep",
+    "timestamp": "2026-01-10 09:17:48.620850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [State mutation] Can governance proposals or module upgrades modify the AllowedFormulas map at runtime without proper state migration, breaking existing pools that rely on formulas that are retroactively removed from the whitelist? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b58ff91e-70a7-45fb-ac07-634b30f507a2?mode=deep",
+    "timestamp": "2026-01-10 09:18:17.945915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [Constant mutation] Although FormulaConstantProduct is a variable (not const), can it be mutated at runtime through reflection or unsafe pointers, causing all pools to use incorrect formula identifiers and breaking AMM invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a30f05bf-b103-49d6-9b46-5fa36fcba626?mode=deep",
+    "timestamp": "2026-01-10 09:18:49.503799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Nil map handling] If AllowedFormulas is somehow set to nil through initialization errors or state corruption, will IsValidFormula panic when performing map lookup, causing DoS for all pool creation and validation operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1cd4f08-30f2-4f80-b1ed-ee0047e23a93?mode=deep",
+    "timestamp": "2026-01-10 09:19:20.868488",
+    "report_generated": false
   }
 ]
