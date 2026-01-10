@@ -30898,5 +30898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cb9d799-7ef8-491f-a5ba-f8fa524d2397?mode=deep",
     "timestamp": "2026-01-10 19:59:09.725781",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: Serialization] [Version skew] If different nodes run different versions with incompatible DenomAuth protobuf definitions, can this cause MustUnmarshal to fail on some nodes but not others, leading to consensus failures? (\n\n### Citations\n\n**File:** x/factory/keeper/denom_auth.go (L1-171)\n```go\npackage keeper\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4273133-68e9-4d0c-ab88-8a9ce53a7826?mode=deep",
+    "timestamp": "2026-01-10 20:00:37.993155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: Store isolation] [Cache coherency] If the KVStore uses caching, can reads from different stores (DenomAuth vs ProposedDenomAuth) return stale data leading to authorization bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d669b09-cb4d-4dd4-b00e-86af7dd16474?mode=deep",
+    "timestamp": "2026-01-10 20:00:50.863485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: Empty admin semantics] [Inconsistent behavior] Does empty string for BankAdmin consistently mean 'disabled' across all functions (GetDenomAuth, DisableDenomAuth, ClaimDenomAdmin), or do some functions interpret it differently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0feb32cf-9a19-457f-acc3-34843c51ad28?mode=deep",
+    "timestamp": "2026-01-10 20:01:03.796144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: Proposed admin] [Zombie proposals] If a DenomAuth entry is deleted (if that's possible), are associated ProposedDenomAuth entries also deleted, or can they become zombie proposals for non-existent denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba915de0-02a3-4c5c-b5ab-e2e5260d5997?mode=deep",
+    "timestamp": "2026-01-10 20:01:16.961316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: Admin index] [Consistency] Can the admin index (AdminDenomAuthKeyPrefix store) become out of sync with actual DenomAuth entries if SetDenomAuth is called without corresponding AddDenomToAdminDenomAuthList calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46d27199-5a89-4a01-a40e-a6c08892ac14?mode=deep",
+    "timestamp": "2026-01-10 20:01:30.593375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: ClaimDenomAdmin workflow] [Incomplete cleanup] In ClaimDenomAdmin at lines 64-75 (msg_server_claim_denom_admin.go), the workflow calls SetDenomAuth, DeleteProposedDenomAuth, RemoveDenomFromAdminDenomAuthList (2x), and AddDenomToAdminDenomAuthList (2x). If any step fails, are all previous steps properly rolled back? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2abea8dc-493b-4d18-a37e-ecdfa514d791?mode=deep",
+    "timestamp": "2026-01-10 20:01:45.498901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: All stores] [Prefix overlap] Do DenomAuthKeyPrefix ('DenomAuth/value/'), ProposedDenomAuthKeyPrefix ('ProposedDenomAuth/value/'), and AdminDenomAuthKeyPrefix ('AdminDenomAuth/value/') have any risk of key collision if denom names contain 'value/' or other prefix-like strings? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45ee56dd-861d-4286-8442-224ad11831db?mode=deep",
+    "timestamp": "2026-01-10 20:02:01.105107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: GetDenomAuth + DisableDenomAuth] [TOCTOU] Is there a time-of-check-time-of-use race between checking admin authorization with GetDenomAuth and executing DisableDenomAuth, where admin could be changed in between? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ead97a6b-6a49-47e5-9a46-d1db98e261e7?mode=deep",
+    "timestamp": "2026-01-10 20:02:18.682354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: SetProposedDenomAuth + DeleteProposedDenomAuth] [Race window] Between ProposeDenomAdmin calling SetProposedDenomAuth and ClaimDenomAdmin calling DeleteProposedDenomAuth, can a race condition allow multiple claims or deletions of the same proposal? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e89347e-61e2-490e-97e4-029ca15b306e?mode=deep",
+    "timestamp": "2026-01-10 20:02:37.257096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Cross-function: SetDenomAuth + AddDenomToAdminDenomAuthList] [State desync] In CreateDenom at msg_server_create_denom.go line 118-121, SetDenomAuth is called followed by AddDenomToAdminDenomAuthList. If the transaction rolls back after SetDenomAuth but before AddDenomToAdminDenomAuthList, can this create orphaned DenomAuth entries with no admin index? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_357617f4-572a-421a-8703-c6a71459d4e1?mode=deep",
+    "timestamp": "2026-01-10 20:02:56.400551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Store adapter failure] If runtime.KVStoreAdapter fails at line 148, does the function return an error or continue with a nil adapter causing panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d23acc1a-2234-4ea6-9fc0-407b24f24c31?mode=deep",
+    "timestamp": "2026-01-10 20:03:17.472396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Transaction rollback] If MigrateAdminDenomAuthList partially completes then the transaction fails, are all AddDenomToAdminDenomAuthList operations rolled back properly, or can partial index corruption occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f124533e-5873-4ccb-a68a-f138bb389a1a?mode=deep",
+    "timestamp": "2026-01-10 20:03:38.900864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Pre-existing index] Does MigrateAdminDenomAuthList check if admin index entries already exist before adding? Can this cause conflicts if partial migrations were previously attempted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfdc6046-f946-4307-b223-a282aa88aef0?mode=deep",
+    "timestamp": "2026-01-10 20:04:01.349702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Iterator order] Does the iterator at line 150 return entries in deterministic order? If different validators iterate in different orders, could this cause consensus failures during migration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_696d8aa4-3d24-41e4-9484-0fa1efd30afc?mode=deep",
+    "timestamp": "2026-01-10 20:04:24.646523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Migration trigger] Who can call MigrateAdminDenomAuthList? If there's no authorization check in the calling code, can any address trigger migration multiple times causing index corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9e24c47-8ace-4ec3-91d3-5e9f58a14284?mode=deep",
+    "timestamp": "2026-01-10 20:04:49.305604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Gas exhaustion] Can MigrateAdminDenomAuthList exhaust block gas if there are thousands of denoms to migrate? Is this function intended to be called in a governance proposal with increased gas limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06322170-270f-4d9e-9324-782bc97d3dca?mode=deep",
+    "timestamp": "2026-01-10 20:05:13.452059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Unmarshal error] At line 161, if Unmarshal fails, an error is returned immediately. Does this halt the entire migration, or should it skip corrupted entries and continue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e6bb403-a782-47de-b40a-0c38d88ca167?mode=deep",
+    "timestamp": "2026-01-10 20:05:39.017484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Empty admin migration] If some DenomAuth entries have empty BankAdmin or MetadataAdmin (from DisableDenomAuth), does migration at lines 166-167 create invalid admin index entries for empty admins? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a4bd1b2-dace-46a3-a346-ac2907bd1ae5?mode=deep",
+    "timestamp": "2026-01-10 20:06:05.283944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Both admins added] At lines 166-167, both BankAdmin and MetadataAdmin are added to admin index. If they're the same address, does this create duplicate entries under that admin's key? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a44d8972-ba78-4ce2-b53a-bb4af00eec81?mode=deep",
+    "timestamp": "2026-01-10 20:06:30.840626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Partial migration] If MigrateAdminDenomAuthList fails midway through iteration (line 161 error), are some denoms migrated while others are not, creating an inconsistent admin index? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9175f861-68c5-4dff-b0d7-6c038664103e?mode=deep",
+    "timestamp": "2026-01-10 20:06:58.044377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Iterator resource leak] Similar to GetAllDenomAuth, at lines 152-157, if iterator.Close() fails or Unmarshal panics, can this leak iterators causing resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20e393fa-320e-4861-9a96-d15bba7d35e9?mode=deep",
+    "timestamp": "2026-01-10 20:07:23.616116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: MigrateAdminDenomAuthList()] [Idempotency violation] Can MigrateAdminDenomAuthList be called multiple times? If called twice, does it create duplicate entries in the admin index for each denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15afb182-7dc2-4e95-9801-da864f6eae88?mode=deep",
+    "timestamp": "2026-01-10 20:07:48.634064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Store corruption] If the Delete operation at line 143 partially fails, can this leave phantom entries that appear in some queries but not others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8ae5e2b-1882-4a17-9cca-28a47227afee?mode=deep",
+    "timestamp": "2026-01-10 20:08:12.378102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Cleanup ordering] If RemoveDenomFromAdminDenomAuthList is called before SetDenomAuth in an admin transfer, can queries return inconsistent results during the state transition window? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_decbb3fc-a1ab-4077-bdf3-d40041612d87?mode=deep",
+    "timestamp": "2026-01-10 20:08:36.017227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Partial removal] In ClaimDenomAdmin at lines 70-71 (seen in msg_server_claim_denom_admin.go), both BankAdmin and MetadataAdmin are removed. If they're the same address, does this cause double-deletion issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df24faba-94d5-49c6-9567-7b0db729ce02?mode=deep",
+    "timestamp": "2026-01-10 20:08:58.016873",
+    "report_generated": false
   }
 ]
