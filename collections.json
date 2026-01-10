@@ -20848,5 +20848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1697f018-f394-431b-a081-b0d8442a26a4?mode=deep",
     "timestamp": "2026-01-10 20:07:15.920033",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Key generation bug] Can subtle differences in DenomAuthKey generation between Set and Get operations cause proposals to become unretrievable, locking the admin transfer process? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cdf77d35-b46a-41e1-ad5e-32550544d643?mode=deep",
+    "timestamp": "2026-01-10 20:08:36.109778",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetProposedDenomAuth()] [Memory exhaustion] Can an attacker query GetProposedDenomAuth repeatedly with complex denom names to cause memory exhaustion through string allocation and protobuf deserialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e09db218-1d71-4cd5-9fc7-8c87f43ae94b?mode=deep",
+    "timestamp": "2026-01-10 20:08:48.377654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Iterator leak] At lines 91-96, if iterator.Close() fails (line 93), is the error properly handled? Can repeated failures leak iterators and exhaust system resources causing validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0eca5443-3f1b-445e-8b5b-f261873add1e?mode=deep",
+    "timestamp": "2026-01-10 20:09:01.018281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Panic in iteration] If MustUnmarshal panics during iteration at line 100, will the defer statement at line 91 properly close the iterator, or will it leak causing resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fffd1390-80e9-4579-875a-9b325ab6466e?mode=deep",
+    "timestamp": "2026-01-10 20:09:14.306826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Unbounded memory] GetAllDenomAuth returns a slice containing all DenomAuth entries. Can an attacker create millions of denoms to cause this function to allocate unbounded memory and crash validators via OOM? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40ea1f62-f088-49bb-887b-6df7013c4d0a?mode=deep",
+    "timestamp": "2026-01-10 20:09:28.826061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Inconsistent ordering] If the iterator returns denoms in non-deterministic order across different validators, could this cause consensus failures when comparing state exported from different nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a85ca728-23ac-41a4-bc35-5b652d012898?mode=deep",
+    "timestamp": "2026-01-10 20:09:44.254882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Corrupted entries] If some DenomAuth entries in the store are corrupted, will MustUnmarshal panic and prevent all queries, or will it skip corrupted entries creating inconsistent views? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb7413f6-9254-4fac-9a8e-37547398d991?mode=deep",
+    "timestamp": "2026-01-10 20:09:59.735987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Gas metering bypass] Does GetAllDenomAuth properly meter gas for each iteration? Can an attacker create many denoms and then call queries that use this function to exhaust block gas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe7ae588-f20c-487e-9113-a402c1ceb7e5?mode=deep",
+    "timestamp": "2026-01-10 20:10:17.441694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Slice capacity] Is the returned list slice pre-allocated with capacity, or does it grow dynamically? Can append operations cause repeated reallocations leading to O(n²) complexity for large denom counts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4336be18-88ac-4b49-89e4-69f853dbe0f5?mode=deep",
+    "timestamp": "2026-01-10 20:10:35.703536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Store prefix leak] Does the prefix iterator at line 89 properly constrain iteration to DenomAuthKeyPrefix, or can it leak into ProposedDenomAuth or AdminDenomAuth stores? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_214a3003-64eb-49fa-859c-9511bfb8e29b?mode=deep",
+    "timestamp": "2026-01-10 20:10:54.696065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Error handling] The error from iterator.Close() at line 92 is only logged, not returned. Can this mask critical store failures that should halt processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d42348c-77d7-4b3e-8720-59ee3994cf68?mode=deep",
+    "timestamp": "2026-01-10 20:11:15.624751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Concurrent modification] If another transaction modifies the DenomAuth store while GetAllDenomAuth is iterating, can this cause the iterator to return inconsistent or duplicate entries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f3876e4-b32c-4da2-9b52-8ac9cf1ad080?mode=deep",
+    "timestamp": "2026-01-10 20:11:36.303871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Nil iterator] If KVStorePrefixIterator returns nil due to store corruption, will the defer statement panic when trying to call Close() on a nil iterator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29fa35c6-a1fd-4004-a443-828008a795f1?mode=deep",
+    "timestamp": "2026-01-10 20:11:57.276069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetAllDenomAuth()] [Validator sync] If validators have different numbers of DenomAuth entries due to Byzantine behavior or sync issues, can this cause consensus failures when state roots are compared? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a3a3453-7e03-4103-b480-5b76f4f7da50?mode=deep",
+    "timestamp": "2026-01-10 20:12:21.229282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Irreversible action] At line 122, DisableDenomAuth sets BankAdmin to empty string, which according to ClaimDenomAdmin at line 31-36 locks the denom permanently. Can an attacker exploit this to grief token owners by disabling admin functions forever? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0dc5b698-b5b7-4017-b89d-3a6d7d73588a?mode=deep",
+    "timestamp": "2026-01-10 20:12:44.665144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Metadata admin untouched] DisableDenomAuth only clears BankAdmin but not MetadataAdmin. Does this create an inconsistent state where metadata can still be modified but bank operations are locked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f0964b56-b837-4723-abb4-9f94274394af?mode=deep",
+    "timestamp": "2026-01-10 20:13:07.399145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [State desync] If GetDenomAuth at line 109 succeeds but SetDenomAuth at line 125 fails, can this leave the denom in a partially disabled state causing authorization confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fac0abb8-b8bc-41b5-a0ce-db482da32589?mode=deep",
+    "timestamp": "2026-01-10 20:13:30.172665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Missing proposal cleanup] DisableDenomAuth doesn't check or delete any pending proposals in ProposedDenomAuth store. Can an attacker disable admin then immediately claim from a pending proposal to re-enable it? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59c06712-5b2d-43e1-a498-1789da60a657?mode=deep",
+    "timestamp": "2026-01-10 20:13:53.447968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Admin index stale] DisableDenomAuth doesn't call RemoveDenomFromAdminDenomAuthList. Does this leave stale entries in the admin index showing disabled denoms as still having admins? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26e0961a-d2f2-4130-b00d-557bda5bf1d1?mode=deep",
+    "timestamp": "2026-01-10 20:14:17.029011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Re-enable vulnerability] After disabling, can the denom be re-enabled through ClaimDenomAdmin if a proposal was set before disabling, bypassing the permanent lock intention? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_74ee5566-fd3e-4ffc-b492-ea98d6279c6b?mode=deep",
+    "timestamp": "2026-01-10 20:14:39.734837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Empty string semantics] Does setting BankAdmin to empty string have consistent semantics across all functions, or do some functions treat empty string as 'disabled' while others treat it as 'no admin'? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_610aac8d-cffc-4b49-9aa6-5f0708048cc1?mode=deep",
+    "timestamp": "2026-01-10 20:15:01.952507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Authorization bypass] If DisableDenomAuth is called by the caller themselves without external authorization checks, can any address disable any denom's admin, creating a griefing vector? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed303a1c-9822-4791-aba4-75b1d070f072?mode=deep",
+    "timestamp": "2026-01-10 20:15:24.814280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Double disable] Can DisableDenomAuth be called multiple times on an already-disabled denom? Does this waste gas or create unnecessary log noise that could be exploited for DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ab7896e-b544-4fa2-a597-144493598c76?mode=deep",
+    "timestamp": "2026-01-10 20:15:47.479934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Factory operations] After admin is disabled, can factory operations like minting still proceed if they only check MetadataAdmin, bypassing the intended lock? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56cacf81-58f2-4107-a349-038c86dd9068?mode=deep",
+    "timestamp": "2026-01-10 20:16:10.614322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: DisableDenomAuth()] [Not found handling] At lines 113-118, if denom is not found, an error is returned. Can an attacker front-run a disable transaction by deleting the DenomAuth entry to prevent disabling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ceff524e-f97a-4ee1-a56c-0a45da9f65e8?mode=deep",
+    "timestamp": "2026-01-10 20:16:35.215969",
+    "report_generated": false
   }
 ]
