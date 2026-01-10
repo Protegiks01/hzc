@@ -15448,5 +15448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8298108b-54b5-4fe6-b04c-2b42a4badb4e?mode=deep",
     "timestamp": "2026-01-10 02:49:32.052345",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Error Handling] Do the error messages returned at lines 19, 25, and 30 provide enough information for legitimate operators to diagnose issues without giving attackers insights into the operator structure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4186232-4eaf-4edc-b8f9-49cbcb06585a?mode=deep",
+    "timestamp": "2026-01-10 02:50:41.006386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Error Handling] Can an attacker deliberately trigger the error conditions at lines 19, 25, or 30 repeatedly to create a DoS attack that prevents legitimate operator proposals? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a79e0d5b-eabb-4d84-a756-cfb057467bb0?mode=deep",
+    "timestamp": "2026-01-10 02:50:53.384816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Error Handling] If AccAddressFromBech32() at line 23 returns an error, does the error message at line 25 leak information about valid address formats that could help attackers craft malicious addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0813a071-1dd9-4f31-8908-e51529993e3c?mode=deep",
+    "timestamp": "2026-01-10 02:51:06.095939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Does the validation check if msg.NewOperator has the correct address prefix for the ZigChain network, or can addresses from other Cosmos chains be proposed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bce11ff8-f55c-4aae-adda-52df6fa57dcb?mode=deep",
+    "timestamp": "2026-01-10 02:51:19.693611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Can an attacker pass specially crafted addresses that satisfy ValidateBasic() but cause AccAddressFromBech32() at line 23 to return a nil error with an invalid address object? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_583b5a21-7329-4af4-81f5-086b507330ce?mode=deep",
+    "timestamp": "2026-01-10 02:51:33.467271",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Does the ValidateBasic() check on MsgProposeOperatorAddress prevent proposing the zero address (all zeros) as the new operator, or can this bypass validation and brick the operator role? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ee32d4a-4c0d-4d47-b3fe-670188348de3?mode=deep",
+    "timestamp": "2026-01-10 02:51:48.655230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Cross-Function Attack] Can the current operator call ProposeOperatorAddress() multiple times with different addresses to create confusion about which address should claim, and then social engineer one of them to claim prematurely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_646dcbc1-d4c4-488f-9f26-c89f3b857185?mode=deep",
+    "timestamp": "2026-01-10 02:52:04.325068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [State Transition] Does the two-step operator transfer (propose + claim) create a critical vulnerability window where the old operator retains full privileges but has already proposed a transfer, potentially allowing malicious actions before control handover? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e30342a-98ed-452e-b07f-6af21a15cee5?mode=deep",
+    "timestamp": "2026-01-10 02:52:22.139308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Cross-Function Attack] Can an attacker exploit the time gap between ProposeOperatorAddress() at line 34 and ClaimOperatorAddress() to perform malicious operator actions (updating IBC settings, draining module wallet) before transferring control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5234c6d2-f1e3-4239-9c57-fdcf762b7331?mode=deep",
+    "timestamp": "2026-01-10 02:52:40.479171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Cross-Function Attack] If the current operator calls ProposeOperatorAddress() but their private key is compromised before the new operator claims, can the attacker propose a different address, overwriting the legitimate proposal and maintaining control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fa25f06-1bcb-4efd-9d1f-202d0d1358c8?mode=deep",
+    "timestamp": "2026-01-10 02:52:59.606726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Cross-Function Attack] Can an attacker front-run a legitimate ProposeOperatorAddress() transaction with their own proposal, then immediately call ClaimOperatorAddress() in the same block to hijack operator privileges before the legitimate operator can claim? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8460d36-e32e-4c08-aa33-f99d37ef9ab3?mode=deep",
+    "timestamp": "2026-01-10 02:53:19.401620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Response Integrity] Can the response object returned at line 39-42 be manipulated by malicious validators to show incorrect proposed operator information to clients while the actual stored state differs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da2e5114-7bb3-4ec9-8932-4ae696344f64?mode=deep",
+    "timestamp": "2026-01-10 02:53:39.713458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Information Leak] Does the response at line 39-42 leak sensitive information about the operator structure or proposed address that could help attackers plan subsequent attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_706bbe02-7b7e-4fbf-a52f-8f681d23b760?mode=deep",
+    "timestamp": "2026-01-10 02:54:00.008535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Event Integrity] Does the event emitted at line 37 include sufficient information for off-chain monitoring systems to detect malicious operator proposals, or can subtle attack patterns go unnoticed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a438c1d-1dbe-492c-98e5-a9e71c4cb820?mode=deep",
+    "timestamp": "2026-01-10 02:54:20.697082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Event Integrity] If EmitOperatorAddressProposedEvent() at line 37 fails or panics, does the transaction still complete with SetProposedOperatorAddress() persisted, creating inconsistency between chain state and event logs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39daa0dc-68e6-4cee-88fc-61337a2546c3?mode=deep",
+    "timestamp": "2026-01-10 02:54:42.378576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Event Integrity] Can an attacker manipulate the event emission at line 37 to provide false information about operator changes, which off-chain systems might rely on for security monitoring, potentially masking malicious operator proposals? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc92d996-8bc9-4552-ae3d-8731c76243ac?mode=deep",
+    "timestamp": "2026-01-10 02:55:05.849020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Logic Error] If currentOperator from GetOperatorAddress() returns a Bech32 address but newOperator.String() returns a hex address (or vice versa), can the comparison at line 29 fail to detect that they're the same address? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d14cc297-a8e1-42b9-94ae-d5e8bf8d7ff0?mode=deep",
+    "timestamp": "2026-01-10 02:55:29.425779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Logic Error] Can an attacker bypass the same-address check at line 29 by proposing an address that is functionally equivalent but has different string representation (e.g., different case in hex encoding)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf3f827f-a49d-4a2c-9cde-c4737c2065a3?mode=deep",
+    "timestamp": "2026-01-10 02:55:54.170659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Logic Error] Does the comparison at line 29 properly handle the case where newOperator.String() returns a normalized/canonical address format while currentOperator might be stored in a different format, potentially allowing the same address to be proposed if stored differently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa269d53-90e3-45bd-a19e-e53834539dba?mode=deep",
+    "timestamp": "2026-01-10 02:56:19.125023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [State Consistency] If the chain state is forked or rolled back after ProposeOperatorAddress() executes but before ClaimOperatorAddress() is called, can the proposed operator claim the role on the wrong fork, creating operator inconsistency across chains? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e21363e-bd26-4b1c-8cc6-63eef21f84d0?mode=deep",
+    "timestamp": "2026-01-10 02:56:44.055049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [State Consistency] Can an attacker exploit the lack of expiration time on proposed operator addresses - once proposed via line 34, does the address remain valid indefinitely, allowing a compromised but unclaimed operator address to be claimed years later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd61ae8e-c42c-4867-9955-0da06360b265?mode=deep",
+    "timestamp": "2026-01-10 02:57:09.927257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [State Consistency] Does SetProposedOperatorAddress() at line 34 atomically update the storage, or can partial writes during node crashes create corrupted state where the proposed operator address is invalid? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84b9d612-b3f8-451a-994e-315d809d1067?mode=deep",
+    "timestamp": "2026-01-10 02:57:35.824165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [State Consistency] If multiple ProposeOperatorAddress transactions are included in the same block, can race conditions in SetProposedOperatorAddress() at line 34 cause the wrong address to be stored, leading to unintended operator changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d84b15b-767f-4d30-9784-5d3a8db83e87?mode=deep",
+    "timestamp": "2026-01-10 02:58:00.709189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [State Consistency] Can an attacker repeatedly call ProposeOperatorAddress() to overwrite the proposed operator address at line 34, creating a griefing attack where the legitimate proposed operator can never claim the role because it keeps getting overwritten? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c5f4b1a-9b7c-4b10-9b9f-4a1b7bebc0a3?mode=deep",
+    "timestamp": "2026-01-10 02:58:26.068439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Does the validation at line 23 check if the proposed operator address is a valid account that exists on chain, or can non-existent addresses be proposed, creating issues during the claim process? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_947c17e6-9907-478d-abf9-33850354d6fd?mode=deep",
+    "timestamp": "2026-01-10 02:58:51.893164",
+    "report_generated": false
   }
 ]
