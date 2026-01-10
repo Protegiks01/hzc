@@ -11548,5 +11548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20af9cf4-9d48-4fb4-b8bf-1a490eaaade2?mode=deep",
     "timestamp": "2026-01-10 06:04:52.092981",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [State Atomicity] Can an attacker exploit non-atomic state updates across multiple swaps to cause pool state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c65dcf1b-1f1a-4cfa-8da4-390dbb891885?mode=deep",
+    "timestamp": "2026-01-10 06:06:15.029888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Pool Account Security] Can an attacker exploit the pool account system to bypass standard account checks and execute privileged operations through swap transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_235b3306-8ea1-4ef9-ade3-c086c6954249?mode=deep",
+    "timestamp": "2026-01-10 06:06:27.480297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Reverse Calculation] Can an attacker exploit the reverse fee calculation to extract more tokens than should be possible given the constant product formula? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de7863d8-6819-44b9-9d91-8986eb3a788f?mode=deep",
+    "timestamp": "2026-01-10 06:06:40.419881",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Precision Loss] Can an attacker exploit precision loss in the Quo operations to execute swaps that gradually drain pool value through repeated small transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5cb2947-aecf-421b-8969-78c95c8eeb6a?mode=deep",
+    "timestamp": "2026-01-10 06:06:54.014482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Division Precision] Can an attacker exploit precision loss in multiple division operations to create favorable rounding that benefits the attacker? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99918012-6ff2-4f72-a6a1-35a9d1ba1057?mode=deep",
+    "timestamp": "2026-01-10 06:07:08.111388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Concurrent Swaps] Can multiple attackers execute concurrent swaps against the same pool to exploit race conditions in reserve updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5abc7b8f-20d1-4b6a-a736-833734da740f?mode=deep",
+    "timestamp": "2026-01-10 06:07:23.567955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Module Account] Can an attacker exploit the module account transfer mechanism to bypass bank module restrictions or hooks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8220020-3884-41e0-8667-aac3cbf5325c?mode=deep",
+    "timestamp": "2026-01-10 06:07:38.689443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Balance Validation] Can an attacker exploit missing balance validation before pool state updates to execute swaps without sufficient funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e98a0b2-5f9b-4bc0-bdb1-20aa72e79425?mode=deep",
+    "timestamp": "2026-01-10 06:07:56.870514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Gas Costs] Can an attacker craft swaps with parameters that cause disproportionate gas consumption relative to transaction value, enabling economic denial-of-service? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4ff53bc-21dc-46b6-92db-b6814701539d?mode=deep",
+    "timestamp": "2026-01-10 06:08:13.667986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Error Recovery] Can an attacker exploit inadequate error recovery to leave pools in corrupted states when swap transactions fail partway through? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_232ea891-d203-4843-8c67-ba1fe13f83d2?mode=deep",
+    "timestamp": "2026-01-10 06:08:34.070196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Rollback Issues] Can an attacker exploit the lack of explicit transaction rollback to cause permanent state corruption when transfers fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2659127-dc3e-4993-9765-1b6402004e4f?mode=deep",
+    "timestamp": "2026-01-10 06:08:55.000493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Boundary Values] Can an attacker provide boundary case values (0, 1, MaxInt) that cause unexpected behavior in swap calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_efab2463-e766-43bb-8ba2-45c7189937a7?mode=deep",
+    "timestamp": "2026-01-10 06:09:16.573638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Edge Cases] Can an attacker exploit edge cases where outgoing amount is exactly equal to pool reserves to drain pools completely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77902771-49df-40d9-aeaa-313c6384960b?mode=deep",
+    "timestamp": "2026-01-10 06:09:38.797720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Price Oracle] Can an attacker manipulate swap prices to affect external price oracles or other protocols that depend on pool prices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a9f3f6e-887c-4cfb-80b6-bde786c6ef27?mode=deep",
+    "timestamp": "2026-01-10 06:10:01.738352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Slippage Timing] Can an attacker exploit timing between slippage calculation and execution to bypass slippage protection during volatile market conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90264b14-46ab-4d58-9961-14c98d97f883?mode=deep",
+    "timestamp": "2026-01-10 06:10:26.056484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Input Cap Bypass] Can an attacker exploit the IncomingMax validation to execute swaps that require more input than intended by exploiting comparison precision? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ffe6e012-c335-4087-85a0-587f2dc8645a?mode=deep",
+    "timestamp": "2026-01-10 06:10:51.491681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Flash Loan] Can an attacker execute flash loan attacks by borrowing tokens, swapping through pools, and returning tokens within a single transaction block? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a5fdf58-6cb1-487e-9c0a-523b48d2e85c?mode=deep",
+    "timestamp": "2026-01-10 06:11:17.010976",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [MEV Exploitation] Can an attacker exploit maximum extractable value (MEV) by reordering swap transactions to profit from price movements? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6735925-b071-41ab-9ceb-1c5f05174d2e?mode=deep",
+    "timestamp": "2026-01-10 06:11:43.888311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Front-Running] Can an attacker front-run user swaps by monitoring the mempool and executing swaps with better prices before user transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_672ac564-f6ba-47a5-9545-076463df59e9?mode=deep",
+    "timestamp": "2026-01-10 06:12:11.132603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Liquidity Attacks] Can an attacker exploit low liquidity pools to cause extreme price slippage and extract value from subsequent swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52baf1fb-427e-425c-8600-cd5aa2435853?mode=deep",
+    "timestamp": "2026-01-10 06:12:40.815953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Fee Rounding] Can an attacker exploit rounding in fee calculations to execute many small swaps that pay zero fees due to rounding down? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f5f346f-463a-4633-85f2-a4c5ee9473c5?mode=deep",
+    "timestamp": "2026-01-10 06:13:10.641309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Reverse Rounding] Can an attacker exploit favorable rounding in reverse fee calculations to pay less than the intended fee amount? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43c0cc36-f75d-4567-8578-70b97322b71d?mode=deep",
+    "timestamp": "2026-01-10 06:13:40.047904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Token Standards] Can an attacker exploit differences in token implementations (like rebasing tokens) to cause unexpected swap behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78574aca-c501-404f-9794-5ef698f204d8?mode=deep",
+    "timestamp": "2026-01-10 06:14:09.427000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Deflationary Tokens] Can an attacker exploit deflationary token mechanics (tokens that burn on transfer) to receive more output than calculated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7d6b3c1-5f20-4222-a7f8-87546f814750?mode=deep",
+    "timestamp": "2026-01-10 06:14:37.848576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Cross-Pool] Can an attacker exploit relationships between multiple pools to execute arbitrage that drains value from the protocol? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77a8a37b-6505-4e72-b621-457b32543fa4?mode=deep",
+    "timestamp": "2026-01-10 06:15:06.811532",
+    "report_generated": false
   }
 ]
