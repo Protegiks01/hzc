@@ -24598,5 +24598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f57b58f-58af-4480-ae98-8df773323b75?mode=deep",
     "timestamp": "2026-01-10 12:51:07.450304",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Memory Leak] Does KeyPrefix() allocate new byte arrays without proper garbage collection, and can attackers call it repeatedly with large strings to exhaust validator memory through accumulated allocations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5aa293f5-a03f-4e4f-b22b-31073feccf83?mode=deep",
+    "timestamp": "2026-01-10 12:52:27.439277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ModuleName] [Governance Attack] Can attackers submit governance proposals that modify the ModuleName constant through unsafe param updates, redirecting all factory operations to an attacker-controlled module? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d2bdb7d-62ad-45dd-993d-21761bba205c?mode=deep",
+    "timestamp": "2026-01-10 12:52:39.744224",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Integer Overflow] If KeyPrefix() is used with binary.BigEndian encoding in other files, can attackers pass strings that convert to byte arrays exceeding uint64 max, causing integer overflow in key length calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81cd93ae-ab23-41be-b019-0f667e2f7f11?mode=deep",
+    "timestamp": "2026-01-10 12:52:53.032736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Type Confusion] Can attackers exploit the fact that ParamsKey is []byte type to pass it as a denom name in DenomKey() function, causing type confusion that overwrites parameters with denom data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bfad624-0761-40ad-b8d3-fc35c5af83b1?mode=deep",
+    "timestamp": "2026-01-10 12:53:06.294610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Case Sensitivity] Does KeyPrefix() treat 'Denom' and 'denom' as different prefixes, and can attackers exploit case-insensitive filesystems or bech32 encoding to create colliding keys that appear different in code but identical in storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cc9ca948-29ba-4259-a231-ac060ab41939?mode=deep",
+    "timestamp": "2026-01-10 12:53:20.142600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: StoreKey] [Migration Vulnerability] During chain upgrades or store migrations, can attackers exploit the StoreKey constant to access legacy data using the new key format, bypassing migration validation checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e24dd378-7edf-4485-93a6-c367d74158e5?mode=deep",
+    "timestamp": "2026-01-10 12:53:34.897127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Special Characters] Can attackers use control characters (e.g., \\r, \\n, \\t) in KeyPrefix() inputs to inject key delimiters that break the prefix.NewStore() logic in keeper functions, causing incorrect data retrieval or storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_541454cc-d8c6-4c59-b352-611124a8eb42?mode=deep",
+    "timestamp": "2026-01-10 12:53:50.865316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ModuleName] [Cross-Module Attack] Can attackers exploit the fact that ModuleName is exported and used across multiple keeper functions to impersonate the factory module in IBC packets or governance proposals, bypassing access controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12542224-866f-4a7b-be8e-4e7cc2c32087?mode=deep",
+    "timestamp": "2026-01-10 12:54:07.925688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Concurrent Modification] If multiple goroutines call KeyPrefix() with the same string simultaneously, can race conditions in the string-to-byte conversion cause non-deterministic key generation, leading to consensus failures across validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b91b31ff-4593-4993-9d57-5b3a0bf577ba?mode=deep",
+    "timestamp": "2026-01-10 12:54:27.288703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Separator Injection] When KeyPrefix() is used with strings containing forward slashes '/', can attackers inject path separators that break the hierarchical key structure (e.g., DenomKeyPrefix + KeyPrefix(denom)), causing key collision with other prefixes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06f3b1a5-b1a1-4fed-990d-563fef00b7ab?mode=deep",
+    "timestamp": "2026-01-10 12:54:46.689359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Immutability] Is ParamsKey truly immutable as a var declaration, or can attackers use reflection or unsafe operations to modify this global variable and redirect parameter storage to attacker-controlled keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f56c8b53-9f94-4dbb-a73b-4dd69cc5a372?mode=deep",
+    "timestamp": "2026-01-10 12:55:07.003854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Slice Aliasing] Does the byte array returned by KeyPrefix() share underlying memory with the input string, and can attackers exploit this to modify keys after they're used in store operations, causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4dcca49-f707-4950-bb42-77cfeb2dd1b0?mode=deep",
+    "timestamp": "2026-01-10 12:55:28.413620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Empty String] Does KeyPrefix() properly handle empty string inputs by returning an empty byte array, and can this be exploited to create a universal prefix that matches all store keys, enabling unauthorized read/write access to entire factory store? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_873b020a-274a-434c-937a-5d574fbc6398?mode=deep",
+    "timestamp": "2026-01-10 12:55:50.344758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Prefix Collision] Can the ParamsKey byte array '[]byte(\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1603353f-a822-41dd-a9f3-6c5846d870aa?mode=deep",
+    "timestamp": "2026-01-10 12:56:13.405487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Length Overflow] Can an attacker pass an extremely long string (>1GB) to KeyPrefix() causing memory exhaustion when converting to byte array, leading to validator crashes and network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fffd1f3-934d-4a63-9ac0-fca5e9091cd5?mode=deep",
+    "timestamp": "2026-01-10 12:56:35.682946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: StoreKey] [Store Access Control] Since StoreKey equals ModuleName, can attackers exploit this equality to bypass store access controls by referencing the module name instead of the store key in IBC or cross-module calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2f6d871-9575-4f3e-b1a2-54fcefd47755?mode=deep",
+    "timestamp": "2026-01-10 12:56:57.566106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [UTF-8 Validation] Does KeyPrefix() validate that input strings are valid UTF-8 before converting to bytes, or can attackers inject invalid UTF-8 sequences that corrupt the KVStore or cause consensus failures when different validators parse them differently? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a48193e9-5c23-46d2-92a6-bff30ff9239e?mode=deep",
+    "timestamp": "2026-01-10 12:57:20.291296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ModuleName] [Module Isolation] Does the ModuleName constant 'factory' provide sufficient namespace isolation from other Cosmos SDK modules, or can attackers exploit module name collision to access factory store keys from other modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15618bed-8341-4799-b246-420ca208a89e?mode=deep",
+    "timestamp": "2026-01-10 12:57:43.669389",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Unicode Normalization] Can an attacker exploit Unicode normalization differences by passing different Unicode representations of the same string to KeyPrefix(), creating multiple keys that appear identical but map to different store locations, causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e90e564-32ea-4b99-a922-e1d8acebd90c?mode=deep",
+    "timestamp": "2026-01-10 12:58:07.814586",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Key Collision] Does the hardcoded ParamsKey value 'p_factory' have sufficient uniqueness guarantees to prevent collision with user-generated denom keys when combined with DenomKeyPrefix, potentially allowing parameter corruption through denom creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb29bd7e-de3c-40c0-94d3-22de3828021c?mode=deep",
+    "timestamp": "2026-01-10 12:58:32.440318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Null Byte Injection] Can an attacker pass a string containing null bytes (\\x00) to KeyPrefix() to create truncated keys that collide with other store entries, allowing unauthorized access to denom data or parameter modification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06d5cf5d-fddb-43b1-b6e2-86aa04f78295?mode=deep",
+    "timestamp": "2026-01-10 12:58:57.549457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Key Collision] Can an attacker craft a malicious string input to KeyPrefix() that produces byte arrays colliding with critical system keys like ParamsKey, causing parameter overwrite and unauthorized factory configuration changes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88e6ce38-e228-47ee-9a86-71bef1142e50?mode=deep",
+    "timestamp": "2026-01-10 12:59:23.219826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Pruning] If historical state is pruned, can this affect the ability to verify past minting cap updates or cause issues with state sync? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14f4cdd4-9d1d-4d8d-9ebc-29c90842d4a2?mode=deep",
+    "timestamp": "2026-01-10 12:59:49.703230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Denom Name Collision] Can denoms with similar names (differing by non-printable characters) be exploited to confuse minting cap updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_254c6537-dd22-433c-a650-1477d5511a2e?mode=deep",
+    "timestamp": "2026-01-10 13:00:15.375322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Time-Based Attacks] Can an attacker exploit block timestamp manipulation to make minting cap updates occur at specific times that benefit their trading positions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee164c5d-65b5-455d-a772-720a46b32b23?mode=deep",
+    "timestamp": "2026-01-10 13:00:40.382438",
+    "report_generated": false
   }
 ]
