@@ -13498,5 +13498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_486fe56f-eaf4-49e4-b188-22601c8fe482?mode=deep",
     "timestamp": "2026-01-10 00:44:06.921306",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [In-flight packets] Can an attacker exploit the timing between UpdateIbcSettings and OnRecvPacket to cause incoming packets to be processed with mismatched settings, leading to incorrect decimal conversions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb8fcbd4-e940-40c3-a1a0-234bca08b09c?mode=deep",
+    "timestamp": "2026-01-10 00:45:20.801687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [In-flight packets] Does the function query the IBC module to check for pending packets on the old channels before updating, or can settings be changed while packets are still being relayed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37b88973-362c-4333-aea1-35ef26240ac6?mode=deep",
+    "timestamp": "2026-01-10 00:45:33.227899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [In-flight packets] Can updating the channel ID cause OnTimeoutPacket to fail to unlock tokens because the validateIBCSettingsMatchOnSendPacket check no longer passes, permanently locking user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62e5275f-d8ea-4fcb-a4d7-1d67e9c71ae2?mode=deep",
+    "timestamp": "2026-01-10 00:45:46.097590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [In-flight packets] If DecimalDifference is changed while a wrap packet is en route, can the OnAcknowledgementPacket handler use the new conversion factor to calculate refunds, creating a mismatch with the amount that was originally locked? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1fc9a4f-3a3a-49be-ab68-312ea0ee8fce?mode=deep",
+    "timestamp": "2026-01-10 00:45:59.168519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [In-flight packets] Can an attacker update IBC settings while packets are in-flight, causing OnAcknowledgementPacket callbacks to fail validation because the stored channel/port no longer matches the packet source/destination? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65a4c002-de79-4ec3-8553-9b2b90c886a1?mode=deep",
+    "timestamp": "2026-01-10 00:46:13.094418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Cross-module] If the module wallet holds tokens from multiple denoms and the denom is changed, can this cause CheckModuleBalance to fail for unwrap operations because the native token balance calculation becomes incorrect? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01d5b7a2-a400-4d2c-a4ad-2b3a3a51b987?mode=deep",
+    "timestamp": "2026-01-10 00:46:26.882726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Cross-module] Does the function check if CosmWasm contracts are querying IBC settings via wasmbinding/query_plugin.go, and if so, can abrupt settings changes cause contract execution failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de6957fc-4249-4756-b604-c5f12cc7974c?mode=deep",
+    "timestamp": "2026-01-10 00:46:42.497522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Cross-module] Can changing the DecimalDifference affect existing DEX pool ratios if pools contain the wrapped native token, causing price manipulation opportunities due to conversion factor changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3b17864-fb70-4655-bf19-aa1193dc79b0?mode=deep",
+    "timestamp": "2026-01-10 00:46:59.336257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Cross-module] If DEX pools exist with IBC token pairs calculated using the old denom path, does changing the denom at line 29 break pool swap operations because GetIBCRecvDenom returns a different hash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec7b87b7-787f-4204-9d3c-5bc1052ee74e?mode=deep",
+    "timestamp": "2026-01-10 00:47:18.056906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Cross-module] Can updating IBC settings affect the Factory module's token creation if factory denoms use IBC paths, causing denom validation failures for previously valid factory-created tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c3396b1-26b3-4d72-b259-41d9231c7ce9?mode=deep",
+    "timestamp": "2026-01-10 00:47:37.224467",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Validation bypass] Does the function validate that the NativeChannel and CounterpartyChannel form a valid counterparty pair according to the IBC connection state, or can mismatched channels be set? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa28ef64-e363-48d7-b6f6-cf0559330b8a?mode=deep",
+    "timestamp": "2026-01-10 00:47:57.222516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Validation bypass] Can an attacker exploit the ValidateChannel and ValidatePort functions to set specially crafted identifiers that pass validation but cause packet routing failures or security bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b958da8-a6a0-447f-a53d-12e9355adabe?mode=deep",
+    "timestamp": "2026-01-10 00:48:18.777930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Validation bypass] Does the function validate that the NativePort and CounterpartyPort are in the allowed format and registered with the IBC module, or can arbitrary port strings be set causing undefined behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06fdbb6d-45d5-46cf-a597-b5f234c4f71d?mode=deep",
+    "timestamp": "2026-01-10 00:48:41.267795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Validation bypass] Can an attacker bypass the ValidateDecimalDifference check by passing a valid value (≤18) to ValidateBasic but exploiting integer overflow in SetDecimalDifference when it calls strconv.FormatUint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e48f7edd-783f-46f5-a491-4baf99fdaf33?mode=deep",
+    "timestamp": "2026-01-10 00:49:05.191277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Validation bypass] Does the function rely solely on ValidateBasic() for parameter validation, or are there server-side checks that validate NativeClientId, CounterpartyClientId, etc. actually exist in the IBC client store? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee25bf96-a243-40be-bfca-9ee62b619fab?mode=deep",
+    "timestamp": "2026-01-10 00:49:28.904177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Front-running] Can a malicious validator observing UpdateIbcSettings in the mempool front-run it by submitting wrap transactions that exploit the soon-to-be-outdated IBC settings for arbitrage or token duplication? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6db1008d-9bae-43da-bf39-49d3e04fc874?mode=deep",
+    "timestamp": "2026-01-10 00:49:54.423484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Event manipulation] Does the event at line 46 include sufficient information for off-chain monitoring systems to validate that the settings change is legitimate, or can fake events be injected to confuse bridge operators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97d3007c-490d-47d1-8605-8b37e4588d18?mode=deep",
+    "timestamp": "2026-01-10 00:50:20.152896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Event manipulation] Can an attacker exploit the event emission timing to cause relayers monitoring IbcSettingsUpdated events to route packets to old channels before the settings are fully propagated, resulting in failed IBC transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_156e1714-fc00-4fc2-adad-c1ced87ae5e0?mode=deep",
+    "timestamp": "2026-01-10 00:50:46.438056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Event manipulation] Are the event attributes at lines 36-45 guaranteed to reflect the actual state stored in the KVStore, or can a mismatch between event data and stored state cause off-chain systems to desynchronize? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b928eee3-10fe-4be3-b36c-d312ed8dcd9f?mode=deep",
+    "timestamp": "2026-01-10 00:51:12.533796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Event manipulation] Can an attacker exploit the EmitIbcSettingsUpdatedEvent() call at line 46 being executed before returning the response to front-run configuration changes by monitoring events and submitting wrap transactions with the old settings before they become invalid? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24c9569c-53b4-40c4-b99c-45ff3098510f?mode=deep",
+    "timestamp": "2026-01-10 00:51:38.090912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Denom manipulation] Can changing the denom parameter affect the validateIBCDenomIsModuleDenom checks in the IBC middleware, causing legitimate wrap operations to be rejected because the new denom doesn't match historical transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_018f225c-d5c3-4ee2-a035-b3006f99bd31?mode=deep",
+    "timestamp": "2026-01-10 00:52:03.243461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Denom manipulation] Does the function check that the new denom doesn't conflict with denoms created by the Factory module, or can an attacker set it to 'factory/{address}/{subdenom}' format causing namespace collision? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5421e18-647b-4805-a8cf-8d596eb89cbe?mode=deep",
+    "timestamp": "2026-01-10 00:52:28.768751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Denom manipulation] Can the denom update be exploited to set a denom that collides with an existing IBC path, causing the transfertypes.ExtractDenomFromPath().IBCDenom() calculation to produce incorrect voucher denoms and break the wrap/unwrap invariant? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0912247b-a02f-40d3-8c41-d0b2bcd82fc9?mode=deep",
+    "timestamp": "2026-01-10 00:52:53.063873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Denom manipulation] If the operator changes the Denom parameter while users hold IBC vouchers calculated with the old denom path, can this cause RecoverZig() to fail because the calculated recvDenom no longer matches actual token balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cf094ea-ed62-4952-8edf-ecd9fe8b6a7a?mode=deep",
+    "timestamp": "2026-01-10 00:53:18.477707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Denom manipulation] Can an attacker exploit the SetDenom() call at line 29 to change the module denom from 'uzig' to a different token while IBC vouchers of the old denom exist in the module wallet, causing GetIBCRecvDenom() to calculate wrong IBC paths and orphan existing tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25d92c7f-a115-4459-9d64-8a977c5ff32a?mode=deep",
+    "timestamp": "2026-01-10 00:53:45.048223",
+    "report_generated": false
   }
 ]
