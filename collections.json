@@ -16798,5 +16798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f096b20a-dec9-4b0a-8e31-5d29a7568ae3?mode=deep",
     "timestamp": "2026-01-10 14:58:05.842785",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Address validation cost] The validators.SignerCheck at lines 26 and 35 performs Bech32 decoding - can an attacker submit many messages with malformed addresses that consume excessive gas during validation before failing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33afb5e0-d7b0-4bcf-ad88-7d7ff5144d76?mode=deep",
+    "timestamp": "2026-01-10 14:59:21.825168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Mempool spam] Can an attacker flood the mempool with valid MsgRemoveLiquidity messages that pass ValidateBasic but fail in the keeper due to insufficient balance, causing validators to waste resources processing invalid transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3c8033a-fddf-43c1-a8d3-df6418a8c65d?mode=deep",
+    "timestamp": "2026-01-10 14:59:34.033297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Validation gas consumption] Does ValidateBasic consume a deterministic and bounded amount of gas, or can an attacker craft messages that cause variable gas consumption leading to validator resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_afd8d61e-0ccf-4eef-b070-cbe5cc4479ee?mode=deep",
+    "timestamp": "2026-01-10 14:59:46.811016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: NewMsgRemoveLiquidity()] [Struct initialization] The NewMsgRemoveLiquidity constructor at line 12 directly assigns parameters without validation - can an attacker exploit Go's zero-value initialization if certain fields are omitted or nil? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eea39410-2e0a-4710-a446-18e64751d92e?mode=deep",
+    "timestamp": "2026-01-10 14:59:59.872601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Message immutability] After ValidateBasic succeeds, can the message fields be modified before keeper processing, or does the Cosmos SDK guarantee message immutability preventing TOCTOU attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30da5826-80c9-4cfe-bc6c-f155e7ea59ea?mode=deep",
+    "timestamp": "2026-01-10 15:00:13.839683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Protobuf field manipulation] Can an attacker manipulate the underlying protobuf representation of MsgRemoveLiquidity to include extra fields or modify field tags that bypass Go-level validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a71e04f-3d27-4c34-b0ce-a48c3932e2a2?mode=deep",
+    "timestamp": "2026-01-10 15:00:29.103510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: NewMsgRemoveLiquidity()] [Parameter type safety] The NewMsgRemoveLiquidity function accepts string for creator and receiver - can type confusion between sdk.AccAddress and string lead to validation bypasses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f29860d6-4f07-428e-a67c-436ee82e6d1f?mode=deep",
+    "timestamp": "2026-01-10 15:00:45.058926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Failed validation events] When ValidateBasic fails, are events emitted that could leak information about pool state or user balances to potential attackers monitoring the chain? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3700e18-4831-4433-b8f3-5d1a056f43ca?mode=deep",
+    "timestamp": "2026-01-10 15:01:01.748917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Validation timing] Can an attacker use timing analysis of ValidateBasic execution to infer information about pool existence, address validity, or other sensitive data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c8a2467-5d84-4b22-9a4a-9ff293c1d4ce?mode=deep",
+    "timestamp": "2026-01-10 15:01:18.806228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Bank module integration] ValidateBasic doesn't check if the Bank module has restrictions on the LP token denom - can an attacker exploit mismatches between DEX validation and Bank module policies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92fa859e-dd22-4edd-a6a0-648ab760b016?mode=deep",
+    "timestamp": "2026-01-10 15:01:37.047250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [IBC token removal] If the pool contains IBC tokens, ValidateBasic doesn't verify IBC-specific constraints - can an attacker exploit differences between native and IBC token handling to drain pools or cause cross-chain inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59c0be77-4f92-4194-9870-3aac510f78a3?mode=deep",
+    "timestamp": "2026-01-10 15:01:55.676747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Factory token integration] For LP tokens created by the Factory module, does ValidateBasic ensure compatibility with factory-specific constraints like minting caps or admin controls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b5701b6-6578-49df-b3f6-50189d7de2fb?mode=deep",
+    "timestamp": "2026-01-10 15:02:16.210893",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Wrapped token handling] If pool tokens are wrapped tokens from the TokenWrapper module, can an attacker exploit decimal conversion issues by removing liquidity in amounts that cause precision loss during unwrapping? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c691726-467d-482c-b03c-126ff84320c8?mode=deep",
+    "timestamp": "2026-01-10 15:02:37.102450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Empty Receiver edge case] The condition 'if msg.Receiver !=",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a969dcb-a347-486d-9e9f-ab21b1c887a3?mode=deep",
+    "timestamp": "2026-01-10 15:02:58.899259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Maximum denom length] Can an attacker create Lptoken.Denom with exactly MaxDenomLength (127) characters that passes CoinCheck but causes buffer overflows or truncation in downstream string operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7e8ab73-3c83-49ba-9edf-39d8582dbb09?mode=deep",
+    "timestamp": "2026-01-10 15:03:21.985098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Minimum denom length] Can an attacker use the minimum allowed denom length (3 characters) to create LP tokens with names that collide with system-reserved denoms or cause parsing ambiguities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab2459f5-7c4a-4cd4-a807-79143dc56f4c?mode=deep",
+    "timestamp": "2026-01-10 15:03:45.958110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Unicode handling] Does the denom validation properly handle Unicode characters in Lptoken.Denom, or can an attacker use homograph attacks with lookalike characters to spoof legitimate pool IDs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b8f25a9-0353-408d-b031-d20642f73d2e?mode=deep",
+    "timestamp": "2026-01-10 15:04:10.465946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Nil coin amount] If Lptoken.Amount is nil rather than zero, does CoinCheck at line 30 properly catch this, or can it cause nil pointer dereference panics in keeper arithmetic operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0bb78111-dccc-4ed8-a71a-338baa42b937?mode=deep",
+    "timestamp": "2026-01-10 15:04:35.215473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [SendCoinsFromAccountToModule atomicity] After ValidateBasic passes and LP tokens are sent to module at keeper line 60, if subsequent operations fail, are the tokens properly returned or can they be permanently locked? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_744f4f80-5ebe-435b-a30d-c2deada58e8c?mode=deep",
+    "timestamp": "2026-01-10 15:05:00.628392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Pool state update consistency] ValidateBasic doesn't verify pool state consistency - can an attacker exploit race conditions where pool.Coins and pool.LpToken.Amount become inconsistent between validation and state update at keeper lines 110-112? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_715deb19-5db9-4ac0-a4fa-f69b593262d2?mode=deep",
+    "timestamp": "2026-01-10 15:05:25.037753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [BurnCoins failure handling] If BurnCoins at keeper line 101 fails after tokens are already sent to Receiver, can an attacker exploit this to double-spend LP tokens, receiving liquidity without burning their shares? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea6d551b-d473-40b8-90ee-9e05c512cd40?mode=deep",
+    "timestamp": "2026-01-10 15:05:50.057263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [SendFromPoolToAddress failure] If SendFromPoolToAddress at keeper line 86 fails due to insufficient pool balance, are the LP tokens that were already transferred to module at line 60 properly refunded, or are they locked permanently? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3f285e8-3461-4f0b-8509-fee193b4573a?mode=deep",
+    "timestamp": "2026-01-10 15:06:16.021265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Pool balance underflow] Can an attacker cause integer underflow in the pool balance subtraction at keeper lines 110-111 by removing liquidity when pool.Coins amounts are already near zero due to concurrent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ea1e877-6255-4315-9111-08dbcde4364e?mode=deep",
+    "timestamp": "2026-01-10 15:06:41.568107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [CoinCheck zeroOK parameter] The CoinCheck call at line 30 uses 'false' for zeroOK - is this consistently enforced across all code paths, or can an attacker exploit edge cases where zero-amount coins are accepted elsewhere? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f98c4b6e-d635-48fb-a7d0-537f75bec33c?mode=deep",
+    "timestamp": "2026-01-10 15:07:07.077467",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [SignerCheck implementation] Does validators.SignerCheck at line 26 perform the same validation as sdk.AccAddressFromBech32 used in the keeper, or can subtle differences be exploited to bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7167ed01-5811-48c9-8192-82abf7b3f8df?mode=deep",
+    "timestamp": "2026-01-10 15:07:31.414208",
+    "report_generated": false
   }
 ]
