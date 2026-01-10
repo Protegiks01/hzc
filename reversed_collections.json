@@ -14098,5 +14098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d897299-cf26-4329-80e2-0d644964511e?mode=deep",
     "timestamp": "2026-01-10 01:22:34.735840",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Race condition] Can an attacker exploit race conditions between concurrent EnableTokenWrapper() and DisableTokenWrapper() calls to create state inconsistencies where IsEnabled() returns unpredictable values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_829d9dff-3749-4d5b-a4d5-2bd71417c33a?mode=deep",
+    "timestamp": "2026-01-10 01:23:45.192314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [State manipulation] Can an attacker repeatedly call EnableTokenWrapper() when the module is already enabled to spam events, consume excessive gas, or cause state bloat through redundant SetEnabled() calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14fed3c6-7e65-4974-8ebf-0244ff2a1676?mode=deep",
+    "timestamp": "2026-01-10 01:23:57.579620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Authorization bypass] Can an attacker exploit the lack of address validation on msg.Signer to pass malformed addresses that match GetOperatorAddress() due to parsing inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86e685b5-44f2-4246-a730-6aa1326e3504?mode=deep",
+    "timestamp": "2026-01-10 01:24:10.563641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Access control] Does the authorization check occur BEFORE or AFTER context unwrapping, and can an attacker manipulate the SDK context to bypass the currentOperator comparison? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_36c8259a-bdb1-48a7-b3dc-ba4a265a53c5?mode=deep",
+    "timestamp": "2026-01-10 01:24:23.657360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Access control] Can an attacker exploit race conditions between operator address changes (via ProposeOperatorAddress/ClaimOperatorAddress) and EnableTokenWrapper calls to enable the module during the operator transition period? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b62b4f0-a5d8-4d66-a507-6521e1e3d12f?mode=deep",
+    "timestamp": "2026-01-10 01:24:37.669174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Access control] If GetOperatorAddress() returns an empty string when no operator is set, can any user enable the token wrapper by passing an empty signer address, effectively bypassing all access controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f6e7fef-1a3c-4eb2-be69-b728db3af685?mode=deep",
+    "timestamp": "2026-01-10 01:24:52.479465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Access control] Can an attacker exploit string comparison vulnerabilities in the operator address check (msg.Signer != currentOperator) to bypass authorization using Unicode normalization attacks, homoglyph attacks, or case-sensitivity manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9f77877-955e-4225-8af9-5c725a7587d9?mode=deep",
+    "timestamp": "2026-01-10 01:25:08.569590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Race condition] Can an attacker exploit race conditions between concurrent EnableTokenWrapper() and DisableTokenWrapper() calls to create state inconsistencies where IsEnabled() returns unpredictable values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b058a900-efd3-41b2-a9ba-a931af381300?mode=deep",
+    "timestamp": "2026-01-10 01:25:26.451349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [State manipulation] Can an attacker repeatedly call EnableTokenWrapper() when the module is already enabled to spam events, consume excessive gas, or cause state bloat through redundant SetEnabled() calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_feb0f31c-f99f-47bd-8625-9785dc5d3c9a?mode=deep",
+    "timestamp": "2026-01-10 01:25:44.269463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Authorization bypass] Can an attacker exploit the lack of address validation on msg.Signer to pass malformed addresses that match GetOperatorAddress() due to parsing inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c6522de-06b5-4a74-b2f3-e693a1b56e9a?mode=deep",
+    "timestamp": "2026-01-10 01:26:03.497807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Access control] Does the authorization check occur BEFORE or AFTER context unwrapping, and can an attacker manipulate the SDK context to bypass the currentOperator comparison? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54524010-0831-4d43-a19b-a0e18b15bdb4?mode=deep",
+    "timestamp": "2026-01-10 01:26:22.528762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Access control] Can an attacker exploit race conditions between operator address changes (via ProposeOperatorAddress/ClaimOperatorAddress) and EnableTokenWrapper calls to enable the module during the operator transition period? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db79baf8-89d0-476e-aad8-f8edfa390438?mode=deep",
+    "timestamp": "2026-01-10 01:26:43.084295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Access control] If GetOperatorAddress() returns an empty string when no operator is set, can any user enable the token wrapper by passing an empty signer address, effectively bypassing all access controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f03a80be-e0bc-4c1c-b5ff-b46afa4336df?mode=deep",
+    "timestamp": "2026-01-10 01:27:04.603551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Access control] Can an attacker exploit string comparison vulnerabilities in the operator address check (msg.Signer != currentOperator) to bypass authorization using Unicode normalization attacks, homoglyph attacks, or case-sensitivity manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_120a4db7-8d12-471d-895c-ec4eee8ce469?mode=deep",
+    "timestamp": "2026-01-10 01:27:27.349716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [State transition] Can the state transition from having pausers to having no pausers create an edge case where other protocol logic assumes at least one pauser exists, causing failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de0d5334-c44d-4e52-8ace-5b495502579e?mode=deep",
+    "timestamp": "2026-01-10 01:27:50.354749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Front-running] Can monitoring bots front-run pauser removal transactions to extract MEV or exploit the brief window where security configuration is changing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a38d01b-712f-430e-afe7-a85b96e6d4d0?mode=deep",
+    "timestamp": "2026-01-10 01:28:14.737786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Griefing attack] Can an attacker use RemovePauserAddress as a griefing vector by repeatedly adding and removing the same pauser addresses to waste gas and bloat the chain state history? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_647a79de-1355-492e-8d69-2d04d5e55ba8?mode=deep",
+    "timestamp": "2026-01-10 01:28:39.062239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Recovery prevention] Can removing pausers prevent recovery from certain error states where pausing the system is a prerequisite for executing recovery procedures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69569213-99d6-4cba-914b-0be021e0bad7?mode=deep",
+    "timestamp": "2026-01-10 01:29:04.738359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Security degradation] Can gradual removal of pausers over time reduce the system's security posture without triggering monitoring alerts, eventually leaving the protocol vulnerable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95a0a5b6-8509-4c58-90e7-ed2b7e30405c?mode=deep",
+    "timestamp": "2026-01-10 01:29:31.131410",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Incident response] Can an attacker front-run a legitimate pauser's DisableTokenWrapper transaction by submitting RemovePauserAddress to remove that pauser first, preventing emergency shutdown? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95346bc9-5310-4c60-b8c4-60eddb00d1e8?mode=deep",
+    "timestamp": "2026-01-10 01:29:57.075161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Emergency response] Can removing all pausers during an active exploit prevent the remaining security team from stopping ongoing attacks via DisableTokenWrapper? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_224f37e4-ec68-4648-bf95-c51bf807f2eb?mode=deep",
+    "timestamp": "2026-01-10 01:30:22.240707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Validation order] Can the order of validation (operator check before address validation) be exploited to perform unauthorized operations with invalid addresses before validation fails? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd2f5245-dd50-4203-bc1d-068263d52fc0?mode=deep",
+    "timestamp": "2026-01-10 01:30:47.266553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Double validation] Does validating the address twice (once in ValidateBasic via validators.AddressCheck and again on line 22 via AccAddressFromBech32) create opportunities for validation bypass if the two methods are inconsistent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_044934a0-49af-4f2f-b252-6df975f7b74f?mode=deep",
+    "timestamp": "2026-01-10 01:31:12.505331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Validation bypass] Can an attacker craft a MsgRemovePauserAddress that passes ValidateBasic() but fails the keeper validation on line 22, causing inconsistent validation behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bdbb353a-c701-4b1f-9b7b-bec74b3e3167?mode=deep",
+    "timestamp": "2026-01-10 01:31:38.418692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Bridge security] Can removing the pauser designated for emergency IBC pause operations compromise the ability to stop malicious cross-chain transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fdfd29f8-d69d-4147-b65d-3455a16388d4?mode=deep",
+    "timestamp": "2026-01-10 01:32:04.188561",
+    "report_generated": false
   }
 ]
