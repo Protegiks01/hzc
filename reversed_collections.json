@@ -25348,5 +25348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44387e7f-badb-4592-9cb8-75f3f9e23087?mode=deep",
     "timestamp": "2026-01-10 13:39:21.085247",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Authorization Bypass] Can an attacker exploit the 'bank' admin type parameter passed to Auth() at line 48 to escalate privileges by manipulating the adminType string to gain both bank and metadata admin rights? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd929ed6-6a53-4f70-8d60-68afae2471c8?mode=deep",
+    "timestamp": "2026-01-10 13:40:42.090137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Access Control] Does the Auth() function at line 48 properly validate that the signer address is not an empty string or malformed address, or can an attacker exploit empty string comparison to bypass authorization checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09c438ce-a95c-4323-8cc3-2a47e2eecc86?mode=deep",
+    "timestamp": "2026-01-10 13:40:54.824444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Access Control] Can an attacker bypass the Auth() check at line 48 by exploiting a race condition between denom creation and authorization setup, allowing unauthorized minting cap updates before BankAdmin is properly initialized? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_893b059d-25dc-4e9e-9d6f-c475dca69169?mode=deep",
+    "timestamp": "2026-01-10 13:41:08.254092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Authorization Bypass] Can an attacker exploit the 'bank' admin type parameter passed to Auth() at line 48 to escalate privileges by manipulating the adminType string to gain both bank and metadata admin rights? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22031ab3-3751-4297-b51d-2333c95c6a7d?mode=deep",
+    "timestamp": "2026-01-10 13:41:21.442451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Access Control] Does the Auth() function at line 48 properly validate that the signer address is not an empty string or malformed address, or can an attacker exploit empty string comparison to bypass authorization checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97eb0f17-2aff-4f7b-8d12-bd2e7026a2b2?mode=deep",
+    "timestamp": "2026-01-10 13:41:35.590175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Access Control] Can an attacker bypass the Auth() check at line 48 by exploiting a race condition between denom creation and authorization setup, allowing unauthorized minting cap updates before BankAdmin is properly initialized? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_abcd73dd-a819-4cad-b15f-6abd4c24b014?mode=deep",
+    "timestamp": "2026-01-10 13:41:50.905359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Response accuracy] The response struct at lines 70-73 only returns Denom and MetadataAdmin - if clients expect to receive the complete DenomAuth state including BankAdmin, can this incomplete response cause confusion about the actual stored state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b361cae6-afc7-4c2d-8d87-2106092287f6?mode=deep",
+    "timestamp": "2026-01-10 13:42:07.093180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Empty denom] If msg.Denom is an empty string that somehow passes validation, can this cause GetDenomAuth at line 20 to behave unexpectedly or target incorrect storage keys, potentially affecting unrelated denoms? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd9ef083-6cc3-4c5e-84c7-e45d66348ee4?mode=deep",
+    "timestamp": "2026-01-10 13:42:24.619252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [BankAdmin preservation] The function always preserves currentDenomAuth.BankAdmin at line 53 - if there's a scenario where BankAdmin should be updated in coordination with MetadataAdmin updates, can this cause inconsistency where one admin is updated but the other becomes stale? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3eb820db-6b20-40b5-895e-ff1c211c634b?mode=deep",
+    "timestamp": "2026-01-10 13:42:42.714503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Same address] If msg.MetadataAdmin equals currentDenomAuth.MetadataAdmin (no change), the function executes all operations including unnecessary index updates - can an attacker exploit this to waste gas and cause state churn through repeated no-op calls? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9ac25b7-7200-43d6-bba2-a7ae714f325b?mode=deep",
+    "timestamp": "2026-01-10 13:43:01.906531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Orphaned indexes] If a denom's DenomAuth is deleted through some other mechanism (e.g., denom deletion) without calling this function, the admin index entries added at lines 63 and 66 become orphaned - can these orphaned entries accumulate and cause storage bloat? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e49d8f96-9509-4af8-83d7-f7469fab1a4d?mode=deep",
+    "timestamp": "2026-01-10 13:43:21.139164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Index cleanup] If RemoveDenomFromAdminDenomAuthList at line 60 fails silently or is skipped due to an error, the old metadata admin will retain the denom in their index even though they no longer have permissions - can this cause query results to show denoms they can't actually administer? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c4ce4fb-9764-4079-a4e8-81b783366e1e?mode=deep",
+    "timestamp": "2026-01-10 13:43:41.840013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Signer verification] The function trusts msg.Signer without additional verification beyond string comparison - if the message has been modified between ValidateBasic and this function execution, can an attacker exploit this to bypass authorization? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bca3bd29-e378-4e20-84d4-74685dddeb92?mode=deep",
+    "timestamp": "2026-01-10 13:44:02.538883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Context validation] The function receives goCtx and unwraps it to ctx at line 17 - if the context doesn't contain proper authentication information or has been tampered with, can this cause authorization checks at line 33 to use incorrect signer information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0815e425-e2f3-4edd-a78b-203e9711671b?mode=deep",
+    "timestamp": "2026-01-10 13:44:24.723167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [State verification] There's no post-update verification that the stored DenomAuth matches the intended denomAuth struct - if storage is corrupted by a malicious validator or storage layer bug, can this go undetected and cause future operations to use incorrect admin addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e85b991-fb5e-4d67-b04b-fa0e0cddc2b6?mode=deep",
+    "timestamp": "2026-01-10 13:44:46.352498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Data consistency] If the response struct created at lines 70-73 doesn't match the actual stored state due to a race condition or error after SetDenomAuth at line 57, can this cause clients to believe an update succeeded when it actually failed or vice versa? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0754bcf5-376c-48d7-a197-dd383158d15c?mode=deep",
+    "timestamp": "2026-01-10 13:45:08.553314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Data integrity] The SetDenomAuth call at line 57 uses cdc.MustMarshal internally - if the codec is compromised or behaves unexpectedly, can this cause the stored DenomAuth to be corrupted in a way that breaks future admin operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9eba1790-5fac-4caa-885d-c92256a556f7?mode=deep",
+    "timestamp": "2026-01-10 13:45:31.391166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Role confusion] The function allows BankAdmin to update MetadataAdmin at line 33 - if this is unintended privilege delegation, can a compromised BankAdmin account use this to grant themselves or an accomplice metadata admin permissions, violating separation of duties? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dda047cf-1680-4f63-847a-87c7f74a2029?mode=deep",
+    "timestamp": "2026-01-10 13:45:55.343629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Admin takeover] Can an attacker who gains temporary access to BankAdmin or MetadataAdmin use UpdateDenomMetadataAuth to immediately transfer metadata admin to their permanent address, then use that control to manipulate denom metadata in ways that benefit them before the compromise is detected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c891ff7-0d2f-4140-9e2e-70300398d150?mode=deep",
+    "timestamp": "2026-01-10 13:46:20.265120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Privilege escalation] If a user compromises the metadata admin role (which has limited permissions), can they use UpdateDenomMetadataAuth to transfer metadata admin to an address they control, then use DisableDenomAdmin to prevent the BankAdmin from recovering control, effectively escalating to full admin privileges? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7d8084a-17f1-491b-9ecc-cd06a0b2bd5b?mode=deep",
+    "timestamp": "2026-01-10 13:46:43.296281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Chain halt] If SetDenomAuth at line 57 or any index operation causes a panic due to storage corruption, can this cause the chain to halt on that block because the transaction cannot complete, requiring manual intervention to recover? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01f0897f-ef9c-44d3-a9fc-54804acccc3b?mode=deep",
+    "timestamp": "2026-01-10 13:47:07.398595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Storage DoS] If an attacker updates metadata admin for thousands of denoms to point to a single address, can the AddDenomToAdminDenomAuthList call at line 63 cause that address's admin index to grow so large that queries for that admin's denoms timeout or exhaust resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5f3471b-527b-4efc-b003-d899cd0c5175?mode=deep",
+    "timestamp": "2026-01-10 13:47:30.503282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [DoS] Can an attacker who compromises a metadata admin role repeatedly call UpdateDenomMetadataAuth to change the admin to different addresses, forcing the legitimate admin to continuously reclaim control and preventing them from performing other administrative tasks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ae4ebfa-93b1-478a-ac98-a19069184e66?mode=deep",
+    "timestamp": "2026-01-10 13:47:53.554916",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Parameter timing] If module parameters that affect admin permissions are updated via governance while UpdateDenomMetadataAuth transactions are in the mempool, can this cause transactions to execute under different rules than when they were submitted? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1787508-019d-4e58-bedf-ec296c3c1b54?mode=deep",
+    "timestamp": "2026-01-10 13:48:16.644789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_metadata_auth.go] [Function: UpdateDenomMetadataAuth()] [Governance bypass] Can an attacker use UpdateDenomMetadataAuth to change metadata admin immediately before a governance proposal to modify denom parameters, effectively bypassing governance restrictions by ensuring they control the admin role when the proposal executes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53322e0f-1675-4f0a-94b9-3bd8357b67a2?mode=deep",
+    "timestamp": "2026-01-10 13:48:38.977444",
+    "report_generated": false
   }
 ]
