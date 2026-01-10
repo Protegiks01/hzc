@@ -10498,5 +10498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf82a598-315f-41e5-aaa4-b8c3cfed582d?mode=deep",
     "timestamp": "2026-01-10 04:56:38.825660",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Integer underflow] At line 110, can pool.Coins[0].Amount.Sub(coinsOut[0].Amount) underflow if coinsOut[0] is greater than pool reserves due to calculation errors? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be68136e-d9d0-45d3-a433-1c5289c322bf?mode=deep",
+    "timestamp": "2026-01-10 04:57:57.510782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Integer underflow] At line 111, can pool.Coins[1].Amount.Sub(coinsOut[1].Amount) underflow if coinsOut[1] exceeds actual pool reserves? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d58e2dc1-3534-4da9-b328-d79d0f186ce4?mode=deep",
+    "timestamp": "2026-01-10 04:58:09.767048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Integer underflow] At line 112, can pool.LpToken.Amount.Sub(msg.Lptoken.Amount) underflow if more LP tokens are burned than exist in pool state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb51d9eb-ea56-4fd6-a6e4-76a10c5a1298?mode=deep",
+    "timestamp": "2026-01-10 04:58:22.943226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State consistency] Are the pool state updates at lines 110-112 atomic with the BurnCoins at line 101, or can partial updates cause AMM invariant violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e1b011c-4dae-448d-809f-a818e36ac959?mode=deep",
+    "timestamp": "2026-01-10 04:58:35.924494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State consistency] After updating pool reserves at lines 110-112, does the code verify the AMM invariant x*y=k is maintained, or can it allow invalid pool states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c20d446d-5ef8-43ff-b1ba-c3491df0b240?mode=deep",
+    "timestamp": "2026-01-10 04:58:49.629666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Race condition] Between reading pool state at line 32 and writing at line 114, can concurrent RemoveLiquidity or AddLiquidity transactions cause lost updates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8f2ed41-ae48-4631-a801-c10b1463f587?mode=deep",
+    "timestamp": "2026-01-10 04:59:05.388421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State persistence] Does SetPool at line 114 guarantee atomic write to storage, or can it partially succeed causing corrupted pool state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d31142c-f25c-4712-8b6c-c9a98f8021e5?mode=deep",
+    "timestamp": "2026-01-10 04:59:20.799091",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Array bounds] At lines 110-111, are pool.Coins[0] and pool.Coins[1] guaranteed to exist, or can accessing them cause panic if pool.Coins length is less than 2? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf463df1-28a0-4d47-83d0-7ccc88ca778f?mode=deep",
+    "timestamp": "2026-01-10 04:59:38.233303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Array bounds] At lines 95-96, are coinsOut[0] and coinsOut[1] guaranteed to exist from CoinsToRemove return, or can index out of bounds occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d108e7a-ab22-4ef4-95d0-107a9613b3bb?mode=deep",
+    "timestamp": "2026-01-10 04:59:56.167572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Array bounds] At line 119, are coinsOut[0] and coinsOut[1] guaranteed to be valid for response, or can they be nil/invalid causing response errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be1cabd6-f544-4111-83a8-50959b9f388b?mode=deep",
+    "timestamp": "2026-01-10 05:00:14.969021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Array bounds] At lines 147-148, can pool.Coins[0] and pool.Coins[1] be out of bounds if pool has invalid structure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8eb2b46-639f-460d-a0cb-dd92604fc85e?mode=deep",
+    "timestamp": "2026-01-10 05:00:34.718483",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Array bounds] At lines 152-153, can accessing pool.Coins[0].Denom and pool.Coins[1].Denom cause panic if Coins slice is malformed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2fc5e8e-c83f-40a4-9417-be006f6dc9a5?mode=deep",
+    "timestamp": "2026-01-10 05:00:55.945801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Coin validation] At lines 152-153, are the denoms from pool.Coins[0] and pool.Coins[1] validated as non-empty and properly formatted before creating new coins? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42cea089-c0aa-4651-b344-3e7a440550d0?mode=deep",
+    "timestamp": "2026-01-10 05:01:17.973943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Coin validation] Can the NewCoin operations at lines 152-153 accept zero or negative denom1/denom2 amounts, creating invalid coins that cause downstream errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20e6b967-0c88-4886-8896-2949f7cc3ee4?mode=deep",
+    "timestamp": "2026-01-10 05:01:41.354299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Denom validation] Does the code validate that coinsOut at line 71 contains exactly 2 coins with valid denoms matching pool reserves? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f0a9e79-c236-42d9-a17f-d4a8ad1f3153?mode=deep",
+    "timestamp": "2026-01-10 05:02:05.454946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Coin ordering] Are coinsOut coins guaranteed to be in the same order as pool.Coins when updating reserves at lines 110-111, or can mismatched ordering cause wrong token deductions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc18dbaa-3e3c-4d18-adb7-c864e782b26c?mode=deep",
+    "timestamp": "2026-01-10 05:02:30.190576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool balance] Does SendFromPoolToAddress at line 86 validate the pool account has sufficient balance for coinsOut before attempting transfer? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c96a95f-ad37-48b9-865c-e2514bb3a871?mode=deep",
+    "timestamp": "2026-01-10 05:02:55.951866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool account existence] If the pool account doesn't exist when SendFromPoolToAddress is called at line 86, does it fail gracefully or cause state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45c91bcd-9387-45d2-b16f-7b0cd6cbc45b?mode=deep",
+    "timestamp": "2026-01-10 05:03:21.101706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Transfer validation] Can SendFromPoolToAddress at line 86 succeed even if coinsOut contains invalid or empty coin amounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00ae8648-b67e-4f19-8af1-2a8364e42ae2?mode=deep",
+    "timestamp": "2026-01-10 05:03:46.368859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Module interaction] Does SendFromPoolToAddress properly interact with the bank module to ensure atomic transfer at line 86, or can partial transfers occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6cc8b51-db77-4831-a70a-899cfb78f658?mode=deep",
+    "timestamp": "2026-01-10 05:04:12.906348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Receiver validation] At lines 76-84, if msg.Receiver is empty string, receiver defaults to signer - but can this be exploited if signer is a module or contract address? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47c98b68-4606-4442-a05c-1a81a6596306?mode=deep",
+    "timestamp": "2026-01-10 05:04:39.047210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Receiver validation] Can an attacker set msg.Receiver to a blacklisted or frozen address at line 78, causing tokens to be permanently locked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06d1b8cb-cbfe-4acc-8c85-523b6e02c6c7?mode=deep",
+    "timestamp": "2026-01-10 05:05:06.093530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Receiver validation] Does the receiver address validation at lines 77-81 check that the receiver is not the pool address itself, which could cause circular dependencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ff141ed-6525-45ca-ae50-edce9ba82f0f?mode=deep",
+    "timestamp": "2026-01-10 05:05:32.394142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Cross-chain] Can msg.Receiver at line 78 be an IBC address from another chain, potentially causing tokens to be sent to wrong chain or lost? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cbf2c2a6-7a32-4601-abf6-6a90650535a6?mode=deep",
+    "timestamp": "2026-01-10 05:05:59.547311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Event integrity] Does EmitRemoveLiquidityEvent at line 116 emit correct pool state after updates at lines 110-112, or does it emit stale pool data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_638f503b-e361-4d01-8c45-e992c02f4599?mode=deep",
+    "timestamp": "2026-01-10 05:06:23.081696",
+    "report_generated": false
   }
 ]
