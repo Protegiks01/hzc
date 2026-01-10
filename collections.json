@@ -10198,5 +10198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4336cc6c-40a4-4570-a308-e764b9cc028d?mode=deep",
     "timestamp": "2026-01-09 23:03:31.299664",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [DoS - Computation] The integerSqrt operation at line 330 uses big.Int for computation - for very large products can this consume excessive gas or CPU, allowing an attacker to create pools that are expensive to validate and slow down block production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_844c63cf-b2b5-4a6e-b7e9-d5d523a98353?mode=deep",
+    "timestamp": "2026-01-10 04:38:27.351660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [DoS - Pool account namespace] Can an attacker predict future pool addresses and perform actions at those addresses (sending dust, creating contracts) to pollute the address space and make pool creation more expensive or complex? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43880a3f-4598-44a6-8294-2a9a7129ecaa?mode=deep",
+    "timestamp": "2026-01-10 04:38:39.711565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Price manipulation] At pool creation, the initial price is set by the ratio of base/quote amounts - can an attacker create a pool with extreme price ratios (e.g., 1:1000000) to manipulate oracle prices that read from this pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12a9b585-c78f-47bc-a0a0-53373711bfc2?mode=deep",
+    "timestamp": "2026-01-10 04:38:52.379456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Share inflation attack] At line 342, minimalLock tokens are permanently locked - but if an attacker creates a pool with exactly minimalLock + 1 total LP tokens, can they make each LP share extremely valuable and profit from subsequent liquidity additions through share inflation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0495cae7-c519-4b11-a233-1ef12edf0d2e?mode=deep",
+    "timestamp": "2026-01-10 04:39:06.345077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Liquidity bootstrapping] Since there's no minimum liquidity requirement beyond minimalLock, can an attacker create pools with barely sufficient liquidity to prevent them from being used for actual swaps, essentially squatting on token pairs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5a34f08-2219-46dc-bb02-bcdd3e6a42c9?mode=deep",
+    "timestamp": "2026-01-10 04:39:20.073375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [LP token denomination] LP tokens use poolId as the denomination - if an attacker can predict future pool IDs, can they pre-create token metadata or register the denomination maliciously to interfere with LP token operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a29a5ca1-9a16-486a-a2fc-db890c125ddd?mode=deep",
+    "timestamp": "2026-01-10 04:39:36.413327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Constant product invariant] The initial pool sets reserves without validating the constant product k = x * y - can an attacker exploit rounding in the sqrt calculation to create a pool where the initial k value is inconsistent with the reserves? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_beea6759-450f-4784-ad21-5d5b7941776d?mode=deep",
+    "timestamp": "2026-01-10 04:39:52.572540",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [DoS - Computation] The integerSqrt operation at line 330 uses big.Int for computation - for very large products can this consume excessive gas or CPU, allowing an attacker to create pools that are expensive to validate and slow down block production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57a10f98-5a93-46e4-9938-7a6ab627ca62?mode=deep",
+    "timestamp": "2026-01-10 04:40:09.402583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [DoS - Pool account namespace] Can an attacker predict future pool addresses and perform actions at those addresses (sending dust, creating contracts) to pollute the address space and make pool creation more expensive or complex? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03e34e7f-b436-4428-adac-3fb7047a3c4e?mode=deep",
+    "timestamp": "2026-01-10 04:40:27.388682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Price manipulation] At pool creation, the initial price is set by the ratio of base/quote amounts - can an attacker create a pool with extreme price ratios (e.g., 1:1000000) to manipulate oracle prices that read from this pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_657dd13b-383e-435d-bc97-286c48b53fd9?mode=deep",
+    "timestamp": "2026-01-10 04:40:46.334395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Share inflation attack] At line 342, minimalLock tokens are permanently locked - but if an attacker creates a pool with exactly minimalLock + 1 total LP tokens, can they make each LP share extremely valuable and profit from subsequent liquidity additions through share inflation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ffeee23-555e-42cf-8f34-dccc9af62b48?mode=deep",
+    "timestamp": "2026-01-10 04:41:06.863200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Liquidity bootstrapping] Since there's no minimum liquidity requirement beyond minimalLock, can an attacker create pools with barely sufficient liquidity to prevent them from being used for actual swaps, essentially squatting on token pairs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c89b2bf1-5ab7-49a6-82d3-16dae9ae0601?mode=deep",
+    "timestamp": "2026-01-10 04:41:28.519456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [LP token denomination] LP tokens use poolId as the denomination - if an attacker can predict future pool IDs, can they pre-create token metadata or register the denomination maliciously to interfere with LP token operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5999baf8-34a5-44dc-9a2c-7cc04f49f21d?mode=deep",
+    "timestamp": "2026-01-10 04:41:50.565296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_create_pool.go] [Function: CreatePool()] [Constant product invariant] The initial pool sets reserves without validating the constant product k = x * y - can an attacker exploit rounding in the sqrt calculation to create a pool where the initial k value is inconsistent with the reserves? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2241dc4f-97ff-472a-83fa-c3859e1f9005?mode=deep",
+    "timestamp": "2026-01-10 04:42:14.301244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Address validation] Can an attacker provide a malformed msg.Creator address that passes AccAddressFromBech32 validation at line 20 but causes state corruption during balance checks or transfer operations, leading to token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8d1468b-05cd-4dcf-b0f4-f3ab39cd9344?mode=deep",
+    "timestamp": "2026-01-10 04:42:38.821199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Address validation] Does the receiver address validation at lines 77-81 properly handle all edge cases including empty strings, malformed bech32, wrong prefix, or addresses from different chains, potentially allowing tokens to be sent to unrecoverable addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4988f705-44c2-4d0c-a7ca-999b8f75c887?mode=deep",
+    "timestamp": "2026-01-10 04:43:03.732594",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Input validation] Can an attacker exploit the optional receiver field at lines 76-84 to redirect liquidity withdrawals to an arbitrary address while the LP tokens are burned from the creator, enabling a theft vector? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d362e38-1f14-4824-a250-b6b7064c258b?mode=deep",
+    "timestamp": "2026-01-10 04:43:29.895404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Input validation] Is there any validation that msg.Lptoken.Denom at line 30 matches expected format or can an attacker provide arbitrary denom strings that bypass pool lookups or cause state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79c5a2c0-eaef-42e0-9021-44754f5629a0?mode=deep",
+    "timestamp": "2026-01-10 04:43:56.566373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Input validation] Can an attacker provide msg.Lptoken.Amount as zero or negative value to exploit mathematical operations in CoinsToRemove or cause division by zero errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07b80c66-ac06-4d21-ac67-436204c253ef?mode=deep",
+    "timestamp": "2026-01-10 04:44:25.117743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State consistency] After GetPool at line 32 returns found=true, can the pool be deleted or modified by a concurrent transaction before line 114 SetPool, causing state corruption or double-spending? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2868b1f-a763-4437-8d8d-5f971cc41c84?mode=deep",
+    "timestamp": "2026-01-10 04:44:53.163663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool validation] The sanity check at lines 42-48 compares pool.LpToken.Denom with msg.Lptoken.Denom, but does it validate that the pool actually exists in storage versus being a stale cached object? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ca8a9c0-4cf5-4f73-9fb0-175682f68130?mode=deep",
+    "timestamp": "2026-01-10 04:45:21.015268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Pool validation] Can an attacker exploit the pool lookup mechanism by providing a poolIDString at line 30 that matches multiple pools or causes hash collisions in the KVStore? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b2b1bdb-7f6a-410e-b173-49b4cf2e999d?mode=deep",
+    "timestamp": "2026-01-10 04:45:49.554414",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State consistency] If GetPool at line 32 returns a pool object, but the underlying pool account is deleted or compromised between lines 32-114, can this cause failed SendFromPoolToAddress operations that leave state inconsistent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db9820b0-6ccf-4883-9ebf-2ffeb62cf9c6?mode=deep",
+    "timestamp": "2026-01-10 04:46:16.747827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Access control] The HasBalance check at line 52 only verifies the user has the LP tokens, but does it verify the user is authorized to burn them (e.g., not locked in staking or vesting)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_276d70c7-bc16-41f5-9117-db9343ad6169?mode=deep",
+    "timestamp": "2026-01-10 04:46:43.795801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Race condition] Between the HasBalance check at line 52 and SendCoinsFromAccountToModule at line 60, can an attacker front-run with another transaction to spend the LP tokens, causing the SendCoins to fail after partial state updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86fbde21-7af7-47e3-bf13-a400850b58e6?mode=deep",
+    "timestamp": "2026-01-10 04:47:09.909034",
+    "report_generated": false
   }
 ]
