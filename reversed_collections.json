@@ -29098,5 +29098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98d56715-ce87-4259-9584-1c432b131026?mode=deep",
     "timestamp": "2026-01-10 18:00:22.972065",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Validation timing] The CheckDenomString validation at line 21 happens before store lookups - can timing differences between validation and lookup be exploited to cause TOCTOU vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b32c3bfc-fd7c-40c6-849c-03055175872f?mode=deep",
+    "timestamp": "2026-01-10 18:01:49.927964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go, query_denom_auth.go] [Validation bypass] Both functions use validators.CheckDenomString() - if this validator has a bypass (e.g., Unicode normalization), can attackers query hidden denoms across all query functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78653d84-3088-4af8-97c0-e0b6d672c5f9?mode=deep",
+    "timestamp": "2026-01-10 18:02:02.357981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Module interaction] If bankKeeper.GetSupply() is manipulated by another module during a transaction, can calculateDenomStats return artificially inflated/deflated supply values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35ae3a52-3bc4-46cf-a9f0-fb0df3111a90?mode=deep",
+    "timestamp": "2026-01-10 18:02:15.175341",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go, query_denom_auth.go] [Admin verification] Does DenomsByAdmin() return denoms that DenomAuth() shows have different admins, indicating the AdminDenomAuthListKey index is corrupted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c770e58f-c621-4696-8516-21d756a056fb?mode=deep",
+    "timestamp": "2026-01-10 18:02:28.858768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go, query_denom_auth.go] [Index consistency] Can the number of entries returned by DenomAll() differ from ListDenomAuth() if denom/denomAuth creation is not atomic, revealing synchronization bugs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7fd65bf-a92b-41cd-af79-562d245b74e9?mode=deep",
+    "timestamp": "2026-01-10 18:02:42.748086",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go, query_denom_auth.go] [State synchronization] If Denom() checks denom.Denom != denomAuth.Denom mismatch, but DenomAuth() doesn't perform this check, can inconsistent error reporting hide state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ab755b4-2590-4b12-b20a-f8c3510c4778?mode=deep",
+    "timestamp": "2026-01-10 18:02:57.611207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go, query_denom_all.go] [Data consistency] Can there be a scenario where Denom() returns different TotalSupply/TotalBurned values than DenomAll() for the same denom due to timing differences in calculateDenomStats() calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80d03c08-297e-488b-a7f5-a94b4c7cf43c?mode=deep",
+    "timestamp": "2026-01-10 18:03:13.303421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Index corruption] If the AdminDenomAuthListKey index becomes out of sync with actual DenomAuth entries, will DenomsByAdmin() return denoms that the admin no longer controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf9e35f6-06f1-47bf-8835-c13c5ca3f745?mode=deep",
+    "timestamp": "2026-01-10 18:03:30.815758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Empty result handling] If req.Admin has no denoms, the function returns an empty array - but should it distinguish between 'admin exists with no denoms' vs 'admin doesn't exist' for better error handling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41487ba6-5615-4acd-b620-1348ec4665d4?mode=deep",
+    "timestamp": "2026-01-10 18:03:50.706986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Key encoding] The key is converted directly to string at line 27 - if the key contains null bytes or control characters, can this break client parsing and cause security issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2accfd07-6a41-4232-bcc3-87a7d3c5748b?mode=deep",
+    "timestamp": "2026-01-10 18:04:10.878110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store synchronization] When a denom admin is transferred, are the AdminDenomAuthListKey indexes updated atomically, or can DenomsByAdmin() return stale results showing denoms for old admins? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b95bde4b-53fa-4479-ae6d-834510d5af4b?mode=deep",
+    "timestamp": "2026-01-10 18:04:31.251405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Pagination bypass] At line 26-29, the pagination callback appends string(key) directly - can malformed keys in the store cause non-UTF8 strings to be returned, corrupting client applications? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e0183c9-9188-46bd-ba2a-2e6e31eeac21?mode=deep",
+    "timestamp": "2026-01-10 18:04:52.838797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Resource exhaustion] If an admin controls thousands of denoms, can repeatedly querying DenomsByAdmin() with max pagination cause DoS by forcing expensive store iterations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5201e78-39a4-4978-a106-20632bec13aa?mode=deep",
+    "timestamp": "2026-01-10 18:05:14.950736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Information disclosure] Can an attacker enumerate all admin addresses by querying DenomsByAdmin() with common/sequential addresses to map out the admin structure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16e47d37-74fb-4c85-9f82-c22dddec3ea6?mode=deep",
+    "timestamp": "2026-01-10 18:05:37.516597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Key construction] At line 24, AdminDenomAuthListKey(req.Admin) constructs a store key from user input - can special characters in req.Admin cause key collisions or access to other admins' denom lists? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_587e9448-17cf-44d9-a262-ea43eb3d69e3?mode=deep",
+    "timestamp": "2026-01-10 18:06:02.260114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] The function doesn't validate the req.Admin address format - can an attacker provide invalid/malicious admin addresses that cause the store lookup to misbehave or leak information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b4c8923-13cb-40ee-8f8e-7664e18a9a8c?mode=deep",
+    "timestamp": "2026-01-10 18:06:27.262562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Race condition] Can an attacker query DenomAuth() for a denom while its admin is being changed via propose/claim mechanism, potentially getting stale or inconsistent admin information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f9723f79-17c2-447e-a8fa-64aadab8bb40?mode=deep",
+    "timestamp": "2026-01-10 18:06:52.483748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [State consistency] If GetDenomAuth() returns a DenomAuth object but the corresponding Denom was deleted, does this create an inconsistent state that could be exploited in other operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b72bf2e-df13-48e9-a93c-f25ef82d2e72?mode=deep",
+    "timestamp": "2026-01-10 18:07:17.315853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Information disclosure] If DenomAuth returns admin addresses for any valid denom, can attackers use this to map out the governance structure and identify key admin accounts to target? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d5847b1-d9a7-4b46-a906-15b0b5895a38?mode=deep",
+    "timestamp": "2026-01-10 18:07:42.557250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Error handling] At line 64, if DenomAuth is not found, the error returned is generic 'not found' - should this distinguish between 'denom doesn't exist' vs 'denom exists but has no auth' to prevent state corruption detection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1504c50a-ffe1-450d-b9f0-0641cb8c1aa1?mode=deep",
+    "timestamp": "2026-01-10 18:08:09.246568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Input validation] Does the CheckDenomString validator at line 49 use the same validation rules as denom creation, or could there be a discrepancy allowing queries for denoms with characters that shouldn't exist? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cd72b13-1dfe-4cb0-83e0-2856d1ede10d?mode=deep",
+    "timestamp": "2026-01-10 18:08:36.990487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Consistency] Can there be a scenario where a DenomAuth exists but the corresponding Denom doesn't (or vice versa), causing inconsistencies between ListDenomAuth() and DenomAll() results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff36dab0-c979-4abc-9e1e-4ae837c4d0b1?mode=deep",
+    "timestamp": "2026-01-10 18:09:06.032422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Store corruption] If the denomAuthStore prefix contains orphaned keys (denoms that were deleted but auth entries remain), will these be returned in ListDenomAuth(), exposing stale admin information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39617225-26d6-4f5f-a64b-cbd9c2b449ae?mode=deep",
+    "timestamp": "2026-01-10 18:09:28.663265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Resource exhaustion] Can an attacker create thousands of denoms to populate the DenomAuthStore, then repeatedly query ListDenomAuth() with max pagination to DoS the query service? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f84ee977-b7ff-4af2-b39b-0de829bee4fa?mode=deep",
+    "timestamp": "2026-01-10 18:09:52.183194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: ListDenomAuth()] [Information disclosure] Does ListDenomAuth() expose all admin addresses (BankAdmin and MetadataAdmin) publicly, potentially allowing attackers to identify and target high-privilege accounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba8c208d-fea2-4af4-a16c-4c0fac2b5b3a?mode=deep",
+    "timestamp": "2026-01-10 18:10:15.876111",
+    "report_generated": false
   }
 ]
