@@ -30748,5 +30748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48c82778-48d8-42fd-8d9c-3b6f0ec49b4f?mode=deep",
     "timestamp": "2026-01-10 19:49:18.560869",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Minted tracking bypass] Since GetDenom() returns the Minted field but BurnTokens() doesn't decrement it (no SetDenom() call in burn operation), does this create an accounting inconsistency where Minted represents 'total ever minted' rather than 'current supply', potentially allowing minting beyond intended caps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec8956eb-37a7-478f-82f8-b9af3be03936?mode=deep",
+    "timestamp": "2026-01-10 19:50:46.415062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Denom not found handling] When BurnTokens() calls GetDenom() and receives found=false, it returns an error but doesn't update any state - can an attacker spam burn transactions for non-existent denoms to fill up mempool and cause DoS without paying gas for actual state changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8c936ea-e59c-4edc-bcaa-03251eae7edb?mode=deep",
+    "timestamp": "2026-01-10 19:50:58.261570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Burn validation bypass] In msg_server_burn_tokens.go, GetDenom() is only called for factory denoms (after DeconstructDenom() check) - can an attacker burn non-factory native denoms without proper validation by crafting a denom that fails DeconstructDenom() but still passes bank burn operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f6af4ab-f6c7-4edd-82b9-e07b52514119?mode=deep",
+    "timestamp": "2026-01-10 19:51:11.511702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Migration vulnerability] If V2Migration() in k_set_denom.go migrates legacy denoms to the new structure, can an attacker exploit GetDenom() returning found=false for a legacy denom that hasn't been migrated yet, allowing duplicate creation via CreateDenom()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9bb76f1-bd5c-4567-8345-29dd78c9fdf9?mode=deep",
+    "timestamp": "2026-01-10 19:51:24.638370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Subdenom collision] If an attacker creates denom 'factory/zig1abc/token' and another user tries to create 'factory/zig1abc', does GetDenom() properly distinguish between parent and subdenom paths, or can key prefix matching cause false positives? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_099dd35d-c3c6-4d32-83eb-de044500cc45?mode=deep",
+    "timestamp": "2026-01-10 19:51:38.598256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Empty denom] Can an attacker pass an empty string '' to GetDenom() via CreateDenom(), causing DenomKey() to generate key='/' which might collide with the prefix separator, allowing unauthorized creation of a 'root' denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c676ca2-0ceb-42ce-8a79-bfbeac40bfac?mode=deep",
+    "timestamp": "2026-01-10 19:51:53.274850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Case sensitivity] If DenomKey() treats denom strings as case-sensitive but bank module metadata lookup is case-insensitive, can an attacker create 'factory/ABC' and 'factory/abc' as separate denoms via CreateDenom(), but have them conflict in bank metadata, causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e2bcb0d-857b-4397-821a-5ca1eacf5589?mode=deep",
+    "timestamp": "2026-01-10 19:52:08.975834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Denom existence check bypass] In msg_server_create_denom.go, GetDenom() is used to check if a denom already exists - can an attacker exploit Unicode normalization differences (NFC vs NFD) or homoglyph attacks to create 'different' denoms that have identical visual representations but different byte sequences, bypassing the existence check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78b6c4b7-dd8c-458c-97e6-87898c0b6f2e?mode=deep",
+    "timestamp": "2026-01-10 19:52:26.551408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Access control bypass] Since GetDenom() has no access control checks on the caller, can a malicious module or contract use this to enumerate all existing denoms and their minting caps, then selectively target denoms with high caps for exploitation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_043acc89-59da-44aa-a5d4-7b173bd49a78?mode=deep",
+    "timestamp": "2026-01-10 19:52:45.537835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Stale data] If GetDenom() reads from a cached store view that hasn't been updated with the latest SetDenom() writes, can an attacker exploit this to mint tokens multiple times against stale minting cap data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40ee2791-24cb-4119-9e0c-5137a4bb6566?mode=deep",
+    "timestamp": "2026-01-10 19:53:04.677371",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Integer overflow] If GetDenom() returns a Denom with Minted value close to MAX_UINT256, and MintAndSendTokens() adds more tokens without proper overflow checks, can this cause integer wraparound where totalMinted wraps to 0, allowing unlimited minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d387fd0-b976-4dd4-808d-f0ac50620e0a?mode=deep",
+    "timestamp": "2026-01-10 19:53:24.518155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Cap bypass] When MintAndSendTokens() calls GetDenom() and receives found=false for a denom that was just created but not yet committed, can the attacker exploit this timing to bypass minting cap checks and mint unlimited tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_761c31cc-2511-4d82-8bd9-685746a8dea1?mode=deep",
+    "timestamp": "2026-01-10 19:53:46.173277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [TOCTOU attack] In msg_server_mint_and_send_tokens.go, GetDenom() is called to check minting caps, but there's a time gap before SetDenom() updates the minted amount - can an attacker submit multiple concurrent MintAndSendTokens transactions that all pass the GetDenom() check before any SetDenom() occurs, minting beyond the cap? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1689419-1cd2-4fb4-ab58-c983638a2afa?mode=deep",
+    "timestamp": "2026-01-10 19:54:08.718316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Memory exhaustion] Can an attacker create a denom with an extremely long denom string (millions of characters) that when passed to DenomKey() and store.Get() causes excessive memory allocation in the prefix store, leading to OOM and validator crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80f7be17-2568-49c2-a9a1-a299a50a62cf?mode=deep",
+    "timestamp": "2026-01-10 19:54:31.854886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Race condition] Can concurrent calls to GetDenom() and SetDenom() for the same denom string create a race condition where GetDenom() returns partially written data from SetDenom(), resulting in a corrupted Denom struct with inconsistent Minted vs MintingCap values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fd047ef-de01-4dbe-969d-4004fbb7f2b6?mode=deep",
+    "timestamp": "2026-01-10 19:54:56.308453",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [State inconsistency] If GetDenom() is called during a block that's being rolled back due to consensus failure, can the function return a 'found=true' result with stale data that's no longer valid, causing subsequent minting operations to exceed caps or violate invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a40b226-17a9-4a50-80cc-6bad7642ae7d?mode=deep",
+    "timestamp": "2026-01-10 19:55:21.024303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Nil pointer dereference] If the context is nil or invalid when calling k.storeService.OpenKVStore(ctx), can this cause a nil pointer dereference in runtime.KVStoreAdapter(), leading to a panic that crashes the validator and causes consensus failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48440e5e-b1e5-4342-a235-afb2a906c7c3?mode=deep",
+    "timestamp": "2026-01-10 19:55:46.181628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Deserialization attack] Can an attacker exploit the MustUnmarshal() function by previously setting maliciously crafted protobuf bytes via SetDenom() that deserialize to a Denom struct with extreme values (e.g., MintingCap = MAX_UINT256, Minted = 0), allowing unlimited token minting when checked by MintAndSendTokens()? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2065ae6-6856-4983-ac6f-5fb42bbc65b4?mode=deep",
+    "timestamp": "2026-01-10 19:56:10.719630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Panic condition] If the store.Get() operation returns corrupted bytes (due to disk failure, Byzantine validator, or state sync issues), will the k.cdc.MustUnmarshal(&val) call panic and crash the entire validator node, causing a network-wide DoS if multiple validators hit the same corrupted data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0b336af-30c8-415c-967d-6ac56be45b16?mode=deep",
+    "timestamp": "2026-01-10 19:56:36.469356",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Prefix injection] Can an attacker provide a denom string that when combined with types.KeyPrefix(types.DenomKeyPrefix) creates a key that escapes the 'Denom/value/' prefix namespace, allowing read access to other module data or system keys in the KV store? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab69be4f-5f39-4130-9b5b-a5b489779b15?mode=deep",
+    "timestamp": "2026-01-10 19:57:01.816093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Store manipulation] Can a Byzantine validator or malicious actor exploit the runtime.KVStoreAdapter(k.storeService.OpenKVStore(ctx)) call to manipulate the context and access a different block height's state, retrieving stale or future denom data that violates minting cap constraints? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f329067-d115-4129-a528-844e975088a2?mode=deep",
+    "timestamp": "2026-01-10 19:57:26.881075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Key collision] Since DenomKey() appends a forward slash to the denom string, can an attacker create a denom 'factoryzig1abc/def' that collides with the key for denom 'factoryzig1abc' + '/' + 'def', leading to state corruption where two different denoms share the same storage key? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acacc33c-8f97-44c9-a904-5a6346d486fa?mode=deep",
+    "timestamp": "2026-01-10 19:57:52.633253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Key collision] Can an attacker craft a malicious denom string containing special characters (e.g., null bytes, control characters, or Unicode lookalikes) that bypasses validation in upstream callers but causes key collisions in the store.Get() operation, allowing unauthorized access to other denoms' data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e6858ff-8fed-41de-8111-97bcfb00ec40?mode=deep",
+    "timestamp": "2026-01-10 19:58:18.383715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Minted tracking bypass] Since GetDenom() returns the Minted field but BurnTokens() doesn't decrement it (no SetDenom() call in burn operation), does this create an accounting inconsistency where Minted represents 'total ever minted' rather than 'current supply', potentially allowing minting beyond intended caps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85a76fa1-ddef-452a-b5d3-70e8987e3669?mode=deep",
+    "timestamp": "2026-01-10 19:58:44.003564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Denom not found handling] When BurnTokens() calls GetDenom() and receives found=false, it returns an error but doesn't update any state - can an attacker spam burn transactions for non-existent denoms to fill up mempool and cause DoS without paying gas for actual state changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cb9d799-7ef8-491f-a5ba-f8fa524d2397?mode=deep",
+    "timestamp": "2026-01-10 19:59:09.725781",
+    "report_generated": false
   }
 ]
