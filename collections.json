@@ -17548,5 +17548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01e740f5-76a4-4c10-bd58-8d9b6894507a?mode=deep",
     "timestamp": "2026-01-10 15:46:12.183543",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Pool ID integer overflow] Does the validators.CheckPoolId at line 33 validate that the numeric portion of msg.PoolId doesn't exceed int64 maximum, potentially causing integer overflow when parsed in keeper operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38ac30a2-93c0-413d-93f1-17f2f62eef87?mode=deep",
+    "timestamp": "2026-01-10 15:47:35.830351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Pool ID regex bypass] Can an attacker use Unicode number characters or non-ASCII digits in msg.PoolId at line 33 that match the regex '^zp[0-9]+$' but decode to different values during pool lookup? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad98544d-755d-436b-9d4f-1d4982723dd6?mode=deep",
+    "timestamp": "2026-01-10 15:47:49.240099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Pool ID length exploitation] Does the CheckPoolId validation at line 33 enforce the length constraints (3-44 characters), or can attackers pass extremely long pool IDs causing memory exhaustion in KVStore operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8f55449-23e5-431a-9b02-adb69b9f2ce1?mode=deep",
+    "timestamp": "2026-01-10 15:48:01.741997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Pool ID leading zeros] Can an attacker submit msg.PoolId='zp0000001' at line 33 that passes validation but references a different pool than 'zp1' due to inconsistent parsing logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45d9d319-7bf5-4847-b2e4-41e026b700b5?mode=deep",
+    "timestamp": "2026-01-10 15:48:14.813807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Empty pool ID] Does the validators.CheckPoolId at line 33 properly reject empty strings for msg.PoolId, or can attackers pass empty values that cause default pool selection or crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a29a3eab-5838-4ae7-80ca-90525e6f71f0?mode=deep",
+    "timestamp": "2026-01-10 15:48:28.442563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Pool ID case manipulation] Can an attacker use 'ZP123' or 'zP123' instead of 'zp123' at line 33 to bypass the prefix check 'poolId[:2] != constants.PoolPrefix' due to case-insensitive comparison? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69768b0c-42d2-4e95-97c2-3d0f206f17ee?mode=deep",
+    "timestamp": "2026-01-10 15:48:43.015165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Empty receiver bypass] Does the empty string check 'msg.Receiver != \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2f03f60-8a6a-4ad4-987a-9a3af89ceab5?mode=deep",
+    "timestamp": "2026-01-10 15:48:58.215122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Receiver validation inconsistency] Why does line 37 only validate msg.Receiver if it's non-empty, but the keeper always uses either receiver or signer - can this asymmetry be exploited to swap tokens to unvalidated addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9e73785-3ca2-4414-bf74-f95959e3f810?mode=deep",
+    "timestamp": "2026-01-10 15:49:15.664657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Receiver error wrapping] Does the errorsmod.Wrapf at lines 39-43 properly propagate the underlying SignerCheck error, or does the custom ErrorInvalidReceiver mask validation failures that could be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1989fde3-d541-4f32-8bc5-e9708f2aa684?mode=deep",
+    "timestamp": "2026-01-10 15:49:33.734176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Receiver address format] Can an attacker pass a valid Bech32 address with wrong prefix in msg.Receiver at line 38 that passes SignerCheck but sends tokens to cross-chain addresses, causing permanent token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fc83c7e-aa83-4469-af16-69c7bdf7891d?mode=deep",
+    "timestamp": "2026-01-10 15:49:52.486442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Receiver equals signer] Does ValidateBasic at lines 37-45 prevent msg.Receiver from equaling msg.Signer, potentially allowing attackers to exploit reentrancy-like conditions in the keeper's token transfer logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de102315-73ab-4dc3-9d5f-c6bb71f4d1cb?mode=deep",
+    "timestamp": "2026-01-10 15:50:12.332446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Receiver module account] Can an attacker set msg.Receiver at line 38 to a module account address (e.g., DEX pool, factory module) to steal tokens from protocol-owned accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37c75fa8-d75b-4ce2-8068-8ecf80eb904e?mode=deep",
+    "timestamp": "2026-01-10 15:50:33.751293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Whitespace receiver] Does the SignerCheck at line 38 properly reject msg.Receiver values with only whitespace characters, or can attackers use spaces to bypass validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_248b2589-5a99-4dba-8d67-b53d027908c0?mode=deep",
+    "timestamp": "2026-01-10 15:50:55.813447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Nil pointer exploitation] At line 47, does checking 'msg.IncomingMax != nil' before CoinCheck allow race conditions where IncomingMax is set to nil between validation and keeper execution, bypassing slippage protection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2df60aa-2896-4377-973e-ec79e0cab376?mode=deep",
+    "timestamp": "2026-01-10 15:51:18.508250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [IncomingMax zero amount] If msg.IncomingMax at line 48 contains a zero amount that passes CoinCheck(zeroOK=false), can attackers execute unlimited swaps by setting IncomingMax=0 to bypass slippage checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79b9d7f0-621a-4131-9bea-5c2bf6456a88?mode=deep",
+    "timestamp": "2026-01-10 15:51:41.775071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [IncomingMax denom mismatch] Does ValidateBasic at lines 47-51 verify that msg.IncomingMax.Denom matches the expected incoming token from the pool, or can attackers specify wrong denoms to confuse swap calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5002a9bb-8d65-4318-8bd9-d169ac8206ac?mode=deep",
+    "timestamp": "2026-01-10 15:52:05.768102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [IncomingMax negative amount] Can an attacker set msg.IncomingMax to a negative Coin amount at line 48 that bypasses the CoinCheck to remove slippage protection and enable price manipulation attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b8c3c3b-01d2-45fd-a9fb-57e402bffdae?mode=deep",
+    "timestamp": "2026-01-10 15:52:29.428112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [IncomingMax pointer aliasing] After ValidateBasic passes at line 48, can external code modify the Coin object pointed to by msg.IncomingMax, bypassing the validation and altering slippage parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba3c9bb5-27a3-4561-8bbe-cfa5a45e42cb?mode=deep",
+    "timestamp": "2026-01-10 15:52:52.347874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [IncomingMax overflow] Does the CoinCheck at line 48 validate that msg.IncomingMax.Amount doesn't overflow during comparison with calculated incoming amounts in the keeper's line 99 check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25ca5ad2-eb13-40a1-b56f-02a08832bcc1?mode=deep",
+    "timestamp": "2026-01-10 15:53:15.912581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [IncomingMax type confusion] Can an attacker exploit Go's type system by passing a struct that implements sdk.Coin interface but has different semantics for msg.IncomingMax at line 48? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c096a56a-e9c6-49a7-b5c6-133ea01e9ea5?mode=deep",
+    "timestamp": "2026-01-10 15:53:39.104088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Missing IncomingMax validation] Since line 47 only validates IncomingMax when non-nil, can attackers exploit nil IncomingMax to execute swaps without slippage protection during high volatility? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa906b01-6fba-49ff-8383-6f5006d62cab?mode=deep",
+    "timestamp": "2026-01-10 15:54:01.950441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Validation order exploitation] Does the validation order (signer→outgoing→poolId→receiver→incomingMax) at lines 25-51 allow attackers to exploit early validation failures to probe for valid pool IDs or addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a72fd72-7043-4c41-9952-1a6e9619fadc?mode=deep",
+    "timestamp": "2026-01-10 15:54:25.903525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Partial validation state] If ValidateBasic at line 23 returns an error partway through (e.g., at line 29), does partial validation state leak information about pool existence or token validity to attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e792eed-8045-4437-b888-acd3bd34103f?mode=deep",
+    "timestamp": "2026-01-10 15:54:49.878884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Return value handling] Does ValidateBasic at line 53 return nil for all valid messages, or are there code paths that silently pass invalid messages due to missing return statements? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_004dd226-133b-495c-bfa5-ac4c9a67cbee?mode=deep",
+    "timestamp": "2026-01-10 15:55:14.533610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_swap_exact_out.go] [Function: ValidateBasic()] [Error propagation] Do the error returns at lines 26, 30, 34, and 40 properly propagate error context, or do wrapped errors mask critical validation failures that could be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b239ff55-eb69-45c1-8c71-a16e098d4d96?mode=deep",
+    "timestamp": "2026-01-10 15:55:38.865036",
+    "report_generated": false
   }
 ]
