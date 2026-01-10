@@ -27448,5 +27448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1bbb1b33-0331-4993-a437-8d8cb3680b05?mode=deep",
     "timestamp": "2026-01-10 16:13:13.915188",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Coin construction] Could the sdk.NewCoins(msg.Token) call (line 57) fail to properly validate the coin denomination or amount, allowing minting of invalid coins that could break bank module invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_154c24cc-180f-48e2-b10c-2dbf0111bca8?mode=deep",
+    "timestamp": "2026-01-10 16:14:43.528211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Module minting] If MintCoins succeeds (line 59) but SendCoinsFromModuleToAccount fails (line 63), are the minted coins properly rolled back, or do they remain in the module account, causing supply inflation without proper distribution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_952b5621-8eaf-4e81-8682-17f3fcc26b5d?mode=deep",
+    "timestamp": "2026-01-10 16:14:55.997369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Bank keeper interaction] Can an attacker exploit the bankKeeper.MintCoins call (line 59) to mint tokens even if the denom validation or cap check was bypassed, and does the bank keeper perform independent validation that could be missing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84f1d2a4-3c8d-41c9-adee-c0d11f97444a?mode=deep",
+    "timestamp": "2026-01-10 16:15:08.842090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Address collision] Could an attacker deliberately create an address collision where msg.Recipient resolves to the module account itself, allowing them to mint tokens directly into the module account and potentially drain it through other mechanisms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f4ba121-c586-4eb2-a371-3634fe3f82fe?mode=deep",
+    "timestamp": "2026-01-10 16:15:22.798448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Nil pointer] If sdk.AccAddressFromBech32 returns a nil recipientAddress with err=nil due to a bug in the SDK, could line 63 panic or send coins to an invalid destination, causing permanent token loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13bf5192-f1b4-40c4-86d8-d4e90c1e4ae0?mode=deep",
+    "timestamp": "2026-01-10 16:15:36.765487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Address format] Does AccAddressFromBech32 (line 52) properly validate all edge cases of Bech32 encoding, or could an attacker use alternative address formats, checksums, or encoding quirks to bypass recipient validation or send to unintended addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5627ce9c-63bd-479d-96d7-f4eafd62f660?mode=deep",
+    "timestamp": "2026-01-10 16:15:50.142951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Address validation] Can an attacker provide a maliciously crafted msg.Recipient string that passes sdk.AccAddressFromBech32 validation (line 52) but causes issues in the SendCoinsFromModuleToAccount call (line 63), such as sending to a non-existent or blacklisted address? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a025ac94-2fd9-49f3-8fb2-dd4eaa1bfa60?mode=deep",
+    "timestamp": "2026-01-10 16:16:06.041675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [State inconsistency] If the minting cap check passes (line 40) but then MintingCap is changed by governance before line 59 executes, could tokens be minted that violate the new cap, causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06275175-800a-41d2-9b52-c1b7ba185079?mode=deep",
+    "timestamp": "2026-01-10 16:16:23.563751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Cap validation] If MintingCap is set to zero or a very small value, could the error message generation (lines 41-49) consume excessive gas or cause a DoS, especially with maliciously large Token.String() outputs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_000ad7c4-d279-413a-b53b-5d69c5325e81?mode=deep",
+    "timestamp": "2026-01-10 16:16:41.920486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Race condition] Can multiple concurrent MintAndSendTokens transactions exploit a race condition in reading currentDenom.Minted (line 39) and writing the updated value (line 71), allowing total minted to exceed the cap when transactions execute simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37bcb36e-e0e9-4f30-a447-121f94ae3456?mode=deep",
+    "timestamp": "2026-01-10 16:17:00.850229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Math precision] Could the math.Uint type conversion at line 39 lose precision or introduce rounding errors that allow minting slightly more tokens than the cap, accumulating to significant amounts over many transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_271ed722-11dd-4e21-bf5c-85c34aeb7d60?mode=deep",
+    "timestamp": "2026-01-10 16:17:21.018545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Minting cap bypass] Does the GT comparison (line 40) properly handle the edge case where totalMinted exactly equals MintingCap, and could an attacker exploit this to mint tokens up to exactly the cap multiple times through race conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9d383fb-b9e5-4a59-b80b-28960b9986cd?mode=deep",
+    "timestamp": "2026-01-10 16:17:42.778830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Integer overflow] Can an attacker cause integer overflow in the totalMinted calculation (line 39) by providing a msg.Token.Amount that, when added to currentDenom.Minted, wraps around the math.Uint maximum value, bypassing the minting cap check at line 40? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1dbc8289-ed4d-4e50-8c51-25791b182395?mode=deep",
+    "timestamp": "2026-01-10 16:18:05.354645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Admin validation] If the bank admin is disabled (empty string) in DenomAuth, does the error from Auth (line 34) properly prevent minting, or could there be an edge case where the function continues with partial authorization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22247b37-622b-440d-ae8c-75f572d48da9?mode=deep",
+    "timestamp": "2026-01-10 16:18:28.778572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Authorization bypass] Could an attacker exploit the Auth function's 'bank' parameter (line 34) by somehow modifying the adminType string in memory or through reflection to bypass authorization checks entirely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d05ad65c-7110-4cb6-afd7-ed955b53a8e1?mode=deep",
+    "timestamp": "2026-01-10 16:18:52.215852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Time-of-check-time-of-use] Is there a TOCTOU vulnerability where the bank admin could be changed between the Auth check (line 34) and the actual minting operation (line 59-61), allowing an unauthorized party to mint tokens after admin transfer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6004b5bb-285a-4d35-86e4-e12d47b58472?mode=deep",
+    "timestamp": "2026-01-10 16:19:16.390651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Access control] Can an attacker exploit the Auth function call (line 34) by providing a msg.Signer that matches the bank admin through address collision or manipulation of the address derivation, bypassing the intended admin-only access control for minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fabb184d-c757-46fc-adf2-4ac829c5098d?mode=deep",
+    "timestamp": "2026-01-10 16:19:41.630558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Error handling] Does the error message formatting at lines 27-30 properly sanitize the msg.Token.Denom string, or could an attacker inject specially crafted denom names containing format specifiers or escape sequences to exploit logging systems or error handlers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daa03b6d-8a5c-47df-9e63-e54e943b85eb?mode=deep",
+    "timestamp": "2026-01-10 16:20:06.712979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Deserialization] Could a corrupted or maliciously crafted denom state in the KV store cause GetDenom (line 21-24) to return invalid data that passes the isFound check but contains manipulated MintingCap or Minted values, allowing cap bypass? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8565d5e-97fb-4d6a-96b4-89725f3672e7?mode=deep",
+    "timestamp": "2026-01-10 16:20:33.308669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Key-value store] If GetDenom returns isFound=false (line 25), could a malicious validator manipulate the error path to bypass subsequent checks and still proceed with minting, potentially creating unlimited tokens without proper denom validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4092c7f9-9c6f-47bf-846d-78a199856072?mode=deep",
+    "timestamp": "2026-01-10 16:21:01.517351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [State retrieval] Can an attacker exploit a race condition between checking if a denom exists (line 21-24) and using its data (line 39-40), where a denom could be deleted or modified by a concurrent transaction, leading to minting tokens for a non-existent or altered denom state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b23f9f71-f91b-417e-86f0-d1da109c45d7?mode=deep",
+    "timestamp": "2026-01-10 16:21:28.466011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Coin construction] Could the sdk.NewCoins(msg.Token) call (line 57) fail to properly validate the coin denomination or amount, allowing minting of invalid coins that could break bank module invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_748b61ce-c93f-4365-a0a7-b132cdffe2e5?mode=deep",
+    "timestamp": "2026-01-10 16:21:53.401045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Module minting] If MintCoins succeeds (line 59) but SendCoinsFromModuleToAccount fails (line 63), are the minted coins properly rolled back, or do they remain in the module account, causing supply inflation without proper distribution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4b32eb7-8780-487a-8d26-321adc263481?mode=deep",
+    "timestamp": "2026-01-10 16:22:17.702456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Bank keeper interaction] Can an attacker exploit the bankKeeper.MintCoins call (line 59) to mint tokens even if the denom validation or cap check was bypassed, and does the bank keeper perform independent validation that could be missing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a2b4b8c-e97a-42a9-af81-a6d24784ede6?mode=deep",
+    "timestamp": "2026-01-10 16:22:43.903205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_mint_and_send_tokens.go] [Function: MintAndSendTokens()] [Address collision] Could an attacker deliberately create an address collision where msg.Recipient resolves to the module account itself, allowing them to mint tokens directly into the module account and potentially drain it through other mechanisms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce08fb7e-5162-4dab-a535-edae0c0c2c21?mode=deep",
+    "timestamp": "2026-01-10 16:23:08.784573",
+    "report_generated": false
   }
 ]
