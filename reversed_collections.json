@@ -23098,5 +23098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7cce3e9-865e-4b29-8354-017e9c5b5a92?mode=deep",
     "timestamp": "2026-01-10 11:14:57.090829",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: Validate()] [Module account exploit] Does Validate() check if the beneficiary address is a module account? Can an attacker set beneficiary to a module account address (e.g., 'gov', 'distribution') causing fee withdrawals to fail or create unintended token movements between modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_582a3e86-97e2-4cab-9d36-77a08592ce4d?mode=deep",
+    "timestamp": "2026-01-10 11:16:33.445418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: Validate()] [Address validation bypass] The Validate() function uses validators.AddressCheck() for beneficiary validation - if validators.AddressCheck() has vulnerabilities in Bech32 format validation, can an attacker set a malformed beneficiary address that passes validation but cannot receive withdrawals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_078f51e0-957e-49d8-88c6-0e5ec7a28dbb?mode=deep",
+    "timestamp": "2026-01-10 11:16:46.245136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: Validate()] [State inconsistency] If Validate() accepts empty beneficiary through governance update, then subsequent denom creations collect fees with no beneficiary set, can this create irrecoverable state where fees accumulate but cannot be withdrawn, requiring hard fork to recover? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89f90f93-ef32-4549-ba58-60f67f7c56c2?mode=deep",
+    "timestamp": "2026-01-10 11:16:59.772000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: Validate()] [Fee loss] When Validate() allows empty beneficiary string, and the factory module collects creation fees to its module account, can this lead to permanent fee loss since msg_server_withdraw_module_fees.go requires non-empty beneficiary for withdrawals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2fd73258-2784-46e1-b3dc-63c1f782b1ea?mode=deep",
+    "timestamp": "2026-01-10 11:17:13.357146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: Validate()] [Validation bypass] The Validate() function only checks beneficiary address when non-empty (if p.Beneficiary != '') - can an attacker exploit this by setting beneficiary to empty string through governance, then all collected fees become permanently locked in the module account with no withdrawal mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3c82b70-beca-4ec7-906e-35af63e1399f?mode=deep",
+    "timestamp": "2026-01-10 11:17:28.370013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeAmount()] [Integer overflow] When validateCreateFeeAmount() accepts any uint32 and this value gets converted to int64 in msg_server_create_denom.go via cosmosmath.NewInt(int64(params.CreateFeeAmount)), can an attacker set CreateFeeAmount to values > MaxInt64 causing integer overflow and negative fee amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d073e981-d9f8-44b8-9d62-5fef42a3b510?mode=deep",
+    "timestamp": "2026-01-10 11:17:43.883952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeAmount()] [Fee manipulation] Can an attacker exploit the lack of maximum bounds in validateCreateFeeAmount() to propose setting CreateFeeAmount to math.MaxUint32 (4,294,967,295), making denom creation economically impossible and effectively disabling the factory module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b2847f1-b6d2-4df2-ba00-b4d3d7860323?mode=deep",
+    "timestamp": "2026-01-10 11:18:00.627430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeAmount()] [State bloat] With validateCreateFeeAmount() allowing 0 as valid, can malicious actors coordinate to pass a governance vote setting CreateFeeAmount to 0, then create millions of factory denoms until the state grows beyond manageable size, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8802f35-7829-4872-a8c9-6d226d6fc8c5?mode=deep",
+    "timestamp": "2026-01-10 11:18:19.163303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeAmount()] [Economic attack] Since validateCreateFeeAmount() accepts any uint32 value including 0, can an attacker submit a governance proposal to set CreateFeeAmount to 0, then spam thousands of denom creations without cost, exhausting state storage and causing chain performance degradation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5559bd88-929c-45a1-9be7-2228f7cc6f19?mode=deep",
+    "timestamp": "2026-01-10 11:18:37.982398",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Function: validateCreateFeeAmount()] [Validation bypass] The validateCreateFeeAmount() function performs no actual validation and immediately returns nil - can an attacker exploit governance to set CreateFeeAmount to 0, allowing unlimited free token creation and causing DoS by flooding the chain with worthless denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8db0581-d1b0-4c67-abaf-de375d339d7a?mode=deep",
+    "timestamp": "2026-01-10 11:18:58.112217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Module account] Does the factory module have a module account, and can inconsistencies in genesis state allow unauthorized access to or draining of the module account? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4115fcf0-b9b9-449e-933e-b97148b92b04?mode=deep",
+    "timestamp": "2026-01-10 11:19:18.728588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Amino encoding] If the chain uses legacy Amino encoding for any genesis operations, can encoding differences create validation bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c65a9a0-78a5-4cd0-bb0f-7704eb75b9e2?mode=deep",
+    "timestamp": "2026-01-10 11:19:40.605354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Protobuf encoding] Can an attacker craft protobuf messages that deserialize differently on different validator nodes, causing consensus failure during genesis import? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9dec39c5-a72f-4e61-84a4-28fa79855b74?mode=deep",
+    "timestamp": "2026-01-10 11:20:03.151343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Store key conflicts] Can the DenomKey and DenomAuthKey functions generate keys that conflict with other module store keys, causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7e12723-b09e-4baf-a725-9186e05d4be1?mode=deep",
+    "timestamp": "2026-01-10 11:20:26.275088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Params interaction] Can invalid params configuration interact with valid denom configuration to create exploitable conditions (e.g., zero creation fees with unlimited minting caps)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e3b7c02-8e9f-42d4-8b3a-ed3475071011?mode=deep",
+    "timestamp": "2026-01-10 11:20:49.165755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Upgrade attack] During a chain upgrade, can an attacker modify the genesis export to inject malicious denoms that pass validation but break post-upgrade invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c700722-f962-4f71-9700-6938572fd807?mode=deep",
+    "timestamp": "2026-01-10 11:21:14.099143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Byzantine majority] If more than 2/3 of validators are Byzantine, can they collude to import an invalid genesis state that honest validators reject, causing a chain halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73ad00cf-9626-479f-9e47-7534419ab3ba?mode=deep",
+    "timestamp": "2026-01-10 11:21:38.044295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Partial validation] If genesis validation fails partway through, can partial state be left in memory or storage that affects subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_565c5f89-4109-4820-bc43-493def0ec71f?mode=deep",
+    "timestamp": "2026-01-10 11:22:01.643760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Time-of-check-time-of-use] Can an attacker exploit a TOCTOU vulnerability between genesis validation and the actual loading of state into the KVStore? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_061f947f-97aa-4db7-97f9-d194fb639339?mode=deep",
+    "timestamp": "2026-01-10 11:22:26.188189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Compound exploit] Can an attacker craft a genesis state with a valid Denom but invalid DenomAuth, pass the bidirectional check, but then exploit the invalid DenomAuth during token operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e0f16fb-8951-40da-9ea6-90eaa63fe16e?mode=deep",
+    "timestamp": "2026-01-10 11:22:50.341222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Hash collisions] Can an attacker exploit hash collisions in the denom string to create multiple denoms that map to the same key in denomIndexMap? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb1cb05f-ca08-4cf4-bf92-94f7dd49fdc3?mode=deep",
+    "timestamp": "2026-01-10 11:23:16.370927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Uint precision] Does the cosmossdk.io/math.Uint type have sufficient precision for all possible token amounts, or can precision loss occur for very large minting caps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33bbb01e-3684-4b77-aba9-c203137e1794?mode=deep",
+    "timestamp": "2026-01-10 11:23:42.183529",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Integer arithmetic] Can the comparison between Minted and MintingCap at line 127 be exploited through integer overflow when these values approach math.MaxUint? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a80880a-485d-440e-9ede-53272b49cb4d?mode=deep",
+    "timestamp": "2026-01-10 11:24:09.827990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Error handling] Do all error paths properly clean up resources (maps, slices), or can repeated validation failures lead to memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d10640b-1675-4585-959a-b3637357dae3?mode=deep",
+    "timestamp": "2026-01-10 11:24:36.883367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Multiple] [Garbage collection] Can extremely large genesis states cause excessive GC pressure during validation, leading to validator timeouts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb199220-ede5-4e7f-9e76-f7bce5379205?mode=deep",
+    "timestamp": "2026-01-10 11:25:03.294824",
+    "report_generated": false
   }
 ]
