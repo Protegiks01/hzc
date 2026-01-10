@@ -16348,5 +16348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1374dec-d93b-4cd8-aeb9-eb9c3fa3bcbe?mode=deep",
     "timestamp": "2026-01-10 03:46:46.854451",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Store: storeService] If the k.storeService is compromised or misconfigured, can it return a malicious store implementation that intercepts all Get/Set operations for params? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5f405d1-268f-460e-ae69-dfe158dc8124?mode=deep",
+    "timestamp": "2026-01-10 03:47:55.079870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Store: KVStore adapter] Can the runtime.KVStoreAdapter be exploited to access stores from other modules or contexts, breaking store isolation and allowing cross-module data corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e13dd51f-8fa5-4195-a206-ed5620bab10c?mode=deep",
+    "timestamp": "2026-01-10 03:48:07.424079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Store: ParamsKey] Can an attacker exploit the fact that ParamsKey is defined as []byte('p_tokenwrapper') to create key collisions with other modules or data structures in the KVStore? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_894b933d-b1fa-41be-8625-a5a2abce13bd?mode=deep",
+    "timestamp": "2026-01-10 03:48:20.123364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: GetParams/SetParams] [Codec version skew] If different validators use different codec versions for k.cdc, can this cause SetParams on one validator to write bytes that GetParams on another validator cannot unmarshal, leading to consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d52a23dd-0318-4a7b-b2dd-6fc278a29faa?mode=deep",
+    "timestamp": "2026-01-10 03:48:33.858160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Marshal size limit] Is there a size limit on the bytes produced by k.cdc.Marshal at line 26, and can an attacker craft params that produce excessively large byte arrays that fill up the KVStore? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6357903-117f-4ed5-8e7e-40914504bfd5?mode=deep",
+    "timestamp": "2026-01-10 03:48:47.872488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: GetParams()] [MustUnmarshal panic] Since MustUnmarshal panics on failure at line 19, can an attacker trigger this panic by corrupting the store data, causing a chain-wide DoS where any operation calling GetParams halts the validator? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e18e548-2e78-4c4f-b4d1-63d27792001a?mode=deep",
+    "timestamp": "2026-01-10 03:49:03.102509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Integration: Module dependencies] Can modules that depend on tokenwrapper params be exploited if GetParams returns uninitialized params (when store.Get returns nil), causing dependent modules to malfunction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2923899a-8b72-4e5a-9fd0-5c771acde313?mode=deep",
+    "timestamp": "2026-01-10 03:49:19.027218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Integration: BeginBlock/EndBlock] If params are read via GetParams in BeginBlock and modified via SetParams in EndBlock within the same block, can this create state inconsistencies for transactions processed mid-block? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_113d6369-cf30-457d-b721-0b1cbe278667?mode=deep",
+    "timestamp": "2026-01-10 03:49:36.366936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Integration: Query handlers] If query handlers call GetParams without proper error handling for the nil bytes case, can this expose internal state or cause query failures that leak information about the module's state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa5a8502-0c5e-4b8c-8591-d106f17753b9?mode=deep",
+    "timestamp": "2026-01-10 03:49:54.862987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Integration: Genesis import] During genesis state import, if SetParams is called before the KVStore is properly initialized, can this cause params to be written to the wrong location or lost entirely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b38fd9c-0c93-4960-9e2c-93e73aa43ab1?mode=deep",
+    "timestamp": "2026-01-10 03:50:14.283694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Integration: IBC middleware] If IBC middleware code calls GetParams during packet processing, can malformed or unavailable params cause IBC transfers to fail or be exploited for token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d8b841a-9124-4654-a81f-ccd7816eb82b?mode=deep",
+    "timestamp": "2026-01-10 03:50:33.873607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Integration: UpdateParams] Can an attacker bypass the authority check in UpdateParams (which calls SetParams) by finding an alternative execution path that invokes SetParams directly from another module or message handler? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1bd85b8-8ab6-4db9-938e-e550431f131c?mode=deep",
+    "timestamp": "2026-01-10 03:50:54.920305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: GetParams/SetParams] [Gas exhaustion] Can an attacker craft params that cause the Marshal/Unmarshal operations to consume excessive gas, making SetParams or GetParams calls too expensive to include in blocks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5390cbd4-15b8-4919-a6dd-e8c246ed56b8?mode=deep",
+    "timestamp": "2026-01-10 03:51:17.268994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: GetParams/SetParams] [Upgrade vulnerability] During a chain upgrade that changes the Params protobuf definition, can old params bytes in the store cause GetParams to unmarshal incorrectly or SetParams to overwrite with incompatible formats? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3bcb0b5-4ecd-4e9f-825d-cf61d39c4ec1?mode=deep",
+    "timestamp": "2026-01-10 03:51:39.660293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: GetParams/SetParams] [Store corruption propagation] If the KVStore becomes corrupted (e.g., disk failure, malicious validator), how will GetParams and SetParams behave, and can this corruption propagate to other modules that depend on params? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3e5bcd9-7fd4-4172-b6f9-647c2b4ad7e2?mode=deep",
+    "timestamp": "2026-01-10 03:52:03.250956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: GetParams/SetParams] [Empty params exploitation] Given that types.Params is an empty struct with no fields, does the current implementation allow any params to be stored/retrieved, and can this be exploited to trick other modules into using default/zero values that break security invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_916a857f-5b74-4a37-aefb-1b85e8536079?mode=deep",
+    "timestamp": "2026-01-10 03:52:28.056203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: GetParams/SetParams] [State synchronization] Can an attacker exploit the timing window between SetParams writing to the store and GetParams reading from it to cause different transactions in the same block to see inconsistent parameter values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8eab8a00-3153-438f-83bb-6cdfc9690bf4?mode=deep",
+    "timestamp": "2026-01-10 03:52:52.378663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Protobuf determinism] If the params struct contains fields with non-deterministic serialization (e.g., maps, floating point numbers), will k.cdc.Marshal produce different bytes on different validators, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c0519830-a08f-4fd7-a97a-5d57a09ae6de?mode=deep",
+    "timestamp": "2026-01-10 03:53:16.873324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Key immutability violation] If types.ParamsKey is modified after initialization (e.g., through unsafe pointer manipulation or reflection), can this cause SetParams to write params to an unexpected store key, orphaning the old params? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b47d5ca1-a81a-4ecc-a146-1b784719a404?mode=deep",
+    "timestamp": "2026-01-10 03:53:40.643157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Store adapter manipulation] Can an attacker exploit the runtime.KVStoreAdapter wrapping at line 25 to redirect the store.Set operation to write params to an attacker-controlled store instead of the legitimate tokenwrapper store? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa4d1609-c1b0-4cba-9c66-1fe86ef5601f?mode=deep",
+    "timestamp": "2026-01-10 03:54:03.843278",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Codec injection] Can an attacker replace the k.cdc codec with a malicious implementation that produces exploitable marshaled bytes, injecting backdoors into the params stored in the KVStore? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e09ad02-0d20-4005-9960-0c7204c8e271?mode=deep",
+    "timestamp": "2026-01-10 03:54:27.522680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Marshal error exploitation] If k.cdc.Marshal at line 26 returns a non-nil error but the error is ignored or mishandled by the caller of SetParams, can this lead to params not being updated while the caller assumes they were, causing desynchronization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99d56391-ccc4-4873-97c5-b3893119aead?mode=deep",
+    "timestamp": "2026-01-10 03:54:49.710079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Rollback vulnerability] If the transaction containing a SetParams call fails and rolls back after line 30 executes, will the store.Set operation be properly reverted, or could params remain partially updated, causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_971ceb1f-2eba-4369-b253-70bc50eeddd2?mode=deep",
+    "timestamp": "2026-01-10 03:55:11.917302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Context isolation breach] Can a malicious transaction manipulate the context parameter to write params to a different store or block height, bypassing the intended write location and potentially affecting future block execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02d0cd21-06ba-45e2-b53d-4d76c57cc80c?mode=deep",
+    "timestamp": "2026-01-10 03:55:35.401247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/params.go] [Function: SetParams()] [Race condition] If two concurrent transactions both call SetParams with different params values, can the lack of synchronization cause a race condition where the store.Set operations interleave, resulting in corrupted params bytes in the KVStore? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e7ca7f1-74c1-4d5c-aa1a-e291d3f44c36?mode=deep",
+    "timestamp": "2026-01-10 03:55:58.096003",
+    "report_generated": false
   }
 ]
