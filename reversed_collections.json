@@ -19948,5 +19948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3fcda2b-de11-4bc4-a1d0-256d4395d81f?mode=deep",
     "timestamp": "2026-01-10 07:50:48.823400",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Creator vs Current Admin] The DeconstructDenom call at line 31 extracts the creator address, but ValidateBasic doesn't verify if msg.Signer equals the creator or current BankAdmin. Can an attacker exploit this by proposing admin changes for denoms they don't control, relying solely on keeper-level auth checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7589cc0-41cc-4732-95e4-913b50867f14?mode=deep",
+    "timestamp": "2026-01-10 07:51:54.006104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Validation-only auth check] ValidateBasic at lines 26-59 only validates address formats but doesn't check if msg.Signer has permission to propose admin changes. Can an attacker submit valid-but-unauthorized proposals that pass ValidateBasic and consume gas, only to fail at keeper Auth() check at line 32 of msg_server_propose_denom_admin.go? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e311043-17ab-42ae-b094-1f8fd2d952c2?mode=deep",
+    "timestamp": "2026-01-10 07:52:06.554838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Claim without proposal cleanup] If MsgClaimDenomAdmin at line 67 of msg_server_claim_denom_admin.go deletes the proposal but fails to update DenomAuth, can an attacker re-propose the same admin to exploit the inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b356eb0b-b70e-4034-bd97-45e62978cb5f?mode=deep",
+    "timestamp": "2026-01-10 07:52:19.171832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Admin list desync] If the BankAdmin proposal at line 52 of msg_server_propose_denom_admin.go succeeds but RemoveDenomFromAdminDenomAuthList at line 70 of msg_server_claim_denom_admin.go fails during claiming, can this cause permanent desynchronization between DenomAuth and AdminDenomAuthList? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f771ab7-115d-4cee-aac8-be0a5c004aa6?mode=deep",
+    "timestamp": "2026-01-10 07:52:32.335748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Multiple pending proposals] Can an attacker exploit ValidateBasic allowing proposals for denoms with existing pending proposals, where the keeper at line 58 of msg_server_propose_denom_admin.go overwrites previous proposals without validation, causing loss of legitimate proposals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04a60cef-9c25-4ba0-97f5-9c82785a55c3?mode=deep",
+    "timestamp": "2026-01-10 07:52:46.180409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Proposed state orphaning] After ValidateBasic succeeds and the keeper stores ProposedDenomAuth at line 58 of msg_server_propose_denom_admin.go, can the original denom be deleted or modified, leaving orphaned proposals in ProposedDenomAuthKeyPrefix storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e175a9d-ae67-4939-8823-de4e4ec0ae6d?mode=deep",
+    "timestamp": "2026-01-10 07:53:00.779650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Validator consensus race] If different validators receive MsgProposeDenomAdmin messages in different orders due to network propagation delays, can this cause consensus failures when checking duplicate proposals at line 42 of msg_server_propose_denom_admin.go? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a85fc4e2-afd5-4129-b83c-c2deb6d9ac93?mode=deep",
+    "timestamp": "2026-01-10 07:53:17.581443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Mempool exploitation] Can an attacker observe pending MsgProposeDenomAdmin transactions in the mempool and front-run them with their own proposal for the same denom, exploiting the fact that ValidateBasic doesn't check current state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24ef36d8-c5d1-43bb-9882-2b5fa3f7fb06?mode=deep",
+    "timestamp": "2026-01-10 07:53:35.095130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [TOCTOU vulnerability] Between ValidateBasic validation at lines 26-59 and keeper execution at line 15 of msg_server_propose_denom_admin.go, can the denom's current admin state change (via another transaction in the same block), causing time-of-check-to-time-of-use race conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b58b6c5-5ba1-43a4-b1ca-864eb114d3e7?mode=deep",
+    "timestamp": "2026-01-10 07:53:53.179512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Concurrent proposal race] Can an attacker submit multiple MsgProposeDenomAdmin messages for the same denom in rapid succession within the same block, where ValidateBasic succeeds for all but only one passes the keeper's duplicate check at line 42 of msg_server_propose_denom_admin.go, causing wasted gas and front-running opportunities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5ea855e-3b61-42fd-8cf3-4288157a751e?mode=deep",
+    "timestamp": "2026-01-10 07:54:12.140932",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Error propagation timing] Can an attacker exploit timing differences between early validation failures (SignerCheck at line 27) versus late failures (MetadataAdmin at line 50) to determine which fields are valid via timing attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed086777-a89c-460c-8f8e-43e2f43eae6f?mode=deep",
+    "timestamp": "2026-01-10 07:54:32.208679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Partial validation failure] If DeconstructDenom at line 31 fails after SignerCheck at line 27 succeeds, are there any state changes or side effects from the successful validation that persist, causing inconsistent validation state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ec27e7c-7245-48f4-b6f0-a49082d44a8c?mode=deep",
+    "timestamp": "2026-01-10 07:54:53.673361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Error message injection] Can an attacker craft input strings containing format specifiers (e.g., '%s', '%d') that get passed to errorsmod.Wrapf at lines 33 and 42, causing format string injection or information disclosure when errors are formatted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f84fb688-55c0-4db3-9cfa-73c59de026f2?mode=deep",
+    "timestamp": "2026-01-10 07:55:15.715488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Error wrapping depth] The error wrapping at lines 33-38 and 42-45 uses errorsmod.Wrapf with nested error types. Can excessive error wrapping cause stack overflow or memory exhaustion when errors are logged or transmitted over RPC? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06cc5583-20a8-4d0b-b266-66e70d180a05?mode=deep",
+    "timestamp": "2026-01-10 07:55:39.054077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [MetadataAdmin burn address] Can an attacker propose a MetadataAdmin using a known burn address that passes validation but makes metadata updates impossible, effectively locking metadata changes permanently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f949ea4d-754f-436b-a3dc-e14d0890e0f8?mode=deep",
+    "timestamp": "2026-01-10 07:56:02.645347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [MetadataAdmin zero address] Can an attacker propose MetadataAdmin='zig1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqnrql8a' (zero address) that passes Bech32 validation but causes undefined behavior when the keeper tries to add it to AdminDenomAuthList at line 74 of msg_server_claim_denom_admin.go? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac7e8571-070f-40a4-b20c-0548cb7eadea?mode=deep",
+    "timestamp": "2026-01-10 07:56:26.618005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [MetadataAdmin validation inconsistency] The AddressCheck at line 50 uses a different error message and wrapping than BankAdmin at line 41. Can this inconsistency in error handling be exploited to leak information about which validation failed, aiding brute-force attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03653020-0dea-4ac1-9b30-e7af6a7306f3?mode=deep",
+    "timestamp": "2026-01-10 07:56:50.855102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [MetadataAdmin same as BankAdmin] Can an attacker propose identical BankAdmin and MetadataAdmin addresses to consolidate all admin powers into a single address, then exploit single-point-of-failure vulnerabilities like key compromise or social engineering? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dafad1f2-db79-4978-af47-d41a8f321fab?mode=deep",
+    "timestamp": "2026-01-10 07:57:13.594471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [MetadataAdmin null validation] Can an attacker submit msg.MetadataAdmin=nil (if possible via protobuf) versus msg.MetadataAdmin='' to exploit different validation paths, where nil might bypass the empty string check at line 49? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_adf46ab8-ea3f-48e7-ae77-982fad2a5eac?mode=deep",
+    "timestamp": "2026-01-10 07:57:35.516152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [MetadataAdmin conditional validation] The validation at lines 49-56 only validates MetadataAdmin if it's non-empty. Can an attacker exploit the conditional logic by providing MetadataAdmin=' ' (single space) that bypasses the empty check but fails AddressCheck, causing inconsistent error handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c30b73be-0c29-4d06-b764-6f1f11354e05?mode=deep",
+    "timestamp": "2026-01-10 07:57:58.592922",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [MetadataAdmin empty string bypass] At line 49, the validation allows msg.MetadataAdmin='' to permanently lock metadata changes. Can an attacker exploit this by proposing MetadataAdmin='' for a competitor's denom (if they gain BankAdmin access through social engineering), causing permanent metadata lockout? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89fd6dd4-4b42-4843-8027-4feb609c1bf6?mode=deep",
+    "timestamp": "2026-01-10 07:58:20.808155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [BankAdmin address truncation] Can an attacker provide a BankAdmin address that gets truncated during protobuf serialization/deserialization due to encoding issues, causing the validated address to differ from the stored address? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_062b53ed-796b-408b-8731-bda8ab7446e8?mode=deep",
+    "timestamp": "2026-01-10 07:58:44.126152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [BankAdmin self-assignment] Can the current BankAdmin propose themselves as the new BankAdmin to bypass the duplicate check at line 42 of msg_server_propose_denom_admin.go by first proposing a different address, then proposing themselves again before the first proposal is claimed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd2246ba-d4a2-44ec-94d2-2299ab507cb3?mode=deep",
+    "timestamp": "2026-01-10 07:59:06.922691",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [BankAdmin contract address] Can an attacker propose a BankAdmin address that is a CosmWasm contract address, allowing the contract to gain admin privileges and potentially exploit contract vulnerabilities to manipulate denom authorization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c79b15a5-95e9-4603-ac3e-3afc0c0fa14f?mode=deep",
+    "timestamp": "2026-01-10 07:59:28.219200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [BankAdmin module account] Can an attacker propose a BankAdmin address that is a module account (e.g., bank module, staking module) that lacks private keys, causing the admin role to become permanently inaccessible when claimed via MsgClaimDenomAdmin? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46452ab5-cf67-4cba-b1be-83472e1c15fc?mode=deep",
+    "timestamp": "2026-01-10 07:59:50.807594",
+    "report_generated": false
   }
 ]
