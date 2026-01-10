@@ -28948,5 +28948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31e9ddca-2631-4d70-8808-5a6c5be43721?mode=deep",
     "timestamp": "2026-01-10 17:50:33.655699",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Consensus impact] If pagination results differ between validators due to race conditions, can this cause forks in modules that rely on DenomAll() query results? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d816448f-13e1-4676-81cc-ac16b9c78957?mode=deep",
+    "timestamp": "2026-01-10 17:51:58.955529",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Consensus impact] If calculateDenomStats() returns different values to different validators due to state differences, can this cause consensus failures in dependent modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d43c0041-e25d-431b-9749-961b73dd7060?mode=deep",
+    "timestamp": "2026-01-10 17:52:11.662602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Gas metering] If an admin controls thousands of denoms, does DenomsByAdmin() have proper gas limits to prevent query abuse? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23cd7b45-3fc0-4709-babd-b2f5469d7d63?mode=deep",
+    "timestamp": "2026-01-10 17:52:24.718918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Gas metering] Does ListDenomAuth() properly meter gas for the iteration over potentially thousands of DenomAuth entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73c6e95c-720b-4f52-8085-ff4db659ab2a?mode=deep",
+    "timestamp": "2026-01-10 17:52:37.925089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Gas exhaustion] The loop at line 66-79 calls calculateDenomStats() for each denom - can an attacker create many denoms then query with max pagination to exhaust gas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89c68481-00ab-4a70-89f2-3e0317eda16d?mode=deep",
+    "timestamp": "2026-01-10 17:52:52.098407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Gas metering] Does calculateDenomStats() at line 66 have proper gas accounting for the bankKeeper.GetSupply() call, or can this be exploited for gas estimation attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57a4bfd1-36e4-49d5-bd99-ea84fed9adbb?mode=deep",
+    "timestamp": "2026-01-10 17:53:06.999309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Race condition] If admin transfer happens during DenomsByAdmin() query, can the result include denoms from both old and new admin, or miss some entirely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d25fd2d8-ac21-464c-ad12-91493618b29a?mode=deep",
+    "timestamp": "2026-01-10 17:53:22.767180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Race condition] During pagination at line 50-58, can concurrent denom creation/deletion cause the iterator to miss entries or return duplicates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4152d25-f506-4f32-a9b5-588d5c24de29?mode=deep",
+    "timestamp": "2026-01-10 17:53:40.466213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Race condition] Between GetDenomAuth() at line 44 and calculateDenomStats() at line 66, can minting/burning transactions change the stats, making the response stale immediately? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_540e7227-d301-4502-8b3b-6476daad0279?mode=deep",
+    "timestamp": "2026-01-10 17:53:59.360177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Race condition] Between GetDenom() at line 31 and GetDenomAuth() at line 44, can another transaction modify/delete the denomAuth, causing state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a62e8fc-0192-459d-9548-c06dd7376d30?mode=deep",
+    "timestamp": "2026-01-10 17:54:19.164898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Math underflow] If MintingCap is updated to be less than totalBurned after tokens are burned, does line 31's GT check prevent underflow, or should this be an error condition? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a33e55d-8798-40e3-b283-5fd2eb2eb9db?mode=deep",
+    "timestamp": "2026-01-10 17:54:39.308714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Math overflow] If denom.Minted is MaxUint and totalSupply.Amount is also large, can the subtraction at line 25 overflow despite the GT check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6dd12546-fb30-475d-a271-9f41435634ab?mode=deep",
+    "timestamp": "2026-01-10 17:55:01.691880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Math precision] calculateDenomStats() returns cosmosmath.Uint values - are these sufficient precision for all token amounts, or could precision loss occur for extremely large supplies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d11f9db0-e32a-486b-850e-baf537cb6133?mode=deep",
+    "timestamp": "2026-01-10 17:55:24.245660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Struct field access] At line 70-78, direct field access from denom and denomAuth - if these structs are partially initialized, can this cause nil pointer dereferences? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_284c4835-474e-46aa-9db1-f5622a8eaf1b?mode=deep",
+    "timestamp": "2026-01-10 17:55:47.846493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Type conversion] At line 76, same conversion - if multiple denoms have negative supply, can this cause multiple panics in the loop, amplifying DoS impact? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30e278b3-3dc4-4b9f-8063-bf0998c6d869?mode=deep",
+    "timestamp": "2026-01-10 17:56:11.594981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Type conversion] At line 71, converting totalSupply.Amount (sdkmath.Int) to cosmosmath.Uint - if totalSupply.Amount is negative due to corruption, does this conversion panic or return zero? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a66f534e-3809-4d52-af0e-af7506d09ecc?mode=deep",
+    "timestamp": "2026-01-10 17:56:35.183942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Error handling] If query.Paginate fails at line 26-29, the error is wrapped with codes.Internal - does this expose too much internal state information to attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba689715-3a88-4b5e-98ed-3fea12a8e2ae?mode=deep",
+    "timestamp": "2026-01-10 17:56:59.405216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Error handling] If k.cdc.Unmarshal() fails at line 28, does query.Paginate properly clean up resources or could this cause memory leaks under repeated attack? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e652c682-fdbd-4b0e-b995-763047d1527a?mode=deep",
+    "timestamp": "2026-01-10 17:57:24.922837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Error handling] At line 52-54, if unmarshal fails, the error is returned immediately via query.Paginate - but are partial results in denoms array leaked/freed properly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85e86335-e86e-4a1b-90bc-19057ecfbaab?mode=deep",
+    "timestamp": "2026-01-10 17:57:50.721076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Error propagation] If GetDenom() succeeds but GetDenomAuth() fails, the error at line 48-55 doesn't indicate which lookup failed - can this hide critical debugging information during incidents? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20f27889-10f0-4ee3-bd76-65947814762d?mode=deep",
+    "timestamp": "2026-01-10 17:58:18.061330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Key construction] AdminDenomAuthListKey(req.Admin) at line 24 - if req.Admin contains the separator character used in key construction, can this cause key collisions between different admins? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_684565b5-8348-42d7-bd05-f664a12e2ec8?mode=deep",
+    "timestamp": "2026-01-10 17:58:43.675359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Store prefix] Similar to above, does types.DenomAuthKeyPrefix properly isolate denomAuth entries from other store data, preventing cross-contamination? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd1ea6e4-b0a8-4ed2-a054-77325cb3af87?mode=deep",
+    "timestamp": "2026-01-10 17:59:10.083724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Store prefix] The prefix.NewStore at line 48 uses types.DenomKeyPrefix - if this prefix can be spoofed by creating denoms with specific names, can attackers cause key collisions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5092456d-9c86-40f5-ba19-58b0761255c8?mode=deep",
+    "timestamp": "2026-01-10 17:59:34.840367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Store access] At line 31-34, GetDenom() uses DenomKey(denom) to construct the store key - can case-sensitivity or normalization issues cause two different denoms to map to the same key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04da3407-d4d4-42cb-a986-a0ac2c899389?mode=deep",
+    "timestamp": "2026-01-10 17:59:59.619494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Missing validation] DenomAll() doesn't validate individual denom names during iteration - if corrupted denom names exist in store, will they be returned without validation causing issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98d56715-ce87-4259-9584-1c432b131026?mode=deep",
+    "timestamp": "2026-01-10 18:00:22.972065",
+    "report_generated": false
   }
 ]
