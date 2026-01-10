@@ -13798,5 +13798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8948027b-090c-449e-9591-d93ec8cf2314?mode=deep",
     "timestamp": "2026-01-10 08:50:39.841105",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMinimalLiquidityLock()] [Liquidity lock bypass] If MinimalLiquidityLock validated at line 135 represents LP tokens that are permanently locked, but the validation accepts minimalLiquidityLock = 1, can an attacker create pools with minimal locked liquidity, then donate tokens to manipulate the pool's price oracle, causing downstream DeFi protocols relying on this DEX for price feeds to be exploited? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d86c1b2e-25b2-429f-9258-9f597df5dbab?mode=deep",
+    "timestamp": "2026-01-10 08:51:52.270860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMinimalLiquidityLock()] [Rounding error accumulation] With MinimalLiquidityLock at line 135 potentially set to small values (≥1), can attackers exploit rounding errors in LP token minting calculations, especially when pool reserves are very large, to mint more LP tokens than their liquidity contribution warrants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d9f4360-a048-4eb9-a101-43bd9b6141b4?mode=deep",
+    "timestamp": "2026-01-10 08:52:04.528415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMinimalLiquidityLock()] [Governance reduction attack] DefaultMinimalLiquidityLock is 1000 at line 35, but validateMinimalLiquidityLock() at line 135 allows any value ≥1 - can an attacker submit a governance proposal to reduce MinimalLiquidityLock to 1 on existing pools, retroactively making all pools vulnerable to share inflation attacks without requiring pool recreation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a18e0857-234f-4109-a6e5-5b9e748dfc9e?mode=deep",
+    "timestamp": "2026-01-10 08:52:17.322397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMinimalLiquidityLock()] [Economic griefing] If minimalLiquidityLock validated at line 135 represents tokens permanently burned on pool creation, can an attacker exploit governance to increase MinimalLiquidityLock to MaxUint32, making pool creation prohibitively expensive and economically DoSing the DEX creation functionality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4d12f3c-2d3a-4234-b4d6-eb5f30c2972c?mode=deep",
+    "timestamp": "2026-01-10 08:52:30.295594",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMinimalLiquidityLock()] [Cross-denom inconsistency] The MinimalLiquidityLock validated at line 135 is a uint32 representing token units, but if different denominations have different decimals (6 for ZIG vs 18 for IBC tokens), can this create inconsistent liquidity requirements where 1000 units of a 6-decimal token ($1000) versus 1000 units of an 18-decimal token ($0.000000001) have vastly different economic values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_048228a2-af72-4ebf-a1a0-85be5fc2dc0c?mode=deep",
+    "timestamp": "2026-01-10 08:52:43.923560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMinimalLiquidityLock()] [LP token manipulation] If MinimalLiquidityLock at line 135 affects the initial LP token supply minted, and an attacker can set it to 1 through governance, can they manipulate the LP token:liquidity ratio to cause precision loss in subsequent AddLiquidity operations, stealing value from later liquidity providers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38ee188b-826d-44f1-8801-470fde748af4?mode=deep",
+    "timestamp": "2026-01-10 08:52:58.534377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromBasisPointsToDecimal()] [Integer overflow] At line 146, the function converts uint32 basisPoints to int64 with 'math.NewInt(int64(basisPoints))' - can an attacker exploit the conversion where basisPoints > MaxInt64 would overflow, or if basisPoints is used in subsequent calculations that overflow when multiplied with large token amounts (18-decimal IBC tokens)? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17f7c46a-fdd4-4bd4-b35b-836195a9ec6d?mode=deep",
+    "timestamp": "2026-01-10 08:53:13.864007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromBasisPointsToDecimal()] [Precision loss] The conversion at line 146 divides by BasisPoints (10,000) using '.QuoInt64(BasisPoints)' - for small basisPoints values (e.g., 1-100), can repeated conversions between decimal and basis points in swap fee calculations accumulate rounding errors that either undercharge fees (pool reserve drainage) or overcharge users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a21326d-479a-43ea-8b7c-336a8a8fd37e?mode=deep",
+    "timestamp": "2026-01-10 08:53:31.073647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromBasisPointsToDecimal()] [Type conversion vulnerability] The function at line 145 takes uint32 basisPoints but converts to int64 at line 146 - if basisPoints = MaxUint32 (4,294,967,295), this exceeds MaxInt64, but Go doesn't prevent this conversion - can this cause negative values in LegacyDec calculations leading to negative fees or incorrect slippage calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f511941-9f9b-4036-9425-7f9788ab577f?mode=deep",
+    "timestamp": "2026-01-10 08:53:49.404083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromBasisPointsToDecimal()] [Division by zero protection] At line 146, the function divides by BasisPoints constant (10,000) - while BasisPoints is currently constant, if it's ever modified or becomes a parameter, can division by zero occur if BasisPoints is set to 0, causing panic and chain halt? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3ae4cfb-041d-4732-b0f9-7c32037126cb?mode=deep",
+    "timestamp": "2026-01-10 08:54:08.583049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromBasisPointsToDecimal()] [Decimal precision limits] The math.LegacyDec type at line 145 has finite precision - when basisPoints represents fee percentages and is converted to decimal for calculations with very large token amounts (e.g., 10^18 wei), can precision limits cause fee calculations to round to zero for small percentage fees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d254630a-dcab-4709-a54e-60118ce80709?mode=deep",
+    "timestamp": "2026-01-10 08:54:28.706803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromBasisPointsToDecimal()] [Negative basis points] While basisPoints is uint32, if the value comes from untrusted input that underwent arithmetic operations, can an underflow result in a very large uint32 value that, when converted to int64 and divided at line 146, produces an unexpectedly large decimal causing fee calculations to exceed 100%? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14b4b28f-2db1-4546-b981-9dd9d523c7d9?mode=deep",
+    "timestamp": "2026-01-10 08:54:49.492892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromBasisPointsToDecimal()] [BasisPoints constant mismatch] The function divides by BasisPoints (10,000) at line 146, but validateMaxSlippage uses MaximumMaxSlippage (10,000) and validateNewPoolFeePct uses PoolFeeScalingFactor (100,000) - can mismatched scaling factors cause errors when converting between different percentage representations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ae2f996-21ee-4c83-a48b-b040d469bce7?mode=deep",
+    "timestamp": "2026-01-10 08:55:11.089130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromDecimalToBasisPoints()] [Truncation attack] At line 151, the function calls '.TruncateInt64()' which discards decimal places - if an attacker crafts a decimal value like 0.99999 (representing 99.99% fee), can truncation to basis points result in 9999 instead of 10,000, allowing them to bypass MaxSlippage or fee limits through carefully crafted decimal inputs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91630140-bac6-4e5a-8dd2-19d07c674e4e?mode=deep",
+    "timestamp": "2026-01-10 08:55:33.236580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromDecimalToBasisPoints()] [Integer overflow conversion] The comment at line 150 states '#nosec G115 -- integer overflow conversion is safe' but converts int64 to uint32 at line 151 - if the decimal multiplied by BasisPoints (10,000) exceeds MaxUint32, can this cause wraparound where a large fee becomes a small fee, bypassing validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_996b01dc-a45d-4f6f-8ce2-4b600481ea69?mode=deep",
+    "timestamp": "2026-01-10 08:55:56.735054",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromDecimalToBasisPoints()] [Negative decimal handling] At line 151, if the input decimal is negative (e.g., from a calculation error), '.MulInt64(BasisPoints).TruncateInt64()' produces a negative int64, which is then cast to uint32 - can this cause underflow where -1 becomes MaxUint32 (4,294,967,295), bypassing all fee/slippage validations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b6a8db4-9e01-4d14-bf23-2e1d130c0aab?mode=deep",
+    "timestamp": "2026-01-10 08:56:20.905129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromDecimalToBasisPoints()] [Precision loss bidirectional] Converting from decimal to basis points at line 151 with truncation, then back to decimal in ConvertFromBasisPointsToDecimal, creates a lossy round-trip - can an attacker exploit this by repeatedly converting fees/slippage parameters to accumulate precision loss, gradually changing effective rates without triggering validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91918185-e25f-440b-bc10-3a951612f4a1?mode=deep",
+    "timestamp": "2026-01-10 08:56:45.916123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromDecimalToBasisPoints()] [Multiplication overflow] At line 151, '.MulInt64(BasisPoints)' multiplies the decimal by 10,000 - if the input decimal represents a value > (MaxInt64 / 10,000), can this multiplication overflow before truncation, causing incorrect basis point calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b69ee52-6c1b-47d7-a6e0-964cb0f29841?mode=deep",
+    "timestamp": "2026-01-10 08:57:12.213137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromDecimalToBasisPoints()] [Security comment bypass] The #nosec G115 comment at line 150 explicitly disables overflow checking - if this function is called with malicious input from user-controlled parameters, can attackers exploit the deliberately disabled security check to inject overflowed values into fee/slippage calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2649ec67-4577-4de6-a228-f40dc2f955f5?mode=deep",
+    "timestamp": "2026-01-10 08:57:38.723411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromDecimalToBasisPoints()] [BasisPoints scaling mismatch] The function multiplies by BasisPoints (10,000) at line 151, but other parts of the code use PoolFeeScalingFactor (100,000) - if these conversion functions are used interchangeably, can the 10x scaling difference cause fees to be calculated as 10x higher or lower than intended? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e91e0831-1be7-4cbc-9393-6fd3e9f72b34?mode=deep",
+    "timestamp": "2026-01-10 08:58:04.980711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: ConvertFromDecimalToBasisPoints()] [Truncate vs Round] At line 151, TruncateInt64() always rounds down - can an attacker exploit this to systematically undercharge fees by crafting decimal values that, when truncated, result in lower basis points than the true value, accumulating stolen value over many transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5bfca07-6015-4b3c-b100-845ab1f92ea9?mode=deep",
+    "timestamp": "2026-01-10 08:58:29.554571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: Validate()] [Beneficiary validation bypass] At line 79-88, if Beneficiary is empty string (''), the address validation is skipped - but if downstream code assumes beneficiary is always valid when non-empty, can an attacker exploit this by setting beneficiary to empty string, causing pool creation fees to be burned/lost instead of collected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2bbc21d-1298-4fc7-b0fc-195abee4bd45?mode=deep",
+    "timestamp": "2026-01-10 08:58:55.933152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: Validate()] [Validation order dependency] The Validate() function at lines 70-99 calls sub-validators in order: NewPoolFeePct, CreationFee, Beneficiary, MinimalLiquidityLock, MaxSlippage - but doesn't check interactions between parameters - can valid individual parameters combine to create invalid states (e.g., CreationFee = 0 + Beneficiary = attacker address = free fee collection redirection)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_950c0229-8b1b-4b5b-9157-6d5c22836681?mode=deep",
+    "timestamp": "2026-01-10 08:59:18.190400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: Validate()] [Missing cross-parameter validation] Validate() at line 70 checks each parameter independently but doesn't validate relationships - can an attacker set NewPoolFeePct = 99,999 (99.999%) AND MaxSlippage = 10,000 (100%), creating pools where any swap attempt either fails slippage checks or charges near-total swap value as fees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8010872e-8649-45e1-89a0-9b572e17151e?mode=deep",
+    "timestamp": "2026-01-10 08:59:39.821416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: Validate()] [MaxSlippage validation absent] The Validate() function calls validateMaxSlippage(p.MaxSlippage) at line 94, but if p.MaxSlippage field is not set in Params struct, it may default to 0 - can this cause all swaps to fail due to zero slippage tolerance, DoSing the DEX? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24040d44-c81e-4fed-9855-7ad2c980feb5?mode=deep",
+    "timestamp": "2026-01-10 09:00:02.731208",
+    "report_generated": false
   }
 ]
