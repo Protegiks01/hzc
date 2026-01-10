@@ -12748,5 +12748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f570d73b-c7f4-4e58-9721-9d88c6ab5115?mode=deep",
     "timestamp": "2026-01-09 23:56:37.596538",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All keys] [Byzantine consensus attack] Can 1/3 Byzantine validators coordinate to write conflicting values to critical store keys (OperatorAddressKey, EnabledKey) across different validator subsets, causing state divergence and chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7b9100a-9224-4b4c-b5fd-53d31f999a95?mode=deep",
+    "timestamp": "2026-01-09 23:57:47.375327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: NativeChannelKey, CounterpartyChannelKey] [Infrastructure mapping] Can an attacker query IBC channel keys to map the complete bridge infrastructure topology, identifying single points of failure for targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f221e653-8862-4551-8384-5cc43dc6f046?mode=deep",
+    "timestamp": "2026-01-09 23:57:59.838026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey, TotalTransferredOutKey] [Volume analysis] Can an attacker continuously query transfer accounting keys to perform timing analysis on cross-chain volume, potentially identifying high-value transfer patterns for MEV extraction? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff86f82e-43ad-4f94-a20b-15a41a7c85be?mode=deep",
+    "timestamp": "2026-01-09 23:58:12.945557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: OperatorAddressKey, PauserAddressesKey] [Address enumeration] Can an attacker directly query OperatorAddressKey and PauserAddressesKey from the store to enumerate all privileged addresses, enabling targeted phishing or social engineering attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4eb61134-dd46-4563-8bd5-868e81f9683f?mode=deep",
+    "timestamp": "2026-01-09 23:58:26.044446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: ParamsKey] [Params bloat DoS] Can an attacker exploit governance to update parameters stored at ParamsKey with extremely verbose data that exceeds reasonable size limits, causing gas exhaustion on every parameter read? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a1d22ca-5349-408a-b5a5-4be80969b7cf?mode=deep",
+    "timestamp": "2026-01-09 23:58:39.981833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: PauserAddressesKey] [Serialization DoS] Can an attacker store an extremely large pauser address list at PauserAddressesKey that exceeds block gas limits during deserialization, making it impossible to execute any pauser-related operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9cc5c25a-acb2-40e7-9fe1-b43a1e34cd31?mode=deep",
+    "timestamp": "2026-01-09 23:58:55.117762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All keys] [Iterator DoS] Can an attacker populate the KVStore with millions of entries using variations of store key prefixes to cause store iteration operations to timeout, DoSing all queries and state exports? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab4e8ea9-95df-4784-ab0b-a8d41106b4cb?mode=deep",
+    "timestamp": "2026-01-09 23:59:10.623402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Function: KeyPrefix()] [DoS via excessive allocations] Can an attacker repeatedly call KeyPrefix() with increasingly large strings to exhaust memory through []byte allocations, causing out-of-memory conditions that crash validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aff5b9c3-d40b-4ef1-9fa7-83299ba6a0b8?mode=deep",
+    "timestamp": "2026-01-09 23:59:29.419097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Constant: MemStoreKey] [Transaction ordering] Can an attacker exploit in-memory state stored at MemStoreKey to front-run legitimate transactions by observing mempool transactions and submitting conflicting operations that corrupt transient state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e8fd8c5-e50d-4815-a9fb-81803ff49bb6?mode=deep",
+    "timestamp": "2026-01-09 23:59:48.000810",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All keys] [IBC module interference] Can a malicious IBC middleware module in the stack directly read OperatorAddressKey and EnabledKey to bypass tokenwrapper's access controls and process unauthorized wrap/unwrap operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53affc04-e54c-48ab-8bba-5c28b2ed06fe?mode=deep",
+    "timestamp": "2026-01-10 00:00:07.518027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DenomKey] [Factory module confusion] Can an attacker exploit shared denomination storage between tokenwrapper and factory modules to create a token in factory that overwrites the DenomKey in tokenwrapper, causing bridge denomination confusion? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4c0c847-5bd5-4904-8b68-da8d9c24c554?mode=deep",
+    "timestamp": "2026-01-10 00:00:29.539232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Constant: StoreKey] [Store prefix collision] Can an attacker exploit predictable store key prefixes to cause collisions between tokenwrapper state and state from other modules (factory, dex), enabling unauthorized cross-module state access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30501137-9fd6-4ba9-bd61-7b1782097981?mode=deep",
+    "timestamp": "2026-01-10 00:00:50.366442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DenomKey] [UTF-8 encoding attack] Can an attacker store an invalid UTF-8 byte sequence at DenomKey that causes string conversion failures in denomination validation, bypassing denomination checks entirely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72b6b5a0-27a3-4ed5-b58a-4111a72670b2?mode=deep",
+    "timestamp": "2026-01-10 00:01:13.045799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: OperatorAddressKey] [Address length exploitation] Can an attacker exploit variable-length address encoding to store an oversized address at OperatorAddressKey that causes buffer overruns when the keeper reads and validates it? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d20f1d86-d352-4047-9438-fd2eabe56397?mode=deep",
+    "timestamp": "2026-01-10 00:01:36.121475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: PauserAddressesKey] [Deserialization attack] Can an attacker store a maliciously crafted byte sequence at PauserAddressesKey that deserializes into a valid address array but contains hidden control characters that bypass pauser validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f028a312-d41f-4c53-9722-924751278343?mode=deep",
+    "timestamp": "2026-01-10 00:01:58.528169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All keys as []byte] [Byte injection] Can an attacker inject arbitrary bytes into store keys during cosmos-sdk's KVStore operations to create keys that appear valid but cannot be properly deserialized, corrupting the module's state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99a909e4-29a2-40e2-aa3e-7882e494a87a?mode=deep",
+    "timestamp": "2026-01-10 00:02:21.672707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All keys] [Genesis state corruption] Can a malicious genesis file pre-populate store keys with invalid values that pass initial validation but cause runtime failures during the first IBC transfer, DoSing the bridge from genesis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c00ede67-1e24-492b-8fcd-460460da8736?mode=deep",
+    "timestamp": "2026-01-10 00:02:44.482964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Constant: Version] [Incompatible version upgrade] Can upgrading the IBC Version constant from 'tokenwrapper-1' to 'tokenwrapper-2' break compatibility with existing IBC channels, permanently severing cross-chain communication and trapping tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ebe5b8fd-e2fa-4047-9b2b-73af8f5b1f4c?mode=deep",
+    "timestamp": "2026-01-10 00:03:07.455234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All keys] [Upgrade race condition] Can a chain upgrade that modifies key definitions cause a race condition where some transactions use old keys and others use new keys during the migration block, creating state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3455e8b9-1eb3-43a4-bbde-9949fd20f195?mode=deep",
+    "timestamp": "2026-01-10 00:03:29.107866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [All Store Keys] [Migration key mismatch] Can a chain upgrade that renames store keys cause the keeper to lose access to historical state stored under old key names, permanently locking tokens in the module account? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_315938f4-5612-44f5-a668-d54defa07a07?mode=deep",
+    "timestamp": "2026-01-10 00:03:52.812197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey, TotalTransferredOutKey] [Replay accounting] Can an attacker replay IBC acknowledgment packets to cause double-counting in TotalTransferredInKey without actually receiving tokens twice, inflating transfer stats and breaking audit trails? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78c33cae-4ede-452f-9d17-8ff0ff7675b4?mode=deep",
+    "timestamp": "2026-01-10 00:04:16.191842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey, TotalTransferredOutKey] [Desynchronization] Can an attacker exploit the independence of these two keys to cause permanent desynchronization where TotalTransferredInKey - TotalTransferredOutKey no longer equals the actual module balance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1102b958-d0cb-4fd2-abe5-cff8bdbd6cb8?mode=deep",
+    "timestamp": "2026-01-10 00:04:38.310169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredOutKey] [Underflow attack] Can an attacker manipulate TotalTransferredOutKey to underflow below zero (wrapping to max uint64) when tokens are recovered, causing accounting to falsely show more tokens transferred out than actually exist? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3f00795-c12d-450b-9486-334641533183?mode=deep",
+    "timestamp": "2026-01-10 00:05:01.645316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey] [Integer overflow] Can an attacker trigger sufficient IBC transfers to cause the counter stored at TotalTransferredInKey to overflow back to zero, resetting transfer accounting and breaking token conservation invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3eff9621-2d35-49f9-9d58-913f5c7a3f2b?mode=deep",
+    "timestamp": "2026-01-10 00:05:24.817406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: ParamsKey] [Type confusion] Can an attacker exploit the lack of type safety in KVStore to store a completely different data type at ParamsKey (e.g., a string instead of a params struct), causing type assertion panics that crash validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87ba95b8-a357-4787-bf22-138c310ec993?mode=deep",
+    "timestamp": "2026-01-10 00:05:48.984570",
+    "report_generated": false
   }
 ]
