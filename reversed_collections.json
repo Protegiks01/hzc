@@ -18748,5 +18748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47fc84f0-8d4a-4175-a43c-3d171a548ab5?mode=deep",
     "timestamp": "2026-01-10 06:21:15.096850",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Proposed Admin Updates] Can a proposed but not yet claimed admin submit MsgUpdateDenomURI that passes ValidateBasic at line 23 but should be rejected because admin transfer isn't complete? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9a754aa-a839-4871-a884-07a3413641a0?mode=deep",
+    "timestamp": "2026-01-10 06:22:45.998794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Denom Lock Bypass] If a denom is permanently locked (changes disabled), can an attacker still submit MsgUpdateDenomURI that passes ValidateBasic, wasting resources even though keeper will reject it? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07ae43c3-a402-4061-8fa4-6ec6f3f59ecc?mode=deep",
+    "timestamp": "2026-01-10 06:22:58.382401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Metadata Admin Role] ValidateBasic doesn't check if signer has metadata admin role. Can an attacker with only bank admin role exploit this to update URIs they shouldn't be able to modify? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b28c285-470d-41bc-83e7-84e08af0ee95?mode=deep",
+    "timestamp": "2026-01-10 06:23:11.064636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Admin Transfer Race] If denom admin is transferred while MsgUpdateDenomURI is pending validation, can the old admin's message still pass ValidateBasic and update metadata they no longer control? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ed77f30-8a6b-43b7-9f26-770c1fb652f7?mode=deep",
+    "timestamp": "2026-01-10 06:23:24.410545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Signer vs Creator Mismatch] ValidateBasic checks signer validity at line 23 and denom validity at line 27 but doesn't verify they match. Can an attacker sign a message to update another creator's denom URI? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a03a43c5-1f97-4110-9946-609460b09afd?mode=deep",
+    "timestamp": "2026-01-10 06:23:39.209095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Content Trust] Does ValidateBasic establish any content trust for the URI at line 46, or can an attacker point to frequently changing content that passes validation but later hosts malicious data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2aebc23-2fee-43ec-9272-c1cf339a64fe?mode=deep",
+    "timestamp": "2026-01-10 06:23:53.803363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Metadata Replay] Can an attacker capture a valid MsgUpdateDenomURI message that passed ValidateBasic and replay it later to revert URI updates made by legitimate admins? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b185b70-e14e-45dc-85e2-921ceb9d3a08?mode=deep",
+    "timestamp": "2026-01-10 06:24:09.658298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URIHash Verification Gap] ValidateBasic at lines 52-62 validates URIHash format but doesn't verify it matches SHA256(URI). Can an attacker exploit this to update metadata with incorrect hashes, breaking integrity verification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27cec40c-9829-45cf-a440-b9115234509f?mode=deep",
+    "timestamp": "2026-01-10 06:24:27.327508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Normalization] Does ValidateBasic normalize URI encoding (e.g., percent-encoding) before validation at line 46, or can an attacker submit equivalent URIs with different encodings to bypass deduplication or rate limiting? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6b706f3-707a-454b-8604-4a2f2480cdc3?mode=deep",
+    "timestamp": "2026-01-10 06:24:46.247770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Backward Compatibility] Does ValidateBasic maintain backward compatibility with older message formats, or can an attacker replay old messages that bypass new validation checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f42f8f2f-f681-4e44-aa94-0a19d3391ac8?mode=deep",
+    "timestamp": "2026-01-10 06:25:05.364707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Validation Logic Upgrade] If the ValidateBasic function is upgraded in a future version, can existing messages in the mempool that passed old validation exploit the new validation logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08135131-bc66-4161-a96b-ffbf6b66fdf7?mode=deep",
+    "timestamp": "2026-01-10 06:25:26.050772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Parameter Governance] If MaxURILength constant is changed through governance, can an attacker exploit the migration period to update URIs that will be invalid under new rules but are already stored? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e750452-362b-4ebf-a7d5-33f8036881aa?mode=deep",
+    "timestamp": "2026-01-10 06:25:47.059112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [DEX Pool Token Metadata] Can an attacker update URIs for DEX LP tokens to manipulate pool metadata, causing users to provide liquidity to malicious pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c483e791-0b8b-44b9-b12e-46129ddd0ff8?mode=deep",
+    "timestamp": "2026-01-10 06:26:08.834835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [TokenWrapper Integration] Can an attacker update URIs for wrapped tokens (18-decimal IBC tokens) to point to malicious metadata that misleads users about decimal precision or token origin? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_355c5212-470a-4843-9247-c4e3c11ce005?mode=deep",
+    "timestamp": "2026-01-10 06:26:32.256925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Native Denom Protection] Does ValidateBasic prevent URI updates for the native uzig token or other system denoms, or can an attacker update critical system token metadata? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca43f9cc-90fb-4682-8d46-bcc5eb7cf54a?mode=deep",
+    "timestamp": "2026-01-10 06:26:55.380465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [IBC Denom URI Updates] If the denom is an IBC token, can an attacker update its URI through MsgUpdateDenomURI despite lacking authority on the source chain, enabling metadata spoofing for cross-chain tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3608662e-47ee-42f3-a7a7-cc82bd02f6a4?mode=deep",
+    "timestamp": "2026-01-10 06:27:19.652431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Bank Module Metadata Conflict] Can an attacker exploit differences in metadata validation between ValidateBasic and the bank module's SetDenomMetaData to create metadata that passes factory validation but corrupts bank state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d8e9b2f-d526-4916-a54e-034210e2d4d9?mode=deep",
+    "timestamp": "2026-01-10 06:27:43.795255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Validator Resource Consumption] Can an attacker craft URIs with complex patterns that pass IsURI validation at line 46 but cause excessive DNS lookups or network requests if validators attempt to resolve them? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13cc2908-e31d-474e-a64a-fdfec7a854bc?mode=deep",
+    "timestamp": "2026-01-10 06:28:09.036024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Memory Exhaustion] Can an attacker submit large batches of MsgUpdateDenomURI messages that pass ValidateBasic but accumulate in the transaction pool, causing memory exhaustion before gas limits are applied? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7322f581-3556-4f30-ba06-38ae72cb31b3?mode=deep",
+    "timestamp": "2026-01-10 06:28:34.618357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [DeconstructDenom Performance] Can an attacker provide denoms with maximum-length creator addresses and subdenoms to cause excessive processing in DeconstructDenom at line 27, enabling DoS attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acd5b4d8-c289-4858-9cf6-09296bce1fa0?mode=deep",
+    "timestamp": "2026-01-10 06:28:59.884766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Regex DoS] Does the IsSHA256Hash regex validation at line 53 have ReDoS (Regular Expression Denial of Service) vulnerabilities that an attacker can trigger with specially crafted URIHash strings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a92fd17-1f1e-495c-a37c-1d1ac3a8702f?mode=deep",
+    "timestamp": "2026-01-10 06:29:24.385294",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Expensive Validation] Can an attacker spam MsgUpdateDenomURI messages with maximum-length URIs (256 chars) and denoms to cause excessive CPU usage in StringLengthInRange validation at line 38 and IsURI validation at line 46? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c9d9bef-cdea-43e4-a250-a5af793db3fc?mode=deep",
+    "timestamp": "2026-01-10 06:29:48.593610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Event Emission] Does ValidateBasic coordinate with the keeper's event emission to ensure URI update events are emitted consistently, or can an attacker suppress events by exploiting validation edge cases? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c114fe6a-992e-4a9a-a9e5-f5c3fa126b20?mode=deep",
+    "timestamp": "2026-01-10 06:30:11.722444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Rollback Safety] If ValidateBasic passes but the keeper's UpdateDenomURI fails and the transaction rolls back, are there any side effects from validation that persist across the rollback? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08610fc2-6376-4373-beba-c2d476d27875?mode=deep",
+    "timestamp": "2026-01-10 06:30:35.743711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Transaction Atomicity] If a transaction contains multiple MsgUpdateDenomURI messages, does ValidateBasic ensure they can all succeed atomically, or can partial failures leave denoms in inconsistent states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b0c8e828-9f17-437d-85e7-611b3e48ca3f?mode=deep",
+    "timestamp": "2026-01-10 06:30:59.927784",
+    "report_generated": false
   }
 ]
