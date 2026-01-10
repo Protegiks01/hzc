@@ -14998,5 +14998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09547048-4a20-49d4-9f64-665003b0f903?mode=deep",
     "timestamp": "2026-01-10 13:02:40.434224",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Error Codes: 1502-1509] [Code collision] Are the sequential error codes (1502-1509) properly reserved in the module's error space, or can they conflict with future error additions from Cosmos SDK upgrades, potentially masking critical security errors during pool operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6c95f08-e76e-4bbf-a67b-0171a1f826c0?mode=deep",
+    "timestamp": "2026-01-10 13:03:55.265489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Error Code Gaps] [Missing errors] Why is there a gap between error code 1100 (ErrInvalidSigner) and 1502 (ErrPoolNotFound), and could this gap be exploited by malicious code injection or module conflicts to register unauthorized error handlers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e91035ae-1eeb-428d-ac21-7c883bc55498?mode=deep",
+    "timestamp": "2026-01-10 13:04:07.537855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ModuleName] [Namespace collision] Is the ModuleName constant properly scoped to prevent error code namespace collisions with other modules (tokenwrapper, factory) that might register overlapping error codes, leading to error handler confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cc875fa0-6296-46dc-b25a-e44ee7757720?mode=deep",
+    "timestamp": "2026-01-10 13:04:20.135955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [Slippage protection] Why is there no dedicated error for slippage tolerance violations (e.g., ErrSlippageExceeded), and could this omission allow attackers to bypass slippage checks by catching generic errors instead of specific slippage errors in swap operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_172095f8-ebae-4f1c-9cf3-9bd320b54dd8?mode=deep",
+    "timestamp": "2026-01-10 13:04:33.902424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [AMM invariant] Why is there no ErrInvariantViolation error for detecting x*y=k formula breaches, and could this absence allow silent invariant violations that gradually drain liquidity pools through rounding errors or calculation exploits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfac2c64-92a5-4483-9d45-38d206a1229c?mode=deep",
+    "timestamp": "2026-01-10 13:04:47.798733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [Reentrancy] Is there a specific error for reentrancy detection (ErrReentrantCall), or could the absence of this error type allow attackers to exploit cross-module callback chains during pool operations to manipulate state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9a92464-7fdd-4e6b-8a63-a40aa11e6499?mode=deep",
+    "timestamp": "2026-01-10 13:05:02.908334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [LP token overflow] Why is there no ErrLPTokenOverflow error for detecting LP token supply overflow during liquidity additions, and could this allow attackers to mint unlimited LP tokens when adding liquidity near uint256 maximum values? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56595194-91bd-4dbf-8b3d-c084b3829af3?mode=deep",
+    "timestamp": "2026-01-10 13:05:18.672805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [Price manipulation] Is there a dedicated ErrPriceManipulation error for detecting suspicious price movements, or does the absence of this error allow flash loan attacks and sandwich attacks to go undetected in swap operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca54d40d-c11d-4f9f-b1e5-182196c04c8d?mode=deep",
+    "timestamp": "2026-01-10 13:05:35.823702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [Fee calculation] Why is there no ErrFeeCalculationOverflow error, and could this omission allow attackers to cause integer overflow in fee calculations during swaps, resulting in zero fees or negative fees that drain the pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41dd2cf7-33d8-49b1-bbfa-5055315318ce?mode=deep",
+    "timestamp": "2026-01-10 13:05:54.003313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [Pool state] Is there an ErrPoolFrozen or ErrPoolPaused error for emergency pool shutdowns, or does the absence of this error prevent proper handling of pools that should be inaccessible due to security incidents? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd78732d-8cce-4a5f-9175-3fd72b091c00?mode=deep",
+    "timestamp": "2026-01-10 13:06:12.422603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [Decimal precision] Why is there no ErrPrecisionLoss error for detecting precision loss in decimal conversions, and could this allow attackers to exploit rounding errors to extract value from pools through repeated small swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8abaf35-9e09-4c0b-a19d-797c275fc298?mode=deep",
+    "timestamp": "2026-01-10 13:06:31.704905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [Pool reserve] Is there an ErrInsufficientReserves error distinct from ErrInsufficientBalance, or could confusion between these concepts allow attackers to drain pools by exploiting insufficient reserve checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8671a0ab-4f41-4dff-aede-58de6e2fb028?mode=deep",
+    "timestamp": "2026-01-10 13:06:52.043517",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Missing Error] [Minimal liquidity] Why is there no ErrMinimalLiquidityViolation error separate from ErrInsufficientLiquidityLock, and could this allow share inflation attacks that bypass the minimal liquidity lock during pool creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8614e23d-d339-4dfe-a30b-f29bad6ce7bd?mode=deep",
+    "timestamp": "2026-01-10 13:07:13.655009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolNotFound] [Information disclosure] Does the 'pool not found' error message reveal internal pool ID structure or existence patterns that could help attackers enumerate valid pool IDs for reconnaissance before launching pool-specific attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aed650cb-abd1-4785-a41c-d43b06f34a69?mode=deep",
+    "timestamp": "2026-01-10 13:07:35.287542",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientBalance] [Information disclosure] Can the 'insufficient balance' error be exploited to perform balance oracle attacks by probing user balances through failed transactions, revealing exact balance thresholds for targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84b8570f-1e63-4af2-9b01-40c87956b60c?mode=deep",
+    "timestamp": "2026-01-10 13:07:58.311399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolAccountNotFound] [Information disclosure] Does the distinction between ErrPoolNotFound and ErrPoolAccountNotFound leak implementation details about pool account creation timing that could be exploited in race condition attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f72d7af4-390b-4d09-9aa3-4c2232609c97?mode=deep",
+    "timestamp": "2026-01-10 13:08:21.149444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidAmount] [Generic error] Is the generic 'invalid amount' error message too vague, potentially masking specific amount validation failures (negative, zero, overflow) that could be exploited if not properly distinguished? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5260dccf-c135-4f56-8990-34fac707b49e?mode=deep",
+    "timestamp": "2026-01-10 13:08:45.076379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolNotFound vs sdkerrors] [Inconsistent usage] In msg_server_remove_liquidity.go, why is types.ErrPoolNotFound used inconsistently alongside sdkerrors.ErrInvalidRequest, and could this inconsistency allow error handler bypass where specific pool errors are expected but generic errors are returned? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a96c1d1-1ca3-4100-8274-8d397704aec0?mode=deep",
+    "timestamp": "2026-01-10 13:09:09.976156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidAmount vs ErrorInvalidReceiver] [Naming inconsistency] Why do ErrorInvalidAmount and ErrorInvalidReceiver use 'Error' prefix while other errors use 'Err' prefix, and could this naming inconsistency cause error matching failures in error handling code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3518ff74-086e-418b-84ac-fc8cecd5d97d?mode=deep",
+    "timestamp": "2026-01-10 13:09:34.255690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientBalance usage] [Semantic confusion] Is ErrInsufficientBalance used consistently for both user balance checks and pool reserve checks, or could semantic confusion between these contexts allow attacks that exploit incorrect error handling assumptions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_822d4f28-f00c-48da-bf57-25d85a5db883?mode=deep",
+    "timestamp": "2026-01-10 13:09:59.452132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Error wrapping] [Lost context] When errors from errors.go are wrapped with errorsmod.Wrapf in keeper functions, can critical error context be lost or modified, potentially masking root causes of security failures like invariant violations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bba4ca4-9007-4f07-b149-7a7eda96fad9?mode=deep",
+    "timestamp": "2026-01-10 13:10:23.682941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [sdkerrors.Register] [Registration timing] Are all errors registered during module initialization before any transactions can execute, or could a race condition during module startup allow transactions to execute with unregistered error handlers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_418d1a0d-48bc-4f31-b5df-880505cd5f74?mode=deep",
+    "timestamp": "2026-01-10 13:10:47.946628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Error code 1100] [Reserved range] Is error code 1100 within a reserved range for governance-related errors in Cosmos SDK, and could using this code for ErrInvalidSigner conflict with upstream SDK error handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee0d5865-5f9c-4100-bb6f-f3919cd26dc1?mode=deep",
+    "timestamp": "2026-01-10 13:11:13.537481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [DONTCOVER comment] [Test coverage] Why is the DONTCOVER directive used for this error file, and could the lack of error registration tests allow error code collisions or registration failures to go undetected in production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23bba304-445a-41c4-8028-983fccb363f6?mode=deep",
+    "timestamp": "2026-01-10 13:11:36.125619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidSigner] [Governance bypass] Can an attacker craft a proposal message with a signer that passes AccAddressFromBech32 validation but fails the gov account check, causing ErrInvalidSigner to be returned after state changes, leading to inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9690a9ee-00b6-4102-9684-276a9be25e51?mode=deep",
+    "timestamp": "2026-01-10 13:11:59.351500",
+    "report_generated": false
   }
 ]
