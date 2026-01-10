@@ -23398,5 +23398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2de1bd9-3079-4ee0-8605-ade638659d29?mode=deep",
     "timestamp": "2026-01-10 11:34:30.252137",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Error message] Does the error wrapping at lines 155-161 properly identify which denom has the invalid BankAdmin, or can errors from different DenomAuth entries become indistinguishable? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_175da9cd-d911-499b-8ce9-963cb3a1a9a1?mode=deep",
+    "timestamp": "2026-01-10 11:35:42.511842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Conditional validation] If BankAdmin validation fails at line 154, does this prevent the MetadataAdmin validation from running, potentially allowing invalid MetadataAdmin values to slip through? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5106799-1a83-4cf2-856a-2e00ac94bcde?mode=deep",
+    "timestamp": "2026-01-10 11:35:54.955134",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Address format] Can an attacker use a non-standard but valid Bech32 address as BankAdmin that passes validation but breaks admin functionality in other parts of the factory module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09e4e537-2608-4ed1-bcdb-70f0c02655d3?mode=deep",
+    "timestamp": "2026-01-10 11:36:07.831724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Empty string semantics] Does an empty BankAdmin string (line 153) mean 'no admin' or 'admin to be set later', and can this ambiguity be exploited to gain unauthorized admin access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3eae249-9d89-4a31-9082-2f40b50fded0?mode=deep",
+    "timestamp": "2026-01-10 11:36:20.922997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Optional validation bypass] Can an attacker set d.BankAdmin to an invalid address format that bypasses the empty string check at line 153 but fails validators.AddressCheck, causing inconsistent validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a0b4ec9-0c5d-46c0-ad8b-344933bfa150?mode=deep",
+    "timestamp": "2026-01-10 11:36:34.642621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Unused variables] Does DenomAuth.Validate() ignore the creator and subdenom returned by DeconstructDenom at line 143, and could this allow DenomAuth entries for denoms with mismatched creators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c86ee12-4cd7-4e2d-8246-1da34c5129c7?mode=deep",
+    "timestamp": "2026-01-10 11:36:49.386966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Error suppression] If DeconstructDenom returns an error at line 143, does the error wrapping at lines 145-150 preserve all necessary context for debugging, or can critical information be lost? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50186d55-a66f-4a41-ab1d-0a4201ac4b14?mode=deep",
+    "timestamp": "2026-01-10 11:37:05.250301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Deconstruction discrepancy] Can differences between how DeconstructDenom is called in Denom.Validate() vs DenomAuth.Validate() lead to inconsistent validation results for the same denom string? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4fad333-2be6-4088-aa5b-815fabd77204?mode=deep",
+    "timestamp": "2026-01-10 11:37:21.533177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DenomAuth.Validate()] [Invalid denom] Can an attacker create a DenomAuth with an invalid denom string that passes DeconstructDenom at line 143, allowing admin assignment to non-existent or malformed denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d282d183-e2a3-4743-b4b6-ad36a7be0b46?mode=deep",
+    "timestamp": "2026-01-10 11:37:38.147730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Negative minting] Can the math.Uint type somehow represent negative values that pass the comparison at line 127 but cause arithmetic errors in minting operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2cedb50-60be-4051-9e28-3e5a0515d9cd?mode=deep",
+    "timestamp": "2026-01-10 11:37:56.640793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Genesis manipulation] Can a Byzantine validator propose a genesis state with Minted > MintingCap that gets accepted by some validators but rejected by others, causing consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69fc31f7-bbfa-443d-9e4d-eb2753002642?mode=deep",
+    "timestamp": "2026-01-10 11:38:16.080702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Type mismatch] Can an attacker exploit differences in how math.Uint is serialized/deserialized to create a state where Minted appears less than MintingCap in genesis but is actually greater during runtime? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_adaf5412-d5de-4a9b-ab06-56c7401f54ae?mode=deep",
+    "timestamp": "2026-01-10 11:38:36.342876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [GT comparison] Does d.Minted.GT(d.MintingCap) properly handle the case where both values are at math.Uint boundaries, or can overflow cause incorrect comparison results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_169a7bdd-97ec-43d1-a4a2-92bc78c7f801?mode=deep",
+    "timestamp": "2026-01-10 11:38:57.913177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Boundary condition] Can an attacker set d.Minted exactly equal to d.MintingCap to pass validation, but does this prevent any future minting operations even though it should be valid? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_587180fd-d021-4d47-add9-d531f70dc602?mode=deep",
+    "timestamp": "2026-01-10 11:39:21.199687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Supply inflation] Can an attacker craft a genesis state where d.Minted exceeds d.MintingCap, bypassing the check at line 127 through integer overflow or type confusion? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44fe149e-fd47-4cd8-831a-4a1aef0c1990?mode=deep",
+    "timestamp": "2026-01-10 11:39:43.876432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Denial of service] Can an attacker set MintingCap to 1 (minimum valid value) to pass validation but effectively prevent meaningful token creation, griefing the token economy? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84d34f7f-08ef-49bb-9d1a-cd53754f41b6?mode=deep",
+    "timestamp": "2026-01-10 11:40:07.592059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Arithmetic precision] Does the GT comparison at line 119 properly handle all edge cases of the math.Uint type, or can subtle precision issues allow zero or negative values to pass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07478f0e-b039-4c0b-bda9-e2825b448c90?mode=deep",
+    "timestamp": "2026-01-10 11:40:31.739576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Integer boundary] Can an attacker set MintingCap to sdkmath.MaxUint() to pass validation but cause integer overflow in subsequent minting operations when the cap is checked? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcdfff56-accd-4411-aa36-f50d61daa0b2?mode=deep",
+    "timestamp": "2026-01-10 11:40:56.757174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Zero minting cap] Can an attacker craft a Denom with MintingCap equal to exactly zero that bypasses the d.MintingCap.GT(sdkmath.ZeroUint()) check at line 119, effectively preventing any token minting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe02123d-4c94-4ce8-89f8-52079cc307d5?mode=deep",
+    "timestamp": "2026-01-10 11:41:21.782020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Error formatting] Does the error message at lines 111-115 properly format the nil MintingCap, or can string formatting bugs cause validation to fail unexpectedly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0edc8395-309a-445e-80dd-0f1f061b16b4?mode=deep",
+    "timestamp": "2026-01-10 11:41:47.452637",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Protobuf deserialization] Can an attacker craft a protobuf message that deserializes into a Denom with an uninitialized MintingCap that appears non-nil to the IsNil() check but is actually zero? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f79c7ef-61cf-4b71-8f0b-325b4d41514f?mode=deep",
+    "timestamp": "2026-01-10 11:42:13.621171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Type confusion] Can the cosmossdk.io/math.Uint type be exploited to create a non-nil but invalid MintingCap value that passes the IsNil() check but fails during arithmetic operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed3f54c3-bf46-4de6-9371-2b0ebcbce590?mode=deep",
+    "timestamp": "2026-01-10 11:42:39.944402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Nil pointer] Can an attacker craft a Denom with a nil MintingCap that somehow bypasses the d.MintingCap.IsNil() check at line 110, allowing unlimited token minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eedee4da-eb6d-4ab2-a08a-b729f86366ea?mode=deep",
+    "timestamp": "2026-01-10 11:43:06.804958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Error context] Does the error message at lines 101-107 include enough information to identify which denom failed validation in a large genesis state, or can attackers hide malicious denoms in a sea of valid ones? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef151bbc-6922-40ad-a375-707da96b9d52?mode=deep",
+    "timestamp": "2026-01-10 11:43:34.844460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: Denom.Validate()] [Whitespace handling] Can an attacker include leading/trailing whitespace in either creator or the deconstructed creator to bypass the exact match check at line 100? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_800c8fd8-c7fa-4dae-84a7-8322501c3540?mode=deep",
+    "timestamp": "2026-01-10 11:44:02.946072",
+    "report_generated": false
   }
 ]
