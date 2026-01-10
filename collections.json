@@ -16348,5 +16348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfe579f1-23a0-492d-abd5-a7e1da58d846?mode=deep",
     "timestamp": "2026-01-10 14:29:31.958068",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Deprecated fields] If proto fields are deprecated, does ValidateBasic reject messages using deprecated fields, or could old clients create invalid pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a38de371-9b77-4e1e-87da-e6046cb5d5ac?mode=deep",
+    "timestamp": "2026-01-10 14:30:50.509040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Gas metering] Is ValidateBasic properly gas-metered, or could expensive validation operations be exploited to DOS validators without paying proportional gas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b592de8-b15f-4432-b50a-743448b7565b?mode=deep",
+    "timestamp": "2026-01-10 14:31:02.874773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Stack overflow] Could deeply nested or recursive validation logic in validators.CoinCheck cause stack overflow with maliciously crafted messages? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f2d74f1-7694-43ed-b332-d2ad43d8e6f4?mode=deep",
+    "timestamp": "2026-01-10 14:31:15.431062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Memory bounds] Does the validation enforce memory bounds on message size, or could extremely large messages exhaust validator memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e276bc7-02ca-4fd0-82b0-5c64ef7a70fd?mode=deep",
+    "timestamp": "2026-01-10 14:31:29.438889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Pool ID collision] When pools are created with identical Base and Quote denoms (after sorting), does the system properly detect and reject duplicates, or could hash collisions in pool ID generation allow duplicate pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd98beda-2be1-495d-a6ad-0cf84eb47650?mode=deep",
+    "timestamp": "2026-01-10 14:31:43.301552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Denom hash collision] Could two different denom strings produce the same hash in pool UID calculation, allowing an attacker to create overlapping pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0fb718ca-2948-48e0-ab2d-1585a29575b3?mode=deep",
+    "timestamp": "2026-01-10 14:31:58.399164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [MinSubDenomLength parameter] If governance changes constants.MinSubDenomLength after pools are created, could existing pools with short denoms become invalid, causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34796ee6-d62b-49c5-8fc0-3f6a6b604653?mode=deep",
+    "timestamp": "2026-01-10 14:32:14.296308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [MaxDenomLength parameter] If governance increases constants.MaxDenomLength, could attackers exploit this to create pools with very long denoms that cause storage or query issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea50a12c-22b4-4ce3-ad6a-08bb36ca6e9e?mode=deep",
+    "timestamp": "2026-01-10 14:32:31.085221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [AddressPrefix parameter] If constants.AddressPrefix is changed via governance, does this invalidate existing pool creator addresses, causing pools to become ownerless? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de9a51cc-5c14-475a-a08e-94168f262d9b?mode=deep",
+    "timestamp": "2026-01-10 14:32:48.631417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Native token pool] Can an attacker create a pool with both Base and Quote using the native 'uzig' token through wrapping or IBC transfer back, bypassing the same-denom check at line 45? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f036fce2-4a69-446e-95e7-65b1335c9d8e?mode=deep",
+    "timestamp": "2026-01-10 14:33:07.410862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Zero-value IBC token] For IBC tokens with 0 decimal places, does the validation ensure msg.Base.Amount and msg.Quote.Amount are compatible with 6-decimal native token calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bfb66f5-c1fc-4f44-9542-a015119347a9?mode=deep",
+    "timestamp": "2026-01-10 14:33:27.031783",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [18-decimal token] For wrapped 18-decimal tokens from TokenWrapper, does ValidateBasic ensure amounts are properly scaled, or could precision loss occur during pool operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12b5af0d-08c4-441c-bf38-4b456d55b9f6?mode=deep",
+    "timestamp": "2026-01-10 14:33:47.223871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Byzantine validator exploit] Can a Byzantine validator accept an invalid MsgCreatePool that passed ValidateBasic but should have been rejected, causing state divergence with honest validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee32b9dd-5939-412f-8321-6aca584f2072?mode=deep",
+    "timestamp": "2026-01-10 14:34:08.384455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Consensus splitting] Could differences in how validators execute ValidateBasic (due to locale, SDK version, or hardware) cause consensus failures where some accept the message and others reject it? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3656518-eb74-4999-9b84-6478712d0f73?mode=deep",
+    "timestamp": "2026-01-10 14:34:30.406739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Mempool spam] Can an attacker spam the mempool with valid-but-will-fail MsgCreatePool messages that pass ValidateBasic but fail in the keeper, congesting the network? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_becaa0dd-c804-41cb-947e-70349e490fb0?mode=deep",
+    "timestamp": "2026-01-10 14:34:53.019456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Deprecated fields] If proto fields are deprecated, does ValidateBasic reject messages using deprecated fields, or could old clients create invalid pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db54c578-3490-4378-ae54-4eceade31c89?mode=deep",
+    "timestamp": "2026-01-10 14:35:16.454840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Gas metering] Is ValidateBasic properly gas-metered, or could expensive validation operations be exploited to DOS validators without paying proportional gas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af006b63-cbb1-4f72-8b19-6c729959de59?mode=deep",
+    "timestamp": "2026-01-10 14:35:39.531929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Stack overflow] Could deeply nested or recursive validation logic in validators.CoinCheck cause stack overflow with maliciously crafted messages? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25db8834-d5db-4ee4-baf3-456fdb869a52?mode=deep",
+    "timestamp": "2026-01-10 14:36:04.042505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Memory bounds] Does the validation enforce memory bounds on message size, or could extremely large messages exhaust validator memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_967eddc2-0d88-4b54-8749-d5ab089eebca?mode=deep",
+    "timestamp": "2026-01-10 14:36:28.672165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Pool ID collision] When pools are created with identical Base and Quote denoms (after sorting), does the system properly detect and reject duplicates, or could hash collisions in pool ID generation allow duplicate pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d05b1e7f-8316-4a12-95d1-178be0b52df9?mode=deep",
+    "timestamp": "2026-01-10 14:36:53.389001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Denom hash collision] Could two different denom strings produce the same hash in pool UID calculation, allowing an attacker to create overlapping pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd1af0aa-6045-402f-bb77-1f79eeaec83a?mode=deep",
+    "timestamp": "2026-01-10 14:37:19.533033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [MinSubDenomLength parameter] If governance changes constants.MinSubDenomLength after pools are created, could existing pools with short denoms become invalid, causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f95598d-a285-4717-a6f0-df2995771c65?mode=deep",
+    "timestamp": "2026-01-10 14:37:43.990005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [MaxDenomLength parameter] If governance increases constants.MaxDenomLength, could attackers exploit this to create pools with very long denoms that cause storage or query issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41d7e0ee-4034-4d90-b6fc-1880cfcd2742?mode=deep",
+    "timestamp": "2026-01-10 14:38:11.124261",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [AddressPrefix parameter] If constants.AddressPrefix is changed via governance, does this invalidate existing pool creator addresses, causing pools to become ownerless? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3d48ecd-37d6-4277-a7e0-62f5e5aa8921?mode=deep",
+    "timestamp": "2026-01-10 14:38:37.017236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/messages_create_pool.go] [Function: ValidateBasic()] [Native token pool] Can an attacker create a pool with both Base and Quote using the native 'uzig' token through wrapping or IBC transfer back, bypassing the same-denom check at line 45? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e0bc227-d2e5-4c84-a4e5-a72b2de5d04a?mode=deep",
+    "timestamp": "2026-01-10 14:39:03.148235",
+    "report_generated": false
   }
 ]
