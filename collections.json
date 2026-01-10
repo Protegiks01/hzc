@@ -16498,5 +16498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e0bc227-d2e5-4c84-a4e5-a72b2de5d04a?mode=deep",
     "timestamp": "2026-01-10 14:39:03.148235",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Address validation bypass] Can an attacker craft a malformed Creator address that passes the SignerCheck validation at line 26 but fails later during AccAddressFromBech32 conversion in the keeper, causing state inconsistency where LP tokens are transferred to the module but liquidity removal fails? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af0d3090-dbd0-48c6-81a4-2dbf84cc462c?mode=deep",
+    "timestamp": "2026-01-10 14:40:21.393393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Address validation] Does the SignerCheck function at line 26 properly validate all edge cases including addresses with maximum length (127 characters), addresses with special characters after the prefix, or addresses with non-standard Bech32 encoding that could bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16f4fa15-a68a-4b77-a8ac-3710d196748b?mode=deep",
+    "timestamp": "2026-01-10 14:40:33.906621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Empty address] Can an attacker exploit the empty string check in validators.SignerCheck to create a message where Creator is a zero-length string that passes validation but causes downstream processing failures, potentially locking LP tokens in the module account? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30983430-af38-4069-8893-83114109f475?mode=deep",
+    "timestamp": "2026-01-10 14:40:46.786601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Address prefix manipulation] Can an attacker craft a Creator address that has the correct 'zig' prefix but contains invalid characters in the remaining portion, bypassing the prefix check in validators.SignerCheck at line 26 but causing AccAddressFromBech32 to fail in the keeper? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb92fb7c-f17e-4769-b4f0-fe555c5d1686?mode=deep",
+    "timestamp": "2026-01-10 14:40:59.890425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Bech32 checksum manipulation] Can an attacker modify the Bech32 checksum of the Creator address to point to a different account while still passing the validators.SignerCheck validation, allowing them to remove liquidity from pools they don't own? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e87134df-9a56-4270-99dc-fbd96538a620?mode=deep",
+    "timestamp": "2026-01-10 14:41:13.657423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: NewMsgRemoveLiquidity()] [Constructor validation] Does the NewMsgRemoveLiquidity constructor at line 12 perform any validation before creating the message struct, or can an attacker create messages with invalid fields that bypass the constructor and only fail at ValidateBasic execution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f2e7fc7-f1ea-48b1-af9b-2114140b84af?mode=deep",
+    "timestamp": "2026-01-10 14:41:28.587724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Address normalization] Does the SignerCheck validation at line 26 properly normalize addresses before validation, or can an attacker use different case representations of the same address to bypass rate limiting or duplicate removal operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca3a73cb-43f0-46aa-8b74-8a1ba35fc28e?mode=deep",
+    "timestamp": "2026-01-10 14:41:44.701753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Zero amount bypass] The CoinCheck at line 30 uses 'false' for zeroOK parameter, but can an attacker craft an LP token with Amount.IsZero() returning false but Amount.IsPositive() also returning false (e.g., nil amount), bypassing validation and causing the keeper to process invalid removals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42c31b3c-67f7-46ba-84ac-476ad4f3c324?mode=deep",
+    "timestamp": "2026-01-10 14:42:00.045442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Negative amount] Can an attacker exploit integer underflow in the sdk.Coin.Amount field to create an Lptoken with a negative amount that appears positive due to wrapping, bypassing the CoinCheck validation at line 30 and causing pool state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bb51f4f-b442-4e89-83ee-421f9ba57363?mode=deep",
+    "timestamp": "2026-01-10 14:42:18.529955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Nil amount] Can an attacker create an Lptoken where the Amount field is nil, bypassing the CoinCheck validation at line 30 because IsNil() check might fail, leading to panic during arithmetic operations in CoinsToRemove function? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9ba88be-bbf2-4a16-8830-654958a6b696?mode=deep",
+    "timestamp": "2026-01-10 14:42:37.919532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Denom validation bypass] Can an attacker craft an Lptoken.Denom that passes the CheckCoinDenom validation but doesn't match any actual pool ID, allowing them to create valid messages that fail only after LP tokens are transferred to the module, causing fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2562497b-3428-4632-9edf-229d96588f7a?mode=deep",
+    "timestamp": "2026-01-10 14:42:58.305135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Denom length manipulation] Can an attacker create an Lptoken.Denom with length exactly at MinSubDenomLength (3 characters) or MaxDenomLength (127 characters) boundaries to exploit edge cases in the CoinCheck validation at line 30 or pool lookup logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9be2c2cc-3893-4801-bde1-dd5fcfedf3a7?mode=deep",
+    "timestamp": "2026-01-10 14:43:19.936537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Denom regex bypass] Can an attacker craft an Lptoken.Denom containing valid regex characters (a-z, A-Z, 0-9, ., /, -) that passes sdk.ValidateDenom but doesn't conform to the pool ID format 'zp[0-9]+', causing GetPool to fail after validation succeeds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02afdd16-82e2-470a-8ea9-14a6f8ff2122?mode=deep",
+    "timestamp": "2026-01-10 14:43:41.570755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Pool ID collision] Can an attacker create an Lptoken.Denom that collides with a different pool's LP token denomination, allowing them to remove liquidity from an unintended pool and exploit price differences between pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88e07614-4605-4e9b-9f0c-57bf083c76fe?mode=deep",
+    "timestamp": "2026-01-10 14:44:05.114713",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Maximum amount] Can an attacker set Lptoken.Amount to the maximum sdk.Int value, passing CoinCheck validation at line 30 but causing integer overflow during the multiplication in CoinsToRemove (line 147-148 in keeper) when calculating denom1 and denom2? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee62e6ed-75d2-49ea-bc03-3af37b6fcbbc?mode=deep",
+    "timestamp": "2026-01-10 14:44:28.341096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Amount precision] Can an attacker exploit the lack of decimal precision validation in CoinCheck at line 30 to create Lptoken amounts with unexpected precision that cause rounding errors in CoinsToRemove calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_203da00a-feec-4a62-92b0-e1d9696242d0?mode=deep",
+    "timestamp": "2026-01-10 14:44:51.881821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Receiver validation inconsistency] The Receiver field at line 34 is only validated if non-empty, but can an attacker exploit the difference between empty string ('') and nil to bypass validation, causing AccAddressFromBech32 at keeper line 78 to fail after LP tokens are already transferred? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fac94abd-3fd3-4e0a-b51f-a1ceb2a06510?mode=deep",
+    "timestamp": "2026-01-10 14:45:15.752149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Receiver address reuse] Can an attacker set Receiver to the same address as Creator to exploit any special handling logic, or set it to the module address to manipulate module account balances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ee42adf-9b91-4c06-a42e-9620e2db9103?mode=deep",
+    "timestamp": "2026-01-10 14:45:40.523482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Receiver validation error type] At line 36, the error is wrapped with ErrorInvalidReceiver instead of the underlying error from SignerCheck - can this error type mismatch cause downstream validation logic to mishandle errors, leading to improper error recovery? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6ba0276-64e4-484c-bfaa-45eff84dce71?mode=deep",
+    "timestamp": "2026-01-10 14:46:04.257469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Receiver empty string edge case] The check 'msg.Receiver !=",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfa3996d-a8d5-42a5-a1fc-2d234750efae?mode=deep",
+    "timestamp": "2026-01-10 14:46:28.015238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Receiver malicious address] Can an attacker set Receiver to a contract address or module account address that has special receiving behavior, exploiting the lack of address type validation to manipulate token transfers or trigger unintended contract calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7176de13-b0c0-4b02-a077-afc4063f1fb8?mode=deep",
+    "timestamp": "2026-01-10 14:46:52.083515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Receiver blacklist bypass] Does the SignerCheck at line 35 properly check against blacklisted or frozen addresses, or can an attacker use a blacklisted address as Receiver to move funds from a legitimate Creator account to a sanctioned address? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c5a46c0-ca71-44e6-b2cb-6f3c9487511b?mode=deep",
+    "timestamp": "2026-01-10 14:47:16.065303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Error propagation] If validators.SignerCheck returns an error at line 26, is the error properly wrapped and propagated, or could error information be lost causing difficulty in debugging failed transactions and potential security issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42294d05-8a01-4995-871d-7a285b742727?mode=deep",
+    "timestamp": "2026-01-10 14:47:40.270696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Validation order] The validation order is Creator->Lptoken->Receiver (lines 26-42), but can an attacker exploit this ordering to cause partial validation where Creator is valid but Lptoken fails, consuming unnecessary gas and enabling DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1697a33d-3b11-45df-9172-995cab05bfed?mode=deep",
+    "timestamp": "2026-01-10 14:48:05.035893",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Multiple error conditions] If both Creator and Lptoken are invalid, ValidateBasic only returns the first error - can an attacker exploit this behavior to hide additional validation failures and gain information about which validation checks are performed first? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a697d3ef-a1ac-44bf-ace0-569b65676ab9?mode=deep",
+    "timestamp": "2026-01-10 14:48:28.723270",
+    "report_generated": false
   }
 ]
