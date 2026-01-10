@@ -13198,5 +13198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e185921-31ec-4170-95d3-e831ba30d0ad?mode=deep",
     "timestamp": "2026-01-10 00:24:31.114286",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Client validation] Can an attacker set client IDs that point to Tendermint light clients with 0% trust level, effectively disabling IBC packet verification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f68317a-2afd-475f-82d8-615ab4e6007d?mode=deep",
+    "timestamp": "2026-01-10 00:25:42.204500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Client validation] Does the function verify that NativeClientId and CounterpartyClientId point to non-expired light clients with valid consensus states, or can expired clients be set? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16ed9ce1-e0cb-42e6-ae92-6ea882767e4d?mode=deep",
+    "timestamp": "2026-01-10 00:25:54.899204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Timing attack] If multiple UpdateIbcSettings calls occur in the same block, does the function handle ordering correctly or can this cause race conditions in settings application? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc561126-6902-4c29-a53e-2991fb6b74bf?mode=deep",
+    "timestamp": "2026-01-10 00:26:08.057950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Timing attack] Can an attacker exploit the time gap between UpdateIbcSettings execution and IBC packet relay to cause packets to be validated against mismatched settings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09fb55bf-13a4-4022-b56a-0ff64d5bcdb6?mode=deep",
+    "timestamp": "2026-01-10 00:26:21.218910",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Timing attack] Does the function emit events in a way that prevents relayers from being tricked into routing packets based on stale IBC settings information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83376fe9-59bf-428b-9a69-c93680059148?mode=deep",
+    "timestamp": "2026-01-10 00:26:35.165035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Timing attack] Can an attacker monitor the mempool for UpdateIbcSettings transactions and front-run them with wrap/unwrap operations that exploit the old settings before they change? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04ba9c6b-81a8-43d9-9dd2-f648bc3c9bd5?mode=deep",
+    "timestamp": "2026-01-10 00:26:50.367589",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Error handling] Can error propagation from SetDecimalDifference cause the function to return a nil response, leading to nil pointer dereference in calling code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff5c51ab-2233-4fbf-98d9-e9c3187c68f0?mode=deep",
+    "timestamp": "2026-01-10 00:27:06.346349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Error handling] If any of the Set* functions panic due to KVStore errors, does the Cosmos SDK properly recover and rollback the transaction, or can this lead to state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_968f6084-3ccf-45b4-9d8d-954ce68ed1e6?mode=deep",
+    "timestamp": "2026-01-10 00:27:24.098267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Error handling] Does the function return proper error types that can be handled by the ante handler, or can incorrect error returns cause unexpected transaction reversal behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1947802e-97fe-4f57-833b-89a4e4b1aa33?mode=deep",
+    "timestamp": "2026-01-10 00:27:42.788440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Error handling] Can an attacker intentionally trigger the DecimalDifference > 18 error to leave the IBC settings in a half-updated state where channels are changed but the conversion factor isn't? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d122300c-5427-4662-b2b2-e77c3b773553?mode=deep",
+    "timestamp": "2026-01-10 00:28:02.599733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Error handling] If SetDecimalDifference returns an error at line 31-33, does the function properly rollback the previous Set* calls at lines 23-29, or are those changes permanently committed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8468baf-c551-4f1f-a40e-89ec7f4c5108?mode=deep",
+    "timestamp": "2026-01-10 00:28:23.455993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Context issues] If the EventManager in ctx is nil or corrupted, does EmitIbcSettingsUpdatedEvent at line 46 handle this gracefully or can it cause a panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25367f49-375f-4f43-9a38-9741e6e3b69d?mode=deep",
+    "timestamp": "2026-01-10 00:28:45.106455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Context issues] Can gas exhaustion during Set* operations cause partial state updates, leaving some IBC settings changed while others remain at old values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e5ebeb3-a299-4dc4-8d96-81a9bad5f6f9?mode=deep",
+    "timestamp": "2026-01-10 00:29:07.810284",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Context issues] Does the function properly handle context cancellation, or can a long-running UpdateIbcSettings call block other transactions and cause DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f997bdd-cd53-4229-a8d5-88aaf366d230?mode=deep",
+    "timestamp": "2026-01-10 00:29:30.821411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Context issues] Can an attacker exploit the sdk.UnwrapSDKContext call at line 14 to manipulate the context height or other metadata used in IBC packet validation, causing timestamp or sequence number attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a311660-8d78-4e5e-87c6-d2a38c0cb0b5?mode=deep",
+    "timestamp": "2026-01-10 00:29:55.410320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Wallet drainage] Can an operator deliberately set invalid IBC settings to cause all unwrap operations to fail, effectively locking user funds in the module wallet permanently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c8d3fda-b53b-4502-98ae-c5484ca25674?mode=deep",
+    "timestamp": "2026-01-10 00:30:20.512780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Wallet drainage] Does the function check that the module wallet has sufficient balance to handle pending unwrap operations before allowing IBC settings changes that could affect conversion calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2921e150-d7d0-42a8-a345-15b41030e021?mode=deep",
+    "timestamp": "2026-01-10 00:30:46.724577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Wallet drainage] Can changing the denom cause RecoverZig to calculate incorrect IBC voucher balances, allowing users to recover more native tokens than they actually locked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d25367d3-ec37-4fe9-872f-fce8563175d7?mode=deep",
+    "timestamp": "2026-01-10 00:31:15.723683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Wallet drainage] If channels are redirected to an attacker-controlled chain, can the attacker send forged OnRecvPacket calls that trigger UnlockTokens without proper validation, draining the module wallet? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8b22463-5f05-4e23-8c73-3cf0d04a111c?mode=deep",
+    "timestamp": "2026-01-10 00:31:41.117698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Wallet drainage] Can an attacker exploit IBC settings changes to cause unwrap operations to drain the module wallet by setting a lower DecimalDifference that makes ScaleDownTokenPrecision return more native tokens than IBC vouchers burned? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acf20d0d-9f5b-4735-8c6c-8ee2651b4dc3?mode=deep",
+    "timestamp": "2026-01-10 00:32:07.211062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Supply invariant] Can changing the conversion factor cause existing locked native tokens to have mismatched IBC voucher amounts, creating arbitrage opportunities through wrap/unwrap cycles? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc379e83-a735-4114-aa2b-ff270489dbed?mode=deep",
+    "timestamp": "2026-01-10 00:32:34.141355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Supply invariant] Does the function check that updating settings won't violate the total supply cap defined in the Factory module, or can IBC setting changes indirectly allow minting beyond limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_832c7a57-01a7-4e88-939d-c481650c10af?mode=deep",
+    "timestamp": "2026-01-10 00:33:00.012971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Supply invariant] Can updating IBC settings cause a mismatch between the native token supply and IBC voucher supply across chains, breaking the 1:1 peg and allowing token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b5df70d-d324-4422-82ef-ca0234430e04?mode=deep",
+    "timestamp": "2026-01-10 00:33:26.174462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Supply invariant] If the denom is changed while IBC vouchers exist, can this create a situation where GetIBCRecvDenom calculates a different hash, causing the old vouchers to become unredeemable and effectively minting extra native tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f5c0d8e-fd06-4d8d-879d-b2bb34bd0443?mode=deep",
+    "timestamp": "2026-01-10 00:33:52.882981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Supply invariant] Can changing DecimalDifference cause the total supply conservation invariant (total_transferred_in - total_transferred_out = module_balance) to be violated due to rounding errors in conversion factor changes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0af1edbf-4bb8-4a6b-85bd-e59c6788bff8?mode=deep",
+    "timestamp": "2026-01-10 00:34:16.386036",
+    "report_generated": false
   }
 ]
