@@ -11848,5 +11848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5df0a1a2-013f-445a-936f-5a89f3e26492?mode=deep",
     "timestamp": "2026-01-10 06:24:48.192596",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] Can an attacker set MinimalLiquidityLock to a value greater than MaxInt64 via governance at line 18, causing the integerSqrt calculation in msg_server_create_pool.go line 306 to panic when comparing lpAmount.LT(minimalLock) for large initial deposits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08b0a76d-cf9f-4f39-ad00-c3d92fa51bf2?mode=deep",
+    "timestamp": "2026-01-10 06:26:02.283274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] If a governance proposal sets MaxSlippage to exactly 10,000 basis points (100%) at line 18, does the validateTokenRatio function at msg_server_add_liquidity.go line 187 allow attackers to deposit extremely imbalanced liquidity ratios that drain pools through sandwich attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d133df05-562b-4eff-8237-efa2c9b37e72?mode=deep",
+    "timestamp": "2026-01-10 06:26:14.570614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] Can an attacker exploit the lack of sanity checks in SetParams at line 18 to set CreationFee to 1 (minimum), enabling spam attacks where they create thousands of worthless pools to exhaust validator storage and memory, causing network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_394adad1-42a8-45d0-b7f7-1c49c411b5e0?mode=deep",
+    "timestamp": "2026-01-10 06:26:27.198369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Corruption] Does the SetParams call at line 18 perform atomic validation of all parameter fields together, or can partial validation failures leave the parameter state corrupted where some fields are updated but others retain old values, breaking invariant assumptions in pool operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84ef70ff-c26f-4287-b7b5-e1ca4653202c?mode=deep",
+    "timestamp": "2026-01-10 06:26:41.125730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Consistency] If SetParams at line 18 fails during the marshaling step, does the error handling properly roll back the SDK context, or can a partial state write occur where parameters are corrupted in the KVStore but the transaction still returns success? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2718b43a-a737-45b0-b6aa-82250ac1de6c?mode=deep",
+    "timestamp": "2026-01-10 06:26:54.926004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Consistency] Can an attacker exploit the lack of snapshot/checkpoint logic around the SetParams call at line 18 by submitting a governance proposal that triggers a panic in the codec.Marshal operation, leaving the DEX in an inconsistent state where GetParams returns corrupted data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a3cfb6c-f145-4510-ad28-935938409475?mode=deep",
+    "timestamp": "2026-01-10 06:27:09.535568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Race Condition] If multiple validators process the same governance proposal containing UpdateParams concurrently at line 18, can race conditions in the KVStore write operations cause non-deterministic parameter values across nodes, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_635c323f-4aea-44d1-aba6-c090409da70e?mode=deep",
+    "timestamp": "2026-01-10 06:27:25.457811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Consistency] Does the SetParams function at line 18 emit events or update secondary indices that could fail independently of the primary parameter storage, creating state inconsistencies where queries return different parameter values than what's actually enforced in transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1155e018-2631-432c-ab90-4e8862c7c602?mode=deep",
+    "timestamp": "2026-01-10 06:27:43.231627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Consistency] Can an attacker craft a governance proposal that sets parameters at line 18 which are valid in isolation but create conflicting invariants when combined (e.g., MaxSlippage=0 + MinimalLiquidityLock=MaxUint32), causing all pool operations to permanently fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e64c5f7d-1f9d-4a06-bb47-3bd0876c6965?mode=deep",
+    "timestamp": "2026-01-10 06:28:02.021916",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Atomicity] If the SDK context passed to SetParams at line 17-18 is not properly isolated from concurrent transactions, can an attacker trigger a scenario where parameter reads during SwapExactIn operations return partially-updated values, causing incorrect fee calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_668c0db8-830e-4628-9031-eb874860853c?mode=deep",
+    "timestamp": "2026-01-10 06:28:21.328798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Consistency] Does the UpdateParams function at line 12-22 maintain any invariants about existing pool states, or can parameter changes (e.g., increasing NewPoolFeePct from 500 to 50,000) retroactively break the AMM formula for existing pools, corrupting their reserves? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ec6009a-cb19-44c7-be04-1c8e68386391?mode=deep",
+    "timestamp": "2026-01-10 06:28:41.578797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Consistency] Can an attacker exploit the absence of version tracking in parameter updates at line 18 to replay old governance proposals that reset parameters to vulnerable values, undoing security fixes that increased MinimalLiquidityLock to prevent share inflation attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cef6a28-531b-47d9-ad2a-8e69f48f4f36?mode=deep",
+    "timestamp": "2026-01-10 06:29:02.778528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Atomicity] If the SetParams operation at line 18 involves multiple KVStore write operations (params, metadata, indices), and the validator crashes between writes, can the DEX end up in a state where parameter queries return nil causing panics in CreatePool operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d9a7304-c34d-47de-816f-4eeaec581de8?mode=deep",
+    "timestamp": "2026-01-10 06:29:24.180462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Consistency] Does the UpdateParams function at line 18 invalidate any cached parameter values in the keeper struct or module-level globals, or can stale parameter caches cause discrepancies where different parts of the DEX code see different parameter values within the same block? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd2a836b-c26e-46ed-be47-a4e463c09c7a?mode=deep",
+    "timestamp": "2026-01-10 06:29:46.328185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] Can an attacker who controls governance submit a proposal to set NewPoolFeePct to 0 at line 18, eliminating swap fees and enabling atomic arbitrage attacks where they repeatedly swap between pools to drain liquidity without paying fees, destroying the AMM incentive model? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f603e4fb-4d48-4e09-b696-29f9559a36db?mode=deep",
+    "timestamp": "2026-01-10 06:30:08.239438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] If a malicious governance proposal sets CreationFee to 0 at line 18, can attackers spam the network by creating millions of worthless pools to inflate storage costs, exhaust validator disk space, and force the chain to halt due to state bloat? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ee33c4f-a0b1-4015-acf0-bf6005577482?mode=deep",
+    "timestamp": "2026-01-10 06:30:31.501989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] Can an attacker set MinimalLiquidityLock to 0 via governance at line 18, then immediately create pools with 1 wei of each token, manipulate LP token supply through repeated micro-deposits, and execute share inflation attacks that drain all subsequent liquidity providers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0964aa07-98ca-493c-bf2f-5648e0042c8d?mode=deep",
+    "timestamp": "2026-01-10 06:30:54.956941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] If Beneficiary is set to a multi-sig address controlled by attackers at line 18, can they accumulate all pool creation fees (100 ZIG per pool), drain protocol revenue, and use the funds to manipulate governance by purchasing voting power? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c93a19eb-5a42-4818-a790-bc7eb9fb45df?mode=deep",
+    "timestamp": "2026-01-10 06:31:18.766527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] Can an attacker submit a governance proposal that sets MaxSlippage to 10,000 (100%) at line 18, enabling them to add highly imbalanced liquidity (e.g., 1:1000000 ratio) to existing pools, severely distorting prices and draining value through immediate arbitrage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_732af22e-d630-4bab-aca0-819917253c09?mode=deep",
+    "timestamp": "2026-01-10 06:31:42.539434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] If NewPoolFeePct is set to PoolFeeScalingFactor-1 (99,999) via governance at line 18, can attackers front-run the parameter change by adding liquidity to all pools, then immediately remove it after the change takes effect, extracting maximum fees from unsuspecting traders? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_474f5103-1b86-40b0-9a73-55d3c28b3908?mode=deep",
+    "timestamp": "2026-01-10 06:32:07.348406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] Can a malicious governance proposal set CreationFee to MaxUint32 at line 18, effectively bricking pool creation for all users except wealthy attackers who can afford the ~4.3 billion uzig fee, centralizing control over DEX liquidity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_18d97b28-f435-4bdf-8d56-670132d6aa09?mode=deep",
+    "timestamp": "2026-01-10 06:32:31.667536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] If MinimalLiquidityLock is increased from 1,000 to MaxUint32 via governance at line 18, does this retroactively invalidate all existing small pools (with LpToken.Amount < new lock), causing them to become permanently locked and unremovable, freezing user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1a6adee-5b22-44ac-9a09-43dbfca1d03e?mode=deep",
+    "timestamp": "2026-01-10 06:32:57.342768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] Can an attacker exploit parameter updates at line 18 by monitoring governance proposals, front-running the UpdateParams transaction by creating pools with old parameters, then immediately benefiting from new parameters (e.g., lower fees) to gain unfair advantages? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2364c8ca-4c00-44c9-b04c-2370af2d8e6f?mode=deep",
+    "timestamp": "2026-01-10 06:33:22.022223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] If MaxSlippage is reduced from 10,000 to 100 (1%) via governance at line 18, can this brick all AddLiquidity operations for volatile token pairs where natural price movement exceeds 1% between transaction submission and execution, causing permanent liquidity lock-up? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_efdefe7e-6e33-4928-a11b-a918c25c1d05?mode=deep",
+    "timestamp": "2026-01-10 06:33:47.245351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] Can an attacker submit a governance proposal that toggles NewPoolFeePct between 0 and 50,000 repeatedly at line 18, causing wild fee oscillations that enable MEV extraction where they manipulate which block their swaps land in to pay minimal fees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e28c875-7a40-4a4c-a5c4-358bc5b799bb?mode=deep",
+    "timestamp": "2026-01-10 06:34:11.559378",
+    "report_generated": false
   }
 ]
