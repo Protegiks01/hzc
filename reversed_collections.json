@@ -22648,5 +22648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c4ad274-a326-4383-9bfe-d49405e78463?mode=deep",
     "timestamp": "2026-01-10 10:46:03.789922",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomURIUpdated] [Metadata manipulation] Can an attacker exploit the 'denom_uri_updated' event to point token URIs to malicious content without on-chain validation, enabling phishing attacks against users who trust event-sourced metadata? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51ebbc23-701e-4355-90de-516ece80f4d9?mode=deep",
+    "timestamp": "2026-01-10 10:47:14.598553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomMintingCapChanged] [Auditability gap] Does the 'denom_minting_cap_changed' event lack critical attributes (old_cap, new_cap, timestamp), preventing proper forensic analysis of suspicious minting cap increases that could indicate compromise? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_511d500c-3b3f-4606-a7f0-fe10652f90bb?mode=deep",
+    "timestamp": "2026-01-10 10:47:27.120971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomBurned] [Event ordering attack] Can an attacker manipulate transaction ordering to emit 'denom_burned' events before actual token burning occurs, creating false burn records that could be exploited in cross-chain bridges relying on event-based proofs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49c9026d-b4d7-4136-acda-a23e77d2b584?mode=deep",
+    "timestamp": "2026-01-10 10:47:40.241275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomMintedAndSent] [Missing event validation] Does the event constant 'denom_minted_and_sent' lack validation logic in emission functions, allowing duplicate events to be emitted for the same minting operation, causing double-counting in supply tracking systems? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26120de4-f048-4f2d-b5f1-a665e19ae980?mode=deep",
+    "timestamp": "2026-01-10 10:47:53.474138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Constants: EventDenomCreated] [Event naming collision] Can an attacker create a custom module with an identical event name 'denom_created' to inject malicious event data into indexers and monitoring systems, causing state confusion in off-chain systems that track token creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f2be53b-6bdf-4cb8-9e0e-49063d8cb3f6?mode=deep",
+    "timestamp": "2026-01-10 10:48:07.792857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Chain split risk] If parameter changes are contentious (e.g., changing beneficiary or fees), can this cause chain splits where different validator sets accept different parameter values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50acc6e0-c2aa-4671-a941-323f99396b7d?mode=deep",
+    "timestamp": "2026-01-10 10:48:22.644583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Validator fee extraction] If a validator controls beneficiary address, can they prioritize withdrawal transactions in blocks they propose to extract fees before governance can change beneficiary? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e70e5e63-6344-4c1a-bc31-236e96b239b2?mode=deep",
+    "timestamp": "2026-01-10 10:48:38.865681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Byzantine validator attack] Can Byzantine validators (up to 1/3) coordinate to vote for malicious parameter changes (0 fees, their addresses as beneficiary) to exploit the factory module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6639bb0c-8a98-4287-b0ec-3de75738268a?mode=deep",
+    "timestamp": "2026-01-10 10:48:56.603344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [BurnTokens fee refund] When tokens are burned, are creation fees refunded? Can changing CreateFeeAmount after creation but before burning create refund calculation issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71c66484-86d2-4c63-9d48-252fbdffa8eb?mode=deep",
+    "timestamp": "2026-01-10 10:49:14.932793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [MintAndSend interaction] Does changing CreateFeeDenom affect existing denoms created with old fee denom? Can this create inequality where old denom creators paid different fees than new creators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4bd60d83-add2-4e6b-a721-70c9ae17c04d?mode=deep",
+    "timestamp": "2026-01-10 10:49:34.776743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [CreateDenom fee bypass] When CreateDenom checks params.CreateFeeAmount and finds it's 0 (due to no validation), can this bypass fee collection entirely, or does CreateDenom have additional checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e54baa0-517a-434b-8708-0c7dcc23f7ad?mode=deep",
+    "timestamp": "2026-01-10 10:49:54.982228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Zero fee period exploitation] If CreateFeeAmount is set to 0 temporarily through governance, can automated bots spam denom creation during this window, creating long-term state bloat? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb7182d8-0f70-45f7-a2ad-86a94e7baeaf?mode=deep",
+    "timestamp": "2026-01-10 10:50:16.284818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Beneficiary MEV extraction] Can beneficiary address holder extract MEV by timing their withdrawal transactions to maximize fee capture relative to denom creation activity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a9dfb56-195f-4f95-ba7d-5ac11df3bc78?mode=deep",
+    "timestamp": "2026-01-10 10:50:37.927218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Fee manipulation market] Can an attacker exploit governance to periodically change CreateFeeAmount, creating market uncertainty and preventing users from reliably budgeting for denom creation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0414527-5962-4056-b212-0c9b15b0f967?mode=deep",
+    "timestamp": "2026-01-10 10:50:59.560988",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Default value migration] If DefaultParams() values change in upgrade, are existing chains forced to use new defaults or can they maintain old values, potentially causing inconsistency across chain versions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb7f94be-1119-4417-92fa-7f6312c2ddbf?mode=deep",
+    "timestamp": "2026-01-10 10:51:21.906054",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Legacy param migration] With ParamSetPairs() returning empty set, does this indicate migration from legacy param system? Can incomplete migration leave parameters in inconsistent state between old and new systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53914ba6-8eee-439d-b4a7-035584208bf2?mode=deep",
+    "timestamp": "2026-01-10 10:51:45.121990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Upgrade compatibility] If params structure changes in future upgrades (new fields added, types changed), can existing param validation in Validate() cause upgrade failures or state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d613477d-e312-44b6-be36-ae95b2cda863?mode=deep",
+    "timestamp": "2026-01-10 10:52:08.597603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Cross-module fee interaction] Can other modules (DEX, TokenWrapper) interact with factory module account to extract fees, bypassing beneficiary withdrawal restrictions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a901bfc2-5b79-42bb-acdd-1d93101cbbfa?mode=deep",
+    "timestamp": "2026-01-10 10:52:33.586909",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Fee accumulation monitoring] Is there monitoring for factory module account balance growth? Can fees accumulate to enormous amounts before beneficiary withdrawal, creating honeypot for attackers targeting beneficiary account? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c30ec6e1-f48c-4232-a27f-0695e3f0e6ea?mode=deep",
+    "timestamp": "2026-01-10 10:52:57.960255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Module account permissions] When fees are collected to factory module account, does the module have proper permissions set? Can the module account be drained through unexpected IBC transfers or other module interactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b61acb97-1470-4a83-937d-a2196c006989?mode=deep",
+    "timestamp": "2026-01-10 10:53:23.566367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Regex performance] validators.CheckDenomString() uses regex validation (sdk.ValidateDenom()) as final check - can pathological regex inputs cause catastrophic backtracking leading to transaction timeout? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9bf2a32-f618-4ec5-ae59-8c170a531d7e?mode=deep",
+    "timestamp": "2026-01-10 10:53:49.132263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Repeated validation] Are params validated on every read (GetParams()) or only on write (SetParams())? Can forcing repeated validation calls cause DoS through excessive gas consumption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7c5288b-c870-4537-9411-70fdb4e5edb3?mode=deep",
+    "timestamp": "2026-01-10 10:54:14.697190",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Validation gas cost] When Validate() calls validators.CheckDenomString() and validators.AddressCheck(), can these validations consume excessive gas if given specially crafted inputs (very long strings, complex patterns)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_757e5b1a-2b74-4c49-87f2-b04d2357daab?mode=deep",
+    "timestamp": "2026-01-10 10:54:40.322423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Pointer dereference] Params struct is passed by value in Validate() and by pointer in ParamSetPairs() - can this inconsistency cause nil pointer dereference or unexpected mutations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c35bf551-cef4-49c1-afcd-c44f106a1ae6?mode=deep",
+    "timestamp": "2026-01-10 10:55:06.372915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [String field injection] CreateFeeDenom and Beneficiary are string fields - can null bytes, control characters, or extremely long strings (up to Go's string limit) be injected causing buffer overflows or parsing issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7e95b4a-a32e-47fa-8845-35b03fe73e29?mode=deep",
+    "timestamp": "2026-01-10 10:55:31.854559",
+    "report_generated": false
   }
 ]
