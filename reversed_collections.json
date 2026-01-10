@@ -22798,5 +22798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7e95b4a-a32e-47fa-8845-35b03fe73e29?mode=deep",
     "timestamp": "2026-01-10 10:55:31.854559",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Uint32 overflow] CreateFeeAmount is uint32 which has maximum value 4,294,967,295 - when this is used to construct sdk.Coin amounts, can the conversion to sdk.Int cause issues if intermediate calculations exceed uint32 range? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f2e0d24-1541-42cf-8570-af1f1c8c210b?mode=deep",
+    "timestamp": "2026-01-10 10:56:40.978821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Partial validation] If validateCreateFeeDenom() fails but validateCreateFeeAmount() passes, can the system enter partial validation state where some params are valid but others aren't? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ab12425-c73c-403e-bda2-6923b66d002a?mode=deep",
+    "timestamp": "2026-01-10 10:56:53.410975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Error message information leakage] Do validation error messages from Validate() leak sensitive information (e.g., internal state, addresses) that could help attackers craft bypass exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c446fc0-af8c-4696-8599-bfbb1bb3f1b5?mode=deep",
+    "timestamp": "2026-01-10 10:57:06.129484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Validation error handling] When Validate() returns errors (ErrorInvalidParamValue, ErrInvalidAddress), are these errors properly propagated and handled in all code paths, or can silent failures occur? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb6848c7-d0fb-4fa3-b21a-0c983534c6a3?mode=deep",
+    "timestamp": "2026-01-10 10:57:20.134772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Denom character validation] CheckDenomString() validates against pattern [a-zA-Z][a-zA-Z0-9./-]+ - can denoms with dots, slashes, or mixed case cause parsing issues when used as CreateFeeDenom in fee calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc3a1ce9-65a3-4450-bbd0-8b748f7bf510?mode=deep",
+    "timestamp": "2026-01-10 10:57:34.198723",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Denom length limits] CheckDenomString() validates against MinSubDenomLength (3) and MaxDenomLength (127) - can setting CreateFeeDenom to exact boundary lengths (3 or 127 chars) cause issues in fee payment or coin construction? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_681db47c-26da-46d9-af9e-38baac738f13?mode=deep",
+    "timestamp": "2026-01-10 10:57:49.322533",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Denom regex bypass] validateCreateFeeDenom() relies on validators.CheckDenomString() which uses DenomRegexString pattern - can an attacker craft denom strings that match regex but exploit SDK's ValidateDenom() function differently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cebff53c-969b-4c11-a093-48878df71771?mode=deep",
+    "timestamp": "2026-01-10 10:58:05.459601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Address length validation] Does the beneficiary address validation check for proper length? Can an attacker set unusually short or long addresses that pass Bech32 validation but cause issues in downstream processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b0acf72-cada-493b-b2fe-3331e056ac9b?mode=deep",
+    "timestamp": "2026-01-10 10:58:23.608212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Address prefix check] Does validators.AddressCheck() verify the address prefix matches 'zig' (from constants.AddressPrefix)? Can an attacker set beneficiary to valid Bech32 address with wrong prefix (e.g., cosmos1...) causing withdrawal failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8e2a88b-1069-494e-99ed-af1f4c7bb809?mode=deep",
+    "timestamp": "2026-01-10 10:58:43.198451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Address validation bypass] Validate() calls validators.AddressCheck() for beneficiary - if AddressCheck() from validators/address.go has vulnerabilities in Bech32 validation, can malformed addresses pass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b1d763a-3451-42dc-a04c-66645f9666bd?mode=deep",
+    "timestamp": "2026-01-10 10:59:02.901268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Empty beneficiary default] DefaultBeneficiary is empty string - does this mean the factory module is deployed with no fee collection mechanism until governance sets beneficiary, potentially losing early fees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40a1449d-bf96-4a0c-9fce-7be630df2caa?mode=deep",
+    "timestamp": "2026-01-10 10:59:24.018354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Default fee amount economics] DefaultCreateFeeAmount of 1000 uzig (0.001 ZIG with 6 decimals) - is this economically sound, or can it be too low allowing spam, or too high preventing legitimate users from creating denoms? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccabc616-cc03-473b-b754-e529261c102e?mode=deep",
+    "timestamp": "2026-01-10 10:59:45.979628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Default bond denom] DefaultCreateFeeDenom is set to constants.BondDenom ('uzig') - if the native bond denom becomes compromised or devalued, does using it for factory fees create systemic risk since denom creation depends on bond denom stability? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9dfd0165-4286-454b-8dfd-e967f7f5d629?mode=deep",
+    "timestamp": "2026-01-10 11:00:08.418428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Multi-block race] Can an attacker exploit multi-block parameter update timing where Validate() passes in block N but by block N+1 when update applies, conditions have changed making parameters invalid? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59d7f49b-c654-4128-a186-0c3774d2c926?mode=deep",
+    "timestamp": "2026-01-10 11:00:31.448179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Beneficiary state mismatch] If beneficiary is changed after fees are collected but before withdrawal, can this create state where accumulated fees have no clear owner, potentially causing disputes over fee ownership? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1490a94c-21fa-4f54-a415-59b58e258580?mode=deep",
+    "timestamp": "2026-01-10 11:00:54.032893",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Parameter update atomicity] When params are updated via governance, if CreateFeeDenom changes mid-block, can pending CreateDenom transactions in same block fail or use wrong fee denom, causing user funds loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9712bb9c-b1b1-48fa-821c-62b73e94a201?mode=deep",
+    "timestamp": "2026-01-10 11:01:17.253510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Fee extraction attack] Can an attacker propose setting beneficiary to their address through governance, wait for large fee accumulation, withdraw all fees, then propose changing beneficiary back to original value to hide the theft? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55373182-37fb-45df-aee6-6e398ba7b8f9?mode=deep",
+    "timestamp": "2026-01-10 11:01:41.697428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Parameter manipulation timing] Can an attacker time governance proposals to change parameters (especially CreateFeeAmount and beneficiary) during high denom creation activity to maximize impact - setting fee to 0 right before many creates, then restoring fee after? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17bfc834-0eac-4543-8afe-45e7b35c264b?mode=deep",
+    "timestamp": "2026-01-10 11:02:05.889051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Governance capture] Can a malicious validator set controlling >50% voting power submit governance proposal to set CreateFeeAmount to 0 and beneficiary to their address, then spam denom creation and withdraw all future fees? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d68a83f2-bb16-4be5-97bb-d7ba497a4b3e?mode=deep",
+    "timestamp": "2026-01-10 11:02:30.237407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Denom existence check] msg_update_params.go checks if CreateFeeDenom exists via GetDenom() or HasSupply(), but validateCreateFeeDenom() in params.go doesn't - can this inconsistency allow invalid denoms through different code paths? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c79bd364-0789-4b2c-857d-ed32218d57ea?mode=deep",
+    "timestamp": "2026-01-10 11:02:55.499830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Authority check only] msg_update_params.go only checks authority address but relies on Params.Validate() - if Validate() has vulnerabilities, can authority set dangerous parameters (0 fee, invalid beneficiary) that pass validation but break factory functionality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_74781012-5717-46f3-be72-b972c4167b35?mode=deep",
+    "timestamp": "2026-01-10 11:03:20.291621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Update validation bypass] When params are updated via msg_update_params.go, does the update path properly call Validate() from params.go, or can invalid parameters be set by authority address bypassing validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_751ca203-a2be-4520-bbf4-2dbac4c8f740?mode=deep",
+    "timestamp": "2026-01-10 11:03:45.093591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Withdrawal race] Can an attacker monitor governance proposals to change beneficiary and submit withdrawal transaction in same block as parameter change, potentially withdrawing fees to wrong address? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1c500a8-2ce4-45f2-9ca2-94e7c6d44022?mode=deep",
+    "timestamp": "2026-01-10 11:04:11.077486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Beneficiary change attack] If beneficiary is changed via governance while fees are accumulated, can the old beneficiary lose access to fees they expected, or can new beneficiary withdraw fees collected before they were appointed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04d480d3-c2ec-4768-a36f-a2a20fb26e06?mode=deep",
+    "timestamp": "2026-01-10 11:04:38.358645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/params.go] [Beneficiary check] When params.Beneficiary is checked in msg_server_withdraw_module_fees.go, if Validate() allows empty beneficiary, can this permanently lock all collected fees in the module account with no recovery mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40a31565-63c5-4a7f-94ee-e9cadcfdf615?mode=deep",
+    "timestamp": "2026-01-10 11:05:05.692456",
+    "report_generated": false
   }
 ]
