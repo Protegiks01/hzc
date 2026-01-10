@@ -16648,5 +16648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a697d3ef-a1ac-44bf-ace0-569b65676ab9?mode=deep",
     "timestamp": "2026-01-10 14:48:28.723270",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Error message information leak] The error messages at lines 26, 30, and 36-40 contain detailed field information - can an attacker use these detailed error messages to fingerprint the validation logic and craft targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94cc7b53-779f-421d-98ea-d136ff5ce0a0?mode=deep",
+    "timestamp": "2026-01-10 14:49:51.553578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Keeper re-validation] The keeper performs address validation again at line 20-27 using AccAddressFromBech32 - can an attacker exploit the gap between ValidateBasic and keeper execution to modify the message, or exploit time-of-check-time-of-use (TOCTOU) race conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_640f74dd-a358-4063-94cd-f495624ab409?mode=deep",
+    "timestamp": "2026-01-10 14:50:04.112477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Pool existence] ValidateBasic doesn't check if the pool exists for the given Lptoken.Denom - can an attacker create messages for non-existent pools that pass validation but fail in the keeper only after gas is consumed, enabling DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8313330-13af-4500-960d-5ad85d3c1fa1?mode=deep",
+    "timestamp": "2026-01-10 14:50:16.677116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Balance check absence] ValidateBasic doesn't verify that Creator has sufficient LP tokens - can an attacker flood the mempool with messages for amounts they don't own, causing validators to waste resources processing invalid transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3f4c0c2-f612-4448-a91f-de4b4687b695?mode=deep",
+    "timestamp": "2026-01-10 14:50:29.794310",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [LP token ownership] ValidateBasic doesn't verify LP token ownership at line 30 - can an attacker create valid messages attempting to remove more liquidity than they own, exploiting the delay between validation and execution to frontrun or sandwich other liquidity operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ec8552c-4775-477d-b6ee-0c070d1cc922?mode=deep",
+    "timestamp": "2026-01-10 14:50:44.206955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Pool sanity check integration] The keeper performs a sanity check at line 42 comparing pool.LpToken.Denom with msg.Lptoken.Denom - can an attacker exploit inconsistencies between the validation logic and this sanity check to cause state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61fa99c1-0f85-4f07-8fc1-53906fbe15cd?mode=deep",
+    "timestamp": "2026-01-10 14:50:58.911150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Concurrent removal] Can multiple MsgRemoveLiquidity messages from the same Creator be processed concurrently, bypassing the balance check at keeper line 52 and allowing removal of more LP tokens than the user owns through race conditions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7aab73c9-7c3e-4fc8-8c5c-cf36505bac60?mode=deep",
+    "timestamp": "2026-01-10 14:51:14.567895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Pool state modification race] Between ValidateBasic execution and keeper processing, can the pool state be modified by other operations, causing the CoinsToRemove calculation to use stale pool data and return incorrect token amounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fdb17c7-f0f5-4ccd-9f74-ac468ec8d9b2?mode=deep",
+    "timestamp": "2026-01-10 14:51:31.948150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [LP token minting race] Can an attacker mint additional LP tokens for a pool between ValidateBasic and keeper execution, manipulating the total supply used in CoinsToRemove calculations to receive more tokens than they should? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccde4a6d-4c43-463f-85b6-68106ee60678?mode=deep",
+    "timestamp": "2026-01-10 14:51:49.336443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Receiver modification race] If Receiver is empty at validation but the Creator's account state changes before keeper execution, can the fallback to Creator address at keeper line 83 be exploited to send funds to an unintended address? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7142345c-14ce-4651-8640-17b13fb92c4d?mode=deep",
+    "timestamp": "2026-01-10 14:52:08.328987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Multiplication overflow in CoinsToRemove] The CoinCheck at line 30 doesn't prevent extremely large Lptoken amounts - can an attacker use maximum sdk.Int values that cause overflow in the multiplication pool.Coins[0].Amount.Mul(lptoken.Amount) at keeper line 147? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e45b3750-3d91-4fc0-a0c6-0b995ad933bb?mode=deep",
+    "timestamp": "2026-01-10 14:52:28.387565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Division by zero prevention] ValidateBasic doesn't check if the pool's total LP supply is non-zero - can an attacker exploit edge cases where pool.LpToken.Amount is zero in CoinsToRemove at keeper line 147-148, causing division by zero panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1aeb2bdf-0a4f-44d0-be6b-f42bcc19139f?mode=deep",
+    "timestamp": "2026-01-10 14:52:48.907664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Rounding errors] Can an attacker exploit rounding in the Quo operation at keeper line 147-148 to consistently extract slightly more tokens than they should, draining pools over many small removal operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2843282f-a881-424a-bb3b-4c3e1746cc61?mode=deep",
+    "timestamp": "2026-01-10 14:53:10.784892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Minimum removal amount] ValidateBasic doesn't enforce a minimum Lptoken amount - can an attacker perform dust removals with amounts of 1 to extract value from rounding errors or to create many small pool state updates for DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2e9d3d5-bb0e-456c-9c6f-68917b363a43?mode=deep",
+    "timestamp": "2026-01-10 14:53:32.979090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Token amount precision loss] When calculating denom1 and denom2 in CoinsToRemove, can precision loss from integer division cause the sum of removed tokens to not match the x*y=k invariant, breaking AMM security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f9478fd-a71d-4716-88c6-3e2e6d1146bb?mode=deep",
+    "timestamp": "2026-01-10 14:53:55.892375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Pool draining via large removal] Can an attacker validate a message with Lptoken.Amount equal to pool.LpToken.Amount to drain the entire pool in one transaction, and does ValidateBasic prevent this edge case? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_70acb83f-08e3-4a8b-a553-37cb658c5c9e?mode=deep",
+    "timestamp": "2026-01-10 14:54:20.392752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Minimum liquidity lock bypass] ValidateBasic doesn't check if the removal would violate minimum liquidity locks - can an attacker remove liquidity down to amounts that break the pool's price stability or make it vulnerable to manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_903c95e1-bfb8-4fc4-ba24-a9dfa3d60b1f?mode=deep",
+    "timestamp": "2026-01-10 14:54:45.264393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Last LP token holder attack] Can the last LP token holder use ValidateBasic to validate removal of all remaining LP tokens, then exploit the pool state where x*y=k invariant might be violated for an empty pool? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40e86175-9179-4db6-9834-7fcca962aba4?mode=deep",
+    "timestamp": "2026-01-10 14:55:09.803228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Sandwich attack enabling] Can an attacker use ValidateBasic to create valid removal messages that can be frontrun by other operations, allowing them to sandwich user swaps and extract MEV by manipulating pool depth? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_755cad12-44c3-4c76-ba8b-6da344a748e9?mode=deep",
+    "timestamp": "2026-01-10 14:55:34.780834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Flash loan integration] Can an attacker combine MsgRemoveLiquidity with flash loan operations to temporarily inflate their LP token balance, pass keeper validation, then remove more liquidity than they legitimately own? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a891584e-b471-4d1c-959e-775badccfbe8?mode=deep",
+    "timestamp": "2026-01-10 14:56:00.150831",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Creator vs Signer mismatch] ValidateBasic checks Creator but doesn't verify it matches the actual transaction signer - can an attacker set Creator to another user's address while signing with their own key to exploit any logic that trusts Creator field? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a84e5abc-4004-46fb-9385-85d587df16f2?mode=deep",
+    "timestamp": "2026-01-10 14:56:26.156983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Receiver authorization] ValidateBasic validates Receiver address format at line 35 but doesn't check if Creator has authorization to send funds to that Receiver - can this enable unauthorized fund transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0af9060f-f26d-48c2-acd1-6556383453b8?mode=deep",
+    "timestamp": "2026-01-10 14:56:52.953799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Module account receiver] Can an attacker set Receiver to a module account address that passes SignerCheck at line 35 but should be restricted, allowing them to manipulate module balances or trigger unexpected module behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16f5249a-bec9-4ee9-9d8c-03a5c45c66a6?mode=deep",
+    "timestamp": "2026-01-10 14:57:18.709970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Paused pool bypass] ValidateBasic doesn't check if the pool is paused or disabled - can an attacker create valid messages for paused pools that only fail in the keeper, wasting gas and potentially exploiting timing windows? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99128c83-4853-4e12-bc32-b39880ade569?mode=deep",
+    "timestamp": "2026-01-10 14:57:41.905775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/message_remove_liquidity.go] [Function: ValidateBasic()] [Expensive validation] The validators.CoinCheck at line 30 includes regex validation as the last step - can an attacker craft Lptoken.Denom strings that maximize regex computation time to DoS validators during mempool validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f096b20a-dec9-4b0a-8e31-5d29a7568ae3?mode=deep",
+    "timestamp": "2026-01-10 14:58:05.842785",
+    "report_generated": false
   }
 ]
