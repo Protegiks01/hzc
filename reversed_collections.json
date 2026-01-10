@@ -19048,5 +19048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8903fb12-e569-46de-85b1-22bbcbf6454a?mode=deep",
     "timestamp": "2026-01-10 06:40:31.793790",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Protocol Exploit] Does the validators.IsURI check at line 46 properly restrict URI protocols, or can an attacker use file://, ftp://, or custom protocol handlers to point to malicious resources or exploit client-side vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a2d0a47-6a05-48d8-85af-89e31185a600?mode=deep",
+    "timestamp": "2026-01-10 06:41:52.595021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Empty URI Bypass] When msg.URI is an empty string at line 37, the validation is skipped entirely. Can an attacker exploit this to clear URIs without proper authorization checks that might be enforced only when URIs are present? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1061d4a-00ad-4280-8990-49c9c124cc1e?mode=deep",
+    "timestamp": "2026-01-10 06:42:05.240022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Length Edge Case] Does the StringLengthInRange validation at line 38 correctly handle boundary conditions at exactly 15 and 256 characters, or can an attacker exploit off-by-one errors to bypass the minimum length requirement? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1922af5e-79d7-438f-bf76-8a1f1870a9c3?mode=deep",
+    "timestamp": "2026-01-10 06:42:17.958595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Format Injection] Can an attacker bypass the validators.IsURI check at line 46 by providing a URI with encoded special characters (e.g., javascript:, data:, file:) that pass govalidator.IsRequestURI but enable XSS or data exfiltration attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a29e2afe-97f7-4b9c-8d07-cb141044d601?mode=deep",
+    "timestamp": "2026-01-10 06:42:31.044430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Length Bypass] Can an attacker exploit the StringLengthInRange check at line 38 by providing a URI with unicode characters that count as single characters but expand to multiple bytes, bypassing the 15-256 character limit? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8a70c97-7514-47d9-a257-dc58c00040b7?mode=deep",
+    "timestamp": "2026-01-10 06:42:44.842441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Module Prefix] Can an attacker bypass the 'coin' prefix requirement checked in DeconstructDenom at line 27 by using case variations (e.g., 'Coin', 'COIN') or unicode alternatives that pass validation but target different denom namespaces? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7de0c89-6ce8-4e2f-be2e-da082ccafa40?mode=deep",
+    "timestamp": "2026-01-10 06:43:00.006555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Denom Length] Can an attacker provide a denom string exceeding MaxDenomLength (127 chars) that passes DeconstructDenom at line 27 due to insufficient length checks, causing buffer overflows in storage or retrieval operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6977ab91-7ffa-4c9d-90d5-8815ca5f48a4?mode=deep",
+    "timestamp": "2026-01-10 06:43:16.816627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Subdenom Injection] Can an attacker inject special characters into the subdenom portion that pass DeconstructDenom validation at line 27 but cause injection attacks when the URI is later retrieved or displayed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35e1aea5-5bba-495b-975a-c4a17c4eb8da?mode=deep",
+    "timestamp": "2026-01-10 06:43:34.348156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Creator Validation] Does the DeconstructDenom call at line 27 properly validate that the creator address in the denom matches the signer, or can an attacker update URIs for denoms created by other addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a6a994d-413a-43a3-a96d-c568e4b14066?mode=deep",
+    "timestamp": "2026-01-10 06:43:53.384400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Denom Format] Can an attacker bypass the three-part denom validation in DeconstructDenom by providing a denom with encoded dots (e.g., URL-encoded %2E) that pass ValidateBasic at line 27 but are interpreted differently by the keeper? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b2dc4ef-dc2e-4d5b-89a5-3ddcfe7a6926?mode=deep",
+    "timestamp": "2026-01-10 06:44:13.088969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Error Handling] If DeconstructDenom at line 27 returns an error that is wrapped in ErrInvalidDenom at lines 29-34, can an attacker exploit the error wrapping to hide critical validation failures or inject misleading error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f748d09-eaf9-4864-a00e-d1c882f80aa8?mode=deep",
+    "timestamp": "2026-01-10 06:44:33.830398",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Denom Collision] Can an attacker create a collision attack by providing a denom that DeconstructDenom at line 27 parses differently than the keeper's GetDenom function, allowing URI updates for denoms they don't control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56f1da3d-2371-41d7-be80-4dcf25dbc1a0?mode=deep",
+    "timestamp": "2026-01-10 06:44:54.875022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Denom Parsing] Can an attacker exploit the DeconstructDenom function call at line 27 by providing a denom with specially crafted delimiter characters that bypass the split validation, allowing updates to unauthorized denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f6b32f2-0dd4-4aa2-9282-f184f1d9f9ef?mode=deep",
+    "timestamp": "2026-01-10 06:45:16.259824",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Address Length] Does the SignerCheck validation at line 23 properly enforce maximum address length limits, or can an attacker provide an extremely long bech32 address that causes buffer overflows or excessive memory consumption in downstream processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a89ae8b-7616-4e62-9006-6a8ec968a11a?mode=deep",
+    "timestamp": "2026-01-10 06:45:39.339868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: NewMsgUpdateDenomURI()] [Input Validation] Can an attacker pass a nil or empty signer string to NewMsgUpdateDenomURI at lines 13-20 that bypasses initial construction checks but fails only during ValidateBasic, allowing malformed messages to propagate through the transaction pool? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a0a37e4-9227-4cec-9c81-565d95e3da6f?mode=deep",
+    "timestamp": "2026-01-10 06:46:03.527166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [State Inconsistency] If validators.SignerCheck at line 23 passes but the keeper-level Auth check later fails, can an attacker exploit this timing window to create partial state updates where the message is validated but authorization fails, causing metadata inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d79f6ea5-4de0-4907-ba9e-e39ee53228d2?mode=deep",
+    "timestamp": "2026-01-10 06:46:27.202847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Address Injection] Can an attacker craft a signer address with unicode homoglyphs or zero-width characters that bypass the validators.SignerCheck at line 23, allowing them to impersonate legitimate denom admins and update URIs maliciously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31af273b-4ccc-47f4-badd-1cba7bb6bd6f?mode=deep",
+    "timestamp": "2026-01-10 06:46:52.141208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Access Control] Can an attacker bypass the SignerCheck validation at line 23 by providing a malformed bech32 address that passes sdk.AccAddressFromBech32 but fails proper prefix validation, allowing unauthorized denom URI updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_379d9158-139e-4096-8654-8a8d562a3c7e?mode=deep",
+    "timestamp": "2026-01-10 06:47:17.548684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Special character bypass] Can an attacker use control characters, zero-width characters, or other special Unicode in the Denom field that pass ValidateBasic at line 22 but cause rendering or parsing issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ffeb8dde-dde0-4fbd-8bfb-2293efb8342a?mode=deep",
+    "timestamp": "2026-01-10 06:47:42.877987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Whitespace handling] Can an attacker exploit inconsistent whitespace handling between ValidateBasic at line 22 and keeper operations, claiming admin for denoms with trailing/leading spaces? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c61e2554-92af-44a9-bd6d-3d08820848d8?mode=deep",
+    "timestamp": "2026-01-10 06:48:09.197076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Maximum denom length exploit] Can an attacker submit a denom with exactly 128 characters (SDK maximum) that passes DeconstructDenom at line 27 but causes off-by-one errors in keeper operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_835afccf-c69e-489f-9b1e-490b81989ec3?mode=deep",
+    "timestamp": "2026-01-10 06:48:35.797394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Zero-value denom] Can an attacker exploit ValidateBasic at line 22 by submitting a message where Denom is the zero value for strings, bypassing DeconstructDenom checks due to early returns? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e32de6c0-a859-4900-af49-c69f398b3c72?mode=deep",
+    "timestamp": "2026-01-10 06:49:00.445457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Proposal expiry race] Can an attacker exploit the time gap between ValidateBasic at line 22 and keeper execution to claim admin for proposals that expire mid-transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc2d741f-fdde-4897-8d1c-76cf9646a932?mode=deep",
+    "timestamp": "2026-01-10 06:49:25.053137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Transaction ordering exploit] Can an attacker exploit the lack of sequence number verification in ValidateBasic at line 22 to submit claims in non-sequential order, causing admin state confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9e7fc5d8-af69-4008-b642-cb9f5683a68d?mode=deep",
+    "timestamp": "2026-01-10 06:49:50.189575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_claim_denom_admin.go] [Function: ValidateBasic()] [Block timestamp manipulation] Can validators manipulate block timestamps to affect the validity window of admin claims that pass ValidateBasic at line 22, enabling or disabling legitimate claims? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07923862-4081-4fb1-beff-a47dc10f7a4e?mode=deep",
+    "timestamp": "2026-01-10 06:50:16.579038",
+    "report_generated": false
   }
 ]
