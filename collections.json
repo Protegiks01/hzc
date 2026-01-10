@@ -19948,5 +19948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_936cd35a-db13-4632-a0b1-875265934f1c?mode=deep",
     "timestamp": "2026-01-10 19:08:30.869207",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Denial of Service] If the bankKeeper.GetSupply call at line 21 is expensive for denoms with extremely large supply values or complex metadata, can an attacker create many denoms and trigger DenomAll queries to cause excessive computational load, leading to validator resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_337e8981-f76e-40b2-bc77-91c5d74cefb5?mode=deep",
+    "timestamp": "2026-01-10 19:09:55.622615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Information Leakage] The calculateDenomStats function at line 19 returns totalBurned, maxSupply, and totalSupply. Can an attacker use these precise metrics to gain strategic information about token supply dynamics, potentially enabling market manipulation or front-running attacks in the DEX module? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_177f42a4-be96-4e87-a084-188b1e494022?mode=deep",
+    "timestamp": "2026-01-10 19:10:08.022381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Edge Case - Zero Values] At lines 27 and 34, the function returns cosmosmath.ZeroUint() for error cases. Can an attacker create a denom where legitimate zero values cannot be distinguished from error conditions, causing confusion in client applications that rely on this query data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_93286740-3b76-4a6e-b672-e89502b49514?mode=deep",
+    "timestamp": "2026-01-10 19:10:20.914274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Boundary Condition] At line 24, what happens if denom.Minted equals cosmosmath.Uint(totalSupply.Amount) exactly? The code returns cosmosmath.ZeroUint() for totalBurned. Can this be exploited by an attacker who carefully balances minting and supply to hide burned tokens? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_884577ce-5ead-4b7e-aff6-6b8b55349ad3?mode=deep",
+    "timestamp": "2026-01-10 19:10:34.093144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Immutability Violation] The function reads denom.Minted and denom.MintingCap from the stored Denom struct. Can a malicious validator exploit concurrent modifications to these values during query execution to cause different query results for the same block height, violating query determinism? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef24bc7b-24b9-40ff-b5f8-3f6495bffec4?mode=deep",
+    "timestamp": "2026-01-10 19:10:47.997587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Input Validation] At line 41, the function checks if req == nil but doesn't validate the Pagination field contents. Can an attacker provide a malicious Pagination request with extreme offset/limit values to bypass rate limiting or cause out-of-memory errors during query.Paginate execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5d7f5aa-3655-4add-be67-fd5812ec2d3e?mode=deep",
+    "timestamp": "2026-01-10 19:11:02.723367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Deserialization Attack] At line 52, the function unmarshals denom data using k.cdc.Unmarshal(value, &denom). Can an attacker corrupt the KVStore with malformed protobuf data that causes a panic during unmarshaling, leading to validator crashes when processing DenomAll queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5029e47a-3b3e-4425-8f5b-37fa7c70cdca?mode=deep",
+    "timestamp": "2026-01-10 19:11:18.934824",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Memory Exhaustion] At line 56, denoms are appended to a slice without any size limit before pagination. If query.Paginate allows processing thousands of denoms, can an attacker create excessive denoms to cause memory exhaustion in validators when the denoms slice grows unbounded? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_600cde17-d946-4c2b-8f1e-3b28d6fe64c3?mode=deep",
+    "timestamp": "2026-01-10 19:11:36.529648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Denial of Service] The DenomAll function at line 40 iterates through all denoms and calls calculateDenomStats for each at line 67. If there are thousands of denoms, can an attacker exploit this to create a computational DoS by repeatedly querying DenomAll, forcing validators to perform expensive bankKeeper.GetSupply calls for every denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ced656c-c615-46ee-a67a-646c9b60d755?mode=deep",
+    "timestamp": "2026-01-10 19:11:55.638385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Iterator Resource Leak] At line 50, query.Paginate creates an iterator over denomStore. If an error occurs during pagination, does the iterator get properly closed? Can an attacker trigger error conditions to cause iterator leaks that accumulate over time and exhaust file descriptors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28fe5ebb-18c9-4744-9646-95e8c6b80f35?mode=deep",
+    "timestamp": "2026-01-10 19:12:14.796837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Error Handling] At line 60, errors during pagination return status.Error(codes.Internal, err.Error()). Can an attacker exploit this to leak internal error messages containing sensitive information about the validator's storage state or configuration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c5ff5ec-1272-4e46-ab64-c075c299e376?mode=deep",
+    "timestamp": "2026-01-10 19:12:34.673597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Response Size Attack] At lines 66-79, the function builds a denomsResponse array containing full denom information for all paginated results. Can an attacker request a large page size to create response payloads that exceed gRPC message size limits, causing query failures or network congestion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_528651cf-1770-4252-9f35-1b5a93d07733?mode=deep",
+    "timestamp": "2026-01-10 19:12:54.688200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Type Conversion] At line 76, totalSupply.Amount is converted to cosmosmath.Uint. If the Amount is negative (despite validation), can this conversion cause a panic or produce incorrect values in the response? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_021b2c02-e53d-431d-bd9f-86ca45e65f8a?mode=deep",
+    "timestamp": "2026-01-10 19:13:17.194036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Store Consistency] At line 48, the function creates a prefix store with types.KeyPrefix(types.DenomKeyPrefix). Can an attacker exploit incorrect prefix handling to read denoms from other modules or cross prefix boundaries to access unauthorized data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8736d44-d344-4f05-9e33-9e2ba5716bc6?mode=deep",
+    "timestamp": "2026-01-10 19:13:40.145791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Race Condition] Between lines 50-58 (pagination loop) and lines 66-78 (response building), there's a time gap where denom state could change. Can a Byzantine validator exploit this to serve inconsistent query results where the same denom appears with different statistics in subsequent queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c96ad990-5e25-4596-abc4-e6b205792e13?mode=deep",
+    "timestamp": "2026-01-10 19:14:03.377668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Determinism Violation] The function calls bankKeeper.GetSupply at line 21 (via calculateDenomStats) which may not be deterministic across validators. Can this cause different validators to return different query results for the same block height, breaking light client verification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89a9bf9f-2ec4-48ad-bb08-f5ac0109ff2c?mode=deep",
+    "timestamp": "2026-01-10 19:14:28.475050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Pagination Bypass] At line 50, if req.Pagination is nil, what default behavior does query.Paginate implement? Can an attacker exploit missing pagination to retrieve all denoms in a single query, bypassing rate limiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f10b070a-0f31-4186-b32b-78f478b512f5?mode=deep",
+    "timestamp": "2026-01-10 19:14:53.608838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Empty Result Handling] If no denoms exist, the function returns an empty denomsResponse array. Can client applications handle this correctly, or can an attacker exploit inconsistent empty state handling to cause client-side errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a063aa8-5d40-4af7-8c48-3abffb2c69f2?mode=deep",
+    "timestamp": "2026-01-10 19:15:18.980761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Store Access Control] At line 47, the function accesses k.storeService.OpenKVStore(ctx). Can an attacker exploit improper context handling to access the store with elevated privileges or bypass read-only restrictions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa67d145-c702-4f52-acc6-850d54492a21?mode=deep",
+    "timestamp": "2026-01-10 19:15:44.915242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: DenomAll()] [Protobuf Version Mismatch] At line 52, if the stored protobuf data uses a different version than the current code expects, can unmarshal succeed but populate fields with unexpected values, leading to incorrect query results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e059477-9217-41b1-afa7-749395160896?mode=deep",
+    "timestamp": "2026-01-10 19:16:11.406720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Input Validation] At line 21, the function calls validators.CheckDenomString(req.Denom) to validate the denom. Can an attacker craft a denom string that passes validation but contains special characters (dots, slashes) that could be exploited in downstream operations or cause unexpected behavior in the KVStore lookup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85da6d32-b31c-477a-8301-40717affadea?mode=deep",
+    "timestamp": "2026-01-10 19:16:38.501830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [TOCTOU Race Condition] Between lines 31-42 (GetDenom call) and 44-55 (GetDenomAuth call), there's a time-of-check-time-of-use gap where denom authorization could change. Can an attacker exploit this race condition by modifying DenomAuth between these calls to serve inconsistent query results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c4da143e-659c-4663-bc65-1991991238ea?mode=deep",
+    "timestamp": "2026-01-10 19:17:05.484054",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [State Inconsistency Detection] At line 57, the function checks if denom.Denom != denomAuth.Denom and returns NotFound. Can this check detect state corruption? What happens if GetDenom returns a valid denom but GetDenomAuth returns a denomAuth for a different denom due to storage corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_faf45881-0bec-4179-9126-0501d993f3a7?mode=deep",
+    "timestamp": "2026-01-10 19:17:30.354482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Missing Denom Handling] At lines 35-42, if GetDenom returns not found, the function returns codes.NotFound. However, could there be a race condition where a denom exists in DenomAuth but not in Denom storage, causing the function to return NotFound even though authorization exists? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82e17d7f-7f3d-4e6f-8680-193ab3e373b7?mode=deep",
+    "timestamp": "2026-01-10 19:17:56.006959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Function: Denom()] [Missing DenomAuth Handling] At lines 48-55, if GetDenomAuth returns not found, the function returns codes.NotFound. Can an attacker exploit this by creating a Denom without corresponding DenomAuth to cause query failures, even though the denom might be valid? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4155859-cc59-4a3f-9db6-d119ca756842?mode=deep",
+    "timestamp": "2026-01-10 19:18:18.970586",
+    "report_generated": false
   }
 ]
