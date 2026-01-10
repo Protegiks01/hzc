@@ -13048,5 +13048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16a1aafe-3972-4a09-aeeb-d696d1153526?mode=deep",
     "timestamp": "2026-01-10 08:01:54.622278",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Integer overflow] At line 48, the conversion len(gs.PoolList)+1 to uint64 is marked #nosec G115 - can an attacker provide a genesis with len(gs.PoolList) = MaxInt32, causing the +1 operation to overflow and resulting in NextPoolId = 0, breaking pool ID sequence invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fac5d7b-611b-4fa9-979a-c96da4ce8a41?mode=deep",
+    "timestamp": "2026-01-10 08:03:14.999893",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [State inconsistency] Can an attacker craft a genesis where gs.PoolsMeta.NextPoolId is deliberately set lower than the number of pools, passing validation at line 49 by exploiting integer wrapping, then allowing duplicate pool IDs to be created post-genesis? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_596a34fc-ccc3-4698-886c-6faad1d75672?mode=deep",
+    "timestamp": "2026-01-10 08:03:27.270835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Nil pointer bypass] At line 45, if gs.PoolsMeta is nil but gs.PoolList contains pools, the check at line 58-60 returns an error - can an attacker bypass this by setting PoolsMeta to a non-nil pointer with invalid NextPoolId, avoiding the nil check but corrupting state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64cbb9e9-e446-4204-9023-db32382486e9?mode=deep",
+    "timestamp": "2026-01-10 08:03:40.235519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Off-by-one error] The validation at line 49 checks if NextPoolId equals expectedNextPoolId (len+1) - can an attacker exploit an off-by-one boundary condition where NextPoolId = len(PoolList) passes due to race conditions in multi-validator validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4cfe9915-df79-4beb-a45f-d4c243a0311f?mode=deep",
+    "timestamp": "2026-01-10 08:03:53.191313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Error message information leak] The error at line 50-55 reveals exact pool count and NextPoolId values - can an attacker use this information disclosure to fingerprint validator state and plan targeted attacks during chain upgrades? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3dbe691c-deeb-4117-977a-a2437ddb78ae?mode=deep",
+    "timestamp": "2026-01-10 08:04:06.962217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Type confusion] At line 48, the comment mentions 'let is int32' but uses len() which returns int - can discrepancies between int32/int/uint64 type assumptions cause validation to pass on 32-bit systems but fail on 64-bit, creating consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb052ab3-95b9-47dc-acf5-284640a5601a?mode=deep",
+    "timestamp": "2026-01-10 08:04:21.730550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Logic bypass] The else clause at line 57-61 only checks if PoolList is empty when PoolsMeta is nil - can an attacker provide PoolsMeta with arbitrary NextPoolId > 1 but empty PoolList, bypassing sequence validation and pre-allocating pool IDs for exploit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbe77fd4-e605-426c-b485-f300cf2d1b9b?mode=deep",
+    "timestamp": "2026-01-10 08:04:37.581846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Unsigned integer underflow] If len(gs.PoolList) is 0, expectedNextPoolId becomes 1 - but what if NextPoolId is set to 0 or MaxUint64? Does the comparison at line 49 properly handle underflow/overflow in subtraction operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0885a822-df4f-4352-88a5-0be55aff6d2f?mode=deep",
+    "timestamp": "2026-01-10 08:04:54.669578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Key collision] At line 67, PoolUidsKey() is called with poolUids.PoolUid - can an attacker craft PoolUid strings with Unicode homoglyphs (e.g., 'abc-usdt' vs 'аbc-usdt' with Cyrillic 'а') that create visually identical but byte-different keys, bypassing duplicate detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa56beb6-23bc-44cc-a4a4-6f7e8dc9486f?mode=deep",
+    "timestamp": "2026-01-10 08:05:13.584538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Validation order] The CheckPoolId validation at line 73 occurs after duplicate checking - can an attacker inject duplicate invalid pool IDs that pass duplicate detection but fail individual validation, causing inconsistent error reporting across validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91b5b5c1-68b5-4cc5-a780-77d5c5efbf3d?mode=deep",
+    "timestamp": "2026-01-10 08:05:33.325848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Resource exhaustion] If gs.PoolUidsList contains millions of entries, does the poolUidsIndexMap allocation and population at lines 64-77 consume unbounded memory, enabling DoS attacks by providing genesis files that exhaust validator RAM? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d74e0dd-d96b-495e-84da-e0ac1d9cfc08?mode=deep",
+    "timestamp": "2026-01-10 08:05:53.248163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [String manipulation] Can an attacker exploit the string concatenation in PoolUidsKey() by providing PoolUid strings with embedded null bytes or newlines that create key collisions when converted to byte slices, bypassing duplicate detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c010e9ad-e18b-418f-a81a-f973d225d10a?mode=deep",
+    "timestamp": "2026-01-10 08:06:13.984226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Slice bounds] If poolUids.PoolUid is an extremely long string, can PoolUidsKey() slice operations cause out-of-bounds panics or memory corruption when converting to byte slices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_913c4098-e5ec-40ef-a28d-0725d07686b3?mode=deep",
+    "timestamp": "2026-01-10 08:06:34.606025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Case sensitivity bypass] Does PoolUidsKey() perform case-insensitive comparison? Can an attacker bypass duplicate detection by providing 'ABC-USDT' and 'abc-usdt' as separate PoolUids that map to different keys but represent the same logical pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73c2efba-381f-4624-84d4-41d2020212e4?mode=deep",
+    "timestamp": "2026-01-10 08:06:56.143436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Empty PoolUid] If poolUids.PoolUid is an empty string, does line 67 handle the empty key properly, or can it create a collision with the map's zero value, allowing multiple empty PoolUids to bypass duplicate detection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03c787d4-961e-42bd-8288-9211a1fc9e96?mode=deep",
+    "timestamp": "2026-01-10 08:07:18.538851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [State inconsistency] At line 81, GetPoolUidString(pool) derives PoolUid from pool.Coins[0] and pool.Coins[1] - can an attacker exploit coin ordering inconsistencies where 'abc-usdt' and 'usdt-abc' are treated as different PoolUids, creating orphaned pools that bypass validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07318a3e-0750-44e7-9673-129aff0077b5?mode=deep",
+    "timestamp": "2026-01-10 08:07:41.052397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Array bounds] GetPoolUidString() accesses pool.Coins[0] and pool.Coins[1] - if a malicious pool has len(pool.Coins) < 2, can this cause index out of range panics at line 81, crashing validators during genesis validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df8a22a5-4190-4657-8b72-8430c9bb1fcd?mode=deep",
+    "timestamp": "2026-01-10 08:08:04.885619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Asymmetric validation] The validation loops at lines 80-85 and 88-93 check Pool→PoolUids and PoolUids→Pool independently - can an attacker exploit timing between these checks in concurrent validation to inject orphaned entries that pass both checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_165091cb-f260-4f47-be1a-1364f4f744d2?mode=deep",
+    "timestamp": "2026-01-10 08:08:28.322068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Key derivation mismatch] At line 81, PoolUidsKey(GetPoolUidString(pool)) is called, but at line 89, PoolKey(poolUids.PoolId) is called - can inconsistencies between these key derivation functions cause mismatches where pools and poolUids reference different entries? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17711b19-87d2-4881-800b-da3fcef48512?mode=deep",
+    "timestamp": "2026-01-10 08:08:51.929690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Missing entry exploit] If a pool exists without corresponding PoolUids entry, line 83 returns an error - but can an attacker craft a genesis where PoolUids exists without a pool, bypassing the reverse check at lines 88-93 due to string key encoding differences? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a35e029-965f-45d7-9158-567e109e0eee?mode=deep",
+    "timestamp": "2026-01-10 08:09:14.636552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Error message confusion] The error at line 83 says 'missing PoolUidString' but at line 91 says 'missing PoolId' - can inconsistent error messaging cause confusion in attack attribution, making it harder to identify whether Pool or PoolUids is the source of corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df236495-bc52-4971-bf19-bc8fcde92d4c?mode=deep",
+    "timestamp": "2026-01-10 08:09:37.774176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Denom separator exploit] GetPoolUidString() concatenates pool.Coins[0].Denom + '-' + pool.Coins[1].Denom - can an attacker inject denoms containing '-' separator (e.g., 'abc-def' and 'usdt') to create ambiguous PoolUids like 'abc-def-usdt' that collide with 'abc' + 'def-usdt'? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5620409f-1795-4275-ba4d-a1ef00dd89cc?mode=deep",
+    "timestamp": "2026-01-10 08:10:01.406079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Map iteration non-determinism] Go map iteration order is non-deterministic - can the loops at lines 80 and 88 produce different validation results across validators due to map iteration randomness, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1feeb145-3b39-4a1a-a5a3-fb51efb2f5b2?mode=deep",
+    "timestamp": "2026-01-10 08:10:24.718563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Validation bypass] At line 109, CheckPoolId() validates pool ID format - can an attacker craft a pool ID that passes regex validation but contains control characters that corrupt KVStore keys when PoolKey() converts it to bytes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e497dade-6f31-41c9-a0b8-31d127ce03b6?mode=deep",
+    "timestamp": "2026-01-10 08:10:49.391838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Length exploit] CheckPoolId() enforces MinSubDenomLength and MaxSubDenomLength - can an attacker provide a pool ID at exactly the boundary values that triggers buffer overflow or integer overflow in downstream PoolKey() slice operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bac735ab-576e-4799-999d-cda994a88036?mode=deep",
+    "timestamp": "2026-01-10 08:11:14.633057",
+    "report_generated": false
   }
 ]
