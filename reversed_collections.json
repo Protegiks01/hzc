@@ -20248,5 +20248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6c8d500-efe5-4853-962f-bb0a70380e85?mode=deep",
     "timestamp": "2026-01-10 08:09:06.617814",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Denom Format] Does ValidateBasic() verify that msg.Token.Denom follows the factory denom format 'factory/{creator_address}/{subdenom}', or can an attacker mint tokens with arbitrary denom formats that bypass factory access controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0514a423-f6f6-4ec5-8f70-f69e6527825a?mode=deep",
+    "timestamp": "2026-01-10 08:10:24.296420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Block Boundary] Can an attacker submit multiple valid MsgMintAndSendTokens messages at the end of one block that pass validation, but when executed in the next block, the first message updates the minting cap, causing subsequent messages to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf479174-7802-443e-bf8f-bf2b983a0d74?mode=deep",
+    "timestamp": "2026-01-10 08:10:36.608154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [TOCTOU] Is there a Time-Of-Check-Time-Of-Use vulnerability between ValidateBasic() and the keeper's MintAndSendTokens execution where another transaction modifies the denom's minting cap or minted amount? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6f12b65-34a9-4d11-9687-220a7ddf35c5?mode=deep",
+    "timestamp": "2026-01-10 08:10:49.210677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Concurrent Validation] If multiple MsgMintAndSendTokens messages for the same denom are validated concurrently in different goroutines, can they all pass ValidateBasic() checks but collectively exceed the minting cap when executed sequentially in the same block? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e79d44ea-dfa9-4083-83be-8f18f3761e2f?mode=deep",
+    "timestamp": "2026-01-10 08:11:02.484361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Zero-Width Characters] Can an attacker inject zero-width spaces or joiners in signer, recipient, or denom fields that pass validation but cause string comparison failures in the keeper? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0248091-c945-4b0d-aea4-1f20370792a0?mode=deep",
+    "timestamp": "2026-01-10 08:11:17.321871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Homoglyph Attack] Does CheckCoinDenom() prevent homoglyph attacks where an attacker creates a denom like 'zlg' (with digit '1' instead of lowercase 'L') that looks identical to 'zig' in certain fonts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c059e08-b3c2-47ec-8f21-fe867d625b6e?mode=deep",
+    "timestamp": "2026-01-10 08:11:32.150115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [RTL Override] Can an attacker inject Right-To-Left (RTL) override characters in msg.Token.Denom that pass regex validation but display incorrectly in UIs, causing users to mint the wrong tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b48e95ff-08a9-4f2e-8d39-f63f36002f9f?mode=deep",
+    "timestamp": "2026-01-10 08:11:48.440267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Unicode Normalization] Does validators.CheckCoinDenom() at line 25 normalize unicode characters in the denomination string (NFC vs NFD), or can an attacker create visually identical denoms with different unicode representations that are treated as separate tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ae50a03-cbb6-4da6-bdfd-25f58324bed1?mode=deep",
+    "timestamp": "2026-01-10 08:12:06.058766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Base Denom] Does CheckCoinDenom() at line 25 verify that the token is a base denomination and not a sub-unit (e.g., 'uzig' vs 'zig'), ensuring consistent decimal handling in the factory module? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfda0580-6b94-432b-b2fb-963de635430e?mode=deep",
+    "timestamp": "2026-01-10 08:12:24.596963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Coin Normalization] Does ValidateBasic() normalize msg.Token.Amount to ensure consistent precision (e.g., removing trailing zeros), or can an attacker submit amounts like '1000000' and '1.000000' that are treated differently during state storage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_838e7a73-1148-4fee-b513-9458d09e935b?mode=deep",
+    "timestamp": "2026-01-10 08:12:43.900462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Multiple Denoms] Does msg.Token only contain a single denomination, or can an attacker submit a message with sdk.Coins (multiple denoms) instead of sdk.Coin, attempting to mint multiple token types in a single transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d8461287-cd22-41df-a5a7-ef6c2ef6ca1d?mode=deep",
+    "timestamp": "2026-01-10 08:13:04.470545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Message Modification] After a message passes ValidateBasic(), can any of the fields (signer, token, recipient) be modified before the keeper processes it, or are messages immutable after validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3987dbbf-9509-4186-a71a-c085998227f8?mode=deep",
+    "timestamp": "2026-01-10 08:13:25.848660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [Parameter Swap] Can an attacker swap the signer and recipient parameters when calling NewMsgMintAndSendTokens(), causing tokens to be minted by one address but sent to a different address, bypassing bank admin authorization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_462fcaea-2381-4d5a-8933-22f209396f79?mode=deep",
+    "timestamp": "2026-01-10 08:13:48.104076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Message Replay] After ValidateBasic() succeeds for a message, can an attacker replay the same message in multiple blocks to mint tokens repeatedly until the minting cap is reached, or does the keeper enforce nonce-based replay protection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9be39304-e9b1-4183-bfb0-8c293d0f78e0?mode=deep",
+    "timestamp": "2026-01-10 08:14:10.975957",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Expensive Checks Last] Is the most expensive validation (regex check in CheckCoinDenom at line 25) performed last, or can an attacker repeatedly trigger expensive validations with invalid signer addresses, causing unnecessary CPU usage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0fc4819b-a7cd-485b-b185-bd3db5dfa7fe?mode=deep",
+    "timestamp": "2026-01-10 08:14:35.505869",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Partial Validation] If CheckCoinDenom() at line 25 fails, does ValidateBasic() skip subsequent checks, or does it accumulate all validation errors before returning, potentially revealing information about valid recipient addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6323d81-8677-495d-9e60-04c63351be11?mode=deep",
+    "timestamp": "2026-01-10 08:15:00.457436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Validation Order] Does the validation order (signer at line 21, denom at line 25, amount at line 29, recipient at line 33) matter for security, or can an attacker exploit early validation failures to probe for valid denoms without revealing their address? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_891af00a-530e-4324-8012-e018c0b83794?mode=deep",
+    "timestamp": "2026-01-10 08:15:26.258522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Type Assertion] Does ValidateBasic() perform type assertions on msg.Token to ensure it's a valid sdk.Coin, or can an attacker exploit Go's type system to pass a different type that satisfies the interface? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30c91054-c08f-428d-aee0-ab7836397b03?mode=deep",
+    "timestamp": "2026-01-10 08:15:52.574918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [Nil Coin] If NewMsgMintAndSendTokens() is called with a zero-valued sdk.Coin (not nil but empty), will the Token field be properly initialized, or will it cause validation to pass with an invalid coin? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4fa3593b-49bf-46a5-9cb6-58c5ee86264a?mode=deep",
+    "timestamp": "2026-01-10 08:16:18.601030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Nil Message] If ValidateBasic() is called on a nil *MsgMintAndSendTokens pointer, will it panic with a nil pointer dereference when accessing msg.Signer at line 21, or is there a nil check at the function entry? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed7a3fa8-b809-4121-a89f-8bf569910d33?mode=deep",
+    "timestamp": "2026-01-10 08:16:44.811755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Memo Field] Does MsgMintAndSendTokens include a memo field for IBC transfers, and if so, does ValidateBasic() sanitize memo content to prevent injection of malicious IBC middleware hooks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a72d3ae6-6eac-4823-81bd-3835e081d701?mode=deep",
+    "timestamp": "2026-01-10 08:17:11.148413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Voucher Minting] Does ValidateBasic() prevent minting of IBC voucher denominations (denoms starting with 'ibc/'), or can an attacker exploit this to create fake IBC tokens without actual cross-chain backing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f58dee82-9704-4f46-8477-e72abbfd2549?mode=deep",
+    "timestamp": "2026-01-10 08:17:37.029401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Cross-Chain Mint] If msg.Recipient is an IBC address format (e.g., containing 'channel-' prefix), does ValidateBasic() reject it, or can an attacker mint tokens that are immediately transferred cross-chain, bypassing intended access controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b526a9e-a2e8-47d7-8d40-4141568173b6?mode=deep",
+    "timestamp": "2026-01-10 08:18:02.198429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [IBC Packet Wrapping] Can an attacker wrap a MsgMintAndSendTokens message inside an IBC packet and send it to another chain, attempting to mint tokens on the destination chain without proper authorization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d15d737b-4fa7-4d9e-9bda-60a19a2f43d7?mode=deep",
+    "timestamp": "2026-01-10 08:18:25.993163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Governance Impact] If msg.Token.Denom is used as a governance token, can rapid minting through MsgMintAndSendTokens be used to manipulate voting power before a governance proposal expires? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfc1fc7a-a3bc-4f69-ae2b-4e0522312d8e?mode=deep",
+    "timestamp": "2026-01-10 08:18:49.312735",
+    "report_generated": false
   }
 ]
