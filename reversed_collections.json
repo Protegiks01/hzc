@@ -12898,5 +12898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87ba95b8-a357-4787-bf22-138c310ec993?mode=deep",
     "timestamp": "2026-01-10 00:05:48.984570",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: ParamsKey] [Gas price manipulation] Can an attacker modify parameters stored at ParamsKey to set gas costs to zero for wrap/unwrap operations, enabling spam attacks that overwhelm the IBC relayers with millions of free transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8075dd40-9505-463a-aa7e-a6c12c03a9af?mode=deep",
+    "timestamp": "2026-01-10 00:07:02.507078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: ParamsKey] [Parameter poisoning] Can an attacker exploit missing validation during parameter updates to store malformed protobuf data at ParamsKey that causes parsing failures and crashes whenever parameters are accessed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4e57ad8-68b1-4443-b9a7-0d44f3f83647?mode=deep",
+    "timestamp": "2026-01-10 00:07:15.107747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Constant: MemStoreKey] [Memory corruption] Can an attacker exploit the in-memory store key 'mem_tokenwrapper' to corrupt transient state during transaction processing, causing state inconsistencies that are only detected after the transaction commits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dda22690-c9dd-4d2f-abbe-cdd4d68acfaf?mode=deep",
+    "timestamp": "2026-01-10 00:07:28.820545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Constant: Version] [Version confusion] Can an attacker exploit the static Version constant 'tokenwrapper-1' to prevent version upgrades that fix critical vulnerabilities, forcing the bridge to remain on a vulnerable version indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3430b4d5-d83b-4737-abf2-7c5f14db4ce9?mode=deep",
+    "timestamp": "2026-01-10 00:07:42.091938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Constant: ModuleName] [Module impersonation] Can an attacker register a module with a similar name to 'tokenwrapper' (e.g., with Unicode lookalikes) to intercept IBC packets intended for the legitimate tokenwrapper module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59db1233-5990-4fbe-94ce-0f9869099a90?mode=deep",
+    "timestamp": "2026-01-10 00:07:57.130769",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Constant: StoreKey] [Store isolation bypass] Can an attacker exploit the fact that StoreKey equals ModuleName to confuse store isolation mechanisms and access tokenwrapper state from other modules without proper authorization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38ec2d1f-db13-4831-b3f8-266bc4b416c9?mode=deep",
+    "timestamp": "2026-01-10 00:08:12.073308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Function: KeyPrefix()] [Buffer overflow] Can an attacker pass an extremely long string to KeyPrefix() that causes a buffer overflow when converted to []byte, corrupting adjacent memory or causing a panic that crashes the validator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00038d0d-f297-4330-82e8-fc3e9b2dc0ca?mode=deep",
+    "timestamp": "2026-01-10 00:08:28.068273",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Function: KeyPrefix()] [Key enumeration] Can an attacker exploit predictable key prefix generation in KeyPrefix() to enumerate all stored values by iterating through common string patterns, exposing sensitive operator addresses or IBC channel configurations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fe83b417-f9d2-4397-a82b-9f879ba5402b?mode=deep",
+    "timestamp": "2026-01-10 00:08:45.947572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Function: KeyPrefix()] [Prefix injection] Can an attacker exploit the KeyPrefix() function by passing a string containing null bytes or special characters to create key collisions with existing store keys, enabling unauthorized state overwrites? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f73ff4d-3bc2-4329-a5cb-cb8ca07fdc5e?mode=deep",
+    "timestamp": "2026-01-10 00:09:04.472646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: EnabledKey, PauserAddressesKey] [Logic bypass] Can an attacker exploit the ordering of EnabledKey and PauserAddressesKey checks to craft a transaction that disables the bridge before pauser validation occurs, bypassing pauser-only restrictions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_413faa0f-b509-477e-8298-e403460b4b6e?mode=deep",
+    "timestamp": "2026-01-10 00:09:23.480902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: PauserAddressesKey] [Pauser list overflow] Can an attacker exploit unbounded growth of the PauserAddressesKey array to add millions of addresses, causing gas exhaustion during pauser validation checks that DoS all bridge operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ab50eca-9579-45ee-8cac-c0e456598625?mode=deep",
+    "timestamp": "2026-01-10 00:09:43.606480",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: ProposedOperatorAddressKey] [Proposal hijacking] Can an attacker clear ProposedOperatorAddressKey immediately after it's set to prevent legitimate operator transitions, permanently locking control with a compromised operator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8398ea31-f6c0-4f0c-aca2-58e90f9e348b?mode=deep",
+    "timestamp": "2026-01-10 00:10:04.816783",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: OperatorAddressKey] [Operator impersonation] Can an attacker exploit the lack of address format validation in OperatorAddressKey storage to inject a malformed address that the keeper accepts but cannot properly validate, bypassing operator-only restrictions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_effe1b1c-8883-447a-a39f-452ad2fabc99?mode=deep",
+    "timestamp": "2026-01-10 00:10:27.046606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DenomKey, DecimalDifferenceKey] [Inconsistent state] Can an attacker create a state inconsistency where DenomKey points to one token but DecimalDifferenceKey contains the decimal difference for a different token, causing incorrect conversions that violate token conservation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5bf09fd3-646f-4c34-8f85-6a8970b1fb20?mode=deep",
+    "timestamp": "2026-01-10 00:10:49.588543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DecimalDifferenceKey] [Negative decimals] Can an attacker exploit the absence of bounds checking to set DecimalDifferenceKey to a negative value stored as a signed integer, causing reverse scaling that duplicates tokens instead of converting them? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_714f13aa-1902-48cf-94dd-940fb6620f27?mode=deep",
+    "timestamp": "2026-01-10 00:11:13.105369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DecimalDifferenceKey] [Overflow attack] Can an attacker set DecimalDifferenceKey to an extremely large value (e.g., 255) that causes integer overflow in decimal conversion calculations, minting unlimited tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a725b42-2b20-4b67-a0ad-c823ff51d691?mode=deep",
+    "timestamp": "2026-01-10 00:11:37.280712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: DecimalDifferenceKey] [Precision manipulation] Can an attacker modify DecimalDifferenceKey to set an incorrect decimal difference value that causes the 10^12 scaling factor to become 10^11 or 10^13, resulting in massive token duplication or permanent token loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14b3c970-1449-4537-adb4-47ed6754f0d7?mode=deep",
+    "timestamp": "2026-01-10 00:12:01.380139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: All IBC keys] [Channel binding attack] Can an attacker pre-populate all IBC-related store keys (client, port, channel) before the bridge is properly initialized to bind the bridge to attacker-controlled IBC endpoints? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d7815ae-688c-4fc8-a353-647c88392b83?mode=deep",
+    "timestamp": "2026-01-10 00:12:27.858157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [IBC Version constant] [Version downgrade] Can an attacker exploit the hardcoded Version constant 'tokenwrapper-1' to force version negotiation downgrades that enable deprecated IBC features with known vulnerabilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05f6f053-afe2-4b9f-b369-28536bb18205?mode=deep",
+    "timestamp": "2026-01-10 00:12:50.924269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: NativeChannelKey, CounterpartyChannelKey] [Channel replay] Can an attacker exploit the immutability of channel keys to prevent channel updates after a security compromise, forcing the bridge to continue using a compromised IBC channel indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca573b0e-a6df-4506-b7c2-f19d202fabb3?mode=deep",
+    "timestamp": "2026-01-10 00:13:15.988152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: NativePortKey, CounterpartyPortKey] [Port hijacking] Can an attacker overwrite NativePortKey or CounterpartyPortKey with a malicious port ID to redirect IBC packets to an attacker-controlled module that steals wrapped tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d1fc5ef-0f28-46fc-be74-99fc85394441?mode=deep",
+    "timestamp": "2026-01-10 00:13:40.406447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: NativeClientIdKey, CounterpartyClientIdKey] [IBC client spoofing] Can an attacker exploit insufficient validation when these client ID keys are written to the store to inject a malicious IBC client ID that routes all cross-chain transfers through an attacker-controlled relayer? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63d39479-2e20-437d-8d80-7c78968fc8cb?mode=deep",
+    "timestamp": "2026-01-10 00:14:02.775743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: PauserAddressesKey] [Array corruption] Can an attacker directly modify the serialized byte array stored at PauserAddressesKey to inject their own address without proper validation, gaining pauser privileges to DoS the bridge? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_953d1958-7ed3-41ed-9fb9-16ab4b778247?mode=deep",
+    "timestamp": "2026-01-10 00:14:25.358321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: EnabledKey] [Boolean bypass] Can an attacker exploit the byte representation of the boolean value stored at EnabledKey to set it to a non-zero, non-one value that keeper code misinterprets as enabled when it should be disabled? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e835e326-9f24-430b-9025-c42938809a32?mode=deep",
+    "timestamp": "2026-01-10 00:14:48.511805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/types/keys.go] [Store Keys: TotalTransferredInKey, TotalTransferredOutKey] [State corruption] Can an attacker with validator privileges directly manipulate the byte values stored at TotalTransferredInKey to artificially inflate transfer counts, causing the module to falsely believe more tokens have been transferred than actually exist? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6b27cda-b18e-40b5-83cc-4c17f8ceecd8?mode=deep",
+    "timestamp": "2026-01-10 00:15:13.105141",
+    "report_generated": false
   }
 ]
