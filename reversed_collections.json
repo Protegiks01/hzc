@@ -15148,5 +15148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a5e2788-d445-4aa8-a2fa-1940a0d39514?mode=deep",
     "timestamp": "2026-01-10 02:30:12.721689",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Access control bypass] Does the operator check at line 17 properly handle case sensitivity, or can an attacker use mixed-case versions of the operator address to bypass authorization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49fd151c-423b-431d-859d-0245cc92fb96?mode=deep",
+    "timestamp": "2026-01-10 02:31:25.496961",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Access control bypass] Can an attacker exploit Unicode normalization differences between msg.Signer and currentOperator to bypass the string equality check at line 17 (e.g., using lookalike characters or combining characters)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b6fe711c-8f93-4ba5-93e8-ac1d3ff3c344?mode=deep",
+    "timestamp": "2026-01-10 02:31:37.870093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Access control bypass] If GetOperatorAddress() returns an empty string when no operator is set, does the string comparison at line 17 fail securely, or can an attacker with an empty signer field bypass the operator check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92af7122-023d-4119-bd3c-3f2b8daf0bc9?mode=deep",
+    "timestamp": "2026-01-10 02:31:50.628992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Access control bypass] Can an attacker exploit a race condition between GetOperatorAddress() call and the authorization check where the operator address is changed mid-execution via a concurrent transaction, allowing unauthorized pauser additions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d7a9811-7406-443c-90dd-64ecd2bd6e1d?mode=deep",
+    "timestamp": "2026-01-10 02:32:03.711544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Critical Integration] Can the lack of any cooldown period or governance oversight on ProposeOperatorAddress() allow instant operator transfers that bypass security monitoring and incident response procedures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_220314e5-33d6-4b44-b4dd-0f39844ef0c1?mode=deep",
+    "timestamp": "2026-01-10 02:32:17.618741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Critical Integration] Given that operator controls ALL critical bridge parameters (IBC settings, decimal conversion, module wallet, pausers, enabled state), can a compromised operator use ProposeOperatorAddress() as the last step in a multi-stage attack to transfer control to an accomplice after setting up malicious configurations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3be50f4-2c5f-4b1a-8aa9-8af44a689502?mode=deep",
+    "timestamp": "2026-01-10 02:32:32.823986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Edge Case] If newOperator.String() at line 29 returns an empty string due to nil pointer or other error, does the comparison incorrectly allow proposing the 'same' operator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c1878de-1018-418f-b092-b8db841269f9?mode=deep",
+    "timestamp": "2026-01-10 02:32:48.131165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Edge Case] What happens if GetOperatorAddress() returns a malformed address string and msg.Signer is empty or malformed - does the comparison at line 18 have undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_75a2e67c-c730-4411-b9d6-da293e7e2a5d?mode=deep",
+    "timestamp": "2026-01-10 02:33:05.413692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Social Engineering] Can the operator propose multiple addresses claiming 'testing' or 'backup operator setup', then have an accomplice claim one of these addresses while others remain proposed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab40c79e-05eb-4601-9c4b-0fc656d85636?mode=deep",
+    "timestamp": "2026-01-10 02:33:24.083470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Social Engineering] Can a malicious operator propose a legitimate-looking address (similar to a known good address), then social engineer or trick that address owner to claim the role, effectively maintaining control through a puppet operator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3558482-dd37-433c-90e2-c1910ab75ae3?mode=deep",
+    "timestamp": "2026-01-10 02:33:43.130765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Detection Evasion] Does the event at line 37 provide enough information for off-chain systems to detect suspicious patterns like repeated operator proposals or proposals to suspicious addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae96cbf6-36aa-44fe-a055-13bd34b12ae7?mode=deep",
+    "timestamp": "2026-01-10 02:34:03.296119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Detection Evasion] Can a malicious operator propose multiple different addresses in quick succession, making it difficult for monitoring systems to track which address should actually claim the operator role? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77afbe97-3ea8-42a4-b526-538332faf97a?mode=deep",
+    "timestamp": "2026-01-10 02:34:25.302983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Time-Based Attack] Can an operator propose a new address, then delay having that address claim the role indefinitely, maintaining plausible deniability for malicious actions ('I already proposed the transfer but they haven't claimed')? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a80c1eaa-0afb-4ce3-b929-0273e63f02f7?mode=deep",
+    "timestamp": "2026-01-10 02:34:47.013154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Time-Based Attack] Since there's no expiration on proposed operator addresses, can an attacker who briefly gains control of the operator key propose themselves, lose control, then wait months/years for another opportunity to claim the role? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1bcc09bc-a042-4b4c-89c6-0fa97aac5a4f?mode=deep",
+    "timestamp": "2026-01-10 02:35:10.601485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Recovery Exclusion] Can an operator propose a colluding address, have them claim operator role, use RecoverZig() on the old operator address (which is no longer the operator), draining tokens that should be locked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a279ee7-e4ff-4e02-9246-553affe35c19?mode=deep",
+    "timestamp": "2026-01-10 02:35:35.024121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Recovery Exclusion] Since RecoverZig() checks the operator address to prevent operator recovery, can a malicious operator propose themselves as the new operator (circumventing the same-address check somehow), claim it, then use RecoverZig() by temporarily not being the operator during proposal window? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e101add8-f279-4e84-b719-f56ca3ab3b18?mode=deep",
+    "timestamp": "2026-01-10 02:35:59.521762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Module Wallet] If the operator maliciously underfunds the module wallet, then proposes a new operator, can the new operator be blamed for bridge failures that were actually caused by the previous operator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1beaffff-5c5e-4276-a880-7b1a07ca0a6a?mode=deep",
+    "timestamp": "2026-01-10 02:36:24.845401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Module Wallet] Can the operator drain the module wallet entirely via WithdrawFromModuleWallet, then call ProposeOperatorAddress() to transfer blame, leaving the bridge inoperable for all users? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ae99bbc-ff55-4ea6-865e-cf64c6f7e0d6?mode=deep",
+    "timestamp": "2026-01-10 02:36:50.158428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [IBC Security] Since the operator controls decimal conversion settings, can they propose a transfer, update decimal difference from 12 to 0 (or other value), then claim on the new address, causing conversion errors in active IBC transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_819be9a5-dc63-404b-a050-3f6908ec37c3?mode=deep",
+    "timestamp": "2026-01-10 02:37:15.009329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [IBC Security] Can a malicious operator propose a new address, then manipulate IBC settings via UpdateIbcSettings to enable cross-chain token duplication before the new operator claims the role? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d148ccf-2ba4-4af3-a8ed-6c8f62f906e9?mode=deep",
+    "timestamp": "2026-01-10 02:37:40.927433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [IBC Security] If the operator changes during an active IBC transfer, can this create inconsistencies in how IBC callbacks are handled, potentially causing token loss or duplication? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f2c0a45-47ad-425b-b4fb-2346c21d0ff1?mode=deep",
+    "timestamp": "2026-01-10 02:38:04.854578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Validation Bypass] Can an attacker bypass the check at line 29 by repeatedly calling ProposeOperatorAddress() with slightly modified versions of the current operator address that fail string equality but represent the same account? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cd3095e-dd16-4bb1-8d32-db03b33f73d9?mode=deep",
+    "timestamp": "2026-01-10 02:38:29.220905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Validation Bypass] Does ValidateBasic() on MsgProposeOperatorAddress check that msg.Signer != msg.NewOperator before reaching the handler, or can unnecessary state reads occur for invalid transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f417ae2-a0a5-495e-95d1-c7cccdbcb3bb?mode=deep",
+    "timestamp": "2026-01-10 02:38:53.585592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Concurrency] Can race conditions between ProposeOperatorAddress() and other operator functions (like UpdateIbcSettings) cause inconsistent state where the operator changes mid-operation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40bd52bf-6fd5-4070-973f-52eb9fc1011c?mode=deep",
+    "timestamp": "2026-01-10 02:39:19.099676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Concurrency] If multiple ProposeOperatorAddress() transactions from the legitimate operator are in the mempool, can validators selectively include only one to prevent the intended operator transfer? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7e134c9-cf05-43e1-b9c7-bd1b302439ba?mode=deep",
+    "timestamp": "2026-01-10 02:39:44.449654",
+    "report_generated": false
   }
 ]
