@@ -15148,5 +15148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9690a9ee-00b6-4102-9684-276a9be25e51?mode=deep",
     "timestamp": "2026-01-10 13:11:59.351500",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidSigner] [Multi-sig exploit] In multi-signature scenarios, does ErrInvalidSigner properly validate all signers in a proposal message, or could an attacker include one valid gov account and one malicious account to partially bypass authorization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e582d29-eefc-4c2c-9456-284274362ee9?mode=deep",
+    "timestamp": "2026-01-10 13:13:22.362254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidSigner] [Module account confusion] Can an attacker exploit the 'expected gov account as only signer' check by using a module account that mimics the gov account address format, bypassing governance restrictions on parameter updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1334f4a1-400e-4084-afa4-71da85c0979b?mode=deep",
+    "timestamp": "2026-01-10 13:13:34.626509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolNotFound] [Race condition] Can an attacker exploit timing between pool existence checks and pool operations by triggering ErrPoolNotFound after balance transfers but before pool state updates, causing fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35dde66c-c862-4117-a8f3-b14197d7a403?mode=deep",
+    "timestamp": "2026-01-10 13:13:47.337808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolNotFound] [Pool deletion] If a pool is deleted or disabled while a swap transaction is in-flight, does ErrPoolNotFound properly trigger rollback of all state changes, or could partial execution leave funds locked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b68c8164-31f6-4351-8ac9-69e9d057f38b?mode=deep",
+    "timestamp": "2026-01-10 13:14:00.443748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolNotFound] [IBC integration] In cross-chain pool operations via IBC, can an attacker cause ErrPoolNotFound on the destination chain after tokens are locked on the source chain, resulting in permanent token lock? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1baad0bc-0b7f-4d20-9920-5fe064bab500?mode=deep",
+    "timestamp": "2026-01-10 13:14:14.961759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientBalance] [Balance manipulation] Can an attacker trigger ErrInsufficientBalance after pool reserves are updated but before user balances are debited, causing pool state corruption where reserves reflect a swap that never completed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16e4b5a4-46e9-4f9e-bc49-147ee0b15d7c?mode=deep",
+    "timestamp": "2026-01-10 13:14:30.770463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientBalance] [Concurrent swaps] In concurrent swap operations, could race conditions between balance checks and ErrInsufficientBalance error returns allow double-spending where both swaps pass balance checks but one fails later? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ed89c26-a1c3-4097-adee-7a0993d11abd?mode=deep",
+    "timestamp": "2026-01-10 13:14:46.607927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientBalance] [LP token burning] When removing liquidity, does ErrInsufficientBalance properly distinguish between insufficient LP tokens and insufficient pool reserves, or could this confusion allow partial liquidity removal attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b57d9016-d308-4ab1-8f59-222697d36e64?mode=deep",
+    "timestamp": "2026-01-10 13:15:04.004636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientBalance] [Module balance] Can an attacker exploit ErrInsufficientBalance in module-to-module transfers to detect and exploit critical low-balance conditions in the DEX module account? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ead3cf97-44fd-40a4-b211-7b142cbb7f9a?mode=deep",
+    "timestamp": "2026-01-10 13:15:22.719990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidAmount] [Zero amount bypass] Does ErrorInvalidAmount catch all zero-amount attacks, or could an attacker send zero-amount liquidity additions that pass some validation checks but fail others, causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65b9f113-9ced-47ef-9a10-5760309fac6e?mode=deep",
+    "timestamp": "2026-01-10 13:15:41.298563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidAmount] [Negative amounts] Can an attacker exploit integer underflow to create negative amounts that bypass ErrorInvalidAmount checks in certain code paths, allowing extraction of value from pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4907852-b932-4fc0-ba62-859f45464708?mode=deep",
+    "timestamp": "2026-01-10 13:16:00.469881",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidAmount] [Maximum amount] Does ErrorInvalidAmount validate against maximum safe amounts, or could an attacker provide amounts near uint256 max that cause overflow in subsequent calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76ed9d39-eb2f-472b-a7ca-58254d86cb11?mode=deep",
+    "timestamp": "2026-01-10 13:16:21.677117",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidAmount] [Fee validation] In params.go, ErrorInvalidAmount is used for pool fee validation - can an attacker exploit edge cases where fees equal the scaling factor to cause division-by-zero or overflow errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4066f760-2733-40b5-947d-ad0367ff3c27?mode=deep",
+    "timestamp": "2026-01-10 13:16:43.448367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidReceiver] [Address validation bypass] Does ErrorInvalidReceiver properly validate all receiver address formats (Bech32, module accounts, IBC accounts), or could an attacker use a malformed address that passes some checks but fails others? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7fb330da-1392-4199-b2aa-9987dde38394?mode=deep",
+    "timestamp": "2026-01-10 13:17:05.522440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidReceiver] [Zero address] Can an attacker specify a zero address or burn address as receiver to trigger ErrorInvalidReceiver after tokens are already transferred, causing permanent token loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f1e0732-8d46-420a-9573-0fef3ba5c46a?mode=deep",
+    "timestamp": "2026-01-10 13:17:29.526708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrorInvalidReceiver] [Contract receiver] If the receiver is a smart contract address, does ErrorInvalidReceiver validation account for contract execution failures that could brick funds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c015501d-3efb-4516-8beb-bb2d88adfd28?mode=deep",
+    "timestamp": "2026-01-10 13:17:54.056942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolAccountNotFound] [Account creation race] Can an attacker trigger ErrPoolAccountNotFound by racing pool creation with pool operations, causing funds to be sent to a pool before its account exists? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad16a2af-81c8-442c-8eca-f2ba711fd2c3?mode=deep",
+    "timestamp": "2026-01-10 13:18:19.388935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolAccountNotFound] [Account deletion] If a pool account is somehow deleted or overwritten, does ErrPoolAccountNotFound trigger proper cleanup, or are pool funds permanently locked? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcbd41d1-bfe7-4049-bb33-4fe38b5870b1?mode=deep",
+    "timestamp": "2026-01-10 13:18:46.073188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrPoolAccountNotFound] [Module account conflicts] Can an attacker exploit the distinction between ErrPoolAccountNotFound and successful pool account retrieval to detect pools that have been compromised or improperly initialized? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc81c71b-38ee-4729-bdd2-205b91162dfb?mode=deep",
+    "timestamp": "2026-01-10 13:19:13.587403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrNonPositiveAmounts] [Initial creation bypass] During initial pool creation, does ErrNonPositiveAmounts catch all edge cases where one amount is positive but effectively zero after decimal conversion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_caf1696f-0512-46a9-93b4-762f32340ad9?mode=deep",
+    "timestamp": "2026-01-10 13:19:41.036643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrNonPositiveAmounts] [Rounding to zero] Can an attacker provide amounts that are positive in raw form but round to zero in the integer square root calculation, bypassing ErrNonPositiveAmounts but causing invalid pool states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66b226bf-d862-42d9-8721-ae3160e5dc0d?mode=deep",
+    "timestamp": "2026-01-10 13:20:08.685165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrNonPositiveAmounts] [Quote vs Base] Does ErrNonPositiveAmounts validate both base and quote amounts independently, or could an attacker provide one valid and one invalid amount that passes validation due to logical OR errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e020899-9ae9-427f-aec4-e78179d65cef?mode=deep",
+    "timestamp": "2026-01-10 13:20:35.842716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientLiquidityLock] [Minimal lock bypass] Can an attacker create pools with LP amounts exactly equal to the minimal lock (1000) to bypass ErrInsufficientLiquidityLock while still enabling share inflation attacks through rounding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf91ba58-d57d-4800-a239-cc28124bcbb1?mode=deep",
+    "timestamp": "2026-01-10 13:21:03.658648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientLiquidityLock] [Parameter manipulation] If governance changes MinimalLiquidityLock parameter, does ErrInsufficientLiquidityLock apply retroactively to existing pools, or can old pools with insufficient locks be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a861c220-cd85-45e7-9fb0-c5dc72366d6a?mode=deep",
+    "timestamp": "2026-01-10 13:21:31.700698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientLiquidityLock] [Integer overflow] Can an attacker provide base and quote amounts that overflow during product calculation, causing integer square root to return a value less than minimal lock, triggering ErrInsufficientLiquidityLock incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_471bd2aa-4ad2-4ff7-8362-2e641becfdf5?mode=deep",
+    "timestamp": "2026-01-10 13:21:57.630226",
+    "report_generated": false
   }
 ]
