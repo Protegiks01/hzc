@@ -28348,5 +28348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_faf45984-e4df-4f4d-bb5a-f38bb45710ca?mode=deep",
     "timestamp": "2026-01-10 17:11:35.560090",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Determinism] Is the order of denoms returned by this query deterministic across all nodes, or could different nodes return different orderings causing consensus issues if this query is used in transaction validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e35c77d5-c91c-446b-9d2d-89de22b05320?mode=deep",
+    "timestamp": "2026-01-10 17:12:59.999335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Protocol] Does this query participate in any IBC query routing, and if so, could a malicious relayer intercept or modify query requests to gather intelligence on cross-chain token ownership? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb7b4428-73b7-4dc1-92d9-2a8b9ab2c270?mode=deep",
+    "timestamp": "2026-01-10 17:13:12.416412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Callback safety] Can the callback function be called with nil key or value parameters if the store data is corrupted, and would string(key) on nil key cause unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9c7420a-5952-4813-be39-840ccc1111a6?mode=deep",
+    "timestamp": "2026-01-10 17:13:25.059256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Callback safety] In the query.Paginate callback function, if appending to paginatedDenoms causes a slice reallocation panic due to memory constraints, is this panic recovered or does it crash the query handler? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_467e473f-d477-44d4-8b3d-7cd1ea8393ec?mode=deep",
+    "timestamp": "2026-01-10 17:13:38.387932",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] Does the function handle the case where req.Admin contains uppercase letters in a bech32 address, which should be invalid, or does it query with the invalid address and return empty results that could confuse clients? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a30f2ab-57fa-41db-8ea4-6fda6b705562?mode=deep",
+    "timestamp": "2026-01-10 17:13:52.148071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] Can an attacker supply req.Admin with trailing or leading whitespace that gets trimmed differently at different layers, causing cache poisoning or inconsistent query results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ac7d720-7b24-40dd-8f8b-d9e9851a7376?mode=deep",
+    "timestamp": "2026-01-10 17:14:07.075204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input validation] Does the function validate that req.Admin is not a system reserved address (e.g., module accounts, burn address), or can querying these addresses reveal sensitive system state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ad7f693-0f82-4a7f-bf35-ac6444e2378c?mode=deep",
+    "timestamp": "2026-01-10 17:14:23.424030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Byzantine] Can a Byzantine validator selectively omit certain denoms from the response to hide evidence of malicious token creation or admin manipulation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fec3e571-c24f-4610-84e3-30dfd0ab8e1d?mode=deep",
+    "timestamp": "2026-01-10 17:14:40.606544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Byzantine] Could a Byzantine validator intentionally return fabricated denom lists for queries to mislead clients about token ownership, and is there any mechanism to verify query response authenticity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_762c1e6e-d8a8-4d30-89d3-8ded81d77a95?mode=deep",
+    "timestamp": "2026-01-10 17:14:58.784331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Key format] If the delimiter used in AdminDenomAuthListKey is changed in a future upgrade without migrating existing data, could queries return incomplete or incorrect results due to key format mismatch? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7271d59a-a756-4fd5-80e4-df88790f864f?mode=deep",
+    "timestamp": "2026-01-10 17:15:18.153958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Namespace collision] Does AdminDenomAuthListKey ensure proper namespace separation between different admins, or can two similar admin addresses (e.g., 'admin' and 'admin2') have overlapping key prefixes that cause cross-contamination? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_355d0b75-5dbc-4902-8863-2d8b848553c4?mode=deep",
+    "timestamp": "2026-01-10 17:15:38.319574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Edge case] If an admin owns exactly one denom and pagination.Limit is set to 1, does pagination.NextKey correctly indicate that no more results exist, or could this cause infinite pagination loops in clients? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09ee8e70-8357-418f-ad0d-f5512650a3a6?mode=deep",
+    "timestamp": "2026-01-10 17:16:00.362563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Edge case] Can pagination with Reverse=true cause the query to return denoms in unexpected order that violates client assumptions about denom ordering, potentially breaking client-side logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e02fef1e-d437-4fc7-8909-6078ed6a0c51?mode=deep",
+    "timestamp": "2026-01-10 17:16:23.249820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Edge case] When CountTotal is true but the admin has no denoms, does pagination.Total correctly return 0, or could there be an off-by-one error in the counting logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14742e41-0f19-4bd4-8114-8f7efacd133e?mode=deep",
+    "timestamp": "2026-01-10 17:16:46.658624",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Edge case] What happens when an admin has exactly zero denoms - does the function return an empty list with nil pagination, or could this cause the pagination response to be malformed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21ce43ef-4019-44e7-907b-5d8434fdd861?mode=deep",
+    "timestamp": "2026-01-10 17:17:10.759724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Cross-module] If the factory module's store is corrupted by bugs in other modules sharing the same store service, could this query return incorrect or malicious denom lists that propagate the corruption to clients? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82b1f73a-25cd-4e64-9d87-ea2677c8462f?mode=deep",
+    "timestamp": "2026-01-10 17:17:34.645630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Cross-module] Can an attacker use information from this query (e.g., list of denoms owned by an admin) to prepare targeted attacks on other modules like DEX or TokenWrapper by front-running transactions after discovering admin token portfolios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4653a6ff-a347-444b-b329-7012e59ebf86?mode=deep",
+    "timestamp": "2026-01-10 17:18:01.191655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store adapter] Can the prefix.NewStore operation fail silently if the storeAdapter or prefix key is malformed, returning a store that reads from incorrect locations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_568f2843-04e0-4031-90ca-70abcded8d64?mode=deep",
+    "timestamp": "2026-01-10 17:18:26.058256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store adapter] Does runtime.KVStoreAdapter properly handle the case where k.storeService.OpenKVStore(ctx) returns an invalid store, or could this cause undefined behavior when creating the prefix store? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa3cbea1-9201-49a4-b023-93bb4d0dc36e?mode=deep",
+    "timestamp": "2026-01-10 17:18:51.596541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Response size] Is there a maximum size limit on the response message, or can an attacker request a pagination limit that causes the response to exceed gRPC message size limits, causing connection failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b0b1754-bc17-488e-8bf5-99c472a6535a?mode=deep",
+    "timestamp": "2026-01-10 17:19:16.106752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Memory exhaustion] Does appending to paginatedDenoms slice have bounded memory growth, or can an attacker with millions of denoms cause the slice to grow unboundedly and exhaust node memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77d4096b-17d6-4383-8b3c-bfa1203bd952?mode=deep",
+    "timestamp": "2026-01-10 17:19:39.651859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Context timeout] Can an attacker submit queries that take longer than the context timeout to execute, causing repeated timeout errors and wasted resources as the node repeatedly attempts to service these queries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be8d8c5f-58e8-45cc-bb31-1f0d7a7658cd?mode=deep",
+    "timestamp": "2026-01-10 17:20:02.698811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Context cancellation] If the ctx context is cancelled mid-query (e.g., due to client disconnect), does the function handle this gracefully or could it leave store iterators open or in an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc470e6e-107f-4b9c-9a6f-14d1f7efe125?mode=deep",
+    "timestamp": "2026-01-10 17:20:26.231171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Iterator bounds] Can an attacker craft pagination keys that cause the iterator to read beyond the intended prefix bounds, potentially exposing denoms from other admins or other store namespaces? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcfecd3f-8bd4-4e69-be59-171ee8a44ff5?mode=deep",
+    "timestamp": "2026-01-10 17:20:49.306183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Iterator leak] If the pagination callback function returns an error, does query.Paginate guarantee that the store iterator is closed, or could this leak iterators and cause resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd7ffb1b-cbaa-46c6-a240-1996a3afd34a?mode=deep",
+    "timestamp": "2026-01-10 17:21:11.958989",
+    "report_generated": false
   }
 ]
