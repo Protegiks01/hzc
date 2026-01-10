@@ -26698,5 +26698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28a066d0-6e3a-4528-a058-1f93d4788dd7?mode=deep",
     "timestamp": "2026-01-10 15:05:36.757449",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Case Sensitivity] If Bech32 address comparison at line 42 is case-sensitive but address validation at line 37 normalizes case, can an attacker propose the same address with different casing to bypass the duplicate check? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b06fed1c-9c0d-4367-a29f-ca450c832ffd?mode=deep",
+    "timestamp": "2026-01-10 15:07:00.093003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Unicode Bypass] Can an attacker use Unicode homoglyphs or zero-width characters in the BankAdmin address string to bypass the duplicate check at line 42 while appearing different to users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_deb31ac4-caa4-450e-a7f1-612d944d0e06?mode=deep",
+    "timestamp": "2026-01-10 15:07:12.519738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Type Confusion] Can an attacker exploit type confusion between string comparison at line 42 and address validation at line 37 by proposing an address that's equal as a string but different as a decoded address? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f39e92c1-ea8e-418b-bc5d-c44af50650ac?mode=deep",
+    "timestamp": "2026-01-10 15:07:25.648985",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Validation Bypass] The function only validates BankAdmin address at line 37 but not MetadataAdmin - can an attacker set MetadataAdmin to a malformed address that passes the ValidateBasic() check but causes issues during ClaimDenomAdmin? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3d46082-7fce-42c7-9dc1-fb90c9cb35e9?mode=deep",
+    "timestamp": "2026-01-10 15:07:38.875151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Sequencing] If two ProposeDenomAdmin transactions for the same denom are in the mempool with different gas prices, can the higher gas transaction execute second and overwrite the first, despite being submitted later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df4668a7-4c68-48a4-b475-e89b257f6fbe?mode=deep",
+    "timestamp": "2026-01-10 15:07:52.929318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Back-Running] Can an attacker monitor successful ProposeDenomAdmin transactions and immediately send another proposal transaction in the next block, preventing the proposed admin from claiming by overwriting the proposal? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c33c739-bac7-49cd-8ae6-0317762c1192?mode=deep",
+    "timestamp": "2026-01-10 15:08:08.237142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Transaction Atomicity] If ProposeDenomAdmin and ClaimDenomAdmin transactions for the same denom are in the same block, does the transaction ordering guarantee proper state transitions or can it cause the claim to succeed before the proposal? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2bea432-b0e2-412b-8f79-55fa3869500d?mode=deep",
+    "timestamp": "2026-01-10 15:08:23.947073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Front-Running] Can an attacker monitor the mempool for ProposeDenomAdmin transactions and front-run them with MintAndSend transactions using the current admin privileges before the admin change completes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eafb76b6-f19d-4d0d-989b-0746e449b0e2?mode=deep",
+    "timestamp": "2026-01-10 15:08:41.573857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [MEV] Can a validator or block proposer exploit transaction ordering by seeing a ProposeDenomAdmin transaction in the mempool and front-running it with their own proposal, stealing admin rights? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_229bfc70-4d96-4a6a-96f4-0e9a5603968e?mode=deep",
+    "timestamp": "2026-01-10 15:09:00.944407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Module Account] Can an attacker propose a module account address as BankAdmin, which passes validation at line 37, but causes privilege escalation issues when that module account claims admin and gains minting powers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0484cc31-1ed3-488d-bae5-033979553100?mode=deep",
+    "timestamp": "2026-01-10 15:09:20.759388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Event Ordering] If multiple modules listen to the EventDenomAuthProposed event emitted at line 61, can event processing race conditions cause modules to have inconsistent views of who the proposed admin is? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22e49f9d-603d-489c-ad34-25d3a2e37274?mode=deep",
+    "timestamp": "2026-01-10 15:09:41.538185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Bank Module] Does the proposed admin change properly synchronize with the Cosmos SDK bank module's internal state, or can there be desynchronization between factory module admin and bank module permissions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47828fc7-6aba-4314-8237-746f24b6a1ad?mode=deep",
+    "timestamp": "2026-01-10 15:10:02.052768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [IBC Interaction] If the denom is an IBC voucher denom, can proposing a new admin interfere with IBC packet processing or token unwrapping operations in the TokenWrapper module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e57db08a-f0c3-4538-a245-b9827b9d5073?mode=deep",
+    "timestamp": "2026-01-10 15:10:24.159971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Cross-Module] If the denom being proposed is used in active DEX pools or has outstanding balances, can the admin change proposal at line 58 cause issues with other modules that cache admin information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47292154-a02e-4202-bdcb-51a28b5d5d13?mode=deep",
+    "timestamp": "2026-01-10 15:10:47.634378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [State Bloat] Since there's no cleanup mechanism for old proposals, can an attacker propose admins for thousands of denoms and never claim them, causing permanent state bloat in the ProposedDenomAuth storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f914b4bc-3907-4ef9-8144-421b2d2aec08?mode=deep",
+    "timestamp": "2026-01-10 15:11:11.987878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Gas Exploitation] Can an attacker craft a ProposeDenomAdmin message with an extremely long denom string or address that passes ValidateBasic() but causes the GetDenomAuth() call at line 19 to consume excessive gas, griefing the network? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83ee5db3-3629-4be7-b9aa-7a1892c99287?mode=deep",
+    "timestamp": "2026-01-10 15:11:36.848382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Event Spam] Can an attacker spam ProposeDenomAdmin transactions with slightly different MetadataAdmin values to generate unlimited EventDenomAuthProposed events at line 61, causing off-chain indexers and event listeners to fail? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7209c149-9cc4-4726-bc3f-49f1496941e0?mode=deep",
+    "timestamp": "2026-01-10 15:12:00.715746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Resource Exhaustion] If an attacker creates millions of denoms and then proposes admin changes for each one, can the SetProposedDenomAuth() calls at line 58 exhaust the KVStore capacity causing validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_425ca02f-ac5f-4dc2-a6a0-138ee7871393?mode=deep",
+    "timestamp": "2026-01-10 15:12:25.943929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [DoS] Can an attacker flood the network with ProposeDenomAdmin transactions for their own denoms, consuming gas and storage by creating unlimited proposal overwrites, causing validator node storage exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_75acda6a-9d2a-4c31-9b31-f180af21bde7?mode=deep",
+    "timestamp": "2026-01-10 15:12:51.821817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Error Message Leakage] The error message at line 38 includes the raw msg.BankAdmin address - can this leak sensitive information about failed admin transfer attempts to attackers monitoring chain events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b3d9d7c-2ad9-4f13-9313-d8856766f4b1?mode=deep",
+    "timestamp": "2026-01-10 15:13:18.150237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Panic Recovery] If the Auth() function at line 32 panics internally due to malformed denom or signer data, will the transaction be properly rolled back or will it leave the chain in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d423e65a-8fcb-4c2c-91ec-332aec9e9c1f?mode=deep",
+    "timestamp": "2026-01-10 15:13:44.005268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Nil Pointer] If msg is nil when passed to ProposeDenomAdmin(), will the function panic at line 21 when accessing msg.Denom, or is there nil checking at the message router level? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d084cda-fcc6-481a-bb08-a948769a73dc?mode=deep",
+    "timestamp": "2026-01-10 15:14:10.338552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Error Propagation] If GetDenomAuth() returns an error state (isFound=false) but the DenomAuth struct contains partial data, can this cause undefined behavior when the error is returned at line 24 without clearing the context? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_551b0854-21ef-4ee8-8d8d-ac30ea17fbef?mode=deep",
+    "timestamp": "2026-01-10 15:14:37.346989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Panic Handling] If the sdk.UnwrapSDKContext() call at line 16 panics due to an invalid context, will this cause the entire validator node to crash or is there proper panic recovery at a higher level? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5942d19f-f409-459e-b07b-051708a18f4b?mode=deep",
+    "timestamp": "2026-01-10 15:15:04.976519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [State Overwrite] The function does not check if an existing proposal is pending before overwriting at line 58 - can this lead to loss of legitimate proposals and confusion about who should claim admin rights? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2a0f86f-7194-492d-8d42-20a536e12ff2?mode=deep",
+    "timestamp": "2026-01-10 15:15:30.357533",
+    "report_generated": false
   }
 ]
