@@ -18898,5 +18898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b0c8e828-9f17-437d-85e7-611b3e48ca3f?mode=deep",
     "timestamp": "2026-01-10 06:30:59.927784",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Concurrent Updates] Can multiple MsgUpdateDenomURI messages for the same denom pass ValidateBasic validation concurrently, causing race conditions where the last write wins but intermediate states are inconsistent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f1c08c3-6753-469c-9064-b2bd1a3cf866?mode=deep",
+    "timestamp": "2026-01-10 06:32:17.149134",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Clear URI Logic] When URI is cleared (set to empty string), ValidateBasic skips validation at line 37. Can an attacker exploit the keeper's URIHash clearing logic at keeper lines 74-77 to cause metadata corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11296c02-bcda-407b-ae6f-df94e6ed24b9?mode=deep",
+    "timestamp": "2026-01-10 06:32:29.481627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Bank Module Integration] Does ValidateBasic coordination with the bank module's SetDenomMetaData ensure atomic updates, or can an attacker exploit partial metadata updates where URI is updated but other fields remain stale? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2011394-05ca-4984-87f9-bec6669f6e38?mode=deep",
+    "timestamp": "2026-01-10 06:32:42.164758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Metadata Inconsistency] If ValidateBasic passes at line 64 but the keeper's GetDenom check fails, can an attacker exploit this validation gap to cause state inconsistencies between the types layer and keeper layer? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_18e198f2-b359-4ee9-abc8-46df99a90be7?mode=deep",
+    "timestamp": "2026-01-10 06:32:55.686226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Keeper Authorization Bypass] ValidateBasic only checks message format but not authorization. Can an attacker pass ValidateBasic validation at line 22-65 but exploit missing authorization checks in the keeper to update URIs for denoms they don't control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_916b27bb-673d-4d23-bcaf-f5ed03b27685?mode=deep",
+    "timestamp": "2026-01-10 06:33:09.730763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [TOCTOU Race Condition] Between ValidateBasic validation at lines 22-65 and the keeper's UpdateDenomURI execution, can an attacker exploit a time-of-check-time-of-use race condition to modify denom metadata or authorization states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9b34425-216a-4e67-b492-e297f64a2e22?mode=deep",
+    "timestamp": "2026-01-10 06:33:24.500002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Partial Validation] If ValidateBasic returns an error at line 24, 34, 44, 50, or 60, are there any side effects from partial validation that leave the message in an inconsistent state exploitable in retry scenarios? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b97083ed-d795-4448-a9ce-a30d00377496?mode=deep",
+    "timestamp": "2026-01-10 06:33:40.479315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Error Wrapping] Can an attacker exploit the errorsmod.Wrapf error wrapping at lines 29, 39, 47, and 54 to inject malicious error messages that are displayed to users or logged insecurely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a3cf45a-04df-40f2-a4cf-5859666eb7d5?mode=deep",
+    "timestamp": "2026-01-10 06:33:58.426093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Error Information Leakage] Do the error messages at lines 29-34, 39-44, 47-50, and 54-60 leak sensitive information about internal state, denom structure, or validation logic that attackers can use for reconnaissance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b58b1d24-96e8-4bbf-87fe-b1c96f9e7e6b?mode=deep",
+    "timestamp": "2026-01-10 06:34:17.163085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: NewMsgUpdateDenomURI()] [Direct Struct Creation] Can an attacker bypass NewMsgUpdateDenomURI constructor by directly creating MsgUpdateDenomURI structs with uninitialized or malicious fields that skip constructor-level sanitization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52ecffd0-e6d4-4943-bb69-802dea2ff9d7?mode=deep",
+    "timestamp": "2026-01-10 06:34:36.716611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: NewMsgUpdateDenomURI()] [Parameter Order] If the parameter order in NewMsgUpdateDenomURI at line 13 is changed in a future update, can existing messages with swapped URI and URIHash values bypass validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_030fe40c-1ee6-4b08-8867-328dddc877be?mode=deep",
+    "timestamp": "2026-01-10 06:34:56.472252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: NewMsgUpdateDenomURI()] [Nil Parameter] Can an attacker pass nil pointers or null values to NewMsgUpdateDenomURI parameters at lines 13-20 that cause panic during message construction before ValidateBasic is called? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e937812e-fd48-498a-a323-01ea90b22172?mode=deep",
+    "timestamp": "2026-01-10 06:35:17.848744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Hash Encoding] Does the IsSHA256Hash validation at line 53 prevent non-hexadecimal encodings (e.g., base64) of SHA256 hashes that might be valid but inconsistent with expected format? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b726f1dc-4291-43c8-ad60-db29f20624a3?mode=deep",
+    "timestamp": "2026-01-10 06:35:38.754225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Empty Hash Allowed] When URI is provided but URIHash is empty at line 52, validation passes without requiring a hash. Can an attacker exploit this to update metadata without integrity protection, enabling later URI tampering? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_624094f9-219e-47b4-bfbb-be984fd9f1f5?mode=deep",
+    "timestamp": "2026-01-10 06:36:01.618315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Hash Collision] Can an attacker exploit SHA256 collision vulnerabilities (though computationally infeasible) by providing a colliding hash that passes validation at line 53 but points to different URI content? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5a14639-800e-4c3b-b206-55d158eef2ad?mode=deep",
+    "timestamp": "2026-01-10 06:36:25.951921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Hash Without URI] The validation at line 52 only checks URIHash format when URI is non-empty. Can an attacker provide a URIHash without a URI (empty URI) that bypasses validation entirely, causing inconsistent metadata states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8c953e9-0eb8-4315-92fe-6f3b72a8f3da?mode=deep",
+    "timestamp": "2026-01-10 06:36:50.037454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Hash Case Sensitivity] Can an attacker exploit case sensitivity in the IsSHA256Hash regex validation at line 53 by providing uppercase hexadecimal characters that pass the [a-fA-F0-9]{64} pattern but are not properly normalized in storage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f30be4ce-ace2-4155-b896-c3e48e6f6584?mode=deep",
+    "timestamp": "2026-01-10 06:37:15.893240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Hash Length] Does the IsSHA256Hash check at line 53 properly validate the exact 64-character length requirement, or can an attacker provide hashes of different lengths (e.g., 63 or 65 chars) that partially bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49a7f8b5-e39d-4bff-bebc-18beb212d132?mode=deep",
+    "timestamp": "2026-01-10 06:37:41.998106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Hash Mismatch] When both URI and URIHash are provided at lines 52-62, the validation only checks if URIHash is a valid SHA256 format but doesn't verify it matches the SHA256 of the URI. Can an attacker provide a mismatched hash to enable metadata tampering detection bypass? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a14e6bb-d4f1-4394-8dc9-72b3c801ea83?mode=deep",
+    "timestamp": "2026-01-10 06:38:07.315379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [Constants Manipulation] If MaxURILength at line 43 is changed through a governance proposal, can an attacker exploit the transition period to update URIs that violate the new length limit, causing inconsistent validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7a052fd-d457-435d-a51a-9a687a21610b?mode=deep",
+    "timestamp": "2026-01-10 06:38:31.851788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Query Parameter Injection] Can an attacker inject malicious query parameters or fragments in the URI that pass validation at line 46 but enable SSRF or parameter pollution attacks when the URI is accessed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db6da6a0-3ac9-4cc1-afc4-a0c527db1da2?mode=deep",
+    "timestamp": "2026-01-10 06:38:57.516212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Path Traversal] Does the IsURI validation at line 46 prevent path traversal sequences (../, ..\\) in the URI that could expose sensitive server files if the URI is later used in file operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28b45db5-c8e0-4df1-8077-96a577bcfaa1?mode=deep",
+    "timestamp": "2026-01-10 06:39:21.360274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Domain Spoofing] Can an attacker use internationalized domain names (IDN) or punycode in the URI that pass IsURI validation at line 46 but display as legitimate domains to deceive users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_549fd35a-d185-42cd-8a1b-44a9e916acab?mode=deep",
+    "timestamp": "2026-01-10 06:39:44.743928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Redirect] Can an attacker provide a URI that redirects to malicious content (e.g., through HTTP 302 redirects) that passes validation at line 46 but later compromises users who access the metadata? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98b96ebf-8308-439d-9fb8-49cafdf2d787?mode=deep",
+    "timestamp": "2026-01-10 06:40:08.798299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_uri.go] [Function: ValidateBasic()] [URI Whitespace] Can an attacker inject leading or trailing whitespace in the URI that passes the IsURI validation at line 46 but causes URL parsing errors or enables homograph attacks when the URI is displayed or accessed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8903fb12-e569-46de-85b1-22bbcbf6454a?mode=deep",
+    "timestamp": "2026-01-10 06:40:31.793790",
+    "report_generated": false
   }
 ]
