@@ -30598,5 +30598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25b87026-6848-43e3-8cb1-d6cad50bd692?mode=deep",
     "timestamp": "2026-01-10 19:39:32.559710",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [State sync corruption] During state sync, if GetDenom() is called before the 'Denom/value/' store section is fully synced, can it return found=false for existing denoms, causing duplicate creation attempts and state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21e2da35-f538-4e48-ae39-4f560ddbb687?mode=deep",
+    "timestamp": "2026-01-10 19:41:00.378185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Pruning vulnerability] If historical state is pruned and an IBC relayer tries to prove a past transaction using GetDenom() data from a pruned height, can this cause verification failures that lock tokens permanently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d21d593e-3003-4a7d-a9ab-9f8e2b9da00c?mode=deep",
+    "timestamp": "2026-01-10 19:41:12.685483",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Rollback inconsistency] If a block is rolled back due to consensus failure after GetDenom() was called but before the transaction completes, can the returned Denom data become stale, leading to operations based on outdated state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c6c665f-6e62-4413-8bf6-89bfd833040a?mode=deep",
+    "timestamp": "2026-01-10 19:41:25.579733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [State proof manipulation] In light client verification, if an attacker provides a fake state proof that includes malicious denom data, can GetDenom() return forged information that passes verification but allows minting fake tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_750c2ac7-41c7-4212-b53c-5333d037b7d4?mode=deep",
+    "timestamp": "2026-01-10 19:41:38.717739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Determinism violation] If two validators call GetDenom() at the same block height but one has processed additional transactions in the mempool that call SetDenom(), can they get different results (found=true vs found=false), causing consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3afe9aa6-8606-4c81-8bc9-7339d6fb6996?mode=deep",
+    "timestamp": "2026-01-10 19:41:52.493532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Timeout exploitation] If an IBC packet times out and the timeout handler calls GetDenom() to revert token state, but the denom data has changed significantly (e.g., cap increased) since packet creation, can this create inconsistency in refunded amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f3da094-7aaf-432c-9e5a-fa6f8ec01304?mode=deep",
+    "timestamp": "2026-01-10 19:42:07.600831",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [IBC acknowledgement race] If an IBC acknowledgement callback tries to call GetDenom() to update token state, but the denom was deleted between packet send and acknowledgement receipt, can the found=false result cause permanent token lock in IBC escrow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19d6f898-03c3-4fa0-9768-e7a6a0ee28ad?mode=deep",
+    "timestamp": "2026-01-10 19:42:23.421553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Cross-chain cap bypass] If GetDenom() is used to check minting caps on the source chain before IBC transfer, but the denom's MintingCap isn't synchronized across chains, can an attacker mint tokens on chain A up to cap A, then IBC transfer to chain B and mint again up to cap B, doubling the supply? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbe0baa7-5bbb-4aac-8478-2359eba33c65?mode=deep",
+    "timestamp": "2026-01-10 19:42:41.398219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [IBC voucher collision] Can an attacker create a factory denom with name 'ibc/HASH' that collides with an IBC voucher denomination, then use GetDenom() to confuse the system about which denom is being referenced, leading to cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_527b9e5c-d207-4625-981d-9b13479f5392?mode=deep",
+    "timestamp": "2026-01-10 19:43:00.681008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [IBC denom validation] When receiving IBC-transferred factory tokens, if the IBC middleware calls GetDenom() to validate the denom exists, can an attacker exploit timing where the denom is created on the source chain but GetDenom() returns found=false on the destination chain, causing locked tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35686fa7-0daf-4611-af35-ed81667d4618?mode=deep",
+    "timestamp": "2026-01-10 19:43:20.039046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Context cancellation] If the context passed to GetDenom() is cancelled or expired, does the function properly handle this, or will k.storeService.OpenKVStore(ctx) hang or panic, causing the validator to freeze? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_251cd403-2886-47c9-b0a8-b245b75fed35?mode=deep",
+    "timestamp": "2026-01-10 19:43:40.431820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Multi-store attack] Can an attacker exploit the fact that runtime.KVStoreAdapter might access a different commit multi-store than expected, causing GetDenom() to return data from a parallel chain state or test environment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_023d074a-3d41-4e73-a8fb-480deb90776e?mode=deep",
+    "timestamp": "2026-01-10 19:44:02.113119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Store branching] If GetDenom() is called within a cached/branched context (e.g., during ante handler validation), can an attacker observe the returned data without committing the context, then use this information to front-run legitimate transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6aaa177-a65f-4602-8eee-f679194d2577?mode=deep",
+    "timestamp": "2026-01-10 19:44:24.215577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Gas context attack] Can an attacker provide a context with zero gas limit to GetDenom(), causing the function to consume unbounded gas in store.Get() operations, then revert without paying gas fees, enabling DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05f3f230-668d-4b80-a6c7-806b42c2473c?mode=deep",
+    "timestamp": "2026-01-10 19:44:46.742067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Block height manipulation] If an attacker crafts a context with a manipulated block height (via IBC packet or cross-module call), can GetDenom() read denom data from a historical state where minting caps were higher, then use that stale data to mint excess tokens in the current block? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73d1d958-72e5-4788-875c-416f83355665?mode=deep",
+    "timestamp": "2026-01-10 19:45:10.864968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Malformed data injection] Can a Byzantine validator inject malformed protobuf bytes into the store via consensus manipulation, causing GetDenom()'s MustUnmarshal() to panic when honest validators try to read the data, leading to chain halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_504e980c-b641-4e55-8091-7dffe7d4562f?mode=deep",
+    "timestamp": "2026-01-10 19:45:36.138608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Custom type overflow] The Denom struct uses cosmossdk_io_math.Uint for MintingCap and Minted - if MustUnmarshal() deserializes values that overflow this type's internal representation, can this cause panic or silent corruption of the values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90ddf3f9-bc34-4217-8eff-8697024b1c7e?mode=deep",
+    "timestamp": "2026-01-10 19:46:01.037727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Unknown fields] If a future version adds new fields to types.Denom but an old node calls GetDenom(), does MustUnmarshal() properly handle unknown protobuf fields, or will it panic/fail, causing consensus divergence between old and new nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88fb7598-ca37-4dec-9f65-14259ebe4e5c?mode=deep",
+    "timestamp": "2026-01-10 19:46:26.156067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Version mismatch] If the protobuf schema for types.Denom is updated in a chain upgrade but old data remains in the store, can GetDenom()'s MustUnmarshal() fail to deserialize legacy data, causing all operations on existing denoms to panic and halt the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e116a698-3a5e-4be4-a06a-68035a1f59a3?mode=deep",
+    "timestamp": "2026-01-10 19:46:51.451657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Protobuf bomb] Can an attacker use SetDenom() to store a specially crafted protobuf message with deeply nested structures or repeated fields that, when unmarshaled by GetDenom(), causes exponential memory expansion and OOM crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8dc2921d-2ec6-4fcd-bc53-ff2d143fdbf7?mode=deep",
+    "timestamp": "2026-01-10 19:47:15.873791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [UTF-8 validation] If the denom string contains invalid UTF-8 sequences, can this cause MustUnmarshal() to panic when attempting to decode the stored protobuf data that expects valid UTF-8 strings, causing validator crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a52e084-fad6-471d-8c7d-b83573990663?mode=deep",
+    "timestamp": "2026-01-10 19:47:40.511335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Length limits] Does GetDenom() enforce any maximum length on the denom parameter? Can an attacker provide a denom string that's millions of bytes long, causing excessive memory allocation in DenomKey() and store.Get(), leading to validator OOM crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8f7b1d4-b919-4339-b4e1-9d965f645734?mode=deep",
+    "timestamp": "2026-01-10 19:48:04.697292",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Prefix traversal] If an attacker provides denom='../../othermodule/key', does the combination of prefix.NewStore() and DenomKey() properly sanitize the path, or can this allow reading arbitrary keys outside the 'Denom/value/' namespace? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0895ab0b-0eca-4feb-8481-b69734517439?mode=deep",
+    "timestamp": "2026-01-10 19:48:29.214500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Null byte injection] Can an attacker create a denom 'validtoken\\\\x00malicious' where the null byte causes DenomKey() to truncate the key prematurely in certain string operations, allowing 'validtoken' and 'validtoken\\\\x00malicious' to map to the same key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c51b74c3-dcbc-4556-8a88-1096c1095a2d?mode=deep",
+    "timestamp": "2026-01-10 19:48:54.005846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Function: GetDenom()] [Key encoding] Since DenomKey() converts denom string directly to []byte without URL encoding or escaping, can an attacker use a denom containing the byte sequence 0x2F (forward slash) to create ambiguous keys like 'token/A' + '/' vs 'token' + '/A/' that result in different logical denoms sharing the same storage key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48c82778-48d8-42fd-8d9c-3b6f0ec49b4f?mode=deep",
+    "timestamp": "2026-01-10 19:49:18.560869",
+    "report_generated": false
   }
 ]
