@@ -23848,5 +23848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ca7de04-584e-4557-b195-26a0a0d5363e?mode=deep",
     "timestamp": "2026-01-10 12:03:07.104178",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Bytes to string roundtrip] If a key is converted back to string for validation, can the roundtrip conversion (string -> bytes -> string) produce a different value than the original denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f14215df-4454-44b5-b412-1b1d80b7ac6b?mode=deep",
+    "timestamp": "2026-01-10 12:04:18.654591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [String to bytes ambiguity] Can the implicit string-to-bytes conversion lose information or introduce ambiguity that wasn't present in the original denom string, causing retrievability issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76616b31-d6e5-4218-b9f1-d4d08e6b8cba?mode=deep",
+    "timestamp": "2026-01-10 12:04:31.118357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Buffer overflow] Although Go has bounds checking, can extremely long denoms combined with append operations cause the slice to grow beyond available memory, triggering runtime panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6b4794cc-da1c-4472-b71e-1ca4707697e0?mode=deep",
+    "timestamp": "2026-01-10 12:04:44.338714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Slice aliasing] Can the returned key slice share underlying memory with input data, causing mutations after return that corrupt the key in unexpected ways? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fba41694-9d09-4058-a1a7-a7197e6e8999?mode=deep",
+    "timestamp": "2026-01-10 12:04:57.434683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Slice capacity exploit] Can an attacker exploit the append operation's capacity doubling behavior to cause excessive memory allocation by creating denoms of specific lengths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_936ebbf6-574c-41bd-bfa2-f14dae8ed139?mode=deep",
+    "timestamp": "2026-01-10 12:05:11.376776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Locale-dependent behavior] Can locale or system encoding settings on validator nodes cause []byte conversion to produce different results, breaking consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cdff5423-5de1-44ea-95a8-b56c435c35c8?mode=deep",
+    "timestamp": "2026-01-10 12:05:26.444920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Endianness issues] If validators run on different CPU architectures (big-endian vs little-endian), can this affect byte ordering in the key, causing consensus divergence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1dd5f9c-269f-4227-aaef-c50aa818161f?mode=deep",
+    "timestamp": "2026-01-10 12:05:42.627417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Non-deterministic byte conversion] Can differences in Go runtime implementations of []byte(string) conversion across validator nodes cause non-deterministic key generation, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7fe83875-8f8a-46fe-8b87-22c40bc56165?mode=deep",
+    "timestamp": "2026-01-10 12:06:00.557204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Empty component handling] In a factory denom 'coin.creator.', if the subdenom is empty (ending with '.'), does the key generation handle this edge case without creating collision-prone keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd5c514a-fe8a-495c-b21d-5ffff420a759?mode=deep",
+    "timestamp": "2026-01-10 12:06:18.709486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Minimum length boundary] For denoms at MinSubDenomLength (3 chars), can the key generation produce keys too short to be unique, increasing collision probability? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_999f0a71-f0e5-4811-a0bc-70ea146c7bbb?mode=deep",
+    "timestamp": "2026-01-10 12:06:38.094956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Maximum length boundary] At exactly MaxDenomLength (127 chars), can the addition of the '/' separator cause the total key to exceed store limits, triggering a panic or silent truncation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_decfa9f1-8bbe-495e-bf3c-101f6a6edc7b?mode=deep",
+    "timestamp": "2026-01-10 12:06:58.164658",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Index corruption] If the key is used to build secondary indexes, can key collisions corrupt these indexes, causing queries to return incorrect or incomplete results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd4dfcd5-c0ba-4daf-bfbb-25b2524e7cbc?mode=deep",
+    "timestamp": "2026-01-10 12:07:19.284721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Query result manipulation] Can an attacker create denoms that, due to key ordering, cause query results to skip or duplicate entries when paginating through GetAllDenom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fc4b8ba-0a3a-45f2-b5ff-d4c2718d66a2?mode=deep",
+    "timestamp": "2026-01-10 12:07:41.806672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Proposed admin collision] Can ProposedDenomAuthKeyPrefix keys collide with regular DenomAuth keys due to similar key generation logic, allowing unauthorized admin transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8eefc4f-e16a-4a4d-8b67-0dc2857c1369?mode=deep",
+    "timestamp": "2026-01-10 12:08:04.728122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Admin index collision] Can the AdminDenomAuthListKey (which also uses similar key structure) collide with DenomKey, causing admin lookups to return denom data or vice versa? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c64b765a-1185-4c66-b325-5483fd293900?mode=deep",
+    "timestamp": "2026-01-10 12:08:27.129164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [DenomAuth mismatch] Since genesis validation ensures every Denom has a corresponding DenomAuth, can a key collision cause a denom to be associated with the wrong admin, allowing unauthorized minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26d59a82-6289-4a36-aebb-952cfaeecc8b?mode=deep",
+    "timestamp": "2026-01-10 12:08:50.139454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Whitespace injection] Can leading or trailing whitespace in the denom string create keys that appear identical to legitimate keys but are actually different, bypassing duplicate checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3918f33e-e425-4469-9186-b16131e793ad?mode=deep",
+    "timestamp": "2026-01-10 12:09:13.078156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Control character bypass] Can an attacker use ASCII control characters (0x00-0x1F) in denoms to create keys that cause unexpected behavior in store operations or logging systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf23cadf-5740-45ab-8d9b-995b2ec12d4c?mode=deep",
+    "timestamp": "2026-01-10 12:09:36.831414",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Special character injection] Can an attacker inject special characters (like newline, carriage return, tab) in the denom string that corrupt the key structure or cause parsing errors during retrieval? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d978bbe8-a727-4939-9dc3-a2d7a39f738d?mode=deep",
+    "timestamp": "2026-01-10 12:09:59.871148",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Preimage attack] Can an attacker reverse-engineer a desired key and craft a denom string that produces it, allowing them to target and overwrite specific denom entries in the store? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec055a0e-02ef-4116-ba41-8f5c4a5a4f8a?mode=deep",
+    "timestamp": "2026-01-10 12:10:23.009739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Hash collision exploitation] If IBC denoms use hash-based identifiers, can an attacker find a factory denom whose key collides with an IBC denom's hashed key, allowing cross-module state manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12498fd2-ecbd-4b09-ab52-0c9343bf6a4b?mode=deep",
+    "timestamp": "2026-01-10 12:10:47.152912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [CheckSubDenomString bypass] Can an attacker store a denom using DenomKey that violates CheckSubDenomString rules (e.g., uppercase letters, special chars) because the key function doesn't validate the subdenom component? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8598968e-d16f-435e-95ed-9c76065e7a4b?mode=deep",
+    "timestamp": "2026-01-10 12:11:11.151289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [DeconstructDenom mismatch] Can a denom be stored with a key that DeconstructDenom cannot parse, causing GetDenom to return data that fails validation when retrieved, breaking downstream operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f37a73a2-896b-44fc-8bbf-a7e3481afd1a?mode=deep",
+    "timestamp": "2026-01-10 12:11:35.504729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Pre-validation bypass] Since DenomKey performs no validation, can an attacker call SetDenom directly (bypassing message validation) with a malformed denom string that creates an invalid but storable key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7acb408c-a6a6-4e21-bb25-8a23944b71e8?mode=deep",
+    "timestamp": "2026-01-10 12:12:01.796082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Hot key attack] If many users create denoms that produce keys in the same narrow key range (e.g., all starting with same bytes), can this create a hot spot in the store that degrades write performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d0055d9-9b92-4d77-9d40-cc8b6fa80c5f?mode=deep",
+    "timestamp": "2026-01-10 12:12:28.283551",
+    "report_generated": false
   }
 ]
