@@ -18148,5 +18148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc5b1546-97dd-466e-be9f-f7163406516f?mode=deep",
     "timestamp": "2026-01-10 16:25:03.591383",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis() & ExportGenesis()] [Validation asymmetry] InitGenesis() panics on SetParams() error (line 26) but ExportGenesis() doesn't validate the exported params - can this create a situation where invalid params are exported and then fail to reimport, making chain state unrecoverable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc077729-7c98-4410-9a26-786137e299e0?mode=deep",
+    "timestamp": "2026-01-10 16:26:25.096433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis() & ExportGenesis()] [Data loss] If InitGenesis() sets additional state beyond what ExportGenesis() retrieves (e.g., internal caches, derived state, or secondary indices), does export-then-reimport result in data loss that breaks DEX module functionality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2616e00b-fda0-4c04-b3d9-f998bddd9ebb?mode=deep",
+    "timestamp": "2026-01-10 16:26:37.513131",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [No validation call] InitGenesis() never calls genState.Validate() before setting state - if the genesis file bypasses the Validate() method in types/genesis.go, can an attacker import a genesis state with duplicate pool IDs, mismatched PoolsMeta, or orphaned PoolUids that corrupt the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d689ff18-905a-4da5-aa48-94a87e0fa3d6?mode=deep",
+    "timestamp": "2026-01-10 16:26:50.129089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Pool.Validate bypass] When SetPool() is called at line 14, does it internally call pool.Validate() to check address format, coin validity, and formula correctness? If not, can malicious genesis files import pools with negative reserves, invalid creator addresses, or unsupported formulas? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_efb3c927-b3bb-4491-afab-775e49feb949?mode=deep",
+    "timestamp": "2026-01-10 16:27:03.181996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Invariant checking] After all state is set (pools, metadata, uids, params), does InitGenesis() verify critical invariants like 'every pool has a PoolUid', 'NextPoolId > max(PoolList.PoolId)', or 'all pool addresses are valid module accounts'? If not, can corrupted state persist undetected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1bf6c29-0148-4308-98ed-e1556eec1798?mode=deep",
+    "timestamp": "2026-01-10 16:27:16.915766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Cross-validation] Does InitGenesis() verify that the total LP token supply in genesis.PoolList matches the total LP tokens held by users in the bank module's genesis state? If not, can an attacker create genesis files with phantom LP tokens that don't correspond to real liquidity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9bc45900-b10b-4784-b4eb-81180fae4951?mode=deep",
+    "timestamp": "2026-01-10 16:27:31.663281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Partial initialization] If SetPool() at line 14 panics on the 50th pool out of 100, does the panic leave 49 pools initialized in the KVStore? On recovery, will InitGenesis() be rerun and attempt to set those 49 pools again, causing duplicate writes or skipped validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6267fcd1-185a-4cb5-9d06-abfb341903a7?mode=deep",
+    "timestamp": "2026-01-10 16:27:48.435387",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Transaction boundaries] Are all operations in InitGenesis() (setting pools, metadata, uids, params) executed within a single atomic transaction, or can a crash during initialization leave the chain in a partially initialized state that's inconsistent and unrecoverable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28d48f94-a2b8-4676-af8c-4cbbf2911ead?mode=deep",
+    "timestamp": "2026-01-10 16:28:05.997573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Rollback mechanism] If SetParams() fails and panics at line 26, do the previously set pools and metadata get rolled back, or do they persist in the store while params remain unset, creating an inconsistent module state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_608aec8a-b1f2-4300-86bf-aeba502ffdd3?mode=deep",
+    "timestamp": "2026-01-10 16:28:24.496504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Error propagation] If GetAllPool(), GetPoolsMeta(), or GetAllPoolUids() encounter errors (corrupted store data, missing keys, unmarshal failures), does ExportGenesis() return a partial genesis state or does it panic/error, preventing state export entirely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25169c24-34f4-4c27-8b15-21b1e1e7ded1?mode=deep",
+    "timestamp": "2026-01-10 16:28:43.861406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [SetPool side effects] When k.SetPool() is called at line 14, if this function has side effects like creating pool accounts, initializing bank module state, or registering denoms, and these side effects fail, does the pool still get written to the store, creating orphaned pool records? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_651d7df9-0062-40d7-a2a0-e435e4cdd564?mode=deep",
+    "timestamp": "2026-01-10 16:29:03.821241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [SetPoolsMeta overwrites] When SetPoolsMeta() is called at line 18, does it unconditionally overwrite any existing PoolsMeta in the store? If the chain is restarted and InitGenesis() runs again, does this reset NextPoolId to the genesis value, potentially causing future pool ID collisions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c22e3db-8993-40a0-8ccc-87f846aa2823?mode=deep",
+    "timestamp": "2026-01-10 16:29:25.564631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [SetPoolUids collisions] If SetPoolUids() at line 22 is called with a PoolUid that already exists in the store (from a previous partial initialization), does it silently overwrite the old entry or does it return an error that's ignored? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6387a353-dddd-4793-b451-381f56f90bd7?mode=deep",
+    "timestamp": "2026-01-10 16:29:47.391815",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [SetParams validation] Does SetParams() at line 25 internally call params.Validate() before writing to the store? If not, can invalid params bypass the panic at line 26 and get written to the store, causing future operations to fail when they try to use invalid param values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cdf8f0b5-7388-46fe-b08a-dfed6a39e1fc?mode=deep",
+    "timestamp": "2026-01-10 16:30:10.185729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [JSON unmarshaling] If the genesis file JSON contains pools with extremely large integer values (near uint64 max for fees, pool IDs, or coin amounts), does the unmarshaling process accept these values, and can they cause integer overflows in subsequent calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f9ebf4e-593e-4fd4-ac8e-f718f7436566?mode=deep",
+    "timestamp": "2026-01-10 16:30:34.135335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Malicious array sizes] If genState.PoolList or genState.PoolUidsList in the genesis file claims to have an enormous length but the actual data is truncated, does the iteration at lines 13-15 or 21-23 cause out-of-bounds access or panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c9379b5-a693-4569-96ea-71982dbf4974?mode=deep",
+    "timestamp": "2026-01-10 16:30:59.150814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Type confusion] If the genesis JSON uses string types for numeric fields (e.g., '",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b355e7a1-921e-4e0c-a80e-5b213700d17d?mode=deep",
+    "timestamp": "2026-01-10 16:31:24.407415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Negative values] If coin amounts in Pool.Coins or Pool.LpToken are represented as large positive integers that overflow to negative values when cast to signed integers, can this create pools with negative reserves that enable infinite withdrawal attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4850127-d0cc-498a-bc99-f403c510aa60?mode=deep",
+    "timestamp": "2026-01-10 16:31:50.212169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Pool factory bypass] By crafting a genesis file with pools that have arbitrary denoms, creators, and reserves, can an attacker bypass the normal CreatePool() restrictions (creation fees, parameter validation, account checks) and create pools that wouldn't be possible through transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9ecb4a8-5147-47c5-a434-3d845684232f?mode=deep",
+    "timestamp": "2026-01-10 16:32:16.303216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [LP token minting] If genesis pools specify LP tokens with arbitrary supplies that don't correspond to the actual liquidity formula (x*y=k), can an attacker import a genesis state where they own disproportionate LP tokens that let them drain pool reserves? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d8fbe91-290a-4f8b-81ea-f6a98292d584?mode=deep",
+    "timestamp": "2026-01-10 16:32:44.671687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Fee manipulation] If genesis pools have fees set to 0 or values above the max allowed by params, does this create pools with invalid fee structures that either prevent swaps (too high) or allow fee-free swaps that drain protocol revenue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78e83012-0bc7-44aa-91fd-b83c7330b369?mode=deep",
+    "timestamp": "2026-01-10 16:33:12.595931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Formula injection] If a genesis pool has a formula string set to an unsupported value (not 'constant_product'), does SetPool() accept this and create a pool with undefined AMM behavior that could be exploited for price manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d96e6ca2-71ac-417a-a379-dfbdeebaecf5?mode=deep",
+    "timestamp": "2026-01-10 16:33:41.084483",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Context isolation] If the sdk.Context passed to InitGenesis() at line 11 is a cached context that gets discarded, do all the SetPool(), SetPoolsMeta(), SetPoolUids(), and SetParams() operations write to a temporary store that never commits, effectively losing all genesis state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_235958ae-1524-4c7d-b2ec-2065d5f2f90b?mode=deep",
+    "timestamp": "2026-01-10 16:34:09.226801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Event emission] Do SetPool(), SetPoolsMeta(), or SetParams() emit events during genesis initialization? If so, can these events be used to infer private genesis state information or create confusion about when pools were created (genesis vs post-launch)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c0b8371-13ab-42f2-a75e-17607c6210b9?mode=deep",
+    "timestamp": "2026-01-10 16:34:37.454470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Context staleness] If the sdk.Context passed to ExportGenesis() at line 31 is stale and doesn't reflect the latest committed state, does the export capture outdated pool data that's inconsistent with the actual chain state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc234131-1060-4231-ba9f-c1abe2289b14?mode=deep",
+    "timestamp": "2026-01-10 16:35:02.719918",
+    "report_generated": false
   }
 ]
