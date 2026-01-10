@@ -21298,5 +21298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_776a11b3-98b9-4d10-9d00-00c33d767e5a?mode=deep",
     "timestamp": "2026-01-10 09:18:14.250162",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Cross-interface: BankKeeper & StakingKeeper] [Bond denom minting] Can factory module operations mint tokens with denoms matching StakingKeeper.BondDenom() through BankKeeper.MintCoins(), potentially creating fake staking tokens that could be bonded to validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1253cf6b-1808-4d77-8da3-b2c397316849?mode=deep",
+    "timestamp": "2026-01-10 09:19:40.647330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Cross-interface: BankKeeper minting & burning] [Supply invariant violation] Can simultaneous calls to BankKeeper.MintCoins() and BankKeeper.BurnCoins() from different goroutines create race conditions where total supply tracking becomes inconsistent with actual token balances in factory operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9c58afa-2026-4de8-861c-efac513c1216?mode=deep",
+    "timestamp": "2026-01-10 09:19:53.118944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Cross-interface: BankKeeper & AccountKeeper] [Module account minting exploit] Can an attacker exploit the interaction between AccountKeeper.GetModuleAccount() and BankKeeper.MintCoins() to mint tokens directly into module accounts that shouldn't receive factory tokens, bypassing distribution controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8f83873-cdc4-48cd-9042-f42ac35d409a?mode=deep",
+    "timestamp": "2026-01-10 09:20:06.054206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: ParamSubspace.Set()] [Atomic parameter update] Are multiple ParamSubspace.Set() calls atomic, or can a failed factory parameter update leave the system in an inconsistent state with some parameters updated and others not? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f08b3215-e7af-4c9b-8d9b-23130a741049?mode=deep",
+    "timestamp": "2026-01-10 09:20:19.195094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: ParamSubspace.Set()] [Parameter validation bypass] When ParamSubspace.Set() stores a new parameter value, does it validate the value's constraints (e.g., non-negative minting caps), or can invalid values be persisted that break factory invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0108fe2f-aa23-4093-bfbc-d39f7f8fad0c?mode=deep",
+    "timestamp": "2026-01-10 09:20:33.168871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: ParamSubspace.Set()] [Unauthorized parameter modification] Does ParamSubspace.Set() enforce governance authorization, or can factory module operations directly modify parameters like minting caps to bypass intended limits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7a03edf-e2e2-46f3-aa87-6238325c4f54?mode=deep",
+    "timestamp": "2026-01-10 09:20:47.744262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: ParamSubspace.Get()] [Parameter key collision] Can an attacker exploit parameter key collisions where factory module parameters accidentally share keys with other modules, causing cross-module parameter pollution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67712b0b-6073-47a9-a638-93b4b8b8c58b?mode=deep",
+    "timestamp": "2026-01-10 09:21:03.674643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: ParamSubspace.Get()] [Uninitialized parameter] If ParamSubspace.Get() is called for a parameter key that doesn't exist, does it properly initialize the interface{} with safe defaults, or could uninitialized memory cause undefined behavior in factory cap enforcement? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c069c2c4-c2cb-4897-9b59-a540d31aeeff?mode=deep",
+    "timestamp": "2026-01-10 09:21:20.868335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: ParamSubspace.Get()] [Type confusion] Can ParamSubspace.Get() be exploited by passing a mismatched interface{} type parameter, causing the factory module to interpret minting caps as different types (e.g., reading a boolean as an integer) and bypass limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56daab4b-b150-4f02-ae96-343521c88f87?mode=deep",
+    "timestamp": "2026-01-10 09:21:39.366873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: ModuleAccount.GetName()] [Empty name handling] If GetName() returns an empty string, does factory module properly reject operations that require valid module identification, or could this bypass access control checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29ffe838-0923-4376-8610-785583b9f3b6?mode=deep",
+    "timestamp": "2026-01-10 09:21:58.668984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: ModuleAccount.GetName()] [Name collision attack] Can an attacker register a factory-created token with a denom prefix that matches a module name from GetName(), causing routing confusion in IBC transfers or bank operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5a6a8a7-160f-4a0a-b013-4dacc908b90d?mode=deep",
+    "timestamp": "2026-01-10 09:22:19.888949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: StakingKeeper.BondDenom()] [Error handling] If BondDenom() returns an error during factory token validation, is this error properly propagated, or could it be silently ignored allowing tokens with invalid denoms to be created? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c56b925b-5888-4086-8f15-3f1e2a37120e?mode=deep",
+    "timestamp": "2026-01-10 09:22:41.933211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: StakingKeeper.BondDenom()] [Bond denom impersonation] Does the factory module prevent token creation with denoms matching the bond denom returned by BondDenom(), or can attackers mint fake staking tokens that could be used in validator operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3f8212f-3420-4255-83ae-0e5c5310dc3e?mode=deep",
+    "timestamp": "2026-01-10 09:23:04.435480",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: StakingKeeper.BondDenom()] [Bond denom confusion] Can factory module operations that check BondDenom be exploited if the implementation returns an incorrect or manipulated bond denom, allowing creation of factory tokens with privileged denom names? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2d2ce18-21b5-4f8e-8e0a-1108a17f48d7?mode=deep",
+    "timestamp": "2026-01-10 09:23:27.471864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.GetAllBalances()] [Balance enumeration DoS] Can an attacker force GetAllBalances to return enormous sdk.Coins slices by accumulating dust amounts of millions of factory-created denoms, causing DoS when this method is called? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cb4775e-050b-4f41-85a0-b269e25bf87e?mode=deep",
+    "timestamp": "2026-01-10 09:23:51.214178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.GetAllBalances()] [Hidden balance exploit] Can GetAllBalances fail to return certain factory token balances held in nested module accounts, allowing attackers to hide tokens from audits while still using them in operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fded1ffe-6fb6-4982-9bc1-04598f98f3c6?mode=deep",
+    "timestamp": "2026-01-10 09:24:18.176326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.IterateAllDenomMetaData()] [Iteration ordering attacks] Does IterateAllDenomMetaData guarantee deterministic iteration order, or could non-deterministic ordering cause consensus failures when factory module makes decisions based on iteration results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c2e4387-0030-41ef-8a98-d8ae0f60c1f2?mode=deep",
+    "timestamp": "2026-01-10 09:24:42.603708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.IterateAllDenomMetaData()] [DoS via large iteration] Can an attacker create millions of factory tokens with metadata, causing IterateAllDenomMetaData operations to consume excessive gas and DoS factory module queries or governance operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fcb9b73-6fb2-4d4a-ba42-5f473b51f0be?mode=deep",
+    "timestamp": "2026-01-10 09:25:07.063606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.IterateAllDenomMetaData()] [Callback injection] Does IterateAllDenomMetaData validate the callback function cb for safety, or can a malicious callback modify state during iteration, causing factory module to see inconsistent metadata views? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68731f67-2bc1-4431-b972-6d8139b0249d?mode=deep",
+    "timestamp": "2026-01-10 09:25:32.644947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SetDenomMetaData()] [Base denom mismatch] Can an attacker call SetDenomMetaData with a denomMetaData.Base that differs from the actual denom parameter, creating inconsistent metadata that breaks factory token lookups or IBC transfer routing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ee10ce0-72ba-4885-b565-0fb00c762738?mode=deep",
+    "timestamp": "2026-01-10 09:25:58.501766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SetDenomMetaData()] [Decimal precision manipulation] Does SetDenomMetaData validate that the Exponent field in banktypes.Metadata matches the actual token precision, or can attackers set misleading decimal values causing loss during TokenWrapper 18→6 decimal conversions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d3c2963-6d01-4bf4-8ab7-2feb25794cf8?mode=deep",
+    "timestamp": "2026-01-10 09:26:24.354411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SetDenomMetaData()] [Metadata overwrite attack] Can SetDenomMetaData be called by unauthorized parties to overwrite existing factory token metadata, changing decimal places or display names to deceive users about token value? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7128620c-3b95-4552-ad46-8001ee2559ce?mode=deep",
+    "timestamp": "2026-01-10 09:26:51.377021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.HasDenomMetaData()] [Metadata existence bypass] If HasDenomMetaData returns false for factory tokens without metadata, can operations proceed with undefined behavior, potentially treating the token as having different decimal places than intended? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b836a93-3f3b-4b01-8fe4-78c0e656ac41?mode=deep",
+    "timestamp": "2026-01-10 09:27:18.747430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.GetDenomMetaData()] [Metadata confusion attack] Can an attacker register factory tokens with metadata (display name, symbol) identical to existing high-value tokens, confusing users into accepting fake tokens in DEX swaps or IBC transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cca9a8a-f86d-4751-8e4d-ccae6b37c43e?mode=deep",
+    "timestamp": "2026-01-10 09:27:46.689941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.GetSupply()] [Supply manipulation via multiple denoms] Can an attacker query GetSupply in a loop to discover total supply values of all factory-created tokens and use this information to calculate optimal attack timing for minting cap exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_543b05da-0ce1-45fb-abfe-5979b99ac119?mode=deep",
+    "timestamp": "2026-01-10 09:28:12.380060",
+    "report_generated": false
   }
 ]
