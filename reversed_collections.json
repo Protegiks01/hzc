@@ -25198,5 +25198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3f52d8f-6458-41a1-aa7c-0023dbb8638f?mode=deep",
     "timestamp": "2026-01-10 13:29:44.423191",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Creator Manipulation] Is there validation that currentDenom.Creator at line 53 matches the original denom creator, or can storage corruption lead to creator field being overwritten with incorrect values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1fa601d-1bcb-4c20-9b5b-0d3b997d8ee2?mode=deep",
+    "timestamp": "2026-01-10 13:31:08.494053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Field Injection] Can an attacker manipulate the msg.Denom value at line 54 to differ from the queried denom, causing the newDenom to be stored under a different key than intended? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c432923-1d2a-4eae-9a85-1afc04872041?mode=deep",
+    "timestamp": "2026-01-10 13:31:20.863212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Inconsistency] Can an attacker exploit the fact that Creator and Minted are copied from currentDenom (lines 53, 56) but MintingCap and CanChangeMintingCap come from msg (lines 55, 57) to create inconsistent denom state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_75e8b099-378e-43e6-aaf3-2952af62436d?mode=deep",
+    "timestamp": "2026-01-10 13:31:34.290857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Data Corruption] Does the newDenom struct at lines 52-58 properly copy all fields from currentDenom, or can uninitialized fields cause state corruption when SetDenom() is called? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8417cd00-ad7e-4e4a-8eb8-f076a39f8422?mode=deep",
+    "timestamp": "2026-01-10 13:31:47.710707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Overwrite] Can an attacker exploit the newDenom creation at lines 52-58 by causing a panic or error before SetDenom() is called, leaving the state in an inconsistent state with partial updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0b362ba-e93a-4180-8b70-fa3102fc76d2?mode=deep",
+    "timestamp": "2026-01-10 13:32:01.721993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Validation Gap] Does the comparison at line 38 account for tokens that have been burned, or can an attacker exploit burned supply to lower the minting cap below the actual circulating supply? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab4a28a5-9869-413f-a195-3d40e1044953?mode=deep",
+    "timestamp": "2026-01-10 13:32:16.719326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Corruption] If currentDenom.Minted at line 38 gets corrupted to a value larger than the actual total supply due to storage errors, can this permanently lock the minting cap at an incorrect value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b988c274-f8a3-4e01-8f05-a60871e6262a?mode=deep",
+    "timestamp": "2026-01-10 13:32:32.982895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Precision Loss] Can the Uint type used for MintingCap and Minted at line 38 cause precision issues when comparing very large numbers, allowing minting cap to be set slightly below minted amount? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ff7e2f7-883f-4762-b1fe-4f5369ceee79?mode=deep",
+    "timestamp": "2026-01-10 13:32:50.835537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Math Logic Error] If currentDenom.Minted is zero but msg.MintingCap is set to zero at line 38, does the function allow this configuration which would permanently prevent any minting of the denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_882a3b24-56dc-45cd-ac01-ad1f325f787f?mode=deep",
+    "timestamp": "2026-01-10 13:33:09.958329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Economic Attack] Can an attacker repeatedly update the minting cap to values just above currentDenom.Minted to create artificial scarcity, manipulating token economics and market prices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1d1e676-c8da-479c-9ae7-56c03aa36829?mode=deep",
+    "timestamp": "2026-01-10 13:33:29.739281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Validation Bypass] Does the GT() check at line 38 properly handle the case where currentDenom.Minted is corrupted or set to an invalid value, allowing minting cap to be set below actual circulating supply? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fadc574a-df5b-4b10-aae6-ff3c349097c2?mode=deep",
+    "timestamp": "2026-01-10 13:33:50.600704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Supply Manipulation] Can an attacker set msg.MintingCap exactly equal to currentDenom.Minted at line 38 to prevent any future minting, effectively freezing the token supply and causing DoS for legitimate minting operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cb99041-47f9-4e3a-ae83-eda8c7561a5e?mode=deep",
+    "timestamp": "2026-01-10 13:34:11.994002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Integer Overflow] Can an attacker exploit the GT() comparison at line 38 by providing a msg.MintingCap value near math.MaxUint that causes integer overflow when compared with currentDenom.Minted, bypassing the validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6448866-81ed-4cdd-9067-f9ff0d00dba7?mode=deep",
+    "timestamp": "2026-01-10 13:34:33.801731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Validation Gap] If currentDenom.CanChangeMintingCap is true but msg.CanChangeMintingCap is false, can an attacker exploit this one-way transition to lock denoms with incorrect minting caps, causing permanent supply constraint issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1812a8ba-fbf4-42b9-8d69-cacbcfda489a?mode=deep",
+    "timestamp": "2026-01-10 13:34:56.281865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Inconsistency] Does the function properly validate that if msg.CanChangeMintingCap at line 57 is set to false, it cannot be changed back to true in future updates, or can an attacker unlock permanently locked denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be8c9a92-3f1c-4e39-b98f-0c334ebe82ac?mode=deep",
+    "timestamp": "2026-01-10 13:35:20.565238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Lock Bypass] Can an attacker exploit the timing between checking CanChangeMintingCap at line 30 and setting the new value at line 57 to toggle the flag through concurrent transactions, enabling minting cap changes on supposedly locked denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2c1edde-f141-45c0-aab3-7dfd2f0aee03?mode=deep",
+    "timestamp": "2026-01-10 13:35:46.109755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Validation Bypass] If CanChangeMintingCap is set to false at line 30, can an attacker still update the flag itself in the new denom at line 57 to re-enable future minting cap changes, effectively bypassing the permanent lock? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d2c8bb7-4e40-4337-94d7-65d74586b5c9?mode=deep",
+    "timestamp": "2026-01-10 13:36:11.560780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Manipulation] Can an attacker exploit a race condition where CanChangeMintingCap is checked at line 30 but gets modified by another transaction before SetDenom() at line 60, bypassing the lock mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1767c4cb-2e38-4d0a-8731-96be9b569b2d?mode=deep",
+    "timestamp": "2026-01-10 13:36:36.850564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Storage Corruption] Does GetDenom() at line 18 properly handle denoms with special characters or extremely long names that could cause buffer overflow or storage key collision attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_255000aa-bae8-4b64-9661-3d373e8019a1?mode=deep",
+    "timestamp": "2026-01-10 13:37:02.206141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Inconsistency] Can an attacker exploit the lack of atomic operations between GetDenom() at line 18 and SetDenom() at line 60 to update the same denom multiple times concurrently, leading to minting cap being set to incorrect values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fe5c740-8f9c-481c-846d-85451dcedeaf?mode=deep",
+    "timestamp": "2026-01-10 13:37:27.063538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Corruption] If GetDenom() at line 18 retrieves a partially corrupted denom due to storage issues, can the function proceed to update minting cap without validating the integrity of other denom fields like Creator or Minted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a2176c1-7646-4b55-8221-e2f24f1e16cb?mode=deep",
+    "timestamp": "2026-01-10 13:37:50.107808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [DoS] Can an attacker spam UpdateDenomMintingCap transactions with non-existent denoms to trigger the ErrDenomDoesNotExist error at line 23, causing excessive error logging and potential DoS through storage bloat? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ceb71c2-0247-45d7-aa21-231787b2f0f5?mode=deep",
+    "timestamp": "2026-01-10 13:38:14.160377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [State Inconsistency] Can an attacker cause a race condition where GetDenom() at line 18 returns a valid denom, but it gets deleted before SetDenom() at line 60, causing state corruption or allowing unauthorized minting cap updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8369241-1ce3-46dd-ab15-aa9e5af49ebf?mode=deep",
+    "timestamp": "2026-01-10 13:38:36.571244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Privilege Escalation] Can an attacker exploit the Auth() function's case statement logic to provide an unexpected adminType value that bypasses all authorization checks in the UpdateDenomMintingCap flow? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_faacc239-e69f-47c8-a225-567e3a64f5dd?mode=deep",
+    "timestamp": "2026-01-10 13:38:58.769561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_update_denom_minting_cap.go] [Function: UpdateDenomMintingCap()] [Access Control] If BankAdmin is set to empty string after denom creation, does the Auth() check at line 48 properly reject all update attempts, or can the function proceed with unauthorized minting cap changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44387e7f-badb-4592-9cb8-75f3f9e23087?mode=deep",
+    "timestamp": "2026-01-10 13:39:21.085247",
+    "report_generated": false
   }
 ]
