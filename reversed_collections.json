@@ -17248,5 +17248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_395431d7-ec72-4353-be3d-1cba18a7b74c?mode=deep",
     "timestamp": "2026-01-10 04:43:34.225303",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Interface: HasConsensusVersion] [Version handling] Does the HasConsensusVersion interface properly coordinate with migration logic, or can version mismatches cause state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2818515-58cc-48c7-ac27-4dbe6bcc0a2b?mode=deep",
+    "timestamp": "2026-01-10 04:44:43.789603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Interface: HasInvariants] [Invariant completeness] Does the HasInvariants implementation register all necessary invariants, or are critical state constraints missing from invariant checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d0c688b-dac8-40df-904c-098b35945702?mode=deep",
+    "timestamp": "2026-01-10 04:44:56.155272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Interface: HasGenesis] [Genesis handling] Does the HasGenesis interface implementation properly handle all genesis operations, or can incomplete implementations lead to state loss during chain upgrades? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2464b84-7202-461d-83fd-0083113b93a4?mode=deep",
+    "timestamp": "2026-01-10 04:45:08.813886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Interface: AppModule] [Interface compliance] Does AppModule properly implement all required AppModule interfaces listed at lines 30-38, or can interface mismatches cause module registration failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31ea69d1-bcf5-432f-a2f4-71a68a3018bb?mode=deep",
+    "timestamp": "2026-01-10 04:45:22.624884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Interface: AppModuleBasic] [Interface compliance] Does AppModuleBasic properly implement all required methods from the AppModuleBasic interface, or can missing methods cause runtime panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e8fd4da-dc6d-4727-843e-9965f6cd0626?mode=deep",
+    "timestamp": "2026-01-10 04:45:36.591484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ValidateGenesis()] [Cross-validation] Does ValidateGenesis check relationships between Params, DenomList, and DenomAuthList, or can inconsistent states pass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_909052d1-698c-4755-af1e-4d2c8e496f5a?mode=deep",
+    "timestamp": "2026-01-10 04:45:51.580171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [Export consistency] Does ExportGenesis guarantee that exported DenomList and DenomAuthList are consistent with each other and with the current bank module state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7fb1157-7823-4282-ab45-f8597e34a10f?mode=deep",
+    "timestamp": "2026-01-10 04:46:08.179922",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Denom consistency] Does InitGenesis properly ensure that every Denom in genState.DenomList has a corresponding entry in genState.DenomAuthList, or can mismatches lead to orphaned tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e42f508c-a2c4-4236-ae8e-b00a805ffa60?mode=deep",
+    "timestamp": "2026-01-10 04:46:25.936846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterInvariants()] [Invariant race] Can race conditions between invariant registration and execution allow invalid states to slip through before invariants are fully registered? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d62f0646-3daf-4a74-9667-d2727de85d4d?mode=deep",
+    "timestamp": "2026-01-10 04:46:44.586705",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Registration race] Can race conditions during RegisterServices allow multiple registrations of the same service, causing undefined behavior in message routing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e1b1539-5b48-4dba-94bc-98ef7967a38a?mode=deep",
+    "timestamp": "2026-01-10 04:47:04.470286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Concurrent initialization] Can multiple goroutines call InitGenesis concurrently during chain startup, causing race conditions in state initialization and duplicate token creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_678c1102-f3c1-425f-b49d-d88065703d89?mode=deep",
+    "timestamp": "2026-01-10 04:47:24.669871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [Concurrent access] Can concurrent transactions during ExportGenesis cause race conditions where exported state differs from committed state, enabling double-spend attacks during chain migration? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_230d1dfb-bab8-4406-be48-743616a75849?mode=deep",
+    "timestamp": "2026-01-10 04:47:46.212189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: AppModule] [Keeper access] Are the keeper references in AppModule at lines 99-101 properly encapsulated, or can external code access and manipulate keepers to bypass factory security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc516808-3c25-46dc-bbec-d62b4c3b8f59?mode=deep",
+    "timestamp": "2026-01-10 04:48:08.960721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: NewAppModule()] [Bank keeper security] Does the bankKeeper at line 101 properly enforce permissions for token minting/burning, or can module initialization bypass bank security controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b7e6880-5f71-4aa5-aa10-72e52b39e227?mode=deep",
+    "timestamp": "2026-01-10 04:48:31.560942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Account keeper security] Can an attacker exploit the accountKeeper provided at line 191 to manipulate module accounts and steal factory-minted tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4b14655-4b75-4f30-8ec2-33daa1673032?mode=deep",
+    "timestamp": "2026-01-10 04:48:55.872869",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: BeginBlock()] [Error handling] Does the error return at line 156 properly handle all failure scenarios, or can certain errors be ignored leading to state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63556c21-071d-45c2-913b-56bbc838869b?mode=deep",
+    "timestamp": "2026-01-10 04:49:20.406344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Panic recovery] Is there proper panic recovery around InitGenesis operations, or can panics during genesis initialization leave the chain in an unrecoverable state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f08d8877-5959-4052-93e8-cd89db08b569?mode=deep",
+    "timestamp": "2026-01-10 04:49:46.598930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ValidateGenesis()] [Error wrapping] Is the error wrapping at line 79 sufficient to debug validation failures, or can vague error messages allow attackers to probe for validation weaknesses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3250efb4-61c8-41f1-b811-a0611498f6f0?mode=deep",
+    "timestamp": "2026-01-10 04:50:12.559416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Error propagation] Does the error handling in RegisterServices properly propagate migration registration failures, or can silent failures leave the module in an insecure state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9f6bedc-dd85-4a11-a507-2e1f9bf13833?mode=deep",
+    "timestamp": "2026-01-10 04:50:40.674279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [Marshal determinism] Is the JSON marshaling in ExportGenesis at line 146 deterministic across all validators, or can non-deterministic marshaling cause consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ec13293-56c5-4015-b86d-8cba2c3f0753?mode=deep",
+    "timestamp": "2026-01-10 04:51:07.534344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Unmarshal validation] Does the MustUnmarshalJSON at line 138 validate the unmarshaled data structure, or can malformed JSON bypass validation and initialize corrupted state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5726ebbd-3137-488f-87fd-08375073e0a8?mode=deep",
+    "timestamp": "2026-01-10 04:51:34.995873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: DefaultGenesis()] [JSON marshal] Does the MustMarshalJSON call at line 72 properly handle all edge cases, or can certain genesis states cause panics during default genesis generation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5312e11c-7d2c-42a1-97f1-36c71e51ad5b?mode=deep",
+    "timestamp": "2026-01-10 04:52:01.736127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: AppModuleBasic] [Codec storage] Is the codec stored in AppModuleBasic at line 48 thread-safe for concurrent access, or can race conditions during encoding/decoding cause state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e3bb8c2-e4a5-4a2d-81e0-24e44c019f17?mode=deep",
+    "timestamp": "2026-01-10 04:52:29.724959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ModuleOutputs] [Output validation] Does the ModuleOutputs at lines 195-200 ensure that both the keeper and module are properly initialized before returning, or can partially initialized outputs cause runtime panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_592ec35c-527d-4339-b7cd-d247c64bd328?mode=deep",
+    "timestamp": "2026-01-10 04:52:56.858489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ModuleInputs] [Input validation] Are the ModuleInputs at lines 183-193 properly validated for nil values and type correctness, or can nil dependencies cause panics during module operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b255fb7a-4975-4499-b45d-ef866b5d99dd?mode=deep",
+    "timestamp": "2026-01-10 04:53:22.297175",
+    "report_generated": false
   }
 ]
