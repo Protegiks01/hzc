@@ -13198,5 +13198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bac735ab-576e-4799-999d-cda994a88036?mode=deep",
     "timestamp": "2026-01-10 08:11:14.633057",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Prefix confusion] CheckPoolId() requires pool IDs to start with 'zp' prefix - can an attacker use Unicode lookalike characters (e.g., 'zр' with Cyrillic р) to bypass prefix validation and create pools with malicious identifiers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09834ce9-38d3-4572-a5dd-b109d1e85f60?mode=deep",
+    "timestamp": "2026-01-10 08:12:41.641488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Regex bypass] If CheckPoolId() uses regex '^zp[0-9]+$', can an attacker inject pool IDs like 'zp123\\n' or 'zp123\\x00extra' that pass regex but contain additional data that corrupts state storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9642773-fa0f-4494-8f18-a17956d613ba?mode=deep",
+    "timestamp": "2026-01-10 08:12:54.063113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Bech32 malleability] At line 113, AddressCheck() validates creator address - can an attacker exploit Bech32 checksum collisions to create multiple addresses that decode to the same bytes but have different string representations, bypassing pool creator attribution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1975eabc-346b-4bd8-9ca2-b58976ea4bca?mode=deep",
+    "timestamp": "2026-01-10 08:13:06.876720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Address prefix exploit] AddressCheck() enforces address prefix - can an attacker craft addresses with valid prefix but manipulated HRP (human-readable part) that pass validation but resolve to unintended accounts, stealing pool creation credits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3f59d77-cb16-4bf8-ab62-ddd59392c00a?mode=deep",
+    "timestamp": "2026-01-10 08:13:20.477510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Empty address bypass] If p.Creator is empty string, does AddressCheck() at line 113 properly reject it, or can empty addresses pass validation and create pools with null creator, breaking fee distribution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfdf0983-85e8-4c3d-891c-126e258a5823?mode=deep",
+    "timestamp": "2026-01-10 08:13:34.314361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Module address confusion] Can an attacker set p.Creator to a module address (e.g., the pool's own module address), causing circular ownership that breaks fee payment logic or enables unauthorized pool modifications? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae2d1bda-e34f-4098-9755-a0c172d5ee8b?mode=deep",
+    "timestamp": "2026-01-10 08:13:49.383761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Fee overflow] At line 117, validateNewPoolFeePct() checks if p.Fee < PoolFeeScalingFactor - can an attacker set p.Fee to MaxUint32, causing integer overflow in fee calculations during swaps that results in negative fees or fee bypasses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ce5b169-8227-498a-a421-a06f0890d738?mode=deep",
+    "timestamp": "2026-01-10 08:14:05.884015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Zero fee exploit] Does validateNewPoolFeePct() allow p.Fee = 0? Can zero-fee pools be exploited for MEV attacks where attackers extract value through zero-cost swaps, draining liquidity without paying fees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4dc83f0-fbf8-49b0-88e7-390b91898b26?mode=deep",
+    "timestamp": "2026-01-10 08:14:23.669152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Fee precision loss] If p.Fee is stored as uint32 but fee calculations use basis points (10000), can precision loss during fee conversion cause pools to charge incorrect fees, either overpaying or underpaying LPs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_309e21c7-dda6-4db4-bc80-0dea7189fde4?mode=deep",
+    "timestamp": "2026-01-10 08:14:42.403934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Scaling factor bypass] validateNewPoolFeePct() compares fee against PoolFeeScalingFactor - can an attacker exploit the boundary condition where fee = PoolFeeScalingFactor-1 to create pools with 99.99% fees that make swaps economically infeasible, DoSing liquidity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fe65905-b390-4228-99fd-2419bd3acddb?mode=deep",
+    "timestamp": "2026-01-10 08:15:01.803077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Formula injection] At line 121, IsValidFormula() checks against AllowedFormulas map - can an attacker inject a formula string that passes validation but contains escape sequences or control characters that corrupt pool metadata when stored? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51f58c37-318a-46d0-a28b-16f9805e07ef?mode=deep",
+    "timestamp": "2026-01-10 08:15:22.295956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Constant product bypass] If only 'constant_product' is allowed, can an attacker exploit pools with this formula by setting initial reserves to extreme ratios (e.g., 1:1e18) that break x*y=k invariant calculations due to integer overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_70df816f-17f5-4c1c-b19f-4b569efc8d15?mode=deep",
+    "timestamp": "2026-01-10 08:15:43.820158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Empty formula] Can an attacker bypass IsValidFormula() by providing an empty string p.Formula that causes map lookup to return false positive, or crashes during subsequent formula execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ada05ab-c1c4-46d7-a5c8-b0fa08f353db?mode=deep",
+    "timestamp": "2026-01-10 08:16:06.717863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Case sensitivity] Does IsValidFormula() perform case-sensitive comparison? Can an attacker bypass validation by using 'CONSTANT_PRODUCT' or 'Constant_Product' to create pools with unvalidated formulas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52a44a50-3a7c-48ba-99cd-e9745a50600b?mode=deep",
+    "timestamp": "2026-01-10 08:16:29.566079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Insufficient coin check] At line 125, only len(p.Coins) < 2 is checked - can an attacker create pools with 3+ coins that exceed the constant product AMM design, causing math errors in swap calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acb753e9-757b-4620-9da4-2d3f24d7c1b2?mode=deep",
+    "timestamp": "2026-01-10 08:16:53.731454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Nil coin entry] If p.Coins contains nil coin entries, does the loop at line 128 handle nil dereference, or can it panic during CoinCheck() validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5616f585-d675-4550-b170-b35bf2ef89d3?mode=deep",
+    "timestamp": "2026-01-10 08:17:18.375547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Duplicate denom] Can an attacker create a pool with p.Coins = [sdk.Coin{Denom:'abc', Amount:100}, sdk.Coin{Denom:'abc', Amount:200}], bypassing the minimum 2 coins check but creating a single-asset pool that breaks AMM invariants? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be6c948f-d77b-44d4-9fb6-30826e7e455c?mode=deep",
+    "timestamp": "2026-01-10 08:17:44.070845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Zero amount coins] Does CoinCheck() at line 129 reject zero-amount coins? Can an attacker create pools with Coins[0].Amount = 0 to establish pools with no liquidity, then exploit them to manipulate prices during the first swap? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da48f31f-edde-4128-b85c-8cb7089f51c9?mode=deep",
+    "timestamp": "2026-01-10 08:18:10.184122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Coin ordering] Does the validation enforce ordering of p.Coins? Can an attacker create pools where Coins[0] > Coins[1] alphabetically, causing GetPoolUidString() to produce inconsistent PoolUids that break bidirectional validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d3710cb-4a05-4aa6-81ed-6aaefa19df6b?mode=deep",
+    "timestamp": "2026-01-10 08:18:37.725687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Integer overflow in amounts] Can an attacker set p.Coins with Amount = MaxInt256, causing overflow in subsequent x*y calculations during swaps, breaking the constant product invariant? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9b9fec2-e85f-4d2e-8101-45c4acadba48?mode=deep",
+    "timestamp": "2026-01-10 08:19:05.035283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Invalid denom format] Does CoinCheck() validate denom format against IBC denom rules? Can an attacker inject coins with invalid denoms (e.g., containing '/' or ':') that corrupt pool state or enable cross-chain exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f747603f-8443-4ecf-8d1a-b3ec4a36507b?mode=deep",
+    "timestamp": "2026-01-10 08:19:32.706171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [IBC voucher coins] Can an attacker create genesis pools using IBC voucher denoms (ibc/HASH) before establishing IBC channels, creating pools that become orphaned when the actual IBC connection uses different voucher hashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba4790da-9ad4-46ed-8b4f-58e62c762fd4?mode=deep",
+    "timestamp": "2026-01-10 08:19:59.811164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [LpToken amount mismatch] At line 134, CoinCheck() validates p.LpToken - but does it verify that LpToken.Amount matches the geometric mean of pool reserves? Can an attacker set arbitrary LpToken amounts that don't reflect actual liquidity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab0704d0-fa29-4f7f-ba55-4a00a59c0908?mode=deep",
+    "timestamp": "2026-01-10 08:20:25.551566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [LpToken denom collision] Can an attacker set p.LpToken.Denom to collide with existing token denoms (e.g., 'uzig'), enabling LP token minting that dilutes the main token supply? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb0cfc9f-c8fe-4802-b771-c6e04addb1ca?mode=deep",
+    "timestamp": "2026-01-10 08:20:50.863506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Zero LpToken supply] Does CoinCheck() reject zero-amount LpTokens? Can an attacker create pools with LpToken.Amount = 0, then mint LP tokens during add_liquidity to become the sole liquidity provider with 100% ownership? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a79c85d-37db-4c68-8fe7-5147f6a8a0e6?mode=deep",
+    "timestamp": "2026-01-10 08:21:15.746456",
+    "report_generated": false
   }
 ]
