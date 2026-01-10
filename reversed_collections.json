@@ -20698,5 +20698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_494796fd-3321-447d-a060-5589b79c5295?mode=deep",
     "timestamp": "2026-01-10 08:38:36.790747",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [Parameter Confusion] Does the constructor validate that the signer and recipient addresses are different, or can an attacker mint tokens directly to themselves, potentially bypassing access control checks that assume sender and recipient are distinct parties? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3adf59e-eda6-408d-a587-1264c9158763?mode=deep",
+    "timestamp": "2026-01-10 08:40:02.876329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [Memory Exhaustion] Can an attacker create a MsgMintAndSendTokens message with extremely long string fields (signer, recipient, or token.Denom) that consume excessive memory during message creation and propagation across the network, causing validator DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f9145ea-212f-440a-b3f2-b0cc30939b93?mode=deep",
+    "timestamp": "2026-01-10 08:40:15.437113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [String Injection] Can an attacker inject malicious characters into the recipient parameter that bypass AddressCheck validation but cause SendCoinsFromModuleToAccount to fail, resulting in minted tokens being trapped in the module account? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4ec49aa-657b-43e3-bed3-7ff8a9323d40?mode=deep",
+    "timestamp": "2026-01-10 08:40:28.045590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [String Injection] Can an attacker inject control characters or unicode homoglyphs into the signer parameter that pass basic string validation but cause address parsing failures later in the execution flow, leading to state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eb3c278c-c734-4c65-868a-ef33ca229b04?mode=deep",
+    "timestamp": "2026-01-10 08:40:41.162662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [Input Sanitization] Can an attacker pass a nil sdk.Coin to the token parameter in NewMsgMintAndSendTokens() constructor, causing the message to be created with an invalid token that bypasses ValidateBasic() checks, leading to undefined behavior during keeper execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b35aeba7-fb1c-4fc7-8f61-c1ca8d7824d4?mode=deep",
+    "timestamp": "2026-01-10 08:40:55.712133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [Parameter Confusion] Does the constructor validate that the signer and recipient addresses are different, or can an attacker mint tokens directly to themselves, potentially bypassing access control checks that assume sender and recipient are distinct parties? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3fac3bf-5876-4b5d-8dec-aa2075a1f660?mode=deep",
+    "timestamp": "2026-01-10 08:41:10.594838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [Memory Exhaustion] Can an attacker create a MsgMintAndSendTokens message with extremely long string fields (signer, recipient, or token.Denom) that consume excessive memory during message creation and propagation across the network, causing validator DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_187f57d6-a4df-4d9e-afbd-35914b5f23e0?mode=deep",
+    "timestamp": "2026-01-10 08:41:27.201332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [String Injection] Can an attacker inject malicious characters into the recipient parameter that bypass AddressCheck validation but cause SendCoinsFromModuleToAccount to fail, resulting in minted tokens being trapped in the module account? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4469396d-53be-4f43-8570-dba9430daf78?mode=deep",
+    "timestamp": "2026-01-10 08:41:44.712835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [String Injection] Can an attacker inject control characters or unicode homoglyphs into the signer parameter that pass basic string validation but cause address parsing failures later in the execution flow, leading to state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2234de06-22f9-4617-9a8c-139c3432aed0?mode=deep",
+    "timestamp": "2026-01-10 08:42:02.641108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: NewMsgMintAndSendTokens()] [Input Sanitization] Can an attacker pass a nil sdk.Coin to the token parameter in NewMsgMintAndSendTokens() constructor, causing the message to be created with an invalid token that bypasses ValidateBasic() checks, leading to undefined behavior during keeper execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eeca5ba5-e025-4800-b8e2-181f5ae6a17c?mode=deep",
+    "timestamp": "2026-01-10 08:42:22.479009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Version handling] Does ValidateBasic() include any version checking? Can messages created with old client versions bypass new security validations added in protocol upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94d303e4-b40c-4694-846d-621503ad9902?mode=deep",
+    "timestamp": "2026-01-10 08:42:42.918448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Migration issues] Does the message structure support backward compatibility? Can old MsgCreateDenom messages fail validation after upgrades due to added validation rules? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a09e589-6ac9-4f0c-a22f-63352da4fbe4?mode=deep",
+    "timestamp": "2026-01-10 08:43:04.154279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Upgrade compatibility] If constants like MaxURILength or MaxSubDenomLength are changed in a protocol upgrade, can existing denoms that were valid before become invalid, causing state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e409e053-6476-43b2-85f7-a58868eff2e2?mode=deep",
+    "timestamp": "2026-01-10 08:43:26.200712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Case sensitivity] Are all string comparisons in the validation logic case-sensitive? Can an attacker exploit case-insensitivity to create denoms that appear identical to existing ones? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b8a7892-868f-4e50-8c29-3ab057565530?mode=deep",
+    "timestamp": "2026-01-10 08:43:49.666497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Whitespace handling] Does ValidateBasic() properly trim or reject leading/trailing whitespace in string fields that could cause string comparison failures or UI display issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd5dbcc6-e1d7-450b-a966-2175168face9?mode=deep",
+    "timestamp": "2026-01-10 08:44:13.453997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Boolean flag] Can an attacker exploit the CanChangeMintingCap boolean by setting it to true initially, then later changing it to false through governance or admin actions that bypass proper authorization? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46ce83b0-2ab1-483b-b133-c096c78ef11a?mode=deep",
+    "timestamp": "2026-01-10 08:44:37.895220",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Boundary values] Does ValidateBasic() properly handle boundary cases like subDenom exactly at MaxSubDenomLength (44), URI exactly at MaxURILength (256), and creator at MaxCreatorLength (75)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_380aeb29-2139-4f16-8121-63b4462ac94d?mode=deep",
+    "timestamp": "2026-01-10 08:45:03.194618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Empty message] What happens if ValidateBasic() is called on a MsgCreateDenom where all fields are zero/empty values? Does it fail gracefully or cause unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d7368b44-9e09-4d03-ab52-1e6c8b9710a0?mode=deep",
+    "timestamp": "2026-01-10 08:45:29.173827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Griefing] Can an attacker grief legitimate users by front-running their denom creation attempts and creating the same denom first, forcing them to choose alternative names? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ca14848-cdfc-4d6e-b7c2-6b1706971c7c?mode=deep",
+    "timestamp": "2026-01-10 08:45:55.449960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Name squatting] Does ValidateBasic() prevent name squatting attacks where an attacker creates denoms with names similar to popular tokens (e.g., 'usdt' vs 'usdc') to enable social engineering attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf5e088d-7f1e-47c0-a50d-554e994e74bb?mode=deep",
+    "timestamp": "2026-01-10 08:46:22.305170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Metadata manipulation] Can an attacker create denoms with misleading URIs pointing to legitimate tokens' metadata, enabling phishing attacks where fake tokens appear identical to real ones in wallets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fbc8853a-14c4-4cdb-8f08-ef680cd3c8e5?mode=deep",
+    "timestamp": "2026-01-10 08:46:49.811297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Economic attack] Can an attacker create thousands of denoms with minimum valid parameters to bloat the state, causing storage DoS while only paying minimal creation fees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bbc24263-baeb-4b3f-addc-95c27b05db17?mode=deep",
+    "timestamp": "2026-01-10 08:47:15.624077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Panic recovery] Does ValidateBasic() properly recover from panics that could be triggered by malformed inputs to external validation functions like sdk.ValidateDenom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e8c9494a-d660-4ae7-b4fe-64de518551e8?mode=deep",
+    "timestamp": "2026-01-10 08:47:42.907719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Memory exhaustion] Can an attacker provide extremely long strings for creator, subDenom, or URI fields that pass length validation but cause memory exhaustion when processed by validators or during string operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4279670-f869-4c71-9715-5297bd5db07a?mode=deep",
+    "timestamp": "2026-01-10 08:48:09.844548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [String safety] Are all string operations in ValidateBasic() (lines 38-88) safe against buffer overflows, even with maliciously crafted UTF-8 sequences? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0e6c659-c9df-4ef7-b075-c97b6ab14ea0?mode=deep",
+    "timestamp": "2026-01-10 08:48:35.064535",
+    "report_generated": false
   }
 ]
