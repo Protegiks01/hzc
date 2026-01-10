@@ -16648,5 +16648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd6794c0-e89a-42a5-b303-3667310c77d7?mode=deep",
     "timestamp": "2026-01-10 04:05:26.148412",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/query.go] [Type assertion] Can the compile-time type assertion 'var _ types.QueryServer = Keeper{}' at line 7 fail to catch method signature mismatches that could lead to consensus failures if validators receive different query results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8bf368b-943a-4e4b-aeeb-162277728082?mode=deep",
+    "timestamp": "2026-01-10 04:06:38.178389",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/query.go] [Interface implementation] Does the Keeper struct properly implement all required methods from types.QueryServer interface at line 7, or could missing method implementations cause runtime panics when gRPC queries are invoked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f46e58f1-ef61-44e2-94ba-e00b4d8a6ffc?mode=deep",
+    "timestamp": "2026-01-10 04:06:50.664618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Struct: msgServer] [Interface segregation] The msgServer implements all 11 MsgServer methods through embedding - are there any methods that should be restricted based on the caller's privileges, but the current design allows unrestricted access through the interface? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d3aa27d-3a38-4537-aad4-ac243949c404?mode=deep",
+    "timestamp": "2026-01-10 04:07:03.343560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Memory safety] Since the function embeds the Keeper by value, does this create a full copy of the Keeper struct (including its cdc, storeService, bankKeeper fields), potentially causing memory exhaustion if NewMsgServerImpl() is called repeatedly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2260356-674f-4b4e-ba8c-f6fd2be68ac6?mode=deep",
+    "timestamp": "2026-01-10 04:07:17.278546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Line 17] [Type assertion] The interface compliance check creates a zero-value msgServer{} - if the Keeper zero-value has non-nil fields or requires initialization, could this cause panics during actual message processing that weren't caught by the compile-time check? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_034a2550-73c3-447d-b888-4d25723dc87c?mode=deep",
+    "timestamp": "2026-01-10 04:07:31.127101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Struct: msgServer] [Concurrency] If multiple goroutines call methods on the same msgServer instance returned by NewMsgServerImpl(), does the embedded Keeper's storeService or bankKeeper properly handle concurrent access, or could race conditions lead to state corruption in critical operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a552437-fcab-411c-8908-051ced466cc9?mode=deep",
+    "timestamp": "2026-01-10 04:07:46.032811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Nil check] The function does not validate that the passed Keeper is properly initialized - can an attacker trigger panics or undefined behavior by passing a zero-value Keeper with nil bankKeeper, storeService, or cdc fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_216d63ef-2d78-4cd7-9e32-250a241d6402?mode=deep",
+    "timestamp": "2026-01-10 04:08:01.617702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Design pattern] Does the embedding pattern create scenarios where the Keeper's bankKeeper, storeService, or authority fields are directly accessible through the msgServer, bypassing access controls that should be enforced at the message handler level? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37577ab6-4513-459f-82af-e1a0fc56d821?mode=deep",
+    "timestamp": "2026-01-10 04:08:19.536525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Struct: msgServer] [Method set] Since Keeper is embedded by value, do all 11 MsgServer interface methods (UpdateParams, FundModuleWallet, WithdrawFromModuleWallet, EnableTokenWrapper, DisableTokenWrapper, UpdateIbcSettings, AddPauserAddress, RemovePauserAddress, ProposeOperatorAddress, ClaimOperatorAddress, RecoverZig) correctly use pointer receivers to ensure state modifications are persisted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b7f648f-4243-44d3-bbe3-1d4a25dfccb7?mode=deep",
+    "timestamp": "2026-01-10 04:08:37.909314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Keeper lifecycle] If the passed Keeper instance is reused or modified after NewMsgServerImpl() is called, do changes to the Keeper affect the msgServer behavior, potentially allowing state manipulation through side channels? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccc43594-217e-465d-b1cd-df309c23460b?mode=deep",
+    "timestamp": "2026-01-10 04:08:57.790446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Struct: msgServer] [Exported/Unexported] The msgServer struct is unexported (lowercase 'm'), but the Keeper field is exported through embedding - does this create a privilege escalation vector where callers can directly access Keeper methods that bypass MsgServer validation logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b97f169-f3e3-4a4b-9be6-6b4778339402?mode=deep",
+    "timestamp": "2026-01-10 04:09:18.875167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Return type] The function returns types.MsgServer interface rather than a concrete type - can an attacker exploit type assertions or interface conversion vulnerabilities to access unexported methods or fields of the underlying msgServer or Keeper? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f8b9ff8-070d-4827-bb70-51692fea3c49?mode=deep",
+    "timestamp": "2026-01-10 04:09:39.771367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Line 17] [Interface compliance] The compile-time check 'var _ types.MsgServer = msgServer{}' uses a value receiver, but if any MsgServer methods require pointer receivers to modify state, could this cause the interface check to pass while actual method calls fail or operate on copies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e97da395-f292-442d-a388-a94571e2b5b7?mode=deep",
+    "timestamp": "2026-01-10 04:10:00.203580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Struct: msgServer] [Access control] Since msgServer embeds Keeper by value (not by pointer), are there any scenarios where methods on the msgServer could inadvertently operate on a copy of the Keeper state rather than the original, leading to state inconsistencies in critical operations like token wrapping/unwrapping? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68c124d8-aa16-40ca-9c87-2e868e0b0874?mode=deep",
+    "timestamp": "2026-01-10 04:10:20.641633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Type safety] Does the function return a pointer to msgServer (*msgServer) that shares the same underlying Keeper instance across multiple goroutines, potentially causing race conditions when concurrent transactions modify the embedded Keeper's state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1bb8204-652b-44c6-98ee-8b5493a538ae?mode=deep",
+    "timestamp": "2026-01-10 04:10:40.772727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Struct: msgServer] [Interface implementation] Since msgServer embeds Keeper and implements types.MsgServer through method promotion, can an attacker exploit the implicit method dispatch to call Keeper methods that are not part of the MsgServer interface, potentially bypassing authorization checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac59f476-8aef-48a6-8bf6-5777d224d297?mode=deep",
+    "timestamp": "2026-01-10 04:11:02.311497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server.go] [Struct: msgServer] [Type embedding] Does the embedded Keeper struct in msgServer expose any unexported fields or methods that could be accessed through reflection or unsafe pointer manipulation, potentially bypassing access controls in the 11 MsgServer interface methods? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65424025-b460-47a8-b4da-d5d50af545bc?mode=deep",
+    "timestamp": "2026-01-10 04:11:24.467724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Upgrade simulation] Has the Migrator been tested in mainnet-like conditions with realistic legacy denom counts and concurrent validator participation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e05ae27-3357-4762-950b-15e37c4a8b54?mode=deep",
+    "timestamp": "2026-01-10 04:11:45.620297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Integration testing] Are there tests validating that the Migrator works correctly when registered via cfg.RegisterMigration() in the actual module initialization flow? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2cd058a5-ff48-4c0e-8a0b-b467237dd613?mode=deep",
+    "timestamp": "2026-01-10 04:12:07.428046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Test coverage] Does the test suite verify that NewMigrator() properly handles edge cases like nil keeper, uninitialized stores, or missing dependencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f8697c0-7b46-4cfd-b91f-94a09458d319?mode=deep",
+    "timestamp": "2026-01-10 04:12:31.097184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Index consistency] When MigrateAdminDenomAuthList() creates admin indices, does the Migrator validate that all referenced denoms exist in the migrated state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_770cd683-4252-4149-a0f5-202bfd4af17f?mode=deep",
+    "timestamp": "2026-01-10 04:12:55.542848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Store deletion] Does V2Migration delete legacy denom entries after migration, or can duplicate data in different formats cause store bloat and query confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5322b431-9e1e-4122-ba0a-a493325da0e5?mode=deep",
+    "timestamp": "2026-01-10 04:13:20.839483",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Key prefix safety] Does the Migrator ensure that migrated denoms use the same key prefixes (DenomKeyPrefix) as legacy denoms, or can key collisions occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_474a424d-ffb4-4ad7-ac91-86f71327491c?mode=deep",
+    "timestamp": "2026-01-10 04:13:45.110410",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Field numbering] Since Denom uses field numbers 1-5 matching LegacyDenom's structure, can field reordering in proto definitions cause migration data corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a934dba-35fd-40cb-911b-d9859b5d3d7d?mode=deep",
+    "timestamp": "2026-01-10 04:14:09.168031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Backward compatibility] If new validators join after V2Migration completes, does the Migrator allow them to sync state without requiring legacy proto definitions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4bf73285-35a4-474b-987f-a8429589c5ae?mode=deep",
+    "timestamp": "2026-01-10 04:14:31.596806",
+    "report_generated": false
   }
 ]
