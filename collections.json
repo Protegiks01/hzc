@@ -14698,5 +14698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_619cc7fb-dd23-472d-a336-4671f26d9b3b?mode=deep",
     "timestamp": "2026-01-10 12:42:55.774404",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: EventLiquidityRemoved] [Implementation] When emitting liquidity removal events using EventLiquidityRemoved constant (emit.go line 152), is the pool state snapshot taken before or after LP tokens are burned, potentially showing incorrect LP token supply? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd483c42-e9c6-44ba-b246-1ae5be1e1d4c?mode=deep",
+    "timestamp": "2026-01-10 12:44:17.692818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyPoolState] [Implementation] The pool state emission using AttributeKeyPoolState includes LP tokens in the coins array (emit.go lines 44, 75, 113, 149), but does this create confusion between reserve coins and LP tokens that could be exploited by off-chain parsers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1ec123b-bf04-450e-8bd5-493bfeb137c0?mode=deep",
+    "timestamp": "2026-01-10 12:44:30.244618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeValueCategory] [Module Isolation] Does the AttributeValueCategory constant (set to ModuleName) ensure proper isolation between DEX events and other module events, or can event attribute collisions across modules cause parsing errors in cross-module attack scenarios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87a7e8e8-9be6-4db8-9ac1-5f3e8c3f2cff?mode=deep",
+    "timestamp": "2026-01-10 12:44:43.062353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Missing Cross-Module] [IBC Integration] When DEX operations involve IBC denoms (wrapped tokens from TokenWrapper module), are there event constants for emitting IBC-specific metadata (source channel, source port), or can cross-chain attacks hide behind missing IBC context in DEX events? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1a1befd-a470-453f-ab9b-4bf3e6378615?mode=deep",
+    "timestamp": "2026-01-10 12:44:56.474769",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Missing Cross-Module] [Factory Integration] When swapping or adding liquidity for factory-created tokens, does events.go include constants for emitting factory module metadata (denom creator, minting caps), or can factory token exploits be hidden by insufficient event correlation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a330fb90-bf79-4be6-8caa-92e96dbe6bd3?mode=deep",
+    "timestamp": "2026-01-10 12:45:10.430369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Missing Cross-Module] [Bank Module] Are there DEX event constants that include bank module operation IDs or references, allowing correlation of DEX events with underlying coin transfers, or can token transfer exploits be hidden by lack of event linking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_343adefb-d4d5-493e-a2fc-9c9f559c7d95?mode=deep",
+    "timestamp": "2026-01-10 12:45:25.419845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyPoolState] [DoS] Can an attacker create pools with extremely large numbers of coins or very long denom names, causing the AttributeKeyPoolState emission to generate massive event payloads that bloat the blockchain or crash indexers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fbfa665-213e-427d-bd6b-7e1055746ddc?mode=deep",
+    "timestamp": "2026-01-10 12:45:41.455242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [All Constants] [Event Spam] Is there any rate limiting or size limitation on event emissions using these constants, or can an attacker spam the network with tiny swaps that generate excessive event data, degrading performance for event-based monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55195b1e-c5b9-435b-bfe7-bf56f8482d64?mode=deep",
+    "timestamp": "2026-01-10 12:45:59.221680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyReceiver] [Malicious Receiver] Can an attacker specify an extremely long or malformed receiver address that causes the AttributeKeyReceiver emission to fail or generate invalid events that crash event parsers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_72e401e2-3b01-4a70-b497-4ded1f1938a6?mode=deep",
+    "timestamp": "2026-01-10 12:46:17.899834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Missing Constant] [Parameter Changes] Does the events.go file include constants for emitting governance parameter changes affecting the DEX module (fee rates, minimal liquidity lock, creation fees), or can attackers exploit parameter changes without leaving clear audit trails in events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c2d13b6-3448-4985-bd83-000f9df1c311?mode=deep",
+    "timestamp": "2026-01-10 12:46:37.391620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Missing Constant] [Admin Actions] Are there event constants for administrative actions like pausing the DEX module or updating critical parameters, or can admin abuse occur without proper event-based oversight? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91690c06-50e9-4354-b995-1d895ff5fe0f?mode=deep",
+    "timestamp": "2026-01-10 12:46:57.810851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeySwapFee] [Precision Loss] When swap fees are emitted using AttributeKeySwapFee constant, does the event capture the full precision of fee calculations, or can rounding during event emission hide accumulated rounding errors that drain value from pools over time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_494c5320-01aa-4970-8459-f0b1f01dcb7b?mode=deep",
+    "timestamp": "2026-01-10 12:47:19.378123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyLPTokenOut] [LP Token Precision] Does the LP token amount emission using AttributeKeyLPTokenOut maintain full precision for fractional LP tokens, or can precision loss in event emission hide discrepancies between actual LP token balances and emitted values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91224ec7-fd41-47bf-a663-9ed77446278f?mode=deep",
+    "timestamp": "2026-01-10 12:47:41.999363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyReturnedCoins] [Dust Accumulation] When returned coins are emitted using AttributeKeyReturnedCoins, are dust amounts (<1 unit) properly tracked in events, or can repeated operations accumulate dust that's not reflected in event logs, enabling dust attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd863916-259d-4f63-b801-540d2112dce2?mode=deep",
+    "timestamp": "2026-01-10 12:48:06.052381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Missing Constant] [Invariant Verification] Does the events.go file define constants for emitting AMM invariant checks (k value before/after operations), allowing external monitors to verify that x*y=k is maintained, or must monitors recalculate this from partial event data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f74cf6c8-5b4e-40c9-8825-6e8af04cd279?mode=deep",
+    "timestamp": "2026-01-10 12:48:29.429768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Missing Constant] [Total Supply] Are there event constants for emitting total LP token supply after each operation, enabling external verification that LP token minting/burning is balanced, or can LP token supply manipulation go undetected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_527a18cc-d5ae-4377-b329-3e6dc12b63fd?mode=deep",
+    "timestamp": "2026-01-10 12:48:55.275646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Missing Constant] [Reserve Ratios] Does the events.go file include constants for emitting token reserve ratios in pools, allowing price monitoring, or must monitoring systems calculate prices from absolute reserve amounts with potential precision loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b30c3138-187a-4b6b-b7a7-581a03259531?mode=deep",
+    "timestamp": "2026-01-10 12:49:21.755471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Event Structure] [IBC Standards] Do the event constants in events.go comply with IBC event standards for cross-chain event emission, or can incompatibilities between ZigChain DEX events and IBC relayers cause cross-chain liquidity tracking failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2702dbb2-14e0-4c2d-bede-c0d1d71c1902?mode=deep",
+    "timestamp": "2026-01-10 12:49:48.637185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Event Structure] [SDK Standards] Are the event type and attribute key constants compatible with standard Cosmos SDK event formats expected by block explorers and indexers, or can non-standard formats break third-party integrations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ff3b312-f79d-4f06-9186-9b28afbace95?mode=deep",
+    "timestamp": "2026-01-10 12:50:16.783341",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: EventTokenSwapped] [Sandwich Attack] Can the EventTokenSwapped constant be used to emit events that hide sandwich attack characteristics (multiple swaps in same block, price manipulation), or does it provide sufficient detail for MEV detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9080770-bacd-4095-8489-59f1749de850?mode=deep",
+    "timestamp": "2026-01-10 12:50:43.980553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: EventLiquidityAdded/Removed] [Flash Attack] In flash loan or just-in-time (JIT) liquidity attacks, do events using EventLiquidityAdded and EventLiquidityRemoved in the same transaction provide enough detail to detect this attack pattern, or can attackers hide behind generic event emission? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0df7707c-426a-4f74-81a9-f9262d78012f?mode=deep",
+    "timestamp": "2026-01-10 12:51:10.033818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: EventPoolCreated] [Honeypot Pool] Can an attacker create a malicious pool and have the EventPoolCreated event appear legitimate to monitoring systems, hiding honeypot characteristics like invalid token addresses or manipulated initial prices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ae8a896-9d2b-483b-9f0f-99683c9a7c11?mode=deep",
+    "timestamp": "2026-01-10 12:51:36.402085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyPoolId] [Pool Impersonation] Can an attacker manipulate pool ID generation to create pools with IDs that resemble legitimate pools, using AttributeKeyPoolId emissions to confuse users monitoring events into interacting with malicious pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1598806-9ca7-4c65-a58b-9f6c4b68feb4?mode=deep",
+    "timestamp": "2026-01-10 12:52:01.454140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [All Swap Events] [Price Manipulation] During multi-hop swaps or complex arbitrage, do events using swap-related constants provide sufficient granularity to detect price manipulation across multiple pools, or can attackers hide manipulation in aggregated event data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_779c106f-dffd-4aee-9369-7b67a38a5c71?mode=deep",
+    "timestamp": "2026-01-10 12:52:26.869220",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyPoolState] [State Sync] If a node restarts and replays events using AttributeKeyPoolState to reconstruct pool states, can discrepancies between replayed events and actual chain state cause state sync failures or enable double-spend attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6324c302-0998-4d36-bf69-2b93eff46f67?mode=deep",
+    "timestamp": "2026-01-10 12:52:52.347976",
+    "report_generated": false
   }
 ]
