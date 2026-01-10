@@ -23698,5 +23698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf9e645a-1a96-4987-8c67-dced57867369?mode=deep",
     "timestamp": "2026-01-10 11:53:45.539239",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Memory exhaustion] Can a malicious genesis state contain millions of DenomAuth entries to exhaust memory during the map construction at line 44, causing validator nodes to crash before validation completes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4d25cfd-dc89-492d-a2a2-9d11d4fb417c?mode=deep",
+    "timestamp": "2026-01-10 11:54:50.825143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Duplicate detection] Does the denomAuthIndexMap at line 44 properly handle Unicode normalization, or can an attacker use combining characters to create visually identical but technically different denom strings that bypass duplicate detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f366944-249d-4795-8f8f-35491761e1de?mode=deep",
+    "timestamp": "2026-01-10 11:55:03.267003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Duplicate detection] Can an attacker craft two DenomAuth entries with different denom strings but identical DenomAuthKey outputs to bypass the duplicate detection at line 48, allowing multiple admins for the same denom? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f80a1c43-8e18-4c72-9549-895a11788bff?mode=deep",
+    "timestamp": "2026-01-10 11:55:16.000131",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Ordering dependency] Does the validation at lines 31-41 depend on the order of denoms in DenomList, allowing an attacker to craft an ordering that bypasses validation checks or creates race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fde5f35e-3f0e-442e-aa16-adbc19755f4b?mode=deep",
+    "timestamp": "2026-01-10 11:55:29.173056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Error handling] If denom.Validate() returns an error at line 38, does the function properly clean up the partially constructed denomIndexMap, or can this lead to memory leaks during repeated genesis validation attempts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2812cf6-bf15-49f2-9c4a-8c6644f87be6?mode=deep",
+    "timestamp": "2026-01-10 11:55:43.097615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Validation bypass] Can an attacker insert a malformed denom that causes denom.Validate() at line 38 to panic instead of returning an error, crashing the validator during genesis import? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ae1c7a5-7f17-431d-9884-93ecf82436b2?mode=deep",
+    "timestamp": "2026-01-10 11:55:57.957853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Type conversion] Can an attacker exploit the string(DenomKey(denom.Denom)) type conversion at line 32 to create denoms with embedded null bytes that get truncated during string conversion, causing state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e8b9d00-0dac-469f-9887-3e45d08ba091?mode=deep",
+    "timestamp": "2026-01-10 11:56:14.076552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Duplicate detection] Does the duplicate check at lines 33-35 properly handle case sensitivity, or can an attacker create 'DENOM' and 'denom' entries that bypass duplicate detection but conflict in case-insensitive systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6d635b5-ecf2-4d5a-b737-71a4c78ec4bd?mode=deep",
+    "timestamp": "2026-01-10 11:56:31.876122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Memory exhaustion] Can a Byzantine validator propose a genesis state with millions of denoms in the DenomList, causing the denomIndexMap at line 29 to consume excessive memory and crash honest validators during genesis validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00b51886-539c-42bf-b1f7-a44b3a42694e?mode=deep",
+    "timestamp": "2026-01-10 11:56:50.323570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Duplicate detection] Can an attacker create denoms with trailing slashes or special characters that produce identical keys after the DenomKey function appends '/' at line 20, bypassing duplicate detection while creating distinct store entries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81225f89-b751-4da0-a3c1-ebc189669317?mode=deep",
+    "timestamp": "2026-01-10 11:57:09.737228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Duplicate detection] Does the denomIndexMap collision detection properly handle hash collisions in Go's map implementation, or can an attacker exploit map bucket collisions to inject duplicate denoms into the genesis state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_362c85e1-1faa-4bd4-bf5b-e43cead30c23?mode=deep",
+    "timestamp": "2026-01-10 11:57:29.863912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: GenesisState.Validate()] [Duplicate detection] Can an attacker craft two Denom entries with different string representations but identical DenomKey outputs (e.g., via Unicode normalization attacks) to bypass the duplicate detection at line 33, allowing duplicate denoms in genesis state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed08030c-19a0-4425-b985-502f4fb787d9?mode=deep",
+    "timestamp": "2026-01-10 11:57:51.651836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DefaultGenesis()] [State initialization] Can a malicious validator propose a genesis state that modifies the DefaultGenesis return values during chain fork/upgrade, creating inconsistent state across nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce4a941f-da62-4d56-b885-02fd31bf7603?mode=deep",
+    "timestamp": "2026-01-10 11:58:13.056047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DefaultGenesis()] [State initialization] Does the DefaultGenesis function properly initialize all required fields, or can a missing initialization lead to nil pointer dereference when the factory module processes its first transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fcb309e-9a55-40d1-9c92-1d5d4d494c7b?mode=deep",
+    "timestamp": "2026-01-10 11:58:35.834661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/genesis.go] [Function: DefaultGenesis()] [State initialization] Can an attacker exploit the empty DenomList initialization to bypass required genesis state validation during chain initialization, allowing the chain to start with an inconsistent factory module state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64fcaee3-ba74-4ea3-8cba-9477953c88a6?mode=deep",
+    "timestamp": "2026-01-10 11:58:59.590618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [KVStore adapter mismatch] Can differences between runtime.KVStoreAdapter behavior and the expected key format cause keys to be stored correctly but retrieved incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10468714-272e-42cd-ba2c-e21c63c125af?mode=deep",
+    "timestamp": "2026-01-10 11:59:24.097444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Prefix store boundary escape] Can the absence of a terminal delimiter (beyond the trailing '/') allow keys to escape the prefix.NewStore boundary and access adjacent namespaces? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0d6f81c-ff7f-45d1-9a35-c618cc49f508?mode=deep",
+    "timestamp": "2026-01-10 11:59:48.241516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [SDK denom validation bypass] Since DenomKey is called after sdk.ValidateDenom in some paths but before it in others, can this ordering inconsistency allow invalid denoms to be stored? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f568178-5b83-41e2-85e6-22a02bc40a30?mode=deep",
+    "timestamp": "2026-01-10 12:00:13.051632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Hard fork key divergence] During a hard fork, can validators using different key generation logic cause chain splits where denoms exist on one branch but not the other? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4da06c8a-3964-4123-8831-77425153929f?mode=deep",
+    "timestamp": "2026-01-10 12:00:37.531238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Upgrade key incompatibility] If a protocol upgrade changes the DenomKeyPrefix constant, will existing denoms become inaccessible, causing permanent fund lock for all factory tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9cf9bf94-20d6-4bd3-be32-a6c7f27ae1b3?mode=deep",
+    "timestamp": "2026-01-10 12:01:01.733204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Snapshot restoration] Can key collisions cause different behavior between a fresh chain start and restoration from snapshot, leading to chain state divergence? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52833b5b-cd5e-407a-a2d8-dec74342098e?mode=deep",
+    "timestamp": "2026-01-10 12:01:26.385348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Import validation] When importing state, if key collisions exist, will the import process detect and reject them, or silently accept the last entry, causing state loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f4f7e0d-64b6-4b24-b719-c1c576abafa8?mode=deep",
+    "timestamp": "2026-01-10 12:01:52.229947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [Export collision] During state export, can denoms with colliding keys cause the export process to drop entries, resulting in incomplete state snapshots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb1527ee-d7f7-4680-b483-c0a0ece708d7?mode=deep",
+    "timestamp": "2026-01-10 12:02:16.495186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [CLI tool exploitation] Can denoms with special characters cause CLI tools that display or query denom keys to malfunction, displaying incorrect information to users? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c09a72b-be8f-4075-89aa-dec3b93bd699?mode=deep",
+    "timestamp": "2026-01-10 12:02:41.177235",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/key_denom.go] [Function: DenomKey()] [External indexer confusion] If external indexers or explorers parse these keys, can maliciously crafted denoms with special bytes cause indexers to misparse or crash, affecting ecosystem tools? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ca7de04-584e-4557-b195-26a0a0d5363e?mode=deep",
+    "timestamp": "2026-01-10 12:03:07.104178",
+    "report_generated": false
   }
 ]
