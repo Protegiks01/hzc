@@ -20248,5 +20248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0fbcd9d1-07e5-4adf-8922-edf2fdedd925?mode=deep",
     "timestamp": "2026-01-10 19:28:09.483015",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Validation Inconsistency] The function validates the denom string at line 49 but GetDenomAuth at line 59 may apply different validation. Can an attacker exploit this inconsistency to query invalid denoms? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2dd30504-e12c-4e86-be06-3024236c21bb?mode=deep",
+    "timestamp": "2026-01-10 19:29:31.351265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Function: DenomAuth()] [Context Security] Can an attacker manipulate the context parameter at line 43 to query DenomAuth from unauthorized block heights or access restricted data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1db464fa-1334-4761-95f0-762aa05c6a99?mode=deep",
+    "timestamp": "2026-01-10 19:29:43.684032",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Input Validation] At line 16, the function only checks req == nil but doesn't validate req.Admin. Can an attacker provide an invalid, malformed, or malicious admin address to cause query failures or exploit KVStore prefix construction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08d956b3-aeab-47ea-af9b-84afb455aaab?mode=deep",
+    "timestamp": "2026-01-10 19:29:56.999280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Admin Address Injection] At line 24, types.AdminDenomAuthListKey(req.Admin) constructs a prefix using the admin address. Can an attacker craft an admin address containing prefix separators or special characters that allows reading denoms from other admins? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc5e5391-6afc-4873-8ec4-71674bbd2da9?mode=deep",
+    "timestamp": "2026-01-10 19:30:10.220310",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Address Format Attack] The Admin field is used directly without Bech32 validation. Can an attacker provide non-Bech32 addresses, empty strings, or extremely long addresses to cause panics or buffer overflows in prefix key construction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3d390c5-e913-417f-a403-fe46b9c4dd0c?mode=deep",
+    "timestamp": "2026-01-10 19:30:24.168559",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Pagination Bypass] At line 26, query.Paginate is called with req.Pagination. Can an attacker provide nil pagination to retrieve all denoms for an admin in a single query, bypassing rate limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8c50d53-1482-474c-bf06-3cbf84b43e5d?mode=deep",
+    "timestamp": "2026-01-10 19:30:39.332418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Key Conversion] At line 27, keys are converted to strings using string(key). Can this conversion introduce encoding issues, null byte truncation, or character set problems that cause incorrect denom names in responses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bf7304a-3a17-4980-be43-a97d0b84bf42?mode=deep",
+    "timestamp": "2026-01-10 19:30:55.630357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Empty Admin Result] If req.Admin has no associated denoms, the function returns an empty array. Can client applications distinguish between 'admin has no denoms' versus 'admin address is invalid'? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d424baf-200d-49e4-ac3d-a7ac6e0245f0?mode=deep",
+    "timestamp": "2026-01-10 19:31:13.526783",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Store Prefix Safety] At line 24, prefix.NewStore is created with AdminDenomAuthListKey. If the admin address contains special characters, can this create a prefix that overlaps with other storage areas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27e5c990-b02c-4d51-8fa3-da08c43eed2d?mode=deep",
+    "timestamp": "2026-01-10 19:31:32.044293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Iterator Safety] At line 26, query.Paginate handles iteration. If the admin index is corrupted or contains invalid keys, can this cause panics during iteration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7bb6c5f8-600d-455b-9bad-d23778634363?mode=deep",
+    "timestamp": "2026-01-10 19:31:51.431891",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Memory Exhaustion] At line 27, paginatedDenoms are appended without size limits. If an admin controls thousands of denoms, can this cause memory issues even with pagination? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a858cb50-f1d3-43aa-af48-7097e8628db0?mode=deep",
+    "timestamp": "2026-01-10 19:32:12.417767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Admin Privacy] This query exposes all denoms controlled by a specific admin. Can an attacker use this to profile admins' token portfolios and identify high-value targets for social engineering or theft? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b00cfea-7717-4c10-900d-aedda2e94788?mode=deep",
+    "timestamp": "2026-01-10 19:32:33.902692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Index Inconsistency] The function queries the admin index, but can this index be out of sync with the actual DenomAuth entries? Can an attacker exploit inconsistencies between the index and source data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_509bda32-093e-40d2-aa38-4f657a6c510e?mode=deep",
+    "timestamp": "2026-01-10 19:32:55.536291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Error Handling] At line 32, errors return codes.Internal. Can specific error conditions leak information about the validator's storage state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec2c5851-269c-4514-8323-38132d145e66?mode=deep",
+    "timestamp": "2026-01-10 19:33:17.445619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Case Sensitivity] Is req.Admin case-sensitive? Can an attacker query using different case variations of the same address to bypass caching or cause inconsistent results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f967930d-5212-4ef3-93b6-f25eecc4bfd2?mode=deep",
+    "timestamp": "2026-01-10 19:33:40.839106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Unicode Handling] If req.Admin contains Unicode characters, can this cause issues in prefix key construction or string conversion at line 27? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba2afa9f-2fc7-4c0a-b5c2-ff0b40fc4b33?mode=deep",
+    "timestamp": "2026-01-10 19:34:04.273323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Context Unwrapping] At line 17, the function unwraps SDKContext using sdk.UnwrapSDKContext(goCtx). Can an attacker provide a malformed context that causes UnwrapSDKContext to panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_492caff5-a975-4fd5-8610-3fa2e0ee560e?mode=deep",
+    "timestamp": "2026-01-10 19:34:28.145219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Parameter Exposure] At line 19, the function returns all params via k.GetParams(ctx). Can an attacker use this to discover sensitive configuration parameters that could aid in exploiting other vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42c07a74-736e-460b-bbaa-c19be49dedc0?mode=deep",
+    "timestamp": "2026-01-10 19:34:53.005370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Input Validation] At line 13, only req == nil is validated. Can an attacker provide a request with unexpected fields that cause issues in upstream processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37d58a74-3fce-4bd4-bd7c-073af366edf4?mode=deep",
+    "timestamp": "2026-01-10 19:35:18.044914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [State Access] The function reads params from state at line 19. Can a malicious validator exploit race conditions during governance parameter updates to return inconsistent params? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47e26379-51b7-4550-a17f-f51564162707?mode=deep",
+    "timestamp": "2026-01-10 19:35:43.068760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Determinism] Does k.GetParams guarantee deterministic results across all validators at the same block height, or can parameter updates cause temporary inconsistencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33f4d7b8-c412-4147-9638-f8d5c6ff94e4?mode=deep",
+    "timestamp": "2026-01-10 19:36:08.240731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Cross-Function] [Consistency] Can an attacker exploit timing between DenomAll and Denom queries to receive inconsistent denom statistics where calculateDenomStats returns different values for the same denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ca87148-628e-4db7-a8b6-e7c078b448e7?mode=deep",
+    "timestamp": "2026-01-10 19:36:30.913267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Cross-Function] [State Race] Between calling GetDenom and GetDenomAuth in the Denom function, can a Byzantine validator exploit this gap to serve queries where the denom exists but auth doesn't, or vice versa? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5aac1b81-51bb-424d-931f-21a16858dcbd?mode=deep",
+    "timestamp": "2026-01-10 19:36:54.562656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Cross-Function] [Index Sync] Can denoms appear in ListDenomAuth but not in DenomAll, or vice versa, indicating index synchronization issues that could be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1427040a-e012-461d-9484-d6caa5c9e381?mode=deep",
+    "timestamp": "2026-01-10 19:37:18.891752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Cross-Function] [Admin Index] If AddDenomToAdminDenomAuthList fails but denom creation succeeds, can DenomsByAdmin return incomplete results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_53de86b6-e8b4-4976-94d7-07be8a09988c?mode=deep",
+    "timestamp": "2026-01-10 19:37:43.758405",
+    "report_generated": false
   }
 ]
