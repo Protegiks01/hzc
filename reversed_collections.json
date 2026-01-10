@@ -28198,5 +28198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0bb50294-ab3a-4f4e-aafd-86ec97456397?mode=deep",
     "timestamp": "2026-01-10 17:02:02.364620",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Cache invalidation] When denoms are added/removed from an admin's list, is there proper cache invalidation to ensure this query returns fresh data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c20ae3f8-6bca-4226-9d45-78690f2556a4?mode=deep",
+    "timestamp": "2026-01-10 17:03:23.695707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Caching] If query results are cached at any layer (gRPC, application, or client), could stale cache entries cause clients to see outdated denom ownership information after admin transfers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b827112-1b1f-4c2e-9c85-e207117bb4ee?mode=deep",
+    "timestamp": "2026-01-10 17:03:36.050457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Admin role] If AddDenomToAdminDenomAuthList is called for both BankAdmin and MetadataAdmin of the same denom, does this query return the denom twice for each admin or is deduplication handled? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_013be07a-452f-404c-9687-3aa49d2196f2?mode=deep",
+    "timestamp": "2026-01-10 17:03:48.714673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Admin role ambiguity] Since DenomAuth has both BankAdmin and MetadataAdmin fields, which admin role does this query match against, and is this clearly documented to prevent confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9145641a-4c3f-4612-a73d-6502726992d3?mode=deep",
+    "timestamp": "2026-01-10 17:04:02.579850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Key length] Does the combination of AdminDenomAuthKeyPrefix + admin address + denom name respect maximum key length constraints, or could this cause store operations to silently fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f9435a42-3f37-41eb-8455-bda8dfde4ae4?mode=deep",
+    "timestamp": "2026-01-10 17:04:16.365065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Key length] Can extremely long denom names (if allowed during denom creation) cause the key length to exceed store implementation limits when stored under AdminDenomAuthKeyPrefix, causing query failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab31d6ac-5830-4642-aeb7-156a471724ed?mode=deep",
+    "timestamp": "2026-01-10 17:04:31.345342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Invalid response] If the pagination callback never gets called (admin has zero denoms), is paginatedDenoms initialized to an empty slice or does it remain nil, potentially causing nil pointer issues in response marshaling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4609a84-c750-4b97-9d08-7e72e61d754c?mode=deep",
+    "timestamp": "2026-01-10 17:04:46.957492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Empty response] When an admin has no denoms, does the response return an empty slice or nil for the Denoms field, and could clients misinterpret nil as an error condition? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45895aac-efd7-4d98-8476-b9b812ff0e54?mode=deep",
+    "timestamp": "2026-01-10 17:05:04.619169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Concurrency] Does the KVStore adapter support concurrent read access, or could simultaneous queries cause deadlocks or data races in the underlying store implementation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5cd3a98-5e41-4b2a-b6c8-7b79cf2cf632?mode=deep",
+    "timestamp": "2026-01-10 17:05:23.231033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Concurrency] If multiple clients simultaneously query the same admin's denoms with different pagination parameters, could this cause contention on the store adapter or iterator that degrades performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c45a634-3473-45bd-8992-0fdae4357d59?mode=deep",
+    "timestamp": "2026-01-10 17:05:42.807397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Error propagation] Can certain pagination errors (e.g., invalid key format) be exploited to trigger different code paths that leak information about the store structure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_948f058d-6c38-46bd-a9da-ef329f0e8f0e?mode=deep",
+    "timestamp": "2026-01-10 17:06:03.366326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Error propagation] When wrapping the pagination error with status.Error(codes.Internal), does this hide the underlying error type that might be needed for proper client-side error handling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f7ff64d-20f2-416e-8cba-7f6373b1df0c?mode=deep",
+    "timestamp": "2026-01-10 17:06:24.589144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Key assumptions] If the store key format includes metadata beyond just the denom name (e.g., creation timestamp), does string(key) correctly extract only the denom or does it return the entire key with metadata? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ad323c1-81b1-4d0a-84db-26d0b2a6edae?mode=deep",
+    "timestamp": "2026-01-10 17:06:46.795766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Key assumptions] Does the function assume that all keys under the AdminDenomAuthKeyPrefix + admin prefix are valid denom names, or could other data accidentally stored in this namespace cause query corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49c6dc2b-7d46-4538-94c8-5f1737f7d8fb?mode=deep",
+    "timestamp": "2026-01-10 17:07:09.713343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Resource limits] Are there any rate limits on how frequently this query can be called by a single client, or can attackers spam queries to cause node resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ba0a64b3-6dda-42bf-baf4-51478735f76f?mode=deep",
+    "timestamp": "2026-01-10 17:07:33.483917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Gas] Does the query consume gas proportional to the number of denoms iterated, or is it a fixed-cost query that allows attackers to extract large amounts of data cheaply? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7fc188c-fc68-4dfe-a8db-a847656c926b?mode=deep",
+    "timestamp": "2026-01-10 17:07:57.330919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Admin transfer] If a denom's admin is transferred mid-query (between pagination pages), could the denom appear in results for both the old and new admin, or neither? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9d4f580-ba69-456d-bf28-aa41940530bf?mode=deep",
+    "timestamp": "2026-01-10 17:08:22.464645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Multi-admin] Since factory denoms can have separate BankAdmin and MetadataAdmin, does this query return denoms where req.Admin matches either role, and could this lead to confusion about admin privileges? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6df316b-29bf-423e-aeda-0b3d8f246ed6?mode=deep",
+    "timestamp": "2026-01-10 17:08:46.885302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Response validation] Can the query return duplicate denom names if the store contains multiple entries with the same key due to data corruption or migration issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d289444-039d-4a70-9f48-00c65bbf797a?mode=deep",
+    "timestamp": "2026-01-10 17:09:11.757923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Response validation] Does the function validate that the denom strings being returned are valid factory denom formats, or could corrupted store data cause invalid denom names to be returned to clients? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37ac89c1-5d20-426d-b87b-d31672111a8d?mode=deep",
+    "timestamp": "2026-01-10 17:09:37.116550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Orphaned entries] Can the admin denom list contain stale entries for denoms that have been deleted or transferred, causing this query to return non-existent denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_341deb0d-cc1a-4600-ac34-891ee2a719ac?mode=deep",
+    "timestamp": "2026-01-10 17:10:03.123849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [State synchronization] If RemoveDenomFromAdminDenomAuthList is called but the denom still exists in DenomAuth with that admin, does this create a consistency violation where the query misses valid denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56c672b9-5de0-41ef-881d-2752b7ff9a9a?mode=deep",
+    "timestamp": "2026-01-10 17:10:27.013210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [State synchronization] If AddDenomToAdminDenomAuthList is called but SetDenomAuth fails in the same transaction, could the admin list contain denoms that don't actually exist, causing this query to return phantom denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10dd921c-7db4-452b-915e-ddf74a8ca712?mode=deep",
+    "timestamp": "2026-01-10 17:10:49.584178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Performance] Does the prefix store iteration use efficient indexes, or does querying an admin with many denoms require full table scans that degrade database performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7cccd45b-6149-4dd9-ae13-f3505b512eb4?mode=deep",
+    "timestamp": "2026-01-10 17:11:12.597898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Performance] Can an attacker identify admin addresses with millions of denoms and repeatedly query them without pagination limits to cause node performance degradation affecting all users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_faf45984-e4df-4f4d-bb5a-f38bb45710ca?mode=deep",
+    "timestamp": "2026-01-10 17:11:35.560090",
+    "report_generated": false
   }
 ]
