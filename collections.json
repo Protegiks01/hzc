@@ -12748,5 +12748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89055bea-175e-46ce-8b30-73a4ba04c31f?mode=deep",
     "timestamp": "2026-01-10 07:42:50.015905",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Single character poolId] Can an attacker exploit edge case handling by passing single-character poolId values that may have special meaning in the KVStore implementation (e.g., '.' or '..'), causing unexpected behavior when combined with the '/' separator in line 20? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bdaf76c4-f06f-4f08-99d9-5621c5e86892?mode=deep",
+    "timestamp": "2026-01-10 07:44:00.580842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Boundary condition] Does the append operation in line 19 handle poolId values at exact Go slice capacity boundaries correctly, or can an attacker trigger off-by-one errors that cause key corruption when poolId length equals a power of 2 minus the separator length? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ad6dfdb-ff43-423c-8849-d13caa226f04?mode=deep",
+    "timestamp": "2026-01-10 07:44:13.262696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Memory exhaustion] Can an attacker repeatedly call PoolKey() with unique but arbitrarily long poolId values to exhaust the validator's memory by accumulating unreleased byte slices, since lines 16-20 create new allocations without any pooling or reuse mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c16e372a-7b6f-4dd1-a7fc-22770cc55984?mode=deep",
+    "timestamp": "2026-01-10 07:44:26.592913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Slice growth DoS] Does the repeated append() operation in lines 19-20 trigger worst-case quadratic memory allocation behavior when poolId contains specific byte patterns, allowing an attacker to amplify CPU and memory usage beyond expected bounds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23449707-8d1d-4eb9-b874-30109ddbff53?mode=deep",
+    "timestamp": "2026-01-10 07:44:39.967612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Allocation amplification] Can an attacker craft poolId values that trigger maximum slice capacity growth in line 19's append operation (Go typically doubles capacity), causing 2x memory amplification that exhausts validator memory when combined with concurrent pool creation transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c572b715-9867-457d-9652-93611661fbf4?mode=deep",
+    "timestamp": "2026-01-10 07:44:53.949449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [GC pressure] Can massive pool creation by an attacker (leveraging permissionless pool creation in ZigChain) cause PoolKey() to generate millions of short-lived byte slice allocations that overwhelm the Go garbage collector, degrading validator performance and causing block production delays? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_216eb02a-915b-404b-a645-430b6362469b?mode=deep",
+    "timestamp": "2026-01-10 07:45:09.344467",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Non-deterministic key generation] Does PoolKey() produce deterministic output across all validator nodes, or can differences in Go runtime versions, locale settings, or Unicode normalization cause the same poolId to generate different keys on different validators, leading to state divergence and consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22cd8533-d42c-4384-8be7-64e05030b821?mode=deep",
+    "timestamp": "2026-01-10 07:45:25.662457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Endianness issues] Can the byte-level key construction in lines 18-20 produce different results on big-endian vs little-endian systems if poolId contains multi-byte characters, causing validators running on different architectures to have incompatible state representations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f3d018f-9f94-4f05-8e4d-469e34d978b8?mode=deep",
+    "timestamp": "2026-01-10 07:45:45.400547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Race condition in key generation] If multiple goroutines call PoolKey() concurrently with the same poolId, can the append operations in lines 19-20 race and produce corrupted keys due to shared slice header mutations, causing intermittent pool lookup failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1f01d1d5-85ab-4575-a1a8-20751771c7b2?mode=deep",
+    "timestamp": "2026-01-10 07:46:03.829522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Mutable key return] Does returning the key as []byte in line 22 without making it immutable allow callers to modify the returned slice, potentially corrupting subsequent uses of the same key if the slice backing array is reused? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2aa2b462-641c-4b73-9dfa-5108999f1316?mode=deep",
+    "timestamp": "2026-01-10 07:46:24.609560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Case sensitivity inconsistency] Can an attacker exploit case sensitivity differences by creating poolId='ZP1' vs 'zp1' (different from the expected 'zp' prefix), since PoolKey() performs no case normalization, causing duplicate pools that violate business logic invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_57c73368-883f-4fea-a43f-f73b119abd38?mode=deep",
+    "timestamp": "2026-01-10 07:46:45.480810",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Prefix collision with other modules] Does the PoolKeyPrefix constant 'Pool/value/' in line 9 sufficiently namespace the DEX module's keys to prevent collisions with other modules' key prefixes, or can an attacker exploit prefix overlap to corrupt state in TokenWrapper or Factory modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_584b4206-dd13-4065-8642-6c1621ea6b18?mode=deep",
+    "timestamp": "2026-01-10 07:47:06.631222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Cross-module key traversal] Can an attacker leverage the simple '/' separator in line 20 to construct poolId values that, when prefixed with PoolKeyPrefix, create keys that traverse into adjacent key ranges used by other modules, enabling unauthorized state reads or writes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbe04d48-8f47-4a3f-9dd5-a04ba27bfc43?mode=deep",
+    "timestamp": "2026-01-10 07:47:28.755811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Pool ID format mismatch] Does PoolKey() validate that poolId follows the expected 'zp[0-9]+' format enforced by GetNextPoolIDString() in pool.go:89, or can an attacker bypass format restrictions by directly calling SetPool() with malformed poolId values that break pool iteration logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d94180f-a235-47ed-b5f1-f195c3645748?mode=deep",
+    "timestamp": "2026-01-10 07:47:51.142863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Module address derivation mismatch] Can a discrepancy between how PoolKey() constructs storage keys and how GetPoolAddress() derives module addresses (using authtypes.NewModuleAddress) allow an attacker to create pools whose storage keys don't match their on-chain addresses, causing fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de5eae6b-8059-4f6e-af7d-3e8b4962b987?mode=deep",
+    "timestamp": "2026-01-10 07:48:15.375713",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Genesis import vulnerability] During genesis state import, can an attacker include malicious poolId values in the PoolList that exploit PoolKey() construction to overwrite critical genesis parameters when the keys are written to the store in genesis.go:32? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fea646a-141c-49cf-9e3f-8478c44ab793?mode=deep",
+    "timestamp": "2026-01-10 07:48:38.707511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Missing input validation] Does PoolKey() perform any validation on the poolId parameter, or does it blindly construct keys from attacker-controlled input, allowing arbitrary byte sequences to be written into the store's key namespace? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b6038da-2018-4c15-86c6-a35c71c1727a?mode=deep",
+    "timestamp": "2026-01-10 07:49:02.664173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Length validation bypass] Can an attacker bypass expected poolId length constraints by exploiting the absence of length checks in PoolKey(), creating pools with IDs that are too short (e.g., 'z') or too long (exceeding MaxPoolID=99999999999 from constants.pool.go:6)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f458ac1-ceeb-4e54-9488-dcbaacac9afd?mode=deep",
+    "timestamp": "2026-01-10 07:49:26.063950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Numeric overflow in poolId] If poolId is supposed to represent a numeric value (e.g., 'zp999999999999'), can an attacker pass poolId strings that overflow uint64 when parsed, but still pass through PoolKey() unchanged, causing inconsistencies with GetNextPoolID() counter logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3ebe8a0-82e6-493a-ba10-2cb55167bebb?mode=deep",
+    "timestamp": "2026-01-10 07:49:49.694581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Prefix validation bypass] Does PoolKey() verify that poolId starts with the expected 'zp' prefix from constants.PoolPrefix, or can an attacker create pools with arbitrary prefixes (e.g., 'attack1') that violate naming conventions and break prefix-based queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcd155e4-c7e4-4c52-9b0e-51416c6b7a0e?mode=deep",
+    "timestamp": "2026-01-10 07:50:14.705059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Special character validation] Can an attacker include shell metacharacters, SQL injection sequences, or path traversal patterns in poolId (e.g., 'zp1;rm -rf /') that, while not directly exploitable in PoolKey(), get logged or displayed unsafely in monitoring tools? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02154b68-502b-484c-9faa-200ba5fe1266?mode=deep",
+    "timestamp": "2026-01-10 07:50:40.011191",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Migration vulnerability] If the PoolKeyPrefix constant in line 9 is ever changed in a future upgrade, can existing pools become inaccessible because their old keys (constructed with the old prefix) won't match new PoolKey() outputs, causing permanent liquidity lockup? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b896d174-22ba-43c6-b47a-5ea4eb30be79?mode=deep",
+    "timestamp": "2026-01-10 07:51:05.578785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Separator change vulnerability] Can changing the '/' separator in line 20 to a different character in a future version cause all existing pool keys to become invalid, bricking the entire DEX module until a manual state migration is performed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2fb0f59e-1dbd-446a-9523-21125849b90b?mode=deep",
+    "timestamp": "2026-01-10 07:51:29.935541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Key format versioning] Does PoolKey() include any versioning information in the constructed key to support future format changes, or will any modification to the key structure require a hard fork and complete state migration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13fe4d9d-640c-4b02-9ab6-a7fc4e9d2493?mode=deep",
+    "timestamp": "2026-01-10 07:51:55.350926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/key_pool.go] [Function: PoolKey()] [Legacy pool ID support] If ZigChain had pre-existing pools before this key format was adopted, can PoolKey() correctly handle legacy pool IDs, or will attempting to access old pools result in key mismatches and apparent state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1528e482-7707-4fca-aebc-20199bcd5d1c?mode=deep",
+    "timestamp": "2026-01-10 07:52:20.829780",
+    "report_generated": false
   }
 ]
