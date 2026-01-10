@@ -20848,5 +20848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0e6c659-c9df-4ef7-b075-c97b6ab14ea0?mode=deep",
     "timestamp": "2026-01-10 08:48:35.064535",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Nil dereference] Does ValidateBasic() properly handle the case where the MsgCreateDenom pointer itself is nil? Can an attacker cause a nil pointer dereference panic by manipulating the message before validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_183cd2be-9dcd-47bb-acd0-4c9c41742aa4?mode=deep",
+    "timestamp": "2026-01-10 08:49:53.708095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Fee bypass] Can an attacker exploit the validation to create denoms without paying fees by crafting messages that pass ValidateBasic() but manipulate keeper state to bypass fee collection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37842bee-6142-44db-93ad-53fd3a77600f?mode=deep",
+    "timestamp": "2026-01-10 08:50:06.010434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Admin rights] Does ValidateBasic() ensure the creator address is not a contract or module account that could lead to inaccessible admin rights for the created denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_89b073f6-37db-4878-8809-05ca15077cb7?mode=deep",
+    "timestamp": "2026-01-10 08:50:18.755567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Metadata collision] Does ValidateBasic() prevent creation of denoms that would collide with existing bank metadata? The keeper checks at line 78-86, but validation gaps could allow wasted fees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db6e8f57-ae45-4954-a9ac-f8c6c884dc3b?mode=deep",
+    "timestamp": "2026-01-10 08:50:31.848188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Native denom collision] Does ValidateBasic() prevent creation of subdenom that matches native denoms? The keeper checks this at line 35 of msg_server_create_denom.go, but can validation gaps allow bypassing this check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d09f1b6-f798-4d55-9c06-e56347754a94?mode=deep",
+    "timestamp": "2026-01-10 08:50:45.501963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Keeper validation gap] Does ValidateBasic() at line 35-91 check if the creator has sufficient balance for the creation fee defined in keeper params? Can an attacker pass validation but fail in keeper when fee payment is attempted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c0b953c-543c-4f00-8db6-acbfcd4cdec9?mode=deep",
+    "timestamp": "2026-01-10 08:51:00.249196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Replay protection] Does the message structure include any replay protection mechanisms? Can an attacker replay a valid MsgCreateDenom message on a different chain or after chain upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3d9f6d5-f7e9-4f33-b95e-6252c86ad919?mode=deep",
+    "timestamp": "2026-01-10 08:51:15.877612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Front-running] Can an attacker observe pending MsgCreateDenom transactions in the mempool and front-run them by submitting the same denom creation with higher gas, stealing the desired denom name? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_413c34c8-a300-409b-a74d-3e69acba6cf0?mode=deep",
+    "timestamp": "2026-01-10 08:51:33.337805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Gas manipulation] Can an attacker craft inputs that cause ValidateBasic() to consume vastly different amounts of gas depending on input characteristics, enabling gas manipulation attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0e8fbb81-ae58-4f23-9df6-ac210d0f5b5f?mode=deep",
+    "timestamp": "2026-01-10 08:51:51.857158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Determinism] Does the validation logic guarantee deterministic behavior across all platforms? Can differences in Go versions or architectures cause ValidateBasic() to return different results for the same input? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc36869a-7084-4212-8d6e-444fecf6da55?mode=deep",
+    "timestamp": "2026-01-10 08:52:11.062363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Consensus failure] Can an attacker craft a MsgCreateDenom that produces different validation results on different validator nodes due to locale-dependent string operations, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e074395b-7f08-417b-9c9c-feea5cd40fcd?mode=deep",
+    "timestamp": "2026-01-10 08:52:31.067917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Error handling] Does ValidateBasic() properly wrap all errors with sufficient context? Can an attacker exploit error handling gaps to hide the true cause of validation failures, making debugging difficult? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6368803-ae50-4e08-b130-009ee7b1778d?mode=deep",
+    "timestamp": "2026-01-10 08:52:52.292556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Denial of service] Can an attacker cause excessive gas consumption by providing inputs that maximize the regex validation time in CheckSubDenomString or sdk.ValidateDenom, enabling DoS attacks on validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f144c00-be66-43d8-ba72-a117a70efc5b?mode=deep",
+    "timestamp": "2026-01-10 08:53:14.322725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Atomicity] Does the validation ensure atomicity between checking SubDenom at line 43 and constructing the full denom at line 48? Can an attacker exploit a TOCTOU (time-of-check-time-of-use) race if these validations happen at different times? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f0b6a66-dcd2-4eb8-9c2a-ff27bc6ddd0a?mode=deep",
+    "timestamp": "2026-01-10 08:53:39.637477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [State inconsistency] Does ValidateBasic() guarantee that a message passing validation will succeed in the keeper? Can an attacker craft a message that passes ValidateBasic() but fails keeper validation after the fee is charged, causing fee loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e4bc5cb-f72a-4b26-9638-288bad51fde9?mode=deep",
+    "timestamp": "2026-01-10 08:54:04.191364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Race condition] Can an attacker submit multiple MsgCreateDenom messages with the same creator and subdenom in parallel, causing both to pass ValidateBasic() but only one to be rejected in the keeper, wasting the creation fee for the rejected message? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_209e196a-405c-43e1-b5e5-6c65c64e852c?mode=deep",
+    "timestamp": "2026-01-10 08:54:29.542185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Hash validation] Can an attacker exploit the conditional URIHash validation at line 77-88 by providing URIHash with uppercase hex characters that pass IsSHA256Hash but cause comparison failures in case-sensitive systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e84774b8-4ed7-4952-b7dc-35fdd6221446?mode=deep",
+    "timestamp": "2026-01-10 08:54:55.525829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Hash validation] Does the validation enforce that URIHash must be provided when URI is provided, or can an attacker create denoms with URI but no URIHash, making it impossible to verify URI integrity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47412ad4-e7af-4d24-9652-f92c6fdb07b2?mode=deep",
+    "timestamp": "2026-01-10 08:55:21.721140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Hash validation] Can an attacker provide a valid SHA256 hash format at line 79 that doesn't actually match the URI content, creating metadata integrity issues where URIHash cannot be verified against URI? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fe41909-7142-4129-b829-8cbcc07c4bc9?mode=deep",
+    "timestamp": "2026-01-10 08:55:48.599630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Hash validation] Does the validators.IsSHA256Hash check at line 79 validate that URIHash is exactly 64 hexadecimal characters? Can an attacker provide a hash with mixed case or special format that passes validation but fails equality checks later? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2a3b288-fec7-46eb-b93f-a5fe8b47c316?mode=deep",
+    "timestamp": "2026-01-10 08:56:15.336102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Hash validation] Can an attacker exploit the URIHash validation at line 77-88 by providing a URIHash when URI is empty? The code allows empty URI at line 62, but does it properly clear URIHash in the keeper when URI is empty? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96d1eba0-c201-4e91-a99a-3108e67ae0cc?mode=deep",
+    "timestamp": "2026-01-10 08:56:43.131930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [URI validation] Can an attacker bypass URI validation by using URL encoding, Unicode normalization, or IDN homograph attacks to create URIs that appear legitimate but resolve to malicious resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7cb8c07-db72-4ebc-8a4d-0306ae04bf2d?mode=deep",
+    "timestamp": "2026-01-10 08:57:10.099304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [SSRF vulnerability] Does the URI validation prevent attackers from specifying internal network URIs (e.g., 'http://localhost', 'http://169.254.169.254') that could be exploited for SSRF attacks if off-chain systems fetch the URI? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_731ef139-ceaf-476e-872f-cf85d029fc83?mode=deep",
+    "timestamp": "2026-01-10 08:57:36.105787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [URI validation] Can an attacker exploit the IsURI validation by providing URIs with embedded credentials (e.g., 'https://user:pass@evil.com') that could leak sensitive information when stored on-chain? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7659e54e-59a4-4b09-b0b1-24f0f7385bca?mode=deep",
+    "timestamp": "2026-01-10 08:58:02.628457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [URI validation] Does the validators.IsURI check at line 71 validate the URI scheme? Can an attacker use javascript:, data:, or file: URIs that could be exploited in web interfaces displaying token metadata? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_631e92ff-b108-493b-8fcf-b75769726d1b?mode=deep",
+    "timestamp": "2026-01-10 08:58:28.046089",
+    "report_generated": false
   }
 ]
