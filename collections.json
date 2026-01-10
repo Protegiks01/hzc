@@ -14398,5 +14398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8853b0d9-17fe-4934-817d-67fc47ed0407?mode=deep",
     "timestamp": "2026-01-10 09:29:05.885372",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Governance proposals] Can malicious governance proposals add formulas to AllowedFormulas that are syntactically valid but semantically meaningless (e.g., 'exploit_formula'), allowing creation of pools that cannot be swapped against? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c717bac2-dd55-4114-b116-d735b5eb68cc?mode=deep",
+    "timestamp": "2026-01-10 12:25:51.917387",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [IBC middleware] If IBC packets contain pool information with formula fields, does the IBC middleware validate formulas using IsValidFormula before accepting packets, or can remote chains send invalid formulas that corrupt local state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b917dacd-98c1-45a1-8731-734fb39c06fd?mode=deep",
+    "timestamp": "2026-01-10 12:26:04.237403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [TokenWrapper interaction] Can wrapped tokens created via TokenWrapper module have metadata or denom names that interfere with formula validation, causing pools with wrapped tokens to fail validation even with correct formulas? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b54e71ea-9ebc-4bbb-8c31-e722bc8f65f0?mode=deep",
+    "timestamp": "2026-01-10 12:26:16.911465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [Swap calculation coupling] Since swap calculations in msg_server_swap_exact_in.go hardcode constant product (x*y=k) logic without checking pool.Formula, can pools with future formulas be exploited if formula validation accepts them but swap logic doesn't implement them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_836b4ab3-24b0-4a16-9bbc-88016d04671f?mode=deep",
+    "timestamp": "2026-01-10 12:26:30.821958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Formula-specific parameters] Does each formula in AllowedFormulas require different pool parameters (e.g., amplification coefficient for stable swap), and can pools pass IsValidFormula but fail during swaps due to missing parameters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c4803eb-244e-48a5-9b6b-69a58be87094?mode=deep",
+    "timestamp": "2026-01-10 12:26:44.481543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [Integer overflow in AMM] When executing constant product formula calculations, can integer overflow occur in x*y multiplication for pools with large reserves, causing incorrect swap amounts or pool drainage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f70d57f6-6e1d-4c16-ba7a-6c56f32f0433?mode=deep",
+    "timestamp": "2026-01-10 12:26:59.148259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Formula atomicity] If IsValidFormula accepts a formula but the corresponding calculation function is not yet deployed, can this create a window where pools are created but unusable, locking user funds indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5735372f-34c8-4970-864a-cbf53dff23bc?mode=deep",
+    "timestamp": "2026-01-10 12:27:15.084479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Formula versioning] If formulas require versioning (e.g., 'constant_product_v1' vs 'constant_product_v2'), can pools created with v1 be exploited after v2 is deployed if the validation doesn't enforce version consistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e00bf9b7-dd3e-4357-8aa2-d1564afc63a6?mode=deep",
+    "timestamp": "2026-01-10 12:27:32.649107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Maximum formula count] Is there a maximum limit on the number of entries in AllowedFormulas, or can unbounded growth cause performance degradation when IsValidFormula performs lookups during high-traffic pool creation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1599ccd7-b37f-45a6-86fa-656ef5c9eab7?mode=deep",
+    "timestamp": "2026-01-10 12:27:50.870320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [String constant overhead] Does using a string constant instead of an enum/uint32 for formulas cause unnecessary overhead in state storage, comparisons, and IBC packet transmission, potentially leading to gas inefficiencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aac16f0d-d2cd-4adb-95e3-d2e07b4bb348?mode=deep",
+    "timestamp": "2026-01-10 12:28:09.469325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Formula removal] If a formula is removed from AllowedFormulas via governance, what happens to existing pools using that formula - do they become invalid, fail validation, or continue operating with deprecated formulas? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2030b9a-06c4-4ec2-bace-b82cb15a9bb3?mode=deep",
+    "timestamp": "2026-01-10 12:28:29.668449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Zero-value handling] What happens if AllowedFormulas is reset to empty map or zero value - does IsValidFormula reject all formulas, causing all pool operations to fail and effectively DoS'ing the DEX module? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_942fc507-9c41-4757-84b3-f75cf08bc914?mode=deep",
+    "timestamp": "2026-01-10 12:28:51.076353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Special characters] Does IsValidFormula allow formulas with special characters like '/', '.', '-', or can these characters cause parsing issues when formulas are used as map keys, file paths, or database identifiers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fe88849-86d5-4e73-b04c-85641ad54d4a?mode=deep",
+    "timestamp": "2026-01-10 12:29:13.751463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Map ordering] When AllowedFormulas is serialized for state sync or exported in genesis, is map key ordering deterministic, or can non-deterministic ordering cause state hash mismatches between validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb80a2d5-e636-45e7-9537-da5f06edca6d?mode=deep",
+    "timestamp": "2026-01-10 12:29:37.206129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Locale-dependent comparison] Does IsValidFormula use locale-dependent string comparison (via strings.ToLower or similar), which could cause different validation results across validators with different locale settings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a846e0a1-48ec-4413-ba28-c2f636ac9e8c?mode=deep",
+    "timestamp": "2026-01-10 12:30:00.858138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [String interning] Does Go's string interning behavior affect FormulaConstantProduct comparisons across different validators or after state reload, potentially causing non-deterministic consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d43d5d86-3b50-4ad5-985e-9c2a6dfe15e8?mode=deep",
+    "timestamp": "2026-01-10 12:30:25.747949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Timestamp-dependent behavior] If future formula validation adds time-based logic (e.g., formulas only valid after certain block heights), can clock skew between validators cause consensus failures during formula validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66061d81-6cd2-4ee2-ac88-3a027fe88403?mode=deep",
+    "timestamp": "2026-01-10 12:30:51.358525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Floating-point determinism] If future formulas involve floating-point calculations, can floating-point non-determinism across different CPU architectures cause validators to disagree on formula validity or calculation results? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ebcfac74-5b00-4796-ad74-ae6b43aae651?mode=deep",
+    "timestamp": "2026-01-10 12:31:16.671854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: EventPoolCreated] [Information Disclosure] Can the AttributeKeyPoolId constant be manipulated or exploited by an attacker to emit misleading pool creation events that reference non-existent or incorrect pool IDs, causing off-chain indexers to track invalid state and potentially enabling phishing attacks against users monitoring events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_802cc043-9dbe-4ae9-8621-8b3f43d68c02?mode=deep",
+    "timestamp": "2026-01-10 12:31:39.810412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeySwapFee] [Information Disclosure] Does the swap fee attribute constant ensure that all swap operations emit accurate fee information, or can an attacker exploit missing validation in the event emission logic (using this constant) to emit events with incorrect fee amounts that misrepresent the actual fees collected, enabling fee manipulation detection evasion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9c1dc85-32a7-4ae9-96d6-5e445a7d52d0?mode=deep",
+    "timestamp": "2026-01-10 12:32:02.925141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyTokensIn/AttributeKeyTokensOut] [State Inconsistency] Can an attacker exploit the separation of AttributeKeyTokensIn and AttributeKeyTokensOut constants to cause events where input and output token amounts don't match the actual swap calculation, creating audit trail inconsistencies that hide token theft or price manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2275e6e1-ba6b-4a79-b201-8d259a4156b9?mode=deep",
+    "timestamp": "2026-01-10 12:32:24.799765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyLPTokenIn/AttributeKeyLPTokenOut] [Liquidity Manipulation] Does the LP token attribute constant usage in event emission properly validate that LP token amounts match the actual minted/burned amounts, or can discrepancies between emitted events and actual state changes enable undetected liquidity pool manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0fafa00c-cbf8-4768-a6ed-6fba6422a0e3?mode=deep",
+    "timestamp": "2026-01-10 12:32:45.853106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyReturnedCoins] [Token Loss] Can the AttributeKeyReturnedCoins constant be used in events that emit incorrect returned coin amounts during liquidity operations, hiding scenarios where users receive less than expected due to rounding errors or calculation bugs, resulting in undetected token loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_199f8ad9-0613-4f69-9361-bd4f256b4ae2?mode=deep",
+    "timestamp": "2026-01-10 12:33:06.542482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyPoolState] [State Verification] Does the AttributeKeyPoolState constant ensure that emitted pool snapshots accurately reflect post-transaction state, or can race conditions or state corruption cause events to emit stale or incorrect pool states that break external monitoring systems relying on event-based state tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_949e2e5b-d45e-4310-b4fe-7b69fb282c2c?mode=deep",
+    "timestamp": "2026-01-10 12:33:28.364458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/events.go] [Constant: AttributeKeyReceiver] [Access Control] Can the AttributeKeyReceiver constant be exploited in event emission to hide the true recipient of tokens during swap or liquidity operations, potentially enabling attackers to obscure fund flows in scenarios involving cross-chain bridges or IBC transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99137a43-50e7-42d8-85b5-76d646cda158?mode=deep",
+    "timestamp": "2026-01-10 12:33:50.091808",
+    "report_generated": false
   }
 ]
