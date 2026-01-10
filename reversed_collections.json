@@ -21148,5 +21148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd707c35-81df-44b9-853c-9a6c579b000b?mode=deep",
     "timestamp": "2026-01-10 09:08:21.115519",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: NewMsgCreateDenom()] [Input validation] Can an attacker bypass validation by passing a nil pointer for the mintingCap parameter to NewMsgCreateDenom(), causing the message to be created with an uninitialized Uint that could lead to integer overflow when validated in ValidateBasic()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08e2f6a5-4c98-41e8-9571-f2cf4a6d1510?mode=deep",
+    "timestamp": "2026-01-10 09:09:36.656040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper module transfers] [Module balance tracking] When tokens are transferred between modules via SendCoinsFromModuleToAccount and SendCoinsFromAccountToModule, are module balances correctly updated in both the sender and receiver, or could this create phantom balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_314f8907-1042-4548-a662-7442bc2f77d9?mode=deep",
+    "timestamp": "2026-01-10 09:09:48.945222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper.GetSupply() vs HasSupply()] [Supply initialization race] Can HasSupply() return false while GetSupply() returns a non-zero value due to race conditions during factory token creation, causing inconsistent validation logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86085d7b-cff4-4ba9-a622-1cd4320e84d9?mode=deep",
+    "timestamp": "2026-01-10 09:10:01.669955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper supply methods] [Supply-balance divergence] Can the sum of all balances across accounts (via GetAllBalances) ever diverge from total supply (via GetSupply) for factory tokens, and if so, which value should be trusted for cap enforcement? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1d88291-5664-4135-9e97-433fc83e00f1?mode=deep",
+    "timestamp": "2026-01-10 09:10:16.054310",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [ParamSubspace.Get()] [Concurrent parameter reads] Can ParamSubspace.Get() be called safely while ParamSubspace.Set() is modifying the same parameter in another goroutine, or could this return partially-written values that break factory minting logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fad5e92-f684-480d-986d-40f801ebee86?mode=deep",
+    "timestamp": "2026-01-10 09:10:30.075254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper.BurnCoins()] [Partial burn handling] If BurnCoins is called with multiple denoms in amt and burning fails for some denoms, does the operation atomically rollback all burns, or could partial burns leave factory token supply in inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b648345-8ca3-4fba-992c-fdef96e3df0b?mode=deep",
+    "timestamp": "2026-01-10 09:10:45.309369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper.HasBalance()] [Boolean return ambiguity] When HasBalance returns false, does this mean zero balance or error/non-existent denom, and could ambiguous interpretation cause factory operations to proceed incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90825ad1-ec39-4646-8f29-66461ed214c8?mode=deep",
+    "timestamp": "2026-01-10 09:11:00.930152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [AccountKeeper.GetModuleAddress()] [Deterministic address generation] Does GetModuleAddress generate the same address deterministically across all validators, or could non-deterministic address generation cause factory module accounts to differ across validators leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_47b5a19a-e863-432b-bce2-7bd74ec66fc9?mode=deep",
+    "timestamp": "2026-01-10 09:11:17.920495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper.SendCoins()] [Self-transfer handling] Can SendCoins be called with fromAddr equals toAddr to create no-op transfers that still charge fees, and could this be exploited to drain fees from factory token holders? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91bcb747-310d-4180-b9e6-1047815a241f?mode=deep",
+    "timestamp": "2026-01-10 09:11:36.260573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper.MintCoins()] [Empty coins slice] If amt sdk.Coins passed to MintCoins is an empty slice, does the implementation no-op correctly, or could this bypass fee charging while still incrementing nonces or state counters in factory operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_be662d4d-df9a-4a87-93f6-df2b03c75d82?mode=deep",
+    "timestamp": "2026-01-10 09:11:54.310616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Metadata + IBC routing] [IBC path hijacking] Can attackers set factory token metadata via BankKeeper.SetDenomMetaData() with malicious Base denom values that redirect IBC transfers to wrong chains or channels? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b104c9e-93e1-4694-8398-93eeb831e9a7?mode=deep",
+    "timestamp": "2026-01-10 09:12:12.592929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [AccountKeeper + Recovery] [Module account hijacking] Can the TokenWrapper recovery mechanism exploit AccountKeeper.GetModuleAddress() to calculate factory module addresses and drain tokens during recovery operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f00b56e6-348c-4abb-bb0d-53cc4d416e6f?mode=deep",
+    "timestamp": "2026-01-10 09:12:32.492074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper + IBC] [Cross-chain supply inflation] Can factory tokens minted via BankKeeper.MintCoins() be transferred over IBC without proper supply tracking, allowing the same tokens to exist on multiple chains simultaneously (supply inflation)? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61a27d09-bf35-4bda-bd09-4fa22940ac47?mode=deep",
+    "timestamp": "2026-01-10 09:12:52.910709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper + DEX integration] [AMM price manipulation] Can attackers create factory tokens via BankKeeper.MintCoins() with manipulated supply values, then use these in DEX pools to exploit the x*y=k formula for arbitrage or liquidity draining? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_22ed11da-bc21-42d3-828f-f49de38936e5?mode=deep",
+    "timestamp": "2026-01-10 09:13:15.132777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [BankKeeper + TokenWrapper integration] [Decimal conversion bypass] Can factory tokens be created with custom decimal places that break TokenWrapper's 18→6 decimal conversion logic when these tokens are transferred via IBC using BankKeeper.SendCoins()? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f44cc7cd-8348-4244-ab6d-c3a345a3bc60?mode=deep",
+    "timestamp": "2026-01-10 09:13:37.953282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [All interfaces] [Concurrent access safety] Are implementations of these keeper interfaces thread-safe for concurrent calls from multiple factory module operations, or could race conditions corrupt shared state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b9abbd9-1cbf-4cc0-a3bf-e849beacfec1?mode=deep",
+    "timestamp": "2026-01-10 09:14:01.975286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [All interfaces] [Interface breaking changes] If keeper implementations are upgraded with breaking interface changes (new parameters, changed return types), will factory module detect incompatibilities or silently fail with runtime errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1f18145-de31-462b-b724-0fc6266fe4c8?mode=deep",
+    "timestamp": "2026-01-10 09:14:26.689756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [All interfaces] [Error propagation] Are errors returned by keeper interface methods always propagated to callers, or could silent failures in underlying implementations cause factory operations to proceed with incorrect state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34551ead-bb1b-427f-a318-ed93eb8a4cff?mode=deep",
+    "timestamp": "2026-01-10 09:14:51.931895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [All interfaces] [Nil context handling] Do implementations of these keeper interfaces properly validate that the context.Context parameter is non-nil, or could passing nil cause panics that halt factory module operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f66053df-ed6c-4550-a889-a18b980def07?mode=deep",
+    "timestamp": "2026-01-10 09:15:17.786125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [All interfaces] [Determinism violations] Do all keeper interface methods guarantee deterministic execution across all validators, or could non-deterministic behavior (e.g., iteration order) cause consensus failures in factory operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66189e24-e789-42c1-9f80-bb52de0caf58?mode=deep",
+    "timestamp": "2026-01-10 09:15:44.768233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [All interfaces] [Gas limit DoS] Can an attacker craft factory operations that make numerous keeper method calls, exhausting block gas limits and preventing other users from creating or trading factory tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10260df5-842c-4f49-bcc0-e2672e4e8675?mode=deep",
+    "timestamp": "2026-01-10 09:16:12.947566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [All interfaces] [Historical state exploitation] Can attackers pass a context with historical block heights to keeper methods to read past state and bypass current factory minting caps or access control checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28840494-b34d-4de1-ab6d-9380c29981fb?mode=deep",
+    "timestamp": "2026-01-10 09:16:41.932343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [All interfaces] [Context cancellation attack] If the context.Context passed to keeper methods is cancelled mid-operation, can this leave factory module state partially committed, causing supply inconsistencies or locked tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_795dd7d1-9d14-4822-aba3-f5685f5c21d1?mode=deep",
+    "timestamp": "2026-01-10 09:17:11.896286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Cross-interface: SendCoins variations] [Routing confusion] Can attackers exploit inconsistencies between BankKeeper.SendCoins(), SendCoinsFromModuleToAccount(), and SendCoinsFromAccountToModule() to route factory tokens through unexpected paths that bypass fee collection or validations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2139ca48-737b-4246-beff-c1650b26fe79?mode=deep",
+    "timestamp": "2026-01-10 09:17:42.573152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Cross-interface: Metadata & Supply] [Metadata supply mismatch] Can an attacker set metadata via BankKeeper.SetDenomMetaData() claiming a total supply that differs from the actual supply returned by BankKeeper.GetSupply(), confusing factory module cap enforcement logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_776a11b3-98b9-4d10-9d00-00c33d767e5a?mode=deep",
+    "timestamp": "2026-01-10 09:18:14.250162",
+    "report_generated": false
   }
 ]
