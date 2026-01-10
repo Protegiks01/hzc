@@ -18298,5 +18298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa3061b6-4597-4fbd-b47b-e735d9f13881?mode=deep",
     "timestamp": "2026-01-10 05:52:01.531643",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Upgrade compatibility] During a chain upgrade that modifies the MsgUpdateDenomMintingCap structure, can in-flight transactions with the old format bypass ValidateBasic() validation in the new version, causing cap updates with unvalidated parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_001b942f-9d49-40a5-911c-62085ae606c0?mode=deep",
+    "timestamp": "2026-01-10 05:53:19.393607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Block size exploitation] Can an attacker submit many large MsgUpdateDenomMintingCap messages with maximum-length denoms to fill blocks and prevent legitimate transactions from being included, effectively censoring cap updates for specific denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acda0128-dcb0-4bce-8576-bf00de3fc022?mode=deep",
+    "timestamp": "2026-01-10 05:53:32.201872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Determinism violation] Does ValidateBasic() perform any non-deterministic operations (random number generation, timestamp checks, floating point math) that could cause different validators to accept/reject the same message differently, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61971954-a834-4721-9b1a-178de4ce337c?mode=deep",
+    "timestamp": "2026-01-10 05:53:44.811197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Byzantine validator exploit] Can Byzantine validators (up to 1/3 of stake) craft MsgUpdateDenomMintingCap messages that pass their own modified ValidateBasic() checks but fail on honest nodes, causing consensus failures and chain halts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b2d5d142-f0e7-4879-a143-bdf299cd9936?mode=deep",
+    "timestamp": "2026-01-10 05:53:58.708718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Signature malleability] Can an attacker exploit transaction signature malleability to create multiple valid signatures for the same MsgUpdateDenomMintingCap message, allowing them to submit duplicate transactions that execute multiple times? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03fafb4a-aa59-4104-9958-b3319e1af44d?mode=deep",
+    "timestamp": "2026-01-10 05:54:12.601711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Message replay] Does the message include a nonce or timestamp to prevent replay attacks, or can an attacker capture and replay a valid MsgUpdateDenomMintingCap transaction on a different chain or after a state reset, causing unintended cap updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b135e84-c6d6-4349-9528-b3028024e93f?mode=deep",
+    "timestamp": "2026-01-10 05:54:27.619293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: NewMsgUpdateDenomMintingCap()] [Parameter injection] Can an attacker exploit the constructor at line 13-20 by passing attacker-controlled parameters that create messages with unexpected field values, bypassing validation in client-side code before submission? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d248826d-99d8-4dbb-acab-19ce168f9ffe?mode=deep",
+    "timestamp": "2026-01-10 05:54:43.592210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Burned token accounting] Does the keeper's Minted field properly account for burned tokens, or can an attacker burn tokens to reduce Minted below the cap, then update the cap to a lower value, circumventing the comparison check at line 38-46? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b445cb9a-5aff-4e2b-9ab4-433b543487d7?mode=deep",
+    "timestamp": "2026-01-10 05:55:01.138159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Supply exceeds cap] If currentDenom.Minted already exceeds the current minting cap due to a previous bug or upgrade, can an attacker exploit this state by submitting messages that are rejected at line 38-46, causing permanent inability to update the cap and freezing the denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_659749a1-e720-4f2d-8883-49718a620242?mode=deep",
+    "timestamp": "2026-01-10 05:55:19.651449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Cap lock frontrunning] Can an attacker monitor the mempool for MsgUpdateDenomMintingCap messages with CanChangeMintingCap=false, then frontrun with their own cap update to set a malicious value right before the denom gets permanently locked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c7e10e2-1d2d-46cd-b9d5-461a60e18ee6?mode=deep",
+    "timestamp": "2026-01-10 05:55:39.351640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Cap increase DoS] Can an attacker repeatedly increase the minting cap to maximum values, then mint tokens up to the cap, forcing the keeper to perform expensive state updates and comparisons each time, causing validator resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8671fdd1-5640-40eb-91e6-c5ca1c6cc017?mode=deep",
+    "timestamp": "2026-01-10 05:55:59.519545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Creator bypass] Does ValidateBasic() ensure the signer matches the denom creator extracted by DeconstructDenom(), or can any valid address update any denom's minting cap as long as they pass keeper authorization checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fbd66c1-3c39-46c3-a4bb-97f8466512b5?mode=deep",
+    "timestamp": "2026-01-10 05:56:20.493440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Multiple admins] Does the keeper's Auth() check properly handle the case where both bank admin and metadata admin exist for a denom, or can an attacker exploit confusion about which admin role is checked by crafting messages that bypass authorization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2da8b73d-f05c-4b8d-b4e4-88ca26d8c5dc?mode=deep",
+    "timestamp": "2026-01-10 05:56:42.634486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Admin transfer race] Can an attacker submit MsgUpdateDenomMintingCap immediately before or after a MsgProposeBankAdmin/MsgClaimBankAdmin transaction, exploiting the timing window where admin rights are being transferred to update caps with the old admin's permissions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0435d353-4e90-42ce-a41f-a591043d9a68?mode=deep",
+    "timestamp": "2026-01-10 05:57:05.566764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [AnteHandler bypass] Can an attacker craft messages that pass ValidateBasic() but fail in AnteHandler checks, consuming gas without executing the keeper logic, allowing them to grief validators by filling blocks with invalid transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3354ed1-05a8-48eb-913b-239bd93dd0da?mode=deep",
+    "timestamp": "2026-01-10 05:57:30.689892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Amino vs Protobuf] Does the message validation behave identically under both Amino and Protobuf encoding, or can an attacker exploit encoding differences to submit messages that validate successfully but deserialize differently, causing state divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27ae94fc-65b3-4c46-987a-6d1f1dd6e229?mode=deep",
+    "timestamp": "2026-01-10 05:57:53.959049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Bank module integration] Can an attacker exploit differences between factory module denom validation and bank module denom metadata validation to create denoms that exist in factory state but are invalid in bank state, causing minting operations to fail permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b0448d0-088b-4793-8234-dd10c85a8812?mode=deep",
+    "timestamp": "2026-01-10 05:58:17.912481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [SDK version compatibility] Does ValidateBasic() use Cosmos SDK v0.53.4-specific validation logic that could be bypassed if nodes run different SDK versions, causing consensus failures when messages validate differently across the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5ed150e-2c28-474c-a23b-8f206c43467a?mode=deep",
+    "timestamp": "2026-01-10 05:58:41.990470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Special character injection] Can an attacker include special characters (/, \\\\, ., %, &, ?) in the denom that pass sdk.ValidateDenom() at line 27 but cause issues in DeconstructDenom()'s creator validation, leading to authorization bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9c52d7e3-f6b8-4054-ad45-14ae831e405d?mode=deep",
+    "timestamp": "2026-01-10 05:59:05.612609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Denom length limits] Does DeconstructDenom() enforce the MaxCreatorLength (59 + MaxHrpLength = 75) and MaxSubdenomLength (44) limits, or can an attacker craft denoms that pass ValidateBasic() but exceed storage limits in the keeper, causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6483bf21-c0a4-403a-ad61-5507dbf60de0?mode=deep",
+    "timestamp": "2026-01-10 05:59:29.896909",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Minimum non-zero cap] Does the GT(cosmosmath.ZeroUint()) check at line 37 allow a minting cap of 1 (the minimum non-zero value), and can an attacker exploit this to set extremely restrictive caps that effectively freeze legitimate minting operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c0eae0f8-6091-47eb-a443-34a0e64222d9?mode=deep",
+    "timestamp": "2026-01-10 05:59:54.448549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Maximum cap value] Can an attacker set MintingCap to the maximum possible cosmosmath.Uint value at line 37, causing the keeper's comparison with currentDenom.Minted to always succeed, effectively removing all minting limitations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b8e2b69-8699-435c-b7d0-6ed4570ef926?mode=deep",
+    "timestamp": "2026-01-10 06:00:19.235612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Multi-message attack] Can an attacker include MsgUpdateDenomMintingCap in a multi-message transaction where earlier messages modify the denom state, causing ValidateBasic() to pass but keeper execution to operate on unexpected state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ad4ec81-c1f9-4384-b30d-ee0e9a3ca38c?mode=deep",
+    "timestamp": "2026-01-10 06:00:44.354630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Rollback safety] If the keeper's UpdateDenomMintingCap transaction fails after ValidateBasic() succeeds, does the message handling properly clean up intermediate state, or can an attacker exploit partial state commits to leave denoms in inconsistent states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04a5c01d-6156-4dc6-b47c-fcaf535dc81a?mode=deep",
+    "timestamp": "2026-01-10 06:01:10.115445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_update_denom_minting_cap.go] [Function: ValidateBasic()] [Transaction ordering] Can an attacker submit multiple MsgUpdateDenomMintingCap messages in the same block for the same denom, exploiting ValidateBasic()'s stateless nature to create race conditions where the final minting cap depends on execution order rather than intended logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b873f9fd-1212-4891-8a70-0b8ec2c390ca?mode=deep",
+    "timestamp": "2026-01-10 06:01:36.983390",
+    "report_generated": false
   }
 ]
