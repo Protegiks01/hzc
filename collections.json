@@ -13348,5 +13348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a79c85d-37db-4c68-8fe7-5147f6a8a0e6?mode=deep",
     "timestamp": "2026-01-10 08:21:15.746456",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [LpToken prefix] Does validation enforce that LpToken.Denom starts with a specific prefix (e.g., 'lp-')? Can an attacker use arbitrary denoms that conflict with user tokens, causing confusion or token theft? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbd2ada6-61da-4a1f-a48d-0ae1cc8d3606?mode=deep",
+    "timestamp": "2026-01-10 08:22:37.413773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [LpToken overflow] Can an attacker set p.LpToken.Amount to MaxInt256, then exploit add_liquidity operations to overflow LP token minting calculations, gaining disproportionate pool ownership? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4e06ab3b-3153-4b1f-96ef-b9cdefe996c9?mode=deep",
+    "timestamp": "2026-01-10 08:22:49.910986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Address derivation exploit] At line 147, GetPoolAddress() derives expected address from pool ID - can an attacker exploit the module address derivation to predict future pool addresses and pre-fund them with malicious tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f87b72e-93b0-45ea-85b8-d14c56edeed7?mode=deep",
+    "timestamp": "2026-01-10 08:23:02.847565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Address mismatch bypass] If p.Address != expectedAddress at line 148, the error at lines 149-156 is returned - but can an attacker exploit a race condition where the pool address is validated during genesis but later modified through keeper operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eaa03127-c1af-4b35-9b5c-3a3a460ea405?mode=deep",
+    "timestamp": "2026-01-10 08:23:16.289913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Module address collision] Can an attacker create multiple pools with different pool IDs that derive to the same module address via hash collisions, causing pools to share the same account and enabling cross-pool fund drainage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82aeb41f-4342-4f2b-af87-e10e5c6ce3ad?mode=deep",
+    "timestamp": "2026-01-10 08:23:30.227817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Address format inconsistency] If GetPoolAddress() returns address in one format (e.g., hex) but p.Address is in another (e.g., bech32), can format conversion bugs cause false negatives in the comparison at line 148? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_daa129a5-1997-49b2-9c7e-99575fb9cb18?mode=deep",
+    "timestamp": "2026-01-10 08:23:45.696688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Empty address acceptance] Can an attacker set p.Address to empty string, bypassing AddressCheck() at line 142 if it only validates non-empty addresses, then causing the comparison at line 148 to fail inconsistently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7dcb18f5-b7b8-4fba-a0fa-034eaf1cdf69?mode=deep",
+    "timestamp": "2026-01-10 08:24:02.511216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: DefaultGenesis()] [Nil pointer initialization] At line 18, PoolsMeta is initialized to nil - can this cause nil pointer dereference in keeper functions that assume PoolsMeta is always non-nil, crashing validators post-genesis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f91f9146-9102-4582-8564-0399dc38420e?mode=deep",
+    "timestamp": "2026-01-10 08:24:20.583221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: DefaultGenesis()] [Empty slice vs nil] Line 17 initializes PoolList as empty slice []Pool{} instead of nil - can this inconsistency with PoolsMeta = nil cause validation logic at lines 58-60 to fail, preventing default genesis from being accepted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2aec7389-80e7-498e-88e2-55129f73173f?mode=deep",
+    "timestamp": "2026-01-10 08:24:39.589134",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: DefaultGenesis()] [Default params vulnerability] At line 21, DefaultParams() is called - if default params contain insecure values (e.g., zero MinimalLiquidityLock), can attackers exploit default genesis chains to perform share inflation attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbd80158-b9a4-4f25-a339-b10034ee974f?mode=deep",
+    "timestamp": "2026-01-10 08:24:59.842166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Params validation bypass] At line 96, gs.Params.Validate() is called last - can an attacker craft invalid params that cause validation errors after expensive pool validation, wasting validator resources in DoS attack? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_010c37e8-4d64-4c05-9821-7c4320194e0c?mode=deep",
+    "timestamp": "2026-01-10 08:25:20.298087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Factory module interaction] Can an attacker create pools with denoms that haven't been created via Factory module yet, bypassing minting cap validations and creating unbounded token supply? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfafc57b-88b5-4bab-9f10-56cfe56f02b8?mode=deep",
+    "timestamp": "2026-01-10 08:25:42.393052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [IBC token validation] Does CoinCheck() verify that IBC tokens in pool coins correspond to established IBC channels? Can an attacker create pools with fake IBC vouchers that enable cross-chain token duplication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82b16c74-22d9-4fca-a9ed-1291701711c5?mode=deep",
+    "timestamp": "2026-01-10 08:26:05.490631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Bank module invariant] Do the pool coin validations ensure that total pool reserves don't exceed module account balances? Can an attacker create genesis pools with reserves exceeding bank module supply, causing bank invariant failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c397968-329b-4d3b-8b4c-70d60dd67b3f?mode=deep",
+    "timestamp": "2026-01-10 08:26:29.354871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [TokenWrapper interaction] Can an attacker create pools using wrapped tokens (e.g., wZIG) before TokenWrapper module is initialized, causing decimal conversion errors during swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5102523-54d7-4e73-ae03-edae555185c9?mode=deep",
+    "timestamp": "2026-01-10 08:26:55.064841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Goroutine safety] Is GenesisState.Validate() safe for concurrent execution by multiple goroutines during parallel genesis validation? Can race conditions in shared map writes cause data races? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a0f1cf4-84ef-47eb-83d4-90e43afa14fc?mode=deep",
+    "timestamp": "2026-01-10 08:27:20.171311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Slice modification] If pool.Validate() is called while pool.Coins slice is being modified, can concurrent modification cause slice bounds errors or data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59d5b62a-4a26-43a9-b204-12892209035f?mode=deep",
+    "timestamp": "2026-01-10 08:27:47.196258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Memory leak] Do the poolIndexMap and poolUidsIndexMap get properly garbage collected after validation? Can repeated genesis validation during upgrade testing cause memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6d55d56-c42b-4f87-b854-112486668c82?mode=deep",
+    "timestamp": "2026-01-10 08:28:14.948937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [String interning] Can large numbers of similar pool IDs and denoms cause excessive memory usage due to string interning, leading to validator OOM during genesis import? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_048918e0-b80c-45bf-9ca8-1bc405f3bd31?mode=deep",
+    "timestamp": "2026-01-10 08:28:41.915208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Error wrapping] Do error returns properly propagate context, or can error wrapping cause stack overflow with deeply nested validation errors in large genesis states? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a753592b-0e08-4424-a4a8-e4a52a1444df?mode=deep",
+    "timestamp": "2026-01-10 08:29:07.938065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [MaxUint64 NextPoolId] Can an attacker set PoolsMeta.NextPoolId = MaxUint64, causing integer overflow when new pools are created post-genesis, resulting in pool ID collisions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d78b198a-e2ee-4bbe-bcec-6db01829a50d?mode=deep",
+    "timestamp": "2026-01-10 08:29:32.834246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [MaxInt256 coin amounts] Can an attacker set pool coin amounts to MaxInt256, then exploit add_liquidity to overflow reserve calculations when additional liquidity is added? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43376e71-7c58-49cb-a192-5294a98597f0?mode=deep",
+    "timestamp": "2026-01-10 08:29:57.096046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [Empty genesis] If gs.PoolList is empty and gs.PoolsMeta is nil, does validation pass correctly per line 58-60, or can this create chains where pool creation is permanently broken? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c615154a-ae12-4769-9fb2-36e090b519bc?mode=deep",
+    "timestamp": "2026-01-10 08:30:22.265511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Single wei liquidity] Can an attacker create pools with Coins[i].Amount = 1 (single smallest unit), then exploit rounding errors in swap calculations to drain pools through precision loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fb2eeda-f22d-49a4-a643-7f4a5005ff6c?mode=deep",
+    "timestamp": "2026-01-10 08:30:45.755629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: GenesisState.Validate()] [MaxInt pool count] If len(gs.PoolList) approaches MaxInt, can the +1 operation at line 48 overflow, breaking NextPoolId calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef4c4b79-bd10-4fef-a2cc-0dc3774da0c0?mode=deep",
+    "timestamp": "2026-01-10 08:31:09.431057",
+    "report_generated": false
   }
 ]
