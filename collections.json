@@ -10348,5 +10348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86fbde21-7af7-47e3-bf13-a400850b58e6?mode=deep",
     "timestamp": "2026-01-10 04:47:09.909034",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Balance validation] Does HasBalance at line 52 check for exact amount or just greater-than-or-equal, potentially allowing attackers to remove liquidity with more LP tokens than they actually possess? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6becdb46-c869-4311-ac39-0c03a3fefb31?mode=deep",
+    "timestamp": "2026-01-10 04:48:24.515844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Double-spend] Can an attacker send multiple RemoveLiquidity transactions in the same block for the same LP tokens, exploiting race conditions before the HasBalance check at line 52 reflects the burn? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13402b51-cf46-4311-9317-9a9fd47973dc?mode=deep",
+    "timestamp": "2026-01-10 04:48:36.788394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Atomicity] If SendCoinsFromAccountToModule at line 60 succeeds but CoinsToRemove at line 71 fails, are the LP tokens permanently locked in the module account with no rollback mechanism? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a68a7d2-c9fb-44f3-974c-6140b18f0db7?mode=deep",
+    "timestamp": "2026-01-10 04:48:49.555125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Atomicity] If SendFromPoolToAddress at lines 86-98 fails after SendCoinsFromAccountToModule at line 60 succeeds, are LP tokens burned from user without receiving pool tokens, causing permanent token loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4a9884f-4374-48f2-8c56-03f4eeab7c6a?mode=deep",
+    "timestamp": "2026-01-10 04:49:02.605376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Atomicity] If BurnCoins at line 101 fails after SendFromPoolToAddress at line 86 succeeds, does the user receive pool tokens while retaining LP tokens, enabling infinite liquidity draining? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0dd4bb87-1229-46f8-b2c8-77aaf6116991?mode=deep",
+    "timestamp": "2026-01-10 04:49:16.379337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State consistency] If pool state update at lines 110-112 fails after BurnCoins at line 101 succeeds, is there a mismatch between actual pool balances and recorded pool state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d3ccb48-8e7b-4e09-b68d-7440c4f2844c?mode=deep",
+    "timestamp": "2026-01-10 04:49:31.357271",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [State consistency] If SetPool at line 114 fails after BurnCoins at line 101, are LP tokens burned but pool reserves not updated, causing permanent AMM invariant violation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55e08aff-2f6a-4352-b454-97669a7d5803?mode=deep",
+    "timestamp": "2026-01-10 04:49:47.158708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Error handling] The SendCoinsFromAccountToModule error at lines 60-68 wraps the original error, but does it revert the HasBalance check state or can it cause inconsistent error states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00b29151-68d3-4b71-a887-a013c707df40?mode=deep",
+    "timestamp": "2026-01-10 04:50:04.057829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Module account] Does SendCoinsFromAccountToModule at line 60 validate that types.ModuleName module account exists and is properly initialized before attempting transfer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1766c567-3545-4a6c-b864-824f772f15bd?mode=deep",
+    "timestamp": "2026-01-10 04:50:22.172664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Division by zero] At line 147, if pool.LpToken.Amount is zero despite the check at line 128, can the Quo operation cause a panic or undefined behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c51cf0c-3fdd-4c26-8922-7625f2eac74a?mode=deep",
+    "timestamp": "2026-01-10 04:50:42.030975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Integer overflow] At line 147, can the Mul operation between pool.Coins[0].Amount and lptoken.Amount overflow before the Quo division, causing incorrect token amount calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb4b513e-cf9b-442d-9b39-67510a6c09d7?mode=deep",
+    "timestamp": "2026-01-10 04:51:01.951365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Integer overflow] At line 148, can the Mul operation between pool.Coins[1].Amount and lptoken.Amount overflow, potentially causing liquidity providers to receive drastically wrong amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f654f5b3-2f52-443c-92a9-da41e304ddaa?mode=deep",
+    "timestamp": "2026-01-10 04:51:22.573840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Rounding errors] Do the Mul().Quo() operations at lines 147-148 properly handle rounding, or can attackers exploit truncation to extract more tokens than their fair share? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b8027e2b-f352-42d9-ae1f-3bbc2518b560?mode=deep",
+    "timestamp": "2026-01-10 04:51:44.846845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Rounding errors] Can an attacker remove liquidity in small amounts repeatedly to exploit cumulative rounding errors in lines 147-148, slowly draining the pool? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_000dd5f1-8bd3-4d39-a671-e853b3282203?mode=deep",
+    "timestamp": "2026-01-10 04:52:07.709538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Precision loss] If lptoken.Amount is very small relative to pool.LpToken.Amount at lines 147-148, can the Quo operation return zero for both denoms, allowing free LP token burning? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95616bd0-cb61-4a74-9392-f9fa5da72fa5?mode=deep",
+    "timestamp": "2026-01-10 04:52:32.335945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Mathematical invariant] Can the calculation at lines 147-148 violate the AMM x*y=k invariant when removing liquidity, potentially enabling price manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c62c630-a71e-41f0-a2a8-851c61c64b67?mode=deep",
+    "timestamp": "2026-01-10 04:52:56.441965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Edge case] If lptoken.Amount equals pool.LpToken.Amount (removing 100% liquidity) at lines 147-148, does it correctly return all pool reserves or leave dust amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_845f3aaa-3d0f-4504-931e-875e031c5f7b?mode=deep",
+    "timestamp": "2026-01-10 04:53:20.998255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Input validation] The check at line 137 verifies lptoken.Amount <= pool.LpToken.Amount, but does it account for concurrent withdrawals that might make this check stale? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9105153-ee34-4f15-a776-bf76500db6f1?mode=deep",
+    "timestamp": "2026-01-10 04:53:45.720759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Zero amount handling] The check at line 128 returns error if pool.LpToken.Amount.IsZero(), but what if it becomes zero between this check and line 147 usage due to concurrent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3d63aa9-00d0-40c6-8b84-be458cc48d46?mode=deep",
+    "timestamp": "2026-01-10 04:54:09.716473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [Insufficient balance] The check at lines 137-144 validates lptoken.Amount <= pool.LpToken.Amount, but does it validate the pool actually has sufficient Coins[0] and Coins[1] to fulfill the withdrawal? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d4735c66-e9f8-4e4f-a863-af35df6b29a3?mode=deep",
+    "timestamp": "2026-01-10 04:54:35.005762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: CoinsToRemove()] [State consistency] Can an attacker exploit the time gap between CoinsToRemove calculation at line 71 and actual SendFromPoolToAddress at line 86 to manipulate pool reserves via other transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86fa9ed5-3c30-45b3-bec6-1fed388d2ced?mode=deep",
+    "timestamp": "2026-01-10 04:55:00.976645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Token burning] Does BurnCoins at line 101 properly validate the module account has the LP tokens before burning, or can it burn tokens that don't exist causing accounting errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce80b45f-fa7d-4bc5-9291-a2baf94b5303?mode=deep",
+    "timestamp": "2026-01-10 04:55:26.510929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Token burning] Can an attacker exploit the BurnCoins operation at line 101 by providing LP tokens with special denoms that bypass burning but still trigger liquidity removal? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83b49399-2209-43ff-b1c6-8aae230746ba?mode=deep",
+    "timestamp": "2026-01-10 04:55:52.396487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Supply tracking] After BurnCoins at line 101, is the total supply of LP tokens properly decremented, or can it cause mismatches between actual and recorded supply? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_54d7483a-217b-47f9-84e5-3c431283a02a?mode=deep",
+    "timestamp": "2026-01-10 04:56:15.661964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_remove_liquidity.go] [Function: RemoveLiquidity()] [Error handling] If BurnCoins at line 101 returns ErrInsufficientBalance wrapped at lines 103-107, does it indicate the module account is missing tokens that were supposedly transferred at line 60? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf82a598-315f-41e5-aaa4-b8c3cfed582d?mode=deep",
+    "timestamp": "2026-01-10 04:56:38.825660",
+    "report_generated": false
   }
 ]
