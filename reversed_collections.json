@@ -29998,5 +29998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4805ee1-977c-49e9-90da-cf04f1f3e461?mode=deep",
     "timestamp": "2026-01-10 18:59:01.094406",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [IBC voucher accounting] Per the comment at lines 70-71, IBC transfers cause supply differences - can an attacker exploit IBC voucher creation to inflate factory supply without minting actual tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ec3ce1a1-fd49-456f-8118-3a1722d065ba?mode=deep",
+    "timestamp": "2026-01-10 19:00:22.845020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [TokenWrapper interaction] When tokens are wrapped/unwrapped via the TokenWrapper module, are denom.Minted values properly updated, or can wrapping operations bypass this invariant check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed727378-1e2f-4f7d-9d79-16ca01a83738?mode=deep",
+    "timestamp": "2026-01-10 19:00:35.110247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [DEX pool interaction] If tokens are locked in DEX pools, does this affect the supply calculations that these invariants check, and can pool operations bypass minting cap enforcement? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23fa7310-97c8-4d7f-b118-c0100491bd74?mode=deep",
+    "timestamp": "2026-01-10 19:00:48.195608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [IBC module interaction] When IBC transfers occur, both factory and bank modules should update - can desynchronization between module updates cause legitimate operations to fail this invariant check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cdcbecf5-e63d-4657-8cc5-15718cb714ef?mode=deep",
+    "timestamp": "2026-01-10 19:01:01.244667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Bank module compromise] If the bank module is compromised to always return low supply values, can this invariant detect the compromise or will it incorrectly validate the corrupted state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0883d24e-51fe-4c37-a930-63141e027d8a?mode=deep",
+    "timestamp": "2026-01-10 19:01:14.950649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Struct field access] When accessing denom.Minted and denom.MintingCap at line 39, are there any nil pointer risks if the denom struct is incompletely initialized? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cf05285-a2b5-4318-aa93-8d0593c5030d?mode=deep",
+    "timestamp": "2026-01-10 19:01:30.001215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Type assertion safety] The conversion cosmosmath.Uint(bankSupply.Amount) at line 72 assumes Amount is convertible - can negative or invalid Amount values cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82eb81a5-7edb-4c23-8744-d86b4b5cdfee?mode=deep",
+    "timestamp": "2026-01-10 19:01:46.184251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [GTE() comparison precision] At line 72, does GTE() handle different precision Uint values correctly, or can precision differences cause the comparison to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dbb07f95-f230-45a9-8286-fd85a02a6089?mode=deep",
+    "timestamp": "2026-01-10 19:02:04.025795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [GT() implementation safety] Does the cosmosmath.Uint.GT() method at line 39 handle all edge cases including max values, or can overflow in the comparison logic itself cause incorrect results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94e8da67-4fcc-4a0e-93bf-61116c65d8d8?mode=deep",
+    "timestamp": "2026-01-10 19:02:22.139918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Broken system recovery] If the invariant detects a broken system at line 42-43, what recovery mechanisms exist, and can an attacker exploit the lack of automated recovery to permanently disable the system? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5981a84-3a1a-4a8d-b87a-c0d332f10d7e?mode=deep",
+    "timestamp": "2026-01-10 19:02:41.104043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [False comment assumption] The comment at line 42 states 'if a denomination's total supply exceeds minting cap, we already have broken system' - but what if multiple denoms are broken, does returning on first violation hide systemic issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b6e5293-cdcf-4196-87cd-b1fdaaae2e1a?mode=deep",
+    "timestamp": "2026-01-10 19:03:01.965093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Silent failure] If GetSupply() fails or returns unexpected values, there's no error logged before comparison - can this hide bank keeper failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b5e261d1-e96e-4810-a38b-e687c4a60e19?mode=deep",
+    "timestamp": "2026-01-10 19:03:23.554968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Early return exploit] At line 43, the function returns immediately on first violation - can an attacker create one obviously violating denom to hide other more subtle violations in later denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_910f9eed-8d83-4d0d-82c2-4c552f4c058c?mode=deep",
+    "timestamp": "2026-01-10 19:03:46.052942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Empty error return] When returning empty string at line 77, is there any risk that error handling code interprets empty string differently than intended? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08643532-c32e-417c-a71e-1442e93aad24?mode=deep",
+    "timestamp": "2026-01-10 19:04:09.555310",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Boolean return semantics] The function returns (string, bool) where true means broken - can confusion about this return semantic cause validators to incorrectly handle invariant violations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5e3169c-378c-478a-b5e9-bd984d005cea?mode=deep",
+    "timestamp": "2026-01-10 19:04:33.362048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Error string handling] At line 43, does returning an error string with fmt.Sprintf properly escape denom names that might contain format specifiers or control characters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ba1b7a9-1b89-4cb4-ae30-19ef64581742?mode=deep",
+    "timestamp": "2026-01-10 19:04:57.854297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Gas metering bypass] Can an attacker exploit invariant checks to bypass gas metering by forcing expensive GetAllDenom() operations that validators cannot refuse to execute? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_af6f4a57-d1e9-4821-8073-860c96066808?mode=deep",
+    "timestamp": "2026-01-10 19:05:24.217420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Block height timing] Do both invariants see the same block height state, or can block boundary transitions cause one invariant to check old state while another checks new state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f87527f0-e760-4359-8c2a-f88063ac8bb6?mode=deep",
+    "timestamp": "2026-01-10 19:05:51.068750",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Read-only context] Is the Context guaranteed to be read-only during invariant checks, or can invariants accidentally modify state, causing non-deterministic behavior across validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7a67e30-f646-40a3-9307-786f5cc4f50f?mode=deep",
+    "timestamp": "2026-01-10 19:06:18.775449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Context caching] If the Context uses cached KVStore reads, can stale cached values cause GetAllDenom() or GetSupply() to return outdated data during invariant checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd47c573-4450-4a51-a5b5-22180bab3a05?mode=deep",
+    "timestamp": "2026-01-10 19:06:47.774641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Context manipulation] Can an attacker manipulate the sdk.Context passed at line 27 to use a different store or block height, causing invariant checks to validate against incorrect state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3a80e5f-a5a5-49ab-9db7-d547d9a8ee29?mode=deep",
+    "timestamp": "2026-01-10 19:07:15.989411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: RegisterInvariants()] [Double registration] Can these invariants be registered multiple times, causing them to run redundantly and waste gas, or can duplicate registration cause unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85a0185a-5145-415a-87be-f1156931efef?mode=deep",
+    "timestamp": "2026-01-10 19:07:44.649638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: RegisterInvariants()] [Invariant ordering] Does the order of invariant registration matter, and can an attacker exploit timing by ensuring these factory invariants run before or after other critical invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae0ddf01-80c9-4fef-a8b0-2bb0647c77c5?mode=deep",
+    "timestamp": "2026-01-10 19:08:13.493273",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: RegisterInvariants()] [Module name collision] If types.ModuleName at line 14 and 20 conflicts with another module's invariants, can this cause invariant checks to be skipped or misrouted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84cd7e42-5c11-408a-b722-3fd7973dc15f?mode=deep",
+    "timestamp": "2026-01-10 19:08:41.327608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: RegisterInvariants()] [Keeper reference] If the keeper 'k' passed at line 12 is modified or becomes invalid after registration, will the invariants use stale or corrupted keeper references when they execute? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11b60d84-3448-48f1-a5da-4a3198a30a32?mode=deep",
+    "timestamp": "2026-01-10 19:09:09.272014",
+    "report_generated": false
   }
 ]
