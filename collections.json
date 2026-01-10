@@ -17998,5 +17998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed2e2edf-3c0b-41e3-9cb1-4585446b7e1c?mode=deep",
     "timestamp": "2026-01-10 16:15:13.917558",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Missing PoolUids] If a pool exists in genState.PoolList but has no corresponding entry in genState.PoolUidsList, does this create an invisible pool that cannot be found via the GetPoolUidsFromCoins() lookup method, making the pool's liquidity permanently inaccessible for swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9af80f9-ca57-42f7-af78-18e88dcb15ad?mode=deep",
+    "timestamp": "2026-01-10 16:16:36.272461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [PoolUid format manipulation] If a PoolUids entry in genState.PoolUidsList has a malformed PoolUid string (e.g., 'denom1/denom2/denom3' with extra separators or missing separators), does SetPoolUids() at line 22 accept this invalid format, causing subsequent lookups to fail or return wrong pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41319cc7-cbe9-40fd-8502-8431a0bac999?mode=deep",
+    "timestamp": "2026-01-10 16:16:48.757975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [PoolUid-PoolId mismatch] If genState.PoolUidsList contains entries where the PoolUid doesn't match the actual coin denoms in the referenced pool (e.g., PoolUid says 'tokenA/tokenB' but Pool.Coins contains 'tokenX/tokenY'), does this allow attackers to query for one token pair but get routed to a completely different pool? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02e53117-ff51-4d6c-8f0e-344141705d85?mode=deep",
+    "timestamp": "2026-01-10 16:17:01.316860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Panic handling] At line 26, if SetParams() returns an error and the panic is triggered, does this leave the DEX module in a partially initialized state where pools and metadata are set but params are not, causing subsequent operations to use uninitialized or default params that may have insecure values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34c92d14-bf38-4aaa-bfbb-c5577e53f5e4?mode=deep",
+    "timestamp": "2026-01-10 16:17:14.367784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Params validation bypass] Does the panic at line 26 occur before or after params are written to the KVStore? If SetParams() writes invalid params before returning an error, can the panic leave corrupted params in the store that persist across restart attempts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b9cf2d6-459c-4166-b06b-d33a730eaccd?mode=deep",
+    "timestamp": "2026-01-10 16:17:28.901623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Invalid params] If genState.Params contains a NewPoolFeePct value >= PoolFeeScalingFactor, beneficiary address in wrong format, or MinimalLiquidityLock of 0, does SetParams() catch these issues or does the panic at line 26 occur too late to prevent state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_58064743-6682-4d49-b382-5e27f413422e?mode=deep",
+    "timestamp": "2026-01-10 16:17:43.700785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [CreationFee manipulation] If genState.Params.CreationFee is set to 0 or uint32 max, allowing either free pool creation or impossibly expensive pool creation, does the initialization proceed without validation, enabling economic attacks where an attacker either spams the chain with pools or prevents legitimate pool creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23187717-7e45-4732-9b35-35ab1a096154?mode=deep",
+    "timestamp": "2026-01-10 16:17:59.101127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [MaxSlippage bypass] If genState.Params.MaxSlippage is set above MaximumMaxSlippage (10000 basis points) or to 0, does SetParams() reject this or does the panic at line 26 occur without proper validation, allowing swaps with no slippage protection or impossibly strict slippage that blocks all swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aabd8cb7-f258-463d-be39-bb4437ee40ff?mode=deep",
+    "timestamp": "2026-01-10 16:18:16.110867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Order dependency] Since pools are set before PoolUids (lines 13-15 before 21-23), if SetPool() internally calls functions that depend on PoolUids existing (like GetPoolUidsFromPool()), does this create a state where the first pool initialization fails due to missing PoolUids secondary index? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ee2c1b1-a48e-44b7-be13-4cb7c43aa913?mode=deep",
+    "timestamp": "2026-01-10 16:18:33.892112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Params timing] If params are set last (lines 25-27) but pool validation in SetPool() at line 14 needs to check params values (like fee validation), does this create a window where pools are set with uninitialized params, allowing invalid pools to bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_588594c6-8057-464c-a582-408ecfe61f0f?mode=deep",
+    "timestamp": "2026-01-10 16:18:53.294268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Account creation race] If pools are set before their corresponding module accounts are created by the account keeper's genesis initialization, does SetPool() at line 14 succeed but create pools that reference non-existent accounts, leading to fund loss when users try to add liquidity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dadb9738-04af-4470-b6a2-40d10e94bff4?mode=deep",
+    "timestamp": "2026-01-10 16:19:13.971884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis()] [Bank module ordering] If the DEX module's InitGenesis runs before the bank module's genesis initialization, and pools reference coin denoms that haven't been registered yet, does this cause pools to hold phantom tokens that can't be transferred, effectively locking user funds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24717fc3-34eb-41eb-9a2f-ef8acbd57247?mode=deep",
+    "timestamp": "2026-01-10 16:19:35.016090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Pool iteration] When GetAllPool() is called at line 35, if the KVStore iterator encounters a corrupted pool entry that can't be unmarshaled, does the iteration continue and skip the corrupted entry, or does it panic and prevent genesis export, making the chain unable to be exported for upgrades? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_da45f834-d22c-46f9-b718-20cdfa9e733f?mode=deep",
+    "timestamp": "2026-01-10 16:19:57.418509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Memory exhaustion] If the chain has millions of pools and GetAllPool() at line 35 loads them all into memory at once, can this cause the export process to run out of memory and crash the node, preventing chain state backup or migration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf39def2-c851-435b-8c2a-f5c9732bca47?mode=deep",
+    "timestamp": "2026-01-10 16:20:20.487245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Pool ordering] Does GetAllPool() return pools in a deterministic order, or can the iteration order vary between exports? If order is non-deterministic, does this cause genesis export hashes to differ between nodes, preventing consensus on the exported state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_743c2da3-e0f9-4e10-b80c-6582dbad0e1a?mode=deep",
+    "timestamp": "2026-01-10 16:20:44.198659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Concurrent modification] If pools are being modified by transactions while ExportGenesis() is executing and GetAllPool() is iterating at line 35, does this create a race condition where some pool updates are captured and others aren't, resulting in an inconsistent exported state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a79db62-aa44-49a0-b003-8170d094538a?mode=deep",
+    "timestamp": "2026-01-10 16:21:08.628163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Missing PoolsMeta] At lines 37-40, if GetPoolsMeta() returns found=false but pools exist in the exported genesis.PoolList, does this create an invalid exported state where NextPoolId is not set, causing reimport to fail validation or start pool IDs from 1 again? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9ee9890-db4b-4303-9d8d-c800bc4ff0b1?mode=deep",
+    "timestamp": "2026-01-10 16:21:34.113445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [PoolsMeta-Pool count mismatch] If genesis.PoolsMeta.NextPoolId doesn't equal len(genesis.PoolList)+1 when exported, does this indicate state corruption that could be silently exported and then cause pool ID collisions when the genesis is reimported on another chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05e4484a-5bf2-41b4-b906-9b495247285b?mode=deep",
+    "timestamp": "2026-01-10 16:22:00.475849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Nil pointer assignment] At line 39, if poolsMeta is returned with NextPoolId=0 or uninitialized fields, does assigning &poolsMeta to genesis.PoolsMeta export invalid metadata that causes initialization to fail or create pools with ID=0? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f1d814a7-516b-4a99-bcfd-b2f56b129d04?mode=deep",
+    "timestamp": "2026-01-10 16:22:26.653433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [PoolUids-Pool mismatch] When GetAllPoolUids() is called at line 41, if the returned list contains PoolUids entries that don't correspond to any pool in genesis.PoolList (orphaned index entries), does the exported genesis fail validation when reimported, causing chain import to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a43f577-7926-4bb3-9e9d-9ba696dde8c2?mode=deep",
+    "timestamp": "2026-01-10 16:22:52.736489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Missing PoolUids entries] If GetAllPoolUids() at line 41 returns fewer entries than there are pools in genesis.PoolList, does this mean some pools will be invisible in the secondary index after reimport, making those pools unusable for swaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55406029-5aa6-45c7-8064-a1a6b5f1a37b?mode=deep",
+    "timestamp": "2026-01-10 16:23:19.372028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [PoolUids ordering] Does GetAllPoolUids() return entries in a deterministic order? If not, can two exports of the same state produce different genesis files that hash differently, breaking state verification between nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b75f4286-1a11-44c8-899b-f3a591471762?mode=deep",
+    "timestamp": "2026-01-10 16:23:44.877914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Params retrieval] At line 33, if GetParams() returns uninitialized params (all zero values) because SetParams was never called, does the exported genesis contain invalid params that fail validation when reimported, preventing chain migration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5299df25-9105-4480-b68a-3252ff7cd9fb?mode=deep",
+    "timestamp": "2026-01-10 16:24:11.487051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: ExportGenesis()] [Params corruption] If the params in the KVStore were corrupted by a bug in SetParams() or direct store manipulation, does GetParams() at line 33 return corrupted values that get exported, propagating the corruption to any chain that imports this genesis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ece881e6-6960-402e-a836-50862f0a1bae?mode=deep",
+    "timestamp": "2026-01-10 16:24:38.508694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/module/genesis.go] [Function: InitGenesis() & ExportGenesis()] [Round-trip consistency] If a genesis state is exported via ExportGenesis() and then immediately reimported via InitGenesis(), is the resulting chain state identical to the pre-export state, or can there be subtle differences in pool ordering, metadata, or params that cause state divergence? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc5b1546-97dd-466e-be9f-f7163406516f?mode=deep",
+    "timestamp": "2026-01-10 16:25:03.591383",
+    "report_generated": false
   }
 ]
