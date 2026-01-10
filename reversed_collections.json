@@ -28798,5 +28798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c1d40ad-758c-4350-aa10-be60171c1ce5?mode=deep",
     "timestamp": "2026-01-10 17:40:57.399518",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Response construction] At line 69-78, DenomResponse is constructed in a loop - if this loop is interrupted, can partial/corrupted responses be returned? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3947ce5-d067-4f0b-b6bf-a7afef761985?mode=deep",
+    "timestamp": "2026-01-10 17:42:06.450854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Response construction] At line 68-79, the QueryDenomResponse is constructed from multiple sources - can field mismatches or type inconsistencies cause issues in client applications? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e20a812f-47e8-4f8a-bd99-772454444435?mode=deep",
+    "timestamp": "2026-01-10 17:42:18.874595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/k_get_denom.go] [Deserialization] The GetDenom() function uses MustUnmarshal at line 30 - can this panic on invalid data, and if so, can an attacker trigger this to DoS queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_06086594-0ac9-4e2e-b24e-24eb80c9c493?mode=deep",
+    "timestamp": "2026-01-10 17:42:31.498593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Deserialization] Same concern for line 28 - can malicious DenomAuth protobufs exploit unmarshal vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c2e64e0-1693-4103-86c1-4443efabfae7?mode=deep",
+    "timestamp": "2026-01-10 17:42:44.597362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Deserialization] If an attacker can corrupt store data to contain malicious protobuf messages, can k.cdc.Unmarshal() at line 52 execute arbitrary code or cause crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c707046-027d-4da5-b855-8ab48d9a1e28?mode=deep",
+    "timestamp": "2026-01-10 17:42:58.997978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Iterator safety] If denoms are transferred between admins during DenomsByAdmin() iteration, can this cause duplicate entries in results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1aa004a5-54bc-4fdb-a695-bebb5dc57bb2?mode=deep",
+    "timestamp": "2026-01-10 17:43:14.169894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Iterator safety] Same concern - if DenomAuth entries are added/removed during ListDenomAuth(), can the pagination iterator behave incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e5fea2db-5fb8-417f-ac9e-44503089a9c6?mode=deep",
+    "timestamp": "2026-01-10 17:43:30.117123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Iterator safety] Does the store iterator used by query.Paginate properly handle concurrent modifications, or can it panic/skip entries if the store is modified during iteration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_045620d3-7e8f-4d4b-81aa-9c2ec4f91971?mode=deep",
+    "timestamp": "2026-01-10 17:43:47.862308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Edge case] If req.Admin is empty string, does AdminDenomAuthListKey() create a valid prefix or could this access the entire AdminDenomAuth store? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cbfbe13a-ea50-4494-866a-a04511b37af8?mode=deep",
+    "timestamp": "2026-01-10 17:44:06.074474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Edge case] If req.Denom contains only the separator character '/', can this cause GetDenomAuth() to read from unintended store locations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b4c4f02-0638-4ffe-ace7-44e25a11503f?mode=deep",
+    "timestamp": "2026-01-10 17:44:24.881385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Edge case] If the denom store is completely empty, does DenomAll() return an empty array or nil, and can this cause nil pointer dereferences in clients? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2421e77b-92bb-41f7-be2b-452fb5420605?mode=deep",
+    "timestamp": "2026-01-10 17:44:45.272674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Edge case] What happens if req.Denom is an empty string after validation bypass - does GetDenom() handle empty keys properly or cause undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4fbc3159-b6a0-42f9-9864-65e128381177?mode=deep",
+    "timestamp": "2026-01-10 17:45:06.793710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Data integrity] Can orphaned entries in AdminDenomAuthListKey (pointing to deleted denoms) cause DenomsByAdmin() to return invalid denom names? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e641cdd-c4f3-4a85-8620-b691d98b1ebf?mode=deep",
+    "timestamp": "2026-01-10 17:45:28.979565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Data integrity] If a DenomAuth entry has empty BankAdmin and MetadataAdmin fields, is this valid state or corruption that should be detected? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_657ef2e8-d868-40e7-a172-9c50fa4389f8?mode=deep",
+    "timestamp": "2026-01-10 17:45:52.032357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Data integrity] If some denoms in the store have corrupted data (e.g., invalid Minted values), will the loop at line 66-79 skip them or include corrupted data in results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd3ea38e-8700-4869-8d1e-15586d077562?mode=deep",
+    "timestamp": "2026-01-10 17:46:16.063163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Data integrity] If the denom.Minted field is corrupted to exceed MintingCap, will calculateDenomStats() detect this and return an error, or silently return wrong values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1e10e9f5-4c7e-4a2e-b146-e7aab8659f20?mode=deep",
+    "timestamp": "2026-01-10 17:46:41.050792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Account enumeration] Can an attacker use DenomsByAdmin() to identify which addresses are factory admins, enabling targeted phishing or social engineering attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2bc70165-4257-472a-917c-d64f4fea4e99?mode=deep",
+    "timestamp": "2026-01-10 17:47:07.703683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_auth.go] [Information gathering] Can an attacker use ListDenomAuth() to enumerate all admin addresses, then use DenomsByAdmin() to map the complete governance structure for targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_387d67ec-87cb-4892-ac89-4ac1f6e2c323?mode=deep",
+    "timestamp": "2026-01-10 17:47:33.601633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Denial of Service] Can an attacker create the maximum number of denoms allowed, then repeatedly query DenomAll() with max pagination to DoS all validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43891eda-f816-4823-8061-aa5e7a1b34b1?mode=deep",
+    "timestamp": "2026-01-10 17:47:59.494655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Denial of Service] Can an attacker repeatedly query expensive denoms (with high minted amounts requiring complex calculations) to DoS the query service? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c9dbc70-a7e0-4dfd-aa63-b10628e6decd?mode=deep",
+    "timestamp": "2026-01-10 17:48:26.311939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Codec dependency] k.cdc.Unmarshal() is used throughout - if the codec is changed/upgraded, can old data become unreadable causing query failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9c88a11-f1e6-4398-8688-f2d65c40c323?mode=deep",
+    "timestamp": "2026-01-10 17:48:51.045128",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Module coupling] The tight coupling between Denom and DenomAuth queries - if one module is upgraded without the other, can this cause query failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62125f54-2601-484e-9fd6-a6c5df5a64f2?mode=deep",
+    "timestamp": "2026-01-10 17:49:16.042438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [External dependency] bankKeeper.GetSupply() is called without error checking - if bankKeeper is corrupted or returns errors, how does this affect calculateDenomStats()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ff7dd76-29b0-4451-bd32-1fdc7f11c977?mode=deep",
+    "timestamp": "2026-01-10 17:49:40.918698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Determinism] Is the order of denoms returned by DenomAll() deterministic, or can different validators return denoms in different orders affecting consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87eef49b-2e0c-4ca7-8242-61820efae66c?mode=deep",
+    "timestamp": "2026-01-10 17:50:07.020323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_get.go] [Determinism] Is calculateDenomStats() deterministic across all validators, or can differences in bankKeeper state timing cause non-deterministic results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31e9ddca-2631-4d70-8808-5a6c5be43721?mode=deep",
+    "timestamp": "2026-01-10 17:50:33.655699",
+    "report_generated": false
   }
 ]
