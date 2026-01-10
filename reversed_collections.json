@@ -20098,5 +20098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46452ab5-cf67-4cba-b1be-83472e1c15fc?mode=deep",
     "timestamp": "2026-01-10 07:59:50.807594",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [BankAdmin prefix attack] Does the AddressCheck at line 41 verify the address prefix matches constants.AddressPrefix, or can an attacker propose a BankAdmin from a different chain (e.g., cosmos1...) that passes general Bech32 validation but fails on-chain operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc6d2a6b-9405-45cb-b037-e53188559538?mode=deep",
+    "timestamp": "2026-01-10 08:01:04.847693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [BankAdmin address reuse] Can an attacker propose the same BankAdmin address for multiple denoms simultaneously in the same block, exploiting the duplicate check at line 42 of msg_server_propose_denom_admin.go only comparing against current admin, not other pending proposals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a5d1462-436e-4e85-878b-e9cd01c10e10?mode=deep",
+    "timestamp": "2026-01-10 08:01:17.181023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [BankAdmin empty string] Unlike MetadataAdmin which allows empty strings at line 49, BankAdmin validation at line 41 requires a non-empty address. Can an attacker exploit this asymmetry by proposing BankAdmin='' to permanently lock the denom admin role, causing denial of service for legitimate admin operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15e4fa42-9a74-4cb5-9bdd-455b99a1d57d?mode=deep",
+    "timestamp": "2026-01-10 08:01:29.808775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [BankAdmin validation bypass] In the AddressCheck call at line 41, can an attacker provide a bankAdmin address that passes Bech32 validation but has an invalid checksum, causing the keeper's sdk.AccAddressFromBech32 at line 37 of msg_server_propose_denom_admin.go to reject it after ValidateBasic succeeds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0eb2ac38-4604-4e28-a058-b271941fd50d?mode=deep",
+    "timestamp": "2026-01-10 08:01:43.743575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Denom null byte injection] Can an attacker inject null bytes (\\x00) in the denom string that terminate string operations in DeconstructDenom but allow the full malicious string to be stored in the keeper, causing state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2668545c-a4bd-4185-9d92-0ddb78db9fbc?mode=deep",
+    "timestamp": "2026-01-10 08:01:57.895350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Denom whitespace injection] Can an attacker inject leading/trailing whitespace in the denom string that passes DeconstructDenom validation at line 31 but causes key mismatch when the keeper looks up DenomAuth at line 19 of msg_server_propose_denom_admin.go? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a023f238-4a48-419e-b67d-bef31b849499?mode=deep",
+    "timestamp": "2026-01-10 08:02:12.859437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Denom case sensitivity] Since DeconstructDenom at line 31 performs case-sensitive comparison for ModuleDenomPrefix at line 69 of denoms.go, can an attacker submit a denom with 'Coin' or 'COIN' prefix that bypasses validation but matches a different denom in case-insensitive storage systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_739515ad-03e3-420d-b636-c31074f0633a?mode=deep",
+    "timestamp": "2026-01-10 08:02:28.877840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Subdenom length bypass] Can an attacker create a subdenom with length exactly at MaxSubdenomLength (44 characters) that passes validation but causes string concatenation overflow when combined with creator address in GetTokenDenom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ab30aac-2aad-4a5c-8ac2-25624620dcdf?mode=deep",
+    "timestamp": "2026-01-10 08:02:46.288110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Subdenom special characters] Can an attacker craft a subdenom containing special characters (e.g., '/', '\\\\', '%', '&', '?') that pass CheckSubDenomString validation but cause path traversal or injection attacks when the denom is used in file paths or database queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7abb24b2-ddb1-4117-9862-67726544e0ee?mode=deep",
+    "timestamp": "2026-01-10 08:03:04.185904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Creator address mismatch] In DeconstructDenom at line 31, can an attacker propose admin changes for a denom where the creator address in the denom string doesn't match the msg.Signer, allowing unauthorized admin proposals before the keeper's Auth check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b094de11-2a9c-4735-aaad-fd4c65c21563?mode=deep",
+    "timestamp": "2026-01-10 08:03:22.163003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Denom length exploitation] Can an attacker create a denom exceeding SDK's max denom length of 128 characters that passes sdk.ValidateDenom at line 54 of denoms.go but causes buffer overflow when stored in the keeper's KVStore? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef53e6d6-6e16-4f3c-80f2-18e4da679769?mode=deep",
+    "timestamp": "2026-01-10 08:03:41.200150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Denom prefix collision] Can an attacker craft a denom starting with 'coin.' but using a different ModuleDenomPrefix value (if constants are modified) that bypasses the prefix check at line 69 of denoms.go, allowing admin proposals for non-factory denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac0eb7b9-43ee-4776-9cb6-94e32f251185?mode=deep",
+    "timestamp": "2026-01-10 08:03:59.750218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Denom delimiter injection] Can an attacker inject the FactoryDenomDelimiterChar ('.') within the creator address portion of the denom to manipulate the string split in DeconstructDenom at line 59 of denoms.go, causing the function to extract incorrect creator/subdenom components? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b615dae8-bf23-43c7-b097-318ed387ae95?mode=deep",
+    "timestamp": "2026-01-10 08:04:19.960775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Denom format bypass] In the DeconstructDenom call at line 31, can an attacker craft a denom with exactly 3 parts separated by '.' but with an empty subdenom (e.g., 'coin.zig1abc..') that passes the length check but violates subdenom validation, leading to state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c6f93c7a-6da3-4722-b024-5939540137c6?mode=deep",
+    "timestamp": "2026-01-10 08:04:40.266972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Address canonicalization] If the signer address contains uppercase characters in the HRP or data portion, does the validation at line 27 normalize the address, or can an attacker exploit case sensitivity to propose admins for denoms they don't own? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24d68d67-078e-4245-9c2d-b15189489a3b?mode=deep",
+    "timestamp": "2026-01-10 08:05:01.241349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Bech32 encoding attack] Can an attacker craft a signer address with invalid Bech32 encoding (e.g., mixed case, invalid separator) that passes initial parsing but causes sdk.AccAddressFromBech32() to return a different address than expected, leading to authentication bypass? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_93ed803a-f1ad-408c-a8c3-ebc389ee4075?mode=deep",
+    "timestamp": "2026-01-10 08:05:24.100627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Address length overflow] Can an attacker provide a signer address exceeding the maximum Bech32 address length (90 characters for HRP + data) that causes buffer overflow or panic in validators.SignerCheck() at line 27? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4272a465-c2df-4450-947d-a6e5422e46db?mode=deep",
+    "timestamp": "2026-01-10 08:05:47.745717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Empty address exploitation] Does the SignerCheck at line 27 properly reject empty strings, or can an attacker submit a message with msg.Signer='' that bypasses validation but causes the keeper's Auth() check at line 32 of msg_server_propose_denom_admin.go to fail with unexpected error handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed976954-84a8-4086-92b5-734922c5bf11?mode=deep",
+    "timestamp": "2026-01-10 08:06:11.693827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: ValidateBasic()] [Address validation bypass] In the SignerCheck call at line 27, can an attacker craft a signer address with valid Bech32 checksum but incorrect prefix (e.g., 'cosmos' instead of 'zig') that passes sdk.AccAddressFromBech32() but fails the prefix check in validators.SignerCheck(), causing inconsistent validation behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2383db8b-2b57-46fa-80a2-52bc95b75642?mode=deep",
+    "timestamp": "2026-01-10 08:06:34.564823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: NewMsgProposeDenomAdmin()] [Struct initialization] Does the constructor properly initialize all fields of MsgProposeDenomAdmin, or can uninitialized fields cause undefined behavior when the message is serialized/deserialized via protobuf? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3731dc91-91ec-4105-8d9c-3ad1ade58289?mode=deep",
+    "timestamp": "2026-01-10 08:06:57.912337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: NewMsgProposeDenomAdmin()] [Unicode exploitation] Can an attacker inject Unicode control characters, zero-width spaces, or homoglyphs into the constructor string parameters that pass address validation but cause address confusion when displayed or processed by wallets and explorers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6d9d65e-ab61-42b2-bcb4-23146c856b9d?mode=deep",
+    "timestamp": "2026-01-10 08:07:22.871795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: NewMsgProposeDenomAdmin()] [Memory exhaustion] Can an attacker craft extremely long strings for the constructor parameters (exceeding MaxCreatorLength=75 or MaxSubdenomLength=44) that consume excessive memory during message creation, leading to node crashes before ValidateBasic() is called? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90246c33-937d-472e-8af4-35a4433f7b46?mode=deep",
+    "timestamp": "2026-01-10 08:07:48.346071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_propose_denom_admin.go] [Function: NewMsgProposeDenomAdmin()] [Input validation] Can an attacker pass nil or empty strings to the constructor parameters (signer, denom, bankAdmin, metadataAdmin) that bypass validation in ValidateBasic(), causing state corruption when the keeper processes the message? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c5405ed-6a28-42d6-bdb6-11116fed9f59?mode=deep",
+    "timestamp": "2026-01-10 08:08:15.118493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Admin Transfer] After a denom admin is transferred via ProposeDenomAdmin and ClaimDenomAdmin, does ValidateBasic() use the updated admin for authorization checks, or can the old admin still mint tokens due to stale validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8e91678-6fe4-47fe-8d44-721cee809d3f?mode=deep",
+    "timestamp": "2026-01-10 08:08:40.955261",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Creator Mismatch] If msg.Token.Denom is a factory denom, does ValidateBasic() verify that the creator address in the denom matches msg.Signer, or can an attacker mint tokens from another creator's factory denom? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a6c8d500-efe5-4853-962f-bb0a70380e85?mode=deep",
+    "timestamp": "2026-01-10 08:09:06.617814",
+    "report_generated": false
   }
 ]
