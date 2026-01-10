@@ -14548,5 +14548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0913b353-701c-4b7a-9de5-c188aa9e6f3e?mode=deep",
     "timestamp": "2026-01-10 01:51:54.607335",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [State corruption] If the keeper's RemovePauserAddress method uses slice manipulation with append(addresses[:i], addresses[i+1:]...), can concurrent access cause a panic or data race that corrupts the entire pauser address list in storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf464685-972d-40d2-a4af-c3e03cce2de5?mode=deep",
+    "timestamp": "2026-01-10 01:53:17.505852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Atomic operation] Can an attacker exploit the gap between the keeper.RemovePauserAddress call on line 28 and the GetPauserAddresses call on line 35 to inject or remove other pausers, causing the returned list to be incorrect? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5c9940d-5a92-4c58-8ed4-55d4693fd42c?mode=deep",
+    "timestamp": "2026-01-10 01:53:30.388009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [State inconsistency] If the RemovePauserAddress function succeeds but the GetPauserAddresses() call on line 35 fails or returns stale data, can this cause the response to show an inconsistent state that doesn't match the actual storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29e0b044-d2a4-42b2-bf71-1c60c0ab6fd5?mode=deep",
+    "timestamp": "2026-01-10 01:53:43.030117",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Race condition] Can concurrent RemovePauserAddress transactions targeting the same pauser address cause state inconsistency where the pauser list becomes corrupted due to non-atomic slice manipulation in the keeper's RemovePauserAddress method? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fe78497-9d81-4abe-9777-6c216e07f957?mode=deep",
+    "timestamp": "2026-01-10 01:53:56.487553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Input validation] If msg.Pauser contains control characters or special encoding after Bech32 validation, can this cause the RemovePauserAddress keeper method on line 28 to malfunction or corrupt the pauser address list in storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3efede4-4744-4155-a61a-5e20f5eadf91?mode=deep",
+    "timestamp": "2026-01-10 01:54:11.723721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Address normalization] Can an attacker exploit differences between the address validation in ValidateBasic() (which uses validators.AddressCheck) and the validation on line 22 (which uses sdk.AccAddressFromBech32), allowing invalid addresses to reach the keeper layer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90f82f80-c878-459a-9c04-84a6f73937c7?mode=deep",
+    "timestamp": "2026-01-10 01:54:27.330133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Input validation] If AccAddressFromBech32() on line 22 accepts addresses with different prefixes than expected, can an attacker remove addresses from other chains' address spaces, causing cross-chain security issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9031b554-bd79-42e8-8262-fd876a346741?mode=deep",
+    "timestamp": "2026-01-10 01:54:44.308126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Address validation] Does the conversion to pauser.String() on line 28 produce a different string format than msg.Pauser, potentially causing the removal to fail silently while still emitting the event and consuming gas? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ee0f634-f628-4b63-9d23-6c15880c455e?mode=deep",
+    "timestamp": "2026-01-10 01:55:02.586279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Input validation] Can an attacker pass a malformed address string to msg.Pauser that passes AccAddressFromBech32 validation on line 22 but causes issues in the keeper's RemovePauserAddress method on line 28, leading to state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d65bfe3-6af5-496a-9a15-d0e3d4a8c021?mode=deep",
+    "timestamp": "2026-01-10 01:55:20.977171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Privilege escalation] If the operator address is compromised, can an attacker remove all pauser addresses in a single block, eliminating all emergency pause capabilities before other security mechanisms can respond? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7a8f596-4f74-45f0-a597-be2bf33e2b9d?mode=deep",
+    "timestamp": "2026-01-10 01:55:40.995623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Authorization bypass] Does the operator comparison on line 17 use string equality which could be vulnerable to Unicode normalization attacks, where visually identical but byte-different addresses bypass the check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c2d6bc9-f991-4e38-becc-58969b3d5f39?mode=deep",
+    "timestamp": "2026-01-10 01:56:01.810877",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [State manipulation] Can an attacker front-run the RemovePauserAddress transaction by first calling a function that changes the operator address, causing a time-of-check-time-of-use (TOCTOU) vulnerability where the authorization check passes but the operator has changed by the time of removal? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_802e1d78-9ddf-4240-82c4-3b5f8f40e299?mode=deep",
+    "timestamp": "2026-01-10 01:56:23.711026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Access control] If GetOperatorAddress() on line 16 returns an empty string, does the comparison on line 17 allow any signer to pass the authorization check, enabling unauthorized removal of pauser addresses and compromising the emergency pause mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d7ad802-f7f6-4080-b3ba-62cdce6659a6?mode=deep",
+    "timestamp": "2026-01-10 01:56:45.799900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Authorization bypass] Can an attacker exploit the operator address comparison on line 17 by manipulating address normalization (e.g., different Bech32 encodings of the same address) to bypass the operator check and remove pauser addresses without authorization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9d31377-97a6-48f5-afb4-9335737867c5?mode=deep",
+    "timestamp": "2026-01-10 01:57:09.989274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [State corruption] If the keeper's RemovePauserAddress method uses slice manipulation with append(addresses[:i], addresses[i+1:]...), can concurrent access cause a panic or data race that corrupts the entire pauser address list in storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_120f0ea5-a68d-459d-8971-8777bc83af81?mode=deep",
+    "timestamp": "2026-01-10 01:57:33.110733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Atomic operation] Can an attacker exploit the gap between the keeper.RemovePauserAddress call on line 28 and the GetPauserAddresses call on line 35 to inject or remove other pausers, causing the returned list to be incorrect? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6dcd4db-0e53-496c-8eb1-0a8833cfff74?mode=deep",
+    "timestamp": "2026-01-10 01:57:56.076762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [State inconsistency] If the RemovePauserAddress function succeeds but the GetPauserAddresses() call on line 35 fails or returns stale data, can this cause the response to show an inconsistent state that doesn't match the actual storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_080eeb56-bedb-4508-8a78-9e3bd3670248?mode=deep",
+    "timestamp": "2026-01-10 01:58:15.606675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Race condition] Can concurrent RemovePauserAddress transactions targeting the same pauser address cause state inconsistency where the pauser list becomes corrupted due to non-atomic slice manipulation in the keeper's RemovePauserAddress method? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4869e168-a670-40a9-af58-917e96a22f6a?mode=deep",
+    "timestamp": "2026-01-10 01:58:41.023902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Input validation] If msg.Pauser contains control characters or special encoding after Bech32 validation, can this cause the RemovePauserAddress keeper method on line 28 to malfunction or corrupt the pauser address list in storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1379adf8-d51f-4852-a842-7ae86f9daa1b?mode=deep",
+    "timestamp": "2026-01-10 01:59:05.861398",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Address normalization] Can an attacker exploit differences between the address validation in ValidateBasic() (which uses validators.AddressCheck) and the validation on line 22 (which uses sdk.AccAddressFromBech32), allowing invalid addresses to reach the keeper layer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e913f60-3c19-46d0-8723-cd255d9e0afa?mode=deep",
+    "timestamp": "2026-01-10 01:59:31.126534",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Input validation] If AccAddressFromBech32() on line 22 accepts addresses with different prefixes than expected, can an attacker remove addresses from other chains' address spaces, causing cross-chain security issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7cdb9f6-eeea-42a9-bf96-5fdf93f7b2ce?mode=deep",
+    "timestamp": "2026-01-10 01:59:57.523020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Address validation] Does the conversion to pauser.String() on line 28 produce a different string format than msg.Pauser, potentially causing the removal to fail silently while still emitting the event and consuming gas? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d4a5a0e-bca1-47b9-af91-de740cd27964?mode=deep",
+    "timestamp": "2026-01-10 02:00:31.647459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Input validation] Can an attacker pass a malformed address string to msg.Pauser that passes AccAddressFromBech32 validation on line 22 but causes issues in the keeper's RemovePauserAddress method on line 28, leading to state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1317443c-9c02-4da4-8480-197c6f06b59b?mode=deep",
+    "timestamp": "2026-01-10 02:00:57.389792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Privilege escalation] If the operator address is compromised, can an attacker remove all pauser addresses in a single block, eliminating all emergency pause capabilities before other security mechanisms can respond? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8da4f0f3-b666-4a10-8123-adc8982f52f0?mode=deep",
+    "timestamp": "2026-01-10 02:01:22.062044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_remove_pauser_address.go] [Function: RemovePauserAddress()] [Authorization bypass] Does the operator comparison on line 17 use string equality which could be vulnerable to Unicode normalization attacks, where visually identical but byte-different addresses bypass the check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3138830-ba45-46af-8f88-d1fe4ac14b63?mode=deep",
+    "timestamp": "2026-01-10 02:01:47.234538",
+    "report_generated": false
   }
 ]
