@@ -28498,5 +28498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fd7ffb1b-cbaa-46c6-a240-1996a3afd34a?mode=deep",
     "timestamp": "2026-01-10 17:21:11.958989",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Iterator safety] Does query.Paginate properly handle the case where the store iterator is exhausted mid-iteration, or can this cause the function to return partial/corrupted results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_819f18fc-6ed0-461f-a6c8-33e482210932?mode=deep",
+    "timestamp": "2026-01-10 17:22:33.540367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Encoding] Can an attacker who previously stored denoms with special byte sequences exploit the string(key) conversion to inject control characters or escape sequences into the response? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a99d7a2-affb-49af-ad3f-1fd71883142e?mode=deep",
+    "timestamp": "2026-01-10 17:22:46.205361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Encoding] When converting key []byte to string(key) for denom names, does this handle non-UTF8 byte sequences correctly, or can corrupted store data cause the query to return invalid UTF-8 strings that crash client applications? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43335372-612f-4cfb-befa-b1022f3d3b32?mode=deep",
+    "timestamp": "2026-01-10 17:22:58.865536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Panic] Can malformed store keys or corrupted store data cause query.Paginate to panic when attempting to iterate, leading to node crashes during query execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87a7cd63-046a-4a55-b334-d99a36097205?mode=deep",
+    "timestamp": "2026-01-10 17:23:12.497425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Panic] If k.storeService is not properly initialized, can calling k.storeService.OpenKVStore(ctx) cause a panic that crashes the query handler and potentially the entire node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_63282b8a-6063-4013-9321-b5470353045b?mode=deep",
+    "timestamp": "2026-01-10 17:23:26.610078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Nil pointer] If req.Pagination is nil, does query.Paginate handle this safely, or could this cause a nil pointer dereference panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f852af70-d2ce-45ea-900c-33c78faec645?mode=deep",
+    "timestamp": "2026-01-10 17:23:41.448296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [State consistency] Does the function read from a consistent snapshot of the store, or can interleaved state changes between pagination pages cause the returned denom list to be corrupted or incomplete? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb00b854-111c-47fa-8620-9b0f3914f7f4?mode=deep",
+    "timestamp": "2026-01-10 17:23:57.536701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Race condition] If a denom is transferred from one admin to another (via ProposeChangeDenomAuth/ClaimDenomAuth) during pagination across multiple query calls, could the same denom appear in results for both admins or neither admin? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d6f4bda-e127-433d-b6f1-b004e79e1e59?mode=deep",
+    "timestamp": "2026-01-10 17:24:15.261725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [State consistency] Can concurrent modifications to the AdminDenomAuthList (via AddDenomToAdminDenomAuthList/RemoveDenomFromAdminDenomAuthList) during query execution cause the pagination iterator to return inconsistent or duplicate results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73359043-b835-4f81-aba8-8c9e7d07199b?mode=deep",
+    "timestamp": "2026-01-10 17:24:33.736430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Authorization] Should certain admin addresses (e.g., module accounts) have their denom lists hidden from public queries, but this function exposes them without any access control checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_353e6e7b-fa14-46c0-a3fe-ba6d072e2771?mode=deep",
+    "timestamp": "2026-01-10 17:24:53.198378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Access control] Can malicious actors query denominations owned by system accounts, module accounts, or governance addresses to gain strategic information for attacks on other parts of the system? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_622cf177-d99a-4b29-94f4-646d4e40553f?mode=deep",
+    "timestamp": "2026-01-10 17:25:13.725170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Access control] Is this query endpoint rate-limited or does it allow unlimited queries from any address, enabling attackers to perform reconnaissance or DoS attacks without cost? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45e5ab67-c7c0-4663-8951-c8c88d6d025e?mode=deep",
+    "timestamp": "2026-01-10 17:25:34.591536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Error handling] Does the function properly close the store iterator after pagination completes, or can repeated queries cause iterator leaks leading to memory exhaustion over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0b71a4b-67ea-4fd5-9a7a-d58513338532?mode=deep",
+    "timestamp": "2026-01-10 17:25:57.372197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Error handling] If the storeService.OpenKVStore(ctx) call fails, does this cause a panic or is it handled gracefully, and could an attacker trigger repeated store opening failures to cause node instability? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c12e85f6-cbc8-4a80-b7de-b72dc90395b1?mode=deep",
+    "timestamp": "2026-01-10 17:26:20.522666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Error handling] When query.Paginate returns an error, the function wraps it with status.Error(codes.Internal), but does this leak internal error details that could expose store implementation details or database structure to attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_709a1159-5772-4b86-9204-2d2a2bc5a926?mode=deep",
+    "timestamp": "2026-01-10 17:26:45.119838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Information disclosure] Can an attacker use pagination.Total field to enumerate the exact number of denoms owned by any admin, even if they cannot see the actual denom names due to pagination limits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_49c1ff4e-56ea-4288-9cb0-e7063c99dac5?mode=deep",
+    "timestamp": "2026-01-10 17:27:10.378592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Privacy leak] Does returning raw denom strings expose sensitive information about token naming schemes, admin addresses embedded in denoms, or business logic that should remain confidential? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cfb62791-022c-49df-b19f-c98dfcc61f48?mode=deep",
+    "timestamp": "2026-01-10 17:27:35.258516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Information disclosure] Can an attacker query denoms for any admin address without authentication, potentially exposing the complete denomination ownership structure of the entire factory module to unauthorized parties? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f0207624-8615-4cbd-8b49-717e153cf159?mode=deep",
+    "timestamp": "2026-01-10 17:28:00.486574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Information disclosure] Does the function leak information about whether an admin address exists in the system through timing differences, allowing an attacker to enumerate valid admin addresses via timing side-channels? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5fdd311e-5894-4c85-a534-64bc83ffbfcc?mode=deep",
+    "timestamp": "2026-01-10 17:28:25.212331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Resource exhaustion] Does the query.Paginate function have limits on the number of iterations, or can an attacker with a large number of denoms registered under one admin cause the node to hang during pagination processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f77bc20e-744e-4188-b37c-2a5716c91b9a?mode=deep",
+    "timestamp": "2026-01-10 17:28:50.195171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Pagination bypass] Can an attacker manipulate req.Pagination.Key to skip over certain denominations and read out-of-bounds store keys by providing keys that don't match the expected prefix format? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94d7db81-d965-4f87-b4a5-5329423641b6?mode=deep",
+    "timestamp": "2026-01-10 17:29:14.725609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [DoS] If both req.Pagination.Key and req.Pagination.Offset are provided, the function returns an Internal error, but can an attacker exploit this by flooding the node with such invalid requests to cause log spam and resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8595c9fe-5208-4b51-9473-f92d4c0db7e1?mode=deep",
+    "timestamp": "2026-01-10 17:29:39.989099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [Pagination manipulation] Can an attacker craft malicious pagination Key values that point to arbitrary store locations, bypassing the AdminDenomAuthKeyPrefix and reading sensitive data from other modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3afae130-ea81-4660-b0d2-4f4542a97d11?mode=deep",
+    "timestamp": "2026-01-10 17:30:06.151384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [DoS] Can an attacker repeatedly query with small pagination limits but never consume the results, causing the accumulation of open iterators and eventual resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bff05f61-33b2-44a2-a368-d1613a2d5a5d?mode=deep",
+    "timestamp": "2026-01-10 17:30:31.542975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_by_admin.go] [Function: DenomsByAdmin()] [DoS] Can an attacker submit pagination requests with extremely large Limit values (e.g., uint64 max) to force the node to iterate over millions of denoms, causing memory exhaustion and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6aca14a4-b4e7-4304-8c88-b3d581b34175?mode=deep",
+    "timestamp": "2026-01-10 17:30:56.196112",
+    "report_generated": false
   }
 ]
