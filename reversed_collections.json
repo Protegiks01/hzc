@@ -27898,5 +27898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cf89c84-1e26-4a5e-b4f2-bb4b5b045345?mode=deep",
     "timestamp": "2026-01-10 16:42:27.152193",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [SetDenomAuth atomicity] SetDenomAuth at line 118 writes to KVStore. If this operation fails silently (disk full, corruption), can the denom be created at line 132 without proper admin records, making it administratively orphaned and unmintable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3816a3e9-805c-4640-a554-35d0556b1796?mode=deep",
+    "timestamp": "2026-01-10 16:43:49.451789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Admin initialization] At lines 113-118, both BankAdmin and MetadataAdmin are set to msg.Creator. Can an attacker exploit this dual admin role to bypass separation of duties checks in other modules that assume different admins for minting vs metadata control? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_083a6248-1c99-4c14-9cf1-7392933124cb?mode=deep",
+    "timestamp": "2026-01-10 16:44:01.810051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Bank keeper trust] SetDenomMetaData at line 111 trusts bank keeper to properly store metadata. If bank keeper has bugs or is maliciously modified, can metadata be stored incorrectly or not at all, causing denoms to exist without metadata and breaking invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc8daf15-3092-4524-8ab3-61bffc801db9?mode=deep",
+    "timestamp": "2026-01-10 16:44:14.807968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Metadata immutability] After SetDenomMetaData at line 111, can the metadata be changed via msg_server_set_denom_metadata.go? If yes, can an attacker change URI/URIHash after creation to redirect users to malicious sites while preserving the original denom's reputation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_478f302a-022d-4172-9b77-814c5e1cb9f6?mode=deep",
+    "timestamp": "2026-01-10 16:44:27.939303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [URI clearing logic] Lines 107-109 clear URIHash if URI is empty. But what if msg.URI is non-empty and msg.URIHash is empty (valid per ValidateBasic lines 77-88 in msg_create_denom.go)? Does this create metadata with URI but no hash, breaking hash verification in clients? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e055bf3c-c4c7-4854-b7a6-628b4fc71af8?mode=deep",
+    "timestamp": "2026-01-10 16:44:41.861789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [URIHash manipulation] At line 103, msg.URIHash is set without verifying it matches the SHA256 of msg.URI. Can an attacker provide mismatched URI and URIHash, causing wallets/explorers that verify the hash to show different content than those that don't, enabling phishing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c1c2352-14e8-4d89-81cc-bc0f549a2e9f?mode=deep",
+    "timestamp": "2026-01-10 16:44:57.055868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [URI validation bypass] At line 102, msg.URI is set without additional validation beyond ValidateBasic. If ValidateBasic has bugs, can an attacker inject malicious URIs (XSS payloads, SSRF URLs) that are stored in metadata and executed when displayed in block explorers or wallets? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56d82cba-73e3-4cce-b90f-7611eb9a69e9?mode=deep",
+    "timestamp": "2026-01-10 16:45:13.385762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Display field exploit] Display is set to fullDenom at line 101, identical to Base at line 98. Can this violate assumptions in bank module or other Cosmos SDK modules that expect Display to reference a DenomUnit with higher exponent for human-readable amounts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bca49b3e-2af6-43c8-951e-cdedb303468c?mode=deep",
+    "timestamp": "2026-01-10 16:45:31.145649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Symbol collision] At line 100, Symbol is set to msg.SubDenom. Can an attacker create multiple denoms with the same Symbol from different creator addresses, causing ambiguity in DEX, IBC, or other modules that might index by Symbol instead of full Denom? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_626880b3-c58f-4220-8b23-11504513a357?mode=deep",
+    "timestamp": "2026-01-10 16:45:49.251312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [DenomUnits inconsistency] The DenomUnits at line 94-97 only includes one unit with Exponent 0. Does this break compatibility with modules expecting multiple denom units (e.g., 'uzig' and 'zig'), causing display issues or calculation errors in other parts of the system? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51fdd6b6-88e2-4256-a960-5fe5eff834bc?mode=deep",
+    "timestamp": "2026-01-10 16:46:08.796732",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Metadata manipulation] At lines 92-104, metadata is constructed with empty Description and specific structure. Can an attacker exploit the fact that Description is intentionally empty to create denoms that are indistinguishable from each other in UIs, enabling phishing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51f9c958-686a-495c-ada4-6b8dbf372011?mode=deep",
+    "timestamp": "2026-01-10 16:46:29.245168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Error timing analysis] The error at lines 80-85 reveals whether metadata exists after fee payment. Can an attacker use timing analysis to determine if fee payment succeeded, gaining information about sender's balance without paying for denom creation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f704a08c-c7ce-4c87-9f15-4232af3c7d1a?mode=deep",
+    "timestamp": "2026-01-10 16:46:50.490405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Bank module bypass] The GetDenomMetaData check at line 78 queries the bank keeper directly. Can an attacker use bank module's SetDenomMetaData directly (if exposed) to create metadata without creating the Denom struct, causing state inconsistency between factory and bank modules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1af20379-3eab-42d0-9634-e95125a6931c?mode=deep",
+    "timestamp": "2026-01-10 16:47:12.462228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Metadata pollution] If GetDenomMetaData returns exists=true at line 79 after fee was already collected at line 74, the transaction reverts but fees are lost. Can an attacker front-run legitimate denom creation by creating metadata directly via bank module to steal creator fees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b684da5d-9bfe-41f4-923e-f260f17e76e6?mode=deep",
+    "timestamp": "2026-01-10 16:47:35.953505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Redundant checks] Lines 49-56 check GetDenom and lines 78-86 check GetDenomMetaData for existence. Can the ordering of these checks be exploited? If an attacker creates metadata through another path (bank module directly), can they prevent legitimate denom creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ecd6922-847b-4d7f-9efa-d2888bf5f4a4?mode=deep",
+    "timestamp": "2026-01-10 16:47:59.928269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Zero fee exploit] If params.CreateFeeAmount is set to 0 through governance, the feeAmount at line 29-32 becomes zero-value coin. Does HasBalance and SendCoinsFromAccountToModule properly handle zero amounts, or can this allow unlimited free denom creation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b7a92c54-6b1a-4171-b702-c68a19c3026c?mode=deep",
+    "timestamp": "2026-01-10 16:48:24.649547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Fee denom validation] The code assumes params.CreateFeeDenom at line 30 is valid, but what if governance sets it to a non-existent or factory-created denom? Can this cause HasBalance or SendCoinsFromAccountToModule to behave unexpectedly or fail silently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff609682-5151-4a31-8b27-661944a03d27?mode=deep",
+    "timestamp": "2026-01-10 16:48:50.161580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Atomic transaction] If SendCoinsFromAccountToModule succeeds at line 74 but GetDenomMetaData at line 78 shows metadata already exists (race condition), does the transaction properly roll back the fee payment, or does the sender lose fees without creating the denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d04a9dae-4a34-49c8-a033-159c90b79fff?mode=deep",
+    "timestamp": "2026-01-10 16:49:15.101947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Fee collection failure] If SendCoinsFromAccountToModule fails at line 74-76 after HasBalance succeeded at line 65, can this indicate a race condition where sender's balance was drained by concurrent transaction? Does the error handling properly revert all prior state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_93ebe9eb-2d7d-4453-94f9-204e1e2aa0b2?mode=deep",
+    "timestamp": "2026-01-10 16:49:39.149014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Module account manipulation] At line 74, SendCoinsFromAccountToModule sends fees to types.ModuleName. If the module account is compromised or maliciously configured, can fees be redirected to an attacker-controlled account, effectively making denom creation free? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19a873e9-091c-404b-ad26-580fe4ab535f?mode=deep",
+    "timestamp": "2026-01-10 16:50:04.739827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Insufficient balance handling] If HasBalance returns false at line 65, the error at lines 66-70 is returned. But before this, GetDenom at line 49 and GetDenomMetaData at line 78 performed state reads. Can an attacker spam denom creation with insufficient balance to cause excessive state reads and DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9395c41c-37b8-4868-b47e-cf0e466df64b?mode=deep",
+    "timestamp": "2026-01-10 16:50:30.041710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Front-running attack] Between HasBalance check at line 65 and SendCoinsFromAccountToModule at line 74, can the sender transfer their tokens to another account, causing the fee deduction to fail but after passing the balance check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1dac6cc7-b942-4420-93bb-acfbb9105d30?mode=deep",
+    "timestamp": "2026-01-10 16:50:54.677434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Balance check bypass] At line 65, HasBalance checks if sender has exact feeAmount. Can an attacker with balance slightly below feeAmount exploit rounding errors or dust amounts in different denoms to bypass this check if CreateFeeDenom allows multiple denomination formats? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_837ee765-c9d8-41ac-b1aa-3f13484d1ea0?mode=deep",
+    "timestamp": "2026-01-10 16:51:18.547307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Bech32 decode exploit] Does AccAddressFromBech32 at line 59 properly validate the human-readable part (HRP) and checksum? Can an attacker use a valid bech32 address with wrong HRP (e.g., 'cosmos1...' instead of 'zig1...') that passes ValidateBasic but fails here, after fee validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f5ea70e-90d2-4dcd-9c4e-5545c3b560fb?mode=deep",
+    "timestamp": "2026-01-10 16:51:43.205785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_create_denom.go] [Function: CreateDenom()] [Error handling race] If AccAddressFromBech32 fails at line 60-61, the function returns early after already calling GetTokenDenom and checking native denom collision. Can an attacker spam invalid addresses to cause unnecessary state reads and DoS the denom creation process? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80054aa8-638c-46f8-8202-7479fb48b53d?mode=deep",
+    "timestamp": "2026-01-10 16:52:07.927747",
+    "report_generated": false
   }
 ]
