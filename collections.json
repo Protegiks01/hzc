@@ -12298,5 +12298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa78471d-77ef-4ba9-9e7e-84940f1ed080?mode=deep",
     "timestamp": "2026-01-10 06:53:59.280726",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: Version] [IBC version mismatch] Does the hardcoded Version = 'dex-1' properly validate compatibility with counterparty chains, or could an attacker exploit version negotiation to downgrade to a vulnerable protocol version and execute cross-chain exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0eaf9a5-4d1f-46e8-ae0d-a41c7649f440?mode=deep",
+    "timestamp": "2026-01-10 06:55:16.853964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: Version] [Protocol upgrade] If the IBC protocol is upgraded but Version remains 'dex-1', can this cause packet parsing failures that permanently lock tokens in IBC escrow accounts across chains? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d1bf33f-71d3-49d9-9757-a111d25a09c5?mode=deep",
+    "timestamp": "2026-01-10 06:55:29.312286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: Version] [Backward compatibility] Can an attacker exploit differences between 'dex-1' and potential future versions to replay old IBC packets after chain upgrades, causing token duplication across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3315c9e6-71ac-471d-bedd-ef16224697a4?mode=deep",
+    "timestamp": "2026-01-10 06:55:42.425687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: PortID] [Port binding attack] Since PortID = 'dex', can an attacker race to bind to this port ID during chain initialization before the DEX module, effectively hijacking all IBC packets intended for the DEX and stealing cross-chain liquidity deposits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76cab983-a34b-49ae-bb75-4de227c92ea4?mode=deep",
+    "timestamp": "2026-01-10 06:55:55.554034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: PortID] [Channel confusion] If multiple channels are bound to PortID = 'dex', can an attacker send malicious IBC packets through an alternate channel to bypass validation logic and inject fake liquidity or manipulate pool reserves? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb6ee855-2caa-46f5-bf51-aec341151e2f?mode=deep",
+    "timestamp": "2026-01-10 06:56:09.500920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Variable: PortKey] [Storage collision] Does the PortKey = KeyPrefix('dex-port-') provide sufficient uniqueness, or could an attacker craft storage keys that collide with the port binding data to unbind the legitimate DEX port and bind their own malicious port? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd1603c4-91c4-4031-899a-af24f2105d5d?mode=deep",
+    "timestamp": "2026-01-10 06:56:24.653988",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Variable: PortKey] [Key manipulation] Can an attacker exploit the KeyPrefix function to inject null bytes or special characters into PortKey, causing the port binding lookup to fail and preventing all IBC operations for the DEX module? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ae299a0-da4f-47df-85db-295686a1f7a2?mode=deep",
+    "timestamp": "2026-01-10 06:56:41.051074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Variable: ParamsKey] [Parameter manipulation] Does ParamsKey = []byte('p_dex') have proper access control checks, or could a malicious validator modify DEX parameters (fees, slippage limits) by directly writing to this storage key to drain liquidity pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0ece784-8fe7-48f0-a47c-65c8a3fc54e1?mode=deep",
+    "timestamp": "2026-01-10 06:56:58.940644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Variable: ParamsKey] [Key collision] Can the prefix 'p_dex' collide with other module parameter keys if they use similar naming conventions, causing governance parameter updates intended for DEX to accidentally modify another module's critical parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d538d42-9dac-46b1-b920-3feb9f3f0eda?mode=deep",
+    "timestamp": "2026-01-10 06:57:17.589228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: PoolsMetaKey] [Metadata corruption] Does PoolsMetaKey = 'PoolsMeta/value/' properly prevent path traversal attacks where an attacker crafts pool IDs containing '../' to overwrite arbitrary storage keys and corrupt pool metadata across all liquidity pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d1621df-0f36-4d01-a03e-969e65436b95?mode=deep",
+    "timestamp": "2026-01-10 06:57:37.078384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: PoolsMetaKey] [Key enumeration] Can an attacker enumerate all pools by iterating storage keys with prefix 'PoolsMeta/value/', then exploit this information to identify and target low-liquidity pools for sandwich attacks or price manipulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9031d0a-ce1e-48d0-acd2-3124ab33eec4?mode=deep",
+    "timestamp": "2026-01-10 06:57:57.927041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: PoolsMetaKey] [Injection attack] Does the literal string 'PoolsMeta/value/' allow for injection attacks where an attacker creates a pool ID containing 'value/' to create ambiguous storage keys that map to multiple pools, causing swap routing failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12f68a64-94aa-4f6b-9f23-8fb740716093?mode=deep",
+    "timestamp": "2026-01-10 06:58:19.493326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Function: KeyPrefix()] [Null byte injection] Does KeyPrefix(p string) validate input to prevent null byte injection attacks where an attacker passes a string containing '\\x00' characters to truncate storage keys and access unauthorized state data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f042782-1ba7-4618-b52a-bc66e1a54ed2?mode=deep",
+    "timestamp": "2026-01-10 06:58:41.727177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Function: KeyPrefix()] [UTF-8 vulnerability] Can an attacker exploit invalid UTF-8 sequences in the KeyPrefix input to cause panics in downstream key comparison operations, leading to validator crashes and network-wide DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42c77826-88a8-4bfe-871f-9209daf56209?mode=deep",
+    "timestamp": "2026-01-10 06:59:04.363105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Function: KeyPrefix()] [Memory allocation] If KeyPrefix() is called with extremely large strings, can this cause excessive memory allocation that leads to OOM (out of memory) conditions on validators during query operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9dd71ce9-aab8-469b-ac43-07d60c8b0cdc?mode=deep",
+    "timestamp": "2026-01-10 06:59:27.547657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Function: KeyPrefix()] [Key collision] Does the simple []byte(p) conversion in KeyPrefix ensure that different string inputs always produce unique byte arrays, or could Unicode normalization attacks create collision scenarios where 'pool1' and 'pοοl1' (with Greek omicrons) map to the same storage key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64cbbc7b-995c-4a83-bb81-4e806788a912?mode=deep",
+    "timestamp": "2026-01-10 06:59:49.973198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Function: KeyPrefix()] [Encoding consistency] If KeyPrefix() is used with non-ASCII characters, does the byte conversion match the encoding used elsewhere in the codebase, or could encoding mismatches cause storage key lookups to fail and make pool data inaccessible? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08286471-5a86-4f51-93fb-d7214b1a2bc5?mode=deep",
+    "timestamp": "2026-01-10 07:00:12.252863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: ModuleName] [Module impersonation] Can an attacker register a CosmWasm contract or create a custom module with a name that, when hashed, produces an address collision with the DEX ModuleAddress, allowing them to impersonate the DEX module and steal funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc52ef96-23a2-4618-af3b-71a3ec6145e6?mode=deep",
+    "timestamp": "2026-01-10 07:00:35.334353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: StoreKey] [Cross-module access] If the bank module or another core module has direct KVStore access, can it bypass DEX keeper methods to directly modify pool reserves stored under StoreKey = 'dex', violating the constant product (x*y=k) invariant? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_709616df-a1ba-4ceb-8399-eb6b616e129d?mode=deep",
+    "timestamp": "2026-01-10 07:00:57.054249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Store isolation] [State corruption] Can a Byzantine validator exploit direct storage access to keys prefixed with 'dex' to manipulate pool state during block production, then revert the state to cause inconsistencies between validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39f691cb-a97f-4c68-8399-953213bc9652?mode=deep",
+    "timestamp": "2026-01-10 07:01:19.744283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Module account] [Insufficient balance] If the ModuleAddress derived from crypto.AddressHash doesn't have sufficient balance validation, can an attacker drain the module account below required reserves, causing all subsequent swaps and liquidity operations to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f5b8ea31-39dd-4c11-8214-00c65af51c91?mode=deep",
+    "timestamp": "2026-01-10 07:01:43.840750",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: ModuleName] [Governance attack] Can a malicious governance proposal change the ModuleName constant value, causing all existing storage keys to become invalid and making all liquidity pools permanently inaccessible with no recovery mechanism? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_18ea6182-34b8-4086-ab8f-ec5d3975516c?mode=deep",
+    "timestamp": "2026-01-10 07:02:08.474366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: Version] [Forced upgrade] Can an attacker exploit the hardcoded Version = 'dex-1' to prevent legitimate IBC protocol upgrades, forcing the chain to remain on a vulnerable version while other chains upgrade, leading to cross-chain exploit opportunities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d019c640-8f71-43f3-8238-2d19ca2da1f9?mode=deep",
+    "timestamp": "2026-01-10 07:02:33.731708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Storage migration] [Data loss] During a chain upgrade that changes any of these key constants, is there proper state migration logic, or will all existing pool data become inaccessible, causing permanent loss of billions in liquidity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9535e7d1-e95a-47bf-9b22-d5cc03f14d31?mode=deep",
+    "timestamp": "2026-01-10 07:02:58.523579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant immutability] [State transition] If these constants are accidentally modified in a fork or upgrade, can validators end up with different storage key mappings, causing consensus failures where different validators see different pool states? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c88da368-2cb8-4b8a-bc74-cb23a9ed134a?mode=deep",
+    "timestamp": "2026-01-10 07:03:23.334763",
+    "report_generated": false
   }
 ]
