@@ -15898,5 +15898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_edd98a4a-a9be-4002-a435-9792bd157099?mode=deep",
     "timestamp": "2026-01-10 03:18:14.888609",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Schema evolution] When new fields are added to the empty Params struct, will UpdateParams properly handle migration from old param versions without breaking existing state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3108a20f-5a01-48a6-b6af-b1f16cbde3c3?mode=deep",
+    "timestamp": "2026-01-10 03:19:31.373292",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Error message consistency] Do error messages maintain consistency with other Cosmos SDK modules to avoid confusing operators during incident response? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96456327-eb31-45d1-8b98-7817b8a53ae5?mode=deep",
+    "timestamp": "2026-01-10 03:19:43.911687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Silent failures] Are there any error conditions in SetParams that are silently ignored instead of being returned to the caller? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1847e0e8-b6a5-45c9-8f1e-94503d65bd2e?mode=deep",
+    "timestamp": "2026-01-10 03:19:56.664264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Error wrapping depth] Does the error wrapping at line 14 create excessively deep error chains that could cause stack overflows in error handling code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82badcaf-26d4-41e9-a3c8-9b376dc94cfc?mode=deep",
+    "timestamp": "2026-01-10 03:20:10.518961",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Panic recovery] If SetParams panics due to codec errors or KVStore issues, does UpdateParams recover gracefully or could this crash the validator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a32583a5-b3db-44dd-bd13-1ed8a84d59e9?mode=deep",
+    "timestamp": "2026-01-10 03:20:24.479537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Deterministic execution] Is the UpdateParams execution guaranteed to be deterministic across all validators, or could differences in context state cause consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e0912356-ddaf-4f36-b3ae-3044e27533d9?mode=deep",
+    "timestamp": "2026-01-10 03:20:39.469581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [KVStore corruption] Could concurrent access to the ParamsKey in the KVStore during SetParams cause data corruption if multiple validators process the same block? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b7fe035-46e3-4758-b878-53f3f34cedad?mode=deep",
+    "timestamp": "2026-01-10 03:20:55.622597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Context isolation] Does the function properly use an isolated context that can be rolled back if later operations fail, or could params be permanently updated even in failed transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eff76baf-42cf-46dd-bca0-1c4f906ae7b6?mode=deep",
+    "timestamp": "2026-01-10 03:21:13.703232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [AnteHandler bypass] Can UpdateParams be called directly without going through proper ante handlers that verify signatures and check account sequences? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c60e0bdb-c5bd-45a1-b983-8631557950d1?mode=deep",
+    "timestamp": "2026-01-10 03:21:32.729404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Gas metering] Does UpdateParams properly charge gas for the SetParams KVStore write, or could attackers spam cheap param update proposals to exhaust validator resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_273c67be-d5da-40f2-9d51-f827c3c03792?mode=deep",
+    "timestamp": "2026-01-10 03:21:52.631921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Bank keeper dependency] Does the lack of coordination with the bank keeper mean that param updates could invalidate existing token denoms or balances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bd5e9815-bb26-4752-a6a7-456c3cea565f?mode=deep",
+    "timestamp": "2026-01-10 03:22:13.527614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Module wallet impact] If future params include decimal difference changes, could UpdateParams break the module wallet balance calculations without migrating existing locked tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66be2f8f-3aab-47f1-8e09-3c98a031a143?mode=deep",
+    "timestamp": "2026-01-10 03:22:34.378034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [IBC middleware impact] Does updating params while IBC packets are in-flight cause the middleware to process packets with inconsistent param configurations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_143d1831-c8d8-485e-a0b3-ead8f3c546e7?mode=deep",
+    "timestamp": "2026-01-10 03:22:56.229750",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Module state dependency] If other tokenwrapper module functions (wrap/unwrap/recover) are executing when UpdateParams changes params, could this cause mid-flight transactions to fail or behave unexpectedly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0889dc59-01da-4fb9-a356-efd8d574b653?mode=deep",
+    "timestamp": "2026-01-10 03:23:19.085562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Proposal validation bypass] Is the ValidateBasic() check in types.MsgUpdateParams sufficient, or could a malicious proposal bypass validation and reach UpdateParams with invalid data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9fa1ad20-13e8-45be-a566-f48bdbd2ad56?mode=deep",
+    "timestamp": "2026-01-10 03:23:43.696559",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance front-running] Can validators with governance voting power front-run UpdateParams proposals to execute malicious transactions before params change? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3945228-154d-4f0d-b7e2-8aa0e4d06540?mode=deep",
+    "timestamp": "2026-01-10 03:24:07.291668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Parameter lock-in] Once params are updated via governance, is there any way to revert to previous values if the update causes issues, or are operators locked into the new configuration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6401ce67-47f2-48a5-bae2-f570b4a76532?mode=deep",
+    "timestamp": "2026-01-10 03:24:30.768577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance spam] Can an attacker with governance control submit rapid UpdateParams proposals with identical values to spam event logs and waste block space without actual param changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87c78e59-3ca4-4808-86a5-af1dc7856c1b?mode=deep",
+    "timestamp": "2026-01-10 03:24:55.833651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Nil response] Can the function return a nil MsgUpdateParamsResponse pointer instead of the zero value, causing panics in client code that doesn't check for nil? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7eef11a6-25ce-4a3e-98c6-6d6041619047?mode=deep",
+    "timestamp": "2026-01-10 03:25:22.207167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Response authority mismatch] Is there any scenario where req.Authority in the response differs from the actual authority that executed the update, creating confusion in client applications? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6bce831f-d9d9-4a7f-a5a1-520489d4e1b1?mode=deep",
+    "timestamp": "2026-01-10 03:25:46.631999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Response data leakage] Does returning req.Params in the response at line 27 leak sensitive parameter information to unprivileged users who shouldn't see governance configuration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48b16f40-c2b8-4475-b822-ce8b8cd780ce?mode=deep",
+    "timestamp": "2026-01-10 03:26:10.859477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Missing event attributes] The EmitParamsUpdatedEvent only includes authority - should it also include the actual param values to allow off-chain verification of what changed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c9fc9778-8bb5-4a5a-9606-feba3f141b00?mode=deep",
+    "timestamp": "2026-01-10 03:26:35.180731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Event ordering] If UpdateParams is called multiple times in the same block, could the event emission order differ from the state update order, confusing event listeners about the actual params state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_042df160-5d51-43c1-be33-68277437b6b2?mode=deep",
+    "timestamp": "2026-01-10 03:27:00.899968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Event data injection] Can req.Authority contain malicious characters or escape sequences that corrupt the event logs when emitted at line 23, breaking event parsers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c19a6a53-020c-4534-8c2e-8e443601db27?mode=deep",
+    "timestamp": "2026-01-10 03:27:25.891175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Event emission failure] Does EmitParamsUpdatedEvent at line 23 silently fail if ctx.EventManager() is nil, hiding parameter updates from indexers and causing off-chain systems to become desynchronized? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1bff5bf9-8041-4d82-a9d9-12d2d8ef96ef?mode=deep",
+    "timestamp": "2026-01-10 03:27:51.619238",
+    "report_generated": false
   }
 ]
