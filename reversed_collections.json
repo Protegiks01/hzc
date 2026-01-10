@@ -21448,5 +21448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_543b05da-0ce1-45fb-abfe-5979b99ac119?mode=deep",
     "timestamp": "2026-01-10 09:28:12.380060",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.GetSupply()] [Stale supply reads] Does GetSupply return the most current committed supply, or could attackers exploit mempool visibility to see uncommitted mints/burns and front-run factory operations based on stale supply data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3e4d9e3e-2936-41d0-b597-12839ba0728d?mode=deep",
+    "timestamp": "2026-01-10 09:29:33.103835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.BurnCoins()] [Module authorization bypass] Can BurnCoins be called with arbitrary moduleName parameters, allowing attackers to burn tokens from modules they don't control and manipulate factory token economics? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e9793c00-fde0-4261-8744-203d6868eab5?mode=deep",
+    "timestamp": "2026-01-10 09:29:45.702519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.BurnCoins()] [Supply underflow] When BurnCoins reduces total supply, does it check for underflow conditions where burning more tokens than exist could wrap the supply to maximum uint value, breaking factory minting cap enforcement? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0aa24ac7-d141-4541-a335-0594fd536581?mode=deep",
+    "timestamp": "2026-01-10 09:29:58.483892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.BurnCoins()] [Burn without balance check] Does BurnCoins verify the module has sufficient balance before burning, or can it create negative module balances that corrupt total supply tracking when factory tokens are burned? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_755af2fc-66b7-4f9d-8751-86928d854a06?mode=deep",
+    "timestamp": "2026-01-10 09:30:12.313789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.HasSupply()] [Supply tracking bypass] If HasSupply returns false for a newly factory-created denom before first mint, could this allow attackers to re-initialize the token with different parameters or bypass one-time creation validations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_518b9b36-4cdc-4db6-99fc-b4d76644c7c5?mode=deep",
+    "timestamp": "2026-01-10 09:30:26.373238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoinsFromAccountToModule()] [Sender consent bypass] Can factory module operations call SendCoinsFromAccountToModule on behalf of users without proper authorization signatures, enabling theft of user-held factory tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b59e7559-764e-4c50-acd6-45275358b516?mode=deep",
+    "timestamp": "2026-01-10 09:30:41.629827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoinsFromAccountToModule()] [Module existence validation] Does SendCoinsFromAccountToModule verify that recipientModule exists and is authorized to receive factory tokens, or can tokens be lost by sending to non-existent module addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_102b402d-2a8a-4ad0-b792-4b869f517da5?mode=deep",
+    "timestamp": "2026-01-10 09:30:57.545130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoinsFromAccountToModule()] [Unauthorized module drain] Can SendCoinsFromAccountToModule be exploited to force user accounts to send all their factory-created tokens to attacker-controlled modules by specifying malicious recipientModule names? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_431de3f3-181b-4a07-bf1d-c54de6a7bdd3?mode=deep",
+    "timestamp": "2026-01-10 09:31:14.380130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.GetBalance()] [Missing denom handling] When GetBalance is called for a non-existent denom, does it return a zero sdk.Coin or an error, and could improper handling of this case in factory module allow operations on non-existent tokens? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_137471e5-d841-4c2e-abdc-cd9886a3cec0?mode=deep",
+    "timestamp": "2026-01-10 09:31:32.926215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.GetBalance()] [Denom case sensitivity] Does GetBalance perform case-sensitive or case-insensitive denom matching, and could this discrepancy allow attackers to create factory tokens with similar but differently-cased denoms to confuse users or bypass validations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f2d9bff-f764-459d-a455-1fc1d6c5ef59?mode=deep",
+    "timestamp": "2026-01-10 09:31:53.482730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.HasBalance()] [TOCTOU vulnerability] Between HasBalance check and subsequent SendCoins operation in factory token transfers, can a race condition allow the balance to be drained by another transaction, causing the factory operation to fail or create inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a82aad6b-5f02-4c6c-988f-c09f6894b67e?mode=deep",
+    "timestamp": "2026-01-10 09:32:14.332015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SpendableCoins()] [Stale balance reads] Does SpendableCoins return current committed balances, or can an attacker exploit uncommitted transaction states to see inflated spendable balances that enable double-spending tokens created via factory module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c844d0f-b2ab-40eb-89fc-f5236ea15368?mode=deep",
+    "timestamp": "2026-01-10 09:32:36.027613",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.MintCoins()] [Duplicate denom minting] Can an attacker exploit MintCoins by including the same denom multiple times in the amt sdk.Coins slice with different amounts, potentially bypassing per-denom minting cap validations in factory operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_297827d8-caa7-405a-a421-16f5f6f48381?mode=deep",
+    "timestamp": "2026-01-10 09:32:59.117718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.MintCoins()] [Negative amount handling] If amt sdk.Coins contains negative amounts (through integer underflow or manipulation), does MintCoins reject the operation, or could negative minting effectively burn tokens while appearing to mint them in factory accounting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28aada59-58da-4cee-bf02-2d8ca8eb750a?mode=deep",
+    "timestamp": "2026-01-10 09:33:22.246954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.MintCoins()] [Module authority validation] Can MintCoins be called with an incorrect or unauthorized module name parameter, allowing attackers to mint tokens under factory authority without proper validation of the calling module's permissions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40447281-a8be-4b19-b2d5-4b965ddda4fb?mode=deep",
+    "timestamp": "2026-01-10 09:33:46.457441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.MintCoins()] [Integer overflow in supply] When MintCoins adds newly minted tokens to total supply, does the implementation check for integer overflow conditions that could wrap the supply counter back to zero, allowing unlimited token creation in factory operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6802448e-5b53-4b60-a850-4287b06334b6?mode=deep",
+    "timestamp": "2026-01-10 09:34:11.968099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.MintCoins()] [Unlimited minting exploit] Does MintCoins implementation enforce factory module's configured minting caps, or can an attacker call this method repeatedly to mint unlimited tokens by bypassing cap checks through direct keeper access? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1e05d60-9ca6-48ac-9b58-524db377aaa3?mode=deep",
+    "timestamp": "2026-01-10 09:34:37.401560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoinsFromModuleToAccount()] [Recipient validation bypass] Can SendCoinsFromModuleToAccount be exploited by passing a zero-address (sdk.AccAddress{}) as recipientAddr, causing tokens to be burned unintentionally or sent to an inaccessible address during factory minting operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ce7a848-690b-425a-b699-4bc4a75698b0?mode=deep",
+    "timestamp": "2026-01-10 09:35:02.635866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoinsFromModuleToAccount()] [Module name validation] Does SendCoinsFromModuleToAccount validate that the senderModule string corresponds to an authorized factory module, or can an attacker specify arbitrary module names to drain funds from unrelated modules during token distribution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87c56513-f6a5-4cac-828e-09e5a1bc773b?mode=deep",
+    "timestamp": "2026-01-10 09:35:27.766331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoins()] [Context manipulation] If the context.Context passed to SendCoins contains manipulated block height or timestamp values, could this allow attackers to bypass time-locked factory operations or exploit historical state reads for token duplication? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_779fdbeb-2a43-4931-8f19-a9010e7c8bcc?mode=deep",
+    "timestamp": "2026-01-10 09:35:54.987745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoins()] [Invalid denom injection] Can an attacker craft sdk.Coins with invalid or malicious denom strings in SendCoins operations to bypass factory minting cap validations or inject unauthorized tokens into the supply? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88fda4ba-cf12-4359-b323-bc7c6d4671c0?mode=deep",
+    "timestamp": "2026-01-10 09:36:22.986767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoins()] [Zero amount exploit] Does SendCoins properly validate that amt sdk.Coins contains non-zero positive amounts, or can an attacker exploit zero-coin transfers to bypass fee checks or state transition validations in factory token operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c0c3987-2093-4e7f-95a9-f20776dbfe6c?mode=deep",
+    "timestamp": "2026-01-10 09:36:50.412462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: BankKeeper.SendCoins()] [Insufficient balance handling] When SendCoins is called during factory token distribution, does the implementation atomically verify sufficient balances before the transfer, or can a race condition allow oversending if multiple factory operations drain the same account concurrently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a135aefa-d7e7-4357-b82b-96f9f3d174fd?mode=deep",
+    "timestamp": "2026-01-10 09:37:16.728277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: AccountKeeper] [Race condition] Can multiple concurrent factory operations call AccountKeeper methods simultaneously without proper synchronization, leading to race conditions where module accounts are read/modified in inconsistent states during token minting or burning? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_082f09d2-2428-4fa2-a1e5-0e742f5d9d4e?mode=deep",
+    "timestamp": "2026-01-10 09:37:43.324365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/expected_keepers.go] [Interface: AccountKeeper.GetModuleAccount()] [Module account confusion] If GetModuleAccount returns nil for a non-existent module name, do factory module implementations properly handle this nil case before attempting module-to-account transfers, or could this cause state corruption when minting tokens to invalid destinations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1008264a-3db8-40a1-876f-ef946dc01cd3?mode=deep",
+    "timestamp": "2026-01-10 09:38:08.667320",
+    "report_generated": false
   }
 ]
