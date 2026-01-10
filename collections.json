@@ -11698,5 +11698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_77a8a37b-6505-4e72-b621-457b32543fa4?mode=deep",
     "timestamp": "2026-01-10 06:15:06.811532",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Pool Draining] Can an attacker execute a series of swaps that progressively drain pool liquidity until the pool becomes unusable? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c31cc04-b13f-4f88-ac26-e6473a08ef70?mode=deep",
+    "timestamp": "2026-01-10 06:16:28.368794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Reserve Exhaustion] Can an attacker request outgoing amounts that leave pools with dust reserves, effectively breaking pool functionality? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90a53bce-76a9-4bdd-8043-505506cc5776?mode=deep",
+    "timestamp": "2026-01-10 06:16:40.776076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Multiplication Overflow] Can an attacker provide input amounts that cause intermediate multiplication results to overflow during fee and swap calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b557e42f-52d9-49cf-8d10-0d175ec7252e?mode=deep",
+    "timestamp": "2026-01-10 06:16:53.745895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: CalculateSwapExactOutAmount()] [Complex Formula] Can an attacker exploit the complex multi-step calculation formula to introduce cumulative errors that benefit them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fda167b6-cd75-4e1d-bb75-a99640059155?mode=deep",
+    "timestamp": "2026-01-10 06:17:07.533262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go & msg_server_swap_exact_out.go] [Type Confusion] Can an attacker exploit type conversions between uint32, int64, and math.Int to cause unexpected behavior in calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9f1e3e69-47d6-4237-9e9d-7e7c89f0367d?mode=deep",
+    "timestamp": "2026-01-10 06:17:21.482592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: SwapExactIn()] [Event Poisoning] Can an attacker emit malicious swap events that cause off-chain systems to record incorrect trading volumes or prices? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c17cd65e-9ce4-4d5e-92f4-be3eeb24ee3a?mode=deep",
+    "timestamp": "2026-01-10 06:17:36.598936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Event Manipulation] Can an attacker manipulate event data to mislead indexers about actual swap execution and pool states? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cc8d253e-a06a-47e8-b381-f82d25af4900?mode=deep",
+    "timestamp": "2026-01-10 06:17:54.332163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] Can an attacker exploit the authority comparison at line 13 by crafting a malicious governance proposal that passes a different authority string format (e.g., uppercase, padded addresses) to bypass the string equality check and gain unauthorized parameter update privileges? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4c4d356a-d3e6-47b9-ab3d-175bbd1aa5bc?mode=deep",
+    "timestamp": "2026-01-10 06:18:11.900935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] Does the GetAuthority() function at line 13 return a cached value that could be stale if the authority is updated through a chain upgrade, allowing an old governance address to retain control over DEX parameters after migration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bddacb49-59d3-463c-a827-07b12a2c6f9b?mode=deep",
+    "timestamp": "2026-01-10 06:18:30.034487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] Can an attacker exploit a time-of-check-time-of-use (TOCTOU) race condition between the authority validation at line 13 and the SetParams call at line 18, where the keeper's authority field is modified by a concurrent transaction to hijack parameter updates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82f843c2-e2bc-4787-953b-fd98e317653a?mode=deep",
+    "timestamp": "2026-01-10 06:18:48.760904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] If the authority string comparison at line 13 is case-sensitive but address parsing elsewhere is case-insensitive, can an attacker submit a proposal with a differently-cased authority string to bypass validation while still being accepted by the governance module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfc6be0d-b4f7-4a61-bc1e-f13e673a67eb?mode=deep",
+    "timestamp": "2026-01-10 06:19:09.108547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] Does the error wrapping at line 14 leak sensitive information about the expected authority address that could help an attacker identify which governance module controls the DEX, enabling targeted governance attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4f30566-7bc6-40a1-97b1-ddf46314e03e?mode=deep",
+    "timestamp": "2026-01-10 06:19:30.612513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [State Consistency] Can an attacker exploit the lack of atomic validation between authority check at line 13 and parameter application at line 18 by submitting multiple concurrent UpdateParams transactions to create race conditions that corrupt the parameter state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2e798d8f-b9e1-40e4-8932-1963d546568c?mode=deep",
+    "timestamp": "2026-01-10 06:19:52.377568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] If the keeper authority is set to an empty string during initialization, does the comparison at line 13 allow any address to pass validation (since req.Authority could also be empty), enabling unauthorized parameter updates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3460e0b-9bd1-438b-b469-6dc0dc68d166?mode=deep",
+    "timestamp": "2026-01-10 06:20:14.940021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] Can an attacker craft a MsgUpdateParams transaction where req.Authority contains null bytes or special characters that pass the string equality check at line 13 but are interpreted differently by downstream address validation, bypassing access control? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_951e6209-4b8e-45e4-b795-c6a50dd125ab?mode=deep",
+    "timestamp": "2026-01-10 06:20:39.221119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] Does the UpdateParams function verify that the authority address from req.Authority at line 13 is actually a valid Bech32 address before comparison, or can an attacker supply a malformed address string that matches the stored authority due to parsing errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24afe706-240b-4124-9c3d-6c88bb7c5a4b?mode=deep",
+    "timestamp": "2026-01-10 06:21:03.397644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Access Control] Can an attacker exploit Unicode homograph attacks in the authority string comparison at line 13 by using visually identical Unicode characters that pass string equality but represent different addresses, allowing unauthorized parameter updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1dc940a4-12fb-47dd-9615-587e58a93c9a?mode=deep",
+    "timestamp": "2026-01-10 06:21:29.179708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] Does the SetParams call at line 18 properly invoke the Params.Validate() method, or can an attacker craft a governance proposal that bypasses validation by directly setting invalid parameter values (e.g., NewPoolFeePct >= PoolFeeScalingFactor) that break swap fee calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc14c26f-65ed-4731-9ddb-4457fef21852?mode=deep",
+    "timestamp": "2026-01-10 06:21:55.745583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] Can an attacker set CreationFee to MaxUint32 in a governance proposal at line 18, causing integer overflow when CreatePool multiplies it by the bond denom decimals at msg_server_create_pool.go line 80, effectively preventing all new pool creation and DoS'ing the DEX? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95584338-2453-4eeb-9165-ef0d8ca39722?mode=deep",
+    "timestamp": "2026-01-10 06:22:21.581088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] If SetParams at line 18 accepts a zero value for MinimalLiquidityLock, can an attacker exploit the lack of validation to enable share inflation attacks where malicious users create pools with minimal liquidity, manipulate LP token ratios, and drain liquidity from subsequent depositors? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d6b0d54-b919-4828-ae5e-9747563b67d2?mode=deep",
+    "timestamp": "2026-01-10 06:22:46.804575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] Can an attacker craft a governance proposal that sets Beneficiary to a malicious contract address at line 18, and if that contract's receive function panics during pool creation fee transfers at msg_server_create_pool.go line 107, does it brick the entire pool creation mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24af360f-f3e8-419d-ad22-a92af8a1e612?mode=deep",
+    "timestamp": "2026-01-10 06:23:10.883476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] Does the UpdateParams function at line 18 validate that MaxSlippage is not set to zero or MaxUint32, which would either disable all liquidity deposits (violating validateTokenRatio checks at msg_server_add_liquidity.go line 171) or allow 100%+ slippage enabling price manipulation attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_331bfb34-d1c0-4d3a-9b00-606504be27de?mode=deep",
+    "timestamp": "2026-01-10 06:23:35.655561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] Can an attacker submit a governance proposal that sets NewPoolFeePct to PoolFeeScalingFactor-1 (99,999) at line 18, causing near-100% swap fees that effectively disable trading while passing the validation check at params.go line 104? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dc111511-6d89-4037-be2f-952308700705?mode=deep",
+    "timestamp": "2026-01-10 06:23:59.965954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] If the Beneficiary address in req.Params at line 18 is set to an IBC channel address or a TokenWrapper module address, can an attacker exploit cross-module reentrancy where fee transfers trigger IBC packet sends that recursively call back into the DEX module, corrupting state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df16235b-0d9a-4b9a-8213-37f57178993f?mode=deep",
+    "timestamp": "2026-01-10 06:24:23.445481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation Bypass] Does SetParams at line 18 verify that the Beneficiary address is not a pool address (starting with 'zp' prefix), which would create a circular fee loop where creation fees are sent to a pool, immediately becoming tradeable liquidity that can be drained? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5df0a1a2-013f-445a-936f-5a89f3e26492?mode=deep",
+    "timestamp": "2026-01-10 06:24:48.192596",
+    "report_generated": false
   }
 ]
