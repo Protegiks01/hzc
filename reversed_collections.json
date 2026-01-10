@@ -17998,5 +17998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88ff4ec3-5744-43ad-8b83-1eb079b5cea3?mode=deep",
     "timestamp": "2026-01-10 05:32:15.911912",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Unicode Exploitation] Can an attacker use unicode normalization attacks in the CreateFeeDenom field to create denoms that look identical in ValidateBasic but are treated as different denoms in storage, causing fee collection failures or denom confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00d97d2d-aaf7-4124-8393-f0ec97036685?mode=deep",
+    "timestamp": "2026-01-10 05:33:44.307857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [String Injection] Can an attacker submit a MsgUpdateParams with Authority or CreateFeeDenom containing null bytes or other special characters that pass protobuf string validation but cause issues in ValidateBasic string comparison or downstream Bech32 operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87a02967-0d51-4ec4-a755-99eab7964e5d?mode=deep",
+    "timestamp": "2026-01-10 05:33:57.104768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Protobuf Injection] Can an attacker craft a malicious protobuf payload for MsgUpdateParams that includes additional fields not defined in the schema, which pass through unmarshaling but cause unexpected behavior during ValidateBasic execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7c602b9-2e97-4459-b78f-0c5702bd4511?mode=deep",
+    "timestamp": "2026-01-10 05:34:10.082351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Parameter Rollback] If a parameter update transaction fails in the keeper after passing ValidateBasic due to denom existence checks, are there any partial state modifications that aren't rolled back, causing inconsistencies between the params state and the actual module behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6592bad-3352-4bb3-80d8-410f3e37eb2a?mode=deep",
+    "timestamp": "2026-01-10 05:34:23.751641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Denom Creation Race] Can an attacker coordinate a MsgUpdateParams with CreateFeeDenom='newtoken' simultaneously with a MsgCreateDenom creating 'newtoken', exploiting the race between the keeper's GetDenom check (line 20 in keeper) and HasSupply check (line 22) to set a denom that doesn't fully exist yet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_169c06c4-d957-4df1-9e1c-e2c5ed5e12e1?mode=deep",
+    "timestamp": "2026-01-10 05:34:37.882372",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Concurrent Modification] Can an attacker submit multiple MsgUpdateParams messages in rapid succession to exploit race conditions in the params validation, where validator nodes might have different views of the current params state, causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfc98a46-d93d-44a7-b541-8c697940f8c5?mode=deep",
+    "timestamp": "2026-01-10 05:34:53.292412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [State Race Condition] If multiple MsgUpdateParams transactions are submitted in the same block with different CreateFeeDenom values, can the lack of atomic validation+execution cause some transactions to fail unexpectedly because the denom state changed between blocks, breaking parameter update atomicity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02449643-ca34-4e8a-82ec-73d0dd03782e?mode=deep",
+    "timestamp": "2026-01-10 05:35:10.155420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [TOCTOU Attack] Can an attacker exploit the time-of-check-time-of-use gap between ValidateBasic (which validates params) and the keeper's UpdateParams execution (which checks denom existence) to submit a CreateFeeDenom that doesn't exist during validation but is created before keeper execution, bypassing denom existence checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac43a5db-2346-4355-9fa6-2d3e734880cc?mode=deep",
+    "timestamp": "2026-01-10 05:35:28.505782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Beneficiary Address Prefix] Does the beneficiary validation properly check for the 'zig' prefix (line 88 in address.go), or can an attacker submit a valid Bech32 address with a different prefix (e.g., 'cosmos1...') that passes validation but causes cross-chain fee confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0aeb9ed6-091a-4972-bec5-8a0a273a8c54?mode=deep",
+    "timestamp": "2026-01-10 05:35:47.826112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Beneficiary Bypass] Can an attacker set Beneficiary to an empty string to pass validation (line 66 in params.go allows empty beneficiary), causing fees to be sent to a zero address, module account, or burned, effectively destroying economic value and breaking fee collection invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_826f1bfa-ef76-44b0-a174-2e087e1db605?mode=deep",
+    "timestamp": "2026-01-10 05:36:07.589975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Beneficiary Manipulation] Can an attacker submit a Beneficiary address that is valid Bech32 but points to a contract address or module account, causing factory fees to accumulate in an address that can be exploited through contract vulnerabilities or module account withdrawal mechanisms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6bb943c-8a70-4996-ae0c-d9be04f7301f?mode=deep",
+    "timestamp": "2026-01-10 05:36:28.737219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Fee Amount Overflow] Can an attacker set CreateFeeAmount to math.MaxUint32 (4,294,967,295) to cause integer overflow when multiplied with token decimals or amounts during fee calculation in the token creation flow, potentially bypassing fee requirements? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e84ce0d-ce5d-415a-986f-d816531bd8dd?mode=deep",
+    "timestamp": "2026-01-10 05:36:50.607580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Fee Amount Bypass] Can an attacker exploit the fact that validateCreateFeeAmount (lines 97-101 in params.go) performs no validation on uint32 values to set CreateFeeAmount to 0, effectively disabling token creation fees and allowing unlimited free token creation that could spam the chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80b31bdd-4185-4118-963e-ca6329daa641?mode=deep",
+    "timestamp": "2026-01-10 05:37:13.108607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Denom Collision] Can an attacker craft a CreateFeeDenom that is valid but collides with existing factory denoms or IBC denoms through case-insensitive comparison, homograph attacks, or unicode normalization issues, causing fee collection to fail or redirect to wrong accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20bd09c6-d364-4b40-b7bb-39b506a6745f?mode=deep",
+    "timestamp": "2026-01-10 05:37:36.655408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Length Attacks] Can an attacker submit a CreateFeeDenom with exactly 127 characters (MaxDenomLength) containing specially crafted characters that pass validation but cause buffer overflows or excessive memory consumption when stored in the KVStore? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0a247aa-f527-4b03-ae1d-6aefffda2d96?mode=deep",
+    "timestamp": "2026-01-10 05:38:00.596453",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Denom Validation] Can an attacker exploit the CreateFeeDenom validation by submitting a denom string that passes CheckDenomString regex validation (lines 85-91 in params.go) but contains characters that cause issues in bank module operations, such as forward slashes that create path traversal-like behavior in denom keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2121a270-2598-4e98-a55f-4dd532c58b18?mode=deep",
+    "timestamp": "2026-01-10 05:38:25.431242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Error Propagation] If m.Params.Validate() returns a nil error but the Params struct contains invalid internal state, can this cause the keeper to set corrupted parameters that break factory token creation for all users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a3212e5-d0ea-4e6a-8c4a-dac4127a32fc?mode=deep",
+    "timestamp": "2026-01-10 05:38:51.093095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Validation Ordering] Does ValidateBasic check authority before params, or could an attacker exploit the validation order to cause expensive param validation operations to execute even with an invalid authority, leading to DoS via computational exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_07c54c49-fb7d-4829-83e5-da0f7117e542?mode=deep",
+    "timestamp": "2026-01-10 05:39:17.176148",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Parameter Validation] Can an attacker exploit the fact that ValidateBasic calls m.Params.Validate() to submit parameters that are individually valid but create unsafe combinations (e.g., CreateFeeDenom set to a non-existent token that will exist by the time the keeper executes), causing state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3701a29d-6b08-44e2-b467-145752d0c701?mode=deep",
+    "timestamp": "2026-01-10 05:39:43.872234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [State Transition] If the Authority field is mutated between ValidateBasic execution and keeper execution (in a mempool replacement attack), can this cause the transaction to pass initial validation but execute with a different authority, bypassing governance controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3a61bd2-0033-425f-acb0-58fa038d3d75?mode=deep",
+    "timestamp": "2026-01-10 05:40:10.012043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Error Wrapping] Does the error wrapping in line 13 properly preserve the original error from sdk.AccAddressFromBech32, or could an attacker exploit error message manipulation to hide malicious address validation failures in transaction logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5c10d132-227c-4fac-9681-7cb3a0fae0bf?mode=deep",
+    "timestamp": "2026-01-10 05:40:36.191125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Authority Validation] Can an attacker craft an authority address with trailing/leading whitespace characters that passes sdk.AccAddressFromBech32 validation but fails string comparison in the keeper's GetAuthority() check, causing transaction failures after gas consumption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12050cc8-0f53-4bb2-9007-3f45585364b6?mode=deep",
+    "timestamp": "2026-01-10 05:41:02.763245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Consensus Failure] If a malicious validator includes a MsgUpdateParams transaction with an authority address that has valid Bech32 format but uses a different HRP prefix (e.g., 'cosmos' instead of 'zig'), can this cause state inconsistencies between validators who have different address prefix configurations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_859c138a-dbb7-493c-b382-7668f072745e?mode=deep",
+    "timestamp": "2026-01-10 05:41:29.139062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Address Format] Does the Bech32 address validation properly handle edge cases like addresses with maximum length (255 bytes after decoding), addresses with special characters in the HRP, or addresses with invalid checksums that might pass validation but cause issues in state storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ab7fda7f-3ca7-4a0e-9cc1-b96dff4fdd22?mode=deep",
+    "timestamp": "2026-01-10 05:41:55.054262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_update_params.go] [Function: ValidateBasic()] [Governance Attack] Can a malicious governance proposal submit a MsgUpdateParams with a valid but incorrect authority address (e.g., a user address instead of the governance module address) to manipulate parameter validation timing and exploit race conditions between ValidateBasic and keeper authorization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_707d9d7c-040f-4351-beae-1dc6ba697daa?mode=deep",
+    "timestamp": "2026-01-10 05:42:19.721565",
+    "report_generated": false
   }
 ]
