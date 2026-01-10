@@ -13948,5 +13948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21b3ec99-560e-4093-a309-fb8848a8e522?mode=deep",
     "timestamp": "2026-01-10 01:12:50.406811",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Response manipulation] Can an attacker intercept or modify the MsgEnableTokenWrapperResponse to claim the module is enabled when it actually failed, deceiving clients and monitoring systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2efb7ad3-916c-4e47-9b93-3c49bcb82188?mode=deep",
+    "timestamp": "2026-01-10 01:14:05.214683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Replay attack] Can Byzantine validators replay old EnableTokenWrapper() transactions from previous blocks to re-enable the module after the operator intentionally disabled it for maintenance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20392b70-1d8f-4db9-a879-7acf7aba52d1?mode=deep",
+    "timestamp": "2026-01-10 01:14:17.596114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [State divergence] Can Byzantine validators create state divergence by applying EnableTokenWrapper() on some validators but not others, causing chain splits where some nodes see enabled and others see disabled? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e6882ad0-2ac9-4edf-8698-0ba18becc956?mode=deep",
+    "timestamp": "2026-01-10 01:14:30.183648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Byzantine attack] Can up to 1/3 Byzantine validators manipulate the consensus process to enable the module without proper operator authorization by forging or omitting authorization checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_282a31c4-a12b-4a5c-b27c-ab6429247c11?mode=deep",
+    "timestamp": "2026-01-10 01:14:43.300646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Pauser interaction] Can a pauser disable the module immediately after the operator enables it in the same block, creating oscillating enabled/disabled states that disrupt service? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85b9f721-8910-4e00-99fb-9ae92d13ff45?mode=deep",
+    "timestamp": "2026-01-10 01:14:57.379782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Multi-sig] Does the function support multi-signature operator addresses, and if so, can signature validation be bypassed to enable the module without full authorization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4be2615f-e31f-49a6-936f-4c034f8a0ac6?mode=deep",
+    "timestamp": "2026-01-10 01:15:12.016658",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Operator transition] During the operator address transition period (between ProposeOperatorAddress and ClaimOperatorAddress), who can call EnableTokenWrapper(), and can this create a governance deadlock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3fe4b305-49ad-40de-b3b5-1a2b399d7fc5?mode=deep",
+    "timestamp": "2026-01-10 01:15:27.237116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Store corruption] If the KVStore is corrupted and SetEnabled() writes to invalid storage locations, can this cause permanent blockchain state corruption affecting other modules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_01470cc4-31e4-40b8-87ce-3e63d58ae068?mode=deep",
+    "timestamp": "2026-01-10 01:15:44.863647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Empty signer] Does the function properly validate that msg.Signer is not an empty string before comparison, or can empty strings bypass authorization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33074429-14a7-492f-b7f5-b81062279291?mode=deep",
+    "timestamp": "2026-01-10 01:16:03.494848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Nil pointer] If msg is nil, does the function return a proper error or panic, potentially causing validator crashes when processing malformed transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10fee637-81d8-417b-845c-61c4ee773e09?mode=deep",
+    "timestamp": "2026-01-10 01:16:22.777392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Error handling] If GetOperatorAddress() panics due to corrupted state, does the function have panic recovery to prevent the entire chain from halting when EnableTokenWrapper() is called? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cb53290-bf11-41b8-8ca8-0c0535f4f1e8?mode=deep",
+    "timestamp": "2026-01-10 01:16:43.054176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Gas manipulation] Can an attacker craft EnableTokenWrapper() transactions with insufficient gas that fail after SetEnabled() but before event emission, leaving the module in an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91eee91a-aa4d-45b4-961d-0f5d5dd7e1f3?mode=deep",
+    "timestamp": "2026-01-10 01:17:04.168716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Transaction ordering] In a block containing both EnableTokenWrapper() and token transfer transactions, does transaction ordering guarantee that transfers only execute if enable succeeds, or can they execute with stale disabled state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a41f461-a0b4-4051-afd6-181e8c481404?mode=deep",
+    "timestamp": "2026-01-10 01:17:26.218593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Context manipulation] Can an attacker manipulate the goCtx parameter to pass a context that bypasses store writes, making SetEnabled() appear successful without actually enabling the module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e6033d2-c6f4-44dc-bc70-96f6879a12fc?mode=deep",
+    "timestamp": "2026-01-10 01:17:49.409256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Recovery mechanism] Can enabling the wrapper during an ongoing RecoverZig() operation cause state inconsistencies where recovery completes under disabled state rules but new transfers use enabled state rules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7bfb36e2-0b2b-4eb4-9e71-2d3bc4962125?mode=deep",
+    "timestamp": "2026-01-10 01:18:13.973716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [IBC middleware] Does enabling the token wrapper immediately activate IBC middleware hooks, and can in-flight IBC packets be processed with stale disabled state during the transition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f30f694-434f-42f8-be95-fa8c304c66ee?mode=deep",
+    "timestamp": "2026-01-10 01:18:38.946378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Module interaction] Can an attacker exploit the timing between enabling the module and updating decimal_difference parameters to cause incorrect token conversions that lead to token duplication or loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4a78f90-29f8-4276-b5cc-c8875968b60b?mode=deep",
+    "timestamp": "2026-01-10 01:19:03.775254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Module interaction] If the module wallet has zero native ZIG token balance, can enabling the wrapper cause all incoming IBC transfers to fail permanently, creating a denial-of-service condition for cross-chain transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_65d4ce96-c33f-4383-8faf-c91ef63d1fa0?mode=deep",
+    "timestamp": "2026-01-10 01:19:29.639520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Module interaction] Can an attacker enable the token wrapper while IBC settings are misconfigured (invalid channels/ports) to cause immediate failures in token wrapping operations, trapping user funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae89a513-5b3d-40ae-a8e5-d5ea98213361?mode=deep",
+    "timestamp": "2026-01-10 01:19:57.005297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Event ordering] If multiple EnableTokenWrapper() calls occur in the same block, does the event ordering guarantee reflect the actual state changes, or can it mislead monitoring systems about the final enabled state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a91d1a0-23ba-4276-9a2b-0decef5127e1?mode=deep",
+    "timestamp": "2026-01-10 01:20:25.110186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Event flooding] Can an attacker call EnableTokenWrapper() repeatedly in a single block to flood the event log with tokenwrapper_enabled events, causing off-chain indexers to crash or consume excessive resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8bd22358-342f-4458-8faf-f0ca7cc3671b?mode=deep",
+    "timestamp": "2026-01-10 01:20:52.178598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Event manipulation] Can an attacker exploit the event emission mechanism to emit fraudulent tokenwrapper_enabled events without actually enabling the module, deceiving off-chain monitoring systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e38a80a0-d88d-4c80-a747-6bba1a5f53d2?mode=deep",
+    "timestamp": "2026-01-10 01:21:18.680341",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [State recovery] If EnableTokenWrapper() is called during blockchain state rollback or consensus failure, can it create permanent state inconsistencies where different validators have different enabled states? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d694edab-e77e-4600-8e86-1b553ee8a71e?mode=deep",
+    "timestamp": "2026-01-10 01:21:43.947029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Atomicity] Are the SetEnabled() and event emission operations atomic, or can a validator crash between these operations, leaving the module enabled but without the corresponding event being emitted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5cad7ace-c426-451a-a4bc-ae316bb54448?mode=deep",
+    "timestamp": "2026-01-10 01:22:10.314414",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [State transition] If SetEnabled() fails silently without returning an error, can the module remain in a disabled state while the response indicates Enabled: true, causing discrepancies between actual and reported state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d897299-cf26-4329-80e2-0d644964511e?mode=deep",
+    "timestamp": "2026-01-10 01:22:34.735840",
+    "report_generated": false
   }
 ]
