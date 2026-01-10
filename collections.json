@@ -11998,5 +11998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e28c875-7a40-4a4c-a5c4-358bc5b799bb?mode=deep",
     "timestamp": "2026-01-10 06:34:11.559378",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] If Beneficiary is set to the DEX module address itself at line 18, do creation fees sent to the module account become permanently locked (unable to be burned or withdrawn), creating a black hole that accumulates protocol revenue indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4865b5b9-b32c-494c-a033-5d1e05150936?mode=deep",
+    "timestamp": "2026-01-10 06:35:42.130914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] Can an attacker exploit the lack of granular parameter controls by setting NewPoolFeePct to 10,000 (10%) at line 18, making all swaps prohibitively expensive and forcing users to migrate to competing DEXs, destroying ZigChain's DEX adoption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28ca51da-351f-4bce-91c5-2fd6af6a78dd?mode=deep",
+    "timestamp": "2026-01-10 06:35:54.649109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] If MinimalLiquidityLock is set to exactly 1,000 via governance at line 18, can attackers exploit off-by-one errors in the comparison at msg_server_create_pool.go line 338 by creating pools with lpAmount=1,000, bypassing the lock requirement and enabling share inflation attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1deb0edf-92f4-4d99-bc51-c0be058fa1ec?mode=deep",
+    "timestamp": "2026-01-10 06:36:07.628367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Economic Attack] Can a malicious governance proposal set MaxSlippage to 1 (0.01%) at line 18, causing all AddLiquidity transactions to fail validation even for perfectly balanced deposits due to rounding errors in decimal conversion, permanently disabling liquidity provision? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ba7a2ad-9f79-4fba-a451-691197e0472d?mode=deep",
+    "timestamp": "2026-01-10 06:36:21.072135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Error Handling] If SetParams at line 18 returns an error due to marshaling failure, does the function properly propagate this error at line 19, or can a nil dereference occur when constructing the error response, causing validator panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1136ae4-3d95-42f0-aec3-5670e35f6b40?mode=deep",
+    "timestamp": "2026-01-10 06:36:35.975147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Error Handling] Does the UpdateParams function at line 12-22 handle the case where sdk.UnwrapSDKContext panics at line 17 if goCtx is not a valid SDK context, or will this crash the validator when processing governance proposals from malicious IBC relayers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d426c91c-fc04-4ebd-8a7c-b36702306f18?mode=deep",
+    "timestamp": "2026-01-10 06:36:51.034726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Error Handling] Can an attacker craft a governance proposal where req.Params at line 18 contains nil pointer fields that bypass validation but cause panics when accessed by GetParams in subsequent pool operations, DoS'ing the DEX? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ae769859-98f7-427b-86c6-c37d86651c56?mode=deep",
+    "timestamp": "2026-01-10 06:37:07.557003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Error Handling] If the authority comparison at line 13 returns false and the error wrapping at line 14 fails due to formatting issues, does the function return a nil error allowing unauthorized parameter updates, or does it properly propagate the wrapped error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c53bd8ec-adce-4e6b-932f-84dc401fa531?mode=deep",
+    "timestamp": "2026-01-10 06:37:24.231311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Nil Pointer] Does the UpdateParams function validate that req at line 13 is not nil before accessing req.Authority, or can a malformed governance transaction with nil MsgUpdateParams cause a nil pointer dereference panic that crashes validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73babaa2-fdf4-4942-a536-d1594dbd8056?mode=deep",
+    "timestamp": "2026-01-10 06:37:43.275897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Error Handling] Can an attacker exploit missing error checks by submitting a governance proposal where SetParams at line 18 silently fails (returns non-nil error) but the response at line 22 is still returned, making governance think the update succeeded when it didn't? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ead84916-ad71-4567-be35-616168fdd459?mode=deep",
+    "timestamp": "2026-01-10 06:38:02.271477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Edge Case] If the UpdateParams function is called with a goCtx that has already been canceled or expired at line 17, does sdk.UnwrapSDKContext handle this gracefully, or can it cause state corruption where parameters are partially written before context timeout? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_97a9fd98-7760-4683-b681-bf39d19c145a?mode=deep",
+    "timestamp": "2026-01-10 06:38:23.499917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Error Handling] Does the function at line 12-22 implement any circuit breaker or rate limiting to prevent rapid parameter changes from destabilizing the DEX, or can an attacker submit governance proposals to toggle parameters every block, causing chaos? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2735203f-8ba9-47aa-9604-7fb7ed7a3b3c?mode=deep",
+    "timestamp": "2026-01-10 06:38:44.717314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] If Beneficiary is set to a Factory module denom admin address at line 18, can creation fees inadvertently grant that admin excessive power where they accumulate ZIG, mint factory tokens with it, and dump them to drain DEX liquidity pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e413a731-c7f6-4d95-a4dc-266762874be6?mode=deep",
+    "timestamp": "2026-01-10 06:39:07.789356",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] Can an attacker set Beneficiary to a TokenWrapper module address at line 18, causing creation fees to be sent to the wrapper module wallet, inflating the available ZIG for unwrap operations and enabling token duplication across IBC channels? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f313c939-ad8f-41d3-8c03-aec00040f818?mode=deep",
+    "timestamp": "2026-01-10 06:39:31.021103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] If the BankKeeper used by CreatePool at msg_server_create_pool.go line 107 has hooks enabled, can setting Beneficiary to a CosmWasm contract at line 18 trigger recursive contract calls that manipulate pool state before the CreatePool transaction completes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b67b0bb7-f6dc-48f0-a8b1-9f51cd6e039c?mode=deep",
+    "timestamp": "2026-01-10 06:39:54.787832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] Does the UpdateParams function at line 18 notify other modules (Factory, TokenWrapper) about parameter changes, or can stale parameter caches in those modules cause inconsistent behavior where DEX operations use new fees but other modules assume old values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3867836b-8be6-4602-8359-271eb0d60890?mode=deep",
+    "timestamp": "2026-01-10 06:40:20.212904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] Can an attacker set Beneficiary to an IBC transfer module account at line 18, causing creation fees to automatically trigger cross-chain transfers that could be exploited for token duplication if IBC acknowledgment handling is asynchronous? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3bf8897-0d09-441c-88fd-59734130b3ae?mode=deep",
+    "timestamp": "2026-01-10 06:40:45.374817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] If NewPoolFeePct is set to match the Factory minting fee percentage via governance at line 18, can this create economic exploits where attackers arbitrage between pool creation and token minting to extract value from fee discrepancies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e039b188-c609-4721-8217-fdd68c70e34e?mode=deep",
+    "timestamp": "2026-01-10 06:41:10.805101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] Can setting CreationFee to exactly match the TokenWrapper decimal conversion threshold at line 18 cause precision errors where fees are lost during 18→6 decimal scaling, allowing attackers to create pools for free by exploiting rounding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85dd707f-0001-4ed9-a6ae-816695e81a08?mode=deep",
+    "timestamp": "2026-01-10 06:41:35.907374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] If Beneficiary is set to the Governance module account at line 18, does this create a circular dependency where creation fees fund governance operations, enabling attackers to self-fund malicious proposals by creating pools? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_88305b88-d5fd-45e9-b9b4-cddc433e5dcd?mode=deep",
+    "timestamp": "2026-01-10 06:41:59.790186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] Can an attacker exploit parameter updates at line 18 to manipulate the interaction between DEX pools and Factory denoms, where setting MinimalLiquidityLock to match Factory minting caps creates liquidity lock exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2198379c-1afd-4b33-8c72-4a19a5e702ba?mode=deep",
+    "timestamp": "2026-01-10 06:42:23.552887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Cross-Module] Does the SetParams call at line 18 properly handle scenarios where the updated parameters conflict with active IBC token transfers, causing wrapped tokens to have incorrect fees applied during cross-chain swaps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76635643-4353-48fb-9cfe-333031680f83?mode=deep",
+    "timestamp": "2026-01-10 06:42:47.292883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Storage Corruption] If the codec.Marshal operation in SetParams at k_get_set_params.go line 26 produces a byte slice larger than the KVStore's maximum value size, does the store.Set at line 30 silently truncate the data, corrupting parameter storage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_242f2fae-b164-4059-b4dd-b75ca709c33d?mode=deep",
+    "timestamp": "2026-01-10 06:43:12.563137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Gas Exhaustion] Can an attacker craft a governance proposal with extremely long Beneficiary strings (approaching the 256 character limit) that cause the SetParams marshaling at line 18 to consume excessive gas, preventing the parameter update from completing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_275b246f-9860-4e91-a2bb-10003f8d48d3?mode=deep",
+    "timestamp": "2026-01-10 06:43:38.034550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Storage Corruption] Does the UpdateParams function at line 18 use deterministic serialization for the Params struct, or can non-deterministic field ordering cause validators to produce different marshaled bytes, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96037077-8dd2-4ac9-ad69-c8e7090d00ad?mode=deep",
+    "timestamp": "2026-01-10 06:44:01.872464",
+    "report_generated": false
   }
 ]
