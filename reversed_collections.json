@@ -13648,5 +13648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25d92c7f-a115-4459-9d64-8a977c5ff32a?mode=deep",
     "timestamp": "2026-01-10 00:53:45.048223",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [State inconsistency] If the function is called multiple times in rapid succession, can the KVStore writes for SetNativeClientId, SetCounterpartyClientId, etc., interleave incorrectly causing reads to see mixed old/new values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e4cbbe7-4d8a-41b3-96d9-1a692d1d99f9?mode=deep",
+    "timestamp": "2026-01-10 00:54:54.158833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [State inconsistency] Can multiple UpdateIbcSettings calls in the same block create race conditions where reads of GetNativeChannel() in concurrent wrap operations return different values, causing packet validation to fail unpredictably? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8fbd5069-7b8c-4fd6-955e-400cc4b33ef5?mode=deep",
+    "timestamp": "2026-01-10 00:55:07.000932",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [State inconsistency] Does the function validate that all new IBC settings are internally consistent (e.g., native and counterparty channels form a valid connection), or can an attacker set mismatched channels that break the bidirectional bridge? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b40ff95f-f38e-44a7-853a-7f1590486971?mode=deep",
+    "timestamp": "2026-01-10 00:55:20.040328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [State inconsistency] Can an attacker exploit the lack of in-flight packet checks to update IBC settings while wrap/unwrap operations are pending, causing the validateConnectionClientId and checkCounterypartyChannelMatchesIBCSettings functions to fail for packets that were created with old settings? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1560a824-9254-4b1c-aa27-468a8ef7eb21?mode=deep",
+    "timestamp": "2026-01-10 00:55:33.241007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [State inconsistency] If SetDecimalDifference() at line 31 returns an error (e.g., value > 18), does the function properly rollback the previous Set* operations at lines 23-29, or are some IBC settings permanently updated while others remain unchanged? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a00d8bfd-a94b-4a3b-a2fa-acbc9332ba3a?mode=deep",
+    "timestamp": "2026-01-10 00:55:47.225107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [State inconsistency] Can an attacker exploit the non-atomic nature of multiple Set* calls (lines 23-33) to cause a partial state update if the transaction reverts after some settings are changed, leaving the bridge in an inconsistent state where channels don't match ports? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_92dc5cbd-9424-47e1-91ce-18aea3f8754f?mode=deep",
+    "timestamp": "2026-01-10 00:56:02.053648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [IBC manipulation] If client IDs are updated to point to a client with a different trust level or validation period, can this allow Byzantine validators (up to 1/3) to manipulate IBC packet validation and create false packet acknowledgments? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac912be1-60c9-4b2c-8ef0-28ab737f6a2a?mode=deep",
+    "timestamp": "2026-01-10 00:56:17.806396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [IBC manipulation] Can the operator exploit the lack of channel validation to set NativeChannel to a channel that has already been closed or is in INIT/TRYOPEN state, causing wrap/unwrap operations to permanently fail without reverting the IBC settings change? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71ee1ff1-c789-4bbc-9a84-f43a95ada79c?mode=deep",
+    "timestamp": "2026-01-10 00:56:35.155382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [IBC manipulation] Does the function validate that the new channel IDs (NativeChannel, CounterpartyChannel) actually exist and are in OPEN state before updating, or can an attacker set them to non-existent channels causing all subsequent IBC operations to fail and tokens to be stuck? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5988376c-412f-4e62-b36c-3b656abec96c?mode=deep",
+    "timestamp": "2026-01-10 00:56:50.692251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [IBC manipulation] Can an attacker exploit the SetNativePort() and SetCounterpartyPort() updates at lines 25-26 to change the port from 'transfer' to a malicious custom module port, causing subsequent IBC packets to be processed by attacker-controlled middleware? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25328927-97db-4658-b2b7-12a61ad9449e?mode=deep",
+    "timestamp": "2026-01-10 00:57:10.727489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [IBC manipulation] If the operator changes NativeClientId and CounterpartyClientId at lines 23-24 to point to a compromised light client, can this allow the attacker to forge IBC packet acknowledgments and drain the module wallet by creating fake successful wrap operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9922fd0b-4be2-4dbd-924b-e3b0fc0c6526?mode=deep",
+    "timestamp": "2026-01-10 00:57:30.078433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [IBC manipulation] Can a malicious operator exploit the SetNativeChannel() and SetCounterpartyChannel() calls at lines 27-28 to redirect IBC packets to an attacker-controlled channel on a malicious chain, causing users' cross-chain transfers to be stolen by the attacker? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3c24372-e9bf-4c14-9950-2b85cdfec902?mode=deep",
+    "timestamp": "2026-01-10 00:57:50.831156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Decimal conversion] If DecimalDifference is changed from 12 to 18 while the module holds IBC tokens, can this cause the existing IBC token balance calculation to become incompatible with the native token balance, creating an inconsistent state where total_transferred_in != total_transferred_out? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4ede11fc-d296-4741-b6c7-756602100f50?mode=deep",
+    "timestamp": "2026-01-10 00:58:12.626623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Decimal conversion] Can an operator exploit the DecimalDifference update to deliberately set it to 18 (maximum allowed), causing GetDecimalConversionFactor() to return 10^18, which could lead to integer overflow when multiplied with token amounts in ScaleUpTokenPrecision? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_384218e9-150c-4938-8822-0e31d4c749ef?mode=deep",
+    "timestamp": "2026-01-10 00:58:35.365359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Decimal conversion] Does the SetDecimalDifference() call validate that changing from one decimal difference to another is safe given existing module balances, or can this create situations where ScaleDownTokenPrecision returns amounts that exceed or fall short of actual holdings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_280ab85b-469c-45c5-a6ce-3c78682c7144?mode=deep",
+    "timestamp": "2026-01-10 00:58:58.357619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Decimal conversion] Can an attacker time the DecimalDifference update at line 31-33 to occur between a user's wrap transaction and the IBC acknowledgment, causing the 10^12 conversion factor mismatch that allows minting more native tokens than IBC vouchers burned? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b63f072a-c5fc-4333-b509-5532330d203b?mode=deep",
+    "timestamp": "2026-01-10 00:59:22.915145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Decimal conversion] If the operator updates DecimalDifference from 12 to 0 while IBC packets are in transit, can this cause the ScaleUpTokenPrecision and ScaleDownTokenPrecision functions to fail or produce incorrect amounts, leading to tokens being stuck or duplicated? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ee454e0-c79b-4e71-8db3-0e10de765a36?mode=deep",
+    "timestamp": "2026-01-10 00:59:47.032556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Decimal conversion] Can an attacker exploit the SetDecimalDifference() call at line 31 to change the conversion factor from 12 to a different value (e.g., 6) mid-operation, causing in-flight wrap transactions using the old factor to create token duplication when unwrapped with the new factor? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20a5d72f-f8fb-4554-929c-1aaea955cdcd?mode=deep",
+    "timestamp": "2026-01-10 01:00:12.358823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Access control] Can an attacker exploit race conditions in operator address updates to call UpdateIbcSettings() simultaneously with an operator change, potentially bypassing the access control check due to stale operator address reads? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8cdb89e3-5db8-43b7-af83-05ee05da0472?mode=deep",
+    "timestamp": "2026-01-10 01:00:37.796915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Access control] Does the operator address check at line 18-20 validate that the currentOperator is a valid Bech32 address before comparison, or can an attacker exploit malformed operator addresses stored in state to bypass the access control check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_de4873a7-7935-496d-920b-b735d3ab895b?mode=deep",
+    "timestamp": "2026-01-10 01:01:04.417574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Access control] Can a malicious operator who has legitimate access exploit the lack of multi-sig or timelock requirements to instantly change IBC settings mid-transaction, front-running users to redirect their cross-chain transfers to attacker-controlled channels? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09c45369-f75f-4b86-a81e-72e07793fcb5?mode=deep",
+    "timestamp": "2026-01-10 01:01:29.772534",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Access control] If GetOperatorAddress() returns an empty string when no operator is set, can an attacker exploit this by passing an empty Signer field to match the comparison and gain unauthorized access to update IBC settings before proper initialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_acbafa3f-2355-4a8a-8d6d-dec80a0f3835?mode=deep",
+    "timestamp": "2026-01-10 01:01:55.130258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_update_ibc_settings.go] [Function: UpdateIbcSettings()] [Access control] Can an attacker exploit the simple string comparison operator check (msg.Signer != currentOperator) to bypass access control by manipulating string encoding, case sensitivity, or Unicode normalization, allowing unauthorized IBC settings updates that could redirect cross-chain transfers to attacker-controlled chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fceb1214-398e-426a-8b31-59f1a92a3632?mode=deep",
+    "timestamp": "2026-01-10 01:02:19.401170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Goroutine safety] Are the keeper methods GetOperatorAddress() and SetEnabled() goroutine-safe, or can concurrent calls from different transactions corrupt state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03a9aa7a-73fd-4189-bd1e-e25c69f2202f?mode=deep",
+    "timestamp": "2026-01-10 01:02:44.661070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_enable_token_wrapper.go] [Function: EnableTokenWrapper()] [Concurrent execution] If Cosmos SDK enables parallel transaction execution in the future, can concurrent EnableTokenWrapper() calls create race conditions in SetEnabled() writes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0786abdb-590f-4425-8ccc-bede48eff04c?mode=deep",
+    "timestamp": "2026-01-10 01:03:05.434187",
+    "report_generated": false
   }
 ]
