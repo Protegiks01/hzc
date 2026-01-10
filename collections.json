@@ -19798,5 +19798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b510c527-9a57-49a3-9e5d-d41791510107?mode=deep",
     "timestamp": "2026-01-10 18:58:55.680120",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [BankKeeper supply tracking] The bankKeeper at line 25 tracks total supply through GetSupply and HasSupply - can discrepancies between bankKeeper supply and factory Denom.Minted field be exploited to mint beyond caps? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d04b0dc6-caf1-4989-98e0-b784ccb56516?mode=deep",
+    "timestamp": "2026-01-10 19:00:09.136749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: NewKeeper()] [Store service capabilities] The storeService parameter at line 33 should have specific capabilities - can a store service with insufficient capabilities (e.g., read-only) be passed during initialization, causing factory operations to fail silently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb09e389-b915-499a-a881-651f7eabf590?mode=deep",
+    "timestamp": "2026-01-10 19:00:21.712236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Function: GetAuthority()] [Getter side effects] GetAuthority() is a simple getter at line 57 - can this function have hidden side effects through getter methods if the authority string implements an interface, causing unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00de9b83-e169-479e-a8d2-e4625c5650b2?mode=deep",
+    "timestamp": "2026-01-10 19:00:34.747218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/keeper.go] [Struct: Keeper] [AccountKeeper simulation] The accountKeeper at line 24 is noted as used for simulation in comments - can simulation mode bypass critical validation checks, allowing exploits to be tested and refined before mainnet deployment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9780cf3-6cfd-4c92-9882-f1ce96d606c0?mode=deep",
+    "timestamp": "2026-01-10 19:00:47.891802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: msgServer struct] [State isolation] Does the msgServer struct's embedding of the Keeper without additional state separation allow race conditions when multiple concurrent message handlers access shared Keeper state, potentially leading to state corruption in high-throughput scenarios? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f86ae44c-3fb3-40b2-a94b-a3a89a7c1457?mode=deep",
+    "timestamp": "2026-01-10 19:01:01.957786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: msgServer struct] [Access control] Since msgServer directly embeds Keeper without access control wrappers, can malicious message handlers bypass intended authorization checks by directly accessing Keeper methods that should be restricted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c179e3e3-7352-4720-9225-3b5d4c10009b?mode=deep",
+    "timestamp": "2026-01-10 19:01:17.306927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Nil validation] Does the NewMsgServerImpl constructor perform nil checks on the provided Keeper parameter, or can passing a nil Keeper cause panic in downstream message handlers leading to consensus failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0cc7d35b-b8dd-450b-b33b-3c31ebd1828c?mode=deep",
+    "timestamp": "2026-01-10 19:01:33.396277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Type safety] Can an attacker exploit Go's structural typing to pass a malicious struct that satisfies the Keeper interface but implements compromised methods, bypassing security checks in the factory module? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7057cbd6-7418-4566-a93b-6f1fe25945af?mode=deep",
+    "timestamp": "2026-01-10 19:01:51.369917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Line 8] [Embedding pattern] Does the direct embedding of Keeper expose internal methods that should be private, allowing message handlers to call keeper functions without proper context validation or access control? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83abb957-2b63-4593-9cad-c2a9da750e1b?mode=deep",
+    "timestamp": "2026-01-10 19:02:09.779009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Line 17] [Interface assertion] Is the interface assertion 'var _ types.MsgServer = msgServer{}' performed at runtime or compile-time, and can runtime failures cause panics that crash validator nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_542db765-597b-4519-a2a0-2e4c0f8f9940?mode=deep",
+    "timestamp": "2026-01-10 19:02:29.133857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: msgServer] [Concurrency] Since msgServer embeds Keeper without explicit synchronization primitives, can concurrent message execution lead to data races when accessing shared state like denom registries or admin mappings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51c5748c-f837-4771-99e6-bb49b66339cf?mode=deep",
+    "timestamp": "2026-01-10 19:02:50.336699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Architecture] [State management] Does the wrapper pattern allow message handlers to bypass transaction boundaries defined in Keeper, potentially causing partial state updates that violate atomicity guarantees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6409856c-7047-4feb-8f94-6a2181248ac6?mode=deep",
+    "timestamp": "2026-01-10 19:03:11.853013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: msgServer struct] [State isolation] Does the msgServer struct's embedding of the Keeper without additional state separation allow race conditions when multiple concurrent message handlers access shared Keeper state, potentially leading to state corruption in high-throughput scenarios? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02fa4686-d0eb-4eaa-b36a-33a195ac5355?mode=deep",
+    "timestamp": "2026-01-10 19:03:34.179681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: msgServer struct] [Access control] Since msgServer directly embeds Keeper without access control wrappers, can malicious message handlers bypass intended authorization checks by directly accessing Keeper methods that should be restricted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb2df632-d2da-413d-9272-44afae2ed7d4?mode=deep",
+    "timestamp": "2026-01-10 19:03:56.613899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Nil validation] Does the NewMsgServerImpl constructor perform nil checks on the provided Keeper parameter, or can passing a nil Keeper cause panic in downstream message handlers leading to consensus failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5ad886df-4748-44b1-90e8-eb73dad2975c?mode=deep",
+    "timestamp": "2026-01-10 19:04:18.302046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: NewMsgServerImpl()] [Type safety] Can an attacker exploit Go's structural typing to pass a malicious struct that satisfies the Keeper interface but implements compromised methods, bypassing security checks in the factory module? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_973f5eee-8dcb-45a9-83a2-63ec1b7c77fb?mode=deep",
+    "timestamp": "2026-01-10 19:04:41.729432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Line 8] [Embedding pattern] Does the direct embedding of Keeper expose internal methods that should be private, allowing message handlers to call keeper functions without proper context validation or access control? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2907643d-1966-4d7b-bd1d-a7e8b722eed0?mode=deep",
+    "timestamp": "2026-01-10 19:05:06.704320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Line 17] [Interface assertion] Is the interface assertion 'var _ types.MsgServer = msgServer{}' performed at runtime or compile-time, and can runtime failures cause panics that crash validator nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a488c85-cf35-4cd6-a498-b97828ea4806?mode=deep",
+    "timestamp": "2026-01-10 19:05:31.943890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Function: msgServer] [Concurrency] Since msgServer embeds Keeper without explicit synchronization primitives, can concurrent message execution lead to data races when accessing shared state like denom registries or admin mappings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca0858bf-42af-437b-a057-a8103a7f4e43?mode=deep",
+    "timestamp": "2026-01-10 19:05:57.828051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server.go] [Architecture] [State management] Does the wrapper pattern allow message handlers to bypass transaction boundaries defined in Keeper, potentially causing partial state updates that violate atomicity guarantees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05f3adfc-30e7-4f78-8e0c-db930b06503c?mode=deep",
+    "timestamp": "2026-01-10 19:06:24.372685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Integer Overflow] In the calculateDenomStats function at line 19, when calculating totalBurned using denom.Minted.Sub(cosmosmath.Uint(totalSupply.Amount)), can an attacker exploit integer overflow if totalSupply.Amount exceeds the maximum uint value during type conversion, causing the subtraction to produce an incorrect totalBurned value that could lead to incorrect maxSupply calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20def8f9-63bc-4bc9-98dd-6082fcec68a4?mode=deep",
+    "timestamp": "2026-01-10 19:06:51.227782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [State Inconsistency] In calculateDenomStats at line 24, the comparison denom.Minted.GT(cosmosmath.Uint(totalSupply.Amount)) assumes that minted tokens minus current supply equals burned tokens. Can an attacker exploit scenarios where tokens are transferred to inaccessible addresses or locked in smart contracts to manipulate this calculation, resulting in incorrect totalBurned values that misrepresent the actual token state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1295080a-8cb0-4c3f-a912-8eebd9f58e6f?mode=deep",
+    "timestamp": "2026-01-10 19:07:15.893343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Race Condition] In calculateDenomStats at line 21, the function calls k.bankKeeper.GetSupply(ctx, denom.Denom) to fetch the current supply. Can a malicious validator exploit the time gap between reading denom.Minted from storage and querying bankKeeper to create a race condition where concurrent minting operations cause the totalBurned calculation to be incorrect, leading to temporary state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_069a35c2-3beb-41c6-bca6-b91928c2174e?mode=deep",
+    "timestamp": "2026-01-10 19:07:40.070352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Logic Error] In calculateDenomStats at line 31, when calculating maxSupply using denom.MintingCap.Sub(totalBurned), if totalBurned exceeds MintingCap due to a calculation error or state inconsistency, the function returns cosmosmath.ZeroUint(). Can an attacker exploit this behavior to hide information about over-minted tokens, preventing detection of minting cap violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ebace45-d2c2-4d5c-a0a2-0cd5aeb9f9bf?mode=deep",
+    "timestamp": "2026-01-10 19:08:05.108958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Function: calculateDenomStats()] [Type Conversion] At line 24, the code converts sdk.Coin.Amount to cosmosmath.Uint using cosmosmath.Uint(totalSupply.Amount). Can an attacker exploit precision loss or unexpected behavior during this type conversion if totalSupply.Amount contains negative values (despite validation), causing incorrect burned token calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_936cd35a-db13-4632-a0b1-875265934f1c?mode=deep",
+    "timestamp": "2026-01-10 19:08:30.869207",
+    "report_generated": false
   }
 ]
