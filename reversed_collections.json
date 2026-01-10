@@ -20548,5 +20548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a6c5940-feda-4514-90ef-53c59fe7a0b9?mode=deep",
     "timestamp": "2026-01-10 08:28:39.309173",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Checksum Validation] Does the validators.AddressCheck() at line 33 verify the bech32 checksum of the recipient address, or can an attacker provide an address with an invalid checksum that passes basic format validation but fails during actual coin transfer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_23debba9-c23c-4679-b986-40e2b5a90cd6?mode=deep",
+    "timestamp": "2026-01-10 08:30:04.034132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Empty Recipient] Can an attacker bypass the empty recipient check at line 33 by providing a recipient string with only unicode zero-width characters, causing the address validation to pass but the keeper's SendCoinsFromModuleToAccount to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04414c6c-2838-45ee-b825-120ac0008cc0?mode=deep",
+    "timestamp": "2026-01-10 08:30:16.465354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Cross-Chain Address] Does the validators.AddressCheck() at line 33 validate that the recipient address belongs to the current chain, or can an attacker specify a valid bech32 address from a different Cosmos chain, causing minting to fail with tokens trapped in the module? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0605e145-1715-46b3-a9e4-105c21d2ab48?mode=deep",
+    "timestamp": "2026-01-10 08:30:29.162497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Address Reuse] Can an attacker repeatedly use the same recipient address in multiple MsgMintAndSendTokens messages to accumulate unlimited tokens up to the minting cap, or does ValidateBasic() enforce rate limiting or recipient uniqueness checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cefce900-ca89-4f65-a51a-d83dc6aede4d?mode=deep",
+    "timestamp": "2026-01-10 08:30:42.283942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Contract Address] Does the validators.AddressCheck() at line 33 distinguish between user accounts and smart contract addresses, or can an attacker mint tokens to a contract address that lacks the capability to handle token transfers, permanently locking the minted tokens? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9fbe2ced-ef94-4ef1-8c77-3fbd62ca39ce?mode=deep",
+    "timestamp": "2026-01-10 08:30:57.135267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Module Account] In ValidateBasic() at line 33, does validators.AddressCheck() prevent the recipient from being a module account address, or can an attacker mint tokens directly to the factory module account, causing state inconsistency in module balance tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9a8512ff-0693-4bef-b19d-5230fb36155c?mode=deep",
+    "timestamp": "2026-01-10 08:31:12.255308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Precision Loss] When validating msg.Token.Amount at line 29, does the function verify that the amount doesn't exceed the maximum precision supported by sdk.Int, or can an attacker submit amounts with excessive decimal places that cause precision loss during arithmetic operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_36083cdc-2e80-4360-940a-48fd30f24834?mode=deep",
+    "timestamp": "2026-01-10 08:31:28.641501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Max Amount] Does the validators.CheckCoinAmount() at line 29 enforce a maximum mint amount per transaction, or can an attacker attempt to mint 2^256-1 tokens in a single message, causing the minting cap check in the keeper to overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b7cd5a5-ece8-4c56-a8a0-f1aefb24d9d1?mode=deep",
+    "timestamp": "2026-01-10 08:31:46.168324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Integer Overflow] When ValidateBasic() checks msg.Token.Amount at line 29, does it verify that adding this amount to currentDenom.Minted will not cause integer overflow in the keeper's totalMinted calculation, or can an attacker mint tokens up to math.MaxUint256 and cause arithmetic overflow? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f2f7b3d-e259-45a7-906f-2b88fe261a8c?mode=deep",
+    "timestamp": "2026-01-10 08:32:05.399688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Nil Amount] Can an attacker set msg.Token.Amount to nil before calling ValidateBasic() at line 29, causing the validators.CheckCoinAmount() to panic with a nil pointer dereference instead of returning a proper error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1201017-d9bf-4b0c-92c2-bef9c8314cb3?mode=deep",
+    "timestamp": "2026-01-10 08:32:25.426751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Negative Amount] Does the validators.CheckCoinAmount() at line 29 properly reject negative amounts using coin.IsNegative() check, or can an attacker exploit integer underflow in the amount field to create tokens with negative values that wrap around to large positive numbers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_394d4624-f364-426f-b6cc-9e8682903593?mode=deep",
+    "timestamp": "2026-01-10 08:32:45.623031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Zero Amount] In ValidateBasic() at line 29, the validators.CheckCoinAmount() is called with zeroOK=false, but can an attacker still submit a message with Amount.IsZero() = true that passes validation, causing the keeper to perform unnecessary state operations without actually minting tokens? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6c386d1f-b3d5-4f4b-b844-76a4289b5e59?mode=deep",
+    "timestamp": "2026-01-10 08:33:06.667332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Slash Exploitation] Can an attacker inject multiple slashes in the denomination checked at line 25 to create nested subdenom structures (e.g., 'factory/addr/sub1/sub2/sub3'), potentially causing state storage issues or denom resolution errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dfd52ab3-4a81-4b01-bbbd-51ddac8d927d?mode=deep",
+    "timestamp": "2026-01-10 08:33:28.441030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Empty Denomination] Does the validators.CheckCoinDenom() at line 25 properly reject empty denomination strings, or can an attacker submit a message with an empty denom that passes validation but causes the keeper to create tokens with undefined denomination? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2ede4e4-39fd-4adf-8cd4-735b994d009f?mode=deep",
+    "timestamp": "2026-01-10 08:33:51.492941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [IBC Denom Format] Can an attacker specify an IBC voucher denomination (starting with 'ibc/') in msg.Token at line 25, attempting to mint IBC vouchers directly through the factory module, bypassing the TokenWrapper module and duplicating cross-chain tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a23b7983-a072-4917-adbd-15ed5ff8839d?mode=deep",
+    "timestamp": "2026-01-10 08:34:15.551100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Factory Prefix] Does ValidateBasic() verify that factory-created denoms have the proper 'factory/' prefix format, or can an attacker mint tokens with arbitrary denom names that conflict with native chain denoms or IBC voucher denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04c6779a-819e-4ea1-985e-f42f2c1fc623?mode=deep",
+    "timestamp": "2026-01-10 08:34:38.881696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Case Sensitivity] Does the validators.CheckCoinDenom() at line 25 perform case-insensitive denomination checking, or can an attacker create multiple tokens with the same name in different cases (e.g., 'TOKEN', 'Token', 'token'), leading to denom collision and user confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_30f4001d-0b96-4f36-a5b2-d466c2afd8a9?mode=deep",
+    "timestamp": "2026-01-10 08:35:01.931014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Regex Bypass] Can an attacker craft a denomination containing special characters that bypass the regex validation in validators.CheckCoinDenom() at line 25 (which allows only letters, numbers, dots, and slashes), potentially causing parser errors in IBC packet processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df85856f-a655-4690-9f0c-38c209c3cb00?mode=deep",
+    "timestamp": "2026-01-10 08:35:27.929498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Denomination Length] Does the validators.CheckCoinDenom() at line 25 enforce the maximum denomination length of 127 characters from constants.MaxDenomLength, or can an attacker create denoms exceeding this limit, causing state storage bloat and potential chain DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7607b9a7-6ac4-4008-ace2-ccd90c2b5d27?mode=deep",
+    "timestamp": "2026-01-10 08:35:53.027548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Denomination Length] In ValidateBasic() at line 25, does validators.CheckCoinDenom() enforce the minimum denomination length of 3 characters as defined in constants.MinSubDenomLength, or can an attacker create tokens with 1-2 character denoms that collide with native chain denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a09488d6-d057-41c9-a23d-76f93eabd478?mode=deep",
+    "timestamp": "2026-01-10 08:36:19.027885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Nil Pointer] If msg is nil when ValidateBasic() is called at line 19, will the function panic with a nil pointer dereference, or is there a nil check before accessing msg.Signer, msg.Token, and msg.Recipient fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e7ae8be8-7e47-4f31-a1f9-33d9efe0c7d4?mode=deep",
+    "timestamp": "2026-01-10 08:36:45.036960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Empty String] Can an attacker bypass the empty string check in validators.SignerCheck() at line 21 by providing a string containing only whitespace characters, causing downstream address parsing to fail with unclear error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7afcd5d-d099-47e4-a0f6-8a7c6d503d81?mode=deep",
+    "timestamp": "2026-01-10 08:37:11.990303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Prefix Validation] Does the validators.SignerCheck() at line 21 validate the address prefix matches the expected chain prefix, or can an attacker submit a valid bech32 address from a different chain, leading to cross-chain address confusion during IBC operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5210584b-a5c0-4142-89c0-623c4bfed646?mode=deep",
+    "timestamp": "2026-01-10 08:37:40.069835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Address Validation] Can an attacker craft a bech32 address with valid checksum but invalid length in the Signer field that passes validators.SignerCheck() at line 21 but fails during AccAddressFromBech32 conversion in the keeper, causing state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf3211e0-8e07-4d23-8eb3-91cd57637706?mode=deep",
+    "timestamp": "2026-01-10 08:38:08.626835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/message_mint_and_send_tokens.go] [Function: ValidateBasic()] [Access Control] In ValidateBasic() line 21, does the validators.SignerCheck() function properly validate that the signer has permission to mint tokens for the specified denom, or is access control deferred to the keeper, allowing unauthorized mint message creation to pass validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_494796fd-3321-447d-a060-5589b79c5295?mode=deep",
+    "timestamp": "2026-01-10 08:38:36.790747",
+    "report_generated": false
   }
 ]
