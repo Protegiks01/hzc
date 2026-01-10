@@ -14248,5 +14248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c1cd4f08-30f2-4f80-b1ed-ee0047e23a93?mode=deep",
     "timestamp": "2026-01-10 09:19:20.868488",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Unicode normalization] Can an attacker exploit Unicode equivalence by submitting 'constant_product' in different Unicode normalizations (NFC, NFD, NFKC, NFKD) to create multiple pools that appear identical but have different formula strings in state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_475b5b3e-06ee-4198-8ef2-142f5fc51f5f?mode=deep",
+    "timestamp": "2026-01-10 09:20:45.026238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Memory exhaustion] Can an attacker propose governance changes that add millions of formula entries to AllowedFormulas map, causing memory exhaustion and DoS across all validators when loading module state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6a9ea42e-2527-4954-9956-b4f5b040939e?mode=deep",
+    "timestamp": "2026-01-10 09:20:57.979089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Whitespace handling] Does IsValidFormula trim leading/trailing whitespace from the formula string, or can attackers create pools with ' constant_product ' that fail validation but are stored with whitespace, causing state inconsistencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9bdb4572-0ace-4f32-aaac-ee70114b8bc9?mode=deep",
+    "timestamp": "2026-01-10 09:21:11.139117",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Genesis validation] During genesis state import, if Pool.Validate() calls IsValidFormula but the AllowedFormulas map is not yet initialized, can this cause chain initialization failures or acceptance of invalid pools in genesis state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b546ea9-ea5a-44c8-94f5-f5b0c8ae45c5?mode=deep",
+    "timestamp": "2026-01-10 09:21:24.399482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [Hardcoded usage] Since msg_server_create_pool.go hardcodes FormulaConstantProduct instead of accepting user input, can this create a discrepancy where IsValidFormula accepts formulas that are never actually used, or vice versa? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb8533bc-6ef7-44e1-a136-93a44b8c0803?mode=deep",
+    "timestamp": "2026-01-10 09:21:38.325730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Formula migration] If a future upgrade adds new formulas (e.g., 'stable_swap', 'weighted_pool'), can existing pools with 'constant_product' formula be exploited during migration if the validation logic changes but stored pools are not migrated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_34ef900b-f479-4f55-a53c-3d82d3e56060?mode=deep",
+    "timestamp": "2026-01-10 09:21:53.473864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Deterministic iteration] Does iteration over AllowedFormulas map produce deterministic results across validators, or can non-deterministic map iteration cause consensus failures when multiple validators validate the same pool simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_671fd56d-422c-4b17-9f1f-297f40be1993?mode=deep",
+    "timestamp": "2026-01-10 09:22:11.901451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Error handling] Does IsValidFormula return only true/false without error context, making it impossible for calling functions to distinguish between 'formula not found' vs 'formula validation failed', leading to poor error messages or incorrect state handling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b6025f3-c4b6-4e0e-809f-105af66d8cf5?mode=deep",
+    "timestamp": "2026-01-10 09:22:29.842101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Protobuf encoding] When Pool objects containing formula strings are marshaled/unmarshaled via protobuf, can encoding issues with the formula field cause the string to be corrupted, bypassing IsValidFormula checks that were passed before serialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8d0c9871-1187-43e4-b98a-588393338615?mode=deep",
+    "timestamp": "2026-01-10 09:22:49.580870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [State rollback] If a transaction creates a pool with a valid formula but the transaction is later rolled back, can the formula validation state become inconsistent with the pool state, allowing pools with invalid formulas to exist in KVStore? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67d145dd-c320-4b78-84b3-24b9eaec0e6f?mode=deep",
+    "timestamp": "2026-01-10 09:23:09.854637",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [String literal comparison] When comparing pool.Formula == FormulaConstantProduct in keeper functions, can string interning issues or memory aliasing cause the comparison to fail even for valid pools, breaking swap operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e49037d-78e3-4c2d-a396-41c98a31c02f?mode=deep",
+    "timestamp": "2026-01-10 09:23:30.396205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [IBC packet validation] If pools are transferred or queried via IBC, does the remote chain's IsValidFormula accept the same formulas, or can formula validation discrepancies between chains cause IBC packet rejections and token lockups? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f092085-b17c-41e1-a695-8d933ed29774?mode=deep",
+    "timestamp": "2026-01-10 09:23:52.179151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Upgrade compatibility] During a coordinated chain upgrade that changes AllowedFormulas, can validators running different binary versions disagree on formula validity, causing consensus failures or chain halts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02bf7e6f-2eab-4a4d-a17c-3572ec334440?mode=deep",
+    "timestamp": "2026-01-10 09:24:16.283356",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Length validation] Does IsValidFormula enforce maximum string length for formulas, or can an attacker create pools with multi-megabyte formula strings that pass validation but cause DoS when stored, queried, or transmitted via IBC? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_674277a9-a1d8-42c5-8dc8-594107304aae?mode=deep",
+    "timestamp": "2026-01-10 09:24:42.300858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Injection attacks] If future code dynamically constructs SQL queries, RPC calls, or log messages using formula strings from pools, can SQL injection or log injection attacks occur if formulas contain special characters that bypass IsValidFormula? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c71542ec-a55f-4fb9-b614-a7e15b54f7d8?mode=deep",
+    "timestamp": "2026-01-10 09:25:07.200170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Regex DoS] If IsValidFormula is later changed to use regex validation instead of map lookup, can an attacker craft formula strings that cause catastrophic backtracking, leading to validator DoS during pool validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8646036f-6583-48bb-8ff4-0402bc190390?mode=deep",
+    "timestamp": "2026-01-10 09:25:32.349947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [Typosquatting] Can governance proposals add similar-looking formula names (e.g., 'constant_product' vs 'constant_produсt' with Cyrillic 'с') to AllowedFormulas, confusing users and enabling social engineering attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0558ba78-8663-4628-9c3d-941d4d8e049b?mode=deep",
+    "timestamp": "2026-01-10 09:25:58.260876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Gas exhaustion] When IsValidFormula performs map lookup, does it consume deterministic gas costs, or can an attacker craft formula strings that trigger worst-case hash collision scenarios, causing gas exhaustion during pool creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68e154c3-1f1e-42b0-9035-14980a3551fe?mode=deep",
+    "timestamp": "2026-01-10 09:26:24.809381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Package initialization] Is AllowedFormulas initialized in init() or as a package-level variable, and can initialization order issues cause the map to be nil when IsValidFormula is first called, leading to panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55299239-63a0-4808-a163-b71b0870d5e3?mode=deep",
+    "timestamp": "2026-01-10 09:26:49.160743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Goroutine safety] If multiple goroutines call IsValidFormula concurrently while another goroutine modifies AllowedFormulas (via governance), can data races cause undefined behavior, map corruption, or incorrect validation results? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35d024b3-6a35-46c4-ad8a-96ab85e51d93?mode=deep",
+    "timestamp": "2026-01-10 09:27:14.358592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [String immutability] Can attackers exploit Go string mutability issues by holding references to formula strings and modifying them after IsValidFormula validation passes but before the pool is stored? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e1f671c3-91b6-47d1-932c-1e3255f2909c?mode=deep",
+    "timestamp": "2026-01-10 09:27:38.256552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [Panic recovery] If IsValidFormula panics due to nil map or other errors, is there panic recovery in the call chain to prevent validator crashes, or will the entire node crash when validating malicious pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7d179ba3-5e72-4582-8c2d-6823ecb4fb9b?mode=deep",
+    "timestamp": "2026-01-10 09:28:01.925865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: AllowedFormulas] [Memory leak] If formulas are added to AllowedFormulas via governance proposals but never removed, can this cause unbounded memory growth over time, eventually causing validator out-of-memory crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bc5c6673-a228-4f3b-b0eb-e5a66737dc13?mode=deep",
+    "timestamp": "2026-01-10 09:28:23.837445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Function: IsValidFormula()] [CosmWasm integration] Can CosmWasm contracts query or manipulate pool formulas via wasmbinding plugins, bypassing IsValidFormula validation and creating pools with arbitrary formula strings that break AMM calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d8c6a53-a02c-4d59-a0b6-4b7bdd8a4a97?mode=deep",
+    "timestamp": "2026-01-10 09:28:44.394067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/types.go] [Variable: FormulaConstantProduct] [Factory module interaction] If the Factory module creates tokens with denom names matching 'constant_product', can this cause namespace collisions where token denoms are confused with pool formulas, breaking validation logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8853b0d9-17fe-4934-817d-67fc47ed0407?mode=deep",
+    "timestamp": "2026-01-10 09:29:05.885372",
+    "report_generated": false
   }
 ]
