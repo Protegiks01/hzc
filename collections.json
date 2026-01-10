@@ -11248,5 +11248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a877d00d-e73e-4a53-ab6b-f59736bcc9ec?mode=deep",
     "timestamp": "2026-01-10 05:45:17.549516",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Zero Swap] Can an attacker exploit the out.IsZero() check to execute swaps that result in zero output but still deduct the input amount, effectively burning tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17d9fbf2-a1db-498b-9cfc-2beeff483c41?mode=deep",
+    "timestamp": "2026-01-10 05:46:41.673999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Negative Output] Can an attacker craft swap parameters that result in negative output amounts that pass through the IsNegative check due to integer type confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_719ad401-a0a5-40f2-a732-b3d703e8aa98?mode=deep",
+    "timestamp": "2026-01-10 05:46:54.057327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Fee Coin Creation] Can an attacker exploit the feeCoin = sdk.NewCoin(pool.Coins[fromCoin].Denom, fee) creation to inject malicious denoms or amounts into the fee tracking system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91d3f3d8-efa4-49ff-98e0-73e0e6c6a57b?mode=deep",
+    "timestamp": "2026-01-10 05:47:06.990655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Return Values] Can an attacker exploit the function returning three values to cause issues in the calling code if error handling is improper and partially initialized coins are used? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9171ebf0-61b6-4faa-932f-fa5c00764d79?mode=deep",
+    "timestamp": "2026-01-10 05:47:22.067162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Price Impact] Can an attacker execute large swaps that significantly impact the constant product formula, allowing subsequent exploitation of price discrepancies for profit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66342282-ee72-4659-868b-bca99a9701d2?mode=deep",
+    "timestamp": "2026-01-10 05:47:35.965724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_in.go] [Function: CalculateSwapAmount()] [Sandwich Attacks] Can an attacker front-run user swaps by calculating expected price impact using CalculateSwapAmount and executing profitable sandwich trades? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9841700a-f4de-4ddf-9c26-15e80055664d?mode=deep",
+    "timestamp": "2026-01-10 05:47:51.173695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Output Validation] Can an attacker bypass the outgoing amount positivity check by exploiting integer overflow when msg.Outgoing.Amount approaches maximum values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3642f3cf-0881-4e73-af78-dfce4bd37041?mode=deep",
+    "timestamp": "2026-01-10 05:48:06.641991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Pool Retrieval] Can an attacker exploit a race condition where the pool state changes between retrieval and swap execution, allowing them to drain liquidity at stale prices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a33c49c-ac05-4356-a967-5e14b284255a?mode=deep",
+    "timestamp": "2026-01-10 05:48:23.820847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Reserve Validation] Can an attacker exploit the pool sanity check timing to execute swaps against pools with temporarily corrupted reserves before validation catches the issue? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_33eeccfe-bcfa-4408-8a91-6670dbe7ef2e?mode=deep",
+    "timestamp": "2026-01-10 05:48:42.025620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Coin Direction] Can an attacker exploit the reversed coin indexing (fromCoin, toCoin = 1, 0 vs 0, 1) to cause confusion or incorrect swap direction when pool coins are reordered? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_840c0c5a-eada-4e14-bd25-95b78b32a43a?mode=deep",
+    "timestamp": "2026-01-10 05:49:00.989493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Denom Validation] Can an attacker bypass the outgoing denom validation by exploiting Unicode normalization or case-sensitivity issues in denom string comparison? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2abc1465-a987-4124-b965-a5d9d79d133f?mode=deep",
+    "timestamp": "2026-01-10 05:49:20.922419",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Calculation Exploit] Can an attacker manipulate the CalculateSwapExactOutAmount function to compute incorrect input requirements that drain the pool? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b968a1e1-9373-488d-ad06-0ab0d86bb25d?mode=deep",
+    "timestamp": "2026-01-10 05:49:41.559832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Maximum Input] Can an attacker exploit the optional IncomingMax parameter by setting it to nil to remove input amount caps and execute swaps that drain sender funds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02461b3b-50a8-4239-97d2-d9f9c2267af8?mode=deep",
+    "timestamp": "2026-01-10 05:50:02.936108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Input Validation] Can an attacker provide a negative IncomingMax amount that bypasses positivity validation due to type coercion or integer overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b111d7b-3f3a-47e1-af2d-b1f55e496f00?mode=deep",
+    "timestamp": "2026-01-10 05:50:25.441758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Denom Mismatch] Can an attacker exploit the IncomingMax denom check to bypass validation by providing a denom with special characters or encoding that matches after normalization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c5383512-c976-45a7-bec3-194d2ff8f351?mode=deep",
+    "timestamp": "2026-01-10 05:50:49.274710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Amount Comparison] Can an attacker exploit the inCoin.Amount.GT(msg.IncomingMax.Amount) comparison to execute swaps where required input exceeds maximum by exploiting precision loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8189c1e3-3f4c-4d6a-9583-bb8ffa940afe?mode=deep",
+    "timestamp": "2026-01-10 05:51:13.519284",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Pool Update] Can an attacker exploit the pool balance updates to cause overflow when adding inCoin.Amount to pool reserves at maximum capacity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad0f5691-66f1-4a10-80ac-250fa66fdb05?mode=deep",
+    "timestamp": "2026-01-10 05:51:38.431763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Reserve Deduction] Can an attacker exploit the pool.Coins[toCoin].SubAmount(msg.Outgoing.Amount) operation to cause underflow when outgoing amount exceeds pool reserves? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_91a20427-3a70-499e-83df-772801a593f6?mode=deep",
+    "timestamp": "2026-01-10 05:52:03.481894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [State Consistency] Can an attacker exploit the non-atomic update of pool reserves and subsequent transfers to cause state divergence if SetPool succeeds but transfers fail? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c94f6e8-49d0-478c-bfd1-84fbd9c51e7d?mode=deep",
+    "timestamp": "2026-01-10 05:52:29.657259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Address Parsing] Can an attacker provide an invalid sender address that passes initial validation but causes SendFromAddressToPool to fail, leaving pool state corrupted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cd565f8e-9554-4058-9654-d3cf4af02114?mode=deep",
+    "timestamp": "2026-01-10 05:52:54.963132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Transfer Order] Can an attacker exploit the order of operations where pool state is updated before sender transfers, allowing exploitation if the sender transfer fails? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2749c7a4-d328-4172-98e7-e34398272442?mode=deep",
+    "timestamp": "2026-01-10 05:53:20.868148",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Receiver Logic] Can an attacker exploit the receiver address fallback logic to redirect tokens to unintended addresses by manipulating the empty string check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2784940d-c469-43dc-88a3-d8634ea51e53?mode=deep",
+    "timestamp": "2026-01-10 05:53:47.270040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Receiver Validation] Can an attacker provide a receiver address that is invalid or blocked but passes AccAddressFromBech32 validation, causing funds to be locked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b4bae96-0fd2-4ef3-b526-11f667abc3a6?mode=deep",
+    "timestamp": "2026-01-10 05:54:12.499227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Pool Transfer] Can an attacker exploit the SendFromPoolToAddress call to drain additional funds from the pool account beyond the calculated outgoing amount? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cc80ebe-e750-4f4f-91a6-581f418145a6?mode=deep",
+    "timestamp": "2026-01-10 05:54:37.016702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_server_swap_exact_out.go] [Function: SwapExactOut()] [Event Accuracy] Can an attacker exploit the EmitSwapExactOutEvent function to emit events with incorrect amounts, misleading monitoring systems about actual swap activity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9d2af576-230c-418a-aa45-64ce8fd8eccd?mode=deep",
+    "timestamp": "2026-01-10 05:55:03.567824",
+    "report_generated": false
   }
 ]
