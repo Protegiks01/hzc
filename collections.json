@@ -20998,5 +20998,107 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ceff524e-f97a-4ee1-a56c-0a45da9f65e8?mode=deep",
     "timestamp": "2026-01-10 20:16:35.215969",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Duplicate additions] Can AddDenomToAdminDenomAuthList be called multiple times with the same admin+denom combination? Does this create duplicate entries in the admin index causing query inefficiency or incorrect counts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b80cbac8-dfb5-4e6c-b778-8c6555e76948?mode=deep",
+    "timestamp": "2026-01-10 20:18:17.107592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Key collision] At line 133, AdminDenomAuthListKey combines admin address with prefix. Can specially crafted admin addresses collide with other admins' keys due to the '/' delimiter usage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf9cb800-08bf-4c60-adea-6885f3d45357?mode=deep",
+    "timestamp": "2026-01-10 20:18:29.681283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Empty admin] If admin parameter is empty string, does this create an index entry under empty key? Can this cause all empty-admin denoms to collide in the admin index? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_36c73560-28eb-4b22-982d-139d8b2f5f63?mode=deep",
+    "timestamp": "2026-01-10 20:18:42.808061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Empty denom] If denom parameter is empty string, does this create an invalid index entry? Can this be exploited to associate admins with non-existent denoms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_79fcca99-a244-4c21-9799-0e14734e9caf?mode=deep",
+    "timestamp": "2026-01-10 20:18:56.065531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Value stored] At line 135, an empty byte slice []byte{} is stored as the value. Is this intentional (index-only storage), or should it store additional metadata? Can this cause confusion in queries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3b9c568-f95b-4d89-95ae-c8ca71c24029?mode=deep",
+    "timestamp": "2026-01-10 20:19:10.085987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Prefix collision] Can the AdminDenomAuthListKey prefix collide with DenomAuthKeyPrefix or ProposedDenomAuthKeyPrefix if admin addresses are crafted maliciously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11facd13-54f9-40f4-9d76-f5d160bebcc6?mode=deep",
+    "timestamp": "2026-01-10 20:19:26.118684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Unbounded growth] Can an attacker repeatedly call functions that invoke AddDenomToAdminDenomAuthList to create unbounded admin index growth, eventually exhausting storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_019b0c6f-3ea0-45f3-86e6-4339adf57047?mode=deep",
+    "timestamp": "2026-01-10 20:19:41.830188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [No authorization] Does AddDenomToAdminDenomAuthList verify that the caller is authorized to add entries? Can any address manipulate the admin index to claim false ownership? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_601522f5-50ca-437b-8be5-510b366e6b21?mode=deep",
+    "timestamp": "2026-01-10 20:19:59.649099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Cleanup failure] If this function is called but the corresponding DenomAuth creation fails later in the transaction, are orphaned index entries left in the admin index? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6ea6852c-860c-47f0-beda-3c132db762f5?mode=deep",
+    "timestamp": "2026-01-10 20:20:18.036786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: AddDenomToAdminDenomAuthList()] [Denom name key] At line 135, DenomAuthNameKey is used instead of DenomAuthKey. Can this difference in key generation create lookup mismatches between admin index and main store? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_17cd8579-d48b-45c5-b6e9-bcb1b6a12082?mode=deep",
+    "timestamp": "2026-01-10 20:20:37.911678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Missing validation] Does RemoveDenomFromAdminDenomAuthList verify that the admin+denom combination exists before deletion? Can silent failures mask authorization transfer bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_615c87d9-4039-4d42-8a87-5e97add63a2b?mode=deep",
+    "timestamp": "2026-01-10 20:20:58.380916",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Authorization missing] Can any caller remove any denom from any admin's index without authorization checks, enabling attackers to hide ownership relationships in queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ccfcde37-1acb-4b6c-930b-40f4673c23a7?mode=deep",
+    "timestamp": "2026-01-10 20:21:20.749371",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Stale admin index] If RemoveDenomFromAdminDenomAuthList is not called when admin changes, can stale entries accumulate showing incorrect admin-denom relationships in queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_03bba7d2-a137-4aed-9f6b-2cc74f51ffb1?mode=deep",
+    "timestamp": "2026-01-10 20:21:42.474492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Key generation mismatch] Does RemoveDenomFromAdminDenomAuthList use the exact same key generation logic as AddDenomToAdminDenomAuthList? Can subtle differences cause entries to become undeletable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81a0d3ec-4a8a-4978-b67d-9f8a8c28fb00?mode=deep",
+    "timestamp": "2026-01-10 20:22:05.345174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Race condition] If AddDenomToAdminDenomAuthList and RemoveDenomFromAdminDenomAuthList are called for the same admin+denom in the same block, can race conditions cause the index to be in an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fa90c6fb-c606-4f38-97f8-62a949d3e7cf?mode=deep",
+    "timestamp": "2026-01-10 20:22:27.616212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Empty parameters] If admin or denom parameters are empty strings, does deletion target incorrect keys, potentially removing valid entries for other admins? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_305e43f6-bbfa-4f65-82df-d8842f040080?mode=deep",
+    "timestamp": "2026-01-10 20:22:52.125058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: RemoveDenomFromAdminDenomAuthList()] [Idempotency] Can RemoveDenomFromAdminDenomAuthList be called multiple times safely? Does repeated deletion of non-existent entries cause any side effects or waste resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ba1a489-00f4-48cd-886a-6d735e4a8ec4?mode=deep",
+    "timestamp": "2026-01-10 20:23:17.001705",
+    "report_generated": false
   }
 ]
