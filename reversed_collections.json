@@ -29548,5 +29548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_558272f7-dca4-4520-860d-40f4b36b11d5?mode=deep",
     "timestamp": "2026-01-10 18:29:20.348343",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Consensus split] Can Byzantine validators exploit Params() queries to detect differences in parameter interpretation across validators, then craft parameter update proposals that cause honest validators to process queries inconsistently, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48dd4254-da9f-4ba5-8c72-39afb64f81ee?mode=deep",
+    "timestamp": "2026-01-10 18:30:44.694482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Byzantine response] Can up to 1/3 Byzantine validators return manipulated parameters from Params() queries to mislead light clients about actual on-chain fee structures, causing users to submit transactions with incorrect fees that get rejected, while Byzantine validators profit from the wasted transaction fees? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c31ba016-b23d-4e92-8306-c85811a0ad36?mode=deep",
+    "timestamp": "2026-01-10 18:30:56.974884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Circular query] Can an attacker create a circular dependency where Params() triggers queries to other modules that recursively call back to factory queries, causing stack overflow or infinite recursion that crashes validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfffd973-3f2d-4599-a000-559b06ee97a1?mode=deep",
+    "timestamp": "2026-01-10 18:31:09.670535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Module dependency] Can an attacker exploit dependencies between factory parameter queries and other modules (DEX, TokenWrapper) by crafting a scenario where Params() returns valid parameters but other modules' state is inconsistent, causing cross-module invariant violations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_61c9800a-135d-42e9-9b82-8e1334458763?mode=deep",
+    "timestamp": "2026-01-10 18:31:23.455642",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Rollback handling] If a chain reorganization or consensus failure causes parameter updates to be rolled back, does Params() at line 19 properly reflect the reverted state, or can clients query stale parameters that don't match the current chain head? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_179ee101-5cd2-4b72-84e0-e445d9e2f207?mode=deep",
+    "timestamp": "2026-01-10 18:31:37.303481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Governance attack] Can a malicious governance proposal schedule parameter updates to occur precisely when Params() queries are most frequent, causing query failures or stale reads that disrupt denom creation operations during critical protocol upgrade windows? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e354ea6-2bd6-4477-9a5a-cca95845398f?mode=deep",
+    "timestamp": "2026-01-10 18:31:52.232334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Parameter update race] Can an attacker exploit the window between MsgUpdateParams execution and Params() query processing to create a race condition where clients observe stale parameters, then submit CreateDenom transactions that fail because they calculated fees based on outdated CreateFeeAmount values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_912c4b9c-fb06-4d27-9c8b-1ddf6334b024?mode=deep",
+    "timestamp": "2026-01-10 18:32:07.963322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Deep copy] Does the response at line 19 return a deep copy of the parameters from GetParams(), or does it return a reference that could be mutated by concurrent operations, leading to race conditions where the same query returns different results based on timing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c941af2d-2846-4bb3-bd28-7cf416a2d4f3?mode=deep",
+    "timestamp": "2026-01-10 18:32:25.049945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Struct initialization] Does the QueryParamsResponse initialization at line 19 properly handle all fields, or can uninitialized fields in the response proto lead to non-deterministic query results across validators, causing light clients to receive inconsistent answers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b833ae88-deda-42a9-bd46-e68c0742f9fa?mode=deep",
+    "timestamp": "2026-01-10 18:32:43.259901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Response tampering] Can a Byzantine validator modify the QueryParamsResponse construction at line 19 to return incorrect parameter values without being detected, potentially misleading clients about actual on-chain parameters and enabling social engineering attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_373aeea4-0539-421a-a6d7-ec3940aec863?mode=deep",
+    "timestamp": "2026-01-10 18:33:02.453213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Panic recovery] If GetParams() at line 19 panics due to corrupted state or codec errors, does the gRPC layer properly recover and return a user-friendly error, or will it crash the query handler goroutine, potentially destabilizing the validator's query service? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e727c0bb-b94a-47a0-a0cb-73ff5e62e886?mode=deep",
+    "timestamp": "2026-01-10 18:33:22.552478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Error information leakage] Can the error messages returned by Params() leak sensitive information about validator implementation details, store structure, or internal state that aids attackers in crafting exploits against other factory module functions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a927e1f9-5445-4526-9b7a-b3341e9e4109?mode=deep",
+    "timestamp": "2026-01-10 18:33:43.959634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [gRPC status code] Does the InvalidArgument error code returned at line 15 properly map to gRPC status codes in all client implementations, or can inconsistent error handling cause clients to retry queries indefinitely, creating unintentional DoS conditions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2f04445-f66a-49b3-8682-beeb12078212?mode=deep",
+    "timestamp": "2026-01-10 18:34:06.014387",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Network amplification] Can an attacker exploit the Params() query to create a network amplification attack, where a single malicious query triggers expensive GetParams() operations across all validators simultaneously, multiplying the attack impact by the number of validators in the network? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44c68c7a-63f7-4311-b138-5404f0ee11b4?mode=deep",
+    "timestamp": "2026-01-10 18:34:28.672004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [CPU exhaustion] Does the MustUnmarshal operation called within GetParams() at line 19 have bounded CPU costs, or can an attacker craft on-chain parameter updates that result in deeply nested or maliciously structured protobuf data that causes CPU exhaustion when unmarshaled during Params() queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ef581b0b-df96-404d-8f98-33c73071fc5f?mode=deep",
+    "timestamp": "2026-01-10 18:34:53.204099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Memory exhaustion] If the Params struct returned by GetParams(ctx) at line 19 grows large (e.g., if Beneficiary addresses or CreateFeeDenom strings become extremely long), can an attacker trigger memory exhaustion by issuing thousands of concurrent Params() queries across multiple validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_56da648a-0d06-4ee7-bbe6-82483c4979c2?mode=deep",
+    "timestamp": "2026-01-10 18:35:18.170427",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Gas exhaustion] Can an attacker spam Params() queries to exhaust validator query gas, causing legitimate queries to timeout or fail, especially if GetParams() at line 19 performs expensive unmarshaling operations on large parameter objects? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a235ae96-f46a-4c15-ae15-997e6ddebd94?mode=deep",
+    "timestamp": "2026-01-10 18:35:42.677755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Authorization bypass] Does the lack of sender validation in Params() allow an attacker to query parameters from validators that should be rate-limited or blocked, bypassing per-client query quotas by distributing requests across multiple validator endpoints? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_25ffdba0-5e97-43a6-b208-6f92ce567b8b?mode=deep",
+    "timestamp": "2026-01-10 18:36:07.945606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Information disclosure] Can a malicious actor use the unrestricted Params() query to continuously monitor CreateFeeDenom and CreateFeeAmount values, identifying optimal times to execute CreateDenom transactions when fees are lowest, potentially front-running governance parameter increases to squat on valuable denom names at cheaper prices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf14b411-3c48-4726-898b-3486ff5963d2?mode=deep",
+    "timestamp": "2026-01-10 18:36:34.276679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Missing access control] The Params() query function lacks any access control checks - can an attacker exploit this to query parameters unlimited times across all validator nodes, gathering statistical data about parameter update patterns, validator implementation differences, or network topology that aids in planning larger attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_beccfa87-8f57-4a01-ae16-0b0b6327ef55?mode=deep",
+    "timestamp": "2026-01-10 18:37:01.978182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Stale parameter reads] Does the GetParams() call at line 19 guarantee atomicity with parameter writes from MsgUpdateParams, or can a query return parameters from a committed block that's being reverted due to consensus failure, causing clients to make decisions based on parameters that never actually took effect? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2c37ede0-f374-44ce-af20-47126699e8d5?mode=deep",
+    "timestamp": "2026-01-10 18:37:28.812149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [State query timing] Can an attacker repeatedly query Params() at line 19 during block production to detect when parameter updates occur, using this timing information to front-run governance proposals or exploit parameter-dependent operations (like CreateDenom fee calculations) before other users see the update? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_657fbf2b-1b25-4073-a23c-4a96674386c3?mode=deep",
+    "timestamp": "2026-01-10 18:37:52.854929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Storage corruption] If the underlying KVStore at ParamsKey is corrupted or contains invalid bytes when k.GetParams(ctx) is called at line 19, does the function properly handle MustUnmarshal panics, or will it crash the validator node, enabling a DoS attack where an attacker corrupts parameter storage through a separate vulnerability? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1b9a367b-52ef-49fe-ab1f-1c0af27adf0f?mode=deep",
+    "timestamp": "2026-01-10 18:38:16.362851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Race condition] Does the GetParams() call at line 19 use proper locking mechanisms, or can multiple concurrent Params() queries from different validators read inconsistent parameter snapshots during cross-block state transitions, causing consensus failures when validators make different decisions based on stale parameter data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d2fb476-43ad-4887-b281-faa1ebd13d97?mode=deep",
+    "timestamp": "2026-01-10 18:38:39.692980",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [State inconsistency] Can an attacker time their query at line 19 (k.GetParams(ctx)) to occur during a parameter update transaction, causing the query to return partially updated parameters that violate invariants (e.g., CreateFeeAmount without corresponding CreateFeeDenom change), leading to client-side calculation errors that could be exploited for arbitrage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c862cb3d-4045-421d-9ce8-fdd13ad1dd7e?mode=deep",
+    "timestamp": "2026-01-10 18:39:03.028682",
+    "report_generated": false
   }
 ]
