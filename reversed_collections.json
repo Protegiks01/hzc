@@ -26098,5 +26098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02b8b082-cdf6-40e9-a61b-ed24f4743eb7?mode=deep",
     "timestamp": "2026-01-10 14:27:27.474963",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Input sanitization] At line 20 and 40, msg.Denom is used directly in KVStore lookups without sanitization. Can an attacker inject control characters or null bytes that cause store corruption or unauthorized key access? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a67fe84-814e-47c0-a197-21f06085c113?mode=deep",
+    "timestamp": "2026-01-10 14:28:58.442295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Replay attack cross-chain] If ZigChain has multiple testnets/mainnets with the same chain-id prefix, can an attacker replay a valid ClaimDenomAdmin transaction from testnet to mainnet and claim admin on the wrong network? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a047ca57-b1d3-45df-ac05-2bbbc0bd7185?mode=deep",
+    "timestamp": "2026-01-10 14:29:10.909715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Deterministic randomness] If any operation within ClaimDenomAdmin (like event emission at line 78) uses pseudorandom values seeded from context, can Byzantine validators manipulate seeds to create non-deterministic outcomes and split consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fb01e131-e5a6-44de-b7bc-308a59bf071f?mode=deep",
+    "timestamp": "2026-01-10 14:29:23.752522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Gas limit bypass] If RemoveDenomFromAdminDenomAuthList at lines 70-71 requires significant gas but the attacker sets a gas limit just high enough to execute up to line 67 (proposal deletion), can this cause partial state updates that corrupt admin records? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b0331e19-e4fa-43a9-a13d-b8031f67c95d?mode=deep",
+    "timestamp": "2026-01-10 14:29:37.553174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Timestamp manipulation] At line 15, the unwrapped context contains block time. Can Byzantine validators manipulate block timestamps to make ClaimDenomAdmin appear to execute at different times across validators, causing consensus issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a13e489a-045a-41b3-a57c-bdb146581e9d?mode=deep",
+    "timestamp": "2026-01-10 14:29:51.518064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Nonce reuse attack] If msg.Signer uses the same account sequence number for multiple ClaimDenomAdmin calls (shouldn't be possible with proper ante handlers), can this cause multiple denoms to be claimed in a single transaction with only one authorization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0fcc94f9-e761-4acc-96d8-3ff56d048d44?mode=deep",
+    "timestamp": "2026-01-10 14:30:06.637422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Signature verification bypass] The function doesn't explicitly verify the signature of msg.Signer - relying on SDK middleware. Can a compromised ante handler allow unsigned ClaimDenomAdmin messages to bypass the authorization check at line 50? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cadb55f5-b3a3-4c9c-9a62-164d75424154?mode=deep",
+    "timestamp": "2026-01-10 14:30:22.855339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Address format validation] At line 50, msg.Signer is compared to proposedAdmin.BankAdmin without validating address format. Can an attacker submit a msg.Signer that's not a valid bech32 address but matches a malformed proposedAdmin.BankAdmin due to encoding issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67243ee1-c871-4918-90f8-b55f198aa3e8?mode=deep",
+    "timestamp": "2026-01-10 14:30:40.223811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Vesting account disruption] If the denom being claimed has tokens locked in vesting accounts, can the new admin at line 64 burn vested tokens or manipulate supply to break vesting schedule calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_15bd95cf-8722-4a98-8707-f1330c7be703?mode=deep",
+    "timestamp": "2026-01-10 14:30:58.859628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [IBC middleware bypass] If the denom at line 59 is used in IBC transfers, does ClaimDenomAdmin notify IBC middleware of the admin change, or can the new admin manipulate tokens in ways that break IBC packet verification assumptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24ea553c-fe9c-43e7-9d07-2a97e6d5b685?mode=deep",
+    "timestamp": "2026-01-10 14:31:18.222126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Fee collector conflict] If the factory module sends fees to a fee collector using the denom being claimed at line 64, can the new admin burn the fee collector's balance or manipulate fees to DoS the fee distribution mechanism? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1cd287ea-f421-4df3-8aa3-a5ea70ece535?mode=deep",
+    "timestamp": "2026-01-10 14:31:38.638248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [AuthZ module confusion] If the old admin (before line 64) had granted AuthZ permissions to other accounts for denom operations, does ClaimDenomAdmin automatically revoke these grants, or can unauthorized accounts continue operating with stale permissions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6951eef5-df9f-49cc-bd17-f983dfeab735?mode=deep",
+    "timestamp": "2026-01-10 14:31:59.939692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Staking module interference] If the claimed denom is used for validator staking rewards, can the new admin at line 64 mint unlimited tokens to dilute existing stakers or manipulate validator voting power through sudden supply increases? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_474cfd9c-8c4e-4948-9d9d-88bb65a79ff0?mode=deep",
+    "timestamp": "2026-01-10 14:32:22.631443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Governance module bypass] If a governance proposal is active to change denom parameters, can an attacker use ClaimDenomAdmin at line 64 to change admin during the voting period and then unilaterally reject the governance decision after it passes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8836e59c-b182-4fe0-9e14-581dcb8c359a?mode=deep",
+    "timestamp": "2026-01-10 14:32:44.241642",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [TokenWrapper module conflict] If the denom being claimed at line 64 is used in the TokenWrapper module for IBC transfers, can the new admin modify token parameters (via metadata changes) that break decimal conversion assumptions, causing bridge arithmetic errors? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c7b64589-91b0-4a60-9263-5e025a0fa415?mode=deep",
+    "timestamp": "2026-01-10 14:33:07.082228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [CosmWasm hook exploit] At line 78, if EmitDenomAuthClaimed triggers CosmWasm IBC hooks, can a malicious contract execute during the event and call back into ClaimDenomAdmin or other factory functions before the current transaction completes, causing reentrancy? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1fcd204e-cca2-46f0-93df-b2aae809a1e7?mode=deep",
+    "timestamp": "2026-01-10 14:33:30.565377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [DEX pool manipulation] If a DEX pool exists for the denom being claimed at line 64, can the new admin immediately manipulate token supply to drain liquidity pools before other users can react to the admin transfer event at line 78? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f4e2c7af-8081-46e6-a4e8-07676f46a23c?mode=deep",
+    "timestamp": "2026-01-10 14:33:54.307940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Bank module desync] After SetDenomAuth at line 64 updates factory state, if the bank module caches denom metadata, can this cause the bank module to still recognize the old admin for minting/burning operations, creating admin permission bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed8618f9-f2c0-4941-a4b3-2864568842fc?mode=deep",
+    "timestamp": "2026-01-10 14:34:17.917184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Proposal race condition] Between ProposeDenomAdmin execution and ClaimDenomAdmin at line 40, if the current admin calls DisableDenomAdmin to lock the denom, should the claim still succeed since the proposal was created when admin was active? This ambiguity could cause disputes. (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3a81ded-3ea8-4dcb-b787-c2c5af86bd25?mode=deep",
+    "timestamp": "2026-01-10 14:34:42.729595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [IBC token hijacking] After claiming admin at line 64, can the new admin immediately call mint functions to create unlimited supply before IBC rate limiters or monitoring systems detect the admin transfer, effectively hijacking cross-chain token value? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4d742c39-4981-48c5-abd4-c97254daf5ec?mode=deep",
+    "timestamp": "2026-01-10 14:35:08.348195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Consensus split exploit] If 1/3 Byzantine validators execute ClaimDenomAdmin with modified keeper logic that skips the authorization check at line 50, can they create a state fork where they control denoms on the Byzantine partition while honest validators reject the claim? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_00b095e1-f01b-4131-b35a-5e6f5b6b5c69?mode=deep",
+    "timestamp": "2026-01-10 14:35:34.020740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Admin list enumeration] At lines 73-75, adding to admin lists reveals the mapping between admins and denoms. Can an attacker query all admin lists to build a complete map of admin ownership, then target specific admins for phishing or compromise? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19910d8e-243f-44f3-8520-286f49c720c5?mode=deep",
+    "timestamp": "2026-01-10 14:36:00.480067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Cross-chain timing attack] If an attacker proposes an admin transfer, then immediately uses IBC to bridge tokens of that denom to another chain, can they claim admin rights during the IBC timeout window and mint unlimited tokens while the bridge is in-flight? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0fe1ee61-0b02-4d92-b7af-b8b3d89b6061?mode=deep",
+    "timestamp": "2026-01-10 14:36:27.339426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [State bloat attack] By repeatedly proposing and claiming admin rights between two colluding addresses, can attackers force the admin list at lines 73-75 to grow unbounded, eventually making queries for admin denoms extremely expensive or timing out? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83ece47d-d1b0-4ad0-b53b-9f9be9ed2927?mode=deep",
+    "timestamp": "2026-01-10 14:36:53.558283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Block stuffing DoS] Can an attacker submit thousands of ClaimDenomAdmin transactions for non-existent denoms that all fail at line 22 but still consume gas, filling blocks and preventing legitimate claims from executing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e688a3a5-b857-4a64-9805-2508e74add93?mode=deep",
+    "timestamp": "2026-01-10 14:37:19.850986",
+    "report_generated": false
   }
 ]
