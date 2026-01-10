@@ -24448,5 +24448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62e919d2-6b48-4815-830c-7c6867236cfb?mode=deep",
     "timestamp": "2026-01-10 12:41:31.690396",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Key Rotation] Is there a mechanism to rotate ParamsKey in case of compromise, or would changing it cause permanent loss of all factory parameters requiring manual state migration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_159e3fc3-14a1-4a34-906f-061e48d67826?mode=deep",
+    "timestamp": "2026-01-10 12:42:53.670992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Escape Sequences] Can attackers inject escape sequences (e.g., '\\x1b[') in KeyPrefix() inputs that are interpreted by logging or monitoring systems, enabling log injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e400797-8629-43e5-9105-084f4875ef03?mode=deep",
+    "timestamp": "2026-01-10 12:43:06.180677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: StoreKey] [Capability Keys] Can attackers obtain the StoreKey capability key to gain direct store access, bypassing all keeper validation logic and minting unlimited tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa9f7225-2b33-4089-87ed-e7989e69af58?mode=deep",
+    "timestamp": "2026-01-10 12:43:18.752450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Byte Order] Does KeyPrefix() preserve byte order when converting strings to bytes, or can endianness issues on different architectures cause validators to generate different keys for the same input? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24e5fcef-ada3-424c-8297-3315b329b9e6?mode=deep",
+    "timestamp": "2026-01-10 12:43:32.090659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Atomic Updates] Does the ParamsKey support atomic read-modify-write operations, or can race conditions between multiple SetParams() calls cause parameter corruption with partial updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6157234-02be-49c0-9bb7-793bea95f069?mode=deep",
+    "timestamp": "2026-01-10 12:43:45.843488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Suffix Collision] When KeyPrefix() output is used as a suffix instead of prefix (e.g., in reverse indexing), can attackers craft inputs that collide with keys using the same suffix pattern? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a1f76606-073b-4646-abee-17ec05910175?mode=deep",
+    "timestamp": "2026-01-10 12:44:01.964006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ModuleName] [Routing Ambiguity] Can the ModuleName 'factory' conflict with routing logic in app.go or IBC middleware, causing messages intended for other modules to be routed to the factory module? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_704aaf76-23c2-4031-9540-c236f173e5f1?mode=deep",
+    "timestamp": "2026-01-10 12:44:17.755549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Non-ASCII Prefix] When KeyPrefix() is used with non-ASCII Unicode strings (e.g., emoji, CJK characters), can encoding differences between validators cause consensus failures or key mismatches? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_823a73b6-1631-4595-a3fc-07bdbd51638b?mode=deep",
+    "timestamp": "2026-01-10 12:44:34.846209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Genesis Import] During genesis import, can attackers inject malicious data at the ParamsKey location to overwrite default parameters with attacker-controlled values before chain initialization? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6da5e7e-b595-4c05-b18c-0f72335932fc?mode=deep",
+    "timestamp": "2026-01-10 12:44:52.760488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [String Interning] Does Go's string interning optimization cause KeyPrefix() to return the same byte array pointer for identical strings, and can this be exploited to modify multiple keys simultaneously? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2ec3567a-7d99-4a73-bc9f-ced0465cd447?mode=deep",
+    "timestamp": "2026-01-10 12:45:12.624769",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: StoreKey] [Multi-Store Attack] In the Cosmos SDK multi-store architecture, can attackers access the factory store using StoreKey from unauthorized contexts (e.g., from CosmWasm contracts), bypassing keeper access controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09a0388a-0841-480e-84cf-85e90ef3dcce?mode=deep",
+    "timestamp": "2026-01-10 12:45:32.341466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Boundary Conditions] Does KeyPrefix() handle maximum string lengths (e.g., 2^31-1 bytes) without truncation, or can attackers exploit length limits to create colliding truncated keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2cec8cf-f749-43bc-a816-4183f79468e5?mode=deep",
+    "timestamp": "2026-01-10 12:45:53.669591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Store Iteration] When iterating over the factory store, can the ParamsKey be accidentally included in denom listings, causing parameter data to be interpreted as denom data and triggering unmarshaling errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5b75d96e-7c4b-4f7a-a8ec-15d15277db54?mode=deep",
+    "timestamp": "2026-01-10 12:46:15.431124",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Homoglyph Attack] Can attackers use Unicode homoglyphs (e.g., Cyrillic 'а' vs Latin 'a') in KeyPrefix() inputs to create visually identical but distinct keys, enabling phishing attacks or denom squatting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7777e4b7-49f7-4606-ae31-6ffc95b889ee?mode=deep",
+    "timestamp": "2026-01-10 12:46:38.889800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ModuleName] [Module Account] Can attackers exploit the ModuleName to derive the factory module account address and send tokens directly to it, bypassing minting cap validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ba2f3bd-9a62-40c4-9241-7b77bdb9a6c0?mode=deep",
+    "timestamp": "2026-01-10 12:47:02.859950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Backwards Compatibility] If KeyPrefix() implementation changes in future versions, can legacy keys become inaccessible, causing permanent loss of denom data or parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3af9419d-7380-40f6-bbce-fe56861f689e?mode=deep",
+    "timestamp": "2026-01-10 12:47:26.074587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Hardcoded Dependency] Can attackers exploit the hardcoded 'p_factory' string to predict parameter locations and precompute attack keys before chain launch, enabling day-zero exploits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0600d752-91dc-4e12-825d-79e1d1f84498?mode=deep",
+    "timestamp": "2026-01-10 12:47:50.495231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Panic Recovery] If KeyPrefix() panics due to malformed input, are there proper recover() handlers in caller functions to prevent validator crashes and maintain network liveness? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ac9ab69e-bdc5-44cf-9906-52677d782940?mode=deep",
+    "timestamp": "2026-01-10 12:48:15.638880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: StoreKey] [Determinism] Is the StoreKey assignment (StoreKey = ModuleName) deterministic across all validator builds and Go versions, or can compiler optimizations cause different validators to use different store keys, breaking consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ff20385-6691-4d82-8c20-08002a8fb6d7?mode=deep",
+    "timestamp": "2026-01-10 12:48:40.934026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Slice Capacity] Does KeyPrefix() preallocate byte slices with sufficient capacity, or can repeated append operations in key construction functions cause excessive memory reallocations leading to DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f7a528b-43ab-49d9-89db-514df8af1f77?mode=deep",
+    "timestamp": "2026-01-10 12:49:06.103782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ModuleName] [Name Collision] Can the generic name 'factory' collide with other Cosmos SDK ecosystem modules using the same name, causing cross-chain IBC confusion where packets intended for one factory module are processed by another? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eddaa344-2135-4767-9d49-2c747128b6d0?mode=deep",
+    "timestamp": "2026-01-10 12:49:30.526097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Whitespace Handling] Does KeyPrefix() trim or normalize whitespace in input strings, or can attackers inject leading/trailing spaces to create distinct keys that bypass denom uniqueness checks (e.g., 'denom' vs ' denom ')? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4fc779c-954a-494d-b927-8b346ac5abfa?mode=deep",
+    "timestamp": "2026-01-10 12:49:55.223527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: ParamsKey] [Replay Attack] Can attackers capture the ParamsKey byte array from blockchain state and replay it in SetParams() calls to revert parameter changes, bypassing governance timelock mechanisms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8e748980-0396-4d9d-981b-a33d95a60a55?mode=deep",
+    "timestamp": "2026-01-10 12:50:20.687280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Function: KeyPrefix()] [Encoding Mismatch] If some keeper functions use KeyPrefix() with UTF-8 strings while others use ASCII, can attackers exploit encoding mismatches to create keys that appear identical in one encoding but different in another? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c620e0ef-6296-4a52-9e95-b28a923fa200?mode=deep",
+    "timestamp": "2026-01-10 12:50:44.758394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/keys.go] [Constant: StoreKey] [IBC Exploit] Can attackers exploit the StoreKey in IBC middleware stack to route packets to the factory module's store, injecting malicious data that bypasses keeper validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7f57b58f-58af-4480-ae98-8df773323b75?mode=deep",
+    "timestamp": "2026-01-10 12:51:07.450304",
+    "report_generated": false
   }
 ]
