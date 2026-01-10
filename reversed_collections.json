@@ -15748,5 +15748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e457a4a8-e576-43c3-ba83-ba07ff3d48ff?mode=deep",
     "timestamp": "2026-01-10 03:08:32.558420",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Genesis params conflict] Can UpdateParams override genesis params in ways that break chain invariants established at initialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bb579f7a-f15a-4a33-b7a0-2063b6e69768?mode=deep",
+    "timestamp": "2026-01-10 03:09:53.927332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Upgrade compatibility] During a chain upgrade, could in-flight UpdateParams transactions fail due to param schema changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_546a7318-131a-433f-85f1-df21ec144c10?mode=deep",
+    "timestamp": "2026-01-10 03:10:06.502903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Module initialization] Can UpdateParams be called before the module is fully initialized, potentially setting params that break module setup? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0159a8c8-a2cf-4e14-a539-9809faabc673?mode=deep",
+    "timestamp": "2026-01-10 03:10:19.476573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Consensus failure recovery] If UpdateParams causes a consensus failure on some validators, is there a recovery mechanism or will the chain halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7a3ef3c0-ba2c-440d-a7ec-272ff642f813?mode=deep",
+    "timestamp": "2026-01-10 03:10:32.594028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Store commit ordering] Does the param update get committed before the event is emitted, ensuring that events reflect actual state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2a109a23-24ea-434d-a619-8e97666964a2?mode=deep",
+    "timestamp": "2026-01-10 03:10:46.435837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Deterministic events] Is EmitParamsUpdatedEvent() execution deterministic across all validators, or could event emission differences cause app hash mismatches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2787c0ee-fcd2-492d-96f4-c2785ad1d3c0?mode=deep",
+    "timestamp": "2026-01-10 03:11:01.353508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [State proof verification] Can light clients verify that param updates happened correctly using state proofs, or could malicious full nodes lie about param values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8725981-528d-4a16-978e-6464dc981d77?mode=deep",
+    "timestamp": "2026-01-10 03:11:17.040233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Block height dependency] Does UpdateParams behavior depend on block height or timestamp, potentially causing consensus failures across validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5170e0e0-5d26-45c4-940b-bbc688ef8c8d?mode=deep",
+    "timestamp": "2026-01-10 03:11:34.822507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Transaction replay] Are there protections against replaying UpdateParams transactions with the same params on a forked chain? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6588ecaf-64f8-4723-9338-c57dbcd5b96e?mode=deep",
+    "timestamp": "2026-01-10 03:11:53.134153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Gas estimation] Could an attacker craft params that cause SetParams to consume excessive gas during marshaling, griefing the transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5e05013-1f10-43b1-8bdd-ecb9a0d5f96d?mode=deep",
+    "timestamp": "2026-01-10 03:12:12.561973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Context mutation] Does the function mutate the ctx in ways that affect subsequent message handlers in the same transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d4e1a4c-acea-421c-bc93-b8bade44f6a6?mode=deep",
+    "timestamp": "2026-01-10 03:12:32.568859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Params validation timing] Is m.Params.Validate() called before or after state updates, and could timing differences allow invalid params to be briefly committed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e49b26bb-478e-465f-88f1-11e7dcc759da?mode=deep",
+    "timestamp": "2026-01-10 03:12:53.333830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Authority format validation] The ValidateBasic() checks sdk.AccAddressFromBech32(m.Authority) - could this accept deprecated address formats that shouldn't be used? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6cb91e97-ad4b-4ea6-8d7c-87bf3e6e3130?mode=deep",
+    "timestamp": "2026-01-10 03:13:15.576924",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [ValidateBasic bypass] Does UpdateParams re-validate the message after ValidateBasic(), or could a malicious validator accept an invalid message that passed initial validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d4c7135-ec59-4638-9ea5-44294d8b0926?mode=deep",
+    "timestamp": "2026-01-10 03:13:37.776558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Delegation attack] Can the authority delegate param update permissions, and if so, could this delegation be exploited to bypass governance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4213a5e9-c5a0-4926-a172-6ce0a91c94c6?mode=deep",
+    "timestamp": "2026-01-10 03:14:01.337169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Authority key compromise] If the governance authority private key is compromised, could an attacker set malicious params that enable token theft via other module functions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_50b9655a-d7ed-404b-a476-bc00fbda306c?mode=deep",
+    "timestamp": "2026-01-10 03:14:26.214379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Multiple authorities] Does the keeper support only a single authority, or could misconfiguration allow multiple authorities to conflict when updating params? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_24eb1a10-9dbd-43f6-8d81-a20c4f002a46?mode=deep",
+    "timestamp": "2026-01-10 03:14:52.247175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Authority rotation] If the authority address needs to be changed (e.g., governance module upgrade), is there a safe migration path or could params become permanently locked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ad6fa8d0-d3ab-4fc8-9364-d5dfeee42068?mode=deep",
+    "timestamp": "2026-01-10 03:15:19.267484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Unmarshaling safety] Does the unmarshal operation in GetParams validate the data structure before returning, or could corrupted KVStore data cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_12229c91-636f-4d89-b84f-7af846d71466?mode=deep",
+    "timestamp": "2026-01-10 03:15:45.931771",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Marshal error handling] If k.cdc.Marshal() returns an error in SetParams, does this leave partial data written to the KVStore? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a7ad41f6-42c6-461d-a3b3-4c88d0489174?mode=deep",
+    "timestamp": "2026-01-10 03:16:10.771918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [KVStore key collision] Does SetParams use ParamsKey which could collide with other module keys, allowing one module to overwrite another's params? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2c9ca49-1212-45e0-b4d8-43cf29e9e34f?mode=deep",
+    "timestamp": "2026-01-10 03:16:35.269716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [SetParams implementation] The SetParams call at line 18 uses k.cdc.Marshal() - could a malicious codec implementation inject arbitrary data into the KVStore? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d9b00383-6917-4c77-951d-114ef67d6436?mode=deep",
+    "timestamp": "2026-01-10 03:16:59.893986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Proto compatibility] Does the Params proto definition support future field additions without breaking binary compatibility of stored param data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_463655ae-5cdb-45db-9290-8bc0623d5d0f?mode=deep",
+    "timestamp": "2026-01-10 03:17:24.248873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Validation expansion] When Params.Validate() is updated to include actual checks, will this break existing on-chain params that were stored before validation was added? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_007e0662-cd81-496e-ae32-2fb12adb95be?mode=deep",
+    "timestamp": "2026-01-10 03:17:48.631079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Backward compatibility] If params structure changes in future versions, could old UpdateParams transactions in the mempool become invalid and cause node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_edd98a4a-a9be-4002-a435-9792bd157099?mode=deep",
+    "timestamp": "2026-01-10 03:18:14.888609",
+    "report_generated": false
   }
 ]
