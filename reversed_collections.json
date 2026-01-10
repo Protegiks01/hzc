@@ -20998,5 +20998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_631e92ff-b108-493b-8fcf-b75769726d1b?mode=deep",
     "timestamp": "2026-01-10 08:58:28.046089",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [URI validation] Can an attacker exploit the minimum URI length of 15 characters at line 63 by creating URIs like 'https://a.b/x' (exactly 15 chars) that are technically valid but too short to be meaningful, enabling griefing attacks with useless metadata? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6fda440d-e9c4-4594-a72b-20b2b73b0f21?mode=deep",
+    "timestamp": "2026-01-10 08:59:48.790542",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [URI validation] Does the validators.StringLengthInRange check at line 63 properly handle multi-byte UTF-8 characters? Can an attacker use Unicode characters to bypass the length check and create URIs that exceed MaxURILength (256) when counted in bytes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_481d6822-9293-4e0c-b457-812b3861cfe5?mode=deep",
+    "timestamp": "2026-01-10 09:00:01.257581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [URI validation] Can an attacker bypass the URI validation at line 62-76 by setting URI to an empty string while providing a non-empty URIHash, potentially causing metadata inconsistency where URIHash references non-existent URI data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_406261da-28a9-4085-9ee2-747464b6737c?mode=deep",
+    "timestamp": "2026-01-10 09:00:14.030742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Error message] Can an attacker use the error message format at line 57-58 that includes user-controlled MintingCap value to inject malicious content into logs or monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_05c09efa-a16e-4f39-94d7-a84a67dd36ee?mode=deep",
+    "timestamp": "2026-01-10 09:00:27.216343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Business logic] Does the validation ensure MintingCap is reasonable relative to system constraints? Can an attacker set MintingCap to 2^256-1 causing gas exhaustion when the keeper tries to iterate or calculate with such a large value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c679a8a2-a154-4f8e-be0f-e0eebf60018c?mode=deep",
+    "timestamp": "2026-01-10 09:00:42.231999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Integer validation] Can an attacker exploit the cosmosmath.Uint type by providing a MintingCap that appears positive in ValidateBasic() but becomes negative or zero after arithmetic operations in the keeper due to type conversion bugs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a88fc480-3c00-4c61-8e4a-3c9d96cdceaf?mode=deep",
+    "timestamp": "2026-01-10 09:00:57.334446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Integer validation] Does the validation at line 54 check if MintingCap is nil before calling GT()? Can an attacker cause a nil pointer dereference by constructing a message with an uninitialized MintingCap field? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d584093-382f-4c36-bf73-48cd3f04ae5a?mode=deep",
+    "timestamp": "2026-01-10 09:01:13.812856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Integer validation] Can an attacker exploit the MintingCap.GT(cosmosmath.ZeroUint()) check at line 54 by providing a MintingCap value that is exactly at the maximum Uint256 value, causing overflow when added to minted amounts in the keeper's minting logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8c2f3eb7-d673-4953-bbe8-2e6499f417fa?mode=deep",
+    "timestamp": "2026-01-10 09:01:32.004319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Denom construction] Can an attacker exploit the error handling at line 49-51 by causing GetTokenDenom to return a non-nil error that doesn't properly describe the validation failure, leading to confusing error messages that hide the actual attack vector? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b4f548f3-05f4-4d57-a45b-5c753ffe8f8e?mode=deep",
+    "timestamp": "2026-01-10 09:01:50.756062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Length validation] Does the validation properly handle the edge case where the full denom constructed at line 48 is exactly 128 characters (SDK maximum)? Can this cause off-by-one errors in downstream string operations that assume null-termination? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d3ce1891-003c-40e6-b8f7-6f70684d8f5b?mode=deep",
+    "timestamp": "2026-01-10 09:02:10.497616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Denom construction] Can an attacker cause GetTokenDenom to produce a denom that collides with IBC denoms (format: 'ibc/HASH') by carefully crafting the creator and subdenom to match the IBC denom pattern after concatenation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b37d29d-3c16-4586-ab1e-2580f2102026?mode=deep",
+    "timestamp": "2026-01-10 09:02:31.419818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Denom construction] Does GetTokenDenom at line 48 properly handle the case where creator contains the FactoryDenomDelimiterChar ('.')? The validation at denoms.go line 38 checks for this, but can an attacker bypass it by encoding the dot in a way that passes address validation but fails in string operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0000344-6cb4-4d01-8811-b67e7b362876?mode=deep",
+    "timestamp": "2026-01-10 09:02:52.959118",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Denom construction] Can an attacker exploit the GetTokenDenom call at line 48 by providing inputs that cause string concatenation to produce a denom matching reserved system denoms (like 'uzig'), bypassing the native denom protection in the keeper? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5e20d085-910b-44f6-83f2-f1d9eda7048f?mode=deep",
+    "timestamp": "2026-01-10 09:03:15.287247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [SubDenom validation] Does the validation at line 43 prevent subdenom values that could be interpreted as numeric pool IDs (e.g., 'zp123'), potentially causing confusion with DEX pool denoms and enabling denom impersonation attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7ad7887-ebb5-4337-8137-47f28a3640ec?mode=deep",
+    "timestamp": "2026-01-10 09:03:39.135933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [SubDenom validation] Can an attacker exploit the lowercase-only requirement in CheckSubDenomString by creating a subdenom that matches an existing denom when case-folded, leading to denom confusion in case-insensitive UI or external systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_85f26e71-bf38-4602-bd62-6be837c74857?mode=deep",
+    "timestamp": "2026-01-10 09:04:02.292702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [SubDenom validation] Can an attacker use a subdenom containing null bytes (\\\\x00) that passes CheckSubDenomString() but gets truncated in C-based FFI calls or string operations, creating denoms that appear different in different contexts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_26aec1af-98ce-4ce2-ad55-3a19217c949a?mode=deep",
+    "timestamp": "2026-01-10 09:04:26.205553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [SubDenom validation] Does CheckSubDenomString at line 43 properly validate against SQL injection patterns or special shell characters that could be exploited if the denom string is used in external systems or logging without proper escaping? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_867eab3e-4000-4c68-8f6c-139ce3425e58?mode=deep",
+    "timestamp": "2026-01-10 09:04:51.298682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [SubDenom validation] Can an attacker exploit the validators.CheckSubDenomString() at line 43 by using a subdenom that is exactly at the MaxSubDenomLength boundary (44 characters), combined with a maximum-length creator address, to create a full denom that exceeds the 128-character SDK limit and causes panic in downstream operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f506a7a-2639-452a-a8e7-8ca7ff5ab9c2?mode=deep",
+    "timestamp": "2026-01-10 09:05:15.417337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Address validation] Does the validation properly reject addresses with trailing/leading whitespace that could pass ValidateBasic() but cause string comparison failures in the keeper when checking denom existence? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_885b6f12-fb0f-4756-8ff4-438114b41da0?mode=deep",
+    "timestamp": "2026-01-10 09:05:40.385084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Address validation] Can an attacker bypass the creator validation by using a module account address (e.g., factory module address) as the creator, allowing them to create denoms that appear to be system-generated and potentially exploit admin privileges? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7780109-8879-42f1-9fa0-55edcd5d83a8?mode=deep",
+    "timestamp": "2026-01-10 09:06:06.595236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Address validation] Does the SignerCheck validation at line 38 properly handle addresses with Unicode characters or homograph attacks that could create visually identical but distinct denoms, leading to denom collision attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a8f739ef-c0e9-43df-bf25-fd68f88e8f46?mode=deep",
+    "timestamp": "2026-01-10 09:06:32.606845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: ValidateBasic()] [Address validation] Can an attacker exploit the validators.SignerCheck() at line 38 by crafting a Bech32 address with valid checksum but invalid HRP (human-readable part) that passes SignerCheck but fails in GetTokenDenom(), causing inconsistent validation between message and keeper layers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e03c33a7-ae0e-4c02-8e55-79e746a40184?mode=deep",
+    "timestamp": "2026-01-10 09:06:59.120040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: NewMsgCreateDenom()] [Type confusion] Can an attacker cast a negative cosmosmath.Int to cosmosmath.Uint for the mintingCap parameter, bypassing the zero check in ValidateBasic() and creating a denom with an invalid minting cap that wraps around to a very large positive value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d83f4707-c2aa-4d84-9bf5-5df1d3d0604d?mode=deep",
+    "timestamp": "2026-01-10 09:07:26.424508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: NewMsgCreateDenom()] [Parameter manipulation] Can an attacker exploit the constructor by passing extremely large cosmosmath.Uint values for mintingCap that cause integer overflow when combined with already minted tokens in the keeper, potentially bypassing minting cap enforcement? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ceac6984-dddf-45f4-b28a-ca582d8932f0?mode=deep",
+    "timestamp": "2026-01-10 09:07:53.089825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/msg_create_denom.go] [Function: NewMsgCreateDenom()] [Memory safety] Does NewMsgCreateDenom() perform deep copies of the input strings (creator, subDenom, uri, uriHash), or can an attacker modify these strings after message creation to bypass later validation checks, leading to state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd707c35-81df-44b9-853c-9a6c579b000b?mode=deep",
+    "timestamp": "2026-01-10 09:08:21.115519",
+    "report_generated": false
   }
 ]
