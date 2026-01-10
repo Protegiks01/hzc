@@ -26548,5 +26548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_762ea949-27b5-45e4-aadb-3a4d115a8c20?mode=deep",
     "timestamp": "2026-01-10 14:56:10.399279",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Return Value Trust] If the MsgProposeDenomAdminResponse contains different values than what was stored in SetProposedDenomAuth, can this cause confusion in client applications about the actual proposed admin? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_180c6ec8-212f-4f00-a1c5-f3b114923058?mode=deep",
+    "timestamp": "2026-01-10 14:57:31.895049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Response Integrity] Can the response returned at lines 63-67 be manipulated or spoofed to make clients believe a different admin was proposed than what was actually stored at line 58? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c17de1c-c2e3-4ce0-b1eb-95b6fec1787d?mode=deep",
+    "timestamp": "2026-01-10 14:57:44.166170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Transaction Isolation] Are transactions properly isolated when multiple ProposeDenomAdmin calls for different denoms execute concurrently, or can they interfere with each other's KVStore operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f55eddc7-3f3e-4997-a367-79d0acf5c8c0?mode=deep",
+    "timestamp": "2026-01-10 14:57:57.229425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Scope Confusion] If the msgServer has multiple methods executing concurrently, can race conditions in the keeper state cause ProposeDenomAdmin to operate on stale data from GetDenomAuth at line 19? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f6dbadc-3b52-4e48-b219-976369faf92b?mode=deep",
+    "timestamp": "2026-01-10 14:58:10.509454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Context Leak] Does the sdk.UnwrapSDKContext call at line 16 properly isolate context between concurrent transaction processing, or can context leakage cause information disclosure between transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ee40d0c3-1227-44bc-9fe5-9d290d3f7517?mode=deep",
+    "timestamp": "2026-01-10 14:58:24.175354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Gas Manipulation] Can an attacker manipulate gas estimates for ProposeDenomAdmin transactions to cause legitimate transactions to fail due to insufficient gas while their own succeed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9cd26788-3d5c-44be-8b32-d3380987ca46?mode=deep",
+    "timestamp": "2026-01-10 14:58:38.811935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Storage Cost] Does the SetProposedDenomAuth call at line 58 properly account for storage costs, or can an attacker exploit underpriced storage to bloat the state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e23aa2c2-cb69-4dc6-b15f-1dc3fcb5b607?mode=deep",
+    "timestamp": "2026-01-10 14:58:54.273351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Economic Attack] If there's no fee for proposing admin changes, can an attacker spam proposals to manipulate gas prices or network congestion for their benefit? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a9532bf5-dd3f-45ed-b298-5a1f6e950148?mode=deep",
+    "timestamp": "2026-01-10 14:59:11.757300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Gas Griefing] Can an attacker repeatedly call ProposeDenomAdmin with valid parameters but no intention to claim, wasting gas and resources while exploiting lack of proposal fees or rate limiting? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a79c6ed1-4b6c-42a2-aa78-09a895199c01?mode=deep",
+    "timestamp": "2026-01-10 14:59:29.733462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Attribute Injection] Can an attacker inject malicious data into event attributes by exploiting how the EmitDenomAuthProposed function handles the proposedDenomAuth struct fields? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_530bb8b3-a96a-4f9c-a0e8-5f3a8106f209?mode=deep",
+    "timestamp": "2026-01-10 14:59:48.691233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Event Replay] Can the EventDenomAuthProposed event emitted at line 61 be replayed or spoofed to confuse off-chain systems about the actual proposed admin? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0359b27c-722d-456c-9822-42e58ac041aa?mode=deep",
+    "timestamp": "2026-01-10 15:00:08.803908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Monitoring Bypass] Can an attacker bypass monitoring systems that watch for admin changes by rapidly proposing and overwriting proposals before they're detected? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_51de2ff6-cdbc-4778-bb3e-0b1fb74e19df?mode=deep",
+    "timestamp": "2026-01-10 15:00:30.347993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Event Parsing] Can an attacker craft event attributes that exploit parsing vulnerabilities in off-chain indexers by including special characters in the BankAdmin or MetadataAdmin fields? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86c9570b-b56b-47ba-89e5-5beb90cd98b9?mode=deep",
+    "timestamp": "2026-01-10 15:00:52.449644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Event Integrity] If the event emission at line 61 fails or is suppressed, will the proposal still be stored at line 58, causing off-chain systems to be unaware of admin changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1314976c-c186-4043-842c-b16afa8950af?mode=deep",
+    "timestamp": "2026-01-10 15:01:15.287819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Multi-sig Attack] If the current admin is a multi-sig address, can individual signers propose different admins creating multiple conflicting proposals that overwrite each other? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_75914bad-4cff-4aac-955d-4757ec41e319?mode=deep",
+    "timestamp": "2026-01-10 15:01:38.916337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Transfer Finality] Is there a time lock or delay mechanism between proposal and claim, or can the new admin claim immediately after proposal at line 58, enabling instant admin transfers without governance oversight? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_21acc645-73b6-4362-a73c-80b01e7e86ae?mode=deep",
+    "timestamp": "2026-01-10 15:02:02.760577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Social Engineering] Can an attacker social engineer the current admin to propose a malicious address by providing a legitimate-looking address that's actually controlled by the attacker? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b96ea161-1a0e-4e86-84b0-326499088ffe?mode=deep",
+    "timestamp": "2026-01-10 15:02:27.585748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Ownership Lock] If the proposed admin address loses their private keys before claiming, is there a recovery mechanism or will the denom be permanently locked since the proposal can't be changed by anyone else? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0dca5b2e-5649-4b21-b8d5-1bb79c4e01d4?mode=deep",
+    "timestamp": "2026-01-10 15:02:52.595473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Admin Transfer] Can a malicious current admin propose themselves as the new admin with a different MetadataAdmin, bypassing the duplicate check at line 42 and creating a confusing state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_45bfcb00-6508-4137-b5b3-3d292f0d03ae?mode=deep",
+    "timestamp": "2026-01-10 15:03:16.575158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Historical State] Does the function properly maintain historical state for governance auditing, or can an attacker cover their tracks by overwriting proposals at line 58 before they're claimed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c5acf5d-f38f-4b97-a5d4-01763cb8801c?mode=deep",
+    "timestamp": "2026-01-10 15:03:40.044521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [State Machine] Can the denom auth state machine be exploited by rapidly alternating between ProposeDenomAdmin and DisableDenomAdmin calls, creating an inconsistent state where proposals exist for disabled admins? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8412b6b7-07f0-49c1-956b-fa2c83081bfa?mode=deep",
+    "timestamp": "2026-01-10 15:04:03.731930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Rollback Safety] If the transaction needs to be rolled back after SetProposedDenomAuth() at line 58 due to a downstream error, is there proper cleanup of the proposed state or will orphaned proposals remain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4fc4aa8f-c137-4dd8-b9df-27e3f9a1b8f9?mode=deep",
+    "timestamp": "2026-01-10 15:04:27.610470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [State Consistency] If a validator crashes after SetProposedDenomAuth() at line 58 but before the transaction commits, can this cause state inconsistency where some nodes have the proposal and others don't? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0db0e240-15f8-41f8-a27d-af2b002f00aa?mode=deep",
+    "timestamp": "2026-01-10 15:04:50.318083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [State Transition] During the window between proposal (line 58) and claim, can the current admin perform malicious actions knowing they will lose admin rights, such as minting maximum tokens or changing critical parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_df972913-3c99-4a7d-aadf-89bc8d463fde?mode=deep",
+    "timestamp": "2026-01-10 15:05:13.607325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_propose_denom_admin.go] [Function: ProposeDenomAdmin()] [Whitespace Attack] Can an attacker add leading/trailing whitespace to BankAdmin address that passes validation at line 37 but causes string comparison mismatch at line 42, allowing duplicate proposals? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_28a066d0-6e3a-4528-a058-1f93d4788dd7?mode=deep",
+    "timestamp": "2026-01-10 15:05:36.757449",
+    "report_generated": false
   }
 ]
