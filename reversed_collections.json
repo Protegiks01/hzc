@@ -16798,5 +16798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4bf73285-35a4-474b-987f-a8429589c5ae?mode=deep",
     "timestamp": "2026-01-10 04:14:31.596806",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Proto version lock] Does the Migrator validate proto descriptor versions between LegacyDenom and Denom, or can proto breaking changes cause unmarshal failures during V2Migration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d3bef29-72ee-46a4-ab06-afcea898ab98?mode=deep",
+    "timestamp": "2026-01-10 04:15:46.661390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Re-execution safety] If a chain upgrade is attempted twice due to validator coordination issues, does the Migrator detect already-migrated state to prevent double-migration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_697bc599-7956-487a-8f04-111547375cd1?mode=deep",
+    "timestamp": "2026-01-10 04:15:59.265816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Rollback support] If V2Migration fails mid-execution, does the Migrator design allow rollback to v1 state, or is the chain permanently broken? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d6b156d-6a8f-48d5-819b-7f4d8f599c5c?mode=deep",
+    "timestamp": "2026-01-10 04:16:11.935390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Version skipping] Can the Migrator handle direct upgrades from v0 to v2, or does it require v1 intermediate state causing migration failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d2241878-8f21-4db9-81e8-9c51fb98f5c4?mode=deep",
+    "timestamp": "2026-01-10 04:16:25.952744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Iterator bounds] Does the Migrator enforce maximum iteration counts during V2Migration to prevent unbounded loops if legacy denom store is corrupted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a49d5cb9-5d7f-469f-8e2c-b89eb9d8c0d3?mode=deep",
+    "timestamp": "2026-01-10 04:16:40.215046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Memory consumption] If GetAllLegacyDenom() returns millions of denoms, does the Migrator have memory limits to prevent OOM during V2Migration execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_989f1ea5-3e2b-4728-87b3-44b27c8d7c22?mode=deep",
+    "timestamp": "2026-01-10 04:16:55.409680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Gas metering] Does NewMigrator() consume gas, or can an attacker create unlimited Migrator instances during initialization to exhaust chain resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b69be6b9-a0d9-4dea-8b32-a484821b0e72?mode=deep",
+    "timestamp": "2026-01-10 04:17:12.189044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Block height dependency] Does the Migrator execution depend on block height or timestamp, potentially causing validators at different heights to have divergent migration outcomes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1022bbb6-6c47-4b12-8bad-728ce0074833?mode=deep",
+    "timestamp": "2026-01-10 04:17:29.705293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Non-deterministic state] Can differences in keeper initialization across validators cause NewMigrator() to produce different Migrator instances, leading to consensus failures during upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2139a0f8-b12d-4ddc-86a7-6a4e730ab0f5?mode=deep",
+    "timestamp": "2026-01-10 04:17:48.270527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Deterministic execution] Does the Migrator guarantee deterministic iteration order when V2Migration processes GetAllLegacyDenom() results across all validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48ff28b5-e8ce-4f90-a2a8-317ced3e28d9?mode=deep",
+    "timestamp": "2026-01-10 04:18:08.373131",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Runtime injection] Can depinject framework issues during app initialization allow injection of a malicious keeper into NewMigrator(), bypassing security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf6dcd75-b971-49ca-9849-946235d01517?mode=deep",
+    "timestamp": "2026-01-10 04:18:28.678180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Keeper authority] If the keeper's authority field is misconfigured during Migrator creation, can this allow non-governance addresses to modify migrated denom parameters post-migration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_13bffcfb-f749-4446-9d1e-df4784bef2e5?mode=deep",
+    "timestamp": "2026-01-10 04:18:50.351884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Migration authority] Does NewMigrator() verify that only the governance module can trigger migrations, or can unauthorized callers execute V2Migration by creating their own Migrator? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b0b27ec2-8049-443e-8e94-f528a2fc002f?mode=deep",
+    "timestamp": "2026-01-10 04:19:12.650132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Field mapping accuracy] When V2Migration maps maxSupply→minting_cap and canChangeMaxSupply→can_change_minting_cap, can precision loss or type conversion errors cause security violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9b37e512-8031-4b7b-8899-0d2d8116ea00?mode=deep",
+    "timestamp": "2026-01-10 04:19:35.406454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Supply conservation] Does the Migrator validate that total supply across all denoms is conserved during V2Migration, or can minting_cap/minted field mappings cause token inflation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3bc66a32-8157-4df5-8c3b-a0b41a924ee8?mode=deep",
+    "timestamp": "2026-01-10 04:19:59.389558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Atomic migration] Does the Migrator ensure that all legacy denoms are migrated atomically, or can partial migrations leave the chain in an inconsistent state with mixed legacy/new denoms? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_11b36040-a77f-4357-9e58-db4dc308e88d?mode=deep",
+    "timestamp": "2026-01-10 04:20:23.637766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [TokenWrapper coordination] Can the Migrator's V2Migration execution interfere with TokenWrapper IBC middleware operations if cross-chain transfers occur during upgrade? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_42fc54f4-c7d9-47b7-bb38-2b47b161718d?mode=deep",
+    "timestamp": "2026-01-10 04:20:48.838151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [DEX module coordination] If DEX pools reference legacy denom names, does the Migrator coordinate with the DEX module to update pool references during V2Migration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b73ab4ee-bfc2-4226-b3e7-4d10b6e6a77c?mode=deep",
+    "timestamp": "2026-01-10 04:21:16.197357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Bank module integration] Does the Migrator validate that migrated denoms are properly registered with the bank module, or can V2Migration create denoms that the bank module doesn't recognize? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f8c0c7a4-a07b-445e-bbb4-3662a4627ee2?mode=deep",
+    "timestamp": "2026-01-10 04:21:44.071135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Dual admin handling] When MigrateAdminDenomAuthList() adds both BankAdmin and MetadataAdmin to indices, can the Migrator detect duplicate denom entries that could allow admin privilege escalation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b1c6b151-5c04-45bf-a7bd-dc1307e264e2?mode=deep",
+    "timestamp": "2026-01-10 04:22:14.224112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Admin index safety] If keeper.MigrateAdminDenomAuthList() partially completes, can the Migrator detect and rollback to prevent inconsistent admin→denom mappings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94f643ab-b3ca-4211-b67a-9ea92b403031?mode=deep",
+    "timestamp": "2026-01-10 04:22:39.486461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Error suppression] Does the Migrator validate that keeper.MigrateAdminDenomAuthList() completes successfully, or can the #nosec G104 comment allow admin index corruption to go undetected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20e717da-5a6a-4a4a-b5e4-39d16b0ae50e?mode=deep",
+    "timestamp": "2026-01-10 04:23:05.590193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Unmarshal safety] Since GetAllLegacyDenom() uses MustUnmarshal, can malformed legacy denom data cause the Migrator to panic during migration, halting the chain upgrade? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1c211580-49dd-4845-82c1-dd3ebfe98ea4?mode=deep",
+    "timestamp": "2026-01-10 04:23:31.338925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Store access] Can an attacker create a Migrator with a keeper that has read-only store access, causing V2Migration to fail silently without writing migrated denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_afbc6bff-1da2-4871-8aa2-005479f2b8a8?mode=deep",
+    "timestamp": "2026-01-10 04:23:57.765843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Struct: Migrator] [Iterator safety] When V2Migration() calls keeper.GetAllLegacyDenom(), does the Migrator ensure iterator closure on panic, or can leaked iterators cause memory exhaustion during upgrade? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1deba5da-b2a2-4126-a5e5-8c837a396198?mode=deep",
+    "timestamp": "2026-01-10 04:24:23.370642",
+    "report_generated": false
   }
 ]
