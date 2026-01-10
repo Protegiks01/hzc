@@ -20548,5 +20548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c9f2aca-d997-4e67-908a-1b3f81629de3?mode=deep",
     "timestamp": "2026-01-10 19:47:38.028377",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Math] [Uint Overflow] At line 24, converting sdk.Coin.Amount to cosmosmath.Uint - can this overflow if Amount exceeds Uint capacity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14cef50e-e381-49df-8bc6-45a9377b36c6?mode=deep",
+    "timestamp": "2026-01-10 19:49:05.880507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_denom_all.go] [Math] [Subtraction Underflow] At line 25, denom.Minted.Sub() is called. If the subtraction would underflow, does it panic or return an incorrect value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0f36ef4c-2b2d-4a48-9bc5-b3432e3bd5f0?mode=deep",
+    "timestamp": "2026-01-10 19:49:18.314281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [Key collision] Can an attacker craft a denom name containing '/' characters that collides with the DenomAuthKey delimiter, allowing overwrite of other denoms' authorization data and leading to unauthorized admin access? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_38e13226-da44-4cec-8133-0158052f7aed?mode=deep",
+    "timestamp": "2026-01-10 19:49:31.272634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [State inconsistency] Does SetDenomAuth validate that the denomAuth.Denom field matches the key being stored, or can an attacker create a mismatch where the stored key points to authorization for a different denom, causing admin confusion and potential privilege escalation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_16c5bc9f-438d-4a98-84c8-79a27ffbba8e?mode=deep",
+    "timestamp": "2026-01-10 19:49:44.435079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [Empty string bypass] Can an attacker call SetDenomAuth with empty BankAdmin and MetadataAdmin strings to bypass admin validation checks in other functions that assume non-empty admins, leading to unauthorized token operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c3ea4b50-52ef-4d43-ae0b-67792e93997e?mode=deep",
+    "timestamp": "2026-01-10 19:49:58.140647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [Nil context] If ctx is nil when OpenKVStore is called, does the function panic causing validator crashes, or does it handle the error gracefully? Can Byzantine validators exploit this to cause consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_480a430a-4584-4850-89bd-2b4b816f1bea?mode=deep",
+    "timestamp": "2026-01-10 19:50:13.282566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [Serialization overflow] Can an attacker provide a DenomAuth struct with extremely long Denom, BankAdmin, or MetadataAdmin strings causing MustMarshal to consume excessive memory and crash validators via DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_78515251-1d59-4afc-957c-f2c178ddb371?mode=deep",
+    "timestamp": "2026-01-10 19:50:29.035005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [Store prefix manipulation] Can an attacker craft a denom name that when combined with DenomAuthKeyPrefix creates a key collision with ProposedDenomAuthKeyPrefix or AdminDenomAuthKeyPrefix stores, causing cross-store corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_20feaf28-19e7-47a4-9a20-e936037ce09f?mode=deep",
+    "timestamp": "2026-01-10 19:50:47.053241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [Race condition] If two transactions call SetDenomAuth for the same denom simultaneously in the same block, is there a race condition that could result in one admin overwriting another without proper authorization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cf30a00c-d921-42fc-9bf1-65236b9972fd?mode=deep",
+    "timestamp": "2026-01-10 19:51:05.297633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [Invalid address storage] Does SetDenomAuth validate that BankAdmin and MetadataAdmin are valid bech32 addresses before storage, or can malformed addresses be stored causing failures in downstream operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a80ec54c-5d8b-4095-b161-caa33316e44b?mode=deep",
+    "timestamp": "2026-01-10 19:51:25.045185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [MustMarshal panic] If the codec MustMarshal panics due to an invalid DenomAuth structure, will the panic propagate and crash the validator, or is it caught? Can attackers trigger this via maliciously crafted denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_864a9b94-7906-44fe-aaf0-da9eb8c62cc1?mode=deep",
+    "timestamp": "2026-01-10 19:51:45.239753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetDenomAuth()] [Store adapter failure] If runtime.KVStoreAdapter fails to open the store, does the function continue with a nil store causing silent data corruption, or does it error appropriately? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a672150-b0f7-4d20-9926-495a8f279049?mode=deep",
+    "timestamp": "2026-01-10 19:52:07.001941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Empty denom bypass] At line 39, if val.Denom is empty string, the function returns found=false, but could an attacker exploit this by querying with empty denom to bypass authorization checks in calling functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc50db4a-a83c-46e3-9f9b-018ca3874895?mode=deep",
+    "timestamp": "2026-01-10 19:52:29.016411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Nil byte handling] At line 33, if store.Get returns nil, the function returns found=false. Can an attacker exploit the difference between 'not found' and 'found with empty data' to cause state confusion in admin transfer operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_467e30f0-0a16-432d-8ed0-013fea00715c?mode=deep",
+    "timestamp": "2026-01-10 19:52:52.749915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Unmarshal corruption] At line 37, MustUnmarshal could panic if the stored bytes are corrupted. Can a Byzantine validator write corrupted data to cause validator crashes when other validators try to read it? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0b3e702e-92b2-4c36-aae7-999ad696de0f?mode=deep",
+    "timestamp": "2026-01-10 19:53:17.403716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Key collision read] Can an attacker craft a denom query that uses the '/' delimiter to read authorization data for a different denom, bypassing intended access controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_40009c56-41d1-4f16-aeff-d72c4b29a194?mode=deep",
+    "timestamp": "2026-01-10 19:53:42.532813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Prefix store collision] Does the prefix.NewStore at line 28 properly isolate DenomAuth entries, or can it accidentally read from ProposedDenomAuth or AdminDenomAuth stores if keys overlap? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b929dd63-e1bd-4189-8300-5aaccf871deb?mode=deep",
+    "timestamp": "2026-01-10 19:54:08.751986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Cache poisoning] If the KVStore is cached, can an attacker query non-existent denoms repeatedly to fill the cache with 'not found' entries, degrading performance for legitimate queries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3a542b6-a37c-4603-83ce-1805fb8d7d2f?mode=deep",
+    "timestamp": "2026-01-10 19:54:35.400113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Deserialization DoS] Can an attacker store a DenomAuth with maliciously crafted protobuf bytes that cause MustUnmarshal to consume excessive CPU during deserialization, creating a DoS vector? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db121ad8-2cc0-48b4-b3d7-52bd9b4c43d2?mode=deep",
+    "timestamp": "2026-01-10 19:55:02.507484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Address validation bypass] Does GetDenomAuth validate that returned BankAdmin and MetadataAdmin are valid addresses, or can corrupted data return invalid addresses that break downstream validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9afded0a-6e03-4ddf-bd20-b2729a0c3bc6?mode=deep",
+    "timestamp": "2026-01-10 19:55:28.933931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Unicode normalization] Can an attacker use Unicode normalization attacks in denom names (e.g., multiple representations of the same visual string) to bypass GetDenomAuth checks while accessing the wrong authorization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a76d0331-c3b9-447f-9f80-7eaa57ff1d1b?mode=deep",
+    "timestamp": "2026-01-10 19:55:54.757979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: GetDenomAuth()] [Case sensitivity] Are denom names case-sensitive? Can an attacker create 'MyDenom' and 'mydenom' as separate authorizations, then exploit case confusion in other modules to bypass admin checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a650198-c783-48a3-b793-2408c771246f?mode=deep",
+    "timestamp": "2026-01-10 19:56:20.697249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Proposal override] Can an attacker call SetProposedDenomAuth multiple times to override a legitimate admin proposal with their own address before the legitimate admin can claim, enabling admin theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2d68f8c4-03f1-43d8-833e-9abde0aa955f?mode=deep",
+    "timestamp": "2026-01-10 19:56:45.378281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [Missing validation] Does SetProposedDenomAuth validate that the proposed BankAdmin exists and differs from the current admin, or can it store duplicate/invalid proposals that break the claim process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a515bc52-1361-405f-ade8-5b6f472d70e0?mode=deep",
+    "timestamp": "2026-01-10 19:57:10.416201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/denom_auth.go] [Function: SetProposedDenomAuth()] [State desync] If SetProposedDenomAuth is called without updating the main DenomAuth store, can this cause state desynchronization between current and proposed admins, leading to authorization confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_27a038cc-9f74-409c-924b-aa6ef9c49081?mode=deep",
+    "timestamp": "2026-01-10 19:57:35.631046",
+    "report_generated": false
   }
 ]
