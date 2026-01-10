@@ -26248,5 +26248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e688a3a5-b857-4a64-9805-2508e74add93?mode=deep",
     "timestamp": "2026-01-10 14:37:19.850986",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Censorship attack] Can a cartel of validators (up to 1/3 Byzantine threshold) consistently reject ClaimDenomAdmin transactions for specific denoms while allowing their own claims, effectively capturing admin rights for valuable denoms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a627d714-7a16-4c32-869a-48790ed5ae95?mode=deep",
+    "timestamp": "2026-01-10 14:38:38.876349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Griefing attack] Since there's no expiration on proposals (line 40 retrieval has no time check), can an attacker propose admin transfers for all high-value denoms to addresses they control, then never claim them, permanently preventing legitimate admin transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66c82028-745e-45ac-b40e-513de07dd271?mode=deep",
+    "timestamp": "2026-01-10 14:38:51.480418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [MEV extraction] Can a validator observe a pending ClaimDenomAdmin transaction in the mempool and front-run it by first calling ProposeDenomAdmin to overwrite the proposal with their own address, then claiming admin rights before the original transaction executes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f99ab7b9-104e-4dc7-8c4a-a7211a411696?mode=deep",
+    "timestamp": "2026-01-10 14:39:04.215600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Concurrent proposal deletion] At line 67, DeleteProposedDenomAuth removes the proposal. If another goroutine is simultaneously reading the proposal (e.g., in a query handler), can this cause the reader to get a partial or corrupted proposal structure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84b43a3c-31c0-42d6-8d8c-f11b3808a25c?mode=deep",
+    "timestamp": "2026-01-10 14:39:17.545671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Response data validation] At lines 80-82, the response only includes the denom but not the new admin addresses. Can this enable client-side race conditions where the response is received but subsequent queries show old admin due to state lag? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5495dab1-d45b-4aea-950b-2f575c9a06f6?mode=deep",
+    "timestamp": "2026-01-10 14:39:31.361240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Event emission timing] At line 78, the event is emitted after all state changes. If a validator crashes immediately after emission but before committing the block, can the event be logged while state changes are lost, causing indexers to show incorrect admin state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf1f5e20-8be0-41cc-b633-ceb4ee646eee?mode=deep",
+    "timestamp": "2026-01-10 14:39:46.568402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Admin self-removal] At lines 70-71, if currentDenomAuth.BankAdmin equals currentDenomAuth.MetadataAdmin, RemoveDenomFromAdminDenomAuthList is called twice for the same address. Can this cause the second removal to fail silently or panic if the entry was already deleted? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a8e3c13-6b19-4cbe-b4f6-a1ab7d4e2dde?mode=deep",
+    "timestamp": "2026-01-10 14:40:02.465391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Transaction determinism] At line 15, sdk.UnwrapSDKContext provides the context. If different validators unwrap different contexts with varying block times or heights, can this cause non-deterministic admin claim outcomes and consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a9c61c9-b3de-4623-91fc-75e739c8ce90?mode=deep",
+    "timestamp": "2026-01-10 14:40:20.042826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Empty proposal handling] If proposedAdmin at line 40 has found=true but all fields are empty strings, the check at line 50 would compare empty strings. Can this allow anyone to claim admin for denoms with malformed proposals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0725cac6-1d8f-4713-8fac-34d17ca3a69f?mode=deep",
+    "timestamp": "2026-01-10 14:40:38.627335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [String comparison vulnerability] At line 50, comparing msg.Signer to proposedAdmin.BankAdmin uses string equality. Can an attacker exploit Unicode normalization differences (e.g., NFC vs NFD) to bypass the check with visually identical but byte-different addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9720e47c-a10a-409d-831c-818b5f795e62?mode=deep",
+    "timestamp": "2026-01-10 14:40:58.496525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Panic recovery gap] If RemoveDenomFromAdminDenomAuthList at line 70 panics due to store corruption, will the panic propagate and rollback all state changes, or can the SetDenomAuth at line 64 persist while admin lists remain inconsistent? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b3c8ed9b-7702-4a8e-8b30-7c5cf60092bc?mode=deep",
+    "timestamp": "2026-01-10 14:41:19.401971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Nil pointer dereference] At line 50, msg.Signer is compared to proposedAdmin.BankAdmin. If GetProposedDenomAuth at line 40 returns a zero-value DenomAuth with found=true but nil internal fields, can this cause a panic when accessing BankAdmin? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_31bd0d02-c313-48a9-9796-1afae83e422a?mode=deep",
+    "timestamp": "2026-01-10 14:41:40.866282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Error message leakage] At lines 23-27, the error message reveals the exact denom name in ErrDenomAuthNotFound. Can an attacker use this to enumerate all existing denoms by trying claims and analyzing error messages, enabling targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80e16433-9290-46fa-b009-66c907f5027a?mode=deep",
+    "timestamp": "2026-01-10 14:42:04.109692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Denom name collision] At line 59, claimedDenomAuth.Denom is set from msg.Denom without validation against factory subdenom format. Can an attacker claim admin rights for IBC denoms or native denoms that don't follow factory naming conventions, bypassing intended access controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_68d9222d-b109-44e3-945d-2a9feda44008?mode=deep",
+    "timestamp": "2026-01-10 14:42:27.227481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Event data injection] At line 78, EmitDenomAuthClaimed receives the claimedDenomAuth pointer. Can modifications to this struct after emission (though none occur) or concurrent access cause event data to be corrupted or reveal sensitive state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ae62b95-dfee-4345-85ec-a480a091d39e?mode=deep",
+    "timestamp": "2026-01-10 14:42:50.355239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Historical data loss] After line 67 deletes the proposal, there's no audit trail of who the proposer was. Can this enable insider threats where admins claim denoms and later deny proposing the transfer, making dispute resolution impossible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a9df8e3-8e65-4621-9414-56722ca4fc40?mode=deep",
+    "timestamp": "2026-01-10 14:43:13.559838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Admin list key overflow] If admin addresses at lines 70-75 are maximum length and denoms are also maximum length, can the combined key size in AddDenomToAdminDenomAuthList exceed KVStore key length limits, causing silent write failures or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_563de78e-6226-42c1-980b-7be9b591eed2?mode=deep",
+    "timestamp": "2026-01-10 14:43:37.826798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Proposal cache poisoning] At line 40, GetProposedDenomAuth reads from ProposedDenomAuthKeyPrefix. If the KVStore uses caching, can an attacker exploit cache timing to observe proposed admins before they're officially retrieved, enabling front-running attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_90cb0a98-f82e-4d4d-85d2-fb17c4b07fde?mode=deep",
+    "timestamp": "2026-01-10 14:44:02.763461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Iterator corruption] If RemoveDenomFromAdminDenomAuthList at lines 70-71 is called while another goroutine is iterating over the admin's denom list (e.g., in a query), can this cause iterator invalidation panics that crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84d9b7da-a4de-44fb-94ab-16bf95d98cd4?mode=deep",
+    "timestamp": "2026-01-10 14:44:27.613200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Admin list memory leak] At lines 73-75, AddDenomToAdminDenomAuthList adds entries but lines 70-71 only remove from old admins. If BankAdmin and MetadataAdmin are the same address, does this cause net growth in admin list entries over repeated claims, eventually exhausting storage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4b0ca117-8b4d-447e-b1d0-864349acae3f?mode=deep",
+    "timestamp": "2026-01-10 14:44:49.652507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Store key injection] At line 67, DeleteProposedDenomAuth uses msg.Denom as the key. Can an attacker submit a msg.Denom containing store prefix bytes or special characters that cause the delete operation to remove unrelated proposed admins or corrupt the ProposedDenomAuthKeyPrefix namespace? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc2b90a2-f04d-4939-9a37-7c191ce455ce?mode=deep",
+    "timestamp": "2026-01-10 14:45:12.307487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Marshaling manipulation] The SetDenomAuth call at line 64 uses protobuf marshaling internally. Can an attacker craft proposedAdmin values with malicious protobuf encoding that causes unmarshaling errors in subsequent GetDenomAuth calls, effectively DoSing all operations on that denom? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a5cff054-51ae-4771-99ea-cb84c2ff14aa?mode=deep",
+    "timestamp": "2026-01-10 14:45:35.223580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [KVStore corruption] At line 64, SetDenomAuth directly writes to the store without validating that claimedDenomAuth.Denom matches msg.Denom. Can an attacker manipulate the claimedDenomAuth struct to write admin data to an incorrect denom key, corrupting the denom authorization mappings? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_62d12fb3-7313-406b-809c-9ad1c7a82c76?mode=deep",
+    "timestamp": "2026-01-10 14:45:57.937598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Proposal overwrite] Between ProposeDenomAdmin creating a proposal and ClaimDenomAdmin at line 40 retrieving it, can the current admin call ProposeDenomAdmin again to overwrite the proposal with a different address, causing the original proposed admin to lose their claim opportunity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_81602d29-de08-40c3-9f04-2a6bbc6e0ef7?mode=deep",
+    "timestamp": "2026-01-10 14:46:18.480953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/msg_server_claim_denom_admin.go] [Function: ClaimDenomAdmin()] [Locked denom bypass] At line 31, the function checks if currentDenomAuth.BankAdmin is empty to detect locked denoms. Can an attacker exploit a race between DisableDenomAuth locking and ClaimDenomAdmin execution to claim admin rights after the denom should be permanently locked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2ef732e-0d10-4cc6-82e5-6ed8d3143968?mode=deep",
+    "timestamp": "2026-01-10 14:46:39.533852",
+    "report_generated": false
   }
 ]
