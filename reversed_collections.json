@@ -29698,5 +29698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c862cb3d-4045-421d-9ce8-fdd13ad1dd7e?mode=deep",
     "timestamp": "2026-01-10 18:39:03.028682",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Context isolation] Can concurrent query requests exploit race conditions in the sdk.UnwrapSDKContext() operation at line 17, causing one query to read parameters from another query's context, leading to information disclosure across validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_43f5f559-6320-48f8-9f24-6182ad60e038?mode=deep",
+    "timestamp": "2026-01-10 18:40:37.964063",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Context manipulation] Does the context unwrapping at line 17 validate that the goCtx contains a legitimate SDK context, or can an attacker pass a crafted context.Context implementation that causes UnwrapSDKContext to return a corrupted SDK context with manipulated block height, chain ID, or gas meter? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff6af374-7541-4ef2-bc04-dda524f0e09e?mode=deep",
+    "timestamp": "2026-01-10 18:40:50.634304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Context unwrapping] Can an attacker exploit the sdk.UnwrapSDKContext() call at line 17 to inject a malicious context that bypasses store access controls, allowing unauthorized reading of parameter data from other modules or hidden state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_eae00392-3468-4c6b-b0db-e89fdf06f7e4?mode=deep",
+    "timestamp": "2026-01-10 18:41:03.722729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Error handling] Can an attacker exploit the InvalidArgument error return at line 15 to probe for validator behavior differences, using timing analysis to determine which validators have modified error handling logic, potentially identifying Byzantine validators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0ba8d43c-cc94-420a-a1cb-e4ffc75cb804?mode=deep",
+    "timestamp": "2026-01-10 18:41:17.027393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Input validation] Does the QueryParamsRequest validation at line 14 properly handle all edge cases, or can an attacker craft a request with unexpected field values that pass the nil check but cause state corruption when processed by GetParams()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d1fc71a4-b302-488d-94c3-57a6f8cf2a6f?mode=deep",
+    "timestamp": "2026-01-10 18:41:31.392511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/query_params.go] [Function: Params()] [Nil pointer dereference] Can a Byzantine validator or malicious client exploit the nil check at line 14 by sending a malformed gRPC request that bypasses protobuf deserialization, causing the function to receive a non-nil but invalid QueryParamsRequest pointer that leads to crashes in downstream GetParams() calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_296fc1d9-e8bb-473e-aad2-a55f53e368d1?mode=deep",
+    "timestamp": "2026-01-10 18:41:46.342776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Bank supply manipulation via governance] Can governance proposals directly modify bank supply without updating factory supply, bypassing this invariant check? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a960ec2-08f5-4167-bf82-ced5eb8a1b5a?mode=deep",
+    "timestamp": "2026-01-10 18:42:02.130791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Multi-block atomicity] Can an attacker split a large mint operation across multiple blocks to stay under per-block limits while exceeding total minting cap? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_94bd9020-c2b4-4cea-89f2-8b8708419915?mode=deep",
+    "timestamp": "2026-01-10 18:42:19.167099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: RegisterInvariants()] [Route name injection] Can malicious actors inject special characters into route names at lines 15 and 21 to break invariant routing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_606549d0-9605-4028-bdf0-a47f175228d4?mode=deep",
+    "timestamp": "2026-01-10 18:42:38.128654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Emergency pause] Is there an emergency pause mechanism, and can invariant violations trigger automatic pausing that attackers could exploit for DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3cc0a5bb-81ca-408c-a9aa-f33800f62907?mode=deep",
+    "timestamp": "2026-01-10 18:42:58.135481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Recursive IBC transfers] Can recursive IBC transfers (A->B->C->A) cause cumulative accounting errors that make this invariant check incorrectly pass? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5741b175-d839-4275-99c7-f4e78e61ca72?mode=deep",
+    "timestamp": "2026-01-10 18:43:19.124780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Denom name collision] Can similar denom names (e.g., 'token' vs 'token ') cause confusion in supply tracking that bypasses these invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b9d40181-5249-41a0-99e5-5f0767bfa576?mode=deep",
+    "timestamp": "2026-01-10 18:43:37.371709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: FactorySupplyGTEBankSupplyInvariant()] [Supply deflation] Can an attacker burn tokens in the bank module without updating factory supply, causing factory supply to exceed bank supply and hide accounting errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7f4cfe1-996c-4c40-b4cc-1a22ca1eef65?mode=deep",
+    "timestamp": "2026-01-10 18:44:00.496293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Flashloan attack] Can an attacker use flash loans or atomic transactions to temporarily violate minting caps between invariant checks, then restore valid state before detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed3bfde5-6ace-4b4e-bb4b-34212b9b9d7b?mode=deep",
+    "timestamp": "2026-01-10 18:44:23.411063",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 73] [Error message formatting] Similar to line 43, can malicious denom names exploit fmt.Sprintf at line 73 for error string injection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6e7af0c-3683-44fc-8445-8cb19882c8e2?mode=deep",
+    "timestamp": "2026-01-10 18:44:47.978681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 72] [GTE semantics] Does GTE() mean >=, and is this the correct semantic for the comment at line 70-71 about IBC transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d198fa08-5968-4183-930d-7a0784aabbcb?mode=deep",
+    "timestamp": "2026-01-10 18:45:12.414109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 72] [Type conversion safety] The conversion cosmosmath.Uint(bankSupply.Amount) - what happens if bankSupply.Amount is negative or exceeds Uint max value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_29b0ac4c-db16-4038-ad60-6fff585d3f4e?mode=deep",
+    "timestamp": "2026-01-10 18:45:38.453857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 67] [GetSupply error handling] Does k.bankKeeper.GetSupply(ctx, denom.Denom) return an error, and if so, is it properly handled or silently ignored? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0e24c05-3439-4140-a598-f6a0148452fe?mode=deep",
+    "timestamp": "2026-01-10 18:46:02.800195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 48] [Empty return safety] When returning ('', false) at line 48, is there any code that misinterprets empty string as an error condition? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b36daf4e-2704-4a8f-971f-11569507ac60?mode=deep",
+    "timestamp": "2026-01-10 18:46:27.481905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 43] [Format string vulnerability] In fmt.Sprintf at line 43, if denom.Denom contains format specifiers like %s or %d, can this cause format string vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_10d77705-55f3-4985-95ab-3a457c76ae3d?mode=deep",
+    "timestamp": "2026-01-10 18:46:50.707104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 39] [GT comparison semantics] Does GT() mean strictly greater than, and is the comparison using the correct semantics for detecting minting cap violations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71d167a8-a53a-4676-9bf6-5960e7cf7873?mode=deep",
+    "timestamp": "2026-01-10 18:47:14.393552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 36] [Slice element copy] When copying 'denom := all[idx]', is this a shallow or deep copy, and can modifications to denom affect the original all slice? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5d6d023d-bd96-4ada-bbfa-abadab12bb99?mode=deep",
+    "timestamp": "2026-01-10 18:47:38.936495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 33] [Range variable reuse] The pattern 'for idx := range all' is safe, but could the idx variable be accidentally reused outside the loop causing logic errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d04db40c-17c3-40a1-927c-7fbc4ff0c60f?mode=deep",
+    "timestamp": "2026-01-10 18:48:04.004253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Line 30] [GetAllDenom caching] Is the result of k.GetAllDenom(ctx) cached, and if so, can stale cache cause invariant checks to miss recent minting operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0513cd86-4fd4-4493-9975-81db128d6283?mode=deep",
+    "timestamp": "2026-01-10 18:48:30.274464",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/keeper/invariants.go] [Function: SupplyMoreThenMintingCapInvariant()] [Non-deterministic results] If different validators' GetAllDenom() calls return denoms in different orders due to iterator non-determinism, can this cause consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_718e3858-771f-4c30-b49f-44803cdf7673?mode=deep",
+    "timestamp": "2026-01-10 18:48:56.932513",
+    "report_generated": false
   }
 ]
