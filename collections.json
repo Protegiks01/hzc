@@ -13648,5 +13648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3c0fe2d-2a9d-4f68-9135-773843157f05?mode=deep",
     "timestamp": "2026-01-10 08:41:07.894484",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/genesis.go] [Function: Pool.Validate()] [Side channel\n\n### Citations\n\n**File:** x/dex/types/genesis.go (L1-160)\n```go\npackage types\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_18914838-e2a3-43da-b25e-90d35a85c5ae?mode=deep",
+    "timestamp": "2026-01-10 08:42:26.479481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateCreationFee()] [Validation bypass] The validateCreationFee() function at line 127 performs NO validation on the creationFee parameter beyond accepting any uint32 value - can a malicious governance proposal set CreationFee to 0, allowing unlimited free pool creation and enabling DoS attacks where an attacker floods the chain with millions of empty pools to exhaust state storage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1749d6fe-ec1c-4e50-aa29-df33abc3e5de?mode=deep",
+    "timestamp": "2026-01-10 08:42:38.895823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateCreationFee()] [Economic attack] Since validateCreationFee() at line 128 contains only '_ = creationFee' with no bounds checking, can an attacker exploit a governance attack to set CreationFee to MaxUint32 (4,294,967,295), making pool creation economically impossible and permanently disabling DEX functionality for all users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_04aa2f90-2045-4f35-9bbe-22ed44b8df7e?mode=deep",
+    "timestamp": "2026-01-10 08:42:51.597409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateCreationFee()] [State corruption] With no validation in validateCreationFee() at lines 127-131, can a governance proposal set CreationFee to a value that causes integer overflow when multiplied with other fee calculations in swap operations, leading to free swaps or negative fee collection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86ff7c34-b121-42eb-ac4a-8bef33484f8c?mode=deep",
+    "timestamp": "2026-01-10 08:43:04.790801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateCreationFee()] [Beneficiary drainage] Can an attacker exploit the lack of validation in validateCreationFee() to set a creation fee that, when combined with a malicious beneficiary address in params, allows siphoning all pool creation fees to an attacker-controlled address through repeated pool creation/destruction cycles? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8ac0992e-68b3-45c7-80ec-56039613265d?mode=deep",
+    "timestamp": "2026-01-10 08:43:18.721530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateCreationFee()] [Cross-module interaction] The comment at line 14 shows DefaultCreationFee calculation depends on BondDenomDecimals - if validateCreationFee() accepts any uint32 value without checking decimal consistency, can this cause precision mismatch when CreationFee is charged in different denominations across Factory/DEX modules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_990aaca2-8ecd-4aa5-ad80-321331c72561?mode=deep",
+    "timestamp": "2026-01-10 08:43:34.061755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateCreationFee()] [Decimal inconsistency] DefaultCreationFee at line 22 is calculated as '100 * 1_000_000' assuming 6 decimals for uzig, but validateCreationFee() doesn't enforce this relationship - can an attacker set CreationFee to a value incompatible with the 6-decimal bond denom, causing fee calculation errors in pool creation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_76786f83-d580-4bfe-ad53-7aa673c13fa1?mode=deep",
+    "timestamp": "2026-01-10 08:43:51.062201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateNewPoolFeePct()] [Integer overflow] The validation at line 104 checks 'poolFee >= constants.PoolFeeScalingFactor' where PoolFeeScalingFactor is 100,000 - but when this uint32 poolFee is later multiplied in swap calculations with large token amounts (e.g., 18-decimal tokens), can this cause uint64 overflow leading to incorrect fee calculations and liquidity provider fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_190e03fa-68bf-484f-a907-c087a8da287c?mode=deep",
+    "timestamp": "2026-01-10 08:44:07.980221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateNewPoolFeePct()] [Boundary condition] At line 104, the comparison uses '>=' meaning poolFee equal to PoolFeeScalingFactor (100,000) is rejected, but poolFee = 99,999 is valid - can an attacker exploit this maximum value to set a 99.999% pool fee, making swaps economically impossible and locking all liquidity in existing pools permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e04cc485-ba01-4a34-89cf-33cd38e7c21e?mode=deep",
+    "timestamp": "2026-01-10 08:44:26.587639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateNewPoolFeePct()] [Precision loss] When NewPoolFeePct approaches PoolFeeScalingFactor (100,000) at line 104, and is later divided in fee calculations, can rounding errors accumulate across multiple swaps to either drain pool reserves through undercharged fees or overcharge users causing economic attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7b2210a2-4379-4e0d-851e-87a234c2b392?mode=deep",
+    "timestamp": "2026-01-10 08:44:46.284477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateNewPoolFeePct()] [Type conversion] The poolFee parameter is uint32 but constants.PoolFeeScalingFactor is compared directly at line 104 - if PoolFeeScalingFactor value changes to a type that causes implicit conversion issues, can this bypass the validation allowing invalid fee percentages? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0bd209aa-874e-4c6a-b044-57922032ca8b?mode=deep",
+    "timestamp": "2026-01-10 08:45:07.053852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateNewPoolFeePct()] [Default value attack] DefaultNewPoolFeePct at line 18 is set to 500 (0.5%) but validateNewPoolFeePct() allows up to 99,999 (99.999%) - can a governance attack change NewPoolFeePct from 0.5% to 99% after pools are created, effectively confiscating liquidity provider funds through retroactive fee changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c8785726-7f5d-481d-84b8-c117b8f68187?mode=deep",
+    "timestamp": "2026-01-10 08:45:28.580042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateNewPoolFeePct()] [Zero fee exploitation] The validation at line 104 only checks the upper bound but accepts poolFee = 0 - can an attacker exploit zero fees to perform sandwich attacks without cost, manipulating AMM prices to drain pool reserves through front-running? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_443b2448-dbfa-4b34-9922-882e6686e268?mode=deep",
+    "timestamp": "2026-01-10 08:45:50.640167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateNewPoolFeePct()] [Governance timing attack] If validateNewPoolFeePct() allows NewPoolFeePct changes through governance, can an attacker coordinate with validators to change fees at specific block heights, timing the change to coincide with large swaps to manipulate fee collection in their favor? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86315679-ae66-497a-8b04-e8d7723f32f7?mode=deep",
+    "timestamp": "2026-01-10 08:46:13.679257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateNewPoolFeePct()] [Fee scaling inconsistency] The error message at line 108 mentions 'scaling factor' but doesn't validate that poolFee calculations using this scaling factor are compatible with the BasisPoints constant (10,000) - can this inconsistency cause fee calculation errors when both are used together? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71eb0608-22cd-4c1f-b4e0-7651c1c954a9?mode=deep",
+    "timestamp": "2026-01-10 08:46:37.194763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMaxSlippage()] [Slippage protection bypass] The validation at line 120 only checks 'maxSlippage > MaximumMaxSlippage' where MaximumMaxSlippage is 10,000 (100%), but Params struct also contains MaxSlippage field - if validateMaxSlippage() is called with a value ≤ 10,000 but the actual parameter allows per-transaction slippage overrides, can attackers bypass slippage protection entirely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9aed8e79-22eb-49f6-bcd1-11544c360ed0?mode=deep",
+    "timestamp": "2026-01-10 08:47:00.026313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMaxSlippage()] [MEV exploitation] With MaximumMaxSlippage set to 10,000 (100% slippage) at line 31, validateMaxSlippage() allows setting maxSlippage = 10,000 - can an attacker submit swaps with 100% slippage tolerance, allowing validators/relayers to extract maximum MEV by executing swaps at worst possible prices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bda7ba9e-fcd1-4b54-b610-161f7d34c539?mode=deep",
+    "timestamp": "2026-01-10 08:47:23.389273",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMaxSlippage()] [Front-running amplification] DefaultMaxSlippage is 100 basis points (1%) at line 28, but validateMaxSlippage() allows up to 10,000 (100%) - can governance increase MaxSlippage to extreme values, amplifying front-running attacks where attackers manipulate prices knowing users have high slippage tolerance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d952b115-a09c-4307-b477-2d610638cc32?mode=deep",
+    "timestamp": "2026-01-10 08:47:47.286158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMaxSlippage()] [Basis points overflow] The comment at line 119 states 'max slippage is 100% = 10000 basis points' and BasisPoints constant is 10,000 at line 41 - if maxSlippage is used in calculations that multiply by BasisPoints, can this cause uint32 overflow (10,000 * 10,000 = 100,000,000) leading to incorrect slippage checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0dcc36f0-463a-45e3-a47c-91ddfad23de6?mode=deep",
+    "timestamp": "2026-01-10 08:48:12.059479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMaxSlippage()] [Zero slippage DoS] The validation at line 120 only checks the upper bound, accepting maxSlippage = 0 - can an attacker exploit zero slippage tolerance to cause all swaps to fail due to any price movement, effectively DoSing the DEX when combined with price oracle updates or normal market volatility? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e294088f-2b26-4726-b589-e29167adbc0a?mode=deep",
+    "timestamp": "2026-01-10 08:48:36.868054",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMaxSlippage()] [Slippage-fee interaction] If MaxSlippage from validateMaxSlippage() is used together with NewPoolFeePct in swap calculations, and both are set to extreme values (maxSlippage = 10,000, poolFee = 99,999), can the combined effect allow swaps that completely drain one side of a liquidity pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_937c2442-20b4-4210-8664-33217836481b?mode=deep",
+    "timestamp": "2026-01-10 08:49:01.783537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMaxSlippage()] [Governance race condition] If validateMaxSlippage() allows MaxSlippage parameter changes, can an attacker submit a large swap transaction and simultaneously submit a governance proposal to increase MaxSlippage, timing the parameter change to execute mid-transaction and bypass slippage protection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_55e849c8-2be7-49a3-aec1-c19eec4a89db?mode=deep",
+    "timestamp": "2026-01-10 08:49:28.018697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMaxSlippage()] [Per-pool slippage bypass] The parameter validated at line 120 appears to be a global MaxSlippage, but if individual pools can override this with pool-specific slippage settings, can attackers create pools with malicious slippage parameters that bypass the global validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9115e54f-c1b9-4885-b645-d8620db8dd6c?mode=deep",
+    "timestamp": "2026-01-10 08:49:52.579661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMinimalLiquidityLock()] [Share inflation attack] The validation at line 135 only checks 'minimalLiquidityLock == 0' is invalid, with DefaultMinimalLiquidityLock set to 1000 at line 35 - but if governance reduces MinimalLiquidityLock to 1, can an attacker exploit ERC4626-style share inflation attacks by donating large amounts to a pool with 1 wei of locked liquidity, causing rounding errors that steal subsequent liquidity provider deposits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_48eb28bb-a02e-48ab-bb74-ba9714b5300f?mode=deep",
+    "timestamp": "2026-01-10 08:50:15.849581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/params.go] [Function: validateMinimalLiquidityLock()] [First depositor advantage] The comment at line 34 states MinimalLiquidityLock 'is set to 1000 units to prevent share inflation attacks' - but validateMinimalLiquidityLock() at line 135 accepts any non-zero value including 1 - can an attacker exploit this by having governance reduce the lock to 1, allowing first depositors to gain disproportionate share of pool fees through precision manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8948027b-090c-449e-9591-d93ec8cf2314?mode=deep",
+    "timestamp": "2026-01-10 08:50:39.841105",
+    "report_generated": false
   }
 ]
