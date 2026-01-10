@@ -14998,5 +14998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3d66009-5220-4672-a632-b615236d6625?mode=deep",
     "timestamp": "2026-01-10 02:20:43.522923",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Event injection] If EmitPauserAddressAddedEvent() fails or panics at line 31, does the transaction still commit the state change at line 28, creating an inconsistency where state changes without events? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95c14b03-2977-4080-98b0-b9569d5879c4?mode=deep",
+    "timestamp": "2026-01-10 02:22:06.187870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Event manipulation] Can an attacker cause EmitPauserAddressAddedEvent() at line 31 to emit with msg.NewPauser instead of the validated newPauser.String(), creating a mismatch between event data and actual stored state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d65ebd65-ebbd-4b9b-9077-a3a45af367a7?mode=deep",
+    "timestamp": "2026-01-10 02:22:18.740925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Memory exhaustion] Does k.Keeper.AddPauserAddress() at line 28 load the entire pauser list into memory, making it vulnerable to memory exhaustion attacks when the list is large? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3c6acb5f-21fc-4829-9efc-1056a95a0930?mode=deep",
+    "timestamp": "2026-01-10 02:22:32.025445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Storage corruption] Can an attacker provide a newPauser address that contains characters that corrupt the protobuf serialization in SetPauserAddresses, causing KVStore corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_80c9b108-7d33-431e-ae83-57a47b9c0f2a?mode=deep",
+    "timestamp": "2026-01-10 02:22:45.263953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [State manipulation] Can an attacker exploit the fact that k.Keeper.AddPauserAddress() silently returns when address already exists, allowing them to repeatedly call this function to emit spurious events without state changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7ac6a188-7ba4-4bad-9601-49134aba45f3?mode=deep",
+    "timestamp": "2026-01-10 02:22:59.258745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Race condition] If two validators process AddPauserAddress transactions in different orders, can this lead to state divergence where some nodes have different pauser lists? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4cb24130-8196-4c15-b2d7-42a32ecb4a1f?mode=deep",
+    "timestamp": "2026-01-10 02:23:14.661225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [State corruption] Can an attacker exploit a panic in AddPauserAddress() keeper function at line 28 that prevents the transaction from reverting, leaving partial state changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_69838188-ad4f-4cfb-931b-887105f84552?mode=deep",
+    "timestamp": "2026-01-10 02:23:30.866196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [State inconsistency] If k.Keeper.AddPauserAddress() at line 28 fails to write to KVStore but doesn't return an error, can the event at line 31 be emitted without the state actually changing, causing off-chain systems to desynchronize? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4fc93638-c539-4c6b-a8ce-f2453cfb93a8?mode=deep",
+    "timestamp": "2026-01-10 02:23:49.147653",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Storage exhaustion] Is there a maximum limit on the pauser list size enforced before calling k.Keeper.AddPauserAddress() at line 28, or can an attacker fill the KVStore with unlimited pausers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ca065a68-645b-4184-b6d6-375d8a01d521?mode=deep",
+    "timestamp": "2026-01-10 02:24:08.464325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [DOS via storage] Can an attacker repeatedly call AddPauserAddress() to add thousands of unique pausers, causing GetPauserAddresses() to unmarshal massive data and exceed block gas limits in subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_891da75a-feb4-426a-aa30-1aa6be0a3a86?mode=deep",
+    "timestamp": "2026-01-10 02:24:27.672501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [State corruption] Can an attacker exploit the non-atomic nature of AddPauserAddress() at line 28 by submitting concurrent transactions that add the same pauser, causing duplicate entries in the pauser list despite the duplicate check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_abcb8ae4-2a46-4ca0-ba83-23298cd8cd0f?mode=deep",
+    "timestamp": "2026-01-10 02:24:50.870201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address validation bypass] Can an attacker exploit differences between newPauser.String() format at line 28 and msg.NewPauser to create duplicate entries with different string representations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08f712eb-b753-4101-baba-df890472e5ed?mode=deep",
+    "timestamp": "2026-01-10 02:25:12.576437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address validation] Can an attacker add the module account address as a pauser, potentially enabling the module to pause itself and create a permanent DOS condition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6e17b650-9b77-42aa-9a4b-2a6716cf4c7c?mode=deep",
+    "timestamp": "2026-01-10 02:25:35.063155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address validation] Can an attacker add the operator address itself as a pauser, creating a conflict where the operator can pause themselves and potentially brick the system? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3b63bb1b-2a6b-4991-bcc5-abbcbf70069d?mode=deep",
+    "timestamp": "2026-01-10 02:25:57.988015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address reuse] Does the code prevent adding the same pauser address multiple times, or can an attacker call this function repeatedly to inflate the pauser list size, causing storage bloat and gas exhaustion in GetPauserAddresses()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3ab80b4-9282-4862-b0f7-19a2f52042b8?mode=deep",
+    "timestamp": "2026-01-10 02:26:22.289231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address validation bypass] Can an attacker provide msg.NewPauser with embedded null bytes that pass Bech32 validation but cause issues when stored as string via newPauser.String() at line 28? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_82359b03-f8dc-4256-bef5-5b6dedec9823?mode=deep",
+    "timestamp": "2026-01-10 02:26:46.024165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address validation] After AccAddressFromBech32() succeeds at line 22, the newPauser variable is never validated to be non-empty - can an attacker exploit this by providing a valid Bech32 that decodes to an empty address? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_788ed8dc-de3c-40c3-87de-f1ae2b97b12c?mode=deep",
+    "timestamp": "2026-01-10 02:27:10.289333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [DOS attack] Can an attacker provide an extremely long msg.NewPauser string that causes AccAddressFromBech32() to consume excessive gas or panic during decoding, blocking the transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d878326c-28e4-4f6c-a61b-d5ecb60058a6?mode=deep",
+    "timestamp": "2026-01-10 02:27:34.333327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address validation bypass] Can an attacker exploit the fact that AccAddressFromBech32() may accept addresses of different byte lengths, allowing non-standard address formats to be added as pausers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_02ddaa49-b7a0-4aa2-96cd-587c7829a473?mode=deep",
+    "timestamp": "2026-01-10 02:27:56.293974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address validation] Does AccAddressFromBech32() at line 22 validate the address checksum correctly, or can an attacker provide addresses with incorrect checksums that decode successfully but represent invalid addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_71f87c4c-5b30-4a12-a2df-8b89c7c05eca?mode=deep",
+    "timestamp": "2026-01-10 02:28:18.884433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Address validation bypass] Can an attacker provide a msg.NewPauser with valid Bech32 encoding but wrong prefix (e.g., cosmos1... instead of zig1...) that passes AccAddressFromBech32() at line 22 but creates invalid state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a0ef1d50-4455-4698-b414-ba2686ce92d1?mode=deep",
+    "timestamp": "2026-01-10 02:28:42.455599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Access control bypass] Can an attacker exploit whitespace or control characters in msg.Signer to match the operator address string comparison while using a different actual address? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9ab928b1-f228-4fe0-a3aa-66535e05b203?mode=deep",
+    "timestamp": "2026-01-10 02:29:06.691208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Access control] Does GetOperatorAddress() properly validate that the returned address is non-empty and valid before the comparison at line 17, or can a nil/empty operator enable anyone to add pausers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d5384662-e8ee-4c09-b232-333f94beb909?mode=deep",
+    "timestamp": "2026-01-10 02:29:29.347608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Privilege escalation] If the operator address is compromised, can the attacker add unlimited pauser addresses to create a distributed DOS attack vector where multiple compromised pausers can halt the bridge simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a2c63c20-7623-4b70-af9c-84345d5e5306?mode=deep",
+    "timestamp": "2026-01-10 02:29:50.954231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_add_pauser_address.go] [Function: AddPauserAddress()] [Access control bypass] Can an attacker exploit the fact that GetOperatorAddress() reads from KVStore without locks, allowing a TOCTOU (Time-of-Check-Time-of-Use) vulnerability where operator is changed between check and pauser addition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3a5e2788-d445-4aa8-a2fa-1940a0d39514?mode=deep",
+    "timestamp": "2026-01-10 02:30:12.721689",
+    "report_generated": false
   }
 ]
