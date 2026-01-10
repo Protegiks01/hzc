@@ -15598,5 +15598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_947c17e6-9907-478d-abf9-33850354d6fd?mode=deep",
     "timestamp": "2026-01-10 02:58:51.893164",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Can an attacker propose a vesting account, multi-sig account, or other special account type that may have operational limitations as the new operator, potentially bricking critical operator functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6f449375-2cbe-4923-b81c-9a93b8db21b9?mode=deep",
+    "timestamp": "2026-01-10 03:00:04.611317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Can an attacker propose a module account address (like the tokenwrapper module account itself) as the new operator at line 23, which would pass validation but create a logical inconsistency where the module becomes its own operator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96383056-2f4d-45f7-90b3-471c5dbeed7b?mode=deep",
+    "timestamp": "2026-01-10 03:00:17.029454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Does the AccAddressFromBech32 validation at line 23 properly check for address prefix to ensure the new operator address belongs to the correct chain, or can cross-chain addresses be proposed leading to inoperability when claimed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_95ef94f9-2d93-4316-9985-64788501f7a9?mode=deep",
+    "timestamp": "2026-01-10 03:00:30.125079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Can an attacker pass a valid Bech32 address for a different chain (with different prefix) as msg.NewOperator at line 23, which would pass AccAddressFromBech32 validation but cause issues when the new operator tries to sign transactions on this chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f798091-68ef-4825-b7e6-bfab624a828d?mode=deep",
+    "timestamp": "2026-01-10 03:00:43.230476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Access Control] Does the string comparison at line 18 properly handle trailing/leading whitespace or null bytes in addresses, which could allow an attacker to craft a signer address that matches the operator through string manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a4070eae-eb3d-4127-a53d-bcf4168d27e1?mode=deep",
+    "timestamp": "2026-01-10 03:00:57.095016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [State Consistency] If the operator address is not initialized during genesis (returns empty string from GetOperatorAddress), can anyone with msg.Signer == '' bypass the authorization check at line 18 and propose an operator, leading to unauthorized privilege escalation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_823c2202-0b91-4379-b85a-2c4c59904ecb?mode=deep",
+    "timestamp": "2026-01-10 03:01:12.197025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Access Control] Can an attacker exploit the fact that GetOperatorAddress() at line 17 returns an empty string when no operator is set, allowing the first user with an empty string as signer to propose themselves as operator and gain unauthorized control over bridge operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_627d977b-9589-4e9a-a906-ad77efe37073?mode=deep",
+    "timestamp": "2026-01-10 03:01:27.926522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Access Control] Does the operator address comparison at line 18 properly handle case sensitivity, address format variations, or potential Unicode homograph attacks where visually similar addresses could bypass the equality check and allow unauthorized operator proposals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d80c398-5f2d-4d42-996d-0c7f0d2e3e39?mode=deep",
+    "timestamp": "2026-01-10 03:01:45.984314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Access Control] Can an attacker exploit a race condition where the operator address is changed between the GetOperatorAddress() call at line 17 and the comparison at line 18, allowing an unauthorized address to propose a new operator and potentially gain control of critical bridge operations including IBC settings and module wallet management? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8377bca8-d3d0-45fe-874e-fd04a7476f54?mode=deep",
+    "timestamp": "2026-01-10 03:02:04.795210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Can an attacker propose a vesting account, multi-sig account, or other special account type that may have operational limitations as the new operator, potentially bricking critical operator functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dcb5e52a-799a-45d9-816f-502dbb4c7a1b?mode=deep",
+    "timestamp": "2026-01-10 03:02:25.083059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Can an attacker propose a module account address (like the tokenwrapper module account itself) as the new operator at line 23, which would pass validation but create a logical inconsistency where the module becomes its own operator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3f196f31-1ac8-4837-ad6f-caee2cbde536?mode=deep",
+    "timestamp": "2026-01-10 03:02:46.637796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Does the AccAddressFromBech32 validation at line 23 properly check for address prefix to ensure the new operator address belongs to the correct chain, or can cross-chain addresses be proposed leading to inoperability when claimed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_64b18775-1436-492d-8b1a-1db76c9d8191?mode=deep",
+    "timestamp": "2026-01-10 03:03:07.772652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Input Validation] Can an attacker pass a valid Bech32 address for a different chain (with different prefix) as msg.NewOperator at line 23, which would pass AccAddressFromBech32 validation but cause issues when the new operator tries to sign transactions on this chain? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4f634a60-6426-40b0-a335-1fe840565105?mode=deep",
+    "timestamp": "2026-01-10 03:03:30.150096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Access Control] Does the string comparison at line 18 properly handle trailing/leading whitespace or null bytes in addresses, which could allow an attacker to craft a signer address that matches the operator through string manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_46440dcb-32ba-4aee-b257-fe8bd121e87d?mode=deep",
+    "timestamp": "2026-01-10 03:03:53.710230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [State Consistency] If the operator address is not initialized during genesis (returns empty string from GetOperatorAddress), can anyone with msg.Signer == '' bypass the authorization check at line 18 and propose an operator, leading to unauthorized privilege escalation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_09392bbb-8926-4617-9937-2451490d6785?mode=deep",
+    "timestamp": "2026-01-10 03:04:17.367510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Access Control] Can an attacker exploit the fact that GetOperatorAddress() at line 17 returns an empty string when no operator is set, allowing the first user with an empty string as signer to propose themselves as operator and gain unauthorized control over bridge operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f708a9a9-8b8d-4b03-871f-ce0d22543b62?mode=deep",
+    "timestamp": "2026-01-10 03:04:41.318203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Access Control] Does the operator address comparison at line 18 properly handle case sensitivity, address format variations, or potential Unicode homograph attacks where visually similar addresses could bypass the equality check and allow unauthorized operator proposals? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4607e169-c018-4b6b-99f2-0b0418b700a5?mode=deep",
+    "timestamp": "2026-01-10 03:05:06.092584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_server_propose_operator_address.go] [Function: ProposeOperatorAddress()] [Access Control] Can an attacker exploit a race condition where the operator address is changed between the GetOperatorAddress() call at line 17 and the comparison at line 18, allowing an unauthorized address to propose a new operator and potentially gain control of critical bridge operations including IBC settings and module wallet management? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2273ece-7b63-45b3-96f5-ad7d928bbe47?mode=deep",
+    "timestamp": "2026-01-10 03:05:32.339427",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Context deadline] If the context has a deadline that expires during SetParams execution, could this leave the store in a partially updated state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_dd045f28-e0b1-4888-a966-1654778063a9?mode=deep",
+    "timestamp": "2026-01-10 03:05:58.192115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Response mutation] Could the returned MsgUpdateParamsResponse be mutated by the caller, affecting subsequent operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_efba4c7e-48f9-4d97-a623-5ff5f328635e?mode=deep",
+    "timestamp": "2026-01-10 03:06:23.821546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Whitespace handling] Can req.Authority contain leading/trailing whitespace that bypasses the string comparison despite being semantically equivalent? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_737f40fb-c02b-4c29-97e6-48e2663214a8?mode=deep",
+    "timestamp": "2026-01-10 03:06:50.612712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Empty authority] What happens if both k.GetAuthority() and req.Authority are empty strings - does the comparison pass or fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f303ac30-83f3-4377-bc0c-207c55772e34?mode=deep",
+    "timestamp": "2026-01-10 03:07:16.404786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Alert triggering] Can monitoring systems distinguish between legitimate governance param updates and potential attack scenarios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8a9180b1-4c21-44b7-9236-d2c7ae08ad61?mode=deep",
+    "timestamp": "2026-01-10 03:07:41.756426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Audit trail] Is there a complete audit trail of all param changes, or could param update history be lost if events are not properly indexed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_44761f82-a5cd-4cf3-8326-fae116b0b492?mode=deep",
+    "timestamp": "2026-01-10 03:08:07.588325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/tokenwrapper/keeper/msg_update_params.go] [Function: UpdateParams()] [Event monitoring] Does EmitParamsUpdatedEvent provide enough information for monitoring systems to detect malicious param changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e457a4a8-e576-43c3-ba83-ba07ff3d48ff?mode=deep",
+    "timestamp": "2026-01-10 03:08:32.558420",
+    "report_generated": false
   }
 ]
