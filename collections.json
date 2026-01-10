@@ -12148,5 +12148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96037077-8dd2-4ac9-ad69-c8e7090d00ad?mode=deep",
     "timestamp": "2026-01-10 06:44:01.872464",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Gas Exhaustion] If the SetParams call at line 18 triggers store.Set with the ParamsKey that already exists, does the KVStore perform an unnecessary read-before-write that doubles gas costs, enabling attackers to drain gas from governance proposals? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_14ba02c4-e75b-43eb-9bfe-55fef9ecea63?mode=deep",
+    "timestamp": "2026-01-10 06:45:34.719968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Storage Corruption] Can an attacker exploit the lack of parameter history tracking by submitting rapid governance proposals at line 18 that overwrite the ParamsKey multiple times per block, causing historical parameter queries to return inconsistent values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_354bfd8d-f4be-4233-96b4-5db9ed3921be?mode=deep",
+    "timestamp": "2026-01-10 06:45:47.020997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Gas Exhaustion] Does the authority validation at line 13 perform string comparison in constant time, or can attackers with long authority strings cause linear-time comparison that consumes excessive gas in governance proposal processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5f459d75-eaf8-4d8e-a6d1-0686626076c8?mode=deep",
+    "timestamp": "2026-01-10 06:45:59.763907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance Attack] Can a Byzantine validator cartel controlling 34%+ stake submit a governance proposal that sets NewPoolFeePct to MaxUint32 at line 18, permanently disabling the DEX and forcing users to migrate chains, destroying ZigChain's value proposition? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_52088a80-7743-48ec-a5be-cb4471f327ba?mode=deep",
+    "timestamp": "2026-01-10 06:46:12.830887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance Attack] If governance voting weights are based on staked tokens that include LP tokens from DEX pools, can attackers manipulate voting by creating pools at line 18 with zero fees, farming LP tokens, and using them to pass malicious parameter updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_99e57ca7-1f60-49c7-9269-40c5ab513820?mode=deep",
+    "timestamp": "2026-01-10 06:46:27.621537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Upgrade Safety] Does the UpdateParams function at line 18 include any migration logic to handle schema changes in the Params struct during chain upgrades, or will old governance proposals fail when parameter fields are added/removed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4839b9f7-cb08-4762-bc36-77100e58cb8b?mode=deep",
+    "timestamp": "2026-01-10 06:46:42.379159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance Attack] Can an attacker exploit the lack of parameter bounds checking by submitting a governance proposal that sets conflicting parameters at line 18 (e.g., MaxSlippage > BasisPoints), causing integer overflow in slippage calculations that drain pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d94824cb-b361-49db-8bf7-8c08bf0f419f?mode=deep",
+    "timestamp": "2026-01-10 06:46:58.117808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance Attack] If the governance module allows immediate parameter execution without a timelock at line 18, can attackers who detect a passing proposal front-run it by removing liquidity from all pools before the malicious parameters take effect, leaving other users to absorb losses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_447d52bf-9a67-44fe-9390-412385852430?mode=deep",
+    "timestamp": "2026-01-10 06:47:15.649800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Gas Exhaustion] If the SetParams call at line 18 triggers store.Set with the ParamsKey that already exists, does the KVStore perform an unnecessary read-before-write that doubles gas costs, enabling attackers to drain gas from governance proposals? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c9d0d0a-ec48-4a7a-a2a1-ecfec20cdc5d?mode=deep",
+    "timestamp": "2026-01-10 06:47:34.154257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Storage Corruption] Can an attacker exploit the lack of parameter history tracking by submitting rapid governance proposals at line 18 that overwrite the ParamsKey multiple times per block, causing historical parameter queries to return inconsistent values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_66586b68-8219-4ca8-b10a-4e11fa1d3b30?mode=deep",
+    "timestamp": "2026-01-10 06:47:53.607305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Gas Exhaustion] Does the authority validation at line 13 perform string comparison in constant time, or can attackers with long authority strings cause linear-time comparison that consumes excessive gas in governance proposal processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_67c545bd-eba7-4a74-a782-76a429681e0f?mode=deep",
+    "timestamp": "2026-01-10 06:48:14.632567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance Attack] Can a Byzantine validator cartel controlling 34%+ stake submit a governance proposal that sets NewPoolFeePct to MaxUint32 at line 18, permanently disabling the DEX and forcing users to migrate chains, destroying ZigChain's value proposition? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a3c7abe1-faea-40d4-bbbc-af5b8467cce0?mode=deep",
+    "timestamp": "2026-01-10 06:48:36.200178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance Attack] If governance voting weights are based on staked tokens that include LP tokens from DEX pools, can attackers manipulate voting by creating pools at line 18 with zero fees, farming LP tokens, and using them to pass malicious parameter updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_415ebe85-8cf9-4302-85d8-fdc10e07f243?mode=deep",
+    "timestamp": "2026-01-10 06:48:57.645747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Upgrade Safety] Does the UpdateParams function at line 18 include any migration logic to handle schema changes in the Params struct during chain upgrades, or will old governance proposals fail when parameter fields are added/removed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_b95ec974-b1ad-4115-b47c-3dea2669edc7?mode=deep",
+    "timestamp": "2026-01-10 06:49:20.589755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance Attack] Can an attacker exploit the lack of parameter bounds checking by submitting a governance proposal that sets conflicting parameters at line 18 (e.g., MaxSlippage > BasisPoints), causing integer overflow in slippage calculations that drain pools? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bf9da1d1-d2da-44c7-8c67-1b81b202602d?mode=deep",
+    "timestamp": "2026-01-10 06:49:44.968813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/keeper/msg_update_params.go] [Function: UpdateParams()] [Governance Attack] If the governance module allows immediate parameter execution without a timelock at line 18, can attackers who detect a passing proposal front-run it by removing liquidity from all pools before the malicious parameters take effect, leaving other users to absorb losses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_845148ce-2ece-4fc8-8fe4-be893ebabd86?mode=deep",
+    "timestamp": "2026-01-10 06:50:10.102661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Function: ModuleAddress generation] [Cryptographic weakness] Can an attacker predict or bruteforce the ModuleAddress derived from crypto.AddressHash([]byte(ModuleName)) to create address collisions with other modules or user accounts, potentially enabling unauthorized access to module funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f7a3fee9-0c09-4d6a-9493-2a5a47549516?mode=deep",
+    "timestamp": "2026-01-10 06:50:35.625411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Function: ModuleAddress generation] [Collision attack] Does the crypto.AddressHash function using []byte('dex') as input provide sufficient entropy to prevent birthday attacks, or could an attacker find a different module name that hashes to the same address, allowing them to drain DEX module funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_946f6d60-5f04-48cb-be31-3a6150e5c138?mode=deep",
+    "timestamp": "2026-01-10 06:51:01.502972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Function: ModuleAddress generation] [State corruption] If the ModuleName constant is modified through a governance proposal or chain upgrade, does the ModuleAddress change, and could this cause permanent loss of all tokens held by the original module address? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41a340d6-a596-41e1-b39e-56ea078f0c74?mode=deep",
+    "timestamp": "2026-01-10 06:51:27.813294",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: ModuleAddress] [Access control bypass] Can an attacker craft transactions that manipulate the sdk.AccAddress type conversion in ModuleAddress = sdk.AccAddress(crypto.AddressHash([]byte(ModuleName))) to bypass module account permissions and directly withdraw liquidity pool funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f0f33658-d5f8-4906-a5d3-5da4ec67a163?mode=deep",
+    "timestamp": "2026-01-10 06:51:52.700961",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: ModuleAddress] [Cross-chain attack] In IBC operations, if another chain uses a different AddressHash implementation, could this create address mismatches that allow an attacker to impersonate the DEX module and steal cross-chain transferred tokens? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7185367c-2d6a-454b-9435-063ac0dd61bb?mode=deep",
+    "timestamp": "2026-01-10 06:52:18.005443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: StoreKey] [Key collision] Since StoreKey = ModuleName = 'dex', can an attacker exploit namespace collisions if another module or custom application uses the same store key, leading to state corruption where pool data is overwritten by unrelated data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_973346a8-4da1-453c-9105-7f3dd80371fe?mode=deep",
+    "timestamp": "2026-01-10 06:52:43.839280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: StoreKey] [State access] Does the StoreKey = 'dex' provide sufficient isolation from other modules, or could a malicious module with store access permissions read or modify DEX pool reserves, liquidity positions, or swap history to manipulate prices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfd34e48-aa5f-47fb-9531-5590ce9d81d2?mode=deep",
+    "timestamp": "2026-01-10 06:53:10.214567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: MemStoreKey] [Memory DoS] Can an attacker exploit the in-memory store with key 'mem_dex' to cause memory exhaustion by creating excessive temporary state entries that are never garbage collected, leading to validator crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0513e6fa-40fe-4242-9dfd-daa35e209102?mode=deep",
+    "timestamp": "2026-01-10 06:53:35.417864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/keys.go] [Constant: MemStoreKey] [State inconsistency] If the MemStoreKey is used for caching pool state, can race conditions between block commits cause the in-memory store to become out of sync with persistent storage, leading to incorrect swap calculations and user fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa78471d-77ef-4ba9-9e7e-84940f1ed080?mode=deep",
+    "timestamp": "2026-01-10 06:53:59.280726",
+    "report_generated": false
   }
 ]
