@@ -15298,5 +15298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_471bd2aa-4ad2-4ff7-8362-2e641becfdf5?mode=deep",
     "timestamp": "2026-01-10 13:21:57.630226",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientLiquidityLock] [First LP attack] Does ErrInsufficientLiquidityLock prevent the first liquidity provider from griefing the pool by providing barely above minimal amounts, making the pool unusable for others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98d09c7c-6eb6-4afe-ae5f-2a12ddaefa2a?mode=deep",
+    "timestamp": "2026-01-10 13:23:35.608411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidPoolAddress] [Address derivation] Can an attacker exploit deterministic pool address generation to predict and frontrun pool creation, registering accounts at expected pool addresses to cause ErrInvalidPoolAddress? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_86fd3929-4168-49a5-aee8-ed22ca7a33ce?mode=deep",
+    "timestamp": "2026-01-10 13:23:48.238434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidPoolAddress] [Module address collision] Does ErrInvalidPoolAddress properly detect all cases where the pool address collides with existing module accounts or system accounts, or could account type checks be bypassed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f2bc357b-27ee-45c8-9bbe-d004ee1aa500?mode=deep",
+    "timestamp": "2026-01-10 13:24:01.039307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidPoolAddress] [Address format] Can an attacker provide a pool ID that generates a valid-looking address that passes format checks but triggers ErrInvalidPoolAddress due to checksum failures, causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ff3d95fe-c75c-4c3a-a83b-8f5970244cbc?mode=deep",
+    "timestamp": "2026-01-10 13:24:14.955296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Cross-module errors] [Factory integration] When DEX interacts with Factory module for token creation, can error handling inconsistencies between modules' error types cause security bypasses where DEX errors are misinterpreted as Factory success? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1a965cd3-e7f1-4edb-8a8b-c92d34667cb0?mode=deep",
+    "timestamp": "2026-01-10 13:24:28.964611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Cross-module errors] [TokenWrapper bridge] During cross-chain swaps via TokenWrapper, can errors from errors.go be lost or mishandled in IBC acknowledgments, causing tokens to be locked on source chain while destination chain errors are ignored? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_a89e7c0c-adad-4bd0-bb53-ee2ae0282d92?mode=deep",
+    "timestamp": "2026-01-10 13:24:43.891738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Cross-module errors] [Bank module] When DEX errors occur after bank module transfers are committed, does error handling properly trigger rollback, or could partial state be committed due to error propagation failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4963bf5e-5f0a-40f0-a7cb-ae7fbee3d861?mode=deep",
+    "timestamp": "2026-01-10 13:24:58.695343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [State rollback] [Atomic operations] When any error from errors.go is returned during swap operations, are all state changes atomically rolled back, or could pool reserves be updated while user balances remain unchanged? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1ea9c509-6160-4003-b392-155fa253be1e?mode=deep",
+    "timestamp": "2026-01-10 13:25:16.289051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [State rollback] [Event emission] If an error occurs after events are emitted but before state is committed, can event/state inconsistency be exploited to confuse indexers and frontends about actual transaction outcomes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_177c56fd-f6bc-49a8-ae8e-bba06df2a68a?mode=deep",
+    "timestamp": "2026-01-10 13:25:34.220752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Error recovery] [Panic handling] If a panic occurs in keeper code before errors from errors.go can be returned, are there recovery mechanisms to prevent complete state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_83e11f1c-c846-4c1c-936d-d2cf5cdcfe35?mode=deep",
+    "timestamp": "2026-01-10 13:25:54.128943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [DoS] [Error spam] Can an attacker deliberately trigger specific errors (like ErrPoolNotFound) in rapid succession to flood logs and degrade validator performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c188ade2-6f89-4dca-b05a-76934c5469aa?mode=deep",
+    "timestamp": "2026-01-10 13:26:14.504572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [DoS] [Error processing cost] Do any errors from errors.go require expensive validation or cleanup operations that could be exploited to cause computational DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3ab7a041-3d03-4385-b27f-d083cc57c6c7?mode=deep",
+    "timestamp": "2026-01-10 13:26:36.825638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [DoS] [Error handler exhaustion] Can an attacker trigger combinations of errors that exhaust error handler resources or cause error handler stack overflow in edge cases? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bfd45d0f-ae84-42af-aa95-66ef6c489307?mode=deep",
+    "timestamp": "2026-01-10 13:26:58.610378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Future compatibility] [SDK upgrades] When Cosmos SDK is upgraded, could new error codes in the SDK collide with the 1502-1509 range used by DEX module, causing error mishandling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c53aee54-914c-4bbb-bec9-e10ce7cf32ef?mode=deep",
+    "timestamp": "2026-01-10 13:27:21.498735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Future compatibility] [Module additions] If new ZigChain modules are added with overlapping error code ranges, could this cause error handler confusion that enables security bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a05e6ba-271d-4597-8981-a9283dda3d04?mode=deep",
+    "timestamp": "2026-01-10 13:27:45.739565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Backward compatibility] [Error migration] If error codes need to change in a protocol upgrade, is there a migration path that prevents existing error handling code from breaking? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7e9a9a37-40ca-4d20-a618-5a4785a20f0a?mode=deep",
+    "timestamp": "2026-01-10 13:28:09.383233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInsufficientLiquidityLock] [First LP attack] Does ErrInsufficientLiquidityLock prevent the first liquidity provider from griefing the pool by providing barely above minimal amounts, making the pool unusable for others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_9fdb63d2-524e-47b9-bec5-6f09a6e3e9fc?mode=deep",
+    "timestamp": "2026-01-10 13:28:35.209772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidPoolAddress] [Address derivation] Can an attacker exploit deterministic pool address generation to predict and frontrun pool creation, registering accounts at expected pool addresses to cause ErrInvalidPoolAddress? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e3e997b2-10b9-42d6-b1b1-fe6984db5356?mode=deep",
+    "timestamp": "2026-01-10 13:29:01.404737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidPoolAddress] [Module address collision] Does ErrInvalidPoolAddress properly detect all cases where the pool address collides with existing module accounts or system accounts, or could account type checks be bypassed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea9913f8-a30b-4bb8-8fc3-411f72434df7?mode=deep",
+    "timestamp": "2026-01-10 13:29:28.074074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [ErrInvalidPoolAddress] [Address format] Can an attacker provide a pool ID that generates a valid-looking address that passes format checks but triggers ErrInvalidPoolAddress due to checksum failures, causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0eac220e-01d6-438e-8231-1e7dab63e1a6?mode=deep",
+    "timestamp": "2026-01-10 13:29:55.282912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Cross-module errors] [Factory integration] When DEX interacts with Factory module for token creation, can error handling inconsistencies between modules' error types cause security bypasses where DEX errors are misinterpreted as Factory success? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c455d36d-c35c-43c0-9448-91fccb21924a?mode=deep",
+    "timestamp": "2026-01-10 13:30:20.535624",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Cross-module errors] [TokenWrapper bridge] During cross-chain swaps via TokenWrapper, can errors from errors.go be lost or mishandled in IBC acknowledgments, causing tokens to be locked on source chain while destination chain errors are ignored? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d0c5e167-9b50-4d30-9679-e24e5f7d0333?mode=deep",
+    "timestamp": "2026-01-10 13:30:47.031897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [Cross-module errors] [Bank module] When DEX errors occur after bank module transfers are committed, does error handling properly trigger rollback, or could partial state be committed due to error propagation failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_59149eeb-d4ab-49f4-8674-873dcdc7b0bd?mode=deep",
+    "timestamp": "2026-01-10 13:31:13.025576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [State rollback] [Atomic operations] When any error from errors.go is returned during swap operations, are all state changes atomically rolled back, or could pool reserves be updated while user balances remain unchanged? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0a88d5ab-a817-4ae3-94e2-9dc40d32016b?mode=deep",
+    "timestamp": "2026-01-10 13:31:39.818132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/dex/types/errors.go] [State rollback] [Event emission] If an error occurs after events are emitted but before state is committed, can event/state inconsistency be exploited to confuse indexers and frontends about actual transaction outcomes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2f99677a-1984-4b45-8709-75a5a56396c6?mode=deep",
+    "timestamp": "2026-01-10 13:32:06.250941",
+    "report_generated": false
   }
 ]
