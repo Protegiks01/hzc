@@ -22348,5 +22348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_6d4415a8-4728-4243-8f95-169c085eeb62?mode=deep",
     "timestamp": "2026-01-10 10:26:40.883844",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Security Assumption: Event Completeness] [Missing events] Can critical Factory operations (admin changes, emergency stops) occur without corresponding events defined in this file, creating blind spots in auditing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_73c3d9e0-d254-4623-a9e2-49fae0bd7278?mode=deep",
+    "timestamp": "2026-01-10 10:27:50.493514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Security Assumption: Event Ordering] [Causal ordering] Do these events maintain strict causal ordering (create → mint → burn), or can events be emitted out of logical sequence due to concurrent transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ed577af2-6e82-4d69-aa8b-616beb65808a?mode=deep",
+    "timestamp": "2026-01-10 10:28:03.106021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Security Assumption: Event Immutability] [Event tampering] Can validators collude to modify event data after emission but before finalization, breaking the immutability assumption of blockchain events? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_39bc87f4-2c67-4b0f-b063-0fe9db5ebb8e?mode=deep",
+    "timestamp": "2026-01-10 10:28:16.290735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Governance: Emergency Actions] [Emergency pause events] If Factory module is paused in emergencies, are pause/unpause events defined in this constants file, or can emergency actions occur without event visibility? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0d9a3b2c-124a-461f-8e72-c366aae5165d?mode=deep",
+    "timestamp": "2026-01-10 10:28:29.381682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Monitoring: Rate Limiting] [Rate limit events] Can rate limiting violations in Factory operations (too many denom creations) be detected through events, or are rate limit violations invisible in the event stream? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_96113de9-9498-45a0-90bb-ac1a06078491?mode=deep",
+    "timestamp": "2026-01-10 10:28:43.420546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Monitoring: Anomaly Detection] [Missing anomaly events] Do these event constants include events for detecting anomalous behavior (rapid minting, suspicious admin changes), or must anomaly detection rely solely on state queries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_08f7d7cb-e8b3-4ebf-8137-457728a1ec8a?mode=deep",
+    "timestamp": "2026-01-10 10:28:58.467188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Governance: Parameter Changes] [Param change visibility] If Factory module parameters are changed via governance, are corresponding events emitted using these constants, or can param changes occur silently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_248dab42-5454-4750-9a21-e2dabc99574d?mode=deep",
+    "timestamp": "2026-01-10 10:29:14.739020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Filtering] [Filter bypass] Can event filtering by denom be bypassed using Unicode normalization attacks, where different Unicode representations of the same denom evade filters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_931344bb-3e8e-482a-b376-edc58ec15b11?mode=deep",
+    "timestamp": "2026-01-10 10:29:32.345120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Indexing] [Query DoS] Can an attacker emit events with attributes designed to create expensive database queries in indexers, causing DoS in event query services? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_84530363-d46d-46ce-b3b2-2036aa980d49?mode=deep",
+    "timestamp": "2026-01-10 10:29:50.923067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Indexing] [Index corruption] Can maliciously crafted event attribute strings (extremely long values, special characters) cause indexer crashes or database corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_513e687e-3fba-489d-8f15-c80f375f4d53?mode=deep",
+    "timestamp": "2026-01-10 10:30:10.749007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Indexing] [Query injection] Can event attribute values containing SQL/NoSQL injection payloads exploit vulnerabilities in indexer databases that store event data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aa2184d6-cac5-45ce-86c1-66316a8fedab?mode=deep",
+    "timestamp": "2026-01-10 10:30:31.370275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Cross-Module: TokenWrapper] Can TokenWrapper module events for wrapped tokens conflict with Factory events for native tokens with similar denoms, causing event stream confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8f12ba50-ef5c-4628-b003-ec853629f333?mode=deep",
+    "timestamp": "2026-01-10 10:30:53.223886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Cross-Module: DEX Integration] Can DEX swap events referencing Factory-created tokens occur before Factory metadata events, causing swap UIs to display tokens without proper metadata? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1584f1b7-ad5c-4c43-a498-6838ab0e4a2d?mode=deep",
+    "timestamp": "2026-01-10 10:31:15.677115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Cross-Module: IBC Integration] [IBC transfer tracking] Do Factory events properly coordinate with IBC transfer events, or can cross-chain token movements occur without corresponding Factory event emissions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_37193fd3-3573-4e34-8911-124ac513f689?mode=deep",
+    "timestamp": "2026-01-10 10:31:39.223579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Cross-Module: Bank Integration] [Bank event mismatch] Can Factory module emit mint events before bank module's MintCoins completes, creating inconsistencies between Factory events and bank module events? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_4a694da2-594c-46a3-bdff-4081c1841a43?mode=deep",
+    "timestamp": "2026-01-10 10:32:03.983839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomAuthDisabled] [Disable notification gap] Can admin disabling occur without proper event emission in failure scenarios, causing monitoring systems to miss critical security events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_aac815e9-3163-4f47-afa8-aa647f3e38bc?mode=deep",
+    "timestamp": "2026-01-10 10:32:28.969898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomAuthClaimed] [Double claim detection] Can the same admin claim be processed twice due to missing event deduplication, allowing replay attacks in systems that trust event uniqueness? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e4d91275-77ff-473a-81f5-f99c1e9b47f8?mode=deep",
+    "timestamp": "2026-01-10 10:32:54.436071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomAuthProposed] [Proposal flooding] Can an attacker spam proposal events without rate limiting, causing DoS in governance monitoring systems that process all auth proposal events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f648efd1-ece6-4f6e-9750-142342a0e9ea?mode=deep",
+    "timestamp": "2026-01-10 10:33:20.297807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomAuthUpdated] [Auth update ordering] Can auth update events be emitted out of order relative to the actual state changes, causing temporary windows where wrong admin has effective control? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ea7113e5-483a-401f-8c26-cc6d5cf93fc2?mode=deep",
+    "timestamp": "2026-01-10 10:33:46.131410",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomMetadataUpdated] [Metadata consistency] Can metadata update events be emitted with stale data that doesn't match the actual on-chain metadata state, causing inconsistencies in UIs and explorers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d871065b-064c-4877-8f93-791b22f98f0f?mode=deep",
+    "timestamp": "2026-01-10 10:34:11.886666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomURIUpdated] [URI update timing] Can URI update events be emitted after malicious content is already served from the new URI, creating a window where users access malicious metadata before detection systems process the event? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cacab90c-da7b-4da2-9975-677ad926e0a4?mode=deep",
+    "timestamp": "2026-01-10 10:34:35.948869",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitMintingCapChanged] [Cap change frontrunning] Can validators observe cap change events in the mempool and mint maximum tokens before the cap is reduced, exploiting knowledge of upcoming cap changes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_cb53ba76-e3bc-4fd3-a26e-a96ba9b6c9ff?mode=deep",
+    "timestamp": "2026-01-10 10:35:01.386210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomBurned] [Burn verification] Can burn events be emitted without actual token burning occurring (due to transaction rollback), creating false burn records used in cross-chain supply calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_35dcc6a5-d98d-445c-bc2b-4319e1987501?mode=deep",
+    "timestamp": "2026-01-10 10:35:27.629703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomMintedAndSent] [Mint-before-event] Can tokens be minted and transferred before the corresponding event is emitted, allowing attackers to exploit race conditions in IBC relayers that watch for mint events? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_500009f4-876d-4850-a49e-3271c827083c?mode=deep",
+    "timestamp": "2026-01-10 10:35:54.311079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/types/events.go] [Event Emission: EmitDenomCreated] [Creation fee bypass] Can an attacker create denoms without emitting the EventDenomCreated event by directly calling state setters, bypassing fee collection tracking in off-chain systems? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_d6e04d5c-59c4-46bb-8ec1-57e9d08b8354?mode=deep",
+    "timestamp": "2026-01-10 10:36:20.596881",
+    "report_generated": false
   }
 ]
