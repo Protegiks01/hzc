@@ -17098,5 +17098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7c309488-c623-4734-aca2-002ed3de2845?mode=deep",
     "timestamp": "2026-01-10 04:34:16.427983",
     "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [State consistency] Can an attacker create multiple Migrator instances with different keeper states during module registration, causing state inconsistency when migrations execute? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_87b5499b-3287-4dda-b2c7-3aff593f4ffe?mode=deep",
+    "timestamp": "2026-01-10 04:35:30.500335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Type safety] Does NewMigrator() validate that the keeper parameter has proper authority configuration, or can an attacker inject a keeper with malicious authority address to bypass migration access controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_c2e8e073-4d41-49e0-8fed-46041c4cdb70?mode=deep",
+    "timestamp": "2026-01-10 04:35:42.968635",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Initialization] Can an attacker pass a nil keeper to NewMigrator() causing panic when V2Migration() is called during chain upgrade, leading to consensus failure and chain halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_db7074c4-d5d4-4d0f-b95a-1e0d6a28e25d?mode=deep",
+    "timestamp": "2026-01-10 04:35:55.550991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [State consistency] Can an attacker create multiple Migrator instances with different keeper states during module registration, causing state inconsistency when migrations execute? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f6b60f55-31ce-43a1-a572-178da51a3ddb?mode=deep",
+    "timestamp": "2026-01-10 04:36:08.636156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Type safety] Does NewMigrator() validate that the keeper parameter has proper authority configuration, or can an attacker inject a keeper with malicious authority address to bypass migration access controls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_bbe37f80-d9f2-489e-8ee3-7ff8615cd334?mode=deep",
+    "timestamp": "2026-01-10 04:36:22.303887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/migrations/new_migrator.go] [Function: NewMigrator()] [Initialization] Can an attacker pass a nil keeper to NewMigrator() causing panic when V2Migration() is called during chain upgrade, leading to consensus failure and chain halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_98d1c309-f2fc-4dbf-9aa3-35902ee95d36?mode=deep",
+    "timestamp": "2026-01-10 04:36:37.382079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Overall architecture] [Module separation] Does the module properly separate concerns between AppModuleBasic and AppModule, or can interface leakage allow bypassing security boundaries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_e2bb3899-a4a0-4bf3-8806-bb44dd064900?mode=deep",
+    "timestamp": "2026-01-10 04:36:53.096938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [Export performance] Can ExportGenesis operations during live chain operation cause performance degradation or block proposal delays? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_19c49552-c976-4652-852a-550de730cde7?mode=deep",
+    "timestamp": "2026-01-10 04:37:10.436008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Genesis size] Can an attacker provide an extremely large genesis state that causes memory exhaustion during InitGenesis, crashing all validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_060859d0-e77a-4ade-99d0-ad4c3295807f?mode=deep",
+    "timestamp": "2026-01-10 04:37:28.830809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterGRPCGatewayRoutes()] [Gateway security] Can the gRPC gateway registration expose internal module operations to unauthenticated external clients? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a9e3bb1-b985-4674-8503-81600e3a2be3?mode=deep",
+    "timestamp": "2026-01-10 04:37:48.178800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Type safety] Does the depinject framework at lines 183-224 enforce type safety, or can type mismatches cause runtime panics during module operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_f3cd1426-33fd-4b0c-9e9c-cc0b24000870?mode=deep",
+    "timestamp": "2026-01-10 04:38:08.501769",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: NewAppModule()] [Type assertions] Are there implicit type assertions in NewAppModule that could panic if wrong types are provided, causing validator crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_2b1813da-b0f9-4782-ad65-df415c9a0cbe?mode=deep",
+    "timestamp": "2026-01-10 04:38:29.707842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Excessive logging] Can excessive logging in keeper operations cause denial-of-service by filling disk space or consuming excessive I/O resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_654023f2-4674-477c-b230-8f40fe2bba3f?mode=deep",
+    "timestamp": "2026-01-10 04:38:51.912210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Log injection] Can an attacker inject malicious log statements through the Logger at line 189 to leak sensitive information or confuse audit trails? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_41822cd3-4b4c-4ff6-a958-bc24c99e6d83?mode=deep",
+    "timestamp": "2026-01-10 04:39:15.432670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Store permissions] Are store permissions properly enforced, or can unauthorized modules access factory state through the shared store service? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5a8cc570-f133-41ca-89c3-e10bd188a5ea?mode=deep",
+    "timestamp": "2026-01-10 04:39:38.749990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Store isolation] Does the StoreService at line 186 properly isolate factory state from other modules, or can cross-module state manipulation attacks occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_fc5d155c-adbd-46a1-87b8-1daee35af4ab?mode=deep",
+    "timestamp": "2026-01-10 04:40:02.860109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: DefaultGenesis()] [Default params] Does DefaultParams() return secure default values, or can default parameters allow exploitable factory configurations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_0c65d424-e2bc-42fa-a4af-c77443b93ea5?mode=deep",
+    "timestamp": "2026-01-10 04:40:26.426517",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ExportGenesis()] [Params export] Does ExportGenesis at line 36 capture the current params state accurately, or can param updates between blocks be lost during export? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_8b5b6b3e-245b-4743-899a-860b625eae08?mode=deep",
+    "timestamp": "2026-01-10 04:40:51.273381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: InitGenesis()] [Params validation] Does the SetParams call at line 27 validate parameter values, or can malicious genesis states set insecure parameters like zero minting caps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_3d0387e7-a6e1-4658-9bb0-3ccd35b084b2?mode=deep",
+    "timestamp": "2026-01-10 04:41:16.755996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Authority string validation] Does the authority.String() conversion at line 212 properly validate the address format, or can malformed addresses bypass security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_773c7ffb-593d-4495-a9c3-14e0dda9a450?mode=deep",
+    "timestamp": "2026-01-10 04:41:40.178328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Module address security] Does the NewModuleAddress at line 204 properly derive a unique address for the governance module, or can address collisions allow unauthorized access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_1d89e23f-7511-4083-88fb-025c19f879a0?mode=deep",
+    "timestamp": "2026-01-10 04:42:02.604524",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ProvideModule()] [Authority override] Can the Config.Authority at line 205 be manipulated through governance proposals to replace the legitimate authority with an attacker-controlled address? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_ce9211b2-8b05-4703-849f-e92213c18c2d?mode=deep",
+    "timestamp": "2026-01-10 04:42:24.487791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: ConsensusVersion()] [Migration coordination] How does the ConsensusVersion() value of 2 coordinate with the V2Migration registration, and can they become desynchronized? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_7013e879-f2a8-4a34-a625-6a96b2ea0a02?mode=deep",
+    "timestamp": "2026-01-10 04:42:46.471104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Migration idempotency] Is the V2Migration idempotent, or can repeated executions cause duplicate state entries or token supply inconsistencies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_5752318f-5136-492f-97bc-ea024a56d7a4?mode=deep",
+    "timestamp": "2026-01-10 04:43:08.644718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: x/factory/module/module.go] [Function: RegisterServices()] [Migration version] Does the migration registration from version 1 to version 2 at line 123 properly handle all version transitions, or can intermediate versions be skipped? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-cosmos-sdk-s_395431d7-ec72-4353-be3d-1cba18a7b74c?mode=deep",
+    "timestamp": "2026-01-10 04:43:34.225303",
+    "report_generated": false
   }
 ]
